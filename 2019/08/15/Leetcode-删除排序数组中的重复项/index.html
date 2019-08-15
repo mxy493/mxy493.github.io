@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://mxy493.github.io">
-  <title>Category: 博客 | mxy</title>
+  <title>Leetcode 删除排序数组中的重复项 | mxy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="mxy">
-<meta property="og:url" content="https://mxy493.github.io/categories/博客/index.html">
+  <meta name="description" content="地址：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/  题目给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。 不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。">
+<meta name="keywords" content="Leetcode,数组,python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode 删除排序数组中的重复项">
+<meta property="og:url" content="https://mxy493.github.io/2019/08/15/Leetcode-删除排序数组中的重复项/index.html">
 <meta property="og:site_name" content="mxy">
+<meta property="og:description" content="地址：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/  题目给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。 不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-15T14:42:13.265Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mxy">
+<meta name="twitter:title" content="Leetcode 删除排序数组中的重复项">
+<meta name="twitter:description" content="地址：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/  题目给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。 不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。">
   
     <link rel="alternative" href="/atom.xml" title="mxy" type="application/atom+xml">
   
@@ -160,295 +165,245 @@ var _hmt = _hmt || [];
             			<canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           			</div>
           			<div id="js-content" class="content-ll">
-            			
-  
-  
+            			<article id="post-Leetcode-删除排序数组中的重复项" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Leetcode 删除排序数组中的重复项
+    </h1>
+  
+
+        
+        <a href="/2019/08/15/Leetcode-删除排序数组中的重复项/" class="archive-article-date">
+  	<time datetime="2019-08-15T13:40:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-15</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>地址：<a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/</a></p>
+</blockquote>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个排序数组，你需要在<strong>原地删除</strong>重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。</p>
+<p>不要使用额外的数组空间，你必须在<strong>原地修改</strong>输入数组并在使用 O(1) 额外空间的条件下完成。<a id="more"></a></p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">给定数组 nums = [1,1,2], </span><br><span class="line"></span><br><span class="line">函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。 </span><br><span class="line"></span><br><span class="line">你不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">给定 nums = [0,0,1,1,1,2,2,3,3,4],</span><br><span class="line"></span><br><span class="line">函数应该返回新的长度 5, 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4。</span><br><span class="line"></span><br><span class="line">你不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure>
+
+<p><strong>说明:</strong></p>
+<p>为什么返回数值是整数，但输出的答案是数组呢?</p>
+<p>请注意，输入数组是以“引用”方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。</p>
+<p>你可以想象内部操作如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝</span><br><span class="line">int len = removeDuplicates(nums);</span><br><span class="line"></span><br><span class="line">// 在函数里修改输入数组对于调用者是可见的。</span><br><span class="line">// 根据你的函数返回的长度, 它会打印出数组中该长度范围内的所有元素。</span><br><span class="line"><span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    print(nums[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="我的解决方案："><a href="#我的解决方案：" class="headerlink" title="我的解决方案："></a>我的解决方案：</h3><p>题目给出了一个很重要的信息<strong>“排序”</strong>，千万不能遗漏，否则会耗费过多的时间用来遍历整个数组。</p>
+<p><strong>易错点：</strong>一般情况下会想到用两个 for 循环来做，外层循环遍历第一个到倒数第二个元素，内层循环遍历从外层循环当前遍历到的的下一个元素开始找出与当前元素值相同的元素并删去，大致逻辑如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(nums) - <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(i + <span class="number">1</span>, len(nums)):</span><br><span class="line">        <span class="keyword">if</span> nums[i] == nums[j]:</span><br><span class="line">            nums.pop(j)</span><br></pre></td></tr></table></figure>
+
+<p>看似逻辑没问题的，但是我们在内部删除了列表 <code>nums[]</code> 的元素之后，列表长度 <code>len(nums)</code> 就已经改变了，而 range() 函数的不会动态的根据 <code>len(nums)</code> 改变它的范围，最终就会导致删除元素后列表长度已经改变但是for语句不知道，超范围后仍然进入循环内部，当访问到 <code>nums[j]</code> 是已经超出列表索引范围。</p>
+<p><strong>正解：</strong>要解决上述问题，不难想到改用while循环，并且只需要一个循环即可，代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeDuplicates</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span><br><span class="line">        i = <span class="number">0</span>  <span class="comment"># 作为索引遍历列表元素</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; len(nums) - <span class="number">1</span>:  <span class="comment"># 最多只遍历到倒数第二个元素</span></span><br><span class="line">            <span class="keyword">if</span> nums[i] == nums[i + <span class="number">1</span>]:  <span class="comment"># 这就是问什么只遍历到倒数第二个元素的原因，因为始终要和下一个元素作比较</span></span><br><span class="line">                nums.pop(i + <span class="number">1</span>)</span><br><span class="line">                <span class="keyword">continue</span>  <span class="comment"># i保持不变，继续判断nums[i]和补位上来的nums[i + 1]是否相等</span></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> len(nums)</span><br></pre></td></tr></table></figure>
+
+<p>while语句中的 <code>len(nums)</code> 是动态更新的，这就解决了索引超出范围的问题；</p>
+<p>continue 很重要，它解决了数组中有多个重复项的问题。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              ￥
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/Alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/WXpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+
+      
+        <span id="busuanzi_container_page_pv">
+          ⋉(●本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次●)⋊
+        </span>
+      
+
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/02/01/关于Hexo-yilia主题文章截断功能/" class="archive-article-date">
-  	<time datetime="2019-01-31T19:29:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/01/关于Hexo-yilia主题文章截断功能/">关于Hexo yilia主题文章截断功能</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">yilia</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/博客//" class="article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://mxy493.github.io/2019/08/15/Leetcode-删除排序数组中的重复项/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/28/Hexo博客（主题：yilia）添加Valine评论系统/" class="archive-article-date">
-  	<time datetime="2019-01-28T03:34:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-28</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/05/25/Ubuntu上自定义Code-Blocks工作区颜色主题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Ubuntu上自定义Code::Blocks工作区颜色主题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/28/Hexo博客（主题：yilia）添加Valine评论系统/">Hexo博客（主题：yilia）添加Valine评论系统</a>
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Valine</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/博客//" class="article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/27/Hexo中插入本地图片/" class="archive-article-date">
-  	<time datetime="2019-01-27T02:19:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/27/Hexo中插入本地图片/">Hexo中插入本地图片</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/博客//" class="article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/26/Hexo-yilia主题添加“不蒜子”访问量统计/" class="archive-article-date">
-  	<time datetime="2019-01-26T14:07:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/26/Hexo-yilia主题添加“不蒜子”访问量统计/">Hexo yilia主题添加“不蒜子”访问量统计</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/博客//" class="article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/18/GitHub-Hexo搭建博客笔记/" class="archive-article-date">
-  	<time datetime="2019-01-18T07:05:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/18/GitHub-Hexo搭建博客笔记/">GitHub+Hexo搭建博客笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">GitHub</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/博客//" class="article-tag-list-link color3">博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
 
+  
+
+  
+
+
+
+	
+	    <section id="comments" class="comments">
+	      <style>
+	        .comments{margin:30px;padding:10px;background:#fff}
+	        @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+	      </style>
+	      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+        app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+        placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+        avatar:"retro",
+    });
+</script>
+	  </section>
+	
 
           			</div>
         		</div>
@@ -475,10 +430,10 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
