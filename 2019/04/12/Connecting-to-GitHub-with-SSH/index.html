@@ -208,7 +208,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <p>1.打开终端Git Bash。</p>
 <p>2.输入<code>ls -al ~/.ssh</code>查看是否系统中已存在SSH密钥：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ls -al ~/.ssh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Lists the files <span class="keyword">in</span> your .ssh directory, <span class="keyword">if</span> they exist</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ls -al ~/.ssh</span><br><span class="line"><span class="meta">#</span> Lists the files in your .ssh directory, if they exist</span><br></pre></td></tr></table></figure>
 
 <p>3.查看您的列表中是否已存在公共SSH密钥。</p>
 <p>默认情况下，公钥的文件名是以下之一：</p>
@@ -231,16 +231,16 @@ var _hmt = _hmt || [];
 </blockquote>
 <p>1.打开Git Bash.</p>
 <p>2.粘贴下面的文本，用您的GitHub邮箱地址替换双引号中的内容。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh-keygen -t rsa -b 4096 -C <span class="string">"your_email@example.com"</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</span><br></pre></td></tr></table></figure>
 
 <p>这将使用您提供的电子邮件作为标记创建一个新的ssh密钥。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> Generating public/private rsa key pair.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> Generating public/private rsa key pair.</span><br></pre></td></tr></table></figure>
 
 <p>3.当系统提示您 “Enter a file in which to save the key” 时，按Enter键。密钥将保存在默认的路径下。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> Enter a file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (/c/Users/you/.ssh/id_rsa):[Press enter]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> Enter a file in which to save the key (/c/Users/you/.ssh/id_rsa):[Press enter]</span><br></pre></td></tr></table></figure>
 
 <p>4.根据提示，您需要输入密码。更多信息请查看<a href="https://help.github.com/en/articles/working-with-ssh-key-passphrases" target="_blank" rel="noopener">“Working with SSH key passphrases”</a>。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> Enter passphrase (empty <span class="keyword">for</span> no passphrase): [Type a passphrase]</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> Enter same passphrase again: [Type passphrase again]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> Enter passphrase (empty for no passphrase): [Type a passphrase]</span><br><span class="line"><span class="meta">&gt;</span> Enter same passphrase again: [Type passphrase again]</span><br></pre></td></tr></table></figure>
 
 <h4 id="将SSH密钥添加到ssh-agent"><a href="#将SSH密钥添加到ssh-agent" class="headerlink" title="将SSH密钥添加到ssh-agent"></a><a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent" target="_blank" rel="noopener">将SSH密钥添加到ssh-agent</a></h4><p>在将新的SSH密钥添加到ssh-agent以管理密钥之前，您应该<a href="https://help.github.com/en/articles/checking-for-existing-ssh-keys" target="_blank" rel="noopener">检查现有的SSH密钥</a>并<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key" target="_blank" rel="noopener">生成新的SSH密钥</a>。</p>
 <p>如果安装了<a href="https://desktop.github.com/" target="_blank" rel="noopener">GitHub Desktop</a>，则可以使用它来克隆存储库而不处理SSH密钥。它还附带了Git Bash工具，这是<code>git</code>在Windows 上运行命令的首选方式。</p>
@@ -249,12 +249,12 @@ var _hmt = _hmt || [];
 <li><p>如果您使用的Git Shell是随着GitHub Desktop一起安装的，那么ssh-agent应该在运行中。</p>
 </li>
 <li><p>如果您使用的时其它命令提示符终端，例如Git for Windows，则可以使用“<a href="https://help.github.com/en/articles/working-with-ssh-key-passphrases" target="_blank" rel="noopener">Working with SSH key passphrases</a>”中所说的“Auto-launching the ssh-agent”，或者通过以下命令手动启动：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> start the ssh-agent <span class="keyword">in</span> the background</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">eval</span> $(ssh-agent -s)</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> Agent pid 59566</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> start the ssh-agent in the background</span><br><span class="line"><span class="meta">$</span> eval $(ssh-agent -s)</span><br><span class="line"><span class="meta">&gt;</span> Agent pid 59566</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
 <p>2.将SSH私钥添加到ssh-agent。如果您使用了其他名称创建密钥，或者要添加不同名称的已有的密钥，请将如下命令中的<em>id_rsa</em>替换为您的私钥文件的名称。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh-add ~/.ssh/id_rsa</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
 
 <p>3.将SSH密钥添加到您的GitHub帐户。</p>
 <h3 id="四、添加一个新的SSH密钥到您的GitHub帐户"><a href="#四、添加一个新的SSH密钥到您的GitHub帐户" class="headerlink" title="四、添加一个新的SSH密钥到您的GitHub帐户"></a><a href="https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account" target="_blank" rel="noopener">四、添加一个新的SSH密钥到您的GitHub帐户</a></h3><p>要配置您的GitHub帐户使用新的（或现有的）SSH密钥，还需要将其添加到GitHub帐户中。</p>
@@ -269,7 +269,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <p>1.将SSH密钥复制到剪贴板。</p>
 <p>如果您的SSH密钥文件的名称与示例代码不同，请根据您的文件名修改以下命令并执行。复制密钥时，请勿添加任何换行符或空格。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> clip &lt; ~/.ssh/id_rsa.pub</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Copies the contents of the id_rsa.pub file to your clipboard</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> clip &lt; ~/.ssh/id_rsa.pub</span><br><span class="line"><span class="meta">#</span> Copies the contents of the id_rsa.pub file to your clipboard</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p><strong>提示：</strong>如果<code>clip</code>不起作用，您可以找到隐藏的<code>.ssh</code>文件夹，用文本编辑器打开密钥文件，然后将其中的内容复制到剪贴板。</p>
@@ -299,22 +299,22 @@ var _hmt = _hmt || [];
 <p>测试连接时，您需要使用您之前创建SSH密钥时的密码验证此操作。有关使用SSH密钥密码的更多信息，请参阅“<a href="https://help.github.com/en/articles/working-with-ssh-key-passphrases" target="_blank" rel="noopener">Working with SSH key passphrases</a>”。</p>
 <p>1.打开Git Bash。</p>
 <p>2.输入以下内容：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh -T git@github.com</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Attempts to ssh to GitHub</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ssh -T git@github.com</span><br><span class="line"><span class="meta">#</span> Attempts to ssh to GitHub</span><br></pre></td></tr></table></figure>
 
 <p>您可能会看到如下提示信息：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> The authenticity of host <span class="string">'github.com (IP ADDRESS)'</span> can<span class="string">'t be established.</span></span></span><br><span class="line"><span class="meta">  &gt;</span><span class="bash"> RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span></span><br><span class="line"><span class="meta">  &gt;</span><span class="bash"> Are you sure you want to <span class="built_in">continue</span> connecting (yes/no)?</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> The authenticity of host 'github.com (IP ADDRESS)' can't be established.</span><br><span class="line"><span class="meta">  &gt;</span> RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span><br><span class="line"><span class="meta">  &gt;</span> Are you sure you want to continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
 
 <p>或者像这样：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> The authenticity of host <span class="string">'github.com (IP ADDRESS)'</span> can<span class="string">'t be established.</span></span></span><br><span class="line"><span class="meta">  &gt;</span><span class="bash"> RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.</span></span><br><span class="line"><span class="meta">  &gt;</span><span class="bash"> Are you sure you want to <span class="built_in">continue</span> connecting (yes/no)?</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> The authenticity of host 'github.com (IP ADDRESS)' can't be established.</span><br><span class="line"><span class="meta">  &gt;</span> RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.</span><br><span class="line"><span class="meta">  &gt;</span> Are you sure you want to continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
 
 <p>3.验证您看到的信息中的编码是否与步骤2中的某条信息匹配，然后输入<code>yes</code>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> Hi username! You<span class="string">'ve successfully authenticated, but GitHub does not</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> provide shell access.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> Hi username! You've successfully authenticated, but GitHub does not</span><br><span class="line"><span class="meta">&gt;</span> provide shell access.</span><br></pre></td></tr></table></figure>
 
 <p>4.验证生成的消息是否包含您的用户名。如果返回“permission denied”，请参阅“<a href="https://help.github.com/en/articles/error-permission-denied-publickey" target="_blank" rel="noopener">Error: Permission denied (publickey)</a>”。</p>
 <h3 id="六、使用SSH密钥密码"><a href="#六、使用SSH密钥密码" class="headerlink" title="六、使用SSH密钥密码"></a>六、使用SSH密钥密码</h3><p>您可以加密SSH密钥并配置身份验证代理，这样您就不必在每次使用SSH密钥时重新输入密码。</p>
 <p>使用SSH密钥，如果有人获得对您计算机的访问权限，他们也可以访问使用该密钥的每个系统。要添加额外的安全层，可以对SSH密钥添加密码。您可以使用<code>ssh-agent</code>来安全地保存您的密码，这样您就不必重新输入密码。</p>
 <h4 id="添加或更改密码"><a href="#添加或更改密码" class="headerlink" title="添加或更改密码"></a><a href="https://help.github.com/en/articles/working-with-ssh-key-passphrases#adding-or-changing-a-passphrase" target="_blank" rel="noopener">添加或更改密码</a></h4><p>您可以通过键入以下命令来更改现有私钥的密码，而无需重新生成密钥对：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ssh-keygen -p</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Start the SSH key creation process</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> Enter file <span class="keyword">in</span> <span class="built_in">which</span> the key is (/Users/you/.ssh/id_rsa): [Hit enter]</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> Key has comment <span class="string">'/Users/you/.ssh/id_rsa'</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> Enter new passphrase (empty <span class="keyword">for</span> no passphrase): [Type new passphrase]</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> Enter same passphrase again: [One more time <span class="keyword">for</span> luck]</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> Your identification has been saved with the new passphrase.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ssh-keygen -p</span><br><span class="line"><span class="meta">#</span> Start the SSH key creation process</span><br><span class="line"><span class="meta">&gt;</span> Enter file in which the key is (/Users/you/.ssh/id_rsa): [Hit enter]</span><br><span class="line"><span class="meta">&gt;</span> Key has comment '/Users/you/.ssh/id_rsa'</span><br><span class="line"><span class="meta">&gt;</span> Enter new passphrase (empty for no passphrase): [Type new passphrase]</span><br><span class="line"><span class="meta">&gt;</span> Enter same passphrase again: [One more time for luck]</span><br><span class="line"><span class="meta">&gt;</span> Your identification has been saved with the new passphrase.</span><br></pre></td></tr></table></figure>
 
 <p>如果您的SSH密钥已有密码，系统会提示您输入原密码，验证后才能更改为新密码。</p>
 <h4 id="在Git-for-Windows上自动启动ssh-agent"><a href="#在Git-for-Windows上自动启动ssh-agent" class="headerlink" title="在Git for Windows上自动启动ssh-agent"></a><a href="https://help.github.com/en/articles/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows" target="_blank" rel="noopener">在Git for Windows上自动启动ssh-agent</a></h4><p>如果您使用的是与GitHub Desktop一起安装的Git Shell，则无需执行以下步骤。GitHub Desktop会自动为您启动<code>ssh-agent</code>。</p>
@@ -530,7 +530,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 mxy
+    		&copy; 2020 mxy
     	</div>
 		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 		<span id="busuanzi_container_site_pv">
@@ -682,11 +682,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">YAML</a>
+                <a href="javascript:void(0)" class="js-tag color2">Valine</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Valine</a>
+                <a href="javascript:void(0)" class="js-tag color5">YAML</a>
               </li>
             
             <div class="clearfix"></div>
