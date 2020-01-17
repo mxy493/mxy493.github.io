@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>博客搭建一周年ᓚᘏᗢ</title>
+    <link href="/2020/01/17/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B8%80%E5%91%A8%E5%B9%B4%E1%93%9A%E1%98%8F%E1%97%A2/"/>
+    <url>/2020/01/17/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B8%80%E5%91%A8%E5%B9%B4%E1%93%9A%E1%98%8F%E1%97%A2/</url>
+    
+    <content type="html"><![CDATA[<p>哈哈哈，博客搭建一周年，小纪念一下吧~</p><p>搭了博客才发现，坚持写可太难了，而且写一篇博客可不简单啊，要自己动手做一遍，然后把整个过程写下来，也许还要贴一些图片，实在是不简单，不过好歹也算是做了件有那么些意义的事，虽然这一年里并没有多大的产量，但零零散散写了一些总好过没有吧，哈哈哈O(∩_∩)O</p><p>新的一年，加油(ง •_•)ง</p><p>2020年1月17日</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 删除排序数组中的重复项</title>
+    <link href="/2019/08/15/Leetcode-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/"/>
+    <url>/2019/08/15/Leetcode-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个排序数组，你需要在<strong>原地删除</strong>重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。</p><p>不要使用额外的数组空间，你必须在<strong>原地修改</strong>输入数组并在使用 O(1) 额外空间的条件下完成。<a id="more"></a></p><p><strong>示例 1:</strong></p><pre><code>给定数组 nums = [1,1,2], 函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。 你不需要考虑数组中超出新长度后面的元素。</code></pre><p><strong>示例 2:</strong></p><pre><code>给定 nums = [0,0,1,1,1,2,2,3,3,4],函数应该返回新的长度 5, 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4。你不需要考虑数组中超出新长度后面的元素。</code></pre><p><strong>说明:</strong></p><p>为什么返回数值是整数，但输出的答案是数组呢?</p><p>请注意，输入数组是以“引用”方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。</p><p>你可以想象内部操作如下:</p><pre><code class="python">// nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝int len = removeDuplicates(nums);// 在函数里修改输入数组对于调用者是可见的。// 根据你的函数返回的长度, 它会打印出数组中该长度范围内的所有元素。for (int i = 0; i &lt; len; i++) {    print(nums[i]);}</code></pre><h3 id="我的解决方案："><a href="#我的解决方案：" class="headerlink" title="我的解决方案："></a>我的解决方案：</h3><p>题目给出了一个很重要的信息<strong>“排序”</strong>，千万不能遗漏，否则会耗费过多的时间用来遍历整个数组。</p><p><strong>易错点：</strong>一般情况下会想到用两个 for 循环来做，外层循环遍历第一个到倒数第二个元素，内层循环遍历从外层循环当前遍历到的的下一个元素开始找出与当前元素值相同的元素并删去，大致逻辑如下：</p><pre><code class="python">for i in range(0, len(nums) - 1):    for j in range(i + 1, len(nums)):        if nums[i] == nums[j]:            nums.pop(j)</code></pre><p>看似逻辑没问题的，但是我们在内部删除了列表 <code>nums[]</code> 的元素之后，列表长度 <code>len(nums)</code> 就已经改变了，而 range() 函数的不会动态的根据 <code>len(nums)</code> 改变它的范围，最终就会导致删除元素后列表长度已经改变但是for语句不知道，超范围后仍然进入循环内部，当访问到 <code>nums[j]</code> 是已经超出列表索引范围。</p><p><strong>正解：</strong>要解决上述问题，不难想到改用while循环，并且只需要一个循环即可，代码如下：</p><pre><code class="python">class Solution:    def removeDuplicates(self, nums: List[int]) -&gt; int:        i = 0  # 作为索引遍历列表元素        while i &lt; len(nums) - 1:  # 最多只遍历到倒数第二个元素            if nums[i] == nums[i + 1]:  # 这就是问什么只遍历到倒数第二个元素的原因，因为始终要和下一个元素作比较                nums.pop(i + 1)                continue  # i保持不变，继续判断nums[i]和补位上来的nums[i + 1]是否相等            i += 1        return len(nums)</code></pre><p>while语句中的 <code>len(nums)</code> 是动态更新的，这就解决了索引超出范围的问题；</p><p>continue 很重要，它解决了数组中有多个重复项的问题。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>数组</tag>
+      
+      <tag>python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Ubuntu上自定义Code::Blocks工作区颜色主题</title>
+    <link href="/2019/05/25/Ubuntu%E4%B8%8A%E8%87%AA%E5%AE%9A%E4%B9%89Code-Blocks%E5%B7%A5%E4%BD%9C%E5%8C%BA%E9%A2%9C%E8%89%B2%E4%B8%BB%E9%A2%98/"/>
+    <url>/2019/05/25/Ubuntu%E4%B8%8A%E8%87%AA%E5%AE%9A%E4%B9%89Code-Blocks%E5%B7%A5%E4%BD%9C%E5%8C%BA%E9%A2%9C%E8%89%B2%E4%B8%BB%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<p>本文主要针对 Ubuntu 系统，理论上任何系统上也都是通用的。网上关于设置 Code::Blocks 主题的教程很多，但是都是在 Windows 系统环境下，并不适用于 Linux 系统。<a id="more"></a></p><p>可能大家都知道 Code::Blocks 的工作区主题是可以自定义的，路径 Settings —&gt; Editor —&gt; Syntax highlighting ，在这里就可以设置你想要的代码以及背景颜色，如图：</p><p><img src="1.png" srcset="/img/loading.gif" alt></p><p>可以注意到顶部的 Colour theme 即颜色主题，然而后面的选项里默认只有一个 default 的主题，事实上尽管官方没有提供更多的主题，但是还是有大神做好了一系列的主题分享在网上。</p><p><strong>主题样式请参看：<a href="http://wiki.codeblocks.org/index.php/Syntax_highlighting_custom_colour_themes" target="_blank" rel="noopener">Syntax highlighting custom colour themes</a></strong></p><p>另外需要注意的是，这些主题仅适用于 C/C++ 语言！</p><p><strong>建议备份所有要修改的文件以防出错～</strong></p><p>网上的教程大概就是用这份主题的代码替换 Code::Blocks 原本的 <code>default.conf</code> 文件，虽然说确实是可行的，替换之后主题都能正常使用，但是实测发现，替换之后 Code::Blocks 不能保存设置了，每次重新启动都会使用默认的设置，比如说 Ubuntu 系统上我更改了设置使用 Gnome Terminal ，替换 <code>default.conf</code> 后每次重启 Code::Blocks 都会是默认的 xterm ，这就很影响使用体验了。</p><p>显然的 Code::Blocks 的主题颜色代码在 <code>default.conf</code> 中，所以我们可以找到对应的关于颜色的设置，只更改颜色相关的设置，就能完美的解决这个问题。</p><p>找到 <code>default.conf</code> 文件所在位置，Ubuntu 系统中它在主目录下 /.config/codeblocks 文件夹中 ，默认是隐藏起来的，可以通过快捷键 Ctrl + H 或者文件管理器右上角设置中显示隐藏文件。</p><p>用任意文本编辑器打开 <code>default.conf</code> ，看一下代码的结构，可以知道这个文件不仅是关于主体颜色的设置，还包括了其它的各项设置，我们直入主题找到关于颜色主题的代码段，如图所示位置：</p><p><img src="2.png" srcset="/img/loading.gif" alt></p><p>所以我们把对应的颜色主题代码复制过来放在 default 主题前后即可，以 dark grey 主题为例，在主题代码中找到 dark grey 的代码片段，如图：</p><p><img src="3.png" srcset="/img/loading.gif" alt></p><p>其它主题同样，都是类似的代码块：</p><pre><code>&lt;dark_grey&gt;    ......&lt;/ dark_grey&gt;</code></pre><p>可以随意添加其中一部分或者添加所有主题，复制到 default.conf 文件中与 default 主题并列的位置，保存即可！</p><p><img src="4.png" srcset="/img/loading.gif" alt></p><p>打开 Code::Blocks ，在设置中修改颜色主题选择自己添加的主题即可，设置之后 Code::Blocks 会保存当前设置，以后打开也会保持设置过的主题！</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>UBuntu</tag>
+      
+      <tag>CodeBlocks</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hexo博客使用插件hexo-git-backup通过GitHub备份与恢复</title>
+    <link href="/2019/05/25/Hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E6%8F%92%E4%BB%B6hexo-git-backup%E9%80%9A%E8%BF%87GitHub%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/"/>
+    <url>/2019/05/25/Hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E6%8F%92%E4%BB%B6hexo-git-backup%E9%80%9A%E8%BF%87GitHub%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D/</url>
+    
+    <content type="html"><![CDATA[<p>好久没更新过博客了，现在用的这台电脑是前些天刚装的Ubuntu系统，今天打算把博客迁移过来，折腾了好一会儿，所以准备写一篇关于Hexo博客的备份与恢复的。<a id="more"></a></p><p>用的是一个插件：<a href="https://github.com/coneycode/hexo-git-backup" target="_blank" rel="noopener">hexo-git-backup</a>，Hexo官网的插件里搜不到，这个插件发布在了GitHub上，关于安装使用官方也给了很简洁易懂的说明文档。</p><h1 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h1><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>如果你的Hexo版本是2.x.x（查看Hexo版本可使用命令：<code>hexo version</code>）在终端中使用如下命令安装：</p><pre><code>$ npm install hexo-git-backup@0.0.91 --save</code></pre><p>如果你的Hexo版本是3.x.x则使用如下命令安装：</p><pre><code>$ npm install hexo-git-backup --save</code></pre><h2 id="插件升级"><a href="#插件升级" class="headerlink" title="插件升级"></a>插件升级</h2><p>如果你是通过<code>--save</code>安装的，那么升级之前你必须先删除旧的版本：</p><pre><code>$ npm remove hexo-git-backup$ npm install hexo-git-backup --save</code></pre><h3 id="新建GitHub仓库"><a href="#新建GitHub仓库" class="headerlink" title="新建GitHub仓库"></a>新建GitHub仓库</h3><p>新建一个 GitHub 仓库用来备份博客（具体操作不再赘述）</p><p>复制仓库ＳＳＨ链接备用，此处需确保你的电脑已通过SSH连接到 GitHub ，具体操作可参考<a href="https://help.github.com/en/articles/connecting-to-github-with-ssh" target="_blank" rel="noopener"> GitHub 官方帮助文档</a>。</p><h2 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h2><p>在博客根目录下的 <code>_config.yml</code> 文件中配置插件：</p><pre><code>backup:    type: git    repository:       github: git@github.com:xxx/xxx.git,branchName       gitcafe: git@github.com:xxx/xxx.git,branchName</code></pre><h4 id="配置说明："><a href="#配置说明：" class="headerlink" title="配置说明："></a>配置说明：</h4><p>如果你想连同主题一起备份，在 <code>_config.yml</code> 文件中添加主题名即可：</p><pre><code>backup:    type: git    theme: coney,landscape,xxx    repository:       github: git@github.com:xxx/xxx.git,branchName       gitcafe: git@github.com:xxx/xxx.git,branchName</code></pre><p><strong>注意：如果你选择了备份主题例如landscape，那么landscape主题文件夹下的 themes/landscape/.git 文件就会被删除</strong></p><p>如果你想自定义 commit 信息，添加一行 <code>message: update xxx</code> 即可：</p><pre><code>backup:    type: git    message: update xxx    repository:       github: git@github.com:xxx/xxx.git,branchName       gitcafe: git@github.com:xxx/xxx.git,branchName</code></pre><h2 id="插件使用"><a href="#插件使用" class="headerlink" title="插件使用"></a>插件使用</h2><p>现在就可以使用以下命令备份你的博客到GitHub了</p><pre><code>$ hexo backup </code></pre><p>或者</p><pre><code>$ hexo b</code></pre><p>博客备份至此就已经结束！安全起见可以每次 <code>hexo d</code> 的时候同步 <code>hexo b</code> 备份一下博文。</p><h1 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h1><p>有时候换了另一台电脑或者另一个系统环境下，想要写博客就不得不把博客文件迁移过去，这一部分是关于博客的迁移，接上文使用 hexo-git-backup 插件的情况下（其他方法备份的博客原理类似）。</p><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>根据 Hexo 官网说明安装 Hexo 即可</p><p>附上官网地址：<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">https://hexo.io/zh-cn/</a></p><p>要部署博客到 GitHub 还需要安装插件：</p><pre><code>$ npm install --save hexo-deployer-git</code></pre><h3 id="恢复博客"><a href="#恢复博客" class="headerlink" title="恢复博客"></a>恢复博客</h3><p>下载或者 clone 前文所述备份的博客到本地任意位置，复制备份文件夹内所有文件到新安装的博客目录下，重复文件保留备份的即可。</p><p>至此博客迁移已完成，可以”三部曲“测试一下是否迁移成功：</p><pre><code>$ hexo clean$ hexo g$ hexo s</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Hexo</tag>
+      
+      <tag>博客</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Connecting to GitHub with SSH</title>
+    <link href="/2019/04/12/Connecting-to-GitHub-with-SSH/"/>
+    <url>/2019/04/12/Connecting-to-GitHub-with-SSH/</url>
+    
+    <content type="html"><![CDATA[<p>通过SSH连接到GitHub</p><blockquote><p>整理自GitHub官方帮助文档：<a href="https://help.github.com/articles/connecting-to-github-with-ssh" target="_blank" rel="noopener">https://help.github.com/articles/connecting-to-github-with-ssh</a><a id="more"></a></p></blockquote><h3 id="一、关于SSH"><a href="#一、关于SSH" class="headerlink" title="一、关于SSH"></a><a href="https://help.github.com/en/articles/about-ssh" target="_blank" rel="noopener">一、关于SSH</a></h3><p>使用SSH协议，您可以连接和验证远程服务器和服务。通过使用SSH密钥，您可以在每次访问GitHub时无需提供用户名或密码。</p><p>设置SSH时，您将生成SSH密钥并将其添加到ssh-agent，然后将密钥添加到您的GitHub帐户。将SSH密钥添加到ssh-agent可确保您的SSH密钥通过使用密码短语拥有更多一层的安全。有关更多信息，请参阅“ <a href="https://help.github.com/en/articles/working-with-ssh-key-passphrases" target="_blank" rel="noopener">Working with SSH key passphrases</a>”。</p><p>建议定期<a href="https://help.github.com/en/articles/reviewing-your-ssh-keys" target="_blank" rel="noopener">查看SSH密钥列表，</a>并废除无效或已被盗用的密钥。</p><p>如果您的SSH密钥未使用超过一年，那么GitHub将自动删除您不活跃的SSH密钥以确保安全。有关更多信息，请参阅“<a href="https://help.github.com/en/articles/deleted-or-missing-ssh-keys" target="_blank" rel="noopener">Deleted or missing SSH keys</a>”。</p><h3 id="二、检查现有的SSH密钥"><a href="#二、检查现有的SSH密钥" class="headerlink" title="二、检查现有的SSH密钥"></a><a href="https://help.github.com/en/articles/checking-for-existing-ssh-keys" target="_blank" rel="noopener">二、检查现有的SSH密钥</a></h3><p><strong>本文仅介绍Windows系统的相关操作</strong></p><p>Mac或Linux请参考官方帮助文档：<a href="https://help.github.com/en/articles/checking-for-existing-ssh-keys" target="_blank" rel="noopener">https://help.github.com/en/articles/checking-for-existing-ssh-keys</a></p><p>在生成SSH密钥之前，您可以检查是否本地已存在SSH密钥。</p><blockquote><p> <strong>注意：</strong>在OpenSSH 7.0中不推荐使用DSA密钥。如果您的操作系统使用OpenSSH，则在设置SSH时需要使用RSA密钥或其他类型类型的密钥。例如，如果您的操作系统是MacOS Sierra，则可以使用RSA密钥设置SSH。</p></blockquote><p>1.打开终端Git Bash。</p><p>2.输入<code>ls -al ~/.ssh</code>查看是否系统中已存在SSH密钥：</p><pre><code class="shell">$ ls -al ~/.ssh# Lists the files in your .ssh directory, if they exist</code></pre><p>3.查看您的列表中是否已存在公共SSH密钥。</p><p>默认情况下，公钥的文件名是以下之一：</p><pre><code>id_dsa.pubid_ecdsa.pubid_ed25519.pubid_rsa.pub</code></pre><ul><li>如果您的系统中不存在公钥和私钥对，或者没有任何可用的密钥可以连接到GitHub，那么你可以<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank" rel="noopener">生成新的SSH密钥</a>。</li><li>如果列表中存在用于连接到GitHub 的现有公钥和私钥对（例如<em>id_rsa.pub</em>和<em>id_rsa</em>），则可以<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent" target="_blank" rel="noopener">将SSH密钥添加到ssh-agent</a>。</li></ul><blockquote><p> <strong>提示：</strong>如果终端返回<em>〜/ .ssh</em>不存在的错误，不用担心！我们将在<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank" rel="noopener">生成新的SSH密钥</a>时创建它。</p></blockquote><h3 id="三、生成新的SSH密钥并将其添加到ssh-agent"><a href="#三、生成新的SSH密钥并将其添加到ssh-agent" class="headerlink" title="三、生成新的SSH密钥并将其添加到ssh-agent"></a><a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key" target="_blank" rel="noopener">三、生成新的SSH密钥并将其添加到ssh-agent</a></h3><p><strong>本文仅介绍Windows系统的相关操作</strong></p><p>Mac或Linux请参考官方帮助文档：<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank" rel="noopener">https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent</a></p><p>检查现有SSH密钥后，可以生成用于身份验证的新的SSH密钥并将其添加到ssh-agent。</p><p>如果您还没有SSH密钥，则必须<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key" target="_blank" rel="noopener">生成新的SSH密钥</a>。如果您不确定是否已有SSH密钥，请检查<a href="https://help.github.com/en/articles/checking-for-existing-ssh-keys" target="_blank" rel="noopener">现有密钥</a>。</p><p>如果您不想在每次使用SSH密钥时重新输入密码，则可以<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent" target="_blank" rel="noopener">将密钥添加到SSH agent</a>，<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent" target="_blank" rel="noopener">SSH agent</a>会管理您的SSH密钥并记住您的密码。</p><h4 id="生成新的SSH密钥"><a href="#生成新的SSH密钥" class="headerlink" title="生成新的SSH密钥"></a><a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key" target="_blank" rel="noopener">生成新的SSH密钥</a></h4><blockquote><p><strong>注意：</strong>如果您还没有SSH密钥，则必须<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key" target="_blank" rel="noopener">生成新的SSH密钥</a>。否则直接跳到下一步将现有的SSH密钥添加到ssh-agent中。</p></blockquote><p>1.打开Git Bash.</p><p>2.粘贴下面的文本，用您的GitHub邮箱地址替换双引号中的内容。</p><pre><code class="shell">$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</code></pre><p>这将使用您提供的电子邮件作为标记创建一个新的ssh密钥。</p><pre><code class="shell">&gt; Generating public/private rsa key pair.</code></pre><p>3.当系统提示您 “Enter a file in which to save the key” 时，按Enter键。密钥将保存在默认的路径下。</p><pre><code class="shell">&gt; Enter a file in which to save the key (/c/Users/you/.ssh/id_rsa):[Press enter]</code></pre><p>4.根据提示，您需要输入密码。更多信息请查看<a href="https://help.github.com/en/articles/working-with-ssh-key-passphrases" target="_blank" rel="noopener">“Working with SSH key passphrases”</a>。</p><pre><code class="shell">&gt; Enter passphrase (empty for no passphrase): [Type a passphrase]&gt; Enter same passphrase again: [Type passphrase again]</code></pre><h4 id="将SSH密钥添加到ssh-agent"><a href="#将SSH密钥添加到ssh-agent" class="headerlink" title="将SSH密钥添加到ssh-agent"></a><a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent" target="_blank" rel="noopener">将SSH密钥添加到ssh-agent</a></h4><p>在将新的SSH密钥添加到ssh-agent以管理密钥之前，您应该<a href="https://help.github.com/en/articles/checking-for-existing-ssh-keys" target="_blank" rel="noopener">检查现有的SSH密钥</a>并<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key" target="_blank" rel="noopener">生成新的SSH密钥</a>。</p><p>如果安装了<a href="https://desktop.github.com/" target="_blank" rel="noopener">GitHub Desktop</a>，则可以使用它来克隆存储库而不处理SSH密钥。它还附带了Git Bash工具，这是<code>git</code>在Windows 上运行命令的首选方式。</p><p>1.确保ssh-agent正在运行：</p><ul><li><p>如果您使用的Git Shell是随着GitHub Desktop一起安装的，那么ssh-agent应该在运行中。</p></li><li><p>如果您使用的时其它命令提示符终端，例如Git for Windows，则可以使用“<a href="https://help.github.com/en/articles/working-with-ssh-key-passphrases" target="_blank" rel="noopener">Working with SSH key passphrases</a>”中所说的“Auto-launching the ssh-agent”，或者通过以下命令手动启动：</p><pre><code class="shell"># start the ssh-agent in the background$ eval $(ssh-agent -s)&gt; Agent pid 59566</code></pre></li></ul><p>2.将SSH私钥添加到ssh-agent。如果您使用了其他名称创建密钥，或者要添加不同名称的已有的密钥，请将如下命令中的<em>id_rsa</em>替换为您的私钥文件的名称。</p><pre><code class="shell">$ ssh-add ~/.ssh/id_rsa</code></pre><p>3.将SSH密钥添加到您的GitHub帐户。</p><h3 id="四、添加一个新的SSH密钥到您的GitHub帐户"><a href="#四、添加一个新的SSH密钥到您的GitHub帐户" class="headerlink" title="四、添加一个新的SSH密钥到您的GitHub帐户"></a><a href="https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account" target="_blank" rel="noopener">四、添加一个新的SSH密钥到您的GitHub帐户</a></h3><p>要配置您的GitHub帐户使用新的（或现有的）SSH密钥，还需要将其添加到GitHub帐户中。</p><p>在向GitHub帐户添加新的SSH密钥之前，您应该已经做了一下两步：</p><ul><li><a href="https://help.github.com/en/articles/checking-for-existing-ssh-keys" target="_blank" rel="noopener">检查现有SSH密钥</a></li><li><a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank" rel="noopener">生成新的SSH密钥并将其添加到ssh-agent</a></li></ul><p>在您的GitHub帐户中添加新的SSH密钥后，您可以重新配置所有的本地存储库以使用SSH。更多信息，请参阅“<a href="https://help.github.com/en/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh" target="_blank" rel="noopener">Switching remote URLs from HTTPS to SSH</a>”。</p><blockquote><p><strong>注意：</strong>在OpenSSH 7.0中不推荐使用DSA密钥。如果您的操作系统使用OpenSSH，则在设置SSH时需要使用RSA密钥或其他类型类型的密钥。例如，如果您的操作系统是MacOS Sierra，则可以使用RSA密钥设置SSH。</p></blockquote><p>1.将SSH密钥复制到剪贴板。</p><p>如果您的SSH密钥文件的名称与示例代码不同，请根据您的文件名修改以下命令并执行。复制密钥时，请勿添加任何换行符或空格。</p><pre><code class="shell">$ clip &lt; ~/.ssh/id_rsa.pub# Copies the contents of the id_rsa.pub file to your clipboard</code></pre><blockquote><p><strong>提示：</strong>如果<code>clip</code>不起作用，您可以找到隐藏的<code>.ssh</code>文件夹，用文本编辑器打开密钥文件，然后将其中的内容复制到剪贴板。</p></blockquote><p>2.在GitHub任意页面的右上角，单击您的头像，然后单击<strong>“Settings”</strong>。</p><p><img src="https://help.github.com/assets/images/help/settings/userbar-account-settings.png" srcset="/img/loading.gif" alt="用户栏中的“设置”图标"></p><p>3.在用户设置侧栏中，单击<strong>SSH and GPG keys</strong>。</p><p><img src="https://help.github.com/assets/images/help/settings/settings-sidebar-ssh-keys.png" srcset="/img/loading.gif" alt="验证密钥"></p><p>4.单击“<strong>New SSH key</strong>”或“ <strong>Add SSH key</strong>”。</p><p><img src="https://help.github.com/assets/images/help/settings/ssh-add-ssh-key.png" srcset="/img/loading.gif" alt="SSH密钥按钮"></p><p>5.在“Title”文本框中，为新密钥添加描述性标签。例如，如果您使用的是个人Mac，则可以将此键称为“Personal MacBook Air”。</p><p>6.将您的密钥粘贴到“Key”对应得文本框。</p><p><img src="https://help.github.com/assets/images/help/settings/ssh-key-paste.png" srcset="/img/loading.gif" alt="关键领域"></p><p>7.单击“<strong>Add SSH key</strong>”。</p><p><img src="https://help.github.com/assets/images/help/settings/ssh-add-key.png" srcset="/img/loading.gif" alt="添加键按钮"></p><p>8.如果出现提示，请输入您的GitHub密码以确认。</p><p><img src="https://help.github.com/assets/images/help/settings/sudo_mode_popup.png" srcset="/img/loading.gif" alt="Sudo模式对话框"></p><h3 id="五、测试SSH连接"><a href="#五、测试SSH连接" class="headerlink" title="五、测试SSH连接"></a><a href="https://help.github.com/en/articles/testing-your-ssh-connection" target="_blank" rel="noopener">五、测试SSH连接</a></h3><p><strong>本文仅介绍Windows系统的相关操作</strong></p><p>Mac或Linux请参考官方帮助文档：<a href="https://help.github.com/en/articles/testing-your-ssh-connection" target="_blank" rel="noopener">https://help.github.com/en/articles/testing-your-ssh-connection</a></p><p>在设置SSH密钥并将其添加到GitHub帐户后，您可以测试您的连接。</p><p>在测试SSH连接之前，您应该已经做了以下几步：</p><ul><li><a href="https://help.github.com/en/articles/checking-for-existing-ssh-keys" target="_blank" rel="noopener">检查现有SSH密钥</a></li><li><a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank" rel="noopener">生成新的SSH密钥</a></li><li><a href="https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account" target="_blank" rel="noopener">为您的GitHub帐户添加了新的SSH密钥</a></li></ul><p>测试连接时，您需要使用您之前创建SSH密钥时的密码验证此操作。有关使用SSH密钥密码的更多信息，请参阅“<a href="https://help.github.com/en/articles/working-with-ssh-key-passphrases" target="_blank" rel="noopener">Working with SSH key passphrases</a>”。</p><p>1.打开Git Bash。</p><p>2.输入以下内容：</p><pre><code class="shell">$ ssh -T git@github.com# Attempts to ssh to GitHub</code></pre><p>您可能会看到如下提示信息：</p><pre><code class="shell">&gt; The authenticity of host &#39;github.com (IP ADDRESS)&#39; can&#39;t be established.  &gt; RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.  &gt; Are you sure you want to continue connecting (yes/no)?</code></pre><p>或者像这样：</p><pre><code class="shell">&gt; The authenticity of host &#39;github.com (IP ADDRESS)&#39; can&#39;t be established.  &gt; RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.  &gt; Are you sure you want to continue connecting (yes/no)?</code></pre><p>3.验证您看到的信息中的编码是否与步骤2中的某条信息匹配，然后输入<code>yes</code>：</p><pre><code class="shell">&gt; Hi username! You&#39;ve successfully authenticated, but GitHub does not&gt; provide shell access.</code></pre><p>4.验证生成的消息是否包含您的用户名。如果返回“permission denied”，请参阅“<a href="https://help.github.com/en/articles/error-permission-denied-publickey" target="_blank" rel="noopener">Error: Permission denied (publickey)</a>”。</p><h3 id="六、使用SSH密钥密码"><a href="#六、使用SSH密钥密码" class="headerlink" title="六、使用SSH密钥密码"></a>六、使用SSH密钥密码</h3><p>您可以加密SSH密钥并配置身份验证代理，这样您就不必在每次使用SSH密钥时重新输入密码。</p><p>使用SSH密钥，如果有人获得对您计算机的访问权限，他们也可以访问使用该密钥的每个系统。要添加额外的安全层，可以对SSH密钥添加密码。您可以使用<code>ssh-agent</code>来安全地保存您的密码，这样您就不必重新输入密码。</p><h4 id="添加或更改密码"><a href="#添加或更改密码" class="headerlink" title="添加或更改密码"></a><a href="https://help.github.com/en/articles/working-with-ssh-key-passphrases#adding-or-changing-a-passphrase" target="_blank" rel="noopener">添加或更改密码</a></h4><p>您可以通过键入以下命令来更改现有私钥的密码，而无需重新生成密钥对：</p><pre><code class="shell">$ ssh-keygen -p# Start the SSH key creation process&gt; Enter file in which the key is (/Users/you/.ssh/id_rsa): [Hit enter]&gt; Key has comment &#39;/Users/you/.ssh/id_rsa&#39;&gt; Enter new passphrase (empty for no passphrase): [Type new passphrase]&gt; Enter same passphrase again: [One more time for luck]&gt; Your identification has been saved with the new passphrase.</code></pre><p>如果您的SSH密钥已有密码，系统会提示您输入原密码，验证后才能更改为新密码。</p><h4 id="在Git-for-Windows上自动启动ssh-agent"><a href="#在Git-for-Windows上自动启动ssh-agent" class="headerlink" title="在Git for Windows上自动启动ssh-agent"></a><a href="https://help.github.com/en/articles/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows" target="_blank" rel="noopener">在Git for Windows上自动启动ssh-agent</a></h4><p>如果您使用的是与GitHub Desktop一起安装的Git Shell，则无需执行以下步骤。GitHub Desktop会自动为您启动<code>ssh-agent</code>。</p><p>否则，请按照以下步骤在打开bash或Git shell时自动运行<code>ssh-agent</code>。复制下面的内容，并通过Git Shell将其粘贴到您的<code>~/.profile</code>或<code>~/.bashrc</code>文件：</p><pre><code class="bash">env=~/.ssh/agent.envagent_load_env () { test -f &quot;$env&quot; &amp;&amp; . &quot;$env&quot; &gt;| /dev/null ; }agent_start () {    (umask 077; ssh-agent &gt;| &quot;$env&quot;)    . &quot;$env&quot; &gt;| /dev/null ; }agent_load_env# agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2= agent not runningagent_run_state=$(ssh-add -l &gt;| /dev/null 2&gt;&amp;1; echo $?)if [ ! &quot;$SSH_AUTH_SOCK&quot; ] || [ $agent_run_state = 2 ]; then    agent_start    ssh-addelif [ &quot;$SSH_AUTH_SOCK&quot; ] &amp;&amp; [ $agent_run_state = 1 ]; then    ssh-addfiunset env</code></pre><p>如果您的私钥没有存储在默认位置（<code>~/.ssh/id_rsa</code>或<code>~/.ssh/id_dsa</code>），那么您需要告知您的SSH身份验证代理在哪里找到它。要将你的SSH密钥添加到ssh-agent，请键入<code>ssh-add ~/path/to/my_key</code>。更多信息，请参阅“<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="noopener">Generating a new SSH key and adding it to the ssh-agent</a>”</p><blockquote><p><strong>提示：</strong>如果您想<code>ssh-agent</code>在一段时间后忘记密钥，可以通过键入命令<code>ssh-add -t &lt;seconds&gt;</code>进行设置。</p></blockquote><p>现在，当您第一次运行Git Bash时，系统会提示您输入密码：</p><pre><code class="shell">&gt; Initializing new SSH agent...&gt; succeeded&gt; Enter passphrase for /c/Users/you/.ssh/id_rsa:&gt; Identity added: /c/Users/you/.ssh/id_rsa (/c/Users/you/.ssh/id_rsa)&gt; Welcome to Git (version 1.6.0.2-preview20080923)&gt;&gt; Run &#39;git help git&#39; to display the help index.&gt; Run &#39;git help &#39; to display help for specific commands.</code></pre><p><code>ssh-agent</code>进程将持续运行，直到您注销，关闭计算机或终止这个进程。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>GitHub</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Ubuntu通过Deepin wine for Ubuntu安装QQ、微信</title>
+    <link href="/2019/04/09/Ubuntu%E9%80%9A%E8%BF%87Deepin-wine-for-Ubuntu%E5%AE%89%E8%A3%85QQ%E3%80%81%E5%BE%AE%E4%BF%A1/"/>
+    <url>/2019/04/09/Ubuntu%E9%80%9A%E8%BF%87Deepin-wine-for-Ubuntu%E5%AE%89%E8%A3%85QQ%E3%80%81%E5%BE%AE%E4%BF%A1/</url>
+    
+    <content type="html"><![CDATA[<p>Deepin wine for Ubuntu 是 Deepin-wine 环境的 Ubuntu 移植版，GitHub上的一个开源项目。</p><p>项目地址：<a href="https://github.com/wszqkzqk/deepin-wine-ubuntu" target="_blank" rel="noopener">https://github.com/wszqkzqk/deepin-wine-ubuntu</a></p><p>以下内容主要参考项目说明。<a id="more"></a></p><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><ul><li>克隆 (<code>git clone https://github.com/wszqkzqk/deepin-wine-ubuntu.git</code>) 或<a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/archive/master.zip" target="_blank" rel="noopener">下载</a>到本地。</li><li>在中国推荐用下面的地址，速度更快： (<code>git clone https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git</code>)</li><li>当然也可以选择下载releases：<a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/releases" target="_blank" rel="noopener">Github</a> 或者 <a href="https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu/releases" target="_blank" rel="noopener">Gitee</a></li></ul><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>下载到本地后（下载的压缩包需要先解压）进入到文件夹根目录，在终端中运行（授予可执行权限后）： <code>sudo sh ./install.sh</code></p><p>（ KDE或其他按照普通安装方式安装后运行出现X错误的桌面环境执行：<code>./KDE-install.sh</code> ）。</p><h3 id="安装应用容器"><a href="#安装应用容器" class="headerlink" title="安装应用容器"></a>安装应用容器</h3><p>以项目内容为准，以下仅搬运自项目说明文档</p><p>Ubuntu 环境下下载对应应用的 <code>.deb</code> 格式安装包，终端进入到包所在路径执行命令： <code>sudo dpkg -i [软件包名.deb]</code> </p><ul><li><a href="https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im/" target="_blank" rel="noopener">QQ</a></li><li><a href="https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.office/" target="_blank" rel="noopener">TIM</a></li><li><a href="https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im.light/" target="_blank" rel="noopener">QQ轻聊版</a></li><li><a href="https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.wechat/" target="_blank" rel="noopener">微信</a></li></ul><p>Deepin wine for Ubuntu 只是一种环境，所以可以安装的应用不限于QQ、微信~</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>软件</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Ubuntu安装WPS（解决字体缺失问题）</title>
+    <link href="/2019/04/08/Ubuntu%E5%AE%89%E8%A3%85WPS%EF%BC%88%E8%A7%A3%E5%86%B3%E5%AD%97%E4%BD%93%E7%BC%BA%E5%A4%B1%E9%97%AE%E9%A2%98%EF%BC%89/"/>
+    <url>/2019/04/08/Ubuntu%E5%AE%89%E8%A3%85WPS%EF%BC%88%E8%A7%A3%E5%86%B3%E5%AD%97%E4%BD%93%E7%BC%BA%E5%A4%B1%E9%97%AE%E9%A2%98%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<h3 id="下载WPS"><a href="#下载WPS" class="headerlink" title="下载WPS"></a>下载WPS</h3><p>WPS for Linux官网：<a href="http://www.wps.cn/product/wpslinux/" target="_blank" rel="noopener">http://www.wps.cn/product/wpslinux/</a></p><a id="more"></a><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>双击安装或者命令行安装</p><pre><code>sudo dpkg -i ***/wps-office_10.1.0.6757_amd64.deb</code></pre><h3 id="字体缺失"><a href="#字体缺失" class="headerlink" title="字体缺失"></a>字体缺失</h3><p>安装后如果有字体缺失问题</p><p>下载：<a href="wps_symbol_fonts.zip">wps_symbol_fonts.zip</a></p><p>将下载好的字体压缩包移至 <code>/usr/share/fonts</code> 文件夹下</p><pre><code>sudo mv wps_symbol_fonts.zip /usr/share/fonts</code></pre><p>终端进入到 <code>/usr/share/fonts</code> 文件夹</p><pre><code>cd /usr/share/fonts</code></pre><p>解压缩（解压缩后可以把压缩包删了）</p><pre><code>sudo unzip wps_symbol_fonts.zipsudo rm wps_symbol_fonts.zip</code></pre><p>执行命令生成字体的索引信息：</p><pre><code>sudo mkfontscalesudo mkfontdir</code></pre><p>运行fc-cache命令更新字体缓存：</p><pre><code>sudo fc-cache</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>软件</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Windows平台使用Doxygen+GraphViz生成函数调用关系图</title>
+    <link href="/2019/03/25/Windows%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8Doxygen-GraphViz%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E5%85%B3%E7%B3%BB%E5%9B%BE/"/>
+    <url>/2019/03/25/Windows%E5%B9%B3%E5%8F%B0%E4%BD%BF%E7%94%A8Doxygen-GraphViz%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E5%85%B3%E7%B3%BB%E5%9B%BE/</url>
+    
+    <content type="html"><![CDATA[<p>​    刚做了数据结构课程设计，报告要求给出函数调用关系图，然后就想有没有自动生成的工具，所以上网搜了下，总结下搜到的内容大概三类<a id="more"></a>：一是用VS的 <a href="https://docs.microsoft.com/en-us/visualstudio/modeling/map-dependencies-across-your-solutions?view=vs-2017" target="_blank" rel="noopener">code maps</a> ，但是前提是必须是专业版或者企业版，社区版无法安装这个组件；第二个是用 CodeViz 和 Graphviz 实现的，具体怎么操作我也没试过了；然后就是我现在要说的，也是网上比较多的一种方案，用 Doxygen + GraphViz 自动生成。</p><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>如题所述，需要用到两个软件：</p><p><strong>Doxygen</strong> ：<a href="http://www.doxygen.nl/" target="_blank" rel="noopener">http://www.doxygen.nl/</a> 【<a href="http://doxygen.nl/files/doxygen-1.8.15-setup.exe" target="_blank" rel="noopener">下载</a>】</p><p><strong>GraphViz</strong> ：<a href="http://www.graphviz.org/" target="_blank" rel="noopener">http://www.graphviz.org/</a>【<a href="https://graphviz.gitlab.io/_pages/Download/windows/graphviz-2.38.zip" target="_blank" rel="noopener">下载</a>】</p><p>点击【下载】可以直接下载官方的安装包</p><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装步骤很简单，除了安装路径可以自己改一下，其它默认就行，一路 next 下去就安装好了</p><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>主要是配置Doxygen，GraphViz安装好放那儿就行了</p><p>运行Doxywizard，界面如图：</p><p><img src="interface.png" srcset="/img/loading.gif" alt></p><p>1.工作目录需要设置一下，随便设一个空文件夹就可以，项目名称是你项目的名称，其实写什么不重要，最后生成的是一个HTML的网页，项目名称就是这个网页的名字，源码地址必须要设置正确，也就是程序代码的文件夹路径，递进扫描勾选上没坏处吧，然后自己输出路径选一个位置保存，设置完点击右下角 <code>Next</code></p><p><img src="1.png" srcset="/img/loading.gif" alt></p><p>2.如图勾选上就行，<code>Next</code></p><p><img src="2.png" srcset="/img/loading.gif" alt></p><p>3.默认就可以，红框的选项对生成的函数调用图没什么影响，<code>Change color...</code> 可以更改颜色，下面PDF相关的，默认所有的图片都会生成一个PDF文件，继续 <code>Next</code></p><p><img src="3.png" srcset="/img/loading.gif" alt></p><p>4.这一步很重要，这就使用到我们安装的 GraphViz 了，如图勾选上，继续 <code>Next</code></p><p><img src="4.png" srcset="/img/loading.gif" alt></p><p>5.上一个点击 <code>Next</code> 后实际上直接跳到了 <code>Run</code> 标签页，但是还要进行一些设置，所以点击左侧的 <code>Expert</code> 标签，<code>Topics</code> 列表中第一项 <code>Project</code> ，如图，默认为English，可以修改为 <code>Chinese</code> ，但是这一步的语言并不影响生成的函数调用图，只是最后生成的网页为中文</p><p><img src="5.png" srcset="/img/loading.gif" alt></p><p>6.左侧选择 <code>Build</code> ，如图将右侧前面几项勾选上</p><p><img src="6.png" srcset="/img/loading.gif" alt></p><p>7.左侧往下滑找到 <code>Dot</code> ，如图把对应的勾选上</p><p><img src="7.png" srcset="/img/loading.gif" alt></p><p>8.还是 <code>Dot</code> 往下滑，如图把对应的勾选上，<code>DOT_IMAGE_FORMAT</code> 也就是生成的图片的格式，自己根据自己需要选择</p><p><img src="8.png" srcset="/img/loading.gif" alt></p><p>9.关于图片格式简单说一下，自动生成的 png ， jpg 和 gif 格式清晰度都比较低，svg 格式是矢量图，清晰度肯定是没问题的，不过 svg 格式图片不能用一般的图片查看器查看，电脑上浏览器就可以查看，如果是要插入到WORD中那也是没问题的，自己可以根据需要选择，前面第③步也提到了函数调用图会生成 PDF 文件，PDF格式的函数调用图也是清晰的</p><p><img src="9.png" srcset="/img/loading.gif" alt></p><p>10.到此所有的设置就已经设好了，再将标签页切换到 <code>Run</code> ，点击左侧的 <code>Run doxygen</code> 即可，等待程序自动运行直至结束</p><p><img src="10.png" srcset="/img/loading.gif" alt></p><p>11.如图输出 <code>Doxygen has finished</code> 的提示就已经完成了，点击左下角的 <code>Show HTML output</code> 就可以通过浏览器查看生成的函数调用图了，所有生成的文件也可以在第一步设置的保存位置找到</p><p><img src="11.png" srcset="/img/loading.gif" alt></p><p>12.Doxygen软件默认不会保存你做的这些设置，但是可以手动保存，下一次使用的时候就可以只更改不同的设置就可以了</p><p><img src="12.png" srcset="/img/loading.gif" alt></p><h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p>附上一个效果图</p><p><img src="library.svg" srcset="/img/loading.gif" alt></p><h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>以上仅作为个人学习记录，为了写自己的课设报告，参考的网上的教程一步步做的，对 Doxygen 以及 GraphViz 我也并不太了解，有需要再深入学习吧，现在能作为工具用好它们也就可以了！</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>C++</tag>
+      
+      <tag>Doxygen</tag>
+      
+      <tag>GraphViz</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 回文链表</title>
+    <link href="/2019/03/04/Leetcode-%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/"/>
+    <url>/2019/03/04/Leetcode-%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/6/linked-list/45/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/6/linked-list/45/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>请判断一个链表是否为回文链表。<a id="more"></a></p><p><strong>示例 1:</strong></p><pre><code>输入: 1-&gt;2输出: false</code></pre><p><strong>示例 2:</strong></p><pre><code>输入: 1-&gt;2-&gt;2-&gt;1输出: true</code></pre><p><strong>进阶：</strong><br>你能否用 O(n) 时间复杂度和 O(1) 空间复杂度解决此题？</p><h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><pre><code class="c++">/** * Definition for singly-linked list. * struct ListNode { *     int val; *     ListNode *next; *     ListNode(int x) : val(x), next(NULL) {} * }; */class Solution {public:    bool isPalindrome(ListNode* head) {        ListNode *newHead = NULL;   //新建一个链表，将原链表反转        ListNode *cur = head;        while (cur != NULL)   //保留原链表的情况下将原链表反转        {            ListNode *temp = newHead;            newHead = new ListNode(cur-&gt;val);            newHead-&gt;next = temp;            cur = cur-&gt;next;        }        while (head != NULL)   //原链表和反转链表逐个检点对比        {            if (head-&gt;val != newHead-&gt;val)  //一旦对应结点不相等，则说明不是回文联表，返回false                return false;            head = head-&gt;next;            newHead = newHead-&gt;next;        }        return true;    //默认返回true    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>链表</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 合并两个有序链表</title>
+    <link href="/2019/03/01/Leetcode-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/"/>
+    <url>/2019/03/01/Leetcode-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/6/linked-list/44/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/6/linked-list/44/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 <a id="more"></a></p><p><strong>示例：</strong></p><pre><code>输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</code></pre><h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><p>需要考虑的几种情况：</p><pre><code>1. 两个链表均为空2. 两个链表中的一个为空3. 链表只有一个结点4. 两个链表均有多个结点</code></pre><p>如下代码中对前三种较特殊情况都作了相应的特殊处理。</p><pre><code class="c++">/** * Definition for singly-linked list. * struct ListNode { *     int val; *     ListNode *next; *     ListNode(int x) : val(x), next(NULL) {} * }; */class Solution {public:    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {        ListNode* root;   //返回值，合并后链表的头指针        //1、2种情况        if (l1 == NULL)   //考虑特殊情况，l1为空则合并后链表即为l2            root = l2;        else if (l2 == NULL)   //l2为空则合并后链表即为l1            root = l1;        //3、4种情况        else    //都不为空则用常规方法合并        {            if (l1-&gt;val &lt; l2-&gt;val)   //取根结点            {                root = l1;                l1 = l1-&gt;next;            }            else            {                root = l2;                l2 = l2-&gt;next;            }            ListNode* tail = root;   //合并链表的尾结点            while (l1 != NULL || l2 !=NULL)   //可以直接写while(1)，循环内部根据l1或l2是否为空跳出循环            {                if (l1 == NULL)   //l1为空，把l2链在尾部即可                {                    tail-&gt;next = l2;                    break;                }                else if (l2 == NULL)   //l2为空，把l1链在尾部即可                {                    tail-&gt;next = l1;                    break;                }                if (l1-&gt;val &lt; l2-&gt;val)                {                    tail-&gt;next = l1;   //将较小的l1链在尾部                    tail = tail-&gt;next;   //tail后移                    l1 = l1-&gt;next;   //l1后移                }                else   //同上                {                    tail-&gt;next = l2;                    tail = tail-&gt;next;                    l2 = l2-&gt;next;                }            }        }        return root;    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>链表</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 反转链表</title>
+    <link href="/2019/02/27/Leetcode-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/"/>
+    <url>/2019/02/27/Leetcode-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/6/linked-list/43/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/6/linked-list/43/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>反转一个单链表。<a id="more"></a></p><p><strong>示例:</strong></p><pre><code>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</code></pre><p><strong>进阶:</strong><br>你可以迭代或递归地反转链表。你能否用两种方法解决这道题？</p><h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><pre><code class="c++">/** * Definition for singly-linked list. * struct ListNode { *     int val; *     ListNode *next; *     ListNode(int x) : val(x), next(NULL) {} * }; */class Solution {public:    ListNode* reverseList(ListNode* head) {        ListNode *newHead = NULL;        //不断取出和向后移动头节点，并将头节点连接到新头节点后面        while (head != NULL) {            //单独取出下一个节点            ListNode *next = head-&gt;next;            //将头节点连接到新头节点后面            head-&gt;next = newHead;            newHead = head;            //向后移动头节点            head = next;        }        return newHead;    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>链表</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 删除链表的倒数第N个节点</title>
+    <link href="/2019/02/23/Leetcode-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9/"/>
+    <url>/2019/02/23/Leetcode-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/6/linked-list/42/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/6/linked-list/42/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个链表，删除链表的倒数第 <em>n</em> 个节点，并且返回链表的头结点。<a id="more"></a></p><p><strong>示例：</strong></p><pre><code>给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</code></pre><p><strong>说明：</strong></p><p>给定的 <em>n</em> 保证是有效的。</p><p><strong>进阶：</strong></p><p>你能尝试使用一趟扫描实现吗？</p><h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><p>常规的方法会想到要计算出链表的长度<code>L</code>，然后再从头结点开始往后遍历<code>L-n-1</code>个结点，即倒数第n个结点的前一个结点，再删除要删除的倒数第n个结点（<code>pre-&gt;next = pre-&gt;next-&gt;next;</code>）。而题目要求用一趟扫描实现，所以需要用到两个指针<code>pre</code>、<code>cur</code>都初始化为指向链表头结点，然后<code>cur</code>指针往后移n个结点到链表的第 n+1 个结点，再把 <code>pre</code> 和 <code>cur</code> 同时往后移直到 <code>cur</code> 的 <code>next</code> 指针指向 <code>NULL</code> ，即 <code>cur</code> 指向链表最后一个结点，此时 <code>pre</code> 指向倒数第 n 个结点的前一个结点，用同样的方法（<code>pre-&gt;next = pre-&gt;next-&gt;next;</code>）删除倒数第 n 个结点即可。</p><pre><code class="c++">/** * Definition for singly-linked list. * struct ListNode { *     int val; *     ListNode *next; *     ListNode(int x) : val(x), next(NULL) {} * }; */class Solution {public:    ListNode* removeNthFromEnd(ListNode* head, int n) {        ListNode *root = head;   //作为返回值        ListNode *pre = head;        ListNode *cur = head;        for (int i = 0; i &lt; n; i++)   //*cur指向第n+1个结点            cur = cur-&gt;next;        if (cur == NULL)    //说明倒数第n的结点就是头结点            root = head-&gt;next;    //将头指针改为指向第二个节点即可删除头结点        else {            while (cur-&gt;next != NULL)    //pre和cur同是往后移直到cur指向尾结点            {                pre = pre-&gt;next;                cur = cur-&gt;next;            }            pre-&gt;next = pre-&gt;next-&gt;next;   //删除pre结点的后一个结点，即倒数第n个结点        }        return root;    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>链表</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 删除链表中的节点</title>
+    <link href="/2019/02/22/Leetcode-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/"/>
+    <url>/2019/02/22/Leetcode-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/featured/card/top-interview-questions-easy/6/linked-list/41/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/featured/card/top-interview-questions-easy/6/linked-list/41/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>请编写一个函数，使其可以删除某个链表中给定的（非末尾）节点，你将只被给定要求被删除的节点。<a id="more"></a></p><p>现有一个链表 – head = [4,5,1,9]，它可以表示为:</p><p> <img src="2019-02-22.png" srcset="/img/loading.gif" alt="2019-02-22"></p><p><strong>示例 1:</strong></p><pre><code>输入: head = [4,5,1,9], node = 5输出: [4,1,9]解释: 给定你链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -&gt; 1 -&gt; 9.</code></pre><p><strong>示例 2:</strong></p><pre><code>输入: head = [4,5,1,9], node = 1输出: [4,5,9]解释: 给定你链表中值为 1 的第三个节点，那么在调用了你的函数之后，该链表应变为 4 -&gt; 5 -&gt; 9.</code></pre><p><strong>说明:</strong></p><ul><li>链表至少包含两个节点。</li><li>链表中所有节点的值都是唯一的。</li><li>给定的节点为非末尾节点并且一定是链表中的一个有效节点。</li><li>不要从你的函数中返回任何结果。</li></ul><h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><p><strong>解题思路：</strong></p><p>因为找不到上一个结点的位置，所以是没有办法直接删除当前结点的，但是知道当前结点的位置，就可以删掉后一个结点，所以可以变一下思路通过删除后一个结点来间接地删除当前结点，先用后一个节点覆盖掉当前节点，然后再删除后一个节点。</p><pre><code class="c++">/** * Definition for singly-linked list. * struct ListNode { *     int val; *     ListNode *next; *     ListNode(int x) : val(x), next(NULL) {} * }; */class Solution {public:    void deleteNode(ListNode* node) {        node-&gt;val = node-&gt;next-&gt;val;    //后一个结点的值赋给当前结点        node-&gt;next = node-&gt;next-&gt;next;  //删除后一个结点，将后一个结点的next指针赋给当前结点的next指针    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>链表</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 最长公共前缀</title>
+    <link href="/2019/02/06/Leetcode-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/"/>
+    <url>/2019/02/06/Leetcode-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/40/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/40/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>编写一个函数来查找字符串数组中的最长公共前缀。</p><a id="more"></a><p>如果不存在公共前缀，返回空字符串 <code>&quot;&quot;</code>。</p><h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例 1:"></a>示例 1:</h4><pre><code>输入: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]输出: &quot;fl&quot;</code></pre><h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例 2:"></a>示例 2:</h4><pre><code>输入: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]输出: &quot;&quot;解释: 输入不存在公共前缀。</code></pre><h4 id="说明"><a href="#说明" class="headerlink" title="说明:"></a>说明:</h4><p>所有输入只包含小写字母 <code>a-z</code> 。</p><h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><p>刚读完题就诞生了两个解题思路，所以都尝试写了一下，确实也都是可行的方法。</p><p>相对来说，如果公有部分较长的话应该方法二会高效一些，反之方法一可能更高效。个人感觉方法二应该更普适。</p><p><strong>方法一：</strong></p><p>这个方法比较容易想到，因为要找的是公共前缀，也就是所有字符串有有的前缀，所以从每个字符串的第1个元素开始判断是否都相等，相等则将这个字符插入到返回字符串str，直到找到某个字符不是所有字符串的公共部分，则不再插入到返回值str，并且后续无需继续判断。此时得出的字符串str就是字符串数组的公共前缀。</p><p><strong>缺点</strong>：如果公共前缀太长的话，会做公共前缀对应长度的无效益的循环用于判断是否这些字符是否是公共的。</p><pre><code class="c++">class Solution {public:    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) {        string str = &quot;&quot;;   //返回值，初始化为空字符串        if (strs.size() &gt; 0) {   //strs为空的话直接执行return语句返回空字符串，否则执行下面的部分            for (int j = 0;; j++) {                if (j &gt;= strs[0].size())   //因为总是从第一个字符串开始，所以第一个字符串遍历完后后续就不可能再存在公有的字符了                    break;                else {                    char ch = strs[0][j];    //字符串str[0]的第j+1个字符                    bool bl = true;     //字符ch是否公有的标志                    for (int k = 0; k &lt; strs.size(); k++) {                        if (strs[k][j] != ch) {   //如果某个字符串的第j个字符和ch不同说明ch不是公有字符                            bl = false;                            break;                        }                    }                    if (bl == true)   //说明ch是公有字符，插入到str尾部                        str.insert(str.end(), ch);                    else break;   //说明ch不是公有字符，后续不需要再判断                }            }        }        return str;    }};</code></pre><p><strong>方法二：</strong></p><p>这个方法感觉高效一些，正好弥补了方法一的缺点。</p><p>思路是，任选一个字符串作为初始的str（为了方便遍历字符串数组，所以选第一个字符串strs[0]作为初始值），然后用其余每一个字符串依次和str比较查找公共部分，然后删去非公共部分，当整个字符串数组遍历完的时候也就删掉了字符串str与其余所有字符串的非公共部分，剩下的就是公共部分也就是所有字符串的公共前缀。</p><pre><code class="c++">class Solution {public:    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) {        string str = &quot;&quot;;   //返回值，初始化为空字符串        if (strs.size() &gt; 0) {            str = strs[0];   //strs至少有一个字符串strs[0]，用它初始化str，因为公有部分的长度一定小于strs中的任意一个字符串            if (strs.size() &gt; 1) {  //如果strs.size（）大于1，则需要判断字符串str的哪部分为公有的                for (int i = 1; i &lt; strs.size(); i++) {  //从第二个字符串开始依次与str比较寻找公有部分，并删除str的非公有部分                    int size = str.size() &lt; strs[i].size() ? str.size() : strs[i].size();                    str.erase(str.begin() + size, str.end());  //如果str更长一些可以直接删除多余部分                    for (int j = 0; j &lt; size; j++) {                        if (str[j] != strs[i][j]) {   //某一个字符不相等说明从这个字符开始的后面所有字符都是多余的，删除即可                            str.erase(str.begin() + j, str.end());                            break;                        }                    }                }            }        }        return str;    }};</code></pre><h4 id="测试数据"><a href="#测试数据" class="headerlink" title="测试数据"></a>测试数据</h4><pre><code>测试1：flowerflowflight测试2：dogracecarcar</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况以及<code>strs数组大小为1</code>的较特殊情况。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>字符串</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 报数</title>
+    <link href="/2019/02/06/Leetcode-%E6%8A%A5%E6%95%B0/"/>
+    <url>/2019/02/06/Leetcode-%E6%8A%A5%E6%95%B0/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/39/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/39/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>报数序列是一个整数序列，按照其中的整数的顺序进行报数，得到下一个数。其前五项如下：</p><a id="more"></a><pre><code>1.     12.     113.     214.     12115.     111221</code></pre><p><code>1</code> 被读作  <code>&quot;one 1&quot;</code>  (<code>&quot;一个一&quot;</code>) , 即 <code>11</code>。<code>11</code> 被读作 <code>&quot;two 1s&quot;</code> (<code>&quot;两个一&quot;</code>）, 即 <code>21</code>。<code>21</code> 被读作 <code>&quot;one 2&quot;</code>,  “<code>one 1&quot;</code> （<code>&quot;一个二&quot;</code> ,  <code>&quot;一个一&quot;</code>) , 即 <code>1211</code>。</p><p>给定一个正整数 <em>n</em>（1 ≤ <em>n</em> ≤ 30），输出报数序列的第 <em>n</em> 项。</p><p>注意：整数顺序将表示为一个字符串。</p><p><strong>示例 1:</strong></p><pre><code>输入: 1输出: &quot;1&quot;</code></pre><p><strong>示例 2:</strong></p><pre><code>输入: 4输出: &quot;1211&quot;</code></pre><h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><p>题目读懂了的话并不是很难，一开始需要花点时间读题，其实就是每一个数都是由前一个数得来的，也就是<code>1</code>是整个报数过程的开始。</p><p>如第五项，从前往后，依次是<code>“三个一”</code>，<code>“两个二”</code>，<code>“一个一”</code>，所以下一个数就是<code>312211</code>，然后根据这个数同样的可以从前往后读出<code>“一个三”</code>，<code>“一个一”</code>，<code>“两个二”</code>，<code>“两个一”</code>，所以再往后一个数是<code>13112221</code>，依次类推。</p><pre><code class="c++">class Solution {public:    string countAndSay(int n) {        string str = &quot;1&quot;;    //整个报数的开始，第一项是“一个一”        for (int i = 1; i &lt; n; i++) {            string temp;   //保存根据字符串str得出的下一个报数            int q = 0;    //记录字符e的数量            char e = str[0];   //记录不同于前一个字符的新出现字符e，初始化为str[0]            for (int j = 0; j &lt; str.size(); j++) {                if (str[j] == e) {    //统计字符e连续出现的次数                    q++;                }                else {    //说明出现了新字符，将前一个字符e及其连续出现的次数插入到字符串temp尾部                    temp.insert(temp.end(), q + 48);   //插入字符e的数量q                    temp.insert(temp.end(), e);        //插入字符e                    e = str[j];                    q = 1;                }            }            temp.insert(temp.end(), int(q + 48));   //插入最后一个字符e的数量q            temp.insert(temp.end(), e);             //插入最后一个字符e            str = temp;        }        return str;    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>字符串</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 实现strStr()</title>
+    <link href="/2019/02/06/Leetcode-%E5%AE%9E%E7%8E%B0strStr/"/>
+    <url>/2019/02/06/Leetcode-%E5%AE%9E%E7%8E%B0strStr/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/38/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/38/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>实现 <a href="https://baike.baidu.com/item/strstr/811469" target="_blank" rel="noopener">strStr()</a> 函数。</p><a id="more"></a><p>给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回  <strong>-1</strong>。</p><p><strong>示例 1:</strong></p><pre><code>输入: haystack = &quot;hello&quot;, needle = &quot;ll&quot;输出: 2</code></pre><p><strong>示例 2:</strong></p><pre><code>输入: haystack = &quot;aaaaa&quot;, needle = &quot;bba&quot;输出: -1</code></pre><p><strong>说明:</strong></p><p>当 <code>needle</code> 是空字符串时，我们应当返回什么值呢？这是一个在面试中很好的问题。</p><p>对于本题而言，当 <code>needle</code> 是空字符串时我们应当返回 0 。这与C语言的 <a href="https://baike.baidu.com/item/strstr/811469" target="_blank" rel="noopener">strstr()</a> 以及 Java的 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#indexOf(java.lang.String)" target="_blank" rel="noopener">indexOf()</a> 定义相符。</p><h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><pre><code class="c++">class Solution {public:    int strStr(string haystack, string needle) {        int addr;        if (haystack.size() &lt; needle.size())   //当haystack.size() &lt; needle.size()时显然不存在满足条件的情况            addr = -1;        else {            if (needle.size() == 0)   //当needle是空字符串时返回0                addr = 0;            else {     //当haystack.size() &gt;= needle.size()时                bool find = false;     //标记是否找到满足条件的情况                for (int i = 0; i &lt; haystack.size(); i++) {    //遍历字符串haystack查找与字符串needle首字符相同的位置                    if (haystack[i] == needle[0]) {                        bool isEqual = true;    //标记以下标i开始的长度为needle.size()的字符串是否与字符串needle相等                        for (int j = i; j &lt; i + needle.size(); j++) {                            if (haystack[j] != needle[j - i]) {    //一旦某一位不相等说明以i开始的长度为needle.size()的字符串不满足条件                                isEqual = false;                                break;                            }                        }                        if (isEqual == true) {    //说明以i开始的长度为needle.size()的字符串与字符串needle不相等                            find = true;                            addr = i;                            break;                        }                    }                    else continue;                }                if (find == false)    //没找到满足条件的情况，返回-1                    addr = -1;            }        }        return addr;    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>字符串</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 字符串转换整数(atoi)</title>
+    <link href="/2019/02/04/Leetcode-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E6%95%B0-atoi/"/>
+    <url>/2019/02/04/Leetcode-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%95%B4%E6%95%B0-atoi/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/37/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/37/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>请你来实现一个 <code>atoi</code> 函数，使其能将字符串转换成整数。</p><a id="more"></a><p>首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。</p><p>当我们寻找到的第一个非空字符为正或者负号时，则将该符号与之后面尽可能多的连续数字组合起来，作为该整数的正负号；假如第一个非空字符是数字，则直接将其与之后连续的数字字符组合起来，形成整数。</p><p>该字符串除了有效的整数部分之后也可能会存在多余的字符，这些字符可以被忽略，它们对于函数不应该造成影响。</p><p>注意：假如该字符串中的第一个非空格字符不是一个有效整数字符、字符串为空或字符串仅包含空白字符时，则你的函数不需要进行转换。</p><p>在任何情况下，若函数不能进行有效的转换时，请返回 0。</p><p><strong>说明：</strong></p><p>假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为 [−231,  231 − 1]。如果数值超过这个范围，请返回  INT_MAX (231 − 1) 或 INT_MIN (−231) 。</p><p><strong>示例 1:</strong></p><pre><code>输入: &quot;42&quot;输出: 42</code></pre><p><strong>示例 2:</strong></p><pre><code>输入: &quot;   -42&quot;输出: -42解释: 第一个非空白字符为 &#39;-&#39;, 它是一个负号。     我们尽可能将负号与后面所有连续出现的数字组合起来，最后得到 -42 。</code></pre><p><strong>示例 3:</strong></p><pre><code>输入: &quot;4193 with words&quot;输出: 4193解释: 转换截止于数字 &#39;3&#39; ，因为它的下一个字符不为数字。</code></pre><p><strong>示例 4:</strong></p><pre><code>输入: &quot;words and 987&quot;输出: 0解释: 第一个非空字符是 &#39;w&#39;, 但它不是数字或正、负号。     因此无法执行有效的转换。</code></pre><p><strong>示例 5:</strong></p><pre><code>输入: &quot;-91283472332&quot;输出: -2147483648解释: 数字 &quot;-91283472332&quot; 超过 32 位有符号整数范围。      因此返回 INT_MIN (−231) 。</code></pre><h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><pre><code class="c++">class Solution {public:    int myAtoi(string str) {        long long ans = 0;   //和之前做过的一个题类似需要定义一个比int存储得更多的数据类型        int sym = 1;   //正负号        bool fir = false;   //是否找到第一个数字        for (int i = 0; i &lt; str.size(); i++) {            if (fir == false) {   //没找到第一个有效元素之前                if (str[i] == &#39; &#39;)   //跳过空格                    continue;                else if (str[i] == &#39;+&#39;) {   //正号默认sym=1，修改fir为true                    fir = true;                    continue;                }                else if (str[i] == &#39;-&#39;) {   //负号置sym为-1，修改fir为true                    sym = -1;                    fir = true;                    continue;                }                else if (str[i] &gt;= 48 &amp;&amp; str[i] &lt;= 57) {    //第一个有效字符是数字直接存到ans中并修改fir为true                    ans = int(str[i]) - 48;                    fir = true;                }                else return 0;   //第一个非空字符无效直接返回0   //第一个非“空格字符”不是正负号也不是数字则直接返回0            }            else{   //已找到第一个有效字符                if (str[i] &gt;= 48 &amp;&amp; str[i] &lt;= 57) {   //如果下一个字符是数字，直接转换为不带正负号的整数存储到ans中                    ans = ans * 10 + int(str[i]) - 48;                    if (sym* ans &lt; INT_MIN)   //一旦ans的值超出范围就不再继续转换直接返回INT_MAX或INT_MIN                        return INT_MIN;                    else if (sym* ans &gt; INT_MAX)                        return INT_MAX;                }                else break;   //一旦遇到非数字字符就结束转换，例如“+-2”            }        }        return sym * ans;  //返回正常转换的结果    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>字符串</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 验证回文字符串</title>
+    <link href="/2019/02/02/Leetcode-%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <url>/2019/02/02/Leetcode-%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/36/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/36/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。</p><a id="more"></a><p><strong>说明：</strong>本题中，我们将空字符串定义为有效的回文串。</p><p><strong>示例 1:</strong></p><pre><code>输入: &quot;A man, a plan, a canal: Panama&quot;输出: true</code></pre><p><strong>示例 2:</strong></p><pre><code>输入: &quot;race a car&quot;输出: false</code></pre><h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><pre><code class="c++">class Solution {public:    bool isPalindrome(string s) {        bool bl = true;    //作为返回值        string sta;   //定义一个字符串sta将原字符串s标准化        for (int i = 0; i &lt; s.size(); i++) {   //将原字符串s除字母和数字外的字符去除并将大写字母全部转换为小写字母            if ((s[i] &gt;= 48 &amp;&amp; s[i] &lt;= 57) || (s[i] &gt;= 97 &amp;&amp; s[i] &lt;= 122)) {                sta += s[i];            }            if (s[i] &gt;= 65 &amp;&amp; s[i] &lt;= 90) {                sta += char(s[i] + 32);            }        }        int n = sta.size();   //字符串sta的字符个数        for (int j = 0; j &lt; sta.size() / 2; j++) {   //判断是否回文串            if (sta[j] != sta[n - 1 - j]) {   //说明不是回文串，将bl置为false并跳出循环，后续不必再判断                bl = false;                break;            }        }        return bl;    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>字符串</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 有效的字母异位词</title>
+    <link href="/2019/02/02/Leetcode-%E6%9C%89%E6%95%88%E7%9A%84%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D/"/>
+    <url>/2019/02/02/Leetcode-%E6%9C%89%E6%95%88%E7%9A%84%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/35/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/35/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定两个字符串 <em>s</em> 和 <em>t</em> ，编写一个函数来判断 <em>t</em> 是否是 <em>s</em> 的一个字母异位词。</p><a id="more"></a><p><strong>示例 1:</strong></p><pre><code>输入: s = &quot;anagram&quot;, t = &quot;nagaram&quot;输出: true</code></pre><p><strong>示例 2:</strong></p><pre><code>输入: s = &quot;rat&quot;, t = &quot;car&quot;输出: false</code></pre><p><strong>说明:</strong><br>你可以假设字符串只包含小写字母。</p><p><strong>进阶:</strong><br>如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？</p><h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><pre><code class="c++">class Solution {public:    bool isAnagram(string s, string t) {        bool bl = true;   //作为返回值，初始化为true        int sc[26];   //sc[],tc[]用于记录字符串中各个字符的个数        int tc[26];        for (int i = 0; i &lt; 26; i++) {   //初始化sc[],tc[]为全0            sc[i] = 0;            tc[i] = 0;        }        if (s.size() != t.size())   //字符串大小不等显然不是有效的字母异位词            bl = false;        else {    //字符串大小相等的情况            for (int i = 0; i &lt; s.size(); i++) {                int saddr = s[i] - 97;    //转换字符s[i]作为数组sc[]的下标                int taddr = t[i] - 97;    //同上                sc[saddr]++;   //统计以saddr为下标代表的字符在字符串s中出现的次数                tc[taddr]++;   //同上            }            for (int j = 0; j &lt; 26; j++) {   //判断是否有效的字母异位词                if (sc[j] != tc[j]) {   //若某个字母在两字符串中的个数不相等，说明不是有效的字母异位词                    bl = false;                    break;                }            }        }        return bl;    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>字符串</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 字符串中的第一个唯一字符</title>
+    <link href="/2019/02/01/Leetcode-%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%94%AF%E4%B8%80%E5%AD%97%E7%AC%A6/"/>
+    <url>/2019/02/01/Leetcode-%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%94%AF%E4%B8%80%E5%AD%97%E7%AC%A6/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/34/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/34/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个字符串，找到它的第一个不重复的字符，并返回它的索引。如果不存在，则返回 -1。</p><a id="more"></a><p><strong>案例:</strong></p><pre><code>s = &quot;leetcode&quot;返回 0.s = &quot;loveleetcode&quot;,返回 2.</code></pre><p><strong>注意事项：</strong>您可以假定该字符串只包含小写字母。</p><h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><pre><code class="c++">class Solution {public:    int firstUniqChar(string s) {        int addr = -1;  //保存第一个不重复的字符的索引并初始化为-1        if (s.size() == 1)            addr = 0;        for (int i = 0; i &lt; s.size(); i++) {  //遍历整个字符串的每一个字符            bool isUniq = true;    //判断当前字符s[i]是否唯一            for (int j = 0;j &lt; s.size(); j++) {                if (i == j)                    continue;                if (s[j] == s[i]) {  //如果找到与s[i]相同的字符                    isUniq = false;  //说明s[i]不唯一，置isUniq为false                    break;                }            }            if (isUniq == true) {   //isUniq为true说明上面的循环中没有找到与s[i]相同的字符                addr = i;   //i即第一个不重复的字符的索引                break;   //后序字符不必不能继续判断，否则如果后续还有唯一字符就会重写addr导致结果错误            }        }        return addr;    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>字符串</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>关于Hexo yilia主题文章截断功能</title>
+    <link href="/2019/02/01/%E5%85%B3%E4%BA%8EHexo-yilia%E4%B8%BB%E9%A2%98%E6%96%87%E7%AB%A0%E6%88%AA%E6%96%AD%E5%8A%9F%E8%83%BD/"/>
+    <url>/2019/02/01/%E5%85%B3%E4%BA%8EHexo-yilia%E4%B8%BB%E9%A2%98%E6%96%87%E7%AB%A0%E6%88%AA%E6%96%AD%E5%8A%9F%E8%83%BD/</url>
+    
+    <content type="html"><![CDATA[<p><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia</a>的主题是自带了文章截断的功能的，当然并不是说写一篇文章它会自动给你截断，还是需要自己将截断标记手动写到文章的某个位置。</p><p>截断标记：<code>&lt;!--more--&gt;</code></p><a id="more"></a><p>效果就是标记之前的内容会在博客首页直接展示，而标记之后的内容则需要点击右下角的<code>阅读更多</code>才能显示，但是添加标记后实际的情况是下图这样的：</p><p><img src="1.png" srcset="/img/loading.gif" alt="1"></p><p>事实上点击上图中的<code>more&gt;&gt;</code>和点击<code>阅读更多</code>是有相同的作用的，但是不太美观了，大概也不是我们想要的，不然单独做一个<code>阅读更多</code>的按钮干嘛，解决办法很简单。</p><p>打开yilia主题根目录下的<code>_config.yml</code>文件，找到<code>excerpt_link</code>，把后面的<code>more</code>删掉，保存，就可以了。</p><p><img src="3.png" srcset="/img/loading.gif" alt="3"></p><p>效果如图：</p><p><img src="2.png" srcset="/img/loading.gif" alt></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>博客</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hexo</tag>
+      
+      <tag>博客</tag>
+      
+      <tag>yilia</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 整数反转</title>
+    <link href="/2019/01/31/Leetcode-%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/"/>
+    <url>/2019/01/31/Leetcode-%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/33/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/33/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。</p><a id="more"></a><h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例 1:"></a>示例 1:</h4><pre><code>输入: 123输出: 321</code></pre><h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例 2:"></a>示例 2:</h4><pre><code>输入: -123输出: -321</code></pre><h4 id="示例-3"><a href="#示例-3" class="headerlink" title="示例 3:"></a>示例 3:</h4><pre><code>输入: 120输出: 21</code></pre><h4 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h4><p>假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−231,  231 − 1]。请根据这个假设，如果反转后整数溢出那么就返回 0。</p><h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><p>4个关键点：</p><ol><li>将符号与数值分离单独处理</li><li>定义保存结果的变量<code>t</code>，数据类型的选择(<code>long long</code>)</li><li>逆转，基础操作</li><li>判断是否溢出</li></ol><h4 id="算法："><a href="#算法：" class="headerlink" title="算法："></a>算法：</h4><pre><code class="c++">class Solution {public:    int reverse(int x) {        int sym = 1;      //符号为正 sym == 1 ，符号为负 sym == -1        //t保存反转后的整数，数据类型必须用long long，否则t溢出后已被处理，无法判断其正确的值是否溢出        long long t = 0;     //只能用long long，int或long都不行，需要将t初始化为0        if (x &lt; 0) {    //如果x为负，置sym为-1并变x为正            sym = -1;            x = -1 * x;        }        while (x != 0) {   //对正数x进行反转            t = t * 10 + x % 10;            x = x / 10;        }        if (t &gt; 0x7fffffff || t &lt; (signed int)0x80000000)  //判断逆转后的x是否溢出            return 0;        return sym * t;    //返回逆转后的数    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>字符串</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 反转字符串</title>
+    <link href="/2019/01/30/Leetcode-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <url>/2019/01/30/Leetcode-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/32/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/32/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 <code>char[]</code> 的形式给出。</p><a id="more"></a><p>不要给另外的数组分配额外的空间，你必须<strong>原地修改输入数组</strong>、使用 O(1) 的额外空间解决这一问题。</p><p>你可以假设数组中的所有字符都是 <a href="https://baike.baidu.com/item/ASCII" target="_blank" rel="noopener">ASCII</a> 码表中的可打印字符。</p><p><strong>示例 1：</strong></p><pre><code>输入：[&quot;h&quot;,&quot;e&quot;,&quot;l&quot;,&quot;l&quot;,&quot;o&quot;]输出：[&quot;o&quot;,&quot;l&quot;,&quot;l&quot;,&quot;e&quot;,&quot;h&quot;]</code></pre><p><strong>示例 2：</strong></p><pre><code>输入：[&quot;H&quot;,&quot;a&quot;,&quot;n&quot;,&quot;n&quot;,&quot;a&quot;,&quot;h&quot;]输出：[&quot;h&quot;,&quot;a&quot;,&quot;n&quot;,&quot;n&quot;,&quot;a&quot;,&quot;H&quot;]</code></pre><h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><p>挺简单的，就是用一个临时变量<code>temp</code>做前后兑换。</p><pre><code class="c++">class Solution {public:    void reverseString(vector&lt;char&gt;&amp; s) {        int n = s.size();        for (int i = 0; i &lt; n / 2; i++) {            char temp = s[i];            s[i] = s[n - 1 - i];            s[n - 1 - i] = temp;        }          }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>字符串</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 旋转图像</title>
+    <link href="/2019/01/29/Leetcode-%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/"/>
+    <url>/2019/01/29/Leetcode-%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/31/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/31/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个 <em>n</em> × <em>n</em> 的二维矩阵表示一个图像。</p><a id="more"></a><p>将图像顺时针旋转 90 度。</p><p><strong>说明：</strong></p><p>你必须在<strong>原地</strong>旋转图像，这意味着你需要直接修改输入的二维矩阵。<strong>请不要</strong>使用另一个矩阵来旋转图像。</p><p><strong>示例 1:</strong></p><pre><code>给定 matrix = [  [1,2,3],  [4,5,6],  [7,8,9]],原地旋转输入矩阵，使其变为:[  [7,4,1],  [8,5,2],  [9,6,3]]</code></pre><p><strong>示例 2:</strong></p><pre><code>给定 matrix =[  [ 5, 1, 9,11],  [ 2, 4, 8,10],  [13, 3, 6, 7],  [15,14,12,16]], 原地旋转输入矩阵，使其变为:[  [15,13, 2, 5],  [14, 3, 4, 1],  [12, 6, 8, 9],  [16, 7,10,11]]</code></pre><h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><p>通过观察找<strong>规律</strong>会发现：</p><ul><li><p>第<code>i</code>行的元素成了第<code>n-1-i</code>列的元素，而第<code>j</code>列的元素成了第<code>i</code>行的元素；</p></li><li><p>第<code>i</code>行的元素是由第<code>n-1-j</code>列的元素变换而来的，第<code>j</code>列的元素是由第<code>i</code>行的元素变换而来的。</p></li></ul><p>我的思路是每遍历到一个没有转换过的元素，就一次性把与这个元素有转换关系的另外三个元素都转换完毕，例如题目示例1中遍历到第一个元素<code>matrix[0][0]==1</code>，就完成如下的转换：</p><pre><code>matrix[0][0]==1  ==&gt;&gt;  7matrix[2][0]==7  ==&gt;&gt;  9matrix[2][2]==9  ==&gt;&gt;  3matrix[0][2]==3  ==&gt;&gt;  1</code></pre><p>按照这样的逻辑，就不能遍历二维矩阵的每一个元素，因为每遍历到一个元素其实相当于处理了四个元素，如果对处理过的元素再遍历一次就会再做一次转换最后得到的显然不是正确答案，并且这样的重复操作也是影响代码效率的，所以遍历的两层循环需要理解一下。在题目给的两个示例中就是：</p><pre><code>示例1:1: 1-&gt;3-&gt;9-&gt;7-&gt;12: 2-&gt;6-&gt;8-&gt;4-&gt;2示例2:5: 5-&gt;11-&gt;16-&gt;15-&gt;51: 1-&gt;10-&gt;12-&gt;13-&gt;19: 9-&gt;7-&gt;14-&gt;2-&gt;94: 4-&gt;8-&gt;6-&gt;3-&gt;4</code></pre><p>实际转换的时候，按照上述的第二条规律逆时针方向转换，需要用一个<code>temp</code>来保存遍历到的<code>matrix[i][j]</code>。不能顺时针方向转换，因为当前元素的值已经改变，又赋给下一个对应位置元素，最后就导致对应位置上四个元素的值都是相等的，逻辑上就不对。</p><h4 id="实现代码："><a href="#实现代码：" class="headerlink" title="实现代码："></a>实现代码：</h4><pre><code class="c++">class Solution {public:    void rotate(vector&lt;vector&lt;int&gt;&gt;&amp; matrix) {        int n = matrix.size();    //n×n的二维矩阵        for (int i = 0; i &lt; n / 2; i++) {            for (int j = i; j &lt; n - 1 - i; j++) {                int temp = matrix[i][j];   //用temp临时记录matrix[i][j]的值                int x = i;       //用x,y表示i,j，转换过程中需要改变下标的值，而外层遍历需要保持i,j的值不变                int y = j;                for (int l = 1; l &lt;= 3; l++) {   //对三个元素进行转换                    matrix[x][y] = matrix[n - 1 - y][x];                    int t = x;                    x = n - 1 - y;;                    y = t;                }                matrix[j][n - 1 - i] = temp;    //最后一个未转换的元素用temp赋值            }        }        }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>数组</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 有效的数独</title>
+    <link href="/2019/01/28/Leetcode-%E6%9C%89%E6%95%88%E7%9A%84%E6%95%B0%E7%8B%AC/"/>
+    <url>/2019/01/28/Leetcode-%E6%9C%89%E6%95%88%E7%9A%84%E6%95%B0%E7%8B%AC/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/30/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/30/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>判断一个 9x9 的数独是否有效。只需要<strong>根据以下规则</strong>，验证已经填入的数字是否有效即可。</p><a id="more"></a><ol><li>数字 <code>1-9</code> 在每一行只能出现一次。</li><li>数字 <code>1-9</code> 在每一列只能出现一次。</li><li>数字 <code>1-9</code> 在每一个以粗实线分隔的 <code>3x3</code> 宫内只能出现一次。</li></ol><p><img src="%E6%9C%89%E6%95%88%E7%9A%84%E6%95%B0%E7%8B%AC.png" srcset="/img/loading.gif" alt="有效的数独"></p><p>上图是一个部分填充的有效的数独。</p><p>数独部分空格内已填入了数字，空白格用 <code>&#39;.&#39;</code> 表示。</p><p><strong>示例 1:</strong></p><pre><code>输入:[  [&quot;5&quot;,&quot;3&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],  [&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;1&quot;,&quot;9&quot;,&quot;5&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],  [&quot;.&quot;,&quot;9&quot;,&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;,&quot;.&quot;],  [&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;3&quot;],  [&quot;4&quot;,&quot;.&quot;,&quot;.&quot;,&quot;8&quot;,&quot;.&quot;,&quot;3&quot;,&quot;.&quot;,&quot;.&quot;,&quot;1&quot;],  [&quot;7&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;2&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;],  [&quot;.&quot;,&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;2&quot;,&quot;8&quot;,&quot;.&quot;],  [&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;4&quot;,&quot;1&quot;,&quot;9&quot;,&quot;.&quot;,&quot;.&quot;,&quot;5&quot;],  [&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;9&quot;]]输出: true</code></pre><p><strong>示例 2:</strong></p><pre><code>输入:[  [&quot;8&quot;,&quot;3&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],  [&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;1&quot;,&quot;9&quot;,&quot;5&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],  [&quot;.&quot;,&quot;9&quot;,&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;,&quot;.&quot;],  [&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;3&quot;],  [&quot;4&quot;,&quot;.&quot;,&quot;.&quot;,&quot;8&quot;,&quot;.&quot;,&quot;3&quot;,&quot;.&quot;,&quot;.&quot;,&quot;1&quot;],  [&quot;7&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;2&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;],  [&quot;.&quot;,&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;2&quot;,&quot;8&quot;,&quot;.&quot;],  [&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;4&quot;,&quot;1&quot;,&quot;9&quot;,&quot;.&quot;,&quot;.&quot;,&quot;5&quot;],  [&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;9&quot;]]输出: false解释: 除了第一行的第一个数字从 5 改为 8 以外，空格内其他数字均与 示例1 相同。     但由于位于左上角的 3x3 宫内有两个 8 存在, 因此这个数独是无效的。</code></pre><p><strong>说明:</strong></p><ul><li>一个有效的数独（部分已被填充）不一定是可解的。</li><li>只需要根据以上规则，验证已经填入的数字是否有效即可。</li><li>给定数独序列只包含数字 <code>1-9</code> 和字符 <code>&#39;.&#39;</code> 。</li><li>给定数独永远是 <code>9x9</code> 形式的。</li></ul><h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><pre><code class="C++">class Solution {public:    bool isValidSudoku(vector&lt;vector&lt;char&gt;&gt;&amp; board) {        bool isValid = true;        for (int i = 0; i &lt; 9; i++) {            for (int j = 0; j &lt; 9; j++) {    //判断i行                if (board[i][j] == &#39;.&#39;)                    continue;                for (int k = j + 1; k &lt; 9; k++) {                    if (board[i][k] == &#39;.&#39;)                        continue;                    if (board[i][j] == board[i][k]) {  //如果i行有两个数字相等跳转至函数返回语句                        isValid = false;   //置isValid为false                        goto label;   //并跳转至函数返回语句                    }                }            }            for (int j = 0; j &lt; 9; j++) {    //判断i列                if (board[j][i] == &#39;.&#39;)                    continue;                for (int k = j + 1; k &lt; 9; k++) {                    if (board[k][i] == &#39;.&#39;)                        continue;                    if (board[j][i] == board[k][i]) {                        isValid = false;                        goto label;                    }                }            }        }        for (int i = 0; i &lt; 9; i += 3) {    //判断3x3宫内            for (int j = 0; j &lt; 9; j += 3) {   //前两层循环用于遍历每个3x3宫格的左上角元素所在位置                vector&lt;int&gt; vec(10);  //事实上只用到vec[1]~vec[9]，用于记录3x3宫格内每个数字出现的次数                for (int k = i; k &lt; i + 3; k++) {   //后两层循环用于遍历以board[i][j]作为左上角元素的3x3宫格                    for (int l = j; l &lt; j + 3; l++) {                        int num = board[k][l] - 48;   //将字符转换为数字                        if (num &gt;= 1 &amp;&amp; num &lt;= 9){   //判断字符是否是数字                            vec[num]++;    //如果是数字，就以这个数字作为下标将vec[num]加一，表示num出现的次数                            if (vec[num] &gt; 1) {  //vec[num]&gt;1说明这个数字重复出现了                                isValid = false;   //置isValid为false                                goto label;   //并跳转至函数返回语句                            }                        }                    }                }            }        }    label:    return isValid;    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>数组</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 两数之和</title>
+    <link href="/2019/01/28/Leetcode-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/"/>
+    <url>/2019/01/28/Leetcode-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/29/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/29/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个整数数组 <code>nums</code> 和一个目标值 <code>target</code>，请你在该数组中找出和为目标值的那 <strong>两个</strong> 整数，并返回他们的数组下标。</p><a id="more"></a><p>你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</p><p><strong>示例:</strong></p><pre><code>给定 nums = [2, 7, 11, 15], target = 9因为 nums[0] + nums[1] = 2 + 7 = 9所以返回 [0, 1]</code></pre><h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><pre><code class="c++">class Solution {public:    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) {        vector&lt;int&gt; ans;        for (int i = 0; i &lt; (nums.size() - 1); i++) {            for (int j = i + 1; j &lt; nums.size(); j++) {                if (nums[i] + nums[j] == target) {                    ans.insert(ans.end(), i);                    ans.insert(ans.end(), j);                    goto label;   //事实上这里应该可以直接return返回结果，可能是Leetcode不允许这样，所以用了一个标签语句跳转至程序尾                }            }        }        label:return ans;    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>数组</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hexo博客（主题：yilia）添加Valine评论系统</title>
+    <link href="/2019/01/28/Hexo%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%BB%E9%A2%98%EF%BC%9Ayilia%EF%BC%89%E6%B7%BB%E5%8A%A0Valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/"/>
+    <url>/2019/01/28/Hexo%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%BB%E9%A2%98%EF%BC%9Ayilia%EF%BC%89%E6%B7%BB%E5%8A%A0Valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</url>
+    
+    <content type="html"><![CDATA[<h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><p>其实网上关于Hexo的博客添加<a href="https://valine.js.org/" target="_blank" rel="noopener">Valine</a>评论系统的是教程很多的，但是大多针对Next那个主题，确实那个主题各方面的功能都做得很完善了，但是我还是比较喜欢yilia这个主题，然而这两个主题的文件结构就很不一样，教程并不能直接用到yilia这个主题上来。</p><a id="more"></a><p>在我使用yilia主题添加Valine评论系统的过程中着实遇到不少问题，个人没有在网上找到一份完全针对yilia主题添加valine评论系统的详细教程，所以写下这篇教程，也算是写的笔记吧，也许有后来者能用得上。</p><h3 id="添加相关代码"><a href="#添加相关代码" class="headerlink" title="添加相关代码"></a>添加相关代码</h3><p>yilia主题支持了多说、网易云跟帖、畅言、Disqus以及Gitment，但似乎没有写好的valine代码，所以我们首先要手动添加相关代码。</p><p>下面的代码来源于yilia主题下的一个Issue：<a href="https://github.com/litten/hexo-theme-yilia/pull/646" target="_blank" rel="noopener">新增对Valine评论系统的支持</a>，可以参照一下（<strong>不想踩坑的话请就看我这篇文章，不用谢我</strong>），但是对小白来说可能并不太清楚，代码添加到某一个文件，但是并没有说具体添加到什么位置，所以我根据自己的经历写一下对小白来说更加切实的步骤。</p><p>需要修改的有三个地方，都是主题目录下对应的文件，不是博客目录，修改后记得保存。</p><h4 id="1-config-yml"><a href="#1-config-yml" class="headerlink" title="1._config.yml"></a>1._config.yml</h4><p>yilia主题根目录下的_config.yml，不是博客根目录下的_config.yml，打开后添加到什么位置都可以，但是建议根据已经写好的几个评论系统就对应的添加到#5、Gitment的下方</p><pre><code class="yaml">#6、Valine https://valine.js.orgvaline:  appid: #Leancloud应用的appId appkey: #Leancloud应用的appKey verify: false #验证码，verify和notify这两个最好就别动了 notify: false #评论回复提醒 avatar: mm #评论列表头像样式：&#39;&#39;/mm/identicon/monsterid/wavatar/retro/hide placeholder: Just go go #评论框占位符</code></pre><p>如图：</p><p><img src="1.png" srcset="/img/loading.gif" alt="1"></p><h4 id="2-layout-partial-article-ejs"><a href="#2-layout-partial-article-ejs" class="headerlink" title="2.layout/_partial/article.ejs"></a>2.layout/_partial/article.ejs</h4><p>这段代码改过一点点，添加了一个判断条件如果在博客首页就不执行下面的代码（具体添加了下面代码的第一行和最后一行），也就是只在阅读全文的时候才在文章底部显示评论框，原Issue下的代码不含这个判断条件，也就是首页每篇博客下方都会有一个评论框，这应该不是我们想要的。</p><pre><code class="javascript">&lt;% if (!index){ %&gt;    &lt;% if (theme.valine &amp;&amp; theme.valine.appid &amp;&amp; theme.valine.appkey){ %&gt;        &lt;section id=&quot;comments&quot; class=&quot;comments&quot;&gt;          &lt;style&gt;            .comments{margin:30px;padding:10px;background:#fff}            @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}          &lt;/style&gt;          &lt;%- partial(&#39;post/valine&#39;, {            key: post.slug,            title: post.title,            url: config.url+url_for(post.path)            }) %&gt;      &lt;/section&gt;    &lt;% } %&gt;&lt;% } %&gt;</code></pre><p>直接插入在最后面就可以，可以看到上面一段就是Gitment评论系统的相关代码，如图：</p><p><img src="2.png" srcset="/img/loading.gif" alt="2"></p><h4 id="3-layout-partial-post-valine-ejs"><a href="#3-layout-partial-post-valine-ejs" class="headerlink" title="3.layout/_partial/post/valine.ejs"></a>3.layout/_partial/post/valine.ejs</h4><p>这个文件是没有的，按照标题路径新建一个valine.ejs，再把下面的代码添加添加进去，保存，注意和Issue给出的代码可能不太一样，说过了不想踩坑请直接使用我给出的。</p><pre><code class="javascript">&lt;div id=&quot;vcomment&quot; class=&quot;comment&quot;&gt;&lt;/div&gt; &lt;script src=&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;&gt;&lt;/script&gt;&lt;script src=&#39;//unpkg.com/valine/dist/Valine.min.js&#39;&gt;&lt;/script&gt;&lt;script src=&quot;https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js&quot;&gt;&lt;/script&gt;&lt;script&gt;    var notify = &#39;&lt;%= theme.valine.notify %&gt;&#39; == true ? true : false;    var verify = &#39;&lt;%= theme.valine.verify %&gt;&#39; == true ? true : false;    new Valine({        av: AV,        el: &#39;#vcomment&#39;,        notify: notify,        app_id: &quot;&lt;%= theme.valine.appid %&gt;&quot;,        app_key: &quot;&lt;%= theme.valine.appkey %&gt;&quot;,        placeholder: &quot;&lt;%= theme.valine.placeholder %&gt;&quot;,        avatar:&quot;&lt;%= theme.valine.avatar %&gt;&quot;,    });&lt;/script&gt;</code></pre><h3 id="评论安装"><a href="#评论安装" class="headerlink" title="评论安装"></a>评论安装</h3><p>接下来就要使用到<a href="https://leancloud.cn/" target="_blank" rel="noopener">Leancloud</a>了，大概就是作为我们Valine评论系统的服务器，因为Valine首页就介绍了Valine是“一款快速、简洁且高效的<strong>无后端</strong>评论系统”，自行注册一个账号并登录。</p><p>创建一个应用，应用名看个人喜好。</p><p><img src="5.png" srcset="/img/loading.gif" alt="5"></p><p>选择刚刚创建的应用&gt;<strong>设置</strong>&gt;选择<strong>应用 Key</strong>，然后你就能看到你的<strong>App ID</strong>和<strong>App Key</strong>了，参考下图：</p><p><img src="3.jpg" srcset="/img/loading.gif" alt="3"></p><p>分别复制<strong>App ID</strong>和<strong>App Key</strong>粘贴到前面设置的主题根目录下的_config.yml里对应位置，注意“:”后面必须要有一个空格，如图：</p><p><img src="6.png" srcset="/img/loading.gif" alt="6"></p><p>为了数据安全，再填写一下安全域名，<strong>应用</strong>&gt;<strong>设置</strong>&gt;<strong>安全设置</strong>中的<strong>Web 安全域名</strong>，如果是Hexo一般填写<code>自己博客主页的地址</code>和<code>http://localhost:4000/</code>就可以了，如下图：</p><p><img src="4.png" srcset="/img/loading.gif" alt="4"></p><p>到这里，你的评论系统就已经可以工作了！</p><p>当然修改了相关代码需要重新部署博客，三步操作：</p><pre><code>$ hexo clean$ hexo g$ hexo s #本地测试用http://localhost:4000/访问即可，也可以hexo d部署到云端</code></pre><p>自己写条评论试试呢，评论的数据会保存到Leancloud你创建的应用里，具体可以登录Leancloud，选择<strong>应用</strong>&gt;<strong>存储</strong>&gt;<strong>Comment</strong>，评论的所有相关信息都可以在这儿看到：</p><p><img src="7.png" srcset="/img/loading.gif" alt="7"></p><p>到此如果没有更多的需求已经可以结束不折腾了，进一步的下面介绍实现邮件通知的功能。</p><h3 id="部署云引擎（邮件通知）"><a href="#部署云引擎（邮件通知）" class="headerlink" title="部署云引擎（邮件通知）"></a>部署云引擎（邮件通知）</h3><p>这一部分主要参考这篇博客<a href="https://deserts.io/valine-admin-document/" target="_blank" rel="noopener">Valine Admin 配置手册</a>。</p><h4 id="1-填写代码仓库"><a href="#1-填写代码仓库" class="headerlink" title="1.填写代码仓库"></a>1.填写代码仓库</h4><p>在<a href="https://leancloud.cn/dashboard/#/apps" target="_blank" rel="noopener">Leancloud</a>云引擎设置界面，填写代码库并保存：<code>https://github.com/DesertsP/Valine-Admin.git</code>（直接复制填上去就行，不是要自己建一个类似的代码仓库，另外注意这个链接是否有变动）</p><p><img src="8.png" srcset="/img/loading.gif" alt="8"></p><h4 id="2-设置环境变量以及Web-二级域名"><a href="#2-设置环境变量以及Web-二级域名" class="headerlink" title="2.设置环境变量以及Web 二级域名"></a>2.设置环境变量以及Web 二级域名</h4><p>在设置页面，设置<strong>环境变量</strong>以及 <strong>Web 二级域名</strong>。先后顺序没什么影响，不过可以先设置 Web 二级域名，需要实名认证，自己认证一下。</p><p>Web 二级域名用于评论后台管理，如<a href="https://mxy493.leanapp.cn/" target="_blank" rel="noopener">https://mxy493.leanapp.cn</a></p><p><img src="9.png" srcset="/img/loading.gif" alt="9"></p><p>环境变量<strong>必填</strong>参数务必正确设置：</p><p><img src="10.png" srcset="/img/loading.gif" alt="10"></p><p>这里虽然部分是选填的，但是个人建议都填上吧，当然首先要填对，填错了那就没用了。</p><p>SMTP_SERVICE<strong>建议用QQ</strong>，目前我用的QQ邮箱没有任何问题，163邮箱在我设置的过程中似乎有不能发送邮件的问题，应该是网易邮箱那边的限制所以无关你设置得对不对，Gmail似乎是因为被墙了会连接超时，其它我没试过。</p><table><thead><tr><th>变量</th><th align="left">示例</th><th>说明</th></tr></thead><tbody><tr><td>SITE_NAME</td><td align="left">Deserts</td><td>[必填]博客名称</td></tr><tr><td>SITE_URL</td><td align="left"><a href="https://mxy493.github.io/">https://mxy493.github.io/</a></td><td>[必填]首页地址</td></tr><tr><td>SMTP_SERVICE</td><td align="left">QQ</td><td>[新版支持]邮件服务提供商，支持 QQ、163、126、Gmail 以及 <a href="https://nodemailer.com/smtp/well-known/#supported-services" target="_blank" rel="noopener">更多</a></td></tr><tr><td>SMTP_USER</td><td align="left"><a href="mailto:xxxxxx@qq.com" target="_blank" rel="noopener">xxxxxx@qq.com</a></td><td>[必填]SMTP登录用户</td></tr><tr><td>SMTP_PASS</td><td align="left">ccxxxxxxxxch</td><td>[必填]SMTP登录密码（QQ邮箱需要获取独立密码）</td></tr><tr><td>SENDER_NAME</td><td align="left">mxy</td><td>[必填]发件人</td></tr><tr><td>SENDER_EMAIL</td><td align="left"><a href="mailto:xxxxxx@qq.com" target="_blank" rel="noopener">xxxxxx@qq.com</a></td><td>[必填]发件邮箱</td></tr><tr><td>ADMIN_URL</td><td align="left"><a href="https://xxx.leanapp.cn/" target="_blank" rel="noopener">https://xxx.leanapp.cn/</a></td><td>[建议]Web主机二级域名，用于自动唤醒</td></tr><tr><td>BLOGGER_EMAIL</td><td align="left"><a href="mailto:xxxxxx@qq.com" target="_blank" rel="noopener">xxxxxx@qq.com</a></td><td>[可选]博主通知收件地址，默认使用SENDER_EMAIL</td></tr></tbody></table><blockquote><p> <strong>注</strong>：环境变量有任何更改都需要重启应用才能生效（云引擎&gt;实例&gt;设置&gt;重启）</p></blockquote><p><img src="11.png" srcset="/img/loading.gif" alt="11"></p><h4 id="3-部署实例"><a href="#3-部署实例" class="headerlink" title="3.部署实例"></a>3.部署实例</h4><p>切换到<code>部署</code>标签页，分支使用<code>master</code>，点击部署即可。</p><p><img src="12.png" srcset="/img/loading.gif" alt="12"></p><p><img src="13.png" srcset="/img/loading.gif" alt="13"></p><p>部署日志显示<strong>“部署完成，1个实例部署成功”</strong>就部署好了，点击关闭即可。</p><h4 id="4-评论管理"><a href="#4-评论管理" class="headerlink" title="4.评论管理"></a>4.评论管理</h4><p>访问设置的二级域名<code>https://二级域名.leanapp.cn/sign-up</code>，注册管理员登录信息，如：<a href="https://mxy493.leanapp.cn/sign-up" target="_blank" rel="noopener">https://mxy493.leanapp.cn/sign-up</a></p><p><img src="14.png" srcset="/img/loading.gif" alt="14"></p><blockquote><p><strong>注</strong>：使用原版Valine如果遇到注册页面不显示直接跳转至登录页的情况，请手动删除_User表中的全部数据。</p></blockquote><h4 id="5-设置定时任务"><a href="#5-设置定时任务" class="headerlink" title="5.设置定时任务"></a>5.设置定时任务</h4><p>进入云引擎&gt;定时任务，创建定时器，创建两个定时任务。</p><h5 id="1-半小时自动唤醒"><a href="#1-半小时自动唤醒" class="headerlink" title="1.半小时自动唤醒"></a>1.半小时自动唤醒</h5><p>选择<code>self-wake</code>云函数，Cron表达式为<code>0 0/30 7-23 * * ?</code>，表示每天早6点到晚23点每隔30分钟访问云引擎，确定环境变量<code>ADMIN_URL</code>设置正确：</p><p><img src="15.png" srcset="/img/loading.gif" alt="15"></p><h5 id="2-八点叫我发邮件"><a href="#2-八点叫我发邮件" class="headerlink" title="2.八点叫我发邮件"></a>2.八点叫我发邮件</h5><p>选择<code>resend-mails</code>云函数，Cron表达式为<code>0 0 8 * * ?</code>，表示每天早8点检查过去24小时内漏发的通知邮件并补发：</p><p><img src="16.png" srcset="/img/loading.gif" alt="16"></p><p>添加完计时器记得点击启动。</p><p>至此，评论已经可以通过邮件发送通知了。</p><h3 id="邮件通知模板"><a href="#邮件通知模板" class="headerlink" title="邮件通知模板"></a>邮件通知模板</h3><p>这一部分可选，懒得折腾可以到此为止！</p><p>邮件通知模板在云引擎<strong>环境变量</strong>中设定，可自定义通知邮件标题及内容模板。</p><p>邮件通知包含两种，分别是<strong>“被@通知”</strong>和<strong>“博主通知”</strong>，这两种模板都可以完全自定义。默认使用经典的蓝色风格模板（样式来源未知）。</p><table><thead><tr><th>环境变量</th><th>示例</th><th>说明</th></tr></thead><tbody><tr><td>MAIL_TEMPLATE_ADMIN</td><td><code>见下文</code></td><td>[可选]<strong>博主邮件通知</strong>内容模板</td></tr><tr><td>MAIL_SUBJECT_ADMIN</td><td>${SITE_NAME}上有新评论了</td><td>[可选]<strong>博主邮件通知</strong>主题模板</td></tr><tr><td>MAIL_TEMPLATE</td><td><code>见下文</code></td><td>[可选]<strong>被@通知</strong>邮件内容模板</td></tr><tr><td>MAIL_SUBJECT</td><td>${PARENT_NICK}，您在${SITE_NAME}上的评论收到了回复</td><td>[可选]<strong>被@通知</strong>邮件主题（标题）模板</td></tr></tbody></table><ul><li>默认<strong>博主通知邮件内容模板</strong>：</li></ul><pre><code class="javascript">&lt;div style=&quot;border-top:2px solid #12ADDB;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;margin:50px auto;font-size:12px;&quot;&gt;&lt;h2 style=&quot;border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;&quot;&gt;您在&lt;a style=&quot;text-decoration:none;color: #12ADDB;&quot; href=&quot;${SITE_URL}&quot; target=&quot;_blank&quot;&gt;${SITE_NAME}&lt;/a&gt;上的文章有了新的评论&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;${NICK}&lt;/strong&gt;回复说：&lt;/p&gt;&lt;div style=&quot;background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;&quot;&gt; ${COMMENT}&lt;/div&gt;&lt;p&gt;您可以点击&lt;a style=&quot;text-decoration:none; color:#12addb&quot; href=&quot;${POST_URL}&quot; target=&quot;_blank&quot;&gt;查看回复的完整內容&lt;/a&gt;&lt;br&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;</code></pre><p>博主通知邮件模板中的可用变量与@通知中的基本一致，<code>PARENT_NICK</code> 和 <code>PARENT_COMMENT</code> 变量不再可用。</p><ul><li>默认<strong>被@通知邮件内容模板</strong>：</li></ul><pre><code class="javascript">&lt;div style=&quot;border-top:2px solid #12ADDB;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;margin:50px auto;font-size:12px;&quot;&gt;&lt;h2 style=&quot;border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 8px;&quot;&gt;您在&lt;a style=&quot;text-decoration:none;color: #12ADDB;&quot; href=&quot;${SITE_URL}&quot; target=&quot;_blank&quot;&gt;            ${SITE_NAME}&lt;/a&gt;上的评论有了新的回复&lt;/h2&gt; ${PARENT_NICK} 同学，您曾发表评论：&lt;div style=&quot;padding:0 12px 0 12px;margin-top:18px&quot;&gt;&lt;div style=&quot;background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;&quot;&gt;            ${PARENT_COMMENT}&lt;/div&gt;&lt;p&gt;&lt;strong&gt;${NICK}&lt;/strong&gt;回复说：&lt;/p&gt;&lt;div style=&quot;background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;&quot;&gt; ${COMMENT}&lt;/div&gt;&lt;p&gt;您可以点击&lt;a style=&quot;text-decoration:none; color:#12addb&quot; href=&quot;${POST_URL}&quot; target=&quot;_blank&quot;&gt;查看回复的完整內容&lt;/a&gt;，欢迎再次光临&lt;a style=&quot;text-decoration:none; color:#12addb&quot; href=&quot;${SITE_URL}&quot; target=&quot;_blank&quot;&gt;${SITE_NAME}&lt;/a&gt;。&lt;br&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;</code></pre><p>效果图：</p><p><img src="17.png" srcset="/img/loading.gif" alt="17"></p><ul><li>彩虹风格的<strong>被@邮件通知模板</strong>：</li></ul><pre><code class="javascript">&lt;div style=&quot;border-radius: 10px 10px 10px 10px;font-size:13px;    color: #555555;width: 666px;font-family:&#39;Century Gothic&#39;,&#39;Trebuchet MS&#39;,&#39;Hiragino Sans GB&#39;,微软雅黑,&#39;Microsoft Yahei&#39;,Tahoma,Helvetica,Arial,&#39;SimSun&#39;,sans-serif;margin:50px auto;border:1px solid #eee;max-width:100%;background: #ffffff repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);&quot;&gt;&lt;div style=&quot;width:100%;background:#49BDAD;color:#ffffff;border-radius: 10px 10px 0 0;background-image: -moz-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));background-image: -webkit-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));height: 66px;&quot;&gt;&lt;p style=&quot;font-size:15px;word-break:break-all;padding: 23px 32px;margin:0;background-color: hsla(0,0%,100%,.4);border-radius: 10px 10px 0 0;&quot;&gt;您在&lt;a style=&quot;text-decoration:none;color: #ffffff;&quot; href=&quot;${SITE_URL}&quot;&gt; ${SITE_NAME}&lt;/a&gt;上的留言有新回复啦！&lt;/p&gt;&lt;/div&gt;&lt;div style=&quot;margin:40px auto;width:90%&quot;&gt;&lt;p&gt;${PARENT_NICK} 同学，您曾在文章上发表评论：&lt;/p&gt;&lt;div style=&quot;background: #fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:14px;color:#555555;&quot;&gt;${PARENT_COMMENT}&lt;/div&gt;&lt;p&gt;${NICK} 给您的回复如下：&lt;/p&gt;&lt;div style=&quot;background: #fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:14px;color:#555555;&quot;&gt;${COMMENT}&lt;/div&gt;&lt;p&gt;您可以点击&lt;a style=&quot;text-decoration:none; color:#12addb&quot; href=&quot;${POST_URL}#comments&quot;&gt;查看回复的完整內容&lt;/a&gt;，欢迎再次光临&lt;a style=&quot;text-decoration:none; color:#12addb&quot;                href=&quot;${SITE_URL}&quot;&gt; ${SITE_NAME}&lt;/a&gt;。&lt;/p&gt;&lt;style type=&quot;text/css&quot;&gt;a:link{text-decoration:none}a:visited{text-decoration:none}a:hover{text-decoration:none}a:active{text-decoration:none}&lt;/style&gt;&lt;/div&gt;&lt;/div&gt;</code></pre><p>效果图：</p><p><img src="18.png" srcset="/img/loading.gif" alt="18"></p><p>被@通知模板中的可用变量如下（注，这是邮件模板变量，是指嵌入到HTML邮件模板中的变量，请勿与云引擎环境变量混淆）：</p><table><thead><tr><th>模板变量</th><th>说明</th></tr></thead><tbody><tr><td>SITE_NAME</td><td>博客名称</td></tr><tr><td>SITE_URL</td><td>博客首页地址</td></tr><tr><td>POST_URL</td><td>文章地址（完整路径）</td></tr><tr><td>PARENT_NICK</td><td>收件人昵称（被@者，父级评论人）</td></tr><tr><td>PARENT_COMMENT</td><td>父级评论内容</td></tr><tr><td>NICK</td><td>新评论者昵称</td></tr><tr><td>COMMENT</td><td>新评论内容</td></tr></tbody></table><p>有需求代码部分可以自定义，没有需求的话直接复制<strong>博主邮件通知</strong>代码到<code>MAIL_TEMPLATE_ADMIN</code>，复制<strong>被@通知</strong>代码到<code>MAIL_TEMPLATE</code>，保存即可。</p><blockquote><p><strong>注</strong>：修改了环境变量需要重启实例。</p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>博客</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hexo</tag>
+      
+      <tag>博客</tag>
+      
+      <tag>Valine</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hexo中插入本地图片</title>
+    <link href="/2019/01/27/Hexo%E4%B8%AD%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/"/>
+    <url>/2019/01/27/Hexo%E4%B8%AD%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/</url>
+    
+    <content type="html"><![CDATA[<h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><p>在Hexo中插图片的方式，在晚上看到是有多种办法的，但是我暂时只写一种办法，大概也是我认为最简单直接可以解决问题的办法。</p><a id="more"></a><h3 id="插入图片的几种方式："><a href="#插入图片的几种方式：" class="headerlink" title="插入图片的几种方式："></a>插入图片的几种方式：</h3><p>下面是插入图片的几种方式：</p><ul><li>传统Markdown方式</li><li>Hexo方式post_asset_folder</li><li>网络图片插入</li><li>Hexo的特定语法</li></ul><h3 id="Hexo方式post-asset-folder"><a href="#Hexo方式post-asset-folder" class="headerlink" title="Hexo方式post_asset_folder"></a>Hexo方式post_asset_folder</h3><p>1.根目录下的配置文件<code>_config.yml</code>里的<code>post_asset_folder</code>选项设置为<code>true</code>。置为<code>true</code>之后新建文章的时候就会同时创建一个与文章同名的文件夹用于存放资源，Hexo官方文档称之为<a href="https://hexo.io/zh-cn/docs/asset-folders.html" target="_blank" rel="noopener">资源文件夹</a>。之后把每篇文章需要插入的图片都放在这个文件夹里。</p><p>2.执行命令<code>npm install hexo-asset-image --save</code> ，下载安装一个可以上传本地图片的<a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">插件</a>。</p><p>3.编辑文章的时候，只需要用markdown语法插入图片<code>![](test.jpg)</code>，图片的路径只需给出图片名字就行。</p><p>4.用markdown编辑器编辑时这样的语法是不会直接显示图片的，文章写好后本地测试就有了，然后部署到云端就行。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>就写这一个添加图片的方式，个人感觉这应该是最简单的方式了，其它几种方式有需要以后再更新吧。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>博客</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hexo</tag>
+      
+      <tag>博客</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hexo yilia主题添加“不蒜子”访问量统计</title>
+    <link href="/2019/01/26/Hexo-yilia%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E2%80%9C%E4%B8%8D%E8%92%9C%E5%AD%90%E2%80%9D%E8%AE%BF%E9%97%AE%E9%87%8F%E7%BB%9F%E8%AE%A1/"/>
+    <url>/2019/01/26/Hexo-yilia%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E2%80%9C%E4%B8%8D%E8%92%9C%E5%AD%90%E2%80%9D%E8%AE%BF%E9%97%AE%E9%87%8F%E7%BB%9F%E8%AE%A1/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>不蒜子：<a href="https://busuanzi.ibruce.info/" target="_blank" rel="noopener">https://busuanzi.ibruce.info/</a></p></blockquote><p>Hexo添加访问量统计功能可以用<strong>百度统计</strong>、<strong>Leancloud</strong>，还有<strong>不蒜子</strong>。</p><p>我设置了百度统计，但是百度统计只能在后台查看数据，而今天新添加的不蒜子，可以将统计信息直接显示在网页上，更加直观一些，也减少了登录后台的麻烦。</p><a id="more"></a><h3 id="一、添加不蒜子"><a href="#一、添加不蒜子" class="headerlink" title="一、添加不蒜子"></a>一、添加不蒜子</h3><p>将下面的代码添加到<code>/themes/根据个人目录修改/layout/_partial/footer.ejs</code>（代码添加到不同的位置，在页面上显示的位置也不同）：</p><pre><code class="javascript">&lt;script async src=&quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</code></pre><p>我将它放在了页面下方正中。</p><p>这段代码我写在了<code>footer.ejs</code>里，也可以写在<code>header.ejs</code>里或者<code>layout.ejs</code>里。</p><p><img src="Snipaste_2019-01-26_22-35-45.png" srcset="/img/loading.gif" alt></p><h3 id="二、添加站点访问量"><a href="#二、添加站点访问量" class="headerlink" title="二、添加站点访问量"></a>二、添加站点访问量</h3><p>通常站点的总访问量会显示在<code>footer</code>的位置，所以我们可以在<code>footer.ejs</code>里添加如下标签，两种算法根据需要任选其一即可（如上图）：</p><p><strong>算法a</strong>：pv的方式，单个用户连续点击n篇文章，记录n次访问量。</p><pre><code class="javascript">&lt;span id=&quot;busuanzi_container_site_pv&quot;&gt;    本站总访问量&lt;span id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;次&lt;/span&gt;</code></pre><p><strong>算法b</strong>：uv的方式，单个用户连续点击n篇文章，只记录1次访客数。</p><pre><code class="javascript">&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;  本站访客数&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;人次&lt;/span&gt;</code></pre><h3 id="三、添加文章阅读量"><a href="#三、添加文章阅读量" class="headerlink" title="三、添加文章阅读量"></a>三、添加文章阅读量</h3><p>添加文章阅读量和站点访问量基本一致，但是要添加一个判断条件只在文章中显示文章阅读量，主页自然是没有阅读量一说的。</p><p>将下面的代码添加到<code>/themes/根据个人目录修改/layout/_partial/article.ejs</code>的合适位置：</p><pre><code class="javascript">&lt;% if (!index){ %&gt;  &lt;span id=&quot;busuanzi_container_page_pv&quot;&gt;    ⋉(●本文总阅读量 &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt; 次●)⋊  &lt;/span&gt;&lt;% } %&gt;</code></pre><p>例如我放在了如图所示位置，最终会现在在文章底部的标签后面。</p><p><img src="Snipaste_2019-01-26_22-55-12.png" srcset="/img/loading.gif" alt></p><h3 id="四、最终的显示效果"><a href="#四、最终的显示效果" class="headerlink" title="四、最终的显示效果"></a>四、最终的显示效果</h3><p>文章阅读量：</p><p><img src="Snipaste_2019-01-26_23-01-52.png" srcset="/img/loading.gif" alt></p><p>站点访问量：</p><p><img src="Snipaste_2019-01-26_23-02-15.png" srcset="/img/loading.gif" alt></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>博客</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hexo</tag>
+      
+      <tag>博客</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 移动零</title>
+    <link href="/2019/01/26/Leetcode-%E7%A7%BB%E5%8A%A8%E9%9B%B6/"/>
+    <url>/2019/01/26/Leetcode-%E7%A7%BB%E5%8A%A8%E9%9B%B6/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p> 地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/28/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/28/</a></p></blockquote><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给定一个数组 <code>nums</code>，编写一个函数将所有 <code>0</code> 移动到数组的末尾，同时保持非零元素的相对顺序。</p><a id="more"></a><p><strong>示例:</strong></p><pre><code>输入: [0,1,0,3,12]输出: [1,3,12,0,0]</code></pre><p><strong>说明</strong>:</p><ol><li>必须在原数组上操作，不能拷贝额外的数组。</li><li>尽量减少操作次数。</li></ol><h3 id="二、我的解决方案"><a href="#二、我的解决方案" class="headerlink" title="二、我的解决方案"></a>二、我的解决方案</h3><pre><code class="c++">class Solution {public:    void moveZeroes(vector&lt;int&gt;&amp; nums) {        int q = 0;   //用于记录当前遍历到的0的个数        for (int i = nums.size() - 1; i &gt;= 0; i--) {   //从后往前遍历避免对已经后移的0重复处理            if (nums[i] == 0) {                nums.insert(nums.end() - q, 0);    //在数组尾第q个0之前插入一个0                nums.erase(nums.begin() + i);     //删除nums[i]                q++;            }        }    }};</code></pre><p>使用了两个<code>vector</code>的函数<code>insert</code>（用于插入元素）和<code>erase</code>（用于删除元素）。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>数组</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 加一</title>
+    <link href="/2019/01/25/Leetcode-%E5%8A%A0%E4%B8%80/"/>
+    <url>/2019/01/25/Leetcode-%E5%8A%A0%E4%B8%80/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/27/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/27/</a></p></blockquote><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给定一个由<strong>整数</strong>组成的<strong>非空</strong>数组所表示的非负整数，在该数的基础上加一。</p><a id="more"></a><p>最高位数字存放在数组的首位， 数组中每个元素只存储一个数字。</p><p>你可以假设除了整数 0 之外，这个整数不会以零开头。</p><p><strong>示例 1:</strong></p><pre><code>输入: [1,2,3]输出: [1,2,4]解释: 输入数组表示数字 123。</code></pre><p><strong>示例 2:</strong></p><pre><code>输入: [4,3,2,1]输出: [4,3,2,2]解释: 输入数组表示数字 4321。</code></pre><h3 id="二、我的解决方案"><a href="#二、我的解决方案" class="headerlink" title="二、我的解决方案"></a>二、我的解决方案</h3><p>首先想到用一个int型整数来保存输入的这个数，因为整数+1很容易实现，把数组的各个数字合并成一个整数以及将一个整数拆分成单个数字都很容易实现，所以写出了这份代码，也理所当然的造成了太大的数<strong>溢出</strong>的问题：</p><pre><code class="c++">class Solution {public:    vector&lt;int&gt; plusOne(vector&lt;int&gt;&amp; digits) {        vector&lt;int&gt; plusone;        int integer = digits[0];    //默认输入数组非空，最小为0        if (digits.size() &gt; 0) {    //计算出对应的数字integer            for (int i = 1; i &lt; digits.size(); i++) {                integer = integer * 10 + digits[i];            }        }        integer += 1;   //整数+1        while (integer!=0) {    //将整数拆分成单个数字并逆序保存到plusone数组中            plusone.insert(plusone.end(), integer % 10);            integer /= 10;        }        for (int i = 0; i &lt; plusone.size() / 2; i++) {   //逆序排列得出结果            int temp = plusone[i];            plusone[i] = plusone[plusone.size() - 1 - i];            plusone[plusone.size() - 1 - i] = temp;        }        return plusone;    }};</code></pre><p>例如当输入的数字为<code>[9,8,7,6,5,4,3,2,1,0]</code>时，将得到错误的结果<code>[1,2,8,6,6,0,8,6,1,9]</code>。</p><p><strong>改进后的代码：</strong></p><pre><code class="c++">class Solution {public:    vector&lt;int&gt; plusOne(vector&lt;int&gt;&amp; digits) {        int car = 1;   //对最后一位+1以及判断当前项是否有进位        for (int i = digits.size() - 1; i &gt;= 0; i--) {  //从最后一项开始往前遍历            if (car == 1) {                if (digits[i] == 9) {   //如果当前项为9并且要+1，则当前项置0，进位标志置1                    digits[i] = 0;                    car = 1;                    continue;                }                else {    //如果当前项非9并且要+1，当前项直接+1，并将进位标志置0                    digits[i] += 1;                    car = 0;                    break;    //一旦进位标志置0表明往前不会再有进位，无需继续遍历                }            }        }        if (car == 1)  //如果上面循环结束后进位标志仍为1，则还需要在数组最前面补1            digits.insert(digits.begin(), 1);        return digits;    }};</code></pre><p>很明显，改进后的代码相对更简洁一些，同时不再受限于整型溢出导致的错误结果。</p><p>前面的代码思路比较简单，也更切合我们日常生活中整数简单+1的操作；事实上改进后的代码思路也并不是很复杂，相对于前面的方法不是那么的抽象，逻辑上略微复杂一点点，因为要把+1的操作作用到单个数字上，要考虑进位的处理（也就是9+1=10的情况下，应该是当前位置0，进位导致前一位要+1）。</p><p>不管怎么说，应该可以说后者在各方面都是要优于前者的。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>数组</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 两个数组的交集 II</title>
+    <link href="/2019/01/24/Leetcode-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86-II/"/>
+    <url>/2019/01/24/Leetcode-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86-II/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p> 地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/26/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/26/</a></p></blockquote><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a><strong>一、题目</strong></h3><p>给定两个数组，编写一个函数来计算它们的交集。</p><a id="more"></a><p><strong>示例 1:</strong></p><pre><code>输入: nums1 = [1,2,2,1], nums2 = [2,2]输出: [2,2]</code></pre><p><strong>示例 2:</strong></p><pre><code>输入: nums1 = [4,9,5], nums2 = [9,4,9,8,4]输出: [4,9]</code></pre><p><strong>说明：</strong></p><ul><li>输出结果中每个元素出现的次数，应与元素在两个数组中出现的次数一致。</li><li>我们可以不考虑输出结果的顺序。</li></ul><p><strong>进阶:</strong></p><ul><li>如果给定的数组已经排好序呢？你将如何优化你的算法？</li><li>如果 <em>nums1</em> 的大小比 <em>nums2</em> 小很多，哪种方法更优？</li><li>如果 <em>nums2</em> 的元素存储在磁盘上，磁盘内存是有限的，并且你不能一次加载所有的元素到内存中，你该怎么办？</li></ul><h3 id="二、我的解决方案："><a href="#二、我的解决方案：" class="headerlink" title="二、我的解决方案："></a><strong>二、我的解决方案：</strong></h3><p><strong>算法：</strong></p><pre><code class="c++">class Solution {public:    vector&lt;int&gt; intersect(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) {        vector&lt;int&gt; inter;    //保存交集的数组        for (int i = 0; i &lt; nums1.size(); i++) {    //任选一个数组作为外层循环，选小的数组较好            int q = 0;     //用于统计交集中有多少个与当前nums1[i]相等的数            for (int j = 0; j &lt; inter.size(); j++) {   //统计                if (inter[j] == nums1[i])                    q++;            }            //q&gt;=1表明交集中已存在q个与nums1[i]相等的数            //q==0表明交集中不存在与nums1[i]相等的数            for (int k = 0; k &lt; nums2.size(); k++) {    //在nums2中查找与nums1[i]相等的数                //表明nums1[i]与nums2[k]是一对新相等的数，要插入到inter数组中                if (q == 0 &amp;&amp; nums2[k] == nums1[i]) {                    inter.insert(inter.end(), nums1[i]);                    //一旦插入一个新的相交的元素就跳出循环                    //否则如果nums2中后序还有相等的数就会多次插入，逻辑错误                    break;                }                //相当于从第q个与nums1[i]相等的数的后开始找新的与nums1[i]相等的数                else if (nums2[k] == nums1[i])                    q--;            }        }        return inter;    }};</code></pre><p><strong>进阶思路：</strong></p><ol><li>如果是已经排好序的两个数组，可以不用每次都从头开始查找，每一次查找的时候记录下当前的位置，这个位置之前的已经不可能存在交集了也就不用再查找一次了</li><li>如果 <em>nums1</em> 的大小比 <em>nums2</em> 小很多，可以把nums1作为外层循环</li><li>对内存的分配还不太清楚</li></ol>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>数组</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>YAML语法简记</title>
+    <link href="/2019/01/23/YAML%E8%AF%AD%E6%B3%95%E7%AE%80%E8%AE%B0/"/>
+    <url>/2019/01/23/YAML%E8%AF%AD%E6%B3%95%E7%AE%80%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<p>YAML Ain’t Markup Language</p><h3 id="基本语法规则"><a href="#基本语法规则" class="headerlink" title="基本语法规则"></a>基本语法规则</h3><ul><li>大小写敏感</li><li>使用缩进表示层级关系</li><li>缩进时不允许使用Tab键，只允许使用空格</li><li>缩进的空格数目不重要，只要相同层级的元素左侧对齐即可</li><li>#表示注释，从这个字符一直到行尾，都会被解析器忽略</li></ul><a id="more"></a><h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><p>YAML uses three dashes (“—”) to separate directives from document content. This also serves to signal the start of a document. if no directives are present. Three dots ( “…”) indicate the end of a document without starting a new one, for use in communication channels.</p><p>YAML以（“—”）表示文章的开始，以（“…”）表示结束（不代表新的文章的开始）。</p><p>Structure通过空格来展示。Sequence里的项用”-“来代表，Map里的键值对用”:”分隔。</p><p>一般YAML文件扩展名为.yaml。比如：John.yaml</p><pre><code class="yaml">name: John Smithage: 37spouse:  name: Jane Smith  age: 25children:  - name: Jimmy Smith    age: 15  - name: Jenny Smith    age: 12</code></pre><p>John Smith今年37岁，有一个幸福的四口之家。两个孩子Jimmy 和Jenny活泼可爱。妻子Jane年轻美貌。</p><p>可见YAML的可读性是不错。</p><p><strong>列表</strong>中的所有成员都开始于相同的缩进级别, 并且使用一个 <code>&quot;- &quot;</code> 作为开头(一个横杠和一个空格):</p><pre><code class="yaml">---# 一个美味水果的列表- Apple- Orange- Strawberry- Mango</code></pre><p>一个<strong>字典</strong>是由一个简单的 <code>键: 值</code> 的形式组成(这个冒号后面必须是一个空格)：</p><pre><code class="yaml">---# 一位职工的记录name: Example Developerjob: Developerskill: Elite</code></pre><p>字典也可以使用缩进形式来表示, 如果你喜欢这样的话：</p><pre><code class="yaml">---# 一位职工的记录{name: Example Developer, job: Developer, skill: Elite}</code></pre><p>可以通过以下格式来指定一个<strong>布尔值</strong>(true/fase)：</p><pre><code class="yaml">---create_key: yesneeds_agent: noknows_oop: Truelikes_emacs: TRUEuses_cvs: false</code></pre><p>综合以上信息：</p><pre><code class="yaml">---# 一位职工记录name: Example Developerjob: Developerskill: Eliteemployed: Truefoods:    - Apple    #缩进只能用空格不能用Tab    - Orange    - Strawberry    - Mangolanguages:    ruby: Elite    python: Elite    dotnet: Lame</code></pre><p>尽管 YAML 通常是友好的, 但是下面将会导致一个 YAML 语法错误:</p><pre><code class="yaml">foo: somebody said I should put a colon here: so I did</code></pre><p>你需要使用引号来包裹任何包含冒号的哈希值, 像这样:</p><pre><code class="yaml">foo: &quot;somebody said I should put a colon here: so I did&quot;</code></pre><p>然后这个冒号将会被结尾.</p><p>此外, Ansible 使用 “” 来引用变量. 如果一个值以 “{” 开头, YAML 将认为它是一个字典, 所以我们必须引用它, 像这样:</p><pre><code class="yaml">foo: &quot;{{ variable }}&quot;</code></pre><h3 id="三种数据结构"><a href="#三种数据结构" class="headerlink" title="三种数据结构"></a>三种数据结构</h3><ol><li>对象：键值对的集合，又称为映射（mapping）/ 哈希（hashes） / 字典（dictionary）</li><li>数组：一组按次序排列的值，又称为序列（sequence） / 列表（list）</li><li>纯量（scalars）：单个的、不可再分的值</li></ol><h4 id="1-对象"><a href="#1-对象" class="headerlink" title="1. 对象"></a>1. 对象</h4><p>对象的一组键值对，使用冒号结构表示</p><pre><code class="yaml">animal: pets</code></pre><p> Yaml 也允许另一种写法，将所有键值对写成一个行内对象</p><pre><code class="yaml">hash: { name: Steve, foo: bar }</code></pre><h4 id="2-数组"><a href="#2-数组" class="headerlink" title="2.数组"></a>2.数组</h4><p>一组连词线开头的行，构成一个数组</p><pre><code class="yaml">- Cat- Dog- Goldfish</code></pre><p>数据结构的子成员是一个数组，则可以在该项下面缩进一个空格。</p><pre><code class="yaml">-  - Cat - Dog - Goldfish</code></pre><p> 数组也可以采用行内表示法。</p><p>animal: [Cat, Dog]</p><h4 id="3-复合结构"><a href="#3-复合结构" class="headerlink" title="3. 复合结构"></a>3. 复合结构</h4><p>对象和数组可以结合使用，形成复合结构。</p><pre><code class="yaml">languages:   #数组   - Ruby   - Perl   - Python websites:   #对象   YAML: yaml.org   Ruby: ruby-lang.org   Python: python.org   Perl: use.perl.org</code></pre><h4 id="4-纯量"><a href="#4-纯量" class="headerlink" title="4. 纯量"></a>4. 纯量</h4><p>纯量是最基本的、不可再分的值。</p><ul><li>字符串</li><li>布尔值</li><li>整数</li><li>浮点数</li><li>Null</li><li>时间</li><li>日期</li></ul><p>数值直接以字面量的形式表示。</p><pre><code class="yaml">number: 12.30</code></pre><p>{ number: 12.30 }<br> 布尔值用true和false表示。</p><pre><code class="yaml">isSet: true</code></pre><p> null用~表示。</p><pre><code class="yaml">parent: ~</code></pre><p> 时间采用 ISO8601 格式。</p><pre><code class="yaml">iso8601: 2001-12-14t21:59:43.10-05:00</code></pre><p>日期采用复合 iso8601 格式的年、月、日表示。</p><pre><code class="yaml">date: 1976-07-31</code></pre><p>YAML 允许使用两个感叹号，强制转换数据类型。</p><pre><code class="yaml">e: !!str 123f: !!str true</code></pre><h4 id="5-字符串"><a href="#5-字符串" class="headerlink" title="5. 字符串"></a>5. 字符串</h4><p>字符串是最常见，也是最复杂的一种数据类型。</p><p>字符串默认不使用引号表示。</p><pre><code class="yaml">str: 这是一行字符串</code></pre><p>如果字符串之中包含空格或特殊字符，需要放在引号之中。</p><pre><code class="yaml">str: &#39;内容：字符串&#39;</code></pre><p>单引号和双引号都可以使用，双引号不会对特殊字符转义。</p><pre><code class="yaml">s1: &#39;内容\n字符串&#39;s2: &quot;内容\n字符串&quot;</code></pre><p>单引号之中如果还有单引号，必须连续使用两个单引号转义。</p><pre><code class="yaml">str: &#39;labor&#39;&#39;s day&#39;</code></pre><p>字符串可以写成多行，从第二行开始，必须有一个单空格缩进。换行符会被转为空格。</p><pre><code class="yaml">str: 这是一段多行字符串</code></pre><p>多行字符串可以使用|保留换行符，也可以使用&gt;折叠换行。</p><pre><code class="yaml">this: |  Foo  Barthat: &gt;  Foo  Bar</code></pre><p> +表示保留文字块末尾的换行，-表示删除字符串末尾的换行。</p><pre><code class="yaml">s1: |  Foos2: |+  Foos3: |-  Foo</code></pre><p>字符串之中可以插入 HTML 标记。</p><pre><code class="yaml">message: |&lt;p style=&quot;color: red&quot;&gt;段落&lt;/p&gt;</code></pre><h4 id="6-引用"><a href="#6-引用" class="headerlink" title="6. 引用"></a>6. 引用</h4><p>锚点&amp;和别名*，可以用来引用。</p><p>&amp;用来建立锚点（defaults），&lt;&lt;表示合并到当前数据，*用来引用锚点。</p><pre><code class="yaml">defaults: &amp;defaults   #建立锚点&amp;defaults  adapter: postgres  host: localhostdevelopment:  database: myapp_development  &lt;&lt;: *defaults    #引用锚点test:  database: myapp_test  &lt;&lt;: *defaults    #引用锚点</code></pre><p> 等同于下面的代码。</p><pre><code class="yaml">defaults:  adapter: postgres  host: localhostdevelopment:  database: myapp_development  adapter: postgres  host: localhosttest:  database: myapp_test  adapter: postgres  host: localhost</code></pre><p> 下面是另一个例子。</p><pre><code class="yaml">&amp;showell Steve  #建立showell锚点ClarkBrianOren*showell   #引用锚点showell，即Steve</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>YAML</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 只出现一次的数字</title>
+    <link href="/2019/01/22/Leetcode-%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/"/>
+    <url>/2019/01/22/Leetcode-%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/25/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/25/</a>  </p></blockquote><p><strong>题目：</strong></p><p>给定一个<strong>非空</strong>整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。</p><a id="more"></a><p><strong>说明：</strong></p><p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p><p><strong>示例 1:</strong></p><pre><code>输入: [2,2,1]输出: 1</code></pre><p><strong>示例 2:</strong></p><pre><code>输入: [4,1,2,1,2]输出: 4</code></pre><p><strong>我的解决方案：</strong></p><pre><code class="c++">class Solution {public:    int singleNumber(vector&lt;int&gt;&amp; nums) {    //如果数组为空显然不存在题述两种情况    if (nums.size() == 0)        return 0;    //如果数组只有一个元素，则直接返回这个元素    else if (nums.size() == 1)        return nums[0];    //如果上述两种情况都不满足    for (int i = 0; i &lt; nums.size(); i++) {        bool bl = false;        for (int j = 0; j &lt; nums.size(); j++) {            //如果j==i，显然nums[j]==nums[i]，直接跳过这种情况            if (j == i)                continue;            //如果j!=i并且nums[j]==nums[i]，说明这个元素出现了不止一次            else if (nums[j] == nums[i])                break;            //如果i已经取到了最后一个元素，前面第一个if排除了j==i的情况            //所以这里当j取到倒数第二个元素就判断结束            else if (i == nums.size() - 1 &amp;&amp; j == nums.size() - 2)                bl = true;            //如果j取到最后一个元素都没有找到与nums[i]相同的元素，则元素nums[i]只出现了一次            else if (j == nums.size() - 1)                bl = true;        }        if (bl == true)            return nums[i];    }    return 0;    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>数组</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>GitHub+Hexo搭建博客笔记</title>
+    <link href="/2019/01/18/GitHub-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%AC%94%E8%AE%B0/"/>
+    <url>/2019/01/18/GitHub-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E7%AC%94%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>一直想搭建一个个人博客主要是为了学习吧，我可以不写博客但是我得会搭建博客，会搭博客了我写不写是我的事，哈哈。。。</p><a id="more"></a><p>这是我的博客主页：<a href="https://mxy493.github.io/">https://mxy493.github.io/</a></p><p>采用GitHub+Hexo搭建博客的原因很简单，百度的，很多大佬推荐，要么就是WordPress，大概WordPress要付费的吧，不太清楚，总之GitHub+Hexo的方案目前一分钱没花，应该也是不需要花钱的，都是开源项目。</p><p>基本上都是参照网上的教程一步一步傻瓜式操作来的，可以说不需要什么专业知识，顺手写下这篇文章做测试吧。</p><h2 id="Hexo介绍"><a href="#Hexo介绍" class="headerlink" title="Hexo介绍"></a>Hexo介绍</h2><p>Hexo官网有比较清楚的介绍，最好看看官网的文档，写的可以说是很详细很清晰了，可以先不懂，看完基本上就知道是怎么回事了，然后再来一步步操作。</p><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>环境：Windows系统（我的是Windows 10专业版）</p><p>需要安装的软件：<a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a>（不是GitHub），<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>，<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>（npm安装）</p><h3 id="Git安装"><a href="#Git安装" class="headerlink" title="Git安装"></a>Git安装</h3><p>下载并安装<a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a>（安装不需要设置什么，默认就可以）</p><p>Git主要用于版本控制，很多操作都需要在Git Bash上进行，Git不懂可以自己学习一下，主要学学命令就行吧，网上很多教程。</p><h3 id="Node-js安装"><a href="#Node-js安装" class="headerlink" title="Node.js安装"></a>Node.js安装</h3><p>关于Node.js的一些介绍可以稍微看一下这篇文章–<a href="https://www.cnblogs.com/fang-beny/p/4778591.html" target="_blank" rel="noopener">NodeJS简介</a>，在本教程中NodeJS主要用于管理下载第三方包，例如hexo，而这些工作都是npm在负责的。</p><p>1.下载并安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a></p><p>官网首页就有醒目的下载按钮，下载好后自选位置（尽量自己记着安装在哪儿）安装就行。</p><p>安装后输入Win+R输入cmd打开控制台输入以下代码：</p><pre><code>node -vnpm -v</code></pre><p>如果安装没有问题的话，会返回安装的版本号。</p><h3 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>安装</h3><p>为了避免出现错误后面的操作都在Git Bash进行。</p><p>首先新建一个存放Hexo文件的目录，自己找个位置就行，然后cd到该目录下，或者直接在该目录下鼠标右键点Git Bash Here就可以，开始安装</p><pre><code>$ cd D:/mxy/Documents/Hexo #换成自己新建的的目录，斜杠不能反了，是&#39;/&#39;，&#39;\&#39;这样不行$ npm install hexo-cli -g #安装hexo脚手架，没啥说的，官网给的安装命令$ hexo init #Hexo自动在当前文件夹下下载搭建网站所需的所有文件$ npm install #安装依赖包$ hexo clean #清理缓存$ hexo g #完整命令为hexo generate，生成静态文件$ hexo s #完整命令为hexo server，启动服务器，用来本地预览</code></pre><p>用浏览器访问 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> ，人生第一个博客就生成好了，巨简单，这是Hexo自动生成的博客，现在是本地浏览的，并没有发布到网上，使用了默认主题landscape，可以根据个人喜好更换主题，官网提供了很多可以使用的<a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题</a>。</p><h3 id="通过Github部署到网上"><a href="#通过Github部署到网上" class="headerlink" title="通过Github部署到网上"></a>通过<a href="https://github.com/" target="_blank" rel="noopener">Github</a>部署到网上</h3><p>本地博客搭建好了接下来是要把它部署到网上，通过GitHub部署，也可以使用Coding，都差不多。</p><p>没有GitHub账号的话现在就需要注册一个了，名字别太花哨吧，记着自己注册用的邮箱账号。</p><p>Github Page：</p><p>浏览器打开GitHub主页，右上角“+”新建仓库New repository，</p><p>Repository name：<em>mxy493.github.io</em> 填入自己的仓库名称，<em>自己用户名.github.io</em>，最后自己的博客地址就是：<em>https://自己的用户名.github.io/</em></p><h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h3><p>Git Bash中输入命令：邮件地址为注册GitHub时的邮箱</p><pre><code>$ ssh-keygen -t rsa -C &quot;你的邮件地址&quot;  </code></pre><p>回车回车回车，会提示输入密码，输入即可（输入密码是看不到的），也可以不用输入，然后会确认输入一次，就可以在刚刚的路径看到生成了两个文件，一个是id_rsa，另一个是id_rsa.pub，用VS code或者别的软件打开id_rsa.pub然后选中里面的全部内容，复制下来。</p><p>打开GitHub，右上角点击自己的头像，选择settings，左侧选择SSH and GPG keys，然后New SSH key，Title随意把复制的内容粘贴到下面的Key的框里面，最后点击Add SSH key完事。</p><h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><p>打开D:\mxy\Documents\Hexo\mxy，用VS code（或者别的可以编辑的软件都可以）打开_config.yml文件，文件最后可以看到</p><pre><code>deploy:  type: </code></pre><p>修改（注意要换上自己的链接）</p><pre><code>deploy:  type: git  repository: git@github.com:mxy493/mxy493.github.io.git  #这里换成自己的地址  branch: master</code></pre><p>不清楚自己的地址可以到GitHub上面看，右上角头像-&gt;Your Rrepositories，找到自己建的代码仓库打开</p><p>修改完成保存！</p><p>继续在Git Bash中输入以下命令：</p><pre><code>$ hexo d #完整命令为hexo deploy，将本地文件发布到page服务平台上</code></pre><p>如果遇到异常：</p><pre><code>$ hexo clean &amp;&amp; hexo g$ hexo d</code></pre><p>如果出现以下异常</p><pre><code>ERROR Deployer not found: git</code></pre><p>尝试输入以下命令，然后重新执行刚刚的两条命令</p><pre><code>$ npm install hexo-deployer-git --save</code></pre><p>这时候如果弹出一个对话框，输入在GitHub上面的用户名和密码即可</p><p>现在，博客就已经发布到网上了，可以通过地址https://自己的用户名.github.io/访问</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>博客</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hexo</tag>
+      
+      <tag>博客</tag>
+      
+      <tag>GitHub</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2019/01/17/hello-world/"/>
+    <url>/2019/01/17/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>mxy测试</title>
+    <link href="/2019/01/17/mxy%E6%B5%8B%E8%AF%95/"/>
+    <url>/2019/01/17/mxy%E6%B5%8B%E8%AF%95/</url>
+    
+    <content type="html"><![CDATA[<p>Have a nice day</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
