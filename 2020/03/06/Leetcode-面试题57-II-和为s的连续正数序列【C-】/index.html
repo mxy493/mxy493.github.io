@@ -15,7 +15,7 @@
   <meta name="description" content>
   <meta name="author" content="mxy">
   <meta name="keywords" content>
-  <title>归档 ~ mxy</title>
+  <title>Leetcode 面试题57 - II.和为s的连续正数序列【C++】 ~ mxy</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
@@ -36,7 +36,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -115,6 +115,41 @@
             </span>
 
             
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期五, 三月 6日 2020, 2:37 下午
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    781 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      3 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
           </div>
 
           
@@ -125,101 +160,136 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 40 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2019</p>
-    
-    <a href="/2019/03/25/Windows平台使用Doxygen-GraphViz生成函数调用关系图/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Windows平台使用Doxygen+GraphViz生成函数调用关系图</span>
-      <span style="float: right;">03-25</span>
-    </a>
-  
-    
-    <a href="/2019/03/04/Leetcode-回文链表/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 回文链表</span>
-      <span style="float: right;">03-04</span>
-    </a>
-  
-    
-    <a href="/2019/03/01/Leetcode-合并两个有序链表/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 合并两个有序链表</span>
-      <span style="float: right;">03-01</span>
-    </a>
-  
-    
-    <a href="/2019/02/27/Leetcode-反转链表/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 反转链表</span>
-      <span style="float: right;">02-27</span>
-    </a>
-  
-    
-    <a href="/2019/02/23/Leetcode-删除链表的倒数第N个节点/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 删除链表的倒数第N个节点</span>
-      <span style="float: right;">02-23</span>
-    </a>
-  
-    
-    <a href="/2019/02/22/Leetcode-删除链表中的节点/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 删除链表中的节点</span>
-      <span style="float: right;">02-22</span>
-    </a>
-  
-    
-    <a href="/2019/02/06/Leetcode-最长公共前缀/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 最长公共前缀</span>
-      <span style="float: right;">02-06</span>
-    </a>
-  
-    
-    <a href="/2019/02/06/Leetcode-报数/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 报数</span>
-      <span style="float: right;">02-06</span>
-    </a>
-  
-    
-    <a href="/2019/02/06/Leetcode-实现strStr/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 实现strStr()</span>
-      <span style="float: right;">02-06</span>
-    </a>
-  
-    
-    <a href="/2019/02/04/Leetcode-字符串转换整数-atoi/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 字符串转换整数(atoi)</span>
-      <span style="float: right;">02-04</span>
-    </a>
-  
-</div>
 
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/3/"><i class="fas fa-angle-double-right"></i></a>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
-      ele.href += '#board';
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <blockquote>
+<p>地址：<a href="https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/</a></p>
+</blockquote>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>输入一个正整数 target ，输出所有和为 target 的连续正整数序列（至少含有两个数）。</p>
+<p>序列内的数字由小到大排列，不同序列按照首个数字从小到大排列。</p>
+<p><strong>示例 1：</strong></p>
+<pre><code>输入：target = 9
+输出：[[2,3,4],[4,5]]</code></pre><p><strong>示例 2：</strong></p>
+<pre><code>输入：target = 15
+输出：[[1,2,3,4,5],[4,5,6],[7,8]]</code></pre><p><strong>限制：</strong></p>
+<ul>
+<li><code>1 &lt;= target &lt;= 10^5</code></li>
+</ul>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先很容易想到一点，最大可能取到的数是 <code>target/2 + 1</code> ，例如对 <code>target == 5</code> 而言，最大只可能取到 <code>5/2 +1 = 3</code> ，若取到4，由于题目要求是连续正整数，那么就必须取到3或者5，此时 <code>3 + 4 = 7</code> 已经大于目标值5。</p>
+<p>这个题按照人的思维还是很容易想到的，就是从第一个正整数1开始往后依次相加，如果相加之后的和sum小于目标值，那就继续加后一个正整数，如果sum大于目标值，就减去序列最小的数，直到 <code>sum == target</code> 即找到了一组符合题目要求的连续正整数。</p>
+<p>转化为编程思想，我首先想到了用队列queue来存储一串连续的正整数。队列中的数的和小于目标值，就将后一个正整数加入队列；如果大于目标值，就将队首的最小数弹出；直到队列中的数的和等于目标值target，此时逐个取出队列中的数即为一组符合题意的连续正整数。但是，使用队列只能很方便的用于找到一组这样的数，如果我们要继续找第二组，那就要让第一组数中从第二个数开始的所有数重新加入队列，这是很不划算的~</p>
+<p>所以，还是用 <code>vector&lt;int&gt;</code>，与队列同样的步骤，但不需要每次找到一组连续整数后都重新将那些数加入到数组，每找到一个只需要利用 <code>push_back()</code> 函数，仅一条语句就可以将这个 <code>vector&lt;int&gt;</code> 加入到 <code>vector&lt;vector&lt;int&gt;&gt;</code> 的返回值中，然后就可以继续使用这个<code>vector&lt;int&gt;</code> 查找下一组满足题目要求的连续整数。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {
+public:
+    vector&lt;vector&lt;int&gt;&gt; findContinuousSequence(int target) {
+        vector&lt;vector&lt;int&gt;&gt; ans;//返回值
+        vector&lt;int&gt; consecutive;//存储连续的数
+        int sum = 0;//一串连续的数的和
+        //最大可能取到的值是target/2+1
+        //但当最后加上这个最大可能取到的数后，i也会++，所以应使 i &lt;= target/2+2
+        for (int i = 1; i &lt;= target / 2 + 2;) {
+            if (sum &lt; target) {
+                sum += i;
+                consecutive.push_back(i);//将i加到一串连续的数的末尾
+                i++;//取下一个整数
+            }
+            else if (sum == target) {
+                ans.push_back(consecutive);
+                sum -= consecutive[0];//减掉序列中最小的数
+                consecutive.erase(consecutive.begin());//删去序列中最小的数
+            }
+            else {
+                sum -= consecutive[0];//减掉序列中最小的数
+                consecutive.erase(consecutive.begin());//删除第一个元素（最小的数）
+            }
+        }
+        return ans;
     }
-  </script>
+};</code></pre>
 
-
-              </div>
-            </div>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/Leetcode">Leetcode</a>
+                
+                  <a class="hover-with-bg" href="/tags/C++">C++</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="vcomments" style="width: 90%; margin: 0 auto;"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var notify = 'false' === true;
+    var verify = 'false' === true;
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+        app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+        placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+        avatar: "retro",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+      powered by Valine.</a></noscript>
+
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -298,6 +368,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -349,7 +424,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "Leetcode 面试题57 - II.和为s的连续正数序列【C++】&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
