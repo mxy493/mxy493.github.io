@@ -15,7 +15,7 @@
   <meta name="description" content>
   <meta name="author" content="mxy">
   <meta name="keywords" content>
-  <title>归档 ~ mxy</title>
+  <title>Leetcode 面试题 10.01. 合并排序的数组【C++】 ~ mxy</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
@@ -36,7 +36,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -115,6 +115,41 @@
             </span>
 
             
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期五, 三月 6日 2020, 6:15 晚上
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    594 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      2 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
           </div>
 
           
@@ -125,41 +160,132 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 44 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2019</p>
-    
-    <a href="/2019/05/25/Ubuntu上自定义Code-Blocks工作区颜色主题/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Ubuntu上自定义Code::Blocks工作区颜色主题</span>
-      <span style="float: right;">05-25</span>
-    </a>
-  
-    
-    <a href="/2019/05/25/Hexo博客使用插件hexo-git-backup通过GitHub备份与恢复/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Hexo博客使用插件hexo-git-backup通过GitHub备份与恢复</span>
-      <span style="float: right;">05-25</span>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <blockquote>
+<p>地址：<a href="https://leetcode-cn.com/problems/sorted-merge-lcci/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/sorted-merge-lcci/</a></p>
+</blockquote>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定两个排序后的数组 A 和 B，其中 A 的末端有足够的缓冲空间容纳 B。 编写一个方法，将 B 合并入 A 并排序。</p>
+<p>初始化 A 和 B 的元素数量分别为 m 和 n。</p>
+<p><strong>示例:</strong></p>
+<pre><code>输入:
+A = [1,2,3,0,0,0], m = 3
+B = [2,5,6],       n = 3
 
-              </div>
-            </div>
+输出: [1,2,2,3,5,6]</code></pre><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>挺蠢的解法，思路是遍历数组B，将数组B中的元素逐个插入到数组A中合适的位置。</p>
+<p>将遍历A,B数组用的下表i,j定义在函数作用域内，是因为A,B均为排序后的数组，所以已经查找过的部分就没必要再查找一次了。</p>
+<p>第一层循环从数组B中逐个取出元素，在循环体内插入到数组A中，考虑两种情况，第一种情况A，的已排序部分有比B[i]大的数，所以需要进入第二层循环找到第一个比B[i]大的数的位置，将这个数及其后面的已排序的数整体后移一位（第三层循环），然后将B[i]插入到这个位置；第二种情况，B[i]比A中已排序部分的所有数都大，这时候 <code>j == m + i</code> 并且 <code>A[m+i]</code> 一定是等于0的，此时只需将B[i]插入到A的已排序部分的尾部即可。</p>
+<p>还有一个思路是直接将数组B整体插入到数组A已排序部分的后面，然后对整个数组A进行一次排序。但我没有采用这个思路，是因为题目已经表明A,B是已排序数组，所以“<strong>已排序</strong>”这个特性是应该要考虑到的。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {
+public:
+    void merge(vector&lt;int&gt;&amp; A, int m, vector&lt;int&gt;&amp; B, int n) {
+        //分别作为两个数组的下标
+        int i = 0;
+        int j = 0;
+        //遍历数组B
+        for (i; i &lt; n; i++) {
+            //遍历数组A
+            for (j; j &lt; m + i; j++) {
+                //将B[i]插入到A中合适的位置
+                if (B[i] &lt; A[j]) {
+                    for (int k = m + i; k &gt; j; k--) {
+                        A[k] = A[k - 1];
+                    }
+                    A[j] = B[i];
+                    break;
+                }
+            }
+            //B[i]比A中现有的所有数都大，将B[i]插入到A的末尾
+            if (j == m + i &amp;&amp; A[m + i] == 0) {
+                A[m + i] = B[i];
+            }
+        }
+    }
+};</code></pre>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/Leetcode">Leetcode</a>
+                
+                  <a class="hover-with-bg" href="/tags/C++">C++</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="vcomments" style="width: 90%; margin: 0 auto;"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var notify = 'false' === true;
+    var verify = 'false' === true;
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+        app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+        placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+        avatar: "retro",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+      powered by Valine.</a></noscript>
+
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -238,6 +364,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -289,7 +420,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "Leetcode 面试题 10.01. 合并排序的数组【C++】&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

@@ -4,6 +4,90 @@
   
   
   <entry>
+    <title>Leetcode 345.反转字符串中的元音字母【C++】</title>
+    <link href="/2020/03/06/Leetcode-345-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%85%83%E9%9F%B3%E5%AD%97%E6%AF%8D%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/03/06/Leetcode-345-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%85%83%E9%9F%B3%E5%AD%97%E6%AF%8D%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/reverse-vowels-of-a-string/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/reverse-vowels-of-a-string/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>编写一个函数，以字符串作为输入，反转该字符串中的元音字母。</p><p><strong>示例 1:</strong></p><pre><code>输入: &quot;hello&quot;输出: &quot;holle&quot;</code></pre><p><strong>示例 2:</strong></p><pre><code>输入: &quot;leetcode&quot;输出: &quot;leotcede&quot;</code></pre><p><strong>说明:</strong></p><p>元音字母不包含字母”y”。</p><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>26个英文字母中，21个是辅音字母，5个是元音字母。5个元音字母分别是：a、e、i、o、u。</p><p>双指针。分别指向字符串的首尾元素，前指针从前往后查找元音字母，后指针从后往前查找元音字母。</p><p>两层循环，第一层即从前往后找元音字母，找到一个元音字母就进入二层循环，从后往前查找元音字母，找到后互换前后两个元音字母，<code>j--</code> 并跳出二层循环，继续遍历一层循环，直到 <code>i</code> 不再小于 <code>j</code> 即找完了字符串的所有元音字母。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {public:    string reverseVowels(string s) {        int i = 0;        int j = s.length() - 1;        while (i &lt; j)        {            if (isVowel(s[i])) {                while (j &gt; i) {                    if (isVowel(s[j])) {                        char temp = s[i];                        s[i] = s[j];                        s[j] = temp;                        j--;                        break;                    }                    j--;                }            }            i++;        }        return s;    }    bool isVowel(char c) {        if (c == &#39;a&#39; || c == &#39;e&#39; || c == &#39;i&#39; || c == &#39;o&#39; || c == &#39;u&#39;||            c == &#39;A&#39; || c == &#39;E&#39; || c == &#39;I&#39; || c == &#39;O&#39; || c == &#39;U&#39;)            return true;        return false;    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 225.用队列实现栈【C++】</title>
+    <link href="/2020/03/06/Leetcode-225-%E7%94%A8%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E6%A0%88%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/03/06/Leetcode-225-%E7%94%A8%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E6%A0%88%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/implement-stack-using-queues/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/implement-stack-using-queues/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>使用队列实现栈的下列操作：</p><ul><li>push(x) – 元素 x 入栈</li><li>pop() – 移除栈顶元素</li><li>top() – 获取栈顶元素</li><li>empty() – 返回栈是否为空</li></ul><p><strong>注意:</strong></p><ul><li>你只能使用队列的基本操作 – 也就是 <code>push to back</code>，<code>peek/pop from front</code>，<code>size</code> 和 <code>is empty</code> 这些操作是合法的。</li><li>你所使用的语言也许不支持队列。 你可以使用 list 或者 deque（双端队列）来模拟一个队列 , 只要是标准的队列操作即可。</li><li>你可以假设所有操作都是有效的（例如, 对一个空的栈不会调用 pop 或者 top 操作）。</li></ul><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>使用C++标准模板库queue模板类实现。</p><ul><li>q.push(x)：将x插入到队列末端。</li><li>q.pop()：弹出队列的第一个元素（不会返回被弹出元素的值）。</li><li>q.front()：返回队首元素，即最早被压入队列的元素。</li><li>q.empty()：判断队列是否为空，当队列空时，返回true。</li></ul><p>插入元素x定义了一个临时队列 temp，然后将x插入到空的 temp 队列中，此时x是队首元素，即栈顶元素，然后将队列q（栈）中的所有元素依次取出并插入到temp队列的末端，此时得到的 temp 队列即将x入栈的得到的队列，然后再用同样的方法将 temp 队列的元素依次弹出并插入回队列q（栈）。</p><p>弹出栈顶元素即弹出队首元素，但需要返回弹出的队首元素值，而队列的 <code>pop()</code> 函数不会返回队首元素值，所以需要先定义一个临时 int 变量 temp 通过 <code>front()</code> 函数获取队首元素值，然后再弹出队首元素（即出栈），最后返回 temp 。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class MyStack {public:    queue&lt;int&gt; q;    /** Initialize your data structure here. */    MyStack() {    }    /** Push element x onto stack. */    void push(int x) {        queue&lt;int&gt; temp;        temp.push(x);        while(!q.empty()){            temp.push(q.front());            q.pop();        }        while(!temp.empty()){            q.push(temp.front());            temp.pop();        }    }    /** Removes the element on top of the stack and returns that element. */    int pop() {        int temp = q.front();        q.pop();        return temp;    }    /** Get the top element. */    int top() {        return q.front();    }    /** Returns whether the stack is empty. */    bool empty() {        return q.empty();    }};/** * Your MyStack object will be instantiated and called as such: * MyStack* obj = new MyStack(); * obj-&gt;push(x); * int param_2 = obj-&gt;pop(); * int param_3 = obj-&gt;top(); * bool param_4 = obj-&gt;empty(); */</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 206.反转链表【C++】</title>
+    <link href="/2020/03/06/Leetcode-206-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/03/06/Leetcode-206-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/reverse-linked-list/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/reverse-linked-list/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>反转一个单链表。</p><p><strong>示例:</strong></p><pre><code>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</code></pre><p><strong>进阶:</strong><br>你可以迭代或递归地反转链表。你能否用两种方法解决这道题？</p><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题我的做法很清奇，但是我觉得应该很容易想到这种做法，通过栈，依次读取链表元素压入栈中，然后取出来的时候就是逆序取出的，同样依次从栈中去除所有元素插入到链表中即可得到逆序后的链表。</p><p>用到了一个临时存储用的栈，应该有更好的直接修改链表的解法，可以尝试一下~</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">/** * Definition for singly-linked list. * struct ListNode { *     int val; *     ListNode *next; *     ListNode(int x) : val(x), next(NULL) {} * }; */#include&lt;stack&gt;class Solution {public:    ListNode* reverseList(ListNode* head) {        stack&lt;int&gt; s;//用于临时存储链表元素        ListNode* ptr = head;        //将链表元素依次压入栈中        while(ptr!=NULL){            s.push(ptr-&gt;val);            ptr = ptr-&gt;next;        }        //将栈中元素依次取出并写回链表        ptr = head;        while(!s.empty()){            ptr-&gt;val = s.top();            s.pop();            ptr = ptr-&gt;next;        }        return head;    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 面试题 10.01. 合并排序的数组【C++】</title>
+    <link href="/2020/03/06/Leetcode-%E9%9D%A2%E8%AF%95%E9%A2%98-10-01-%E5%90%88%E5%B9%B6%E6%8E%92%E5%BA%8F%E7%9A%84%E6%95%B0%E7%BB%84%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/03/06/Leetcode-%E9%9D%A2%E8%AF%95%E9%A2%98-10-01-%E5%90%88%E5%B9%B6%E6%8E%92%E5%BA%8F%E7%9A%84%E6%95%B0%E7%BB%84%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/sorted-merge-lcci/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/sorted-merge-lcci/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定两个排序后的数组 A 和 B，其中 A 的末端有足够的缓冲空间容纳 B。 编写一个方法，将 B 合并入 A 并排序。</p><p>初始化 A 和 B 的元素数量分别为 m 和 n。</p><p><strong>示例:</strong></p><pre><code>输入:A = [1,2,3,0,0,0], m = 3B = [2,5,6],       n = 3输出: [1,2,2,3,5,6]</code></pre><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>挺蠢的解法，思路是遍历数组B，将数组B中的元素逐个插入到数组A中合适的位置。</p><p>将遍历A,B数组用的下表i,j定义在函数作用域内，是因为A,B均为排序后的数组，所以已经查找过的部分就没必要再查找一次了。</p><p>第一层循环从数组B中逐个取出元素，在循环体内插入到数组A中，考虑两种情况，第一种情况A，的已排序部分有比B[i]大的数，所以需要进入第二层循环找到第一个比B[i]大的数的位置，将这个数及其后面的已排序的数整体后移一位（第三层循环），然后将B[i]插入到这个位置；第二种情况，B[i]比A中已排序部分的所有数都大，这时候 <code>j == m + i</code> 并且 <code>A[m+i]</code> 一定是等于0的，此时只需将B[i]插入到A的已排序部分的尾部即可。</p><p>还有一个思路是直接将数组B整体插入到数组A已排序部分的后面，然后对整个数组A进行一次排序。但我没有采用这个思路，是因为题目已经表明A,B是已排序数组，所以“<strong>已排序</strong>”这个特性是应该要考虑到的。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {public:    void merge(vector&lt;int&gt;&amp; A, int m, vector&lt;int&gt;&amp; B, int n) {        //分别作为两个数组的下标        int i = 0;        int j = 0;        //遍历数组B        for (i; i &lt; n; i++) {            //遍历数组A            for (j; j &lt; m + i; j++) {                //将B[i]插入到A中合适的位置                if (B[i] &lt; A[j]) {                    for (int k = m + i; k &gt; j; k--) {                        A[k] = A[k - 1];                    }                    A[j] = B[i];                    break;                }            }            //B[i]比A中现有的所有数都大，将B[i]插入到A的末尾            if (j == m + i &amp;&amp; A[m + i] == 0) {                A[m + i] = B[i];            }        }    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 面试题57 - II.和为s的连续正数序列【C++】</title>
     <link href="/2020/03/06/Leetcode-%E9%9D%A2%E8%AF%95%E9%A2%9857-II-%E5%92%8C%E4%B8%BAs%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%AD%A3%E6%95%B0%E5%BA%8F%E5%88%97%E3%80%90C-%E3%80%91/"/>
     <url>/2020/03/06/Leetcode-%E9%9D%A2%E8%AF%95%E9%A2%9857-II-%E5%92%8C%E4%B8%BAs%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%AD%A3%E6%95%B0%E5%BA%8F%E5%88%97%E3%80%90C-%E3%80%91/</url>
@@ -275,7 +359,7 @@
     <link href="/2019/02/27/Leetcode-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/"/>
     <url>/2019/02/27/Leetcode-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</url>
     
-    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/6/linked-list/43/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/6/linked-list/43/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>反转一个单链表。<a id="more"></a></p><p><strong>示例:</strong></p><pre><code>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</code></pre><p><strong>进阶:</strong><br>你可以迭代或递归地反转链表。你能否用两种方法解决这道题？</p><h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><pre><code class="c++">/** * Definition for singly-linked list. * struct ListNode { *     int val; *     ListNode *next; *     ListNode(int x) : val(x), next(NULL) {} * }; */class Solution {public:    ListNode* reverseList(ListNode* head) {        ListNode *newHead = NULL;        //不断取出和向后移动头节点，并将头节点连接到新头节点后面        while (head != NULL) {            //单独取出下一个节点            ListNode *next = head-&gt;next;            //将头节点连接到新头节点后面            head-&gt;next = newHead;            newHead = head;            //向后移动头节点            head = next;        }        return newHead;    }};</code></pre>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/6/linked-list/43/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/6/linked-list/43/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>反转一个单链表。</p><p><strong>示例:</strong></p><pre><code>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</code></pre><p><strong>进阶:</strong><br>你可以迭代或递归地反转链表。你能否用两种方法解决这道题？</p><h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><pre><code class="c++">/** * Definition for singly-linked list. * struct ListNode { *     int val; *     ListNode *next; *     ListNode(int x) : val(x), next(NULL) {} * }; */class Solution {public:    ListNode* reverseList(ListNode* head) {        ListNode *newHead = NULL;        //不断取出和向后移动头节点，并将头节点连接到新头节点后面        while (head != NULL) {            //单独取出下一个节点            ListNode *next = head-&gt;next;            //将头节点连接到新头节点后面            head-&gt;next = newHead;            newHead = head;            //向后移动头节点            head = next;        }        return newHead;    }};</code></pre>]]></content>
     
     
     
