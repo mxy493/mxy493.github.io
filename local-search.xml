@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>Leetcode 67.二进制求和【C++】</title>
+    <link href="/2020/03/07/Leetcode-67-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%B1%82%E5%92%8C%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/03/07/Leetcode-67-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%B1%82%E5%92%8C%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/add-binary/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/add-binary/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定两个二进制字符串，返回他们的和（用二进制表示）。</p><p>输入为非空字符串且只包含数字 1 和 0。</p><p><strong>示例 1:</strong></p><pre><code>输入: a = &quot;11&quot;, b = &quot;1&quot;输出: &quot;100&quot;</code></pre><p><strong>示例 2:</strong></p><pre><code>输入: a = &quot;1010&quot;, b = &quot;1011&quot;输出: &quot;10101&quot;</code></pre><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题不可避免的要处理十进制和二进制之间的转换问题，按照二进制求和的方法，从低位到高位依次相加。</p><p>定义一个 car 记录进位，默认为 0 即没有进位，有进位只可能为 1 ；定义一个 string 类型的 sum 用以保存得到的和；定义两个int型变量 cur_a 和 cur_b 保存两个字符串相同位置上的字符转为 int 型后的值，方便进行常规加法计算，若字符串为空则作 0 处理，效果等同于没有数与之相加；x 保存某一位上的相加结果，以根据其相加的结果进行进位处理。</p><p>因为是二进制加法，x 可能的取值情况仅四种：</p><pre><code>//前两个数为同一位上的两个数，最后一个数即进位0 + 0 + 0 = 00 + 1 + 0 = 11 + 0 + 0 = 11 + 1 + 0 = 20 + 0 + 1 = 10 + 1 + 1 = 21 + 0 + 1 = 21 + 1 + 1 = 3</code></pre><p>当 x 为 0 或 1 时，不需要进位（car为0），x 保持；当 x&gt;1 时，即相加结果为 2 或 3 时，需要进位处理（car为1），为 2 时 x 进 1 取 0，为 3 时 x 进 1 取 1。将整型 x 转为字符串加到 sum 的开头，并将 a、b 字符串的尾字符删去，循环重复上述步骤即可，直到字符串 a、b 均为空并且进位为 0。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {public:    string addBinary(string a, string b) {        int car = 0;//进位        string sum = &quot;&quot;;//返回值        while (a.length() &gt; 0 || b.length() &gt; 0 || car == 1) {            int cur_a = a.length() == 0 ? 0 : a[a.length() - 1] - 48;//末尾字符转为整型，如果为空则为0            int cur_b = b.length() == 0 ? 0 : b[b.length() - 1] - 48;            int x = cur_a + cur_b + car;//两末尾字符以及进位相加，x的可能取值有0，1，2，3            car = x &gt; 1 ? 1 : 0;//如果x&gt;1说明有进位，置car为1            if (x &gt; 1) //x&gt;1需要进位处理                x = x &gt; 2 ? 1 : 0;//只可能是2或3，2进1留0，3进1留1            sum = to_string(x) + sum;//将x加到字符串头部            if (a.length() &gt; 0)                a.pop_back();//删除已处理的尾字符            if (b.length() &gt; 0)                b.pop_back();        }        return sum;    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 69.x的平方根【C++】</title>
     <link href="/2020/03/07/Leetcode-69-x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9%E3%80%90C-%E3%80%91/"/>
     <url>/2020/03/07/Leetcode-69-x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9%E3%80%90C-%E3%80%91/</url>
