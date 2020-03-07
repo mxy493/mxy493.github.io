@@ -15,7 +15,7 @@
   <meta name="description" content>
   <meta name="author" content="mxy">
   <meta name="keywords" content>
-  <title>归档 ~ mxy</title>
+  <title>Leetcode 面试题59 - II.队列的最大值【C++】 ~ mxy</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
@@ -36,7 +36,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -115,6 +115,41 @@
             </span>
 
             
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期六, 三月 7日 2020, 7:28 晚上
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    890 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      3 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
           </div>
 
           
@@ -125,77 +160,166 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 50 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2019</p>
-    
-    <a href="/2019/01/24/Leetcode-两个数组的交集-II/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 两个数组的交集 II</span>
-      <span style="float: right;">01-24</span>
-    </a>
-  
-    
-    <a href="/2019/01/23/YAML语法简记/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">YAML语法简记</span>
-      <span style="float: right;">01-23</span>
-    </a>
-  
-    
-    <a href="/2019/01/22/Leetcode-只出现一次的数字/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 只出现一次的数字</span>
-      <span style="float: right;">01-22</span>
-    </a>
-  
-    
-    <a href="/2019/01/18/GitHub-Hexo搭建博客笔记/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">GitHub+Hexo搭建博客笔记</span>
-      <span style="float: right;">01-18</span>
-    </a>
-  
-    
-    <a href="/2019/01/17/hello-world/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Hello World</span>
-      <span style="float: right;">01-17</span>
-    </a>
-  
-    
-    <a href="/2019/01/17/mxy测试/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">mxy测试</span>
-      <span style="float: right;">01-17</span>
-    </a>
-  
-</div>
 
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/2019/01/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/archives/2019/01/">1</a><span class="page-number current">2</span>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
-      ele.href += '#board';
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <blockquote>
+<p>地址：<a href="https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof/</a></p>
+</blockquote>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>请定义一个队列并实现函数 <code>max_value</code> 得到队列里的最大值，要求函数 <code>max_value</code>、<code>push_back</code> 和 <code>pop_front</code> 的时间复杂度都是O(1)。</p>
+<p>若队列为空，<code>pop_front</code> 和 <code>max_value</code> 需要返回 -1。</p>
+<p><strong>示例 1：</strong></p>
+<pre><code>输入: 
+[&quot;MaxQueue&quot;,&quot;push_back&quot;,&quot;push_back&quot;,&quot;max_value&quot;,&quot;pop_front&quot;,&quot;max_value&quot;]
+[[],[1],[2],[],[],[]]
+输出: [null,null,null,2,1,2]</code></pre><p><strong>示例 2：</strong></p>
+<pre><code>输入: 
+[&quot;MaxQueue&quot;,&quot;pop_front&quot;,&quot;max_value&quot;]
+[[],[],[]]
+输出: [null,-1,-1]</code></pre><p><strong>限制：</strong></p>
+<ul>
+<li>1 &lt;= push_back, pop_front, max_value的总操作数 &lt;= 10000</li>
+<li>1 &lt;= value &lt;= 10^5</li>
+</ul>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题是参考Leetcode的官方题解做的，一开始都没太明白题目意思~</p>
+<p>其实 <code>push_back</code> 和 <code>pop_front</code> 都可以直接用队列的 <code>pop()</code> 函数和 <code>front()</code> 函数，没有难度，但是 <code>max_value</code> 需要考虑的就不一样了，主要是因为题目给了要求时间复杂度是O(1)，也就是说不能用遍历整个队列的方法来找最大值。</p>
+<p>题解中用到了<strong>双端队列</strong>，而双端队列的作用就是查找最大值，并且它的巧妙之处在于，双端队列的队首元素 <code>d.front()</code> 始终是队列 <code>q</code> 中的最大元素。代码中用到的几个关于双端队列的函数如下：</p>
+<ul>
+<li>back()：获取队列的最后一个元素；</li>
+<li>empty()：判断队列空否，空则返回true；</li>
+<li>push_back()：在队列末端插入元素；</li>
+<li>pop_back()：从队列末端弹出队尾元素；</li>
+<li>pop_front()：从队列前端弹出队首元素。</li>
+</ul>
+<p>定义一个 <code>queue&lt;int&gt;</code> 队列，主要用于元素的入队与出队操作。</p>
+<p>在元素入队的函数中，如果双端队列 d 为空或者入队的元素小于 d 的队尾元素，则分别将该元素插入到 d 和 q 的队尾；如果双端队列 d 非空并且入队元素大于 d 的队尾元素，则将 d 的队尾元素逐个弹出，直到 d 的队尾元素大于入队元素或者 d 空，然后将该元素插入到 d 和 q 的队尾。</p>
+<p>在队列 q 的出对函数中，需要注意对双端队列 d 的操作，不然可能会造成 q 中已将最大元素删除，但 d 没有进行任何操作，就会导致获取最大值的时候获取到已经删除的不存在于队列中的元素的值。所以需要在 q 和 d 的队首元素相同的情况下，同步删除 d 的队首元素。以保证 <code>d.front()</code> 仍然是队列 q 中剩余元素的最大值。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class MaxQueue {
+private:
+    queue&lt;int&gt; q;//队列
+    deque&lt;int&gt; d;//双端队列，用于求最大值
+public:
+    MaxQueue() {}
+
+    int max_value() {
+        //d为空也就意味着q为空，因为只要q中有元素，那d.front()就一定是队列q中元素的最大值
+        if (d.empty())
+            return -1;
+        return d.front();
     }
-  </script>
 
+    void push_back(int value) {
+        //d要保持单调递减，即为了保持d.front()是最大的元素
+        while (!d.empty() &amp;&amp; d.back() &lt; value)
+        {
+            d.pop_back();
+        }
+        d.push_back(value);
+        q.push(value);//原始队列
+    }
 
-              </div>
-            </div>
+    int pop_front() {
+        if (q.empty())
+            return -1;
+        //划重点，此处需要深入理解
+        if (q.front() == d.front())
+            d.pop_front();//删除队首元素之后，双端队列d的队首元素仍然是队列q中剩余元素的最大元素
+        int ans = q.front();//获取返回值
+        q.pop();//弹出队首元素
+        return ans;//返回队首元素的值
+    }
+};
+
+/**
+ * Your MaxQueue object will be instantiated and called as such:
+ * MaxQueue* obj = new MaxQueue();
+ * int param_1 = obj-&gt;max_value();
+ * obj-&gt;push_back(value);
+ * int param_3 = obj-&gt;pop_front();
+ */</code></pre>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/Leetcode">Leetcode</a>
+                
+                  <a class="hover-with-bg" href="/tags/C++">C++</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="vcomments" style="width: 90%; margin: 0 auto;"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var notify = 'false' === true;
+    var verify = 'false' === true;
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+        app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+        placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+        avatar: "retro",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+      powered by Valine.</a></noscript>
+
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -274,6 +398,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -325,7 +454,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "Leetcode 面试题59 - II.队列的最大值【C++】&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

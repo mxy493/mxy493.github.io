@@ -4,6 +4,69 @@
   
   
   <entry>
+    <title>Leetcode 69.x的平方根【C++】</title>
+    <link href="/2020/03/07/Leetcode-69-x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/03/07/Leetcode-69-x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/sqrtx/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/sqrtx/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>实现 <code>int sqrt(int x)</code> 函数。</p><p>计算并返回 x 的平方根，其中 x 是非负整数。</p><p>由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。</p><p><strong>示例 1:</strong></p><pre><code>输入: 4输出: 2</code></pre><p><strong>示例 2:</strong></p><pre><code>输入: 8输出: 2说明: 8 的平方根是 2.82842...，由于返回类型是整数，小数部分将被舍去。</code></pre><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>采用<strong>二分法</strong>求解。</p><p>平方根一定是 &gt;= 0 的，则 low 取初始值为0；平方根不大于这个数的一半再+1，所以 up 取初始值为 <code>x / 2.0 + 1.0</code>，然后两头向中间逼近。题目要求只保留整数部分，小数部分舍去，所以平方根将最终的 mid 取整。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {public:    int mySqrt(int x) {        double low = 0;//平方根一定是 &gt;= 0 的        double up = x / 2.0 + 1.0;//平方根不大于这个数的一半再+1        double mid;        while (int(low) != int(up))        {            mid = (low + up) / 2.0;            if (mid * mid &gt; x)                up = mid;            else if (mid * mid &lt; x)                low = mid;            else                return int(mid);        }        return int(mid);    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 70.爬楼梯【C++】</title>
+    <link href="/2020/03/07/Leetcode-70-%E7%88%AC%E6%A5%BC%E6%A2%AF%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/03/07/Leetcode-70-%E7%88%AC%E6%A5%BC%E6%A2%AF%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：</p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>假设你正在爬楼梯。需要 n 阶你才能到达楼顶。</p><p>每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p><p><strong>注意：</strong>给定 n 是一个正整数。</p><p><strong>示例 1：</strong></p><pre><code>输入：2输出：2解释：有两种方法可以爬到楼顶。1. 1 阶 + 1 阶2. 1 阶</code></pre><p><strong>示例 2：</strong></p><pre><code>输入：3输出：3解释：有三种方法可以爬到楼顶。1. 1 阶 + 1 阶 + 1 阶2. 1 阶 + 2 阶3. 2 阶 + 1 阶</code></pre><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>参考官方题解，采用<strong>动态规划法</strong>。</p><p>第 i 阶可以由以下两种方法得到：</p><ol><li>在第 (i - 1) 阶后向上爬 1 阶；</li><li>在第 (i - 2) 阶后向上爬 2 阶。</li></ol><p>所以，只要知道任意相邻的两级台阶的方法数，就可以推算出其后的所有台阶数可以到达的方法总数。即 <code>dp[i] = dp[i - 1] + dp[i - 2]</code> 。而第一级台阶和第二级台阶到达的方法数是显而易见的，所以只需要定义出 <code>dp[1] = 1; dp[2] = 2;</code>，则后续的爬 n 阶楼梯的不同方法就可以通过前述公式计算出来。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {public:    int climbStairs(int n) {        //一级台阶只有一种方法        if(n == 1)            return 1;        //动态规划        int* dp = new int[n + 1];        dp[1] = 1;        dp[2] = 2;        for (int i = 3; i &lt;= n; i++) {            dp[i] = dp[i - 1] + dp[i - 2];        }        return dp[n];    }};</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Leetcode 面试题59 - II.队列的最大值【C++】</title>
+    <link href="/2020/03/07/Leetcode-%E9%9D%A2%E8%AF%95%E9%A2%9859-II-%E9%98%9F%E5%88%97%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/03/07/Leetcode-%E9%9D%A2%E8%AF%95%E9%A2%9859-II-%E9%98%9F%E5%88%97%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>请定义一个队列并实现函数 <code>max_value</code> 得到队列里的最大值，要求函数 <code>max_value</code>、<code>push_back</code> 和 <code>pop_front</code> 的时间复杂度都是O(1)。</p><p>若队列为空，<code>pop_front</code> 和 <code>max_value</code> 需要返回 -1。</p><p><strong>示例 1：</strong></p><pre><code>输入: [&quot;MaxQueue&quot;,&quot;push_back&quot;,&quot;push_back&quot;,&quot;max_value&quot;,&quot;pop_front&quot;,&quot;max_value&quot;][[],[1],[2],[],[],[]]输出: [null,null,null,2,1,2]</code></pre><p><strong>示例 2：</strong></p><pre><code>输入: [&quot;MaxQueue&quot;,&quot;pop_front&quot;,&quot;max_value&quot;][[],[],[]]输出: [null,-1,-1]</code></pre><p><strong>限制：</strong></p><ul><li>1 &lt;= push_back, pop_front, max_value的总操作数 &lt;= 10000</li><li>1 &lt;= value &lt;= 10^5</li></ul><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题是参考Leetcode的官方题解做的，一开始都没太明白题目意思~</p><p>其实 <code>push_back</code> 和 <code>pop_front</code> 都可以直接用队列的 <code>pop()</code> 函数和 <code>front()</code> 函数，没有难度，但是 <code>max_value</code> 需要考虑的就不一样了，主要是因为题目给了要求时间复杂度是O(1)，也就是说不能用遍历整个队列的方法来找最大值。</p><p>题解中用到了<strong>双端队列</strong>，而双端队列的作用就是查找最大值，并且它的巧妙之处在于，双端队列的队首元素 <code>d.front()</code> 始终是队列 <code>q</code> 中的最大元素。代码中用到的几个关于双端队列的函数如下：</p><ul><li>back()：获取队列的最后一个元素；</li><li>empty()：判断队列空否，空则返回true；</li><li>push_back()：在队列末端插入元素；</li><li>pop_back()：从队列末端弹出队尾元素；</li><li>pop_front()：从队列前端弹出队首元素。</li></ul><p>定义一个 <code>queue&lt;int&gt;</code> 队列，主要用于元素的入队与出队操作。</p><p>在元素入队的函数中，如果双端队列 d 为空或者入队的元素小于 d 的队尾元素，则分别将该元素插入到 d 和 q 的队尾；如果双端队列 d 非空并且入队元素大于 d 的队尾元素，则将 d 的队尾元素逐个弹出，直到 d 的队尾元素大于入队元素或者 d 空，然后将该元素插入到 d 和 q 的队尾。</p><p>在队列 q 的出对函数中，需要注意对双端队列 d 的操作，不然可能会造成 q 中已将最大元素删除，但 d 没有进行任何操作，就会导致获取最大值的时候获取到已经删除的不存在于队列中的元素的值。所以需要在 q 和 d 的队首元素相同的情况下，同步删除 d 的队首元素。以保证 <code>d.front()</code> 仍然是队列 q 中剩余元素的最大值。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class MaxQueue {private:    queue&lt;int&gt; q;//队列    deque&lt;int&gt; d;//双端队列，用于求最大值public:    MaxQueue() {}    int max_value() {        //d为空也就意味着q为空，因为只要q中有元素，那d.front()就一定是队列q中元素的最大值        if (d.empty())            return -1;        return d.front();    }    void push_back(int value) {        //d要保持单调递减，即为了保持d.front()是最大的元素        while (!d.empty() &amp;&amp; d.back() &lt; value)        {            d.pop_back();        }        d.push_back(value);        q.push(value);//原始队列    }    int pop_front() {        if (q.empty())            return -1;        //划重点，此处需要深入理解        if (q.front() == d.front())            d.pop_front();//删除队首元素之后，双端队列d的队首元素仍然是队列q中剩余元素的最大元素        int ans = q.front();//获取返回值        q.pop();//弹出队首元素        return ans;//返回队首元素的值    }};/** * Your MaxQueue object will be instantiated and called as such: * MaxQueue* obj = new MaxQueue(); * int param_1 = obj-&gt;max_value(); * obj-&gt;push_back(value); * int param_3 = obj-&gt;pop_front(); */</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 83.删除排序链表中的重复元素【C++】</title>
     <link href="/2020/03/06/Leetcode-83-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0%E3%80%90C-%E3%80%91/"/>
     <url>/2020/03/06/Leetcode-83-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0%E3%80%90C-%E3%80%91/</url>
@@ -172,7 +235,7 @@
   
   
   <entry>
-    <title>Leetcode 994.腐烂的橘子 [C++]</title>
+    <title>Leetcode 994.腐烂的橘子【C++】</title>
     <link href="/2020/03/05/Leetcode-994-%E8%85%90%E7%83%82%E7%9A%84%E6%A9%98%E5%AD%90-C/"/>
     <url>/2020/03/05/Leetcode-994-%E8%85%90%E7%83%82%E7%9A%84%E6%A9%98%E5%AD%90-C/</url>
     
@@ -193,7 +256,7 @@
   
   
   <entry>
-    <title>Leetcode 1103. 分糖果 II [C++]</title>
+    <title>Leetcode 1103.分糖果II【C++】</title>
     <link href="/2020/03/05/Leetcode-1103-%E5%88%86%E7%B3%96%E6%9E%9C-II-C/"/>
     <url>/2020/03/05/Leetcode-1103-%E5%88%86%E7%B3%96%E6%9E%9C-II-C/</url>
     

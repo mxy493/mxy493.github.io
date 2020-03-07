@@ -142,6 +142,162 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/07/Leetcode-69-x的平方根【C-】/">
+        <p class="h4 index-header">Leetcode 69.x的平方根【C++】</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/sqrtx/
+
+题目实现 int sqrt(int x) 函数。
+计算并返回 x 的平方根，其中 x 是非负整数。
+由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。
+示例 1:
+输入: 4
+输出: 2示例 2:
+输入: 8
+输出: 2
+说明: 8 的平方根是 2.82842...，由于返回类型是整数，小数部分将被舍去。解题思路采用二分法求解。
+平方根一定是 &gt;= 0 的，则 low 取初始值为0；平方根不大于这个数的一半再+1，所以 up 取初始值为 x / 2.0 + 1.0，然后两头向中间逼近。题目要求只保留整数部分，小数部分舍去，所以平方根将最终的 mid 取整。
+代码class Solution {
+public:
+    int mySqrt(int x) {
+        double low = 0;//平方根一定是 &gt;= 0 的
+        double up = x / 2.0 + 1.0;//平方根不大于这个数的一半再+1
+        double mid;
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C++">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/07/Leetcode-70-爬楼梯【C-】/">
+        <p class="h4 index-header">Leetcode 70.爬楼梯【C++】</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：
+
+题目假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
+每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
+注意：给定 n 是一个正整数。
+示例 1：
+输入：2
+输出：2
+解释：有两种方法可以爬到楼顶。
+1. 1 阶 + 1 阶
+2. 1 阶示例 2：
+输入：3
+输出：3
+解释：有三种方法可以爬到楼顶。
+1. 1 阶 + 1 阶 + 1 阶
+2. 1 阶 + 2 阶
+3. 2 阶 + 1 阶解题思路参考官方题解，采用动态规划法。
+第 i 阶可以由以下两种方法得到：
+
+在第 (i - 1) 阶后向上爬 1 阶；
+在第 (i - 2) 阶后向上爬 2 阶。
+
+所以，只要知道任意相邻的两级台阶的方法数，就可以推算出其后的所有台阶数可以到达的方法总数。即 dp[i] = dp[i - 1] + dp[i - 2] 。而第一级台阶和第二级台阶到达的方法数是显而易见的，所以只需要定义出 dp[1] = 1; dp[2] = 2;，则后续的爬 n 阶楼梯的不同方法就可以通过前述公式计算出来。
+代码class Solution {
+public:
+    int climb</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C++">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/07/Leetcode-面试题59-II-队列的最大值【C-】/">
+        <p class="h4 index-header">Leetcode 面试题59 - II.队列的最大值【C++】</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof/
+
+题目请定义一个队列并实现函数 max_value 得到队列里的最大值，要求函数 max_value、push_back 和 pop_front 的时间复杂度都是O(1)。
+若队列为空，pop_front 和 max_value 需要返回 -1。
+示例 1：
+输入: 
+[&quot;MaxQueue&quot;,&quot;push_back&quot;,&quot;push_back&quot;,&quot;max_value&quot;,&quot;pop_front&quot;,&quot;max_value&quot;]
+[[],[1],[2],[],[],[]]
+输出: [null,null,null,2,1,2]示例 2：
+输入: 
+[&quot;MaxQueue&quot;,&quot;pop_front&quot;,&quot;max_value&quot;]
+[[],[],[]]
+输出: [null,-1,-1]限制：
+
+1 &lt;= p</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C++">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/06/Leetcode-83-删除排序链表中的重复元素【C-】/">
         <p class="h4 index-header">Leetcode 83.删除排序链表中的重复元素【C++】</p>
         
@@ -470,150 +626,6 @@ B = [2,5,6],       n = 3
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
-        
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C++">C++</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/06/Leetcode-面试题57-II-和为s的连续正数序列【C-】/">
-        <p class="h4 index-header">Leetcode 面试题57 - II.和为s的连续正数序列【C++】</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-地址：https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/
-
-题目输入一个正整数 target ，输出所有和为 target 的连续正整数序列（至少含有两个数）。
-序列内的数字由小到大排列，不同序列按照首个数字从小到大排列。
-示例 1：
-输入：target = 9
-输出：[[2,3,4],[4,5]]示例 2：
-输入：target = 15
-输出：[[1,2,3,4,5],[4,5,6],[7,8]]限制：
-
-1 &lt;= target &lt;= 10^5
-
-解题思路首先很容易想到一点，最大可能取到的数是 target/2 + 1 ，例如对 target == 5 而言，最大只可能取到 5/2 +1 = 3 ，若取到4，由于题目要求是连续正整数，那么就必须取到3或者5，此时 3 + 4 = 7 已经大于目标值5。
-这个题按照人的思维还是很容易想到的，就是从第一个正整数1开始往后依次相加，如果相加之后的和sum小于目标值，那就继续加后一个正整数，如果sum大于目标值，就减去序列最小的数，</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
-        
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C++">C++</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/05/Leetcode-994-腐烂的橘子-C/">
-        <p class="h4 index-header">Leetcode 994.腐烂的橘子 [C++]</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-地址：https://leetcode-cn.com/problems/rotting-oranges/
-
-题目在给定的网格中，每个单元格可以有以下三个值之一：
-值 0 代表空单元格；值 1 代表新鲜橘子；值 2 代表腐烂的橘子。每分钟，任何与腐烂的橘子（在 4 个正方向上）相邻的新鲜橘子都会腐烂。
-返回直到单元格中没有新鲜橘子为止所必须经过的最小分钟数。如果不可能，返回 -1。
-示例 1：
-
-输入：[[2,1,1],[1,1,0],[0,1,1]]
-输出：4示例 2：
-输入：[[2,1,1],[0,1,1],[1,0,1]]
-输出：-1
-解释：左下角的橘子（第 2 行， 第 0 列）永远不会腐烂，因为腐烂只会发生在 4 个正向上。示例 3：
-输入：[[0,2]]
-输出：0
-解释：因为 0 分钟时已经没有新鲜橘子了，所以答案就是 0 。提示：
-
-1 &lt;= grid.length &lt;= 10
-1 &lt;= grid[0].length &lt;= 10
-grid[i][j] 仅为 0、1 或 2
-
-解题思路（1）笨办法，先记录一下吧😅（内存消耗 :15.2 MB, 在所</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-05&nbsp;&nbsp;
-        
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C++">C++</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/05/Leetcode-1103-分糖果-II-C/">
-        <p class="h4 index-header">Leetcode 1103. 分糖果 II [C++]</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-地址：https://leetcode-cn.com/problems/distribute-candies-to-people/
-
-题目排排坐，分糖果。
-我们买了一些糖果 candies，打算把它们分给排好队的 n = num_people 个小朋友。
-给第一个小朋友 1 颗糖果，第二个小朋友 2 颗，依此类推，直到给最后一个小朋友 n 颗糖果。
-然后，我们再回到队伍的起点，给第一个小朋友 n + 1 颗糖果，第二个小朋友 n + 2 颗，依此类推，直到给最后一个小朋友 2 * n 颗糖果。
-重复上述过程（每次都比上一次多给出一颗糖果，当到达队伍终点后再次从队伍起点开始），直到我们分完所有的糖果。注意，就算我们手中的剩下糖果数不够（不比前一次发出的糖果多），这些糖果也会全部发给当前的小朋友。
-返回一个长度为 num_people、元素之和为 candies 的数组，以表示糖果的最终分发情况（即 ans[i] 表示第 i 个小朋友分到的糖果数）。
-示例 1：
-输入：candies = 7, num_people = 4
-输出：[1,2,3,1]
-解释：
-第一次，ans[0] += 1</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-05&nbsp;&nbsp;
         
         
         
