@@ -142,6 +142,53 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/07/Leetcode-58-最后一个单词的长度【C-】/">
+        <p class="h4 index-header">Leetcode 58.最后一个单词的长度【C++】</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/length-of-last-word/
+
+题目给定一个仅包含大小写字母和空格 &#39; &#39; 的字符串 s，返回其最后一个单词的长度。如果字符串从左向右滚动显示，那么最后一个单词就是最后出现的单词。
+如果不存在最后一个单词，请返回 0 。
+说明：一个单词是指仅由字母组成、不包含任何空格字符的最大子字符串。
+示例：
+输入: &quot;Hello World&quot;
+输出: 5解题思路一开始想着就是遍历字符串，思路是每遇到一个单词的第一个字符就开始统计这个单词的长度，然后找到最后的这个单词就可以了。
+后来一下子想到，反过来逆序遍历不就好了，而且只需要遍历完逆序的第一个单词即可结束遍历，实现起来很简单。
+代码class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        int length = 0;//单词长度
+        for (int i = s.length() - 1; i &gt;= 0; i--)
+     </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C++">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/07/Leetcode-67-二进制求和【C-】/">
         <p class="h4 index-header">Leetcode 67.二进制求和【C++】</p>
         
@@ -568,57 +615,6 @@ q.front()：返回队首元素，即最早被压入队列的元素。
 q.empty()：判断队列是否为空，当队列空时，返回true。
 
 插入元素x定义了</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
-        
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C++">C++</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/06/Leetcode-206-反转链表【C-】/">
-        <p class="h4 index-header">Leetcode 206.反转链表【C++】</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-地址：https://leetcode-cn.com/problems/reverse-linked-list/
-
-题目反转一个单链表。
-示例:
-输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL
-输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL进阶:你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
-解题思路这个题我的做法很清奇，但是我觉得应该很容易想到这种做法，通过栈，依次读取链表元素压入栈中，然后取出来的时候就是逆序取出的，同样依次从栈中去除所有元素插入到链表中即可得到逆序后的链表。
-用到了一个临时存储用的栈，应该有更好的直接修改链表的解法，可以尝试一下~
-代码/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-
-#include&lt;stack&gt;
-</div>
         </div>
       </a>
 
