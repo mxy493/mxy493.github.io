@@ -15,7 +15,7 @@
   <meta name="description" content>
   <meta name="author" content="mxy">
   <meta name="keywords" content>
-  <title>归档 ~ mxy</title>
+  <title>Leetcode 322.零钱兑换【C++】 ~ mxy</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
@@ -36,7 +36,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -115,6 +115,41 @@
             </span>
 
             
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期日, 三月 8日 2020, 11:54 晚上
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    696 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      2 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
           </div>
 
           
@@ -125,77 +160,152 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 54 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2019</p>
-    
-    <a href="/2019/01/24/Leetcode-两个数组的交集-II/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 两个数组的交集 II</span>
-      <span style="float: right;">01-24</span>
-    </a>
-  
-    
-    <a href="/2019/01/23/YAML语法简记/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">YAML语法简记</span>
-      <span style="float: right;">01-23</span>
-    </a>
-  
-    
-    <a href="/2019/01/22/Leetcode-只出现一次的数字/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 只出现一次的数字</span>
-      <span style="float: right;">01-22</span>
-    </a>
-  
-    
-    <a href="/2019/01/18/GitHub-Hexo搭建博客笔记/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">GitHub+Hexo搭建博客笔记</span>
-      <span style="float: right;">01-18</span>
-    </a>
-  
-    
-    <a href="/2019/01/17/hello-world/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Hello World</span>
-      <span style="float: right;">01-17</span>
-    </a>
-  
-    
-    <a href="/2019/01/17/mxy测试/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">mxy测试</span>
-      <span style="float: right;">01-17</span>
-    </a>
-  
-</div>
 
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/2019/01/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/archives/2019/01/">1</a><span class="page-number current">2</span>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
-      ele.href += '#board';
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <blockquote>
+<p>地址：<a href="https://leetcode-cn.com/problems/coin-change/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/coin-change/</a></p>
+</blockquote>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。</p>
+<p><strong>示例 1:</strong></p>
+<pre><code>输入: coins = [1, 2, 5], amount = 11
+输出: 3 
+解释: 11 = 5 + 5 + 1</code></pre><p><strong>示例 2:</strong></p>
+<pre><code>输入: coins = [2], amount = 3
+输出: -1</code></pre><p><strong>说明:</strong></p>
+<p>你可以认为每种硬币的数量是无限的。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>解题思路参考官方题解~</p>
+<p>一开始的时候自己尝试做这道题，首先想到的办法是将硬币按面值从小到大排序，然后尽可能多的取面较值大的，最终将不同面值的硬币个数加起来即题解。但后来发现，其实有时候并不是面值越大的越多就符合题意，因为会有取面值小一点的才能组合成总金额的情况，所以这个思路是错误的。</p>
+<p>然后我参考了官方的题解的<strong>自上而下的动态规划法</strong>！</p>
+<p><strong>官方题解：</strong><a href="https://leetcode-cn.com/problems/coin-change/solution/322-ling-qian-dui-huan-by-leetcode-solution/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/coin-change/solution/322-ling-qian-dui-huan-by-leetcode-solution/</a></p>
+<p>首先定义：</p>
+<ul>
+<li><p>F(S)：组成金额 S 所需的最少硬币数量</p>
+</li>
+<li><p>[Cn……Cn-₁]：可选的 n 枚硬币面额值</p>
+</li>
+</ul>
+<p>假设我们知道 F(S) ，即组成金额 S 最少的硬币数，最后一枚硬币的面值是 C。那么由于问题的最优子结构，转移方程应为：<code>F(S) = F(S − C) + 1</code> 。但由于不知道最后一枚硬币的面值是多少，所以需要枚举每个硬币面额值并取其中的最小值。</p>
+<p>另外为了避免重复的计算，将每个子问题的答案存在一个数组中进行记忆化，如果下次还要计算这个问题的值直接从数组中取出返回即可，这样能保证每个子问题最多只被计算一次。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {
+public:
+    vector&lt;int&gt; count;//用于存储 0~amount 的所有总金额的最少硬币数
+
+    //动态规划（Dynamic programming）
+    int dp(vector&lt;int&gt;&amp; coins, int rem) {
+        if (rem &lt; 0) return -1;//余额小于0
+        if (rem == 0) return 0;//余额等于0
+        //如果 count[rem - 1] != 0 说明已获取到组成总金额的最少硬币数
+        if (count[rem - 1] != 0)
+            return count[rem - 1];
+        int Min = INT_MAX;
+        //枚举不同面额值得硬币分别使用动态规划法求解
+        for (int coin : coins) {
+            int res = dp(coins, rem - coin);
+            if (res &gt;= 0 &amp;&amp; res &lt; Min) {
+                Min = res + 1;
+            }
+        }
+        count[rem - 1] = Min == INT_MAX ? -1 : Min;
+        return count[rem - 1];
     }
-  </script>
+    int coinChange(vector&lt;int&gt;&amp; coins, int amount) {
+        if (amount &lt; 1) return 0;//总金额小于1
+        count.resize(amount);//将count初始化大小为amount
+        return dp(coins, amount);
+    }
+};</code></pre>
 
-
-              </div>
-            </div>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/Leetcode">Leetcode</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/Leetcode">Leetcode</a>
+                
+                  <a class="hover-with-bg" href="/tags/C++">C++</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="vcomments" style="width: 90%; margin: 0 auto;"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var notify = 'false' === true;
+    var verify = 'false' === true;
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+        app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+        placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+        avatar: "retro",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+      powered by Valine.</a></noscript>
+
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -274,6 +384,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -325,7 +440,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "Leetcode 322.零钱兑换【C++】&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

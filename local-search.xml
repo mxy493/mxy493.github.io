@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Leetcode 322.零钱兑换【C++】</title>
+    <link href="/2020/03/08/Leetcode-322-%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/03/08/Leetcode-322-%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/coin-change/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/coin-change/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。</p><p><strong>示例 1:</strong></p><pre><code>输入: coins = [1, 2, 5], amount = 11输出: 3 解释: 11 = 5 + 5 + 1</code></pre><p><strong>示例 2:</strong></p><pre><code>输入: coins = [2], amount = 3输出: -1</code></pre><p><strong>说明:</strong></p><p>你可以认为每种硬币的数量是无限的。</p><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>解题思路参考官方题解~</p><p>一开始的时候自己尝试做这道题，首先想到的办法是将硬币按面值从小到大排序，然后尽可能多的取面较值大的，最终将不同面值的硬币个数加起来即题解。但后来发现，其实有时候并不是面值越大的越多就符合题意，因为会有取面值小一点的才能组合成总金额的情况，所以这个思路是错误的。</p><p>然后我参考了官方的题解的<strong>自上而下的动态规划法</strong>！</p><p><strong>官方题解：</strong><a href="https://leetcode-cn.com/problems/coin-change/solution/322-ling-qian-dui-huan-by-leetcode-solution/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/coin-change/solution/322-ling-qian-dui-huan-by-leetcode-solution/</a></p><p>首先定义：</p><ul><li><p>F(S)：组成金额 S 所需的最少硬币数量</p></li><li><p>[Cn……Cn-₁]：可选的 n 枚硬币面额值</p></li></ul><p>假设我们知道 F(S) ，即组成金额 S 最少的硬币数，最后一枚硬币的面值是 C。那么由于问题的最优子结构，转移方程应为：<code>F(S) = F(S − C) + 1</code> 。但由于不知道最后一枚硬币的面值是多少，所以需要枚举每个硬币面额值并取其中的最小值。</p><p>另外为了避免重复的计算，将每个子问题的答案存在一个数组中进行记忆化，如果下次还要计算这个问题的值直接从数组中取出返回即可，这样能保证每个子问题最多只被计算一次。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {public:    vector&lt;int&gt; count;//用于存储 0~amount 的所有总金额的最少硬币数    //动态规划（Dynamic programming）    int dp(vector&lt;int&gt;&amp; coins, int rem) {        if (rem &lt; 0) return -1;//余额小于0        if (rem == 0) return 0;//余额等于0        //如果 count[rem - 1] != 0 说明已获取到组成总金额的最少硬币数        if (count[rem - 1] != 0)            return count[rem - 1];        int Min = INT_MAX;        //枚举不同面额值得硬币分别使用动态规划法求解        for (int coin : coins) {            int res = dp(coins, rem - coin);            if (res &gt;= 0 &amp;&amp; res &lt; Min) {                Min = res + 1;            }        }        count[rem - 1] = Min == INT_MAX ? -1 : Min;        return count[rem - 1];    }    int coinChange(vector&lt;int&gt;&amp; coins, int amount) {        if (amount &lt; 1) return 0;//总金额小于1        count.resize(amount);//将count初始化大小为amount        return dp(coins, amount);    }};</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 53.最大子序和【C++】</title>
     <link href="/2020/03/07/Leetcode-53-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C%E3%80%90C-%E3%80%91/"/>
     <url>/2020/03/07/Leetcode-53-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C%E3%80%90C-%E3%80%91/</url>
