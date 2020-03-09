@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Leetcode 121.买卖股票的最佳时机【C++】</title>
+    <link href="/2020/03/09/Leetcode-121-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/03/09/Leetcode-121-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。</p><p>如果你最多只允许完成一笔交易（即买入和卖出一支股票），设计一个算法来计算你所能获取的最大利润。</p><p>注意你不能在买入股票前卖出股票。</p><p>示例 1:</p><pre><code>输入: [7,1,5,3,6,4]输出: 5解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。      注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格。</code></pre><p>示例 2:</p><pre><code>输入: [7,6,4,3,1]输出: 0解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。</code></pre><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题其实不是第一次遇上了，初学C++的时候就做过这个题，有几个需要注意的地方是：</p><ul><li>需要判别<strong>数组为空</strong>的情况，此时利润为0可以直接返回；</li><li><strong>不能在买入股票前卖出股票</strong>，所以不是单纯找数组的最小值、最大值；</li><li>股票价格起伏不定，阶段性的买入卖出获得的是阶段性的最大利润，所以在题目要求“<strong>最多只允许完成一笔交易</strong>”的情况下，要始终保持利润最大化。</li></ul><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {public:    int maxProfit(vector&lt;int&gt;&amp; prices) {        if (prices.empty())            return 0;        int profit = 0;//利润        int buy = prices[0];//买入价格        int sold = prices[0];//售出价格        for (auto price : prices) {            if (price &lt; buy) {                buy = price;//当前价格低于原买入价格，则应以当前价格买入                sold = price;//由于售出不能早于买入，所以每当以新的低价买入的时候应同步修改卖出价格            }            if (price &gt; sold) {                sold = price;//当前价格高于原卖出价格，则应以当前价格卖出                //存在前一段时间利润高于后一段时间利润的情况，要保持利润最大化                profit = (sold - buy) &gt; profit ? (sold - buy) : profit;            }        }        return profit;    }};</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 322.零钱兑换【C++】</title>
     <link href="/2020/03/08/Leetcode-322-%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2%E3%80%90C-%E3%80%91/"/>
     <url>/2020/03/08/Leetcode-322-%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2%E3%80%90C-%E3%80%91/</url>

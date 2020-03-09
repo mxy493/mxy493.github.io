@@ -15,7 +15,7 @@
   <meta name="description" content>
   <meta name="author" content="mxy">
   <meta name="keywords" content>
-  <title>分类 - Leetcode ~ mxy</title>
+  <title>Leetcode 121.买卖股票的最佳时机【C++】 ~ mxy</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
@@ -36,7 +36,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -115,6 +115,41 @@
             </span>
 
             
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期一, 三月 9日 2020, 2:20 下午
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    530 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      2 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
           </div>
 
           
@@ -125,102 +160,141 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-<!--  <p class="h4">共计 10 篇文章</p>-->
-  <hr>
-  
-    
       
-      <p class="h5">2019</p>
-    
-    <a href="/2019/02/01/Leetcode-字符串中的第一个唯一字符/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 字符串中的第一个唯一字符</span>
-      <span style="float: right;">02-01</span>
-    </a>
-  
-    
-    <a href="/2019/01/31/Leetcode-整数反转/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 整数反转</span>
-      <span style="float: right;">01-31</span>
-    </a>
-  
-    
-    <a href="/2019/01/30/Leetcode-反转字符串/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 反转字符串</span>
-      <span style="float: right;">01-30</span>
-    </a>
-  
-    
-    <a href="/2019/01/29/Leetcode-旋转图像/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 旋转图像</span>
-      <span style="float: right;">01-29</span>
-    </a>
-  
-    
-    <a href="/2019/01/28/Leetcode-有效的数独/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 有效的数独</span>
-      <span style="float: right;">01-28</span>
-    </a>
-  
-    
-    <a href="/2019/01/28/Leetcode-两数之和/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 两数之和</span>
-      <span style="float: right;">01-28</span>
-    </a>
-  
-    
-    <a href="/2019/01/26/Leetcode-移动零/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 移动零</span>
-      <span style="float: right;">01-26</span>
-    </a>
-  
-    
-    <a href="/2019/01/25/Leetcode-加一/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 加一</span>
-      <span style="float: right;">01-25</span>
-    </a>
-  
-    
-    <a href="/2019/01/24/Leetcode-两个数组的交集-II/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 两个数组的交集 II</span>
-      <span style="float: right;">01-24</span>
-    </a>
-  
-    
-    <a href="/2019/01/22/Leetcode-只出现一次的数字/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 只出现一次的数字</span>
-      <span style="float: right;">01-22</span>
-    </a>
-  
-</div>
 
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/categories/Leetcode/page/3/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/categories/Leetcode/">1</a><a class="page-number" href="/categories/Leetcode/page/2/">2</a><a class="page-number" href="/categories/Leetcode/page/3/">3</a><span class="page-number current">4</span>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
-      ele.href += '#board';
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <blockquote>
+<p>地址：<a href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/</a></p>
+</blockquote>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。</p>
+<p>如果你最多只允许完成一笔交易（即买入和卖出一支股票），设计一个算法来计算你所能获取的最大利润。</p>
+<p>注意你不能在买入股票前卖出股票。</p>
+<p>示例 1:</p>
+<pre><code>输入: [7,1,5,3,6,4]
+输出: 5
+解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。
+      注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格。</code></pre><p>示例 2:</p>
+<pre><code>输入: [7,6,4,3,1]
+输出: 0
+解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。</code></pre><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题其实不是第一次遇上了，初学C++的时候就做过这个题，有几个需要注意的地方是：</p>
+<ul>
+<li>需要判别<strong>数组为空</strong>的情况，此时利润为0可以直接返回；</li>
+<li><strong>不能在买入股票前卖出股票</strong>，所以不是单纯找数组的最小值、最大值；</li>
+<li>股票价格起伏不定，阶段性的买入卖出获得的是阶段性的最大利润，所以在题目要求“<strong>最多只允许完成一笔交易</strong>”的情况下，要始终保持利润最大化。</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {
+public:
+    int maxProfit(vector&lt;int&gt;&amp; prices) {
+        if (prices.empty())
+            return 0;
+        int profit = 0;//利润
+        int buy = prices[0];//买入价格
+        int sold = prices[0];//售出价格
+        for (auto price : prices) {
+            if (price &lt; buy) {
+                buy = price;//当前价格低于原买入价格，则应以当前价格买入
+                sold = price;//由于售出不能早于买入，所以每当以新的低价买入的时候应同步修改卖出价格
+            }
+            if (price &gt; sold) {
+                sold = price;//当前价格高于原卖出价格，则应以当前价格卖出
+                //存在前一段时间利润高于后一段时间利润的情况，要保持利润最大化
+                profit = (sold - buy) &gt; profit ? (sold - buy) : profit;
+            }
+        }
+        return profit;
     }
-  </script>
+};</code></pre>
 
-
-
-              </div>
-            </div>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/Leetcode">Leetcode</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/Leetcode">Leetcode</a>
+                
+                  <a class="hover-with-bg" href="/tags/C++">C++</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="vcomments" style="width: 90%; margin: 0 auto;"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var notify = 'false' === true;
+    var verify = 'false' === true;
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+        app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+        placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+        avatar: "retro",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+      powered by Valine.</a></noscript>
+
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -299,6 +373,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -350,7 +429,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "分类 - Leetcode&nbsp;",
+        "Leetcode 121.买卖股票的最佳时机【C++】&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
