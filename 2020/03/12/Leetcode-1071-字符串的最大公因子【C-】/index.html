@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
+  <link rel="icon" type="image/png" href="/img/devil.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="description" content>
+  <meta name="author" content="mxy">
+  <meta name="keywords" content>
+  <title>Leetcode 1071.字符串的最大公因子【C++】 ~ mxy</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css">
+
+
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>mxy</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/xqmy.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期四, 三月 12日 2020, 3:04 下午
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    1.1k 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      4 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <blockquote>
+<p>地址：<a href="https://leetcode-cn.com/problems/greatest-common-divisor-of-strings/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/greatest-common-divisor-of-strings/</a></p>
+</blockquote>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>对于字符串 <code>S</code> 和 <code>T</code>，只有在 <code>S = T + ... + T</code>（<code>T</code> 与自身连接 1 次或多次）时，我们才认定 “<code>T</code> 能除尽 <code>S</code>”。</p>
+<p>返回最长字符串 <code>X</code>，要求满足 <code>X</code> 能除尽 <code>str1</code> 且 <code>X</code> 能除尽 <code>str2</code>。</p>
+<p><strong>示例 1：</strong></p>
+<pre><code>输入：str1 = &quot;ABCABC&quot;, str2 = &quot;ABC&quot;
+输出：&quot;ABC&quot;</code></pre><p><strong>示例 2：</strong></p>
+<pre><code>输入：str1 = &quot;ABABAB&quot;, str2 = &quot;ABAB&quot;
+输出：&quot;AB&quot;</code></pre><p><strong>示例 3：</strong></p>
+<pre><code>输入：str1 = &quot;LEET&quot;, str2 = &quot;CODE&quot;
+输出：&quot;&quot;</code></pre><p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= str1.length &lt;= 1000</code></li>
+<li><code>1 &lt;= str2.length &lt;= 1000</code></li>
+<li><code>str1[i]</code> 和 <code>str2[i]</code> 为大写英文字母</li>
+</ul>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><h4 id="1-原始思路"><a href="#1-原始思路" class="headerlink" title="1. 原始思路"></a>1. 原始思路</h4><p>我的解题思路大概算是<strong>暴力解</strong>吧。</p>
+<p>我想到的是，如果两个字符串存在公共子串，并且这个子串能同时除尽两个字符串，那么这个子串的长度一定是两个字符串的长度的公约数。所以按照这个思路，应该找出两字符串长度的所有公约数，逐一判断以某一公约数为长度的子串（<code>subString</code>）是否能同时除尽 <code>str1</code> 和 <code>str2</code> 。</p>
+<p>题目要求不仅要是子串，而且是<strong>最长</strong>子串，所以在找公约数的时候，从大到小找，并将公约数逐一存储到数组中备用。</p>
+<p>从找到的公约数中，逐个取出公约数 <code>cd</code>（从大到小），从任一个字符串中截取以 <code>cd</code> 为长度的子串 <code>subString</code>，然后分别判断两个字符串是否能被 <code>subString</code> 除尽，如果前一个字符串不能被 <code>subString</code> 除尽，那么不必再判断后一个字符串，此时应该选取更短一点的子串继续判断。而 <code>subString</code> 的长度是从大到小取的，所以一旦遇到一个子串 <code>subString</code> 能除尽两个字符串，则可以直接将这个 <code>subString</code> 作为结果返回。</p>
+<p>否则，知道函数运行结束，默认返回空串 <code>&quot;&quot;</code>。</p>
+<h4 id="2-优化思路"><a href="#2-优化思路" class="headerlink" title="2. 优化思路"></a>2. 优化思路</h4><p>有一个小的优化思路，写完提交之后，再看代码，发现其实并没必要将公约数存储下来，完全可以从大到小找到一个公约数就判断以这个公约数为长度的子串是否满足题意。可以同时降低空间复杂度和时间复杂度~</p>
+<p>具体实现代码在“<strong>代码【2】</strong>”中！</p>
+<h3 id="代码【1】"><a href="#代码【1】" class="headerlink" title="代码【1】"></a>代码【1】</h3><pre><code class="c++">class Solution {
+public:
+    string gcdOfStrings(string str1, string str2) {
+        vector&lt;int&gt; commonDivisor;//存储两字符串长度的公约数
+        int len_str1 = str1.length();
+        int len_str2 = str2.length();
+        int small = len_str1 &lt; len_str2 ? len_str1 : len_str2;//较短字符串的长度
+        //从大到小找两字符串长度的公约数并存储到数组commonDivisor中
+        for (int i = small; i &gt; 0; i--) {
+            if (len_str1 % i == 0 &amp;&amp; len_str2 % i == 0) {
+                commonDivisor.push_back(i);
+            }
+        }
+        //从大到小判断长度为某公约数的子串是否能被两字符串除尽
+        for (auto cd : commonDivisor) {
+            bool div = true;//能否被除尽
+            string subString = str1.substr(0, cd);//从任一字符串中取长度为公约数cd的子串
+            //判断str1是否能被subString除尽
+            for (int i = 0; i &lt; len_str1; i += cd) {
+                if (subString != str1.substr(i, cd)) {
+                    div = false;
+                    break;
+                }
+            }
+            //判断str2是否能被subString除尽
+            //如果 div == false 则说明str1不能被subString除尽，不必再判断str2
+            for (int i = 0; div == true &amp;&amp; i &lt; len_str2; i += cd) {
+                if (subString != str2.substr(i, cd)) {
+                    div = false;
+                    break;
+                }
+            }
+            //由于是从大到小判断，所以当遇到第一个能除尽两个字符串的子串即可直接返回结果
+            if (div == true)
+                return subString;
+        }
+        return &quot;&quot;;
+    }
+};</code></pre>
+<h3 id="代码【2】"><a href="#代码【2】" class="headerlink" title="代码【2】"></a>代码【2】</h3><pre><code class="c++">class Solution {
+public:
+    string gcdOfStrings(string str1, string str2) {
+        int len_str1 = str1.length();
+        int len_str2 = str2.length();
+        int small = len_str1 &lt; len_str2 ? len_str1 : len_str2;//较短字符串的长度
+        //从大到小找两字符串长度的公约数并存储到数组commonDivisor中
+        for (int cd = small; cd &gt; 0; cd--) {
+            if (len_str1 % cd == 0 &amp;&amp; len_str2 % cd == 0) {
+                bool div = true;//能否被除尽
+                string subString = str1.substr(0, cd);//从任一字符串中取长度为公约数cd的子串
+                //判断str1是否能被subString除尽
+                for (int i = 0; i &lt; len_str1; i += cd) {
+                    if (subString != str1.substr(i, cd)) {
+                        div = false;
+                        break;
+                    }
+                }
+                //判断str2是否能被subString除尽
+                //如果 div == false 则说明str1不能被subString除尽，不必再判断str2
+                for (int i = 0; div == true &amp;&amp; i &lt; len_str2; i += cd) {
+                    if (subString != str2.substr(i, cd)) {
+                        div = false;
+                        break;
+                    }
+                }
+                //由于是从大到小判断，所以当遇到第一个能除尽两个字符串的子串即可直接返回结果
+                if (div == true)
+                    return subString;                
+            }
+        }
+        return &quot;&quot;;
+    }
+};</code></pre>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/Leetcode">Leetcode</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/Leetcode">Leetcode</a>
+                
+                  <a class="hover-with-bg" href="/tags/C++">C++</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="vcomments" style="width: 90%; margin: 0 auto;"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var notify = 'false' === true;
+    var verify = 'false' === true;
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+        app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+        placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+        avatar: "retro",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+      powered by Valine.</a></noscript>
+
+
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
+
+
+
+    
+
+
+    <!-- cnzz Analytics icon -->
+    
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+  
+    <!-- Baidu Analytics -->
+    <script>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  <!-- cnzz Analytics -->
+  
+
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Leetcode 1071.字符串的最大公因子【C++】&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+  
+    <script type="text/javascript">
+      //定义获取词语下标
+      var a_idx = 0;
+      jQuery(document).ready(function ($) {
+        //点击body时触发事件
+        $("body").click(function (e) {
+          //需要显示的词语
+          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+          //设置词语给span标签
+          var $i = $("<span/>").text(a[a_idx]);
+          //下标等于原来下标+1  余 词语总数
+          a_idx = (a_idx + 1) % a.length;
+          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
+          //获取x和y的指针坐标
+          var x = e.pageX, y = e.pageY;
+          //在鼠标的指针的位置给$i定义的span标签添加css样式
+          $i.css({
+            "z-index": 999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": rand_color()
+          });
+          // 随机颜色
+          function rand_color() {
+            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+          }
+          //在body添加这个标签
+          $("body").append($i);
+          //animate() 方法执行 CSS 属性集的自定义动画。
+          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
+          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
+          $i.animate({
+            //将原来的位置向上移动180
+            "top": y - 180,
+            "opacity": 0
+            //1500动画的速度
+          }, 1500, function () {
+            //时间到了自动删除
+            $i.remove();
+          });
+        });
+      })
+      ;
+    </script>
+  
+
+
+
+
+
+
+
+</body>
+</html>

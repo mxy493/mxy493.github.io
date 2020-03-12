@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Leetcode 1071.字符串的最大公因子【C++】</title>
+    <link href="/2020/03/12/Leetcode-1071-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E5%85%AC%E5%9B%A0%E5%AD%90%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/03/12/Leetcode-1071-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%A4%A7%E5%85%AC%E5%9B%A0%E5%AD%90%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/greatest-common-divisor-of-strings/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/greatest-common-divisor-of-strings/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>对于字符串 <code>S</code> 和 <code>T</code>，只有在 <code>S = T + ... + T</code>（<code>T</code> 与自身连接 1 次或多次）时，我们才认定 “<code>T</code> 能除尽 <code>S</code>”。</p><p>返回最长字符串 <code>X</code>，要求满足 <code>X</code> 能除尽 <code>str1</code> 且 <code>X</code> 能除尽 <code>str2</code>。</p><p><strong>示例 1：</strong></p><pre><code>输入：str1 = &quot;ABCABC&quot;, str2 = &quot;ABC&quot;输出：&quot;ABC&quot;</code></pre><p><strong>示例 2：</strong></p><pre><code>输入：str1 = &quot;ABABAB&quot;, str2 = &quot;ABAB&quot;输出：&quot;AB&quot;</code></pre><p><strong>示例 3：</strong></p><pre><code>输入：str1 = &quot;LEET&quot;, str2 = &quot;CODE&quot;输出：&quot;&quot;</code></pre><p><strong>提示：</strong></p><ul><li><code>1 &lt;= str1.length &lt;= 1000</code></li><li><code>1 &lt;= str2.length &lt;= 1000</code></li><li><code>str1[i]</code> 和 <code>str2[i]</code> 为大写英文字母</li></ul><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><h4 id="1-原始思路"><a href="#1-原始思路" class="headerlink" title="1. 原始思路"></a>1. 原始思路</h4><p>我的解题思路大概算是<strong>暴力解</strong>吧。</p><p>我想到的是，如果两个字符串存在公共子串，并且这个子串能同时除尽两个字符串，那么这个子串的长度一定是两个字符串的长度的公约数。所以按照这个思路，应该找出两字符串长度的所有公约数，逐一判断以某一公约数为长度的子串（<code>subString</code>）是否能同时除尽 <code>str1</code> 和 <code>str2</code> 。</p><p>题目要求不仅要是子串，而且是<strong>最长</strong>子串，所以在找公约数的时候，从大到小找，并将公约数逐一存储到数组中备用。</p><p>从找到的公约数中，逐个取出公约数 <code>cd</code>（从大到小），从任一个字符串中截取以 <code>cd</code> 为长度的子串 <code>subString</code>，然后分别判断两个字符串是否能被 <code>subString</code> 除尽，如果前一个字符串不能被 <code>subString</code> 除尽，那么不必再判断后一个字符串，此时应该选取更短一点的子串继续判断。而 <code>subString</code> 的长度是从大到小取的，所以一旦遇到一个子串 <code>subString</code> 能除尽两个字符串，则可以直接将这个 <code>subString</code> 作为结果返回。</p><p>否则，知道函数运行结束，默认返回空串 <code>&quot;&quot;</code>。</p><h4 id="2-优化思路"><a href="#2-优化思路" class="headerlink" title="2. 优化思路"></a>2. 优化思路</h4><p>有一个小的优化思路，写完提交之后，再看代码，发现其实并没必要将公约数存储下来，完全可以从大到小找到一个公约数就判断以这个公约数为长度的子串是否满足题意。可以同时降低空间复杂度和时间复杂度~</p><p>具体实现代码在“<strong>代码【2】</strong>”中！</p><h3 id="代码【1】"><a href="#代码【1】" class="headerlink" title="代码【1】"></a>代码【1】</h3><pre><code class="c++">class Solution {public:    string gcdOfStrings(string str1, string str2) {        vector&lt;int&gt; commonDivisor;//存储两字符串长度的公约数        int len_str1 = str1.length();        int len_str2 = str2.length();        int small = len_str1 &lt; len_str2 ? len_str1 : len_str2;//较短字符串的长度        //从大到小找两字符串长度的公约数并存储到数组commonDivisor中        for (int i = small; i &gt; 0; i--) {            if (len_str1 % i == 0 &amp;&amp; len_str2 % i == 0) {                commonDivisor.push_back(i);            }        }        //从大到小判断长度为某公约数的子串是否能被两字符串除尽        for (auto cd : commonDivisor) {            bool div = true;//能否被除尽            string subString = str1.substr(0, cd);//从任一字符串中取长度为公约数cd的子串            //判断str1是否能被subString除尽            for (int i = 0; i &lt; len_str1; i += cd) {                if (subString != str1.substr(i, cd)) {                    div = false;                    break;                }            }            //判断str2是否能被subString除尽            //如果 div == false 则说明str1不能被subString除尽，不必再判断str2            for (int i = 0; div == true &amp;&amp; i &lt; len_str2; i += cd) {                if (subString != str2.substr(i, cd)) {                    div = false;                    break;                }            }            //由于是从大到小判断，所以当遇到第一个能除尽两个字符串的子串即可直接返回结果            if (div == true)                return subString;        }        return &quot;&quot;;    }};</code></pre><h3 id="代码【2】"><a href="#代码【2】" class="headerlink" title="代码【2】"></a>代码【2】</h3><pre><code class="c++">class Solution {public:    string gcdOfStrings(string str1, string str2) {        int len_str1 = str1.length();        int len_str2 = str2.length();        int small = len_str1 &lt; len_str2 ? len_str1 : len_str2;//较短字符串的长度        //从大到小找两字符串长度的公约数并存储到数组commonDivisor中        for (int cd = small; cd &gt; 0; cd--) {            if (len_str1 % cd == 0 &amp;&amp; len_str2 % cd == 0) {                bool div = true;//能否被除尽                string subString = str1.substr(0, cd);//从任一字符串中取长度为公约数cd的子串                //判断str1是否能被subString除尽                for (int i = 0; i &lt; len_str1; i += cd) {                    if (subString != str1.substr(i, cd)) {                        div = false;                        break;                    }                }                //判断str2是否能被subString除尽                //如果 div == false 则说明str1不能被subString除尽，不必再判断str2                for (int i = 0; div == true &amp;&amp; i &lt; len_str2; i += cd) {                    if (subString != str2.substr(i, cd)) {                        div = false;                        break;                    }                }                //由于是从大到小判断，所以当遇到第一个能除尽两个字符串的子串即可直接返回结果                if (div == true)                    return subString;                            }        }        return &quot;&quot;;    }};</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 1013.将数组分成和相等的三个部分【C++】</title>
     <link href="/2020/03/11/Leetcode-1013-%E5%B0%86%E6%95%B0%E7%BB%84%E5%88%86%E6%88%90%E5%92%8C%E7%9B%B8%E7%AD%89%E7%9A%84%E4%B8%89%E4%B8%AA%E9%83%A8%E5%88%86%E3%80%90C-%E3%80%91/"/>
     <url>/2020/03/11/Leetcode-1013-%E5%B0%86%E6%95%B0%E7%BB%84%E5%88%86%E6%88%90%E5%92%8C%E7%9B%B8%E7%AD%89%E7%9A%84%E4%B8%89%E4%B8%AA%E9%83%A8%E5%88%86%E3%80%90C-%E3%80%91/</url>
