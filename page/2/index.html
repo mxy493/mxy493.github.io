@@ -142,6 +142,69 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/07/Leetcode-70-爬楼梯【C-】/">
+        <p class="h4 index-header">Leetcode 70.爬楼梯【C++】</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：
+
+题目假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
+每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
+注意：给定 n 是一个正整数。
+示例 1：
+输入：2
+输出：2
+解释：有两种方法可以爬到楼顶。
+1. 1 阶 + 1 阶
+2. 1 阶示例 2：
+输入：3
+输出：3
+解释：有三种方法可以爬到楼顶。
+1. 1 阶 + 1 阶 + 1 阶
+2. 1 阶 + 2 阶
+3. 2 阶 + 1 阶解题思路参考官方题解，采用动态规划法。
+第 i 阶可以由以下两种方法得到：
+
+在第 (i - 1) 阶后向上爬 1 阶；
+在第 (i - 2) 阶后向上爬 2 阶。
+
+所以，只要知道任意相邻的两级台阶的方法数，就可以推算出其后的所有台阶数可以到达的方法总数。即 dp[i] = dp[i - 1] + dp[i - 2] 。而第一级台阶和第二级台阶到达的方法数是显而易见的，所以只需要定义出 dp[1] = 1; dp[2] = 2;，则后续的爬 n 阶楼梯的不同方法就可以通过前述公式计算出来。
+代码class Solution {
+public:
+    int climb</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C++">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/07/Leetcode-面试题59-II-队列的最大值【C-】/">
         <p class="h4 index-header">Leetcode 面试题59 - II.队列的最大值【C++】</p>
         
@@ -603,64 +666,6 @@ B = [2,5,6],       n = 3
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C++">C++</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/05/Leetcode-994-腐烂的橘子-C/">
-        <p class="h4 index-header">Leetcode 994.腐烂的橘子【C++】</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-地址：https://leetcode-cn.com/problems/rotting-oranges/
-
-题目在给定的网格中，每个单元格可以有以下三个值之一：
-值 0 代表空单元格；值 1 代表新鲜橘子；值 2 代表腐烂的橘子。每分钟，任何与腐烂的橘子（在 4 个正方向上）相邻的新鲜橘子都会腐烂。
-返回直到单元格中没有新鲜橘子为止所必须经过的最小分钟数。如果不可能，返回 -1。
-示例 1：
-
-输入：[[2,1,1],[1,1,0],[0,1,1]]
-输出：4示例 2：
-输入：[[2,1,1],[0,1,1],[1,0,1]]
-输出：-1
-解释：左下角的橘子（第 2 行， 第 0 列）永远不会腐烂，因为腐烂只会发生在 4 个正向上。示例 3：
-输入：[[0,2]]
-输出：0
-解释：因为 0 分钟时已经没有新鲜橘子了，所以答案就是 0 。提示：
-
-1 &lt;= grid.length &lt;= 10
-1 &lt;= grid[0].length &lt;= 10
-grid[i][j] 仅为 0、1 或 2
-
-解题思路（1）笨办法，先记录一下吧😅（内存消耗 :15.2 MB, 在所</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-05&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
