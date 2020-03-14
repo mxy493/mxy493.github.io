@@ -142,6 +142,62 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/07/Leetcode-69-x的平方根【C-】/">
+        <p class="h4 index-header">Leetcode 69.x的平方根【C++】</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/sqrtx/
+
+题目实现 int sqrt(int x) 函数。
+计算并返回 x 的平方根，其中 x 是非负整数。
+由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。
+示例 1:
+输入: 4
+输出: 2示例 2:
+输入: 8
+输出: 2
+说明: 8 的平方根是 2.82842...，由于返回类型是整数，小数部分将被舍去。解题思路采用二分法求解。
+平方根一定是 &gt;= 0 的，则 low 取初始值为0；平方根不大于这个数的一半再+1，所以 up 取初始值为 x / 2.0 + 1.0，然后两头向中间逼近。题目要求只保留整数部分，小数部分舍去，所以平方根将最终的 mid 取整。
+代码class Solution {
+public:
+    int mySqrt(int x) {
+        double low = 0;//平方根一定是 &gt;= 0 的
+        double up = x / 2.0 + 1.0;//平方根不大于这个数的一半再+1
+        double mid;
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C++">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/07/Leetcode-70-爬楼梯【C-】/">
         <p class="h4 index-header">Leetcode 70.爬楼梯【C++】</p>
         
@@ -609,57 +665,6 @@ B = [2,5,6],       n = 3
 输出: [1,2,2,3,5,6]解题思路挺蠢的解法，思路是遍历数组B，将数组B中的元素逐个插入到数组A中合适的位置。
 将遍历A,B数组用的下表i,j定义在函数作用域内，是因为A,B均为排序后的数组，所以已经查找过的部分就没必要再查找一次了。
 第一层循环从数组B中逐个取出元素，在循环体内插入到数组A中，考虑两种情况，第一种情况A，的已排序部分有比B[i]大的数，所以需要进入第二层循环找到第一个比B[i]大的数的位置，将这个数及其后面的已排序的数整体后移一位（第三层循环），然后将B[i]插入到这个位置；第二种情况，B[i]比A中已排序部分的所有数都大，这时候 j == m + i 并且</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C++">C++</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/06/Leetcode-面试题57-II-和为s的连续正数序列【C-】/">
-        <p class="h4 index-header">Leetcode 面试题57 - II.和为s的连续正数序列【C++】</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-地址：https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/
-
-题目输入一个正整数 target ，输出所有和为 target 的连续正整数序列（至少含有两个数）。
-序列内的数字由小到大排列，不同序列按照首个数字从小到大排列。
-示例 1：
-输入：target = 9
-输出：[[2,3,4],[4,5]]示例 2：
-输入：target = 15
-输出：[[1,2,3,4,5],[4,5,6],[7,8]]限制：
-
-1 &lt;= target &lt;= 10^5
-
-解题思路首先很容易想到一点，最大可能取到的数是 target/2 + 1 ，例如对 target == 5 而言，最大只可能取到 5/2 +1 = 3 ，若取到4，由于题目要求是连续正整数，那么就必须取到3或者5，此时 3 + 4 = 7 已经大于目标值5。
-这个题按照人的思维还是很容易想到的，就是从第一个正整数1开始往后依次相加，如果相加之后的和sum小于目标值，那就继续加后一个正整数，如果sum大于目标值，就减去序列最小的数，</div>
         </div>
       </a>
 

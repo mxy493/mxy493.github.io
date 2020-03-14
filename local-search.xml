@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Leetcode 300.最长上升子序列【C++】</title>
+    <link href="/2020/03/14/Leetcode-300-%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/03/14/Leetcode-300-%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/longest-increasing-subsequence/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个无序的整数数组，找到其中最长上升子序列的长度。</p><p><strong>示例：</strong></p><pre><code>输入: [10,9,2,5,3,7,101,18]输出: 4 解释: 最长的上升子序列是 [2,3,7,101]，它的长度是 4。</code></pre><p><strong>说明：</strong></p><ul><li>可能会有多种最长上升子序列的组合，你只需要输出对应的长度即可。</li><li>你算法的时间复杂度应该为 O(n2) 。<br><strong>进阶：</strong> 你能将算法的时间复杂度降低到 O(n log n) 吗?</li></ul><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>没思路，然后看了<strong>官方题解：</strong> <a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/zui-chang-shang-sheng-zi-xu-lie-by-leetcode-soluti/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/zui-chang-shang-sheng-zi-xu-lie-by-leetcode-soluti/</a></p><p>这里就不复述具体的解题思路了，不太好描述清楚，官方题解中有动画演示，讲的很清晰。</p><p>附上官方题解中的状态转移方程：<br>$$<br>dp[i] = \text{max}(dp[j]) + 1, \text{其中} , 0 \leq j &lt; i , \text{且} , \textit{num}[j]&lt;\textit{num}[i]<br>$$<br><code>dp[i]</code>为考虑前 i 个元素，以第 i 个数字结尾的最长上升子序列的长度。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {public:    int lengthOfLIS(vector&lt;int&gt;&amp; nums) {        int n = nums.size();//nums[]的长度        if (n == 0)            return 0;        //dp[i]保存从nums[0]到nums[i]的子序的最长上升子序的长度        vector&lt;int&gt; dp(n, 0);        for (int i = 0; i &lt; n; i++) {            dp[i] = 1;//默认为1即假设前面的元素中没有大于nums[i]的元素            //遍历nums[i]之前的元素            for (int j = 0; j &lt; i; j++) {                //只要有比nums[i]小的元素，就要更新dp[i]                if (nums[i] &gt; nums[j]) {                    dp[i] = max(dp[i], dp[j] + 1);                }            }        }        return *max_element(dp.begin(), dp.end());//返回数组dp[]中的最大值    }};</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 169.多数元素【C++】</title>
     <link href="/2020/03/13/Leetcode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0%E3%80%90C-%E3%80%91/"/>
     <url>/2020/03/13/Leetcode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0%E3%80%90C-%E3%80%91/</url>

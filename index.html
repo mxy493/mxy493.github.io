@@ -142,6 +142,57 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/14/Leetcode-300-最长上升子序列【C-】/">
+        <p class="h4 index-header">Leetcode 300.最长上升子序列【C++】</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/longest-increasing-subsequence/
+
+题目给定一个无序的整数数组，找到其中最长上升子序列的长度。
+示例：
+输入: [10,9,2,5,3,7,101,18]
+输出: 4 
+解释: 最长的上升子序列是 [2,3,7,101]，它的长度是 4。说明：
+
+可能会有多种最长上升子序列的组合，你只需要输出对应的长度即可。
+你算法的时间复杂度应该为 O(n2) 。进阶： 你能将算法的时间复杂度降低到 O(n log n) 吗?
+
+解题思路没思路，然后看了官方题解： https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/zui-chang-shang-sheng-zi-xu-lie-by-leetcode-soluti/
+这里就不复述具体的解题思路了，不太好描述清楚，官方题解中有动画演示，讲的很清晰。
+附上官方题解中的状态转移方程：$$dp[i] = \text{max}(dp[j]) + 1, \text{</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-14&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C++">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/13/Leetcode-169-多数元素【C-】/">
         <p class="h4 index-header">Leetcode 169.多数元素【C++】</p>
         
@@ -577,62 +628,6 @@ public:
 输出: &quot;10101&quot;解题思路这个题不可避免的要处理十进制和二进制之间的转换问题，按照二进制求和的方法，从低位到高位依次相加。
 定义一个 car 记录进位，默认为 0 即没有进位，有进位只可能为 1 ；定义一个 string 类型的 sum 用以保存得到的和；定义两个int型变量 cur_a 和 cur_b 保存两个字符串相同位置上的字符转为 int 型后的值，方便进行常规加法计算，若字符串为空则作 0 处理，效果等同于没有数与之相加；x 保存某一位上的相加结果，以根据其相加的结果进行进位处理。
 因为是二进制加法，x 可能的取值情况</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C++">C++</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/07/Leetcode-69-x的平方根【C-】/">
-        <p class="h4 index-header">Leetcode 69.x的平方根【C++】</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-地址：https://leetcode-cn.com/problems/sqrtx/
-
-题目实现 int sqrt(int x) 函数。
-计算并返回 x 的平方根，其中 x 是非负整数。
-由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。
-示例 1:
-输入: 4
-输出: 2示例 2:
-输入: 8
-输出: 2
-说明: 8 的平方根是 2.82842...，由于返回类型是整数，小数部分将被舍去。解题思路采用二分法求解。
-平方根一定是 &gt;= 0 的，则 low 取初始值为0；平方根不大于这个数的一半再+1，所以 up 取初始值为 x / 2.0 + 1.0，然后两头向中间逼近。题目要求只保留整数部分，小数部分舍去，所以平方根将最终的 mid 取整。
-代码class Solution {
-public:
-    int mySqrt(int x) {
-        double low = 0;//平方根一定是 &gt;= 0 的
-        double up = x / 2.0 + 1.0;//平方根不大于这个数的一半再+1
-        double mid;
-</div>
         </div>
       </a>
 
