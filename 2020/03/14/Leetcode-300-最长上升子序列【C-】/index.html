@@ -128,7 +128,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    427 字
+                    421 字
                   </span>&nbsp;
                 
 
@@ -183,7 +183,8 @@
 </ul>
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>没思路，然后看了<strong>官方题解：</strong> <a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/zui-chang-shang-sheng-zi-xu-lie-by-leetcode-soluti/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/zui-chang-shang-sheng-zi-xu-lie-by-leetcode-soluti/</a></p>
 <p>这里就不复述具体的解题思路了，不太好描述清楚，官方题解中有动画演示，讲的很清晰。</p>
-<p>附上官方题解中的状态转移方程：<br>$$<br>dp[i] = \text{max}(dp[j]) + 1, \text{其中} , 0 \leq j &lt; i , \text{且} , \textit{num}[j]&lt;\textit{num}[i]<br>$$<br><code>dp[i]</code>为考虑前 i 个元素，以第 i 个数字结尾的最长上升子序列的长度。</p>
+<p>附上官方题解中的状态转移方程：<strong><em>dp[i] = max(dp[j]) + 1，其中 0 ≤ j &lt; i 且 num[j] &lt; num[i]</em></strong></p>
+<p><code>dp[i]</code>为考虑前 i 个元素，以第 i 个数字结尾的最长上升子序列的长度。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {
 public:
     int lengthOfLIS(vector&lt;int&gt;&amp; nums) {

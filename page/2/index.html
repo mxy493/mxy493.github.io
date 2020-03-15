@@ -142,6 +142,54 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/07/Leetcode-67-二进制求和【C-】/">
+        <p class="h4 index-header">Leetcode 67.二进制求和【C++】</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/add-binary/
+
+题目给定两个二进制字符串，返回他们的和（用二进制表示）。
+输入为非空字符串且只包含数字 1 和 0。
+示例 1:
+输入: a = &quot;11&quot;, b = &quot;1&quot;
+输出: &quot;100&quot;示例 2:
+输入: a = &quot;1010&quot;, b = &quot;1011&quot;
+输出: &quot;10101&quot;解题思路这个题不可避免的要处理十进制和二进制之间的转换问题，按照二进制求和的方法，从低位到高位依次相加。
+定义一个 car 记录进位，默认为 0 即没有进位，有进位只可能为 1 ；定义一个 string 类型的 sum 用以保存得到的和；定义两个int型变量 cur_a 和 cur_b 保存两个字符串相同位置上的字符转为 int 型后的值，方便进行常规加法计算，若字符串为空则作 0 处理，效果等同于没有数与之相加；x 保存某一位上的相加结果，以根据其相加的结果进行进位处理。
+因为是二进制加法，x 可能的取值情况</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C++">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/07/Leetcode-69-x的平方根【C-】/">
         <p class="h4 index-header">Leetcode 69.x的平方根【C++】</p>
         
@@ -641,60 +689,11 @@ q.empty()：判断队列是否为空，当队列空时，返回true。
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/06/Leetcode-面试题-10-01-合并排序的数组【C-】/">
-        <p class="h4 index-header">Leetcode 面试题 10.01. 合并排序的数组【C++】</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-地址：https://leetcode-cn.com/problems/sorted-merge-lcci/
-
-题目给定两个排序后的数组 A 和 B，其中 A 的末端有足够的缓冲空间容纳 B。 编写一个方法，将 B 合并入 A 并排序。
-初始化 A 和 B 的元素数量分别为 m 和 n。
-示例:
-输入:
-A = [1,2,3,0,0,0], m = 3
-B = [2,5,6],       n = 3
-
-输出: [1,2,2,3,5,6]解题思路挺蠢的解法，思路是遍历数组B，将数组B中的元素逐个插入到数组A中合适的位置。
-将遍历A,B数组用的下表i,j定义在函数作用域内，是因为A,B均为排序后的数组，所以已经查找过的部分就没必要再查找一次了。
-第一层循环从数组B中逐个取出元素，在循环体内插入到数组A中，考虑两种情况，第一种情况A，的已排序部分有比B[i]大的数，所以需要进入第二层循环找到第一个比B[i]大的数的位置，将这个数及其后面的已排序的数整体后移一位（第三层循环），然后将B[i]插入到这个位置；第二种情况，B[i]比A中已排序部分的所有数都大，这时候 j == m + i 并且</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C++">C++</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   
