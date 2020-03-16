@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Leetcode 面试题 01.06.字符串压缩【C++】</title>
+    <link href="/2020/03/16/Leetcode-%E9%9D%A2%E8%AF%95%E9%A2%98-01-06-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8E%8B%E7%BC%A9%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/03/16/Leetcode-%E9%9D%A2%E8%AF%95%E9%A2%98-01-06-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8E%8B%E7%BC%A9%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/compress-string-lcci/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/compress-string-lcci/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>字符串压缩。利用字符重复出现的次数，编写一种方法，实现基本的字符串压缩功能。比如，字符串 <code>aabcccccaaa</code> 会变为 <code>a2b1c5a3</code>。若“压缩”后的字符串没有变短，则返回原先的字符串。你可以假设字符串中只包含大小写英文字母（a至z）。</p><p><strong>示例1:</strong></p><pre><code> 输入：&quot;aabcccccaaa&quot; 输出：&quot;a2b1c5a3&quot;</code></pre><p><strong>示例2:</strong></p><pre><code> 输入：&quot;abbccd&quot; 输出：&quot;abbccd&quot; 解释：&quot;abbccd&quot;压缩后为&quot;a1b2c2d1&quot;，比原字符串长度更长。</code></pre><p><strong>提示：</strong></p><p>字符串长度在[0, 50000]范围内。</p><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>由于传入的字符串长度可能为0，所以这种特殊情况应该直接返回原字符串（无法对其进行压缩）。</p><p>由于题目要求是压缩字符串，但是如果“压缩”后的字符串长度没有变短的话，就应该返回原字符串，所以不应该在原字符串上进行修改，所以我定义了一个新的字符串 <code>cpStr</code> 存储压缩后的字符串。</p><p>思路很简单，遍历原字符串，取出一个字符串将其追加到 <code>cpStr</code> 末尾，然后对这个字符进行计数，直到遇到下一个不同的字符计数结束，将计数追加到 <code>cpStr</code> 末尾，并重新将计数 <code>count</code> 修改为1，即当前新遇到的字符个数为1，然后再对新遇到的字符计数，循环前述步骤，直到遍历完原字符串。最后跳出循环还应该将最后一个字符的计数值追加到 <code>cpStr</code> 末尾，因为循环内部最后一个字符不会再遇到新的字符，所以虽然对其进行了计数但是并没有将它的个数追加到压缩的字符串的末尾。</p><p>最后返回结果用一个条件表达式，判断 <code>cpStr</code> 的长度是否小于原字符串长度，当且仅当小于原字符串长度的时候才将压缩后的 <code>cpStr</code> 返回，否则应返回原字符串。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {public:    string compressString(string str) {        int length = str.length();//获取字符串长度        if (length == 0)            return str;        string cpStr;//压缩后的字符串        char c = str[0];        cpStr += c;        int count = 0;//计数某一个字符        for (int i = 0; i &lt; length; i++) {            if (str[i] == c) {                count++;            }            else {                if (count &gt; 0) {                    cpStr += to_string(count);                    c = str[i];                    cpStr += c;                    count = 1;               }            }        }        cpStr += to_string(count);//追加最后一个字符的个数        return cpStr.length() &lt; length ? cpStr : str;    }};</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 695.岛屿的最大面积【C++】</title>
     <link href="/2020/03/15/Leetcode-695-%E5%B2%9B%E5%B1%BF%E7%9A%84%E6%9C%80%E5%A4%A7%E9%9D%A2%E7%A7%AF%E3%80%90C-%E3%80%91/"/>
     <url>/2020/03/15/Leetcode-695-%E5%B2%9B%E5%B1%BF%E7%9A%84%E6%9C%80%E5%A4%A7%E9%9D%A2%E7%A7%AF%E3%80%90C-%E3%80%91/</url>
