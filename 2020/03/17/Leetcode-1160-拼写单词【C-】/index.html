@@ -15,7 +15,7 @@
   <meta name="description" content>
   <meta name="author" content="mxy">
   <meta name="keywords" content>
-  <title>归档 ~ mxy</title>
+  <title>Leetcode 1160.拼写单词【C++】 ~ mxy</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
@@ -36,7 +36,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -115,6 +115,41 @@
             </span>
 
             
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期二, 三月 17日 2020, 8:04 晚上
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    734 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      3 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
           </div>
 
           
@@ -125,101 +160,155 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 63 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2019</p>
-    
-    <a href="/2019/01/28/Leetcode-有效的数独/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 有效的数独</span>
-      <span style="float: right;">01-28</span>
-    </a>
-  
-    
-    <a href="/2019/01/28/Leetcode-两数之和/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 两数之和</span>
-      <span style="float: right;">01-28</span>
-    </a>
-  
-    
-    <a href="/2019/01/28/Hexo博客（主题：yilia）添加Valine评论系统/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Hexo博客（主题：yilia）添加Valine评论系统</span>
-      <span style="float: right;">01-28</span>
-    </a>
-  
-    
-    <a href="/2019/01/27/Hexo中插入本地图片/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Hexo中插入本地图片</span>
-      <span style="float: right;">01-27</span>
-    </a>
-  
-    
-    <a href="/2019/01/26/Hexo-yilia主题添加“不蒜子”访问量统计/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Hexo yilia主题添加“不蒜子”访问量统计</span>
-      <span style="float: right;">01-26</span>
-    </a>
-  
-    
-    <a href="/2019/01/26/Leetcode-移动零/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 移动零</span>
-      <span style="float: right;">01-26</span>
-    </a>
-  
-    
-    <a href="/2019/01/25/Leetcode-加一/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 加一</span>
-      <span style="float: right;">01-25</span>
-    </a>
-  
-    
-    <a href="/2019/01/24/Leetcode-两个数组的交集-II/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 两个数组的交集 II</span>
-      <span style="float: right;">01-24</span>
-    </a>
-  
-    
-    <a href="/2019/01/23/YAML语法简记/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">YAML语法简记</span>
-      <span style="float: right;">01-23</span>
-    </a>
-  
-    
-    <a href="/2019/01/22/Leetcode-只出现一次的数字/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 只出现一次的数字</span>
-      <span style="float: right;">01-22</span>
-    </a>
-  
-</div>
 
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/page/5/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/archives/page/7/">7</a><a class="extend next" rel="next" href="/archives/page/7/"><i class="fas fa-angle-double-right"></i></a>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
-      ele.href += '#board';
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <blockquote>
+<p>地址：<a href="https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters/</a></p>
+</blockquote>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一份『词汇表』（字符串数组） <code>words</code> 和一张『字母表』（字符串） <code>chars</code>。</p>
+<p>假如你可以用 <code>chars</code> 中的『字母』（字符）拼写出 <code>words</code> 中的某个『单词』（字符串），那么我们就认为你掌握了这个单词。</p>
+<p>注意：每次拼写时，<code>chars</code> 中的每个字母都只能用一次。</p>
+<p>返回词汇表 <code>words</code> 中你掌握的所有单词的 <strong>长度之和</strong>。</p>
+<p><strong>示例 1：</strong></p>
+<pre><code>输入：words = [&quot;cat&quot;,&quot;bt&quot;,&quot;hat&quot;,&quot;tree&quot;], chars = &quot;atach&quot;
+输出：6
+解释： 
+可以形成字符串 &quot;cat&quot; 和 &quot;hat&quot;，所以答案是 3 + 3 = 6。</code></pre><p><strong>示例 2：</strong></p>
+<pre><code>输入：words = [&quot;hello&quot;,&quot;world&quot;,&quot;leetcode&quot;], chars = &quot;welldonehoneyr&quot;
+输出：10
+解释：
+可以形成字符串 &quot;hello&quot; 和 &quot;world&quot;，所以答案是 5 + 5 = 10。</code></pre><p><strong>提示：</strong></p>
+<ol>
+<li><code>1 &lt;= words.length &lt;= 1000</code></li>
+<li><code>1 &lt;= words[i].length, chars.length &lt;= 100</code></li>
+<li>所有字符串中都仅包含小写英文字母</li>
+</ol>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题其实就是从 <code>words</code> 中取出一个单词，然后到 <code>chars</code> 中去找字符看是否能组成这个单词。唯一需要考虑的是， <code>chars</code> 中的每个字符在一个单词中只能使用一次，所以应该标记已经使用过的单词。</p>
+<p>首先如果 <code>words</code> 或 <code>chars</code> 为空，则直接返回0，因为不可能有能拼写的单词。然后定义一个 <code>length</code> 并将其初始化为0，用于保存掌握的单词的长度和，遍历 <code>words</code> 中的所有单词，定义一个和字母表中字符个数相同的 <code>vector&lt;int&gt;</code> 数组 <code>mark[]</code>，将其初始化为全1，表示所有字符均未被使用，然后二层循环遍历每个单词的所有字母，然后第三层循环遍历 <code>chars</code> 查找是否有还未使用过的这个字母，如果有，将 <code>chars</code> 中的这个字母标记为已经用，即 <code>mark[j] = 0;</code> ，继续循环查找下一个字母。只要三层循环中有一个字母找不到，则表示这个单词不能拼写，应直接查找下一个单词。找到一个能拼写的单词，就将这个单词的长度加到 <code>length</code> 上。循环上述步骤，直到遍历完 <code>words</code> 。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {
+public:
+    int countCharacters(vector&lt;string&gt;&amp; words, string chars) {
+        if (words.empty() || chars.empty())
+            return 0;
+        int length = 0;//总长度
+        int n = chars.length();
+        for (auto word : words) {
+            bool b = true;//该单词能否拼写
+            vector&lt;int&gt; mark(n, 1);//标记字符是否被使用，0为已使用，1为未使用
+            for (auto c : word) {
+                bool findc = false;//是否有没被使用过的这个字符
+                for (int j = 0; j &lt; n; j++) {
+                    if (c == chars[j] &amp;&amp; mark[j] == 1) {
+                        findc = true;
+                        mark[j] = 0;//该字符被使用
+                        break;
+                    }
+                }
+                //只要有一个字符没找到则这个单词不能拼写
+                if (findc == false) {
+                    b = false;
+                    break;
+                }
+            }
+            if (b == true) {
+                length += word.length();
+            }
+        }
+        return length;
     }
-  </script>
+};</code></pre>
 
-
-              </div>
-            </div>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/Leetcode">Leetcode</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/Leetcode">Leetcode</a>
+                
+                  <a class="hover-with-bg" href="/tags/C++">C++</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="vcomments" style="width: 90%; margin: 0 auto;"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var notify = 'false' === true;
+    var verify = 'false' === true;
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+        app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+        placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+        avatar: "retro",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+      powered by Valine.</a></noscript>
+
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -298,6 +387,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -349,7 +443,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "Leetcode 1160.拼写单词【C++】&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
