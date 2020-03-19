@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Leetcode 409.最长回文串【C++】</title>
+    <link href="/2020/03/19/Leetcode-409-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/03/19/Leetcode-409-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/longest-palindrome/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/longest-palindrome/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。</p><p>在构造过程中，请注意区分大小写。比如 <code>&quot;Aa&quot;</code> 不能当做一个回文字符串。</p><p><strong>注意:</strong><br>假设字符串的长度不会超过 <code>1010</code>。</p><p><strong>示例 1:</strong></p><pre><code>输入:&quot;abccccdd&quot;输出:7解释:我们可以构造的最长的回文串是&quot;dccaccd&quot;, 它的长度是 7。</code></pre><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>解题思路还是很容易想到的，回文串的特征很明显，就是左右对称，也就是说只有正中可能存在单个的字符，其余的字符都一定是偶数个。</p><p>所以我很快就想到了统计字符串中不同字符的个数，使用了一个 <code>vector&lt;pair&lt;char, int&gt;&gt;</code> 类型的数组 <code>count</code> 用于保存每个字符及其对应的个数。</p><p>然后遍历 <code>count</code> 将每个字符的最多可能取到的偶数个数加到 <code>length</code> ，然后为了尽可能的让回文串的长度更长，所以如果存在计数个数的字符，那就应该再+1，即表示将一个单个的字符作为回文串的正中的字符。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {public:    int longestPalindrome(string s) {        int length = 0;//返回值默认为0        //统计每个字符的个数        vector&lt;pair&lt;char, int&gt;&gt; count;        for (auto c : s) {            bool exist = false;            for (int i = 0; i &lt; count.size(); i++) {                if (c == count[i].first) {                    count[i].second++;                    exist = true;                }            }            if (exist == false) {                count.push_back({ c,1 });            }        }        bool b = false;//判断是否有奇数个数的字符        for (auto co : count) {            //个数为偶数直接加进length            if (co.second % 2 == 0) {                length += co.second;            }            //个数为奇数            else {                //b为false表明第一次遇到奇数个数的字符，将其个数加到length并将b置为true                if (b == false) {                    length += co.second;                    b = true;                }                //b不为false表明已遇到过奇数个数的字符，此时应该讲偶数个的该字符加到length                else {                    length += co.second - 1;                }            }        }        return length;    }};</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 836.矩形重叠【C++】</title>
     <link href="/2020/03/18/Leetcode-836-%E7%9F%A9%E5%BD%A2%E9%87%8D%E5%8F%A0%E3%80%90C-%E3%80%91/"/>
     <url>/2020/03/18/Leetcode-836-%E7%9F%A9%E5%BD%A2%E9%87%8D%E5%8F%A0%E3%80%90C-%E3%80%91/</url>

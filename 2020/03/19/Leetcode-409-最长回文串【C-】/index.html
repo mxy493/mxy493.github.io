@@ -15,7 +15,7 @@
   <meta name="description" content>
   <meta name="author" content="mxy">
   <meta name="keywords" content>
-  <title>标签 - Leetcode ~ mxy</title>
+  <title>Leetcode 409.最长回文串【C++】 ~ mxy</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
@@ -36,7 +36,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -115,6 +115,41 @@
             </span>
 
             
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期四, 三月 19日 2020, 4:20 下午
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    514 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      2 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
           </div>
 
           
@@ -125,102 +160,157 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-<!--  <p class="h4">共计 10 篇文章</p>-->
-  <hr>
-  
-    
       
-      <p class="h5">2019</p>
-    
-    <a href="/2019/02/01/Leetcode-字符串中的第一个唯一字符/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 字符串中的第一个唯一字符</span>
-      <span style="float: right;">02-01</span>
-    </a>
-  
-    
-    <a href="/2019/01/31/Leetcode-整数反转/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 整数反转</span>
-      <span style="float: right;">01-31</span>
-    </a>
-  
-    
-    <a href="/2019/01/30/Leetcode-反转字符串/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 反转字符串</span>
-      <span style="float: right;">01-30</span>
-    </a>
-  
-    
-    <a href="/2019/01/29/Leetcode-旋转图像/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 旋转图像</span>
-      <span style="float: right;">01-29</span>
-    </a>
-  
-    
-    <a href="/2019/01/28/Leetcode-有效的数独/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 有效的数独</span>
-      <span style="float: right;">01-28</span>
-    </a>
-  
-    
-    <a href="/2019/01/28/Leetcode-两数之和/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 两数之和</span>
-      <span style="float: right;">01-28</span>
-    </a>
-  
-    
-    <a href="/2019/01/26/Leetcode-移动零/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 移动零</span>
-      <span style="float: right;">01-26</span>
-    </a>
-  
-    
-    <a href="/2019/01/25/Leetcode-加一/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 加一</span>
-      <span style="float: right;">01-25</span>
-    </a>
-  
-    
-    <a href="/2019/01/24/Leetcode-两个数组的交集-II/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 两个数组的交集 II</span>
-      <span style="float: right;">01-24</span>
-    </a>
-  
-    
-    <a href="/2019/01/22/Leetcode-只出现一次的数字/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 只出现一次的数字</span>
-      <span style="float: right;">01-22</span>
-    </a>
-  
-</div>
 
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/tags/Leetcode/page/4/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/tags/Leetcode/">1</a><span class="space">&hellip;</span><a class="page-number" href="/tags/Leetcode/page/3/">3</a><a class="page-number" href="/tags/Leetcode/page/4/">4</a><span class="page-number current">5</span>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
-      ele.href += '#board';
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <blockquote>
+<p>地址：<a href="https://leetcode-cn.com/problems/longest-palindrome/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/longest-palindrome/</a></p>
+</blockquote>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。</p>
+<p>在构造过程中，请注意区分大小写。比如 <code>&quot;Aa&quot;</code> 不能当做一个回文字符串。</p>
+<p><strong>注意:</strong><br>假设字符串的长度不会超过 <code>1010</code>。</p>
+<p><strong>示例 1:</strong></p>
+<pre><code>输入:
+&quot;abccccdd&quot;
+
+输出:
+7
+
+解释:
+我们可以构造的最长的回文串是&quot;dccaccd&quot;, 它的长度是 7。</code></pre><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>解题思路还是很容易想到的，回文串的特征很明显，就是左右对称，也就是说只有正中可能存在单个的字符，其余的字符都一定是偶数个。</p>
+<p>所以我很快就想到了统计字符串中不同字符的个数，使用了一个 <code>vector&lt;pair&lt;char, int&gt;&gt;</code> 类型的数组 <code>count</code> 用于保存每个字符及其对应的个数。</p>
+<p>然后遍历 <code>count</code> 将每个字符的最多可能取到的偶数个数加到 <code>length</code> ，然后为了尽可能的让回文串的长度更长，所以如果存在计数个数的字符，那就应该再+1，即表示将一个单个的字符作为回文串的正中的字符。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {
+public:
+    int longestPalindrome(string s) {
+        int length = 0;//返回值默认为0
+        //统计每个字符的个数
+        vector&lt;pair&lt;char, int&gt;&gt; count;
+        for (auto c : s) {
+            bool exist = false;
+            for (int i = 0; i &lt; count.size(); i++) {
+                if (c == count[i].first) {
+                    count[i].second++;
+                    exist = true;
+                }
+            }
+            if (exist == false) {
+                count.push_back({ c,1 });
+            }
+        }
+        bool b = false;//判断是否有奇数个数的字符
+        for (auto co : count) {
+            //个数为偶数直接加进length
+            if (co.second % 2 == 0) {
+                length += co.second;
+            }
+            //个数为奇数
+            else {
+                //b为false表明第一次遇到奇数个数的字符，将其个数加到length并将b置为true
+                if (b == false) {
+                    length += co.second;
+                    b = true;
+                }
+                //b不为false表明已遇到过奇数个数的字符，此时应该讲偶数个的该字符加到length
+                else {
+                    length += co.second - 1;
+                }
+            }
+        }
+        return length;
     }
-  </script>
+};</code></pre>
 
-
-
-              </div>
-            </div>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/Leetcode">Leetcode</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/Leetcode">Leetcode</a>
+                
+                  <a class="hover-with-bg" href="/tags/C++">C++</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="vcomments" style="width: 90%; margin: 0 auto;"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var notify = 'false' === true;
+    var verify = 'false' === true;
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+        app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+        placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+        avatar: "retro",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+      powered by Valine.</a></noscript>
+
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -299,6 +389,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -350,7 +445,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "标签 - Leetcode&nbsp;",
+        "Leetcode 409.最长回文串【C++】&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
