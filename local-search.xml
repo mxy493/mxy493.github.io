@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Leetcode 365.水壶问题【C++】</title>
+    <link href="/2020/03/21/Leetcode-365-%E6%B0%B4%E5%A3%B6%E9%97%AE%E9%A2%98%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/03/21/Leetcode-365-%E6%B0%B4%E5%A3%B6%E9%97%AE%E9%A2%98%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/water-and-jug-problem/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/water-and-jug-problem/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>有两个容量分别为 <em>x</em>升 和 <em>y</em>升 的水壶以及无限多的水。请判断能否通过使用这两个水壶，从而可以得到恰好 <em>z</em>升 的水？</p><p>如果可以，最后请用以上水壶中的一或两个来盛放取得的 <em>z升</em> 水。</p><p>你允许：</p><ul><li>装满任意一个水壶</li><li>清空任意一个水壶</li><li>从一个水壶向另外一个水壶倒水，直到装满或者倒空</li></ul><p><strong>示例 1:</strong> (From the famous <a href="https://www.youtube.com/watch?v=BVtQNK_ZUJg" target="_blank" rel="noopener">*”Die Hard”* example</a>)</p><pre><code>输入: x = 3, y = 5, z = 4输出: True</code></pre><p><strong>示例 2:</strong></p><pre><code>输入: x = 2, y = 6, z = 5输出: False</code></pre><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>想到了深度优先搜索，但是没能实现……</p><p><strong>👇🏻 好好学数学 ಥ_ಥ</strong></p><p><strong>官方题解：</strong><a href="https://leetcode-cn.com/problems/water-and-jug-problem/solution/shui-hu-wen-ti-by-leetcode-solution/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/water-and-jug-problem/solution/shui-hu-wen-ti-by-leetcode-solution/</a></p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {public:    bool canMeasureWater(int x, int y, int z) {        if (x + y &lt; z) return false;        if (x == 0 || y == 0) return z == 0 || x + y == z;        return z % gcd(x, y) == 0;    }};</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 面试题40.最小的k个数【C++】</title>
     <link href="/2020/03/21/Leetcode-%E9%9D%A2%E8%AF%95%E9%A2%9840-%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0%E3%80%90C-%E3%80%91/"/>
     <url>/2020/03/21/Leetcode-%E9%9D%A2%E8%AF%95%E9%A2%9840-%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0%E3%80%90C-%E3%80%91/</url>
