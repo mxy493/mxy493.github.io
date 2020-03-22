@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Leetcode 945.使数组唯一的最小增量【C++】</title>
+    <link href="/2020/03/22/Leetcode-945-%E4%BD%BF%E6%95%B0%E7%BB%84%E5%94%AF%E4%B8%80%E7%9A%84%E6%9C%80%E5%B0%8F%E5%A2%9E%E9%87%8F%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/03/22/Leetcode-945-%E4%BD%BF%E6%95%B0%E7%BB%84%E5%94%AF%E4%B8%80%E7%9A%84%E6%9C%80%E5%B0%8F%E5%A2%9E%E9%87%8F%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/minimum-increment-to-make-array-unique/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/minimum-increment-to-make-array-unique/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定整数数组 A，每次 move 操作将会选择任意 A[i]，并将其递增 1。</p><p>返回使 A 中的每个值都是唯一的最少操作次数。</p><p><strong>示例 1:</strong></p><pre><code>输入：[1,2,2]输出：1解释：经过一次 move 操作，数组将变为 [1, 2, 3]。</code></pre><p><strong>示例 2:</strong></p><pre><code>输入：[3,2,1,2,1,7]输出：6解释：经过 6 次 move 操作，数组将变为 [3, 4, 1, 2, 5, 7]。可以看出 5 次或 5 次以下的 move 操作是不能让数组的每个值唯一的。</code></pre><p><strong>提示：</strong></p><ul><li><code>0 &lt;= A.length &lt;= 40000</code></li><li><code>0 &lt;= A[i] &lt; 40000</code></li></ul><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>解题思路不算很复杂，一开始我上来就暴力解，遍历数组，然后对每一个数往前找是否有跟它相同的数，有的话就将其自身+1，操作步数+1，然后再来一遍，直到这个数的前面没有跟它相同的数。解题思路是对的，能得到正确结果，但是时间复杂度太高了，提交到 Leetcode 就会超时。</p><p>然后我想到了先对数组进行排序，排序我直接调用了 <code>sort()</code> 函数，这样就只需要遍历一次数组即可，对于每一个数只需要比较相邻的数是否相等，事实上由于对数组进行了修改，排序过的数组的顺序就可能打乱导致前面的数大于后面的数，但是操作步数始终应该等于 <code>A[i - 1] - A[i] + 1</code> ，因为顺序未打乱前，前一个数应该是小于或者等于当前的数的，而顺序打乱后，只需要让当前的数变得比前一个数大即可。</p><p>特殊情况数组A的长度为0的时候操作步数显然为0，同时长度为1的时候，显然操作步数也是0，将A的长度为0和1的情况特殊处理，后续的判断就可以直接从 <code>A[1]</code> 开始，每一个数和前一个数作比较。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {public:    int minIncrementForUnique(vector&lt;int&gt;&amp; A) {        if (A.size() &lt;= 1)            return 0;        int operations = 0;        //此部分代码时间复杂度过高，会超时        //for (int i = 1; i &lt; A.size(); i++) {        //    for (int j = i - 1; j &gt;= 0; j--) {        //        if (A[j] == A[i]) {        //            A[i]++;        //            operations++;        //            j = i;        //            continue;        //        }        //    }        //}        //对数组排序，每次只需要和前一个数比较即可，时间复杂度为O(n)        sort(A.begin(), A.end());        for (int i = 1; i &lt; A.size(); i++) {            if (A[i] &lt;= A[i - 1]) {                int tmp = A[i - 1] - A[i];                A[i] += tmp + 1;                operations += tmp + 1;            }        }        return operations;    }};</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 365.水壶问题【C++】</title>
     <link href="/2020/03/21/Leetcode-365-%E6%B0%B4%E5%A3%B6%E9%97%AE%E9%A2%98%E3%80%90C-%E3%80%91/"/>
     <url>/2020/03/21/Leetcode-365-%E6%B0%B4%E5%A3%B6%E9%97%AE%E9%A2%98%E3%80%90C-%E3%80%91/</url>
