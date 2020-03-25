@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Leetcode 892.三维形体的表面积【C++】</title>
+    <link href="/2020/03/25/Leetcode-892-%E4%B8%89%E7%BB%B4%E5%BD%A2%E4%BD%93%E7%9A%84%E8%A1%A8%E9%9D%A2%E7%A7%AF%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/03/25/Leetcode-892-%E4%B8%89%E7%BB%B4%E5%BD%A2%E4%BD%93%E7%9A%84%E8%A1%A8%E9%9D%A2%E7%A7%AF%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/surface-area-of-3d-shapes/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/surface-area-of-3d-shapes/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>在 <code>N * N</code> 的网格上，我们放置一些 <code>1 * 1 * 1</code>  的立方体。</p><p>每个值 <code>v = grid[i][j]</code> 表示 <code>v</code> 个正方体叠放在对应单元格 <code>(i, j)</code> 上。</p><p>请你返回最终形体的表面积。</p><p><strong>示例 1：</strong></p><pre><code>输入：[[2]]输出：10</code></pre><p><strong>示例 2：</strong></p><pre><code>输入：[[1,2],[3,4]]输出：34</code></pre><p><strong>示例 3：</strong></p><pre><code>输入：[[1,0],[0,2]]输出：16</code></pre><p><strong>示例 4：</strong></p><pre><code>输入：[[1,1,1],[1,0,1],[1,1,1]]输出：32</code></pre><p><strong>示例 5：</strong></p><pre><code>输入：[[2,2,2],[2,1,2],[2,2,2]]输出：46</code></pre><p><strong>提示：</strong></p><ul><li><code>1 &lt;= N &lt;= 50</code></li><li><code>0 &lt;= grid[i][j] &lt;= 50</code></li></ul><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>一开始这个题还真是一头雾水，虽然之前做过类似的题，比如前不久才做过的“腐烂橘子”那个题，就很类似。</p><p>只要做过类似的题，应该还是很容易想到要遍历二维数组，然后对每一个元素要判断其周围的元素，如果有需要的话可能还需要动态规划、递归之类的方法来解题。</p><p>仔细思考一下，其实这个题想通了思路还挺简单的，因为并没有用到动态规划或是递归，只需要遍历一次二维数组就可以了。</p><p>首先不考虑周围格子的情况下，每一个格子上所堆叠的正方体都有一个表面积，如果没有立方体那么它的表面积为 <code>0</code> ，显然也不会有与别的立方体重叠的部分；否则该单元格上堆叠的立方体的表面积应为 <code>4 * grid[i][j] + 2</code> 。</p><p>然后考虑周围格子的情况，不管周围单元格是否有立方体，与当前单元格重叠的部分始终是较少立方体的个数，也就是 <code>grid[i][j] &lt;= grid[ii][jj] ? grid[i][j] : grid[ii][jj]</code> ，按照我们人的思维很容易想到应该减去2倍的重叠部分的面积，但是不能这么做，程序它不聪明，当它遍历的这个相邻单元格的时候，再一次减掉2倍的重叠部分的面积，实际上就减去了4倍的重叠部分的面积，所以我们应该只考虑当前单元格应该做的事，也就是只减掉当前单元格与相邻单元格重叠部分的面积（<strong>1倍</strong>）。</p><p>重复上述步骤遍历完整个二维数组，即可以得到最终的三维形体表面积。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {public:    int surfaceArea(vector&lt;vector&lt;int&gt;&gt;&amp; grid) {        int area = 0;//表面积        vector&lt;pair&lt;int, int&gt;&gt; dir = { {-1,0},{1,0},{0,-1},{0,1} };//上、下、左、右        for (int i = 0; i &lt; grid.size(); i++) {            for (int j = 0; j &lt; grid[0].size(); j++) {                if (grid[i][j] == 0)//没有立方体不做处理，面积不改变                    continue;                area += 4 * grid[i][j] + 2;//不考虑四周重叠部分的表面积                for (auto d : dir) {                    int ii = i + d.first;                    int jj = j + d.second;                    //减掉相邻立方体个数较少的一侧的面积                    //例如4和2相邻，应减掉当前4个立方体与2相邻一侧的表面积2                    if (ii &gt;= 0 &amp;&amp; ii &lt; grid.size() &amp;&amp; jj &gt;= 0 &amp;&amp; jj &lt; grid[0].size()) {                        area -= grid[i][j] &lt;= grid[ii][jj] ? grid[i][j] : grid[ii][jj];                    }                }            }        }        return area;    }};</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 面试题 17.16.按摩师【C++】</title>
     <link href="/2020/03/24/Leetcode-%E9%9D%A2%E8%AF%95%E9%A2%98-17-16-%E6%8C%89%E6%91%A9%E5%B8%88%E3%80%90C-%E3%80%91/"/>
     <url>/2020/03/24/Leetcode-%E9%9D%A2%E8%AF%95%E9%A2%98-17-16-%E6%8C%89%E6%91%A9%E5%B8%88%E3%80%90C-%E3%80%91/</url>
