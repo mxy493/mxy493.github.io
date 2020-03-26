@@ -142,6 +142,55 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/16/Leetcode-面试题-01-06-字符串压缩【C-】/">
+        <p class="h4 index-header">Leetcode 面试题 01.06.字符串压缩【C++】</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/compress-string-lcci/
+
+题目字符串压缩。利用字符重复出现的次数，编写一种方法，实现基本的字符串压缩功能。比如，字符串 aabcccccaaa 会变为 a2b1c5a3。若“压缩”后的字符串没有变短，则返回原先的字符串。你可以假设字符串中只包含大小写英文字母（a至z）。
+示例1:
+ 输入：&quot;aabcccccaaa&quot;
+ 输出：&quot;a2b1c5a3&quot;示例2:
+ 输入：&quot;abbccd&quot;
+ 输出：&quot;abbccd&quot;
+ 解释：&quot;abbccd&quot;压缩后为&quot;a1b2c2d1&quot;，比原字符串长度更长。提示：
+字符串长度在[0, 50000]范围内。
+解题思路由于传入的字符串长度可能为0，所以这种特殊情况应该直接返回原字符串（无法对其进行压缩）。
+由于题目要求是压缩字符串，但是如果“压缩”后的字符串长度没有变短的话，就应该返回原字符串，所以不应该在原字符串上进行修改，所以我定义了一个新的字符串 cpS</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-16&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C++">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/15/Leetcode-695-岛屿的最大面积【C-】/">
         <p class="h4 index-header">Leetcode 695.岛屿的最大面积【C++】</p>
         
@@ -580,58 +629,6 @@ public:
         for (int i = 0; i &lt; nums.size(); i++) {
             //查找并更新从每一个数开始的所有可能子序的子序和
             int sum = 0;//以nums[i]开头的子序的子</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C++">C++</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/07/Leetcode-58-最后一个单词的长度【C-】/">
-        <p class="h4 index-header">Leetcode 58.最后一个单词的长度【C++】</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-地址：https://leetcode-cn.com/problems/length-of-last-word/
-
-题目给定一个仅包含大小写字母和空格 &#39; &#39; 的字符串 s，返回其最后一个单词的长度。如果字符串从左向右滚动显示，那么最后一个单词就是最后出现的单词。
-如果不存在最后一个单词，请返回 0 。
-说明：一个单词是指仅由字母组成、不包含任何空格字符的最大子字符串。
-示例：
-输入: &quot;Hello World&quot;
-输出: 5解题思路一开始想着就是遍历字符串，思路是每遇到一个单词的第一个字符就开始统计这个单词的长度，然后找到最后的这个单词就可以了。
-后来一下子想到，反过来逆序遍历不就好了，而且只需要遍历完逆序的第一个单词即可结束遍历，实现起来很简单。
-代码class Solution {
-public:
-    int lengthOfLastWord(string s) {
-        int length = 0;//单词长度
-        for (int i = s.length() - 1; i &gt;= 0; i--)
-     </div>
         </div>
       </a>
 
