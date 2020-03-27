@@ -142,6 +142,59 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/07/Leetcode-53-最大子序和【C-】/">
+        <p class="h4 index-header">Leetcode 53.最大子序和【C++】</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/maximum-subarray/
+
+题目给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+示例:
+输入: [-2,1,-3,4,-1,2,1,-5,4],
+输出: 6
+解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。进阶:
+如果你已经实现复杂度为 O(n) 的解法，尝试使用更为精妙的分治法求解。
+解题思路笨办法！遍历所有可能的子序并计算其子序和，不断地更新最大子序和。
+代码class Solution {
+public:
+    int maxSubArray(vector&lt;int&gt;&amp; nums) {
+        int maxSum = nums[0];//子序和
+        for (int i = 0; i &lt; nums.size(); i++) {
+            //查找并更新从每一个数开始的所有可能子序的子序和
+            int sum = 0;//以nums[i]开头的子序的子</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C++">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/07/Leetcode-58-最后一个单词的长度【C-】/">
         <p class="h4 index-header">Leetcode 58.最后一个单词的长度【C++】</p>
         
@@ -600,66 +653,6 @@ public:
 public:
     string reverseVowels(string s) {
         in</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C++">C++</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/06/Leetcode-225-用队列实现栈【C-】/">
-        <p class="h4 index-header">Leetcode 225.用队列实现栈【C++】</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-地址：https://leetcode-cn.com/problems/implement-stack-using-queues/
-
-题目使用队列实现栈的下列操作：
-
-push(x) – 元素 x 入栈
-pop() – 移除栈顶元素
-top() – 获取栈顶元素
-empty() – 返回栈是否为空
-
-注意:
-
-你只能使用队列的基本操作 – 也就是 push to back，peek/pop from front，size 和 is empty 这些操作是合法的。
-你所使用的语言也许不支持队列。 你可以使用 list 或者 deque（双端队列）来模拟一个队列 , 只要是标准的队列操作即可。
-你可以假设所有操作都是有效的（例如, 对一个空的栈不会调用 pop 或者 top 操作）。
-
-解题思路使用C++标准模板库queue模板类实现。
-
-q.push(x)：将x插入到队列末端。
-q.pop()：弹出队列的第一个元素（不会返回被弹出元素的值）。
-q.front()：返回队首元素，即最早被压入队列的元素。
-q.empty()：判断队列是否为空，当队列空时，返回true。
-
-插入元素x定义了</div>
         </div>
       </a>
 
