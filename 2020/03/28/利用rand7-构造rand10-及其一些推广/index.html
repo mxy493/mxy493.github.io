@@ -15,7 +15,7 @@
   <meta name="description" content>
   <meta name="author" content="mxy">
   <meta name="keywords" content>
-  <title>mxy</title>
+  <title>利用rand7()构造rand10()及其一些推广 ~ mxy</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
@@ -36,7 +36,7 @@
 
 
 <body>
-  <header style="height: 100vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -115,12 +115,43 @@
             </span>
 
             
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期六, 三月 28日 2020, 1:54 凌晨
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    554 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      2 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="fas fa-angle-down scroll-down-arrow"></i>
-            </div>
           
         </div>
       </div>
@@ -129,178 +160,119 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <p>今天看到一个群里有人说自己面试的题目，是利用 <code>rand5()</code> 来生成 <code>rand3()</code> ，刚看到我还懵了一下，真不会唉，而且涉及概率还是有点让人瑟瑟发抖的……</p>
+<p>然后我还是花时间 Google 了一下，网上很多类似的 <code>randA()</code> 生成 <code>randB()</code> 的，大概是说利用 <code>rand7()</code> 构造 <code>rand10()</code> 是头条的一个面试题。然后我就学习了一下。</p>
+<h3 id="利用-rand7-构造-rand10"><a href="#利用-rand7-构造-rand10" class="headerlink" title="利用 rand7() 构造 rand10()"></a>利用 rand7() 构造 rand10()</h3><h4 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h4><p>其中一个解法是这样的：</p>
+<p>只要能构造10的倍数的随机数，就可用通过对10取余得到 <code>rand10()</code> 。</p>
+<ul>
+<li><p><code>rand7()</code> 可以生成随机的 <code>{1, 2, 3, 4, 5, 6, 7}</code> ；</p>
+</li>
+<li><p><code>rand7() - 1</code> 可以生成随机的 <code>{0, 1, 2, 3, 4, 5, 6}</code> ；</p>
+</li>
+<li><p><code>(rand7() - 1) * 7</code> 可以生成随机的 <code>{0, 7, 14, 21, 28, 35, 42}</code> ；</p>
+</li>
+<li><p><code>(rand7() - 1) * 7 + rand7()</code> 可以生成随机的 <code>{0, 7, 14, 21, 28, 35, 42} + {1, 2, 3, 4, 5, 6, 7}</code> ，也就是 1 ~ 49 的随机数；</p>
+</li>
+<li><p>上一步中取到的 1 ~ 49 的随机数，我们只需要取其中 1 ~ 40 的部分对10求余再加1即可得到 1 ~ 10 的随机数，即 <code>rand10()</code> 。特别需要注意的是，这里<strong>并不是单纯的舍去了 41 ~ 49 的随机数</strong>，其概率计算看下图。假设这里取到的是 1 ~ 48 的随机数，直接舍去 41 ~ 48 的话最终取到的每个数的概率并不是 <code>1/10</code>，而是 <code>1/9</code> 。</p>
+<p><img src="p.jpg" srcset="/img/loading.gif" alt></p>
+</li>
+<li><p>分析上一步：取 1 ~ 40 的随机数 <code>x</code> 对10求余，<code>x % 10</code> 可以得到随机的 <code>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}</code> ，所以还需要+1最终得到 <code>rand10()</code> 。</p>
+</li>
+</ul>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><pre><code>int rand10() {
+    int x;
+    do {
+        x = (rand7()-1) * 7 + rand7();
+    }while(x &gt; 40);
+    return x % 10 + 1;
+}</code></pre><h3 id="推广"><a href="#推广" class="headerlink" title="推广"></a>推广</h3><ol>
+<li><strong>利用 randA() 构造 randA*A()：</strong>对于任意的 <code>randA()</code> 都可以通过类似 <code>rand7()</code> 的前四步，获取到 <code>randA*A()</code> ，即 <code>1 ~ A*A</code> 的随机数。</li>
+<li><strong>可以利用 n*K - 1 的随机数构造 randK()：</strong>概率计算公式同上。例如 <code>49 = 5*10 - 1</code> 的随机数 <code>rand49()</code> ，就可以构造 <code>rand10()</code> 。刚好，利用 <code>rand5()</code> 来生成 <code>rand3()</code> 就是满足这一条件的，所以只需要取 <code>rand5()</code> 生成的 1 ~ 3 的随机数即可（已经是 1 ~ 3 的随机数，不需要对3求余再加1）。</li>
+</ol>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
                 
-
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/01/22/Leetcode-只出现一次的数字/">
-        <p class="h4 index-header">Leetcode 只出现一次的数字</p>
-        
-        
-          
-          
-        
-        <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">
-地址：https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/25/  
-
-题目：
-给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。...</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-01-22&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
-          
-            <a href="/tags/%E6%95%B0%E7%BB%84">数组</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/01/18/GitHub-Hexo搭建博客笔记/">
-        <p class="h4 index-header">GitHub+Hexo搭建博客笔记</p>
-        
-        
-          
-          
-        
-        <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">写在前面一直想搭建一个个人博客主要是为了学习吧，我可以不写博客但是我得会搭建博客，会搭博客了我写不写是我的事，哈哈。。。...</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-01-18&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%8D%9A%E5%AE%A2">博客</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Hexo">Hexo</a>&nbsp;
-          
-            <a href="/tags/%E5%8D%9A%E5%AE%A2">博客</a>&nbsp;
-          
-            <a href="/tags/GitHub">GitHub</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/01/17/hello-world/">
-        <p class="h4 index-header">Hello World</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
-More info: Writing
-Run server$ hexo server
-More info: Server
-Generate static files$ hexo generate
-More info: Generating
-Deploy to remote sites$ hexo deploy
-More info: Deployment
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-01-17&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/01/17/mxy测试/">
-        <p class="h4 index-header">mxy测试</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Have a nice day
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-01-17&nbsp;&nbsp;
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-
-
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/7/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
-      ele.href += '#board';
-    }
-  </script>
-
-
-
-              </div>
-            </div>
+                  <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="vcomments" style="width: 90%; margin: 0 auto;"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var notify = 'false' === true;
+    var verify = 'false' === true;
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+        app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+        placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+        avatar: "retro",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+      powered by Valine.</a></noscript>
+
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -379,6 +351,11 @@ More info: Deployment
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -430,7 +407,7 @@ More info: Deployment
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "禅模式忘情工作中~&nbsp;",
+        "利用rand7()构造rand10()及其一些推广&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

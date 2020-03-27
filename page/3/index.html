@@ -142,6 +142,57 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/08/Leetcode-322-零钱兑换【C-】/">
+        <p class="h4 index-header">Leetcode 322.零钱兑换【C++】</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/coin-change/
+
+题目给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。
+示例 1:
+输入: coins = [1, 2, 5], amount = 11
+输出: 3 
+解释: 11 = 5 + 5 + 1示例 2:
+输入: coins = [2], amount = 3
+输出: -1说明:
+你可以认为每种硬币的数量是无限的。
+解题思路解题思路参考官方题解~
+一开始的时候自己尝试做这道题，首先想到的办法是将硬币按面值从小到大排序，然后尽可能多的取面较值大的，最终将不同面值的硬币个数加起来即题解。但后来发现，其实有时候并不是面值越大的越多就符合题意，因为会有取面值小一点的才能组合成总金额的情况，所以这个思路是错误的。
+然后我参考了官方的题解的自上而下的动态规划法！
+官方题解：https://leetcode-cn.com/problems/coin-change/solution/322-li</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-08&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C++">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/07/Leetcode-53-最大子序和【C-】/">
         <p class="h4 index-header">Leetcode 53.最大子序和【C++】</p>
         
@@ -600,59 +651,6 @@ public:
         long small = 0;
         long big = int(sqrt(c));
         while (s</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C++">C++</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/06/Leetcode-345-反转字符串中的元音字母【C-】/">
-        <p class="h4 index-header">Leetcode 345.反转字符串中的元音字母【C++】</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-地址：https://leetcode-cn.com/problems/reverse-vowels-of-a-string/
-
-题目编写一个函数，以字符串作为输入，反转该字符串中的元音字母。
-示例 1:
-输入: &quot;hello&quot;
-输出: &quot;holle&quot;示例 2:
-输入: &quot;leetcode&quot;
-输出: &quot;leotcede&quot;说明:
-元音字母不包含字母”y”。
-解题思路26个英文字母中，21个是辅音字母，5个是元音字母。5个元音字母分别是：a、e、i、o、u。
-双指针。分别指向字符串的首尾元素，前指针从前往后查找元音字母，后指针从后往前查找元音字母。
-两层循环，第一层即从前往后找元音字母，找到一个元音字母就进入二层循环，从后往前查找元音字母，找到后互换前后两个元音字母，j-- 并跳出二层循环，继续遍历一层循环，直到 i 不再小于 j 即找完了字符串的所有元音字母。
-代码class Solution {
-public:
-    string reverseVowels(string s) {
-        in</div>
         </div>
       </a>
 

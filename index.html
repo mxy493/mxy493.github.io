@@ -142,6 +142,47 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/28/利用rand7-构造rand10-及其一些推广/">
+        <p class="h4 index-header">利用rand7()构造rand10()及其一些推广</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">今天看到一个群里有人说自己面试的题目，是利用 rand5() 来生成 rand3() ，刚看到我还懵了一下，真不会唉，而且涉及概率还是有点让人瑟瑟发抖的……
+然后我还是花时间 Google 了一下，网上很多类似的 randA() 生成 randB() 的，大概是说利用 rand7() 构造 rand10() 是头条的一个面试题。然后我就学习了一下。
+利用 rand7() 构造 rand10()思路分析其中一个解法是这样的：
+只要能构造10的倍数的随机数，就可用通过对10取余得到 rand10() 。
+
+rand7() 可以生成随机的 {1, 2, 3, 4, 5, 6, 7} ；
+
+rand7() - 1 可以生成随机的 {0, 1, 2, 3, 4, 5, 6} ；
+
+(rand7() - 1) * 7 可以生成随机的 {0, 7, 14, 21, 28, 35, 42} ；
+
+(rand7() - 1) * 7 + rand7() 可以生成随机的 {0, 7, 14, 21, 28, 35, 42} + {1, 2, 3, 4, 5, 6, 7} ，也就是 1 ~ 49 的随机数；</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-28&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E7%AE%97%E6%B3%95">算法</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/27/Leetcode-914-卡牌分组【C-】/">
         <p class="h4 index-header">Leetcode 914.卡牌分组【C++】</p>
         
@@ -609,61 +650,6 @@ public:
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-19&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C++">C++</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/18/Leetcode-836-矩形重叠【C-】/">
-        <p class="h4 index-header">Leetcode 836.矩形重叠【C++】</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-地址：https://leetcode-cn.com/problems/rectangle-overlap/
-
-题目矩形以列表 [x1, y1, x2, y2] 的形式表示，其中 (x1, y1) 为左下角的坐标，(x2, y2) 是右上角的坐标。
-如果相交的面积为正，则称两矩形重叠。需要明确的是，只在角或边接触的两个矩形不构成重叠。
-给出两个矩形，判断它们是否重叠并返回结果。
-示例 1：
-输入：rec1 = [0,0,2,2], rec2 = [1,1,3,3]
-输出：true示例 2：
-输入：rec1 = [0,0,1,1], rec2 = [1,0,2,1]
-输出：false提示：
-
-两个矩形 rec1 和 rec2 都以含有四个整数的列表的形式给出。
-矩形中的所有坐标都处于 -10^9 和 10^9 之间。
-x 轴默认指向右，y 轴默认指向上。
-你可以仅考虑矩形是正放的情况。
-
-解题思路这个题我觉得主要是考思维吧，因为这个题完全没用到循环什么的，就一个两个判断就可以了，以至于我一开始都不太相信就是这么做的……
-根据题目的意思，两个矩形的坐标一定是左下角坐标在前，右上角坐标在后</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-18&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
