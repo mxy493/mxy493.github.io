@@ -142,6 +142,60 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/09/Leetcode-121-买卖股票的最佳时机【C-】/">
+        <p class="h4 index-header">Leetcode 121.买卖股票的最佳时机【C++】</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/
+
+题目给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
+如果你最多只允许完成一笔交易（即买入和卖出一支股票），设计一个算法来计算你所能获取的最大利润。
+注意你不能在买入股票前卖出股票。
+示例 1:
+输入: [7,1,5,3,6,4]
+输出: 5
+解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。
+      注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格。示例 2:
+输入: [7,6,4,3,1]
+输出: 0
+解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。解题思路这个题其实不是第一次遇上了，初学C++的时候就做过这个题，有几个需要注意的地方是：
+
+需要判别数组为空的情况，此时利润为0可以直接返回；
+不能在买入股票前卖出股票，所以不是单纯找数组的最小值、最大值；
+股票价格起伏不定，阶段性的买入卖出获得的是阶段性的最大利润，所以在</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-09&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C++">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/08/Leetcode-322-零钱兑换【C-】/">
         <p class="h4 index-header">Leetcode 322.零钱兑换【C++】</p>
         
@@ -598,59 +652,6 @@ public:
 代码class Solution {
 public:
     vector&lt;int&gt; twoSum(vector&lt;int&g</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C++">C++</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/06/Leetcode-633-平方数之和【C-】/">
-        <p class="h4 index-header">Leetcode 633.平方数之和【C++】</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-地址：https://leetcode-cn.com/problems/sum-of-square-numbers/
-
-题目给定一个非负整数 c ，你要判断是否存在两个整数 a 和 b，使得 a2 + b2 = c。
-示例1:
-输入: 5
-输出: True
-解释: 1 * 1 + 2 * 2 = 5示例2:
-输入: 3
-输出: False解题思路双指针。设置返回值 ret 默认为 false，分别取最小的数（0）和最大的数，最大的数可以直接使用 sqrt() 函数求目标数的平方根并向下取整，小数的平方与大数的平方求和，若大于目标值，大数减1，继续循环；若小于目标值，小数加1，继续循环；直到与目标值相等（置 ret 为 true）或者小数不再小于大数，跳出循环。返回结果。
-代码class Solution {
-public:
-    bool judgeSquareSum(int c) {
-        bool ret = false;
-        long small = 0;
-        long big = int(sqrt(c));
-        while (s</div>
         </div>
       </a>
 
