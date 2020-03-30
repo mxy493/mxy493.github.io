@@ -128,7 +128,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    821 字
+                    833 字
                   </span>&nbsp;
                 
 
@@ -192,6 +192,7 @@
 <p>这里还是先讲我超时的思路。很简单的暴力解的思路，计算每一个海洋到最近的陆地的距离 <code>mino</code> ，再取其中的最大值 <code>maxo</code> 即题目要求的离陆地区域最远的海洋。</p>
 <p>超时的原因很明显的，无脑的遍历并计算所有陆地到海洋的距离，也就是说对于 m 个陆地 n 个海洋的情况就要遍历并计算 m × n 种可能的情况，而且可以想到，并不是每个海洋都会与所有的陆地相接，所以完全没必要对不可能接触到的陆地做判断，这样看来显然我的暴力解是极其耗时的……</p>
 <p><strong>具体逻辑：</strong>定义两个 <code>vector&lt;pair&lt;int, int&gt;&gt;</code> 类型数组 <code>land</code> 和 <code>ocean</code> ，遍历整个地图分别保存所有陆地和海洋的坐标。题目说了如果只有陆地或者海洋，就返回 <code>-1</code> ，对应的就是如果 <code>land.empty() || ocean.empty()</code> 就返回 <code>-1</code> 。遍历所有的海洋，对每一个海洋 <code>o</code> ，遍历所有陆地并计算 <code>o</code> 与陆地之间的最短距离 <code>mino</code>，而题目要求的离陆地区域最远的海洋到里这个海洋最近的陆地的距离，就是陆地到每一个海洋的最近距离的最大值。</p>
+<p>附上暴力解超时的代码如下~</p>
 <h3 id="暴力解代码（超时）"><a href="#暴力解代码（超时）" class="headerlink" title="暴力解代码（超时）"></a>暴力解代码（超时）</h3><pre><code class="c++">class Solution {
 public:
     int maxDistance(vector&lt;vector&lt;int&gt;&gt;&amp; grid) {

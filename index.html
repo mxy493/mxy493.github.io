@@ -142,6 +142,58 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/30/Leetcode-面试题62-圆圈中最后剩下的数字【C-】/">
+        <p class="h4 index-header">Leetcode 面试题62.圆圈中最后剩下的数字【C++】</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/
+
+题目0,1,…,n-1这n个数字排成一个圆圈，从数字0开始，每次从这个圆圈里删除第m个数字。求出这个圆圈里剩下的最后一个数字。
+例如，0、1、2、3、4这5个数字组成一个圆圈，从数字0开始每次删除第3个数字，则删除的前4个数字依次是2、0、4、1，因此最后剩下的数字是3。
+示例 1：
+输入: n = 5, m = 3
+输出: 3示例 2：
+输入: n = 10, m = 17
+输出: 2限制：
+
+1 &lt;= n &lt;= 10^5
+1 &lt;= m &lt;= 10^6
+
+解题思路这题最容易想到的思路肯定是模拟真实的逐个删除的场景了，也就是暴力解，但是我并没有上来就这么做，我觉得这题肯定就不是让这么做的，暴力解存在挺大的问题，很傻，要遍历 n 次，逻辑也不是很好写。
+自己想却真就想不出来好办法，后来看了官方题解，确实比暴力解好很多吧，但是实在不是我能想出来的，甚至有一个步骤（ f(n, m) 和 f(n </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-30&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C++">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/29/Leetcode-1162-地图分析【C-】/">
         <p class="h4 index-header">Leetcode 1162.地图分析【C++】</p>
         
@@ -593,57 +645,6 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及 ans.next.next.next 
 代码class Solution {
 public:
     bool c</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-21&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C++">C++</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/21/Leetcode-面试题40-最小的k个数【C-】/">
-        <p class="h4 index-header">Leetcode 面试题40.最小的k个数【C++】</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-地址：https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/
-
-题目输入整数数组 arr ，找出其中最小的 k 个数。例如，输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。
-示例 1：
-输入：arr = [3,2,1], k = 2
-输出：[1,2] 或者 [2,1]示例 2：
-输入：arr = [0,1,2,1], k = 1
-输出：[0]限制：
-
-0 &lt;= k &lt;= arr.length &lt;= 10000
-0 &lt;= arr[i] &lt;= 10000
-
-解题思路这个题思路来的挺快的，不过肯定不是最好的办法了。看完题目我就想到了对数组进行排序，然后从小到大取 k 个数出来就好了。
-然后我就按着这个思路写了一个反向的冒泡排序，把最小的数从后往前冒泡，最后就会得到一个从小到大的数组，之所以反向冒泡，是因为题目要求要找的是最小的 k 个数，所以我就想到把最小的数先冒泡求出来，就可以将其加入到数组 min 中保存，然后由于只需要返回最小的k个数，所以只要得到了最小的k个数</div>
         </div>
       </a>
 
