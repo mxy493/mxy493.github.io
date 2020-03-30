@@ -128,7 +128,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    499 字
+                    537 字
                   </span>&nbsp;
                 
 
@@ -136,7 +136,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      1 分钟
+                      2 分钟
                   </span>&nbsp;
                 
 
@@ -186,7 +186,22 @@
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这题最容易想到的思路肯定是模拟真实的逐个删除的场景了，也就是暴力解，但是我并没有上来就这么做，我觉得这题肯定就不是让这么做的，暴力解存在挺大的问题，很傻，要遍历 n 次，逻辑也不是很好写。</p>
 <p>自己想却真就想不出来好办法，后来看了<a href="https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/solution/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-by-lee/" target="_blank" rel="noopener">官方题解</a>，确实比暴力解好很多吧，但是实在不是我能想出来的，甚至有一个步骤（ <code>f(n, m)</code> 和 <code>f(n - 1, m)</code> 之间的关系）我看了题解也花了不少时间菜弄明白。具体的思路还是看官方题解吧，挺难用文字描述清楚的，这个题更偏向于数学问题，用数学的方法解体就简单很多。</p>
 <p>同时官方题解分别用递归和迭代做了这个题，其实都是一个思路，理论上说递归更符合人的思路，但是 <code>n</code> 越大就要递归越深使用大量的栈空间，所以迭代是更好的办法，并且只需要一个变量保存相关数据，空间复杂度O(1)。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><strong>递归：</strong></p>
+<pre><code class="c++">class Solution {
+public:
+    int lastRemaining(int n, int m) {
+        return f(n, m);
+    }
+
+    int f(int n, int m) {
+        if (n == 1)
+            return 0;
+        int x = f(n - 1, m);
+        return (m + x) % n;
+    }
+};</code></pre>
+<p><strong>迭代：</strong></p>
+<pre><code class="c++">class Solution {
 public:
     int lastRemaining(int n, int m) {
         int f = 0;
