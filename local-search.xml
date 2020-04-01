@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Leetcode 1111.有效括号的嵌套深度【C++】</title>
+    <link href="/2020/04/01/Leetcode-1111-%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%B5%8C%E5%A5%97%E6%B7%B1%E5%BA%A6%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/04/01/Leetcode-1111-%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%B5%8C%E5%A5%97%E6%B7%B1%E5%BA%A6%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p><strong>有效括号字符串</strong> 定义：对于每个左括号，都能找到与之对应的右括号，反之亦然。详情参见题末「<strong>有效括号字符串</strong>」部分。</p><p><strong>嵌套深度</strong> <code>depth</code> 定义：即有效括号字符串嵌套的层数。详情参见题末「<strong>嵌套深度</strong>」部分。</p><p>给你一个「有效括号字符串」 <code>seq</code>，请你将其分成两个不相交的子序列 <code>A</code> 和 <code>B</code>，且 <code>A</code> 和 <code>B</code> 都满足有效括号字符串的定义（注意：<code>A.length + B.length = seq.length</code>）。</p><p>由于可能存在多种划分方案，请你从中选出 任意 这样的 <code>A</code> 和 <code>B</code>，使 <code>max(depth(A), depth(B))</code> 的可能取值最小。其中 <code>depth(A)</code> 表示 <code>A</code> 的嵌套深度，<code>depth(B)</code> 表示 <code>B</code> 的嵌套深度。</p><p>请你返回一个长度为 <code>seq.length</code> 的答案数组 <code>answer</code>，编码规则如下：如果 <code>seq[i]</code> 是 <code>A</code> 的一部分，那么 <code>answer[i] = 0</code>。否则，<code>answer[i] = 1</code>。即便有多个满足要求的答案存在，你也只需返回 一个。 </p><p><strong>示例 1：</strong></p><pre><code>输入：seq = &quot;(()())&quot;输出：[0,1,1,1,1,0]</code></pre><p><strong>示例 2：</strong></p><pre><code>输入：seq = &quot;()(())()&quot;输出：[0,0,0,1,1,0,1,1]</code></pre><p><strong>提示：</strong></p><ul><li><code>1 &lt;= text.size &lt;= 10000</code></li></ul><p><strong>有效括号字符串：</strong></p><p>仅由 <code>&quot;(&quot;</code> 和 <code>&quot;)&quot;</code> 构成的字符串，对于每个左括号，都能找到与之对应的右括号，反之亦然。</p><p>下述几种情况同样属于有效括号字符串：</p><ul><li>空字符串</li><li>连接，可以记作 <code>AB</code>（<code>A</code> 与 <code>B</code> 连接），其中 <code>A</code> 和 <code>B</code> 都是有效括号字符串</li><li>嵌套，可以记作 <code>(A)</code>，其中 <code>A</code> 是有效括号字符串</li></ul><p><strong>嵌套深度：</strong></p><p>类似地，我们可以定义任意有效括号字符串 <code>s</code> 的 嵌套深度 <code>depth(S)</code>：</p><ul><li><code>s</code> 为空时，<code>depth(&quot;&quot;) = 0</code></li><li><code>s</code> 为 <code>A</code> 与 <code>B</code> 连接时，<code>depth(A + B) = max(depth(A), depth(B))</code>，其中 <code>A</code> 和 <code>B</code> 都是有效括号字符串</li><li><code>s</code> 为嵌套情况，<code>depth(&quot;(&quot; + A + &quot;)&quot;) = 1 + depth(A)</code>，其中 <code>A</code> 是有效括号字符串</li></ul><p>例如：<code>&quot;&quot;</code>，<code>&quot;()()&quot;</code>，和 <code>&quot;()(()())&quot;</code> 都是有效括号字符串，嵌套深度分别为 0，1，2，而 <code>&quot;)(&quot;</code> 和 <code>&quot;(()&quot;</code> 都不是有效括号字符串。</p><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>括号匹配的问题初学C++的时候就有做过，用栈可以很方便的匹配两两配对的括号，用数组模拟栈也很容易。</p><p>不过这个题并不是让自己配对括号，题目已经说明传入的参数字符串 <code>seq</code> 已经是<strong>有效括号字符串</strong>，所以不用担心括号不配对或者存在其它字符的问题，字符串要么为空，要么就是已配对的并且只存在左右括号的字符串。</p><p>不管怎么分为两个字符串，它们各自的深度加起来一定是等于原字符串 <code>seq</code> 的深度的，同时最终的结果要取 <code>max(depth(A), depth(B))</code> 的最小可能取值，显然需要将 <code>depth(A)</code> ， <code>depth(B)</code> 应该均匀的分配。也就说如果原字符串的深度为 4，那么应该满足 <code>depth(A) = depth(B) = 2</code> ，如果原字符串的深度为 5，那么要么 <code>depth(A) = 3</code> ， <code>depth(B) = 2</code> ，要么 <code>depth(A) = 2</code> ， <code>depth(B) = 3</code> 。只要搞懂了这一点就很容易了。</p><p>根据题目要求返回的是一个和 <code>seq</code> 长度相等的 <code>vector&lt;int&gt;</code> 数组，所以可以直接定义这样一个数组并将其长度初始化为 <code>seq.size()</code> 。 <code>seq</code> 可能为空，为空可直接返回空数组。</p><p>分别定义 <code>maxDepth</code> 记录原字符串 <code>seq</code> 的最大深度，<code>depth</code> 记录 <code>seq</code> 中每一个括号的深度，遍历字符串 <code>seq</code> 对应记录每一个括号的深度到数组 <code>ans</code> 中。</p><p>虽然分组的方法不止一个，但是显然可以把内层的括号分为一组，外层的括号分为一组，这样就可以很容易得到两个深度相等或者深度相差1的有效括号字符串。只需要遍历上述记录了每一个括号深度的数组 <code>ans</code> ，将深度小于等于 <code>(maxDepth + 1) / 2</code> 的置为 <code>0</code> （或者 <code>1</code>），其余的置为 <code>1</code> （或者 <code>0</code>）即可。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {public:    vector&lt;int&gt; maxDepthAfterSplit(string seq) {        vector&lt;int&gt; ans(seq.size());        if (seq.empty())            return ans;        int maxDepth = 0;//最大深度        int depth = 0;//用于记录每一个括号的深度        //记录每一个括号的深度        for (int i = 0; i &lt; seq.size(); i++) {            if (seq[i] == &#39;(&#39;) {                depth++;                maxDepth = maxDepth &gt; depth ? maxDepth : depth;                ans[i] = depth;            }            if (seq[i] == &#39;)&#39;) {                ans[i] = depth;                depth--;            }        }        //max(depth(A), depth(B))一定是maxDepth的一半取上整        for (int i = 0; i &lt; ans.size(); i++) {            ans[i] = ans[i] &lt;= (maxDepth + 1) / 2 ? 0 : 1;        }        return ans;    }};</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 面试题62.圆圈中最后剩下的数字【C++】</title>
     <link href="/2020/03/30/Leetcode-%E9%9D%A2%E8%AF%95%E9%A2%9862-%E5%9C%86%E5%9C%88%E4%B8%AD%E6%9C%80%E5%90%8E%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0%E5%AD%97%E3%80%90C-%E3%80%91/"/>
     <url>/2020/03/30/Leetcode-%E9%9D%A2%E8%AF%95%E9%A2%9862-%E5%9C%86%E5%9C%88%E4%B8%AD%E6%9C%80%E5%90%8E%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0%E5%AD%97%E3%80%90C-%E3%80%91/</url>
