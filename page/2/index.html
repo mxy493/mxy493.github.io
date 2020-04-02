@@ -142,6 +142,58 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/23/Leetcode-876-链表的中间结点【C-】/">
+        <p class="h4 index-header">Leetcode 876.链表的中间结点【C++】</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/middle-of-the-linked-list/
+
+题目给定一个带有头结点 head 的非空单链表，返回链表的中间结点。
+如果有两个中间结点，则返回第二个中间结点。
+示例 1：
+输入：[1,2,3,4,5]
+输出：此列表中的结点 3 (序列化形式：[3,4,5])
+返回的结点值为 3 。 (测评系统对该结点序列化表述是 [3,4,5])。
+注意，我们返回了一个 ListNode 类型的对象 ans，这样：
+ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及 ans.next.next.next = NULL.示例 2：
+输入：[1,2,3,4,5,6]
+输出：此列表中的结点 4 (序列化形式：[4,5,6])
+由于该列表有两个中间结点，值分别为 3 和 4，我们返回第二个结点。提示：
+给定链表的结点数介于 1 和 100 之间。
+解题思路思路很简单，定义两个指针并且都初始化为指向头结点，然后 cur 指针遍历整个链表，cur 每移动两个结点，mid</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-23&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C++">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/22/Leetcode-945-使数组唯一的最小增量【C-】/">
         <p class="h4 index-header">Leetcode 945.使数组唯一的最小增量【C++】</p>
         
@@ -590,54 +642,6 @@ x 轴默认指向右，y 轴默认指向上。
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-14&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C++">C++</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/13/Leetcode-169-多数元素【C-】/">
-        <p class="h4 index-header">Leetcode 169.多数元素【C++】</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-地址：https://leetcode-cn.com/problems/majority-element
-
-题目给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。
-你可以假设数组是非空的，并且给定的数组总是存在多数元素。
-示例 1:
-输入: [3,2,3]
-输出: 3示例 2:
-输入: [2,2,1,1,1,2,2]
-输出: 2解题思路思路很简单，就是遍历数组记录每一个元素的个数，由于最终是要返回元素，所以需要将元素和其个数成对保存，我使用了 vector&lt;pair&lt;int, int&gt;&gt; 的数组来存储。
-遍历数组，先到 aNums[] 中查找 num 是否已存在，如果已存在则将其个数+1；不存在，则将其添加到 aNums[] 并将其个数初始化为1。
-题目已经说明“给定的数组总是存在多数元素”，所以可以确定出现次数大于 ⌊ n/2 ⌋ 的多数元素有且仅有一个。所以每遍历一个元素，我们就判断其个数是否大于 nums.size() / 2 ，一旦有一个元素的个数大于 nums.size() / 2 则说明这个元</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-13&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
