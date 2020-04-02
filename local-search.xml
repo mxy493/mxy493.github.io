@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>4.2 美团点评笔试记录</title>
+    <link href="/2020/04/02/4-2-%E7%BE%8E%E5%9B%A2%E7%82%B9%E8%AF%84%E7%AC%94%E8%AF%95%E8%AE%B0%E5%BD%95/"/>
+    <url>/2020/04/02/4-2-%E7%BE%8E%E5%9B%A2%E7%82%B9%E8%AF%84%E7%AC%94%E8%AF%95%E8%AE%B0%E5%BD%95/</url>
+    
+    <content type="html"><![CDATA[<p>几天前投了美团点评后端开发工程师的岗位，今晚七点到九点两个小时的笔试。</p><p>估计我已经没了😓五个编程题，就做出来无错误提交了一个……</p><p>笔试系统用的<a href="https://www.acmcoder.com" target="_blank" rel="noopener"><strong>赛码网</strong></a> ，可以提前刷点题适应一下。</p><h3 id="题目一：最少删除多少个数字"><a href="#题目一：最少删除多少个数字" class="headerlink" title="题目一：最少删除多少个数字"></a>题目一：最少删除多少个数字</h3><p><img src="exam1.png" srcset="/img/loading.gif" alt></p><h3 id="题目二：空间回廊"><a href="#题目二：空间回廊" class="headerlink" title="题目二：空间回廊"></a>题目二：空间回廊</h3><p><img src="exam2.png" srcset="/img/loading.gif" alt></p><h3 id="题目三：小仓的射击练习4"><a href="#题目三：小仓的射击练习4" class="headerlink" title="题目三：小仓的射击练习4"></a>题目三：小仓的射击练习4</h3><p><img src="exam3.png" srcset="/img/loading.gif" alt></p><h3 id="题目四：拆分"><a href="#题目四：拆分" class="headerlink" title="题目四：拆分"></a>题目四：拆分</h3><p><img src="exam4.png" srcset="/img/loading.gif" alt></p><h3 id="题目五：max-xor-min"><a href="#题目五：max-xor-min" class="headerlink" title="题目五：max xor min"></a>题目五：max xor min</h3><p><img src="exam5.png" srcset="/img/loading.gif" alt></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>笔经</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 1111.有效括号的嵌套深度【C++】</title>
     <link href="/2020/04/01/Leetcode-1111-%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%B5%8C%E5%A5%97%E6%B7%B1%E5%BA%A6%E3%80%90C-%E3%80%91/"/>
     <url>/2020/04/01/Leetcode-1111-%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%B5%8C%E5%A5%97%E6%B7%B1%E5%BA%A6%E3%80%90C-%E3%80%91/</url>
