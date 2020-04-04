@@ -142,6 +142,57 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/06/Leetcode-面试题57-II-和为s的连续正数序列【C-】/">
+        <p class="h4 index-header">Leetcode 面试题57 - II.和为s的连续正数序列【C++】</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/
+
+题目输入一个正整数 target ，输出所有和为 target 的连续正整数序列（至少含有两个数）。
+序列内的数字由小到大排列，不同序列按照首个数字从小到大排列。
+示例 1：
+输入：target = 9
+输出：[[2,3,4],[4,5]]示例 2：
+输入：target = 15
+输出：[[1,2,3,4,5],[4,5,6],[7,8]]限制：
+
+1 &lt;= target &lt;= 10^5
+
+解题思路首先很容易想到一点，最大可能取到的数是 target/2 + 1 ，例如对 target == 5 而言，最大只可能取到 5/2 +1 = 3 ，若取到4，由于题目要求是连续正整数，那么就必须取到3或者5，此时 3 + 4 = 7 已经大于目标值5。
+这个题按照人的思维还是很容易想到的，就是从第一个正整数1开始往后依次相加，如果相加之后的和sum小于目标值，那就继续加后一个正整数，如果sum大于目标值，就减去序列最小的数，</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C++">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/05/Leetcode-994-腐烂的橘子-C/">
         <p class="h4 index-header">Leetcode 994.腐烂的橘子【C++】</p>
         
@@ -491,41 +542,6 @@ grid[i][j] 仅为 0、1 或 2
             <a href="/tags/Linux">Linux</a>&nbsp;
           
             <a href="/tags/%E8%BD%AF%E4%BB%B6">软件</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/03/25/Windows平台使用Doxygen-GraphViz生成函数调用关系图/">
-        <p class="h4 index-header">Windows平台使用Doxygen+GraphViz生成函数调用关系图</p>
-        
-        
-          
-          
-        
-        <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">​    刚做了数据结构课程设计，报告要求给出函数调用关系图，然后就想有没有自动生成的工具，所以上网搜了下，总结下搜到的内容大概三类...</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-03-25&nbsp;&nbsp;
-        
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/C++">C++</a>&nbsp;
-          
-            <a href="/tags/Doxygen">Doxygen</a>&nbsp;
-          
-            <a href="/tags/GraphViz">GraphViz</a>&nbsp;
           
         
       </div>
