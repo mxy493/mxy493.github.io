@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Leetcode 460.LFU缓存【C++】</title>
+    <link href="/2020/04/05/Leetcode-460-LFU%E7%BC%93%E5%AD%98%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/04/05/Leetcode-460-LFU%E7%BC%93%E5%AD%98%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/lfu-cache/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/lfu-cache/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>请你为<a href="https://baike.baidu.com/item/%E7%BC%93%E5%AD%98%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">最不经常使用（LFU）</a>缓存算法设计并实现数据结构。它应该支持以下操作：<code>get</code> 和 <code>put</code>。</p><ul><li><code>get(key)</code> - 如果键存在于缓存中，则获取键的值（总是正数），否则返回 -1。</li><li><code>put(key, value)</code> - 如果键不存在，请设置或插入值。当缓存达到其容量时，则应该在插入新项之前，使最不经常使用的项无效。在此问题中，当存在平局（即两个或更多个键具有相同使用频率）时，应该去除 <strong>最近</strong> 最少使用的键。</li></ul><p>「项的使用次数」就是自插入该项以来对其调用 <code>get</code> 和 <code>put</code> 函数的次数之和。使用次数会在对应项被移除后置为 0 。</p><p><strong>进阶：</strong></p><p>你是否可以在 <strong>O(1)</strong> 时间复杂度内执行两项操作？</p><p><strong>示例：</strong></p><pre><code>LFUCache cache = new LFUCache( 2 /* capacity (缓存容量) */ );cache.put(1, 1);cache.put(2, 2);cache.get(1);       // 返回 1cache.put(3, 3);    // 去除 key 2cache.get(2);       // 返回 -1 (未找到key 2)cache.get(3);       // 返回 3cache.put(4, 4);    // 去除 key 1cache.get(1);       // 返回 -1 (未找到 key 1)cache.get(3);       // 返回 3cache.get(4);       // 返回 4</code></pre><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先，题目涉及到的几个数据：</p><ul><li><code>capacity</code> ：容量</li><li><code>key</code> 、 <code>value</code> 、 <code>frequency</code> ：分别是码、值、频次，并且这三项数据是一一对应的关系，所以我定义了一个 <code>vector&lt;pair&lt;pair&lt;int, int&gt;, int&gt;&gt;</code> 类型的数组来存储。<code>vec.first</code> 即键值对 <code>{key, value}</code> ，<code>vec.second</code> 即该键值对对应的频次。</li></ul><p>起初我的想法是，需要什么就去数组里遍历查找，但是后面发现，频次可以找到最低的频次，但是同样频次的两个数据怎么判断哪一个离得近哪一个离得远呢？所以我另外定义了一个函数 <code>rearrange(int index)</code> ，每次 <code>get</code> 或 <code>put</code> 之后就对该项数据重排序，以保证数组始终是以频次最高且最近使用的排在前面，而频次低且离得远的排在后面。对于容量已满但要插入新数据的情况，就可以直接 <code>vec.pop_back()</code> 删除数组末尾的元素，并在末尾插入新元素。</p><p>需要注意，如果容量为0的话，<code>put()</code> 不应该执行任何操作，<code>get()</code> 默认将返回 <code>-1</code> 。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class LFUCache {private:    int capacity;    vector&lt;pair&lt;pair&lt;int, int&gt;, int&gt;&gt; vec;//默认使用频率高切最近使用的排在前面public:    LFUCache(int capacity) {        this-&gt;capacity = capacity;    }    //每当get()或者put()的时候都重新对这个元素的位置进行排序    void rearrange(int index) {        //即使频率相同，但由于当前元素为最近使用，所以也应该排在前面        for (int j = index - 1; j &gt;= 0; j--) {            if (vec[j + 1].second &gt;= vec[j].second) {                pair&lt;pair&lt;int, int&gt;, int&gt; tmp = vec[j + 1];                vec[j + 1] = vec[j];                vec[j] = tmp;            }        }    }    int get(int key) {        for (int i = 0; i &lt; vec.size(); i++) {            if (vec[i].first.first == key) {                vec[i].second++;                int val = vec[i].first.second;                rearrange(i);//频率改变，对其重排序                return val;            }        }        return -1;//容量为0或者不存在这个元素默认返回-1    }    void put(int key, int value) {        //容量为0无法新增        if (capacity == 0)            return;        for (int i = 0; i &lt; vec.size(); i++) {            //已存在值为key的元素应该更新其value，并将其频率+1            if (vec[i].first.first == key) {                vec[i].first.second = value;                vec[i].second++;                rearrange(i);//频率改变，对其重排序                return;            }        }        //元素不存在且容量未满        if (vec.size() &lt; capacity) {            vec.push_back({ {key,value},0 });            rearrange(vec.size() - 1);            return;        }        //元素不存在但容量已满        else {            vec.pop_back();//末尾元素就是最最远且少使用的元素            vec.push_back({ {key,value},0 });            rearrange(vec.size() - 1);        }    }};/** * Your LFUCache object will be instantiated and called as such: * LFUCache* obj = new LFUCache(capacity); * int param_1 = obj-&gt;get(key); * obj-&gt;put(key,value); */</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 42.接雨水【C++】</title>
     <link href="/2020/04/04/Leetcode-42-%E6%8E%A5%E9%9B%A8%E6%B0%B4%E3%80%90C-%E3%80%91/"/>
     <url>/2020/04/04/Leetcode-42-%E6%8E%A5%E9%9B%A8%E6%B0%B4%E3%80%90C-%E3%80%91/</url>
