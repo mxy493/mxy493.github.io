@@ -15,7 +15,7 @@
   <meta name="description" content>
   <meta name="author" content="mxy">
   <meta name="keywords" content>
-  <title>归档 ~ mxy</title>
+  <title>Leetcode 151.翻转字符串里的单词【C++】 ~ mxy</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
@@ -36,7 +36,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -115,6 +115,41 @@
             </span>
 
             
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期五, 四月 10日 2020, 10:41 晚上
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    822 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      3 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
           </div>
 
           
@@ -125,95 +160,190 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 84 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/03/06/Leetcode-167-两数之和II-输入有序数组【C-】/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 167.两数之和II - 输入有序数组【C++】</span>
-      <span style="float: right;">03-06</span>
-    </a>
-  
-    
-    <a href="/2020/03/06/Leetcode-633-平方数之和【C-】/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 633.平方数之和【C++】</span>
-      <span style="float: right;">03-06</span>
-    </a>
-  
-    
-    <a href="/2020/03/06/Leetcode-345-反转字符串中的元音字母【C-】/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 345.反转字符串中的元音字母【C++】</span>
-      <span style="float: right;">03-06</span>
-    </a>
-  
-    
-    <a href="/2020/03/06/Leetcode-225-用队列实现栈【C-】/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 225.用队列实现栈【C++】</span>
-      <span style="float: right;">03-06</span>
-    </a>
-  
-    
-    <a href="/2020/03/06/Leetcode-206-反转链表【C-】/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 206.反转链表【C++】</span>
-      <span style="float: right;">03-06</span>
-    </a>
-  
-    
-    <a href="/2020/03/06/Leetcode-面试题-10-01-合并排序的数组【C-】/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 面试题 10.01. 合并排序的数组【C++】</span>
-      <span style="float: right;">03-06</span>
-    </a>
-  
-    
-    <a href="/2020/03/06/Leetcode-面试题57-II-和为s的连续正数序列【C-】/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 面试题57 - II.和为s的连续正数序列【C++】</span>
-      <span style="float: right;">03-06</span>
-    </a>
-  
-    
-    <a href="/2020/03/05/Leetcode-994-腐烂的橘子-C/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 994.腐烂的橘子【C++】</span>
-      <span style="float: right;">03-05</span>
-    </a>
-  
-    
-    <a href="/2020/03/05/Leetcode-1103-分糖果-II-C/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 1103.分糖果II【C++】</span>
-      <span style="float: right;">03-05</span>
-    </a>
-  
-</div>
 
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/2020/03/page/3/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/archives/2020/03/">1</a><a class="page-number" href="/archives/2020/03/page/2/">2</a><a class="page-number" href="/archives/2020/03/page/3/">3</a><span class="page-number current">4</span>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
-      ele.href += '#board';
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <blockquote>
+<p>地址：<a href="https://leetcode-cn.com/problems/reverse-words-in-a-string/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/reverse-words-in-a-string/</a></p>
+</blockquote>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个字符串，逐个翻转字符串中的每个单词。</p>
+<p><strong>示例 1：</strong></p>
+<pre><code>输入: &quot;the sky is blue&quot;
+输出: &quot;blue is sky the&quot;</code></pre><p><strong>示例 2：</strong></p>
+<pre><code>输入: &quot;  hello world!  &quot;
+输出: &quot;world! hello&quot;
+解释: 输入字符串可以在前面或者后面包含多余的空格，但是反转后的字符不能包括。</code></pre><p><strong>示例 3：</strong></p>
+<pre><code>输入: &quot;a good   example&quot;
+输出: &quot;example good a&quot;
+解释: 如果两个单词间有多余的空格，将反转后单词间的空格减少到只含一个。</code></pre><p><strong>说明：</strong></p>
+<ul>
+<li>无空格字符构成一个单词。</li>
+<li>输入字符串可以在前面或者后面包含多余的空格，但是反转后的字符不能包括。</li>
+<li>如果两个单词间有多余的空格，将反转后单词间的空格减少到只含一个。</li>
+</ul>
+<p><strong>进阶：</strong></p>
+<ul>
+<li>请选用 C 语言的用户尝试使用 O(1) 额外空间复杂度的原地解法。</li>
+</ul>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>做倒是做出来了，思路不复杂，但是代码极其复杂。</p>
+<p>起初我的想法是写一个循环，同时从两头往中间遍历，一头找到一个单词就先停下来，等另一头也找到一个单词，然后对换，再继续找下一对单词前后对换。但是在我写代码的过程中，才慢慢发现，只要在原字符串上进行了对换，那么原本的索引 <code>i</code> ， <code>j</code> 就不再是正确的索引了，要搞清楚其中的变换关系还是挺复杂的。</p>
+<p>后来我改为了两层循环，并且定义两个整型变量 <code>lenl</code> 和 <code>lenr</code> 分别表示前后两个单词的长度。外层循环从前往后遍历，找到一个单词就进入内层循环，内层循环从后往前遍历，找到一个单词后，进行前后对换，然后修改索引 <code>i</code> ， <code>j</code> 的值，并将 <code>lenl</code> 和 <code>lenr</code> 重新置为 <code>0</code> ，继续查找下一个单词。</p>
+<p>前面所做的工作只对单词进行了处理，字符串中的空格还没有处理。所以现在要分别删除首尾的空格以及将单词之间的多个空格压缩为一个。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {
+public:
+    string reverseWords(string s) {
+        int i = 0;
+        int j = 1;
+        int lenl = 0;//前单词长度
+        int lenr = 0;//后单词长度
+        while (i + j &lt;= s.size())
+        {
+            //单词长度+1
+            if (s[i] != &#39; &#39;) {
+                lenl++;
+            }
+            if (s[i] == &#39; &#39; &amp;&amp; lenl != 0) {
+                while (j + i &lt;= s.size()) {
+                    //单词长度+1
+                    if (s[s.size() - j] != &#39; &#39;) {
+                        lenr++;
+                    }
+                    if (s[s.size() - j] == &#39; &#39; &amp;&amp; lenr != 0) {
+                        string tmp = s.substr(i - lenl, lenl);
+                        //替换前单词
+                        s.erase(i - lenl, lenl);
+                        s.insert(i - lenl, s.substr(s.size() - j + 1, lenr));
+                        //替换后单词
+                        s.insert(s.size() - j + 1, tmp);
+                        s.erase(s.size() - j + 1, lenr);
+                        //重新设置i，j
+                        i = i - lenl + lenr;
+                        j = j - lenr + lenl;
+                        //重置lenl和lenr
+                        lenl = 0;
+                        lenr = 0;
+                        break;
+                    }
+                    j++;
+                }
+            }
+            i++;
+        }
+        //去掉首尾空格
+        while (s.size() &gt; 0 &amp;&amp; s.front() == &#39; &#39;) {
+            s.erase(0, 1);
+        }
+        while (s.size() &gt; 0 &amp;&amp; s.back() == &#39; &#39;) {
+            s.pop_back();
+        }
+        //去掉中间重复空格
+        int ii = 0;
+        int count = 0;
+        while (ii &lt; s.size()) {
+            if (s[ii] == &#39; &#39;) {
+                count++;
+            }
+            if (s[ii] != &#39; &#39; &amp;&amp; count != 0) {
+                s.replace(ii - count, count, &quot; &quot;);
+                ii = ii - count + 1;
+                count = 0;
+            }
+            ii++;
+        }
+        return s;
     }
-  </script>
+};</code></pre>
 
-
-              </div>
-            </div>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/Leetcode">Leetcode</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/Leetcode">Leetcode</a>
+                
+                  <a class="hover-with-bg" href="/tags/C++">C++</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="vcomments" style="width: 90%; margin: 0 auto;"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var notify = 'false' === true;
+    var verify = 'false' === true;
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+        app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+        placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+        avatar: "retro",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+      powered by Valine.</a></noscript>
+
+
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -292,6 +422,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -343,7 +478,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "Leetcode 151.翻转字符串里的单词【C++】&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

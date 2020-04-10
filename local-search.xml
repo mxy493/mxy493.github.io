@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Leetcode 151.翻转字符串里的单词【C++】</title>
+    <link href="/2020/04/10/Leetcode-151-%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8D%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/04/10/Leetcode-151-%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E7%9A%84%E5%8D%95%E8%AF%8D%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/reverse-words-in-a-string/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/reverse-words-in-a-string/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个字符串，逐个翻转字符串中的每个单词。</p><p><strong>示例 1：</strong></p><pre><code>输入: &quot;the sky is blue&quot;输出: &quot;blue is sky the&quot;</code></pre><p><strong>示例 2：</strong></p><pre><code>输入: &quot;  hello world!  &quot;输出: &quot;world! hello&quot;解释: 输入字符串可以在前面或者后面包含多余的空格，但是反转后的字符不能包括。</code></pre><p><strong>示例 3：</strong></p><pre><code>输入: &quot;a good   example&quot;输出: &quot;example good a&quot;解释: 如果两个单词间有多余的空格，将反转后单词间的空格减少到只含一个。</code></pre><p><strong>说明：</strong></p><ul><li>无空格字符构成一个单词。</li><li>输入字符串可以在前面或者后面包含多余的空格，但是反转后的字符不能包括。</li><li>如果两个单词间有多余的空格，将反转后单词间的空格减少到只含一个。</li></ul><p><strong>进阶：</strong></p><ul><li>请选用 C 语言的用户尝试使用 O(1) 额外空间复杂度的原地解法。</li></ul><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>做倒是做出来了，思路不复杂，但是代码极其复杂。</p><p>起初我的想法是写一个循环，同时从两头往中间遍历，一头找到一个单词就先停下来，等另一头也找到一个单词，然后对换，再继续找下一对单词前后对换。但是在我写代码的过程中，才慢慢发现，只要在原字符串上进行了对换，那么原本的索引 <code>i</code> ， <code>j</code> 就不再是正确的索引了，要搞清楚其中的变换关系还是挺复杂的。</p><p>后来我改为了两层循环，并且定义两个整型变量 <code>lenl</code> 和 <code>lenr</code> 分别表示前后两个单词的长度。外层循环从前往后遍历，找到一个单词就进入内层循环，内层循环从后往前遍历，找到一个单词后，进行前后对换，然后修改索引 <code>i</code> ， <code>j</code> 的值，并将 <code>lenl</code> 和 <code>lenr</code> 重新置为 <code>0</code> ，继续查找下一个单词。</p><p>前面所做的工作只对单词进行了处理，字符串中的空格还没有处理。所以现在要分别删除首尾的空格以及将单词之间的多个空格压缩为一个。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {public:    string reverseWords(string s) {        int i = 0;        int j = 1;        int lenl = 0;//前单词长度        int lenr = 0;//后单词长度        while (i + j &lt;= s.size())        {            //单词长度+1            if (s[i] != &#39; &#39;) {                lenl++;            }            if (s[i] == &#39; &#39; &amp;&amp; lenl != 0) {                while (j + i &lt;= s.size()) {                    //单词长度+1                    if (s[s.size() - j] != &#39; &#39;) {                        lenr++;                    }                    if (s[s.size() - j] == &#39; &#39; &amp;&amp; lenr != 0) {                        string tmp = s.substr(i - lenl, lenl);                        //替换前单词                        s.erase(i - lenl, lenl);                        s.insert(i - lenl, s.substr(s.size() - j + 1, lenr));                        //替换后单词                        s.insert(s.size() - j + 1, tmp);                        s.erase(s.size() - j + 1, lenr);                        //重新设置i，j                        i = i - lenl + lenr;                        j = j - lenr + lenl;                        //重置lenl和lenr                        lenl = 0;                        lenr = 0;                        break;                    }                    j++;                }            }            i++;        }        //去掉首尾空格        while (s.size() &gt; 0 &amp;&amp; s.front() == &#39; &#39;) {            s.erase(0, 1);        }        while (s.size() &gt; 0 &amp;&amp; s.back() == &#39; &#39;) {            s.pop_back();        }        //去掉中间重复空格        int ii = 0;        int count = 0;        while (ii &lt; s.size()) {            if (s[ii] == &#39; &#39;) {                count++;            }            if (s[ii] != &#39; &#39; &amp;&amp; count != 0) {                s.replace(ii - count, count, &quot; &quot;);                ii = ii - count + 1;                count = 0;            }            ii++;        }        return s;    }};</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 22.括号生成【C++】</title>
     <link href="/2020/04/09/Leetcode-22-%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90%E3%80%90C-%E3%80%91/"/>
     <url>/2020/04/09/Leetcode-22-%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90%E3%80%90C-%E3%80%91/</url>
