@@ -142,6 +142,59 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/19/Leetcode-409-最长回文串【C-】/">
+        <p class="h4 index-header">Leetcode 409.最长回文串【C++】</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/longest-palindrome/
+
+题目给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。
+在构造过程中，请注意区分大小写。比如 &quot;Aa&quot; 不能当做一个回文字符串。
+注意:假设字符串的长度不会超过 1010。
+示例 1:
+输入:
+&quot;abccccdd&quot;
+
+输出:
+7
+
+解释:
+我们可以构造的最长的回文串是&quot;dccaccd&quot;, 它的长度是 7。解题思路解题思路还是很容易想到的，回文串的特征很明显，就是左右对称，也就是说只有正中可能存在单个的字符，其余的字符都一定是偶数个。
+所以我很快就想到了统计字符串中不同字符的个数，使用了一个 vector&lt;pair&lt;char, int&gt;&gt; 类型的数组 count 用于保存每个字符及其对应的个数。
+然后遍历 count 将每个字符的最多可能取到的偶数个数加到 length ，然后为了尽可能的让回文串的长度更长，所以如果存在计数个数的字符，那就应该再+1，即表示将一个</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-19&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C++">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/18/Leetcode-836-矩形重叠【C-】/">
         <p class="h4 index-header">Leetcode 836.矩形重叠【C++】</p>
         
@@ -581,60 +634,6 @@ str1[i] 和 str2[i] 为大写英文字</div>
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-10&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C++">C++</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/09/Leetcode-121-买卖股票的最佳时机【C-】/">
-        <p class="h4 index-header">Leetcode 121.买卖股票的最佳时机【C++】</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-地址：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/
-
-题目给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
-如果你最多只允许完成一笔交易（即买入和卖出一支股票），设计一个算法来计算你所能获取的最大利润。
-注意你不能在买入股票前卖出股票。
-示例 1:
-输入: [7,1,5,3,6,4]
-输出: 5
-解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。
-      注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格。示例 2:
-输入: [7,6,4,3,1]
-输出: 0
-解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。解题思路这个题其实不是第一次遇上了，初学C++的时候就做过这个题，有几个需要注意的地方是：
-
-需要判别数组为空的情况，此时利润为0可以直接返回；
-不能在买入股票前卖出股票，所以不是单纯找数组的最小值、最大值；
-股票价格起伏不定，阶段性的买入卖出获得的是阶段性的最大利润，所以在</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-09&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>

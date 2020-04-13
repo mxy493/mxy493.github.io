@@ -142,6 +142,59 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/29/Leetcode-1162-地图分析【C-】/">
+        <p class="h4 index-header">Leetcode 1162.地图分析【C++】</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">地址：https://leetcode-cn.com/problems/as-far-from-land-as-possible/
+题目你现在手里有一份大小为 N x N 的『地图』（网格） grid，上面的每个『区域』（单元格）都用 0 和 1 标记好了。其中 0 代表海洋，1 代表陆地，你知道距离陆地区域最远的海洋区域是是哪一个吗？请返回该海洋区域到离它最近的陆地区域的距离。
+我们这里说的距离是『曼哈顿距离』（ Manhattan Distance）：(x0, y0) 和 (x1, y1) 这两个区域之间的距离是 |x0 - x1| + |y0 - y1| 。
+如果我们的地图上只有陆地或者海洋，请返回 -1。
+示例 1：
+
+输入：[[1,0,1],[0,0,0],[1,0,1]]
+输出：2
+解释： 
+海洋区域 (1, 1) 和所有陆地区域之间的距离都达到最大，最大距离为 2。示例 2：
+
+输入：[[1,0,0],[0,0,0],[0,0,0]]
+输出：4
+解释： 
+海洋区域 (2, 2) 和所有陆地区域之间的距离都达到最大，最大距离为 4。提示：
+
+1 &lt;= grid.len</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-29&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C++">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/28/利用rand7-构造rand10-及其一些推广/">
         <p class="h4 index-header">利用rand7()构造rand10()及其一些推广</p>
         
@@ -597,59 +650,6 @@ public:
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-21&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C++">C++</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/19/Leetcode-409-最长回文串【C-】/">
-        <p class="h4 index-header">Leetcode 409.最长回文串【C++】</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-地址：https://leetcode-cn.com/problems/longest-palindrome/
-
-题目给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。
-在构造过程中，请注意区分大小写。比如 &quot;Aa&quot; 不能当做一个回文字符串。
-注意:假设字符串的长度不会超过 1010。
-示例 1:
-输入:
-&quot;abccccdd&quot;
-
-输出:
-7
-
-解释:
-我们可以构造的最长的回文串是&quot;dccaccd&quot;, 它的长度是 7。解题思路解题思路还是很容易想到的，回文串的特征很明显，就是左右对称，也就是说只有正中可能存在单个的字符，其余的字符都一定是偶数个。
-所以我很快就想到了统计字符串中不同字符的个数，使用了一个 vector&lt;pair&lt;char, int&gt;&gt; 类型的数组 count 用于保存每个字符及其对应的个数。
-然后遍历 count 将每个字符的最多可能取到的偶数个数加到 length ，然后为了尽可能的让回文串的长度更长，所以如果存在计数个数的字符，那就应该再+1，即表示将一个</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-19&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
