@@ -128,7 +128,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    1.4k 字
+                    1.9k 字
                   </span>&nbsp;
                 
 
@@ -136,7 +136,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      6 分钟
+                      8 分钟
                   </span>&nbsp;
                 
 
@@ -211,7 +211,15 @@ twitter.getNewsFeed(1);</code></pre><h3 id="解题思路"><a href="#解题思路
 <p>否则从后往前遍历推文数组 <code>tweets</code> ，定义一个整型 <code>count</code> 用于计数已找到的符合要求的推文数量，遍历结束的条件即已检索到的推文数量 <code>count</code> 达到10条或者已遍历完整个推文数组。对遍历到的每一个推文，判断其对应的发布者ID是否就是要检索的用户ID或者该用户所关注的某个用户的ID，若是，将该推文加入返回数组，<code>count++</code> ，否则继续遍历。</p>
 <h4 id="（3）关注"><a href="#（3）关注" class="headerlink" title="（3）关注"></a>（3）关注</h4><p>遍历用户数组查找该用户，如果找到，则将其要关注的用户加入到关注的用户集合种；否则先将该用户加入到用户数组，再将要关注的用户ID加入到关注的用户集合。</p>
 <h4 id="（4）取关"><a href="#（4）取关" class="headerlink" title="（4）取关"></a>（4）取关</h4><p>遍历用户数组查找该用户，若找到，则将要取关的用户从关注的用户集合中删除，同时结束函数。</p>
-<h3 id="代码（超时）"><a href="#代码（超时）" class="headerlink" title="代码（超时）"></a>代码（超时）</h3><pre><code class="c++">class Twitter {
+<h4 id="优化"><a href="#优化" class="headerlink" title="# 优化"></a># 优化</h4><p>优化这部分是后面改过的，虽然还是很耗时并且内存消耗也大，不过好歹通过了。</p>
+<ul>
+<li>执行用时 :1648 ms, 在所有 C++ 提交中击败了5.15%的用户</li>
+<li>内存消耗 :189.6 MB, 在所有 C++ 提交中击败了16.67%的用户</li>
+</ul>
+<p>其实就是最开始的代码在索引的那一部分，我首先遍历了一次用户数组判断该用户是否存在，如果不存在，函数直接结束了那倒没什么影响。但如果存在的话，后续对每一条推文，我都还要再遍历一次去找这个用户，如果遍历了 n 条推文，那么就会做 <code>n + 1</code> 次完全重复的遍历查找，显然这是没有必要的。</p>
+<p>所有我将判断该用户是否存在的标志改为了整型 <code>index</code> 并初始化为 <code>-1</code> ，即表示该用户不存在，如果找到了该用户，则将 <code>index</code> 修改为该用户在用户数组中的位置，后续就不再需要遍历用户数组去查找该用户了。</p>
+<p>我将优化部分的代码放到了👇🏻最后面👇🏻</p>
+<h3 id="代码（超时）"><a href="#代码（超时）" class="headerlink" title="代码（超时）"></a>代码（超时）</h3><h4 id="原始代码（未优化）"><a href="#原始代码（未优化）" class="headerlink" title="原始代码（未优化）"></a>原始代码（未优化）</h4><pre><code class="c++">class Twitter {
     vector&lt;pair&lt;int, int&gt;&gt; tweets;//所有推文
     vector&lt;pair&lt;int, set&lt;int&gt;&gt;&gt; users;//所有用户及其关注的用户
 public:
@@ -305,6 +313,34 @@ public:
  * obj-&gt;follow(followerId,followeeId);
  * obj-&gt;unfollow(followerId,followeeId);
  */</code></pre>
+<h4 id="优化部分"><a href="#优化部分" class="headerlink" title="优化部分"></a>优化部分</h4><p>对函数 <code>getNewsFeed(int userId)</code> 进行了修改，并删除了函数 <code>isFollowing(int id1, int id2)</code>。</p>
+<pre><code class="c++">/** Retrieve the 10 most recent tweet ids in the user&#39;s news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */
+vector&lt;int&gt; getNewsFeed(int userId) {
+    vector&lt;int&gt; ans;
+    //判断是否存在该id的用户
+    bool exist = false;
+    int index = -1;
+    for (int i = 0; i &lt; users.size(); i++) {
+        if (userId == users[i].first) {
+            index = i;
+            break;
+        }
+    }
+    //不存在直接返回空数组
+    if (index == -1) {
+        return ans;
+    }
+    int amount = tweets.size();
+    int count = 0;
+    for (int i = 0; count &lt; 10 &amp;&amp; i &lt; tweets.size(); i++) {
+        int cur = tweets[amount - i - 1].first;
+        if (cur == userId || users[index].second.find(cur) != users[index].second.end()) {
+            ans.push_back(tweets[amount - i - 1].second);
+            count++;
+        }
+    }
+    return ans;
+}</code></pre>
 
             <hr>
           </div>
