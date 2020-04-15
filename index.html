@@ -142,6 +142,46 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/15/2020-04-15-美团点评一面【前端】/">
+        <p class="h4 index-header">2020.04.15 美团点评一面【前端】</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">其实我投简历投的后端开发岗，但是昨晚面试官联系到我问我可以转前端吗，说前端收到的简历太少了，我恰好最近半个月算是入了点前端的门也就答应了，然后今天面试官也直说了主要考查一些计算机基础知识……
+记录一下，下面的内容并不是我的回答，是面试结束后查资料完善的，不过有些内容我个人都觉得有问题，选择性的参考学习吧~
+并没有自我介绍。（我打了两三个小时的自我介绍草稿🤐）
+一、计算机网络😳 TCP为什么三次握手？不是两次？
+因为双方都需要确认对方收到了自己发送的序列号，确认过程最少要进行三次通信。
+第一次握手：客户端发送网络包，服务端收到了。这样服务端就能得出结论：客户端的发送能力、服务端的接收能力是正常的。
+第二次握手：服务端发包，客户端收到了。这样客户端就能得出结论：服务端的接收、发送能力，客户端的接收、发送能力是正常的。不过此时服务器并不能确认客户端的接收能力是否正常。
+第三次握手：客户端发包，服务端收到了。这样服务端就能得出结论：客户端的接收、发送能力正常，服务器自己的发送、接收能力也正常。
+
+
+为了防止已失效的连接请求报文段突然又传送到服务端，产生错误。（究其本质还是请求没有得到确认）</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-15&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E9%9D%A2%E7%BB%8F">面经</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/04/13/Leetcode-355-设计推特【C-】/">
         <p class="h4 index-header">Leetcode 355.设计推特【C++】</p>
         
@@ -605,58 +645,6 @@ cache.put(3, 3);    // 去除 k</div>
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-01&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C++">C++</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/30/Leetcode-面试题62-圆圈中最后剩下的数字【C-】/">
-        <p class="h4 index-header">Leetcode 面试题62.圆圈中最后剩下的数字【C++】</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-地址：https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/
-
-题目0,1,…,n-1这n个数字排成一个圆圈，从数字0开始，每次从这个圆圈里删除第m个数字。求出这个圆圈里剩下的最后一个数字。
-例如，0、1、2、3、4这5个数字组成一个圆圈，从数字0开始每次删除第3个数字，则删除的前4个数字依次是2、0、4、1，因此最后剩下的数字是3。
-示例 1：
-输入: n = 5, m = 3
-输出: 3示例 2：
-输入: n = 10, m = 17
-输出: 2限制：
-
-1 &lt;= n &lt;= 10^5
-1 &lt;= m &lt;= 10^6
-
-解题思路这题最容易想到的思路肯定是模拟真实的逐个删除的场景了，也就是暴力解，但是我并没有上来就这么做，我觉得这题肯定就不是让这么做的，暴力解存在挺大的问题，很傻，要遍历 n 次，逻辑也不是很好写。
-自己想却真就想不出来好办法，后来看了官方题解，确实比暴力解好很多吧，但是实在不是我能想出来的，甚至有一个步骤（ f(n, m) 和 f(n </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-30&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>

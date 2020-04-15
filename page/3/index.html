@@ -142,6 +142,57 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/03/21/Leetcode-面试题40-最小的k个数【C-】/">
+        <p class="h4 index-header">Leetcode 面试题40.最小的k个数【C++】</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/
+
+题目输入整数数组 arr ，找出其中最小的 k 个数。例如，输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。
+示例 1：
+输入：arr = [3,2,1], k = 2
+输出：[1,2] 或者 [2,1]示例 2：
+输入：arr = [0,1,2,1], k = 1
+输出：[0]限制：
+
+0 &lt;= k &lt;= arr.length &lt;= 10000
+0 &lt;= arr[i] &lt;= 10000
+
+解题思路这个题思路来的挺快的，不过肯定不是最好的办法了。看完题目我就想到了对数组进行排序，然后从小到大取 k 个数出来就好了。
+然后我就按着这个思路写了一个反向的冒泡排序，把最小的数从后往前冒泡，最后就会得到一个从小到大的数组，之所以反向冒泡，是因为题目要求要找的是最小的 k 个数，所以我就想到把最小的数先冒泡求出来，就可以将其加入到数组 min 中保存，然后由于只需要返回最小的k个数，所以只要得到了最小的k个数</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-21&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C++">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/03/19/Leetcode-409-最长回文串【C-】/">
         <p class="h4 index-header">Leetcode 409.最长回文串【C++】</p>
         
@@ -580,60 +631,6 @@ str1[i] 和 str2[i] 为大写英文字</div>
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-11&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C++">C++</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2020/03/10/Leetcode-543-二叉树的直径【C-】/">
-        <p class="h4 index-header">Leetcode 543.二叉树的直径【C++】</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-地址：https://leetcode-cn.com/problems/diameter-of-binary-tree/
-
-题目给定一棵二叉树，你需要计算它的直径长度。一棵二叉树的直径长度是任意两个结点路径长度中的最大值。这条路径可能穿过根结点。
-示例 :给定二叉树
-      1
-     / \
-    2   3
-   / \     
-  4   5    返回 3, 它的长度是路径 [4,2,1,3] 或者 [5,2,1,3]。
-注意：两结点之间的路径长度是以它们之间边的数目表示。
-解题思路首先这个题需要注意一点，整棵树的最长路径，不一定是左右子树的深度相加，因为可能最长路径并没有经过根结点。但是可以确定的是，最长路径一定是某一个结点作为根节点的左右子树的深度相加。
-所以如果求出每一个结点作为根结点的左右子树的深度，也就可以找出所有可能的最长路径，只需要不断更新最大长度即可。
-代码/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *le</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-10&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
