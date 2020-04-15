@@ -12,15 +12,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+  <meta name="theme-color" content="#2f4154">
   <meta name="description" content>
   <meta name="author" content="mxy">
   <meta name="keywords" content>
   <title>mxy</title>
 
-  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
-<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
 
@@ -29,7 +30,10 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css">
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
+
+
+<!-- 自定义样式保持在最底部 -->
 
 
 </head>
@@ -92,6 +96,14 @@
             <a class="nav-link" href="/about/">关于</a>
           </li>
         
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">友链</a>
+          </li>
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
@@ -103,10 +115,9 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background"
-         style="background: url('/img/xqmy.png')no-repeat center center;
-           background-size: cover;
-           background-attachment: fixed;">
+    <div class="view intro-2" id="background" false
+         style="background: url('/img/xqmy.png') no-repeat center center;
+           background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
           <div class="container text-center white-text fadeInUp">
@@ -130,7 +141,8 @@
   <main>
     
       <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5 z-depth-3" id="board"
+          >
           
           <div class="container">
             <div class="row">
@@ -138,12 +150,15 @@
                 
 
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/10/Leetcode-543-二叉树的直径【C-】/">
         <p class="h4 index-header">Leetcode 543.二叉树的直径【C++】</p>
+      </a>
+
+      <a href="/2020/03/10/Leetcode-543-二叉树的直径【C-】/">
         
         
           
@@ -160,44 +175,41 @@
    / \     
   4   5    返回 3, 它的长度是路径 [4,2,1,3] 或者 [5,2,1,3]。
 注意：两结点之间的路径长度是以它们之间边的数目表示。
-解题思路首先这个题需要注意一点，整棵树的最长路径，不一定是左右子树的深度相加，因为可能最长路径并没有经过根结点。但是可以确定的是，最长路径一定是某一个结点作为根节点的左右子树的深度相加。
-所以如果求出每一个结点作为根结点的左右子树的深度，也就可以找出所有可能的最长路径，只需要不断更新最大长度即可。
-代码/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *le</div>
+解题思路首先这个题需要注意一点，整棵树的最长路径，不一定是左右子树的深度相加，因为可能最长路径并没有</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-10&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/09/Leetcode-121-买卖股票的最佳时机【C-】/">
         <p class="h4 index-header">Leetcode 121.买卖股票的最佳时机【C++】</p>
+      </a>
+
+      <a href="/2020/03/09/Leetcode-121-买卖股票的最佳时机【C-】/">
         
         
           
@@ -213,45 +225,41 @@
 输入: [7,1,5,3,6,4]
 输出: 5
 解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。
-      注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格。示例 2:
-输入: [7,6,4,3,1]
-输出: 0
-解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。解题思路这个题其实不是第一次遇上了，初学C++的时候就做过这个题，有几个需要注意的地方是：
-
-需要判别数组为空的情况，此时利润为0可以直接返回；
-不能在买入股票前卖出股票，所以不是单纯找数组的最小值、最大值；
-股票价格起伏不定，阶段性的买入卖出获得的是阶段性的最大利润，所以在</div>
+      注意利润不能是 7-1 = 6, 因为卖出价格需要大于买</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-09&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/08/Leetcode-322-零钱兑换【C-】/">
         <p class="h4 index-header">Leetcode 322.零钱兑换【C++】</p>
+      </a>
+
+      <a href="/2020/03/08/Leetcode-322-零钱兑换【C-】/">
         
         
           
@@ -269,40 +277,41 @@
 输出: -1说明:
 你可以认为每种硬币的数量是无限的。
 解题思路解题思路参考官方题解~
-一开始的时候自己尝试做这道题，首先想到的办法是将硬币按面值从小到大排序，然后尽可能多的取面较值大的，最终将不同面值的硬币个数加起来即题解。但后来发现，其实有时候并不是面值越大的越多就符合题意，因为会有取面值小一点的才能组合成总金额的情况，所以这个思路是错误的。
-然后我参考了官方的题解的自上而下的动态规划法！
-官方题解：https://leetcode-cn.com/problems/coin-change/solution/322-li</div>
+一开始的时候自己尝试做这道题，首先想到的</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-08&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/07/Leetcode-53-最大子序和【C-】/">
         <p class="h4 index-header">Leetcode 53.最大子序和【C++】</p>
+      </a>
+
+      <a href="/2020/03/07/Leetcode-53-最大子序和【C-】/">
         
         
           
@@ -320,42 +329,41 @@
 解题思路笨办法！遍历所有可能的子序并计算其子序和，不断地更新最大子序和。
 代码class Solution {
 public:
-    int maxSubArray(vector&lt;int&gt;&amp; nums) {
-        int maxSum = nums[0];//子序和
-        for (int i = 0; i &lt; nums.size(); i++) {
-            //查找并更新从每一个数开始的所有可能子序的子序和
-            int sum = 0;//以nums[i]开头的子序的子</div>
+    int maxSubAr</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/07/Leetcode-58-最后一个单词的长度【C-】/">
         <p class="h4 index-header">Leetcode 58.最后一个单词的长度【C++】</p>
+      </a>
+
+      <a href="/2020/03/07/Leetcode-58-最后一个单词的长度【C-】/">
         
         
           
@@ -370,44 +378,41 @@ public:
 示例：
 输入: &quot;Hello World&quot;
 输出: 5解题思路一开始想着就是遍历字符串，思路是每遇到一个单词的第一个字符就开始统计这个单词的长度，然后找到最后的这个单词就可以了。
-后来一下子想到，反过来逆序遍历不就好了，而且只需要遍历完逆序的第一个单词即可结束遍历，实现起来很简单。
-代码class Solution {
-public:
-    int lengthOfLastWord(string s) {
-        int length = 0;//单词长度
-        for (int i = s.length() - 1; i &gt;= 0; i--)
-     </div>
+后来一下</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/07/Leetcode-67-二进制求和【C-】/">
         <p class="h4 index-header">Leetcode 67.二进制求和【C++】</p>
+      </a>
+
+      <a href="/2020/03/07/Leetcode-67-二进制求和【C-】/">
         
         
           
@@ -423,39 +428,41 @@ public:
 输出: &quot;100&quot;示例 2:
 输入: a = &quot;1010&quot;, b = &quot;1011&quot;
 输出: &quot;10101&quot;解题思路这个题不可避免的要处理十进制和二进制之间的转换问题，按照二进制求和的方法，从低位到高位依次相加。
-定义一个 car 记录进位，默认为 0 即没有进位，有进位只可能为 1 ；定义一个 string 类型的 sum 用以保存得到的和；定义两个int型变量 cur_a 和 cur_b 保存两个字符串相同位置上的字符转为 int 型后的值，方便进行常规加法计算，若字符串为空则作 0 处理，效果等同于没有数与之相加；x 保存某一位上的相加结果，以根据其相加的结果进行进位处理。
-因为是二进制加法，x 可能的取值情况</div>
+定义一个 </div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/07/Leetcode-69-x的平方根【C-】/">
         <p class="h4 index-header">Leetcode 69.x的平方根【C++】</p>
+      </a>
+
+      <a href="/2020/03/07/Leetcode-69-x的平方根【C-】/">
         
         
           
@@ -473,45 +480,41 @@ public:
 输入: 8
 输出: 2
 说明: 8 的平方根是 2.82842...，由于返回类型是整数，小数部分将被舍去。解题思路采用二分法求解。
-平方根一定是 &gt;= 0 的，则 low 取初始值为0；平方根不大于这个数的一半再+1，所以 up 取初始值为 x / 2.0 + 1.0，然后两头向中间逼近。题目要求只保留整数部分，小数部分舍去，所以平方根将最终的 mid 取整。
-代码class Solution {
-public:
-    int mySqrt(int x) {
-        double low = 0;//平方根一定是 &gt;= 0 的
-        double up = x / 2.0 + 1.0;//平方根不大于这个数的一半再+1
-        double mid;
-</div>
+平方根一定是 &gt;= 0 的，则 low 取初始值为0；平方根不大于这个数的一半再+1，所以 up 取初始值为 x / 2.0 + 1.0，然后两头向中间逼近。题目</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/07/Leetcode-70-爬楼梯【C-】/">
         <p class="h4 index-header">Leetcode 70.爬楼梯【C++】</p>
+      </a>
+
+      <a href="/2020/03/07/Leetcode-70-爬楼梯【C-】/">
         
         
           
@@ -540,41 +543,41 @@ public:
 在第 (i - 1) 阶后向上爬 1 阶；
 在第 (i - 2) 阶后向上爬 2 阶。
 
-所以，只要知道任意相邻的两级台阶的方法数，就可以推算出其后的所有台阶数可以到达的方法总数。即 dp[i] = dp[i - 1] + dp[i - 2] 。而第一级台阶和第二级台阶到达的方法数是显而易见的，所以只需要定义出 dp[1] = 1; dp[2] = 2;，则后续的爬 n 阶楼梯的不同方法就可以通过前述公式计算出来。
-代码class Solution {
-public:
-    int climb</div>
+所以，只要</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/07/Leetcode-面试题59-II-队列的最大值【C-】/">
         <p class="h4 index-header">Leetcode 面试题59 - II.队列的最大值【C++】</p>
+      </a>
+
+      <a href="/2020/03/07/Leetcode-面试题59-II-队列的最大值【C-】/">
         
         
           
@@ -587,46 +590,41 @@ public:
 若队列为空，pop_front 和 max_value 需要返回 -1。
 示例 1：
 输入: 
-[&quot;MaxQueue&quot;,&quot;push_back&quot;,&quot;push_back&quot;,&quot;max_value&quot;,&quot;pop_front&quot;,&quot;max_value&quot;]
-[[],[1],[2],[],[],[]]
-输出: [null,null,null,2,1,2]示例 2：
-输入: 
-[&quot;MaxQueue&quot;,&quot;pop_front&quot;,&quot;max_value&quot;]
-[[],[],[]]
-输出: [null,-1,-1]限制：
-
-1 &lt;= p</div>
+[&quot;MaxQueue&quot;,&quot;push_back&quot;,&quot;push_back&quot;,&quot;max_value&quot;,&quot;pop_fr</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/06/Leetcode-83-删除排序链表中的重复元素【C-】/">
         <p class="h4 index-header">Leetcode 83.删除排序链表中的重复元素【C++】</p>
+      </a>
+
+      <a href="/2020/03/06/Leetcode-83-删除排序链表中的重复元素【C-】/">
         
         
           
@@ -643,35 +641,26 @@ public:
 输出: 1-&gt;2-&gt;3解题思路就是一个简单的遍历链表的方法，外层循环遍历链表中的每一个结点，内存循环查找这个结点后面的所有结点是否有重复元素，找到重复元素就将其删除。
 需要考虑传入的链表为空的特殊情况。
 代码/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-public:
-    ListNode* deleteDuplica</div>
+ * Defi</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
@@ -687,7 +676,7 @@ public:
   </nav>
   
   <script>
-    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
       ele.href += '#board';
     }
   </script>
@@ -732,58 +721,68 @@ public:
 </div>
   
 
+  
+
+  
+
   <footer class="mt-5">
   <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    <br>
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
 
     
-  
-    <!-- 不蒜子统计PV -->
-    
-    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
-          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
-  
-  
-    <!-- 不蒜子统计UV -->
-    
-    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
-            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
-  
-  <br>
-
-
 
     
-
-
-    <!-- cnzz Analytics icon -->
-    
-
   </div>
 </footer>
 
 <!-- SCRIPTS -->
-<script src="/lib/jquery/jquery.min.js" ></script>
-<script src="/lib/popper/popper.min.js" ></script>
-<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
-<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
-<script src="/js/main.js" ></script>
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
 
 
-  <script src="/js/lazyload.js" ></script>
-
-
-
-
-
-  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+  <script  src="/js/lazyload.js" ></script>
 
 
 
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
 
 
 <!-- Plugins -->
@@ -791,7 +790,7 @@ public:
 
   
     <!-- Baidu Analytics -->
-    <script>
+    <script defer>
       var _hmt = _hmt || [];
       (function () {
         var hm = document.createElement("script");
@@ -808,12 +807,13 @@ public:
 
   
 
-  <!-- cnzz Analytics -->
+  
+
   
 
 
 
-  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
       $('pre').addClass('prettyprint  linenums');
@@ -823,7 +823,7 @@ public:
 
 
 
-  <script src="/lib/typed/typed.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
     var typed = new Typed('#subtitle', {
       strings: [
@@ -843,11 +843,11 @@ public:
 
 
 
-  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
   <script>
     anchors.options = {
       placement: "right",
-      visible: "false",
+      visible: "hover",
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
@@ -860,7 +860,7 @@ public:
 
 
 
-  <script src="/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
   <script>
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
@@ -872,7 +872,7 @@ public:
 
 
 
-  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
   <script>
     $("#post img:not(.no-zoom img, img[no-zoom])").each(
       function () {
@@ -937,6 +937,7 @@ public:
       ;
     </script>
   
+
 
 
 

@@ -12,15 +12,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+  <meta name="theme-color" content="#2f4154">
   <meta name="description" content>
   <meta name="author" content="mxy">
   <meta name="keywords" content>
   <title>mxy</title>
 
-  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
-<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
 
@@ -29,7 +30,10 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css">
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
+
+
+<!-- 自定义样式保持在最底部 -->
 
 
 </head>
@@ -92,6 +96,14 @@
             <a class="nav-link" href="/about/">关于</a>
           </li>
         
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">友链</a>
+          </li>
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
@@ -103,10 +115,9 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background"
-         style="background: url('/img/xqmy.png')no-repeat center center;
-           background-size: cover;
-           background-attachment: fixed;">
+    <div class="view intro-2" id="background" false
+         style="background: url('/img/xqmy.png') no-repeat center center;
+           background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
           <div class="container text-center white-text fadeInUp">
@@ -130,7 +141,8 @@
   <main>
     
       <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5 z-depth-3" id="board"
+          >
           
           <div class="container">
             <div class="row">
@@ -138,12 +150,15 @@
                 
 
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2019/01/24/Leetcode-两个数组的交集-II/">
         <p class="h4 index-header">Leetcode 两个数组的交集 II</p>
+      </a>
+
+      <a href="/2019/01/24/Leetcode-两个数组的交集-II/">
         
         
           
@@ -157,34 +172,37 @@
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-01-24&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/%E6%95%B0%E7%BB%84">数组</a>&nbsp;
+            <a href="/tags/数组/">数组</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2019/01/23/YAML语法简记/">
         <p class="h4 index-header">YAML语法简记</p>
+      </a>
+
+      <a href="/2019/01/23/YAML语法简记/">
         
         
           
@@ -202,7 +220,7 @@
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-01-23&nbsp;&nbsp;
         
@@ -210,19 +228,22 @@
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/YAML">YAML</a>&nbsp;
+            <a href="/tags/YAML/">YAML</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2019/01/22/Leetcode-只出现一次的数字/">
         <p class="h4 index-header">Leetcode 只出现一次的数字</p>
+      </a>
+
+      <a href="/2019/01/22/Leetcode-只出现一次的数字/">
         
         
           
@@ -237,34 +258,37 @@
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-01-22&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/%E6%95%B0%E7%BB%84">数组</a>&nbsp;
+            <a href="/tags/数组/">数组</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2019/01/18/GitHub-Hexo搭建博客笔记/">
         <p class="h4 index-header">GitHub+Hexo搭建博客笔记</p>
+      </a>
+
+      <a href="/2019/01/18/GitHub-Hexo搭建博客笔记/">
         
         
           
@@ -275,36 +299,39 @@
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-01-18&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/%E5%8D%9A%E5%AE%A2">博客</a>&nbsp;
+            <a href="/categories/博客/">博客</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Hexo">Hexo</a>&nbsp;
+            <a href="/tags/Hexo/">Hexo</a>&nbsp;
           
-            <a href="/tags/%E5%8D%9A%E5%AE%A2">博客</a>&nbsp;
+            <a href="/tags/博客/">博客</a>&nbsp;
           
-            <a href="/tags/GitHub">GitHub</a>&nbsp;
+            <a href="/tags/GitHub/">GitHub</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2019/01/17/hello-world/">
         <p class="h4 index-header">Hello World</p>
+      </a>
+
+      <a href="/2019/01/17/hello-world/">
         
         
           
@@ -313,17 +340,11 @@
           <div class="index-text mb-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
 Quick StartCreate a new post$ hexo new &quot;My New Post&quot;
 More info: Writing
-Run server$ hexo server
-More info: Server
-Generate static files$ hexo generate
-More info: Generating
-Deploy to remote sites$ hexo deploy
-More info: Deployment
-</div>
+Run server$ hexo server</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-01-17&nbsp;&nbsp;
         
@@ -333,12 +354,15 @@ More info: Deployment
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2019/01/17/mxy测试/">
         <p class="h4 index-header">mxy测试</p>
+      </a>
+
+      <a href="/2019/01/17/mxy测试/">
         
         
           
@@ -349,7 +373,7 @@ More info: Deployment
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-01-17&nbsp;&nbsp;
         
@@ -368,7 +392,7 @@ More info: Deployment
   </nav>
   
   <script>
-    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
       ele.href += '#board';
     }
   </script>
@@ -413,58 +437,68 @@ More info: Deployment
 </div>
   
 
+  
+
+  
+
   <footer class="mt-5">
   <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    <br>
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
 
     
-  
-    <!-- 不蒜子统计PV -->
-    
-    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
-          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
-  
-  
-    <!-- 不蒜子统计UV -->
-    
-    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
-            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
-  
-  <br>
-
-
 
     
-
-
-    <!-- cnzz Analytics icon -->
-    
-
   </div>
 </footer>
 
 <!-- SCRIPTS -->
-<script src="/lib/jquery/jquery.min.js" ></script>
-<script src="/lib/popper/popper.min.js" ></script>
-<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
-<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
-<script src="/js/main.js" ></script>
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
 
 
-  <script src="/js/lazyload.js" ></script>
-
-
-
-
-
-  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+  <script  src="/js/lazyload.js" ></script>
 
 
 
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
 
 
 <!-- Plugins -->
@@ -472,7 +506,7 @@ More info: Deployment
 
   
     <!-- Baidu Analytics -->
-    <script>
+    <script defer>
       var _hmt = _hmt || [];
       (function () {
         var hm = document.createElement("script");
@@ -489,12 +523,13 @@ More info: Deployment
 
   
 
-  <!-- cnzz Analytics -->
+  
+
   
 
 
 
-  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
       $('pre').addClass('prettyprint  linenums');
@@ -504,7 +539,7 @@ More info: Deployment
 
 
 
-  <script src="/lib/typed/typed.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
     var typed = new Typed('#subtitle', {
       strings: [
@@ -524,11 +559,11 @@ More info: Deployment
 
 
 
-  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
   <script>
     anchors.options = {
       placement: "right",
-      visible: "false",
+      visible: "hover",
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
@@ -541,7 +576,7 @@ More info: Deployment
 
 
 
-  <script src="/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
   <script>
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
@@ -553,7 +588,7 @@ More info: Deployment
 
 
 
-  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
   <script>
     $("#post img:not(.no-zoom img, img[no-zoom])").each(
       function () {
@@ -618,6 +653,7 @@ More info: Deployment
       ;
     </script>
   
+
 
 
 

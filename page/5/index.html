@@ -12,15 +12,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+  <meta name="theme-color" content="#2f4154">
   <meta name="description" content>
   <meta name="author" content="mxy">
   <meta name="keywords" content>
   <title>mxy</title>
 
-  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
-<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
 
@@ -29,7 +30,10 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css">
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
+
+
+<!-- 自定义样式保持在最底部 -->
 
 
 </head>
@@ -92,6 +96,14 @@
             <a class="nav-link" href="/about/">关于</a>
           </li>
         
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">友链</a>
+          </li>
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
@@ -103,10 +115,9 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background"
-         style="background: url('/img/xqmy.png')no-repeat center center;
-           background-size: cover;
-           background-attachment: fixed;">
+    <div class="view intro-2" id="background" false
+         style="background: url('/img/xqmy.png') no-repeat center center;
+           background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
           <div class="container text-center white-text fadeInUp">
@@ -130,7 +141,8 @@
   <main>
     
       <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5 z-depth-3" id="board"
+          >
           
           <div class="container">
             <div class="row">
@@ -138,12 +150,15 @@
                 
 
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/06/Leetcode-167-两数之和II-输入有序数组【C-】/">
         <p class="h4 index-header">Leetcode 167.两数之和II - 输入有序数组【C++】</p>
+      </a>
+
+      <a href="/2020/03/06/Leetcode-167-两数之和II-输入有序数组【C-】/">
         
         
           
@@ -162,41 +177,41 @@
 示例:
 输入: numbers = [2, 7, 11, 15], target = 9
 输出: [1,2]
-解释: 2 与 7 之和等于目标数 9 。因此 index1 = 1, index2 = 2 。解题思路二层循环遍历数组找满足条件的两个数，完全遍历整个数组能得到结果，但是会超出时间限制，因为这是一个有序数组，所以当两个数的和大于目标值的的时候，就可以跳出循环不再继续遍历。
-代码class Solution {
-public:
-    vector&lt;int&gt; twoSum(vector&lt;int&g</div>
+解释: 2 与 7</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/06/Leetcode-633-平方数之和【C-】/">
         <p class="h4 index-header">Leetcode 633.平方数之和【C++】</p>
+      </a>
+
+      <a href="/2020/03/06/Leetcode-633-平方数之和【C-】/">
         
         
           
@@ -211,45 +226,41 @@ public:
 输出: True
 解释: 1 * 1 + 2 * 2 = 5示例2:
 输入: 3
-输出: False解题思路双指针。设置返回值 ret 默认为 false，分别取最小的数（0）和最大的数，最大的数可以直接使用 sqrt() 函数求目标数的平方根并向下取整，小数的平方与大数的平方求和，若大于目标值，大数减1，继续循环；若小于目标值，小数加1，继续循环；直到与目标值相等（置 ret 为 true）或者小数不再小于大数，跳出循环。返回结果。
-代码class Solution {
-public:
-    bool judgeSquareSum(int c) {
-        bool ret = false;
-        long small = 0;
-        long big = int(sqrt(c));
-        while (s</div>
+输出: False解题思路双指针。设置返回值 ret 默认为 false，分别取最小的数（0）和最大的数，最大的数可以直接使用 sqrt() 函数求目标数的平方根并向下取整，小数的平方与大数的平方求和，若大于目标值，大数减1，继续循环；若小于目标值，小数加1，继续循环；直到与</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/06/Leetcode-345-反转字符串中的元音字母【C-】/">
         <p class="h4 index-header">Leetcode 345.反转字符串中的元音字母【C++】</p>
+      </a>
+
+      <a href="/2020/03/06/Leetcode-345-反转字符串中的元音字母【C-】/">
         
         
           
@@ -266,43 +277,41 @@ public:
 输出: &quot;leotcede&quot;说明:
 元音字母不包含字母”y”。
 解题思路26个英文字母中，21个是辅音字母，5个是元音字母。5个元音字母分别是：a、e、i、o、u。
-双指针。分别指向字符串的首尾元素，前指针从前往后查找元音字母，后指针从后往前查找元音字母。
-两层循环，第一层即从前往后找元音字母，找到一个元音字母就进入二层循环，从后往前查找元音字母，找到后互换前后两个元音字母，j-- 并跳出二层循环，继续遍历一层循环，直到 i 不再小于 j 即找完了字符串的所有元音字母。
-代码class Solution {
-public:
-    string reverseVowels(string s) {
-        in</div>
+双指针。分别指向字符串的首尾元素，前指针从前往后查找元音字</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/06/Leetcode-225-用队列实现栈【C-】/">
         <p class="h4 index-header">Leetcode 225.用队列实现栈【C++】</p>
+      </a>
+
+      <a href="/2020/03/06/Leetcode-225-用队列实现栈【C-】/">
         
         
           
@@ -322,47 +331,41 @@ empty() – 返回栈是否为空
 
 你只能使用队列的基本操作 – 也就是 push to back，peek/pop from front，size 和 is empty 这些操作是合法的。
 你所使用的语言也许不支持队列。 你可以使用 list 或者 deque（双端队列）来模拟一个队列 , 只要是标准的队列操作即可。
-你可以假设所有操作都是有效的（例如, 对一个空的栈不会调用 pop 或者 top 操作）。
-
-解题思路使用C++标准模板库queue模板类实现。
-
-q.push(x)：将x插入到队列末端。
-q.pop()：弹出队列的第一个元素（不会返回被弹出元素的值）。
-q.front()：返回队首元素，即最早被压入队列的元素。
-q.empty()：判断队列是否为空，当队列空时，返回true。
-
-插入元素x定义了</div>
+</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/06/Leetcode-206-反转链表【C-】/">
         <p class="h4 index-header">Leetcode 206.反转链表【C++】</p>
+      </a>
+
+      <a href="/2020/03/06/Leetcode-206-反转链表【C-】/">
         
         
           
@@ -376,49 +379,41 @@ q.empty()：判断队列是否为空，当队列空时，返回true。
 输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL
 输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL进阶:你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
 解题思路这个题我的做法很清奇，但是我觉得应该很容易想到这种做法，通过栈，依次读取链表元素压入栈中，然后取出来的时候就是逆序取出的，同样依次从栈中去除所有元素插入到链表中即可得到逆序后的链表。
-用到了一个临时存储用的栈，应该有更好的直接修改链表的解法，可以尝试一下~
-代码/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-
-#include&lt;stack&gt;
-</div>
+用到了一个临时存储用的栈，应该有更好的直接</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/06/Leetcode-面试题-10-01-合并排序的数组【C-】/">
         <p class="h4 index-header">Leetcode 面试题 10.01. 合并排序的数组【C++】</p>
+      </a>
+
+      <a href="/2020/03/06/Leetcode-面试题-10-01-合并排序的数组【C-】/">
         
         
           
@@ -435,39 +430,41 @@ A = [1,2,3,0,0,0], m = 3
 B = [2,5,6],       n = 3
 
 输出: [1,2,2,3,5,6]解题思路挺蠢的解法，思路是遍历数组B，将数组B中的元素逐个插入到数组A中合适的位置。
-将遍历A,B数组用的下表i,j定义在函数作用域内，是因为A,B均为排序后的数组，所以已经查找过的部分就没必要再查找一次了。
-第一层循环从数组B中逐个取出元素，在循环体内插入到数组A中，考虑两种情况，第一种情况A，的已排序部分有比B[i]大的数，所以需要进入第二层循环找到第一个比B[i]大的数的位置，将这个数及其后面的已排序的数整体后移一位（第三层循环），然后将B[i]插入到这个位置；第二种情况，B[i]比A中已排序部分的所有数都大，这时候 j == m + i 并且</div>
+将遍历A,B数组用的下表i,j定义在函数作用域内，是因为A,B均为排序</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/06/Leetcode-面试题57-II-和为s的连续正数序列【C-】/">
         <p class="h4 index-header">Leetcode 面试题57 - II.和为s的连续正数序列【C++】</p>
+      </a>
+
+      <a href="/2020/03/06/Leetcode-面试题57-II-和为s的连续正数序列【C-】/">
         
         
           
@@ -486,39 +483,41 @@ B = [2,5,6],       n = 3
 
 1 &lt;= target &lt;= 10^5
 
-解题思路首先很容易想到一点，最大可能取到的数是 target/2 + 1 ，例如对 target == 5 而言，最大只可能取到 5/2 +1 = 3 ，若取到4，由于题目要求是连续正整数，那么就必须取到3或者5，此时 3 + 4 = 7 已经大于目标值5。
-这个题按照人的思维还是很容易想到的，就是从第一个正整数1开始往后依次相加，如果相加之后的和sum小于目标值，那就继续加后一个正整数，如果sum大于目标值，就减去序列最小的数，</div>
+解题思路首先很容易想到一点，最大可</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/05/Leetcode-994-腐烂的橘子-C/">
         <p class="h4 index-header">Leetcode 994.腐烂的橘子【C++】</p>
+      </a>
+
+      <a href="/2020/03/05/Leetcode-994-腐烂的橘子-C/">
         
         
           
@@ -536,47 +535,41 @@ B = [2,5,6],       n = 3
 输出：4示例 2：
 输入：[[2,1,1],[0,1,1],[1,0,1]]
 输出：-1
-解释：左下角的橘子（第 2 行， 第 0 列）永远不会腐烂，因为腐烂只会发生在 4 个正向上。示例 3：
-输入：[[0,2]]
-输出：0
-解释：因为 0 分钟时已经没有新鲜橘子了，所以答案就是 0 。提示：
-
-1 &lt;= grid.length &lt;= 10
-1 &lt;= grid[0].length &lt;= 10
-grid[i][j] 仅为 0、1 或 2
-
-解题思路（1）笨办法，先记录一下吧😅（内存消耗 :15.2 MB, 在所</div>
+解释：左下角的橘子（第 2 行， 第 0 列）永远不</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-05&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/05/Leetcode-1103-分糖果-II-C/">
         <p class="h4 index-header">Leetcode 1103.分糖果II【C++】</p>
+      </a>
+
+      <a href="/2020/03/05/Leetcode-1103-分糖果-II-C/">
         
         
           
@@ -589,44 +582,41 @@ grid[i][j] 仅为 0、1 或 2
 我们买了一些糖果 candies，打算把它们分给排好队的 n = num_people 个小朋友。
 给第一个小朋友 1 颗糖果，第二个小朋友 2 颗，依此类推，直到给最后一个小朋友 n 颗糖果。
 然后，我们再回到队伍的起点，给第一个小朋友 n + 1 颗糖果，第二个小朋友 n + 2 颗，依此类推，直到给最后一个小朋友 2 * n 颗糖果。
-重复上述过程（每次都比上一次多给出一颗糖果，当到达队伍终点后再次从队伍起点开始），直到我们分完所有的糖果。注意，就算我们手中的剩下糖果数不够（不比前一次发出的糖果多），这些糖果也会全部发给当前的小朋友。
-返回一个长度为 num_people、元素之和为 candies 的数组，以表示糖果的最终分发情况（即 ans[i] 表示第 i 个小朋友分到的糖果数）。
-示例 1：
-输入：candies = 7, num_people = 4
-输出：[1,2,3,1]
-解释：
-第一次，ans[0] += 1</div>
+重复上述过程（每次都比上一次多给出一颗糖果，当到达队伍终点后再次从队伍起点开始），直到我们分完所有</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-05&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/01/17/博客搭建一周年ᓚᘏᗢ/">
         <p class="h4 index-header">博客搭建一周年ᓚᘏᗢ</p>
+      </a>
+
+      <a href="/2020/01/17/博客搭建一周年ᓚᘏᗢ/">
         
         
           
@@ -640,7 +630,7 @@ grid[i][j] 仅为 0、1 或 2
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-17&nbsp;&nbsp;
         
@@ -659,7 +649,7 @@ grid[i][j] 仅为 0、1 或 2
   </nav>
   
   <script>
-    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
       ele.href += '#board';
     }
   </script>
@@ -704,58 +694,68 @@ grid[i][j] 仅为 0、1 或 2
 </div>
   
 
+  
+
+  
+
   <footer class="mt-5">
   <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    <br>
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
 
     
-  
-    <!-- 不蒜子统计PV -->
-    
-    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
-          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
-  
-  
-    <!-- 不蒜子统计UV -->
-    
-    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
-            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
-  
-  <br>
-
-
 
     
-
-
-    <!-- cnzz Analytics icon -->
-    
-
   </div>
 </footer>
 
 <!-- SCRIPTS -->
-<script src="/lib/jquery/jquery.min.js" ></script>
-<script src="/lib/popper/popper.min.js" ></script>
-<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
-<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
-<script src="/js/main.js" ></script>
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
 
 
-  <script src="/js/lazyload.js" ></script>
-
-
-
-
-
-  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+  <script  src="/js/lazyload.js" ></script>
 
 
 
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
 
 
 <!-- Plugins -->
@@ -763,7 +763,7 @@ grid[i][j] 仅为 0、1 或 2
 
   
     <!-- Baidu Analytics -->
-    <script>
+    <script defer>
       var _hmt = _hmt || [];
       (function () {
         var hm = document.createElement("script");
@@ -780,12 +780,13 @@ grid[i][j] 仅为 0、1 或 2
 
   
 
-  <!-- cnzz Analytics -->
+  
+
   
 
 
 
-  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
       $('pre').addClass('prettyprint  linenums');
@@ -795,7 +796,7 @@ grid[i][j] 仅为 0、1 或 2
 
 
 
-  <script src="/lib/typed/typed.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
     var typed = new Typed('#subtitle', {
       strings: [
@@ -815,11 +816,11 @@ grid[i][j] 仅为 0、1 或 2
 
 
 
-  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
   <script>
     anchors.options = {
       placement: "right",
-      visible: "false",
+      visible: "hover",
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
@@ -832,7 +833,7 @@ grid[i][j] 仅为 0、1 或 2
 
 
 
-  <script src="/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
   <script>
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
@@ -844,7 +845,7 @@ grid[i][j] 仅为 0、1 或 2
 
 
 
-  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
   <script>
     $("#post img:not(.no-zoom img, img[no-zoom])").each(
       function () {
@@ -909,6 +910,7 @@ grid[i][j] 仅为 0、1 或 2
       ;
     </script>
   
+
 
 
 

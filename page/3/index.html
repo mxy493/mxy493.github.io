@@ -12,15 +12,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+  <meta name="theme-color" content="#2f4154">
   <meta name="description" content>
   <meta name="author" content="mxy">
   <meta name="keywords" content>
   <title>mxy</title>
 
-  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
-<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
 
@@ -29,7 +30,10 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css">
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
+
+
+<!-- 自定义样式保持在最底部 -->
 
 
 </head>
@@ -92,6 +96,14 @@
             <a class="nav-link" href="/about/">关于</a>
           </li>
         
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">友链</a>
+          </li>
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
@@ -103,10 +115,9 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background"
-         style="background: url('/img/xqmy.png')no-repeat center center;
-           background-size: cover;
-           background-attachment: fixed;">
+    <div class="view intro-2" id="background" false
+         style="background: url('/img/xqmy.png') no-repeat center center;
+           background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
           <div class="container text-center white-text fadeInUp">
@@ -130,7 +141,8 @@
   <main>
     
       <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5 z-depth-3" id="board"
+          >
           
           <div class="container">
             <div class="row">
@@ -138,12 +150,15 @@
                 
 
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/21/Leetcode-面试题40-最小的k个数【C-】/">
         <p class="h4 index-header">Leetcode 面试题40.最小的k个数【C++】</p>
+      </a>
+
+      <a href="/2020/03/21/Leetcode-面试题40-最小的k个数【C-】/">
         
         
           
@@ -162,39 +177,41 @@
 0 &lt;= k &lt;= arr.length &lt;= 10000
 0 &lt;= arr[i] &lt;= 10000
 
-解题思路这个题思路来的挺快的，不过肯定不是最好的办法了。看完题目我就想到了对数组进行排序，然后从小到大取 k 个数出来就好了。
-然后我就按着这个思路写了一个反向的冒泡排序，把最小的数从后往前冒泡，最后就会得到一个从小到大的数组，之所以反向冒泡，是因为题目要求要找的是最小的 k 个数，所以我就想到把最小的数先冒泡求出来，就可以将其加入到数组 min 中保存，然后由于只需要返回最小的k个数，所以只要得到了最小的k个数</div>
+解题思路这个题思</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-21&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/19/Leetcode-409-最长回文串【C-】/">
         <p class="h4 index-header">Leetcode 409.最长回文串【C++】</p>
+      </a>
+
+      <a href="/2020/03/19/Leetcode-409-最长回文串【C-】/">
         
         
           
@@ -214,40 +231,41 @@
 7
 
 解释:
-我们可以构造的最长的回文串是&quot;dccaccd&quot;, 它的长度是 7。解题思路解题思路还是很容易想到的，回文串的特征很明显，就是左右对称，也就是说只有正中可能存在单个的字符，其余的字符都一定是偶数个。
-所以我很快就想到了统计字符串中不同字符的个数，使用了一个 vector&lt;pair&lt;char, int&gt;&gt; 类型的数组 count 用于保存每个字符及其对应的个数。
-然后遍历 count 将每个字符的最多可能取到的偶数个数加到 length ，然后为了尽可能的让回文串的长度更长，所以如果存在计数个数的字符，那就应该再+1，即表示将一个</div>
+我们可以构造的最长的回文串是&quot;dccaccd&quot;, 它的长度是 7。解题思路解题思路还是很容易想到的，回文串的特征很明显，就是左右对称，也就是说只有正中可能存</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-19&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/18/Leetcode-836-矩形重叠【C-】/">
         <p class="h4 index-header">Leetcode 836.矩形重叠【C++】</p>
+      </a>
+
+      <a href="/2020/03/18/Leetcode-836-矩形重叠【C-】/">
         
         
           
@@ -265,44 +283,41 @@
 输入：rec1 = [0,0,1,1], rec2 = [1,0,2,1]
 输出：false提示：
 
-两个矩形 rec1 和 rec2 都以含有四个整数的列表的形式给出。
-矩形中的所有坐标都处于 -10^9 和 10^9 之间。
-x 轴默认指向右，y 轴默认指向上。
-你可以仅考虑矩形是正放的情况。
-
-解题思路这个题我觉得主要是考思维吧，因为这个题完全没用到循环什么的，就一个两个判断就可以了，以至于我一开始都不太相信就是这么做的……
-根据题目的意思，两个矩形的坐标一定是左下角坐标在前，右上角坐标在后</div>
+</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-18&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/17/Leetcode-1160-拼写单词【C-】/">
         <p class="h4 index-header">Leetcode 1160.拼写单词【C++】</p>
+      </a>
+
+      <a href="/2020/03/17/Leetcode-1160-拼写单词【C-】/">
         
         
           
@@ -316,42 +331,41 @@ x 轴默认指向右，y 轴默认指向上。
 注意：每次拼写时，chars 中的每个字母都只能用一次。
 返回词汇表 words 中你掌握的所有单词的 长度之和。
 示例 1：
-输入：words = [&quot;cat&quot;,&quot;bt&quot;,&quot;hat&quot;,&quot;tree&quot;], chars = &quot;atach&quot;
-输出：6
-解释： 
-可以形成字符串 &quot;cat&quot; 和 &quot;hat&quot;，所以答案是 3 + 3 = 6。示例 2：
-输入：words = [&quot;hello&quot;,&quot;world&quot;,&quot;leetcode&qu</div>
+输入：words = [&quot;cat&quot;,&quot;bt&quot;,</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-17&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/16/Leetcode-面试题-01-06-字符串压缩【C-】/">
         <p class="h4 index-header">Leetcode 面试题 01.06.字符串压缩【C++】</p>
+      </a>
+
+      <a href="/2020/03/16/Leetcode-面试题-01-06-字符串压缩【C-】/">
         
         
           
@@ -366,41 +380,41 @@ x 轴默认指向右，y 轴默认指向上。
  输出：&quot;a2b1c5a3&quot;示例2:
  输入：&quot;abbccd&quot;
  输出：&quot;abbccd&quot;
- 解释：&quot;abbccd&quot;压缩后为&quot;a1b2c2d1&quot;，比原字符串长度更长。提示：
-字符串长度在[0, 50000]范围内。
-解题思路由于传入的字符串长度可能为0，所以这种特殊情况应该直接返回原字符串（无法对其进行压缩）。
-由于题目要求是压缩字符串，但是如果“压缩”后的字符串长度没有变短的话，就应该返回原字符串，所以不应该在原字符串上进行修改，所以我定义了一个新的字符串 cpS</div>
+ 解释：&quot</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-16&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/15/Leetcode-695-岛屿的最大面积【C-】/">
         <p class="h4 index-header">Leetcode 695.岛屿的最大面积【C++】</p>
+      </a>
+
+      <a href="/2020/03/15/Leetcode-695-岛屿的最大面积【C-】/">
         
         
           
@@ -415,44 +429,41 @@ x 轴默认指向右，y 轴默认指向上。
 [[0,0,1,0,0,0,0,1,0,0,0,0,0],
  [0,0,0,0,0,0,0,1,1,1,0,0,0],
  [0,1,1,0,1,0,0,0,0,0,0,0,0],
- [0,1,0,0,1,1,0,0,1,0,1,0,0],
- [0,1,0,0,1,1,0,0,1,1,1,0,0],
- [0,0,0,0,0,0,0,0,0,0,1,0,0],
- [0,0,0,0,0,0,0,1,1,1,0,0,0],
- [0,0,0,0,0,0,0,1,1,0,0,0,0]]对于上面这个给定矩阵应返回 6。注意答案不应该是11，因为岛屿只能包含水平或垂直的四个方向的 ‘1’。
-示例 2:
-[[0,0,0,0,0</div>
+ [0,1,0,0,1,1,0,0,</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-15&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/14/Leetcode-300-最长上升子序列【C-】/">
         <p class="h4 index-header">Leetcode 300.最长上升子序列【C++】</p>
+      </a>
+
+      <a href="/2020/03/14/Leetcode-300-最长上升子序列【C-】/">
         
         
           
@@ -470,40 +481,41 @@ x 轴默认指向右，y 轴默认指向上。
 可能会有多种最长上升子序列的组合，你只需要输出对应的长度即可。
 你算法的时间复杂度应该为 O(n2) 。进阶： 你能将算法的时间复杂度降低到 O(n log n) 吗?
 
-解题思路没思路，然后看了官方题解： https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/zui-chang-shang-sheng-zi-xu-lie-by-leetcode-soluti/
-这里就不复述具体的解题思路了，不太好描述清楚，官方题解中有动画演示，讲的很清晰。
-附上官方题解中的状态转移方程：dp[i] = max(dp[j]) + 1，其中 0 ≤ j &lt; i </div>
+解题思路没思路，然后看了官方题解： https://leetcode-cn.</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-14&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/13/Leetcode-169-多数元素【C-】/">
         <p class="h4 index-header">Leetcode 169.多数元素【C++】</p>
+      </a>
+
+      <a href="/2020/03/13/Leetcode-169-多数元素【C-】/">
         
         
           
@@ -519,39 +531,41 @@ x 轴默认指向右，y 轴默认指向上。
 输出: 3示例 2:
 输入: [2,2,1,1,1,2,2]
 输出: 2解题思路思路很简单，就是遍历数组记录每一个元素的个数，由于最终是要返回元素，所以需要将元素和其个数成对保存，我使用了 vector&lt;pair&lt;int, int&gt;&gt; 的数组来存储。
-遍历数组，先到 aNums[] 中查找 num 是否已存在，如果已存在则将其个数+1；不存在，则将其添加到 aNums[] 并将其个数初始化为1。
-题目已经说明“给定的数组总是存在多数元素”，所以可以确定出现次数大于 ⌊ n/2 ⌋ 的多数元素有且仅有一个。所以每遍历一个元素，我们就判断其个数是否大于 nums.size() / 2 ，一旦有一个元素的个数大于 nums.size() / 2 则说明这个元</div>
+遍历数组</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-13&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/12/Leetcode-1071-字符串的最大公因子【C-】/">
         <p class="h4 index-header">Leetcode 1071.字符串的最大公因子【C++】</p>
+      </a>
+
+      <a href="/2020/03/12/Leetcode-1071-字符串的最大公因子【C-】/">
         
         
           
@@ -565,45 +579,41 @@ x 轴默认指向右，y 轴默认指向上。
 示例 1：
 输入：str1 = &quot;ABCABC&quot;, str2 = &quot;ABC&quot;
 输出：&quot;ABC&quot;示例 2：
-输入：str1 = &quot;ABABAB&quot;, str2 = &quot;ABAB&quot;
-输出：&quot;AB&quot;示例 3：
-输入：str1 = &quot;LEET&quot;, str2 = &quot;CODE&quot;
-输出：&quot;&quot;提示：
-
-1 &lt;= str1.length &lt;= 1000
-1 &lt;= str2.length &lt;= 1000
-str1[i] 和 str2[i] 为大写英文字</div>
+输入：str1 = &quot;ABABAB&quot;, str2 </div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-12&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/11/Leetcode-1013-将数组分成和相等的三个部分【C-】/">
         <p class="h4 index-header">Leetcode 1013.将数组分成和相等的三个部分【C++】</p>
+      </a>
+
+      <a href="/2020/03/11/Leetcode-1013-将数组分成和相等的三个部分【C-】/">
         
         
           
@@ -615,35 +625,26 @@ str1[i] 和 str2[i] 为大写英文字</div>
 题目给你一个整数数组 A，只有可以将其划分为三个和相等的非空部分时才返回 true，否则返回 false。
 形式上，如果可以找出索引 i+1 &lt; j 且满足 (A[0] + A[1] + ... + A[i] == A[i+1] + A[i+2] + ... + A[j-1] == A[j] + A[j-1] + ... + A[A.length - 1]) 就可以将数组三等分。
 示例 1：
-输出：[0,2,1,-6,6,-7,9,1,2,0,1]
-输出：true
-解释：0 + 2 + 1 = -6 + 6 - 7 + 9 + 1 = 2 + 0 + 1示例 2：
-输入：[0,2,1,-6,6,7,9,-1,2,0,1]
-输出：false示例 3：
-输入：[3,3,6,5,-2,2,5,1,-9,4]
-输出：true
-解释：3 + 3 = 6 = 5 - 2 + 2 + 5 + 1 - 9 + 4提示：
-
-3</div>
+输出：[0,2,1,-6</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-11&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
@@ -659,7 +660,7 @@ str1[i] 和 str2[i] 为大写英文字</div>
   </nav>
   
   <script>
-    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
       ele.href += '#board';
     }
   </script>
@@ -704,58 +705,68 @@ str1[i] 和 str2[i] 为大写英文字</div>
 </div>
   
 
+  
+
+  
+
   <footer class="mt-5">
   <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    <br>
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
 
     
-  
-    <!-- 不蒜子统计PV -->
-    
-    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
-          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
-  
-  
-    <!-- 不蒜子统计UV -->
-    
-    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
-            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
-  
-  <br>
-
-
 
     
-
-
-    <!-- cnzz Analytics icon -->
-    
-
   </div>
 </footer>
 
 <!-- SCRIPTS -->
-<script src="/lib/jquery/jquery.min.js" ></script>
-<script src="/lib/popper/popper.min.js" ></script>
-<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
-<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
-<script src="/js/main.js" ></script>
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
 
 
-  <script src="/js/lazyload.js" ></script>
-
-
-
-
-
-  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+  <script  src="/js/lazyload.js" ></script>
 
 
 
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
 
 
 <!-- Plugins -->
@@ -763,7 +774,7 @@ str1[i] 和 str2[i] 为大写英文字</div>
 
   
     <!-- Baidu Analytics -->
-    <script>
+    <script defer>
       var _hmt = _hmt || [];
       (function () {
         var hm = document.createElement("script");
@@ -780,12 +791,13 @@ str1[i] 和 str2[i] 为大写英文字</div>
 
   
 
-  <!-- cnzz Analytics -->
+  
+
   
 
 
 
-  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
       $('pre').addClass('prettyprint  linenums');
@@ -795,7 +807,7 @@ str1[i] 和 str2[i] 为大写英文字</div>
 
 
 
-  <script src="/lib/typed/typed.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
     var typed = new Typed('#subtitle', {
       strings: [
@@ -815,11 +827,11 @@ str1[i] 和 str2[i] 为大写英文字</div>
 
 
 
-  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
   <script>
     anchors.options = {
       placement: "right",
-      visible: "false",
+      visible: "hover",
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
@@ -832,7 +844,7 @@ str1[i] 和 str2[i] 为大写英文字</div>
 
 
 
-  <script src="/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
   <script>
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
@@ -844,7 +856,7 @@ str1[i] 和 str2[i] 为大写英文字</div>
 
 
 
-  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
   <script>
     $("#post img:not(.no-zoom img, img[no-zoom])").each(
       function () {
@@ -909,6 +921,7 @@ str1[i] 和 str2[i] 为大写英文字</div>
       ;
     </script>
   
+
 
 
 

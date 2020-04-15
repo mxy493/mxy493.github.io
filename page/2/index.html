@@ -12,15 +12,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+  <meta name="theme-color" content="#2f4154">
   <meta name="description" content>
   <meta name="author" content="mxy">
   <meta name="keywords" content>
   <title>mxy</title>
 
-  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
-<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
 
@@ -29,7 +30,10 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css">
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
+
+
+<!-- 自定义样式保持在最底部 -->
 
 
 </head>
@@ -92,6 +96,14 @@
             <a class="nav-link" href="/about/">关于</a>
           </li>
         
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">友链</a>
+          </li>
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
@@ -103,10 +115,9 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background"
-         style="background: url('/img/xqmy.png')no-repeat center center;
-           background-size: cover;
-           background-attachment: fixed;">
+    <div class="view intro-2" id="background" false
+         style="background: url('/img/xqmy.png') no-repeat center center;
+           background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
           <div class="container text-center white-text fadeInUp">
@@ -130,7 +141,8 @@
   <main>
     
       <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5 z-depth-3" id="board"
+          >
           
           <div class="container">
             <div class="row">
@@ -138,12 +150,15 @@
                 
 
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/30/Leetcode-面试题62-圆圈中最后剩下的数字【C-】/">
         <p class="h4 index-header">Leetcode 面试题62.圆圈中最后剩下的数字【C++】</p>
+      </a>
+
+      <a href="/2020/03/30/Leetcode-面试题62-圆圈中最后剩下的数字【C-】/">
         
         
           
@@ -160,42 +175,41 @@
 输入: n = 10, m = 17
 输出: 2限制：
 
-1 &lt;= n &lt;= 10^5
-1 &lt;= m &lt;= 10^6
-
-解题思路这题最容易想到的思路肯定是模拟真实的逐个删除的场景了，也就是暴力解，但是我并没有上来就这么做，我觉得这题肯定就不是让这么做的，暴力解存在挺大的问题，很傻，要遍历 n 次，逻辑也不是很好写。
-自己想却真就想不出来好办法，后来看了官方题解，确实比暴力解好很多吧，但是实在不是我能想出来的，甚至有一个步骤（ f(n, m) 和 f(n </div>
+1 &lt;= n &l</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-30&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/29/Leetcode-1162-地图分析【C-】/">
         <p class="h4 index-header">Leetcode 1162.地图分析【C++】</p>
+      </a>
+
+      <a href="/2020/03/29/Leetcode-1162-地图分析【C-】/">
         
         
           
@@ -204,51 +218,41 @@
           <div class="index-text mb-1">地址：https://leetcode-cn.com/problems/as-far-from-land-as-possible/
 题目你现在手里有一份大小为 N x N 的『地图』（网格） grid，上面的每个『区域』（单元格）都用 0 和 1 标记好了。其中 0 代表海洋，1 代表陆地，你知道距离陆地区域最远的海洋区域是是哪一个吗？请返回该海洋区域到离它最近的陆地区域的距离。
 我们这里说的距离是『曼哈顿距离』（ Manhattan Distance）：(x0, y0) 和 (x1, y1) 这两个区域之间的距离是 |x0 - x1| + |y0 - y1| 。
-如果我们的地图上只有陆地或者海洋，请返回 -1。
-示例 1：
-
-输入：[[1,0,1],[0,0,0],[1,0,1]]
-输出：2
-解释： 
-海洋区域 (1, 1) 和所有陆地区域之间的距离都达到最大，最大距离为 2。示例 2：
-
-输入：[[1,0,0],[0,0,0],[0,0,0]]
-输出：4
-解释： 
-海洋区域 (2, 2) 和所有陆地区域之间的距离都达到最大，最大距离为 4。提示：
-
-1 &lt;= grid.len</div>
+如果我们的地图上只有陆地或者</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-29&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/28/利用rand7-构造rand10-及其一些推广/">
         <p class="h4 index-header">利用rand7()构造rand10()及其一些推广</p>
+      </a>
+
+      <a href="/2020/03/28/利用rand7-构造rand10-及其一些推广/">
         
         
           
@@ -261,15 +265,11 @@
 
 rand7() 可以生成随机的 {1, 2, 3, 4, 5, 6, 7} ；
 
-rand7() - 1 可以生成随机的 {0, 1, 2, 3, 4, 5, 6} ；
-
-(rand7() - 1) * 7 可以生成随机的 {0, 7, 14, 21, 28, 35, 42} ；
-
-(rand7() - 1) * 7 + rand7() 可以生成随机的 {0, 7, 14, 21, 28, 35, 42} + {1, 2, 3, 4, 5, 6, 7} ，也就是 1 ~ 49 的随机数；</div>
+rand7</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-28&nbsp;&nbsp;
         
@@ -277,19 +277,22 @@ rand7() - 1 可以生成随机的 {0, 1, 2, 3, 4, 5, 6} ；
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/%E7%AE%97%E6%B3%95">算法</a>&nbsp;
+            <a href="/tags/算法/">算法</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/27/Leetcode-914-卡牌分组【C-】/">
         <p class="h4 index-header">Leetcode 914.卡牌分组【C++】</p>
+      </a>
+
+      <a href="/2020/03/27/Leetcode-914-卡牌分组【C-】/">
         
         
           
@@ -311,51 +314,41 @@ rand7() - 1 可以生成随机的 {0, 1, 2, 3, 4, 5, 6} ；
 解释：可行的分组是 [1,1]，[2,2]，[3,3]，[4,4]示例 2：
 输入：[1,1,1,2,2,2,3,3]
 输出：false
-解释：没有满足要求的分组。示例 3：
-输入：[1]
-输出：false
-解释：没有满足要求的分组。示例 4：
-输入：[1,1]
-输出：true
-解释：可行的分组是 [1,1]示例 5：
-输入：[1,1,2,2,2,2]
-输出：true
-解释：可行的分组是 [1,1]，[2,2]，[2,2]提示：
-
-1 &lt;= deck.length &lt;= 10000
-0 &lt;= deck[i] &lt; 10000
-</div>
+解释：没有满足要</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-27&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/26/Leetcode-999-车的可用捕获量【C-】/">
         <p class="h4 index-header">Leetcode 999.车的可用捕获量【C++】</p>
+      </a>
+
+      <a href="/2020/03/26/Leetcode-999-车的可用捕获量【C-】/">
         
         
           
@@ -366,41 +359,41 @@ rand7() - 1 可以生成随机的 {0, 1, 2, 3, 4, 5, 6} ；
 
 题目在一个 8 x 8 的棋盘上，有一个白色车（rook）。也可能有空方块，白色的象（bishop）和黑色的卒（pawn）。它们分别以字符 “R”，“.”，“B” 和 “p” 给出。大写字符表示白棋，小写字符表示黑棋。
 车按国际象棋中的规则移动：它选择四个基本方向中的一个（北，东，西和南），然后朝那个方向移动，直到它选择停止、到达棋盘的边缘或移动到同一方格来捕获该方格上颜色相反的卒。另外，车不能与其他友方（白色）象进入同一个方格。
-返回车能够在一次移动中捕获到的卒的数量。
-示例 1：
-
-输入：[[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],[&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;p&quot;,&quot;.&quot</div>
+返回车能够在一次移动中捕获到的</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-26&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/25/Leetcode-892-三维形体的表面积【C-】/">
         <p class="h4 index-header">Leetcode 892.三维形体的表面积【C++】</p>
+      </a>
+
+      <a href="/2020/03/25/Leetcode-892-三维形体的表面积【C-】/">
         
         
           
@@ -421,45 +414,41 @@ rand7() - 1 可以生成随机的 {0, 1, 2, 3, 4, 5, 6} ；
 输出：16示例 4：
 输入：[[1,1,1],[1,0,1],[1,1,1]]
 输出：32示例 5：
-输入：[[2,2,2],[2,1,2],[2,2,2]]
-输出：46提示：
-
-1 &lt;= N &lt;= 50
-0 &lt;= grid[i][j] &lt;= 50
-
-解题思路一开始这个题还真是一头雾水，虽然之前做过类似的题，比如前不久才做过的“腐烂橘子”那个题，就很类似。
-只要做过类似的题，应该还是很容易想到要遍历二维数组，然后对每一个元素要判断其周围的元素，如果有需要的话可能还需要动态规划、递归之类的方法来解题。</div>
+输入：[[2,2,2],[</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-25&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/24/Leetcode-面试题-17-16-按摩师【C-】/">
         <p class="h4 index-header">Leetcode 面试题 17.16.按摩师【C++】</p>
+      </a>
+
+      <a href="/2020/03/24/Leetcode-面试题-17-16-按摩师【C-】/">
         
         
           
@@ -476,43 +465,43 @@ rand7() - 1 可以生成随机的 {0, 1, 2, 3, 4, 5, 6} ；
 解释： 选择 1 号预约和 3 号预约，总时长 = 1 + 3 = 4。示例 2：
 输入： [2,7,9,3,1]
 输出： 12
-解释： 选择 1 号预约、 3 号预约和 5 号预约，总时长 = 2 + 9 + 1 = 12。示例 3：
-输入： [2,1,4,5,3,1,1,3]
-输出： 12
-解释： 选择 1 号预约、 3 号预约、 5 号预约和 8 号预约，总时长 = 2 + 4 + 3 + 3 = 12。解题思路👉🏻官方题解：https://leetcode-cn.com/problems/the-masseuse-lcci/solution/an-mo-shi-by-l</div>
+解释： 选择 1 号预约、 3 号预约和 5 号预约，总时</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-24&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
-            <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">动态规划</a>&nbsp;
+            <a href="/tags/动态规划/">动态规划</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/23/Leetcode-876-链表的中间结点【C-】/">
         <p class="h4 index-header">Leetcode 876.链表的中间结点【C++】</p>
+      </a>
+
+      <a href="/2020/03/23/Leetcode-876-链表的中间结点【C-】/">
         
         
           
@@ -528,43 +517,41 @@ rand7() - 1 可以生成随机的 {0, 1, 2, 3, 4, 5, 6} ；
 输出：此列表中的结点 3 (序列化形式：[3,4,5])
 返回的结点值为 3 。 (测评系统对该结点序列化表述是 [3,4,5])。
 注意，我们返回了一个 ListNode 类型的对象 ans，这样：
-ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及 ans.next.next.next = NULL.示例 2：
-输入：[1,2,3,4,5,6]
-输出：此列表中的结点 4 (序列化形式：[4,5,6])
-由于该列表有两个中间结点，值分别为 3 和 4，我们返回第二个结点。提示：
-给定链表的结点数介于 1 和 100 之间。
-解题思路思路很简单，定义两个指针并且都初始化为指向头结点，然后 cur 指针遍历整个链表，cur 每移动两个结点，mid</div>
+ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-23&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/22/Leetcode-945-使数组唯一的最小增量【C-】/">
         <p class="h4 index-header">Leetcode 945.使数组唯一的最小增量【C++】</p>
+      </a>
+
+      <a href="/2020/03/22/Leetcode-945-使数组唯一的最小增量【C-】/">
         
         
           
@@ -582,43 +569,41 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及 ans.next.next.next 
 输入：[3,2,1,2,1,7]
 输出：6
 解释：经过 6 次 move 操作，数组将变为 [3, 4, 1, 2, 5, 7]。
-可以看出 5 次或 5 次以下的 move 操作是不能让数组的每个值唯一的。提示：
-
-0 &lt;= A.length &lt;= 40000
-0 &lt;= A[i] &lt; 40000
-
-解题思路解题思路不算很复杂，一开始我上来就暴力解，遍历数组，然后对每一个数往前找是否有跟它相同的数，有的话就将其自身+1，操作步数+1，然后再来一遍，直到这个数的前面没有跟它相同的数。解题思路是对的，能得到正确结果，但是时间复杂度太高了，提交到 Leetcode 就</div>
+可以看出 5 次或 5 次以下的 move 操作是不能让数组</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-22&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/21/Leetcode-365-水壶问题【C-】/">
         <p class="h4 index-header">Leetcode 365.水壶问题【C++】</p>
+      </a>
+
+      <a href="/2020/03/21/Leetcode-365-水壶问题【C-】/">
         
         
           
@@ -638,32 +623,26 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及 ans.next.next.next 
 示例 1: (From the famous *”Die Hard”* example)
 输入: x = 3, y = 5, z = 4
 输出: True示例 2:
-输入: x = 2, y = 6, z = 5
-输出: False解题思路想到了深度优先搜索，但是没能实现……
-👇🏻 好好学数学 ಥ_ಥ
-官方题解：https://leetcode-cn.com/problems/water-and-jug-problem/solution/shui-hu-wen-ti-by-leetcode-solution/
-代码class Solution {
-public:
-    bool c</div>
+输入: x = 2, y =</div>
         </div>
       </a>
 
-      <div>
+      <div class="index-btm">
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-21&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Leetcode">Leetcode</a>&nbsp;
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Leetcode">Leetcode</a>&nbsp;
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
           
-            <a href="/tags/C++">C++</a>&nbsp;
+            <a href="/tags/C/">C++</a>&nbsp;
           
         
       </div>
@@ -679,7 +658,7 @@ public:
   </nav>
   
   <script>
-    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
       ele.href += '#board';
     }
   </script>
@@ -724,58 +703,68 @@ public:
 </div>
   
 
+  
+
+  
+
   <footer class="mt-5">
   <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    <br>
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
 
     
-  
-    <!-- 不蒜子统计PV -->
-    
-    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
-          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
-  
-  
-    <!-- 不蒜子统计UV -->
-    
-    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
-            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
-  
-  <br>
-
-
 
     
-
-
-    <!-- cnzz Analytics icon -->
-    
-
   </div>
 </footer>
 
 <!-- SCRIPTS -->
-<script src="/lib/jquery/jquery.min.js" ></script>
-<script src="/lib/popper/popper.min.js" ></script>
-<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
-<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
-<script src="/js/main.js" ></script>
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
 
 
-  <script src="/js/lazyload.js" ></script>
-
-
-
-
-
-  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+  <script  src="/js/lazyload.js" ></script>
 
 
 
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
 
 
 <!-- Plugins -->
@@ -783,7 +772,7 @@ public:
 
   
     <!-- Baidu Analytics -->
-    <script>
+    <script defer>
       var _hmt = _hmt || [];
       (function () {
         var hm = document.createElement("script");
@@ -800,12 +789,13 @@ public:
 
   
 
-  <!-- cnzz Analytics -->
+  
+
   
 
 
 
-  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
       $('pre').addClass('prettyprint  linenums');
@@ -815,7 +805,7 @@ public:
 
 
 
-  <script src="/lib/typed/typed.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
     var typed = new Typed('#subtitle', {
       strings: [
@@ -835,11 +825,11 @@ public:
 
 
 
-  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
   <script>
     anchors.options = {
       placement: "right",
-      visible: "false",
+      visible: "hover",
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
@@ -852,7 +842,7 @@ public:
 
 
 
-  <script src="/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
   <script>
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
@@ -864,7 +854,7 @@ public:
 
 
 
-  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
   <script>
     $("#post img:not(.no-zoom img, img[no-zoom])").each(
       function () {
@@ -929,6 +919,7 @@ public:
       ;
     </script>
   
+
 
 
 

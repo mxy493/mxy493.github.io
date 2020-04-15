@@ -12,15 +12,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+  <meta name="theme-color" content="#2f4154">
   <meta name="description" content>
   <meta name="author" content="mxy">
   <meta name="keywords" content>
-  <title>Leetcode 最长公共前缀 ~ mxy</title>
+  <title>Leetcode 最长公共前缀 - mxy</title>
 
-  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
-<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
 
@@ -29,7 +30,10 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css">
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
+
+
+<!-- 自定义样式保持在最底部 -->
 
 
 </head>
@@ -92,6 +96,14 @@
             <a class="nav-link" href="/about/">关于</a>
           </li>
         
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">友链</a>
+          </li>
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
@@ -103,10 +115,9 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background"
-         style="background: url('/img/xqmy.png')no-repeat center center;
-           background-size: cover;
-           background-attachment: fixed;">
+    <div class="view intro-2" id="background" false
+         style="background: url('/img/xqmy.png') no-repeat center center;
+           background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
           <div class="container text-center white-text fadeInUp">
@@ -115,38 +126,37 @@
             </span>
 
             
-              <br>
               
-                <p class="mt-3">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
                   星期三, 二月 6日 2019, 1:13 下午
                 </p>
               
 
-              <p>
+              <p class="mt-1">
                 
                   
-                  &nbsp;<i class="far fa-chart-bar"></i>
-                  <span class="post-count">
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
                     1.1k 字
-                  </span>&nbsp;
+                  </span>
                 
 
                 
                   
-                  &nbsp;<i class="far fa-clock"></i>
-                  <span class="post-count">
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
                       4 分钟
-                  </span>&nbsp;
+                  </span>
                 
 
                 
                   <!-- 不蒜子统计文章PV -->
                   
-                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
-                  <span id="busuanzi_container_page_pv">
+                  <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
+                    <i class="far fa-eye" aria-hidden="true"></i>
                     <span id="busuanzi_value_page_pv"></span> 次
-                  </span>&nbsp;
+                  </span>
                 
               </p>
             
@@ -166,10 +176,15 @@
   <div class="row">
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
-      <div class="py-5 z-depth-3" id="board">
-        <div class="post-content mx-auto" id="post">
-          <div class="markdown-body">
-            <blockquote>
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p
+                class="note note-warning">本文最后更新于：星期六, 三月 7日 2020, 10:45 晚上</p>
+            
+            <div class="markdown-body">
+              <blockquote>
 <p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/40/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/40/</a></p>
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>编写一个函数来查找字符串数组中的最长公共前缀。</p>
@@ -246,66 +261,71 @@ dog
 racecar
 car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况以及<code>strs数组大小为1</code>的较特殊情况。</p>
 
+            </div>
             <hr>
-          </div>
-          <br>
-          <div>
-            <p>
-            
-              <span>
+            <div>
+              <p>
+                
+                  <span>
                 <i class="iconfont icon-inbox"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Leetcode/">Leetcode</a>
+                      &nbsp;
+                    
+                  </span>&nbsp;&nbsp;
                 
-                  <a class="hover-with-bg" href="/categories/Leetcode">Leetcode</a>
-                  &nbsp;
                 
-              </span>&nbsp;&nbsp;
-            
-            
-              <span>
+                  <span>
                 <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
+                    
+                      <a class="hover-with-bg" href="/tags/字符串/">字符串</a>
+                    
+                  </span>
                 
-                  <a class="hover-with-bg" href="/tags/Leetcode">Leetcode</a>
-                
-                  <a class="hover-with-bg" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a>
-                
-              </span>
-            
-            </p>
-            
-              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
-            
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="d-none d-lg-block col-lg-2 toc-container">
-      
-  <div id="toc">
-    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
-    <div id="tocbot"></div>
-  </div>
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/02/22/Leetcode-删除链表中的节点/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span class="hidden-mobile">Leetcode 删除链表中的节点</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2019/02/06/Leetcode-报数/">
+                        <span class="hidden-mobile">Leetcode 报数</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
 
-    </div>
-  </div>
-</div>
-
-<!-- custom -->
-
-
-<!-- Comments -->
-<div class="col-lg-7 mx-auto nopadding-md">
-  <div class="container comments mx-auto" id="comments">
-    
-      <br><br>
-      
-      
-  <div id="vcomments" style="width: 90%; margin: 0 auto;"></div>
+              
+                <!-- Comments -->
+                <div class="comments" id="comments">
+                  
+                  
+  <div id="vcomments"></div>
   <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
   <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
-  <script>
-    var notify = 'false' === true;
-    var verify = 'false' === true;
+  <script type="text/javascript">
+    var notify = 'false' === 'true';
+    var verify = 'false' === 'true';
     var oldLoad = window.onload;
     window.onload = function () {
       new Valine({
@@ -315,7 +335,7 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
         app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
         app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
         placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
-        avatar: "retro",
+        avatar: "/retro",
         meta: ['nick', 'mail', 'link'],
         pageSize: "10",
       });
@@ -326,9 +346,27 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
       powered by Valine.</a></noscript>
 
 
+                </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
     
   </div>
 </div>
+
+<!-- Custom -->
+
 
     
   </main>
@@ -363,63 +401,121 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
 </div>
   
 
+  
+
+  
+
   <footer class="mt-5">
   <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    <br>
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
 
     
-  
-    <!-- 不蒜子统计PV -->
-    
-    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
-          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
-  
-  
-    <!-- 不蒜子统计UV -->
-    
-    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
-            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
-  
-  <br>
-
-
 
     
-
-
-    <!-- cnzz Analytics icon -->
-    
-
   </div>
 </footer>
 
 <!-- SCRIPTS -->
-<script src="/lib/jquery/jquery.min.js" ></script>
-<script src="/lib/popper/popper.min.js" ></script>
-<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
-<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
-<script src="/js/main.js" ></script>
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
 
 
-  <script src="/js/lazyload.js" ></script>
+  <script  src="/js/lazyload.js" ></script>
 
 
 
   
-    <script src="/lib/tocbot/tocbot.min.js" ></script>
-  
-  <script src="/js/post.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
 
 
 
-  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
 
 
 
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
 
 
 <!-- Plugins -->
@@ -427,7 +523,7 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
 
   
     <!-- Baidu Analytics -->
-    <script>
+    <script defer>
       var _hmt = _hmt || [];
       (function () {
         var hm = document.createElement("script");
@@ -444,12 +540,13 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
 
   
 
-  <!-- cnzz Analytics -->
+  
+
   
 
 
 
-  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
       $('pre').addClass('prettyprint  linenums');
@@ -459,7 +556,7 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
 
 
 
-  <script src="/lib/typed/typed.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
   <script>
     var typed = new Typed('#subtitle', {
       strings: [
@@ -479,11 +576,11 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
 
 
 
-  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
   <script>
     anchors.options = {
       placement: "right",
-      visible: "false",
+      visible: "hover",
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
@@ -496,7 +593,7 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
 
 
 
-  <script src="/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
   <script>
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
@@ -508,7 +605,7 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
 
 
 
-  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
   <script>
     $("#post img:not(.no-zoom img, img[no-zoom])").each(
       function () {
@@ -573,6 +670,7 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
       ;
     </script>
   
+
 
 
 
