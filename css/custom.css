@@ -1,0 +1,61 @@
+.tocbot-list a {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.tocbot-active-link {
+    font-weight: 600;
+    color: #1abc9c;
+}
+  
+
+.markdown-body>p, .markdown-body>ol, 
+.markdown-body>ul, .markdown-body>blockquote {
+    font-family: "PingFang SC",sans,"Microsoft YaHei",sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 200%;
+}
+
+.markdown-body>table tbody td {
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+body pre {
+    line-height: 1.2;
+}
+
+.code-block > pre {
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+  }  
+
+.code-block > pre {
+    font-family: Source Code Pro, monospace;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 110%;
+}
+
+.note {
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+.post-prevnext .post-prev,
+.post-prevnext .post-next {
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+
+.vcard .vcontent p {
+
+}
+
+.archive-post-title, .category-tree-list-link {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: "Roboto",sans-serif;
+    font-weight: 400;
+}
