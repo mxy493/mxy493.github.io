@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Leetcode 200.岛屿数量【C++】</title>
+    <link href="/2020/04/20/Leetcode-200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/04/20/Leetcode-200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/number-of-islands/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/number-of-islands/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个由 ‘1’（陆地）和 ‘0’（水）组成的的二维网格，请你计算网格中岛屿的数量。</p><p>岛屿总是被水包围，并且每座岛屿只能由水平方向和/或竖直方向上相邻的陆地连接形成。</p><p>此外，你可以假设该网格的四条边均被水包围。</p><p><strong>示例 1:</strong></p><pre><code>输入:11110110101100000000输出: 1</code></pre><p><strong>示例 2:</strong></p><pre><code>输入:11000110000010000011输出: 3解释: 每座岛屿只能由水平和/或竖直方向上相邻的陆地连接而成。</code></pre><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>很巧的是，之前做过一个同类型的题，<a href="https://mxy493.xyz/2020/03/15/Leetcode-695-%E5%B2%9B%E5%B1%BF%E7%9A%84%E6%9C%80%E5%A4%A7%E9%9D%A2%E7%A7%AF%E3%80%90C-%E3%80%91/" target="_blank" rel="noopener">岛屿的最大面积</a> 。</p><p>所以这次很容易就有思路了。首先显然的要遍历二维数组找岛屿，很容易，遇到字符 <code>&#39;1&#39;</code> 就是遇到了岛屿，将岛屿数量 <code>count++</code> ，那么剩下的问题就是，怎么避免重复遇到同一个岛屿？</p><p>有过之前做同类型题目的经验，不难想到将当前遇到的岛屿将其置为非 <code>&#39;1&#39;</code> 的状态，因为我们判断一个格子是不是岛屿的一部分，就是看这个格子是不是字符 <code>&#39;1&#39;</code> ，所以只要将其置为非 <code>&#39;1&#39;</code> 即表示当前格子已经是已经计算过的岛屿的一部分或者它本来就不是岛屿。</p><p>并不是遇到字符 <code>&#39;1&#39;</code> 只将这个格子置为 <code>&#39;0&#39;</code> ，我们的目的是这个岛屿已经计算过了，再次遇到这个岛屿的任意位置，都不再对其做处理，所以应该使用递归将该岛屿的所有位置都置为 <code>&#39;0&#39;</code> 。</p><p>另外在我的代码中，不是对每一个格子都调用递归函数进行判断，而是在确定当前格子是 <code>&#39;1&#39;</code> 的情况下才调用递归函数，也就是说在递归函数内部，不再需要判断当前递归进来的格子是否为 <code>&#39;0&#39;</code> 。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {public:    int numIslands(vector&lt;vector&lt;char&gt;&gt;&amp; grid) {        int count = 0;        for (int i = 0; i &lt; grid.size(); i++) {            for (int j = 0; j &lt; grid[0].size(); j++) {                //找到任意一个&#39;1&#39;即表示找到了一个岛屿                //首先岛屿数量count++，再通过回溯将该岛屿全部置为&#39;0&#39;                if (grid[i][j] == &#39;1&#39;) {                    count++;                    backtrack(grid, i, j);                }            }        }        return count;    }    //将grid[i][j]所在的岛屿全部置为0，避免重复判断的问题    void backtrack(vector&lt;vector&lt;char&gt;&gt;&amp; grid, int i,int j) {        vector&lt;pair&lt;int, int&gt;&gt; dir = { {-1,0},{1,0},{0,-1},{0,1} };        grid[i][j] = &#39;0&#39;;        //做选择，上下左右四个方向        for (auto d : dir) {            int ii = i + d.first;            int jj = j + d.second;            //当且仅当索引ii，jj合法且grid[ii][jj]为&#39;1&#39;是递归            if (ii &gt;= 0 &amp;&amp; ii &lt; grid.size() &amp;&amp; jj &gt;= 0 &amp;&amp; jj &lt; grid[0].size() &amp;&amp; grid[ii][jj] == &#39;1&#39;) {                backtrack(grid, ii, jj);            }        }    }};</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 11.盛最多水的容器【C++】</title>
     <link href="/2020/04/18/Leetcode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8%E3%80%90C-%E3%80%91/"/>
     <url>/2020/04/18/Leetcode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8%E3%80%90C-%E3%80%91/</url>
