@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Leetcode 199.二叉树的右视图【C++】</title>
+    <link href="/2020/04/22/Leetcode-199-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%8F%B3%E8%A7%86%E5%9B%BE%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/04/22/Leetcode-199-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%8F%B3%E8%A7%86%E5%9B%BE%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/binary-tree-right-side-view/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/binary-tree-right-side-view/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一棵二叉树，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。</p><p><strong>示例:</strong></p><pre><code>输入: [1,2,3,null,5,null,4]输出: [1, 3, 4]解释:   1            &lt;--- /   \2     3         &lt;--- \     \  5     4       &lt;---</code></pre><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先这是一个很明显的使用递归算法的题目，由于是“右视图”，所以应该采用<strong>后序遍历</strong>，先遍历右子女结点，再遍历左子女结点。</p><p>二叉树的递归遍历是不难实现的，但是这个题要找的是从右侧能看到的结点，以上述示例为例，显然能看到的结点就是右侧的三个结点 <code>[1, 3, 4]</code> 。假设结点 <code>5</code> 还有一个左孩子结点值为 <code>6</code> ，那么在结点 <code>6</code> 的右侧是没有任何结点阻挡的，所以 <code>6</code> 也应该能看到。</p><p>不难发现，具体能看到的结点并不一定只是最右侧一条路径上的的所有结点，而是跟 <strong>深度</strong> 有关。如果左子树存在深度更深的结点，那就也可以被看到。</p><p>在函数外部定义一个 <code>depth</code> 用于记录当前遍历过的所有路径所达到的最深的深度，换言之如果遇到大于 <code>depth</code> 的结点，那么这个结点就是可以被看到的。在调用递归函数前，需要确保传入的是非空结点，当然也可以在递归函数内部判断当前结点是否为空。</p><p>递归函数有三个参数，<code>vector&lt;int&gt;&amp; nodes</code> 用于保存返回值，注意必须是引用，这样才能始终在一个数组上更新找到的结点；<code>TreeNode* cur</code> 即传入的非空结点，将其作为新的树根；<code>int dp</code> 即实际的深度，用于和最大到达深度 <code>depth</code> 做对比。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">/** * Definition for a binary tree node. * struct TreeNode { *     int val; *     TreeNode *left; *     TreeNode *right; *     TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */class Solution {    int depth = 0;//遍历到的最大深度public:    vector&lt;int&gt; rightSideView(TreeNode* root) {        vector&lt;int&gt; nodes;        //调用递归函数前确保传入非空结点        if (root != NULL) {            backtrack(nodes, root, 1);        }        return nodes;    }    void backtrack(vector&lt;int&gt;&amp; nodes, TreeNode* cur, int dp) {        //当前深度大于最大遍历深度        if (dp &gt; depth) {            depth = dp;//更新最大深度            nodes.push_back(cur-&gt;val);//添加可见结点        }        //结束条件：没有子女节点        if (cur-&gt;right == NULL &amp;&amp; cur-&gt;left == NULL) {            return;        }        //选择右侧        if (cur-&gt;right != NULL) {            backtrack(nodes, cur-&gt;right, dp + 1);        }        //右侧为空则选择左侧        if (cur-&gt;left != NULL) {            backtrack(nodes, cur-&gt;left, dp + 1);        }    }};</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 1248.统计「优美子数组」【C++】</title>
     <link href="/2020/04/21/Leetcode-1248-%E7%BB%9F%E8%AE%A1%E3%80%8C%E4%BC%98%E7%BE%8E%E5%AD%90%E6%95%B0%E7%BB%84%E3%80%8D%E3%80%90C-%E3%80%91/"/>
     <url>/2020/04/21/Leetcode-1248-%E7%BB%9F%E8%AE%A1%E3%80%8C%E4%BC%98%E7%BE%8E%E5%AD%90%E6%95%B0%E7%BB%84%E3%80%8D%E3%80%90C-%E3%80%91/</url>
