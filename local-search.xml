@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Leetcode 46.全排列【C++】</title>
+    <link href="/2020/04/25/Leetcode-46-%E5%85%A8%E6%8E%92%E5%88%97%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/04/25/Leetcode-46-%E5%85%A8%E6%8E%92%E5%88%97%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/permutations/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/permutations/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个 没有重复 数字的序列，返回其所有可能的全排列。</p><p><strong>示例:</strong></p><pre><code>输入: [1,2,3]输出:[  [1,2,3],  [1,3,2],  [2,1,3],  [2,3,1],  [3,1,2],  [3,2,1]]</code></pre><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>其实按照我们人的思维很容易想到，全排列就是每次从剩余的数字里面取一个数字，只要保证相同的操作就可以了，但是要写代码来求解还是有些不太一样的。起初我试图找到一点什么规律，比如，知道数组的长度 <code>n</code> 其实就可以确定不同全排列的个数为 <code>n!</code> ，但是对解题并没什么益处。</p><p>后来再一想，动态规划？感觉不行，虽然可以一个数一个数的取，但是由于最重要得到所有可能的全排列，所以意味着我们没取一个数，都要将取这个数所能构成的所有全排列保存下来，这个工作是很复杂的。</p><p>其实应该用回溯法，因为我们每取一个数出来排列，都会影响下一次能取到的数。以 <code>[1,2,3]</code> 为例，第一次我们可以取三个数中的任意一个，也就是我们可以用一个循环 <code>for x in [1,2,3]</code> 取依次取三个数中的一个，假如我们取了 <code>1</code> ，则剩下可取的为 <code>[2,3]</code> ，重复上述步骤，直到没有可取的数了，即找到了一个全排列。</p><p>不同的全排列即我们每一步取数的路径，所以递归函数中需要用一个引用型参数用于记录路径，找到一个全排列，就将其加入到要求的返回结果中。</p><p><strong>附上 labuladong 的回溯算法框架：</strong></p><pre><code>result = []def backtrack(路径, 选择列表):    if 满足结束条件:        result.add(路径)        return    for 选择 in 选择列表:        做选择        backtrack(路径, 选择列表)        撤销选择</code></pre><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {public:    vector&lt;vector&lt;int&gt;&gt; permute(vector&lt;int&gt;&amp; nums) {        vector&lt;vector&lt;int&gt;&gt; ans;        vector&lt;int&gt; path;//路径        backtrack(ans, nums, path);        return ans;    }    void backtrack(vector&lt;vector&lt;int&gt;&gt;&amp; ans, vector&lt;int&gt;&amp; nums, vector&lt;int&gt;&amp; path) {        if (nums.empty()) {            ans.push_back(path);            return;        }        int i = 0;        while (i &lt; nums.size())        {            //做选择            path.push_back(nums[i]);            nums.erase(nums.begin() + i);            //回溯            backtrack(ans, nums, path);            //撤销选择            nums.insert(nums.begin() + i, path.back());            path.pop_back();            i++;        }    }};</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 199.二叉树的右视图【C++】</title>
     <link href="/2020/04/22/Leetcode-199-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%8F%B3%E8%A7%86%E5%9B%BE%E3%80%90C-%E3%80%91/"/>
     <url>/2020/04/22/Leetcode-199-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%8F%B3%E8%A7%86%E5%9B%BE%E3%80%90C-%E3%80%91/</url>
