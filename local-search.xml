@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Leetcode 面试题56 - I.数组中数字出现的次数【C++】</title>
+    <link href="/2020/04/28/Leetcode-%E9%9D%A2%E8%AF%95%E9%A2%9856-I-%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%E3%80%90C-%E3%80%91/"/>
+    <url>/2020/04/28/Leetcode-%E9%9D%A2%E8%AF%95%E9%A2%9856-I-%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%E3%80%90C-%E3%80%91/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>地址：<a href="https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>一个整型数组 <code>nums</code> 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是O(1)。</p><p><strong>示例 1：</strong></p><pre><code>输入：nums = [4,1,4,6]输出：[1,6] 或 [6,1]</code></pre><p><strong>示例 2：</strong></p><pre><code>输入：nums = [1,2,10,4,1,4,3,3]输出：[2,10] 或 [10,2]</code></pre><p><strong>限制：</strong></p><ul><li><code>2 &lt;= nums &lt;= 10000</code></li></ul><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题暴力解其实很简单，比如遍历数组，如果是第一次遍历到的元素，就将其加入到返回数组中，对遍历到的每一个元素，去返回数组中查找其是否已遇到过，如果返回数组中已存在，则将其从返回数组中删除，最终遍历完整个数组，则返回数组中剩下的元素即只出现过一次的元素。时间复杂度大于O(n)。</p><p>然后我想到了用集合来做同样的工作，只不过集合有 <code>find()</code> 函数可以直接判断集合中是否已存在某一个元素，思路都是一样的，换汤不换药。其实我觉得这么做并不是题目要求时间复杂度为O(1)的意思，不过提交还是通过了。</p><p><a href="https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/solution/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-by-leetcode/" target="_blank" rel="noopener">官方题解</a>是用异或来做的，挺巧妙的办法，感觉一般不容易想到。</p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">class Solution {public:    vector&lt;int&gt; singleNumbers(vector&lt;int&gt;&amp; nums) {        vector&lt;int&gt; ans;//返回值        set&lt;int&gt; ns;//存储数组中唯一的元素        for (int i = 0; i &lt; nums.size(); i++) {            set&lt;int&gt;::iterator index = ns.find(nums[i]);            if (index == ns.end()) {                ns.insert(nums[i]);            }            else {                ns.erase(index);            }        }        //集合转数组        for (set&lt;int&gt;::iterator i = ns.begin(); i != ns.end(); i++) {            ans.push_back(*i);        }        return ans;    }};</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Leetcode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Leetcode</tag>
+      
+      <tag>C++</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 33.搜索旋转排序数组【C++】</title>
     <link href="/2020/04/27/Leetcode-33-%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E3%80%90C-%E3%80%91/"/>
     <url>/2020/04/27/Leetcode-33-%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E3%80%90C-%E3%80%91/</url>
