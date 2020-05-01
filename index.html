@@ -1,6 +1,838 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png"><link rel="icon" type="image/png" href="/img/devil.png"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="theme-color" content="#2f4154"><meta name="description" content><meta name="author" content="mxy"><meta name="keywords" content><title>mxy</title><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css"><link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"><link rel="stylesheet" href="/css/main.css"><link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="/css/custom.css"></head><body><header style="height:100vh"><nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"><div class="container"><a class="navbar-brand" href="/">&nbsp;<strong>mxy</strong>&nbsp;</a> <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><div class="animated-icon"><span></span><span></span><span></span></div></button><div class="collapse navbar-collapse" id="navbarSupportedContent"><ul class="navbar-nav ml-auto text-center"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/archives/">归档</a></li><li class="nav-item"><a class="nav-link" href="/categories/">分类</a></li><li class="nav-item"><a class="nav-link" href="/tags/">标签</a></li><li class="nav-item"><a class="nav-link" href="/about/">关于</a></li><li class="nav-item"><a class="nav-link" href="/links/">友链</a></li><li class="nav-item" id="search-btn"><a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i class="iconfont icon-search"></i>&nbsp;&nbsp;</a></li></ul></div></div></nav><div class="view intro-2" id="background" false style="background:url(/img/xqmy.png) no-repeat center center;background-size:cover"><div class="full-bg-img"><div class="mask rgba-black-light flex-center"><div class="container text-center white-text fadeInUp"><span class="h2" id="subtitle"></span></div><div class="scroll-down-bar"><i class="fas fa-angle-down scroll-down-arrow"></i></div></div></div></div></header><main><div class="container nopadding-md"><div class="py-5 z-depth-3" id="board"><div class="container"><div class="row"><div class="col-12 col-md-10 m-auto"><div class="row mx-auto index-card"><div class="col-12 col-md-12 mx-auto index-info"><a href="/2020/04/28/Leetcode-面试题56-I-数组中数字出现的次数【C-】/"><p class="h4 index-header">Leetcode 面试题56 - I.数组中数字出现的次数【C++】</p></a><a href="/2020/04/28/Leetcode-面试题56-I-数组中数字出现的次数【C-】/"><div class="index-excerpt"><div class="index-text mb-1">地址：https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/题目一个整型数组 nums 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是O(1)。示例 1：输入：nums = [4,1,4,6] 输出：[1,6] 或 [6,1]示例 2：输入：nums = [1,2,10,4,1,4,3,3] 输出：[2,10] 或 [10,2]限制：2 &lt;= nums &lt;= 10000解题思路这个题暴力解其实很简单，比如遍历数组，如</div></div></a><div class="index-btm"><i class="iconfont icon-riqi2"></i>&nbsp;2020-04-28&nbsp;&nbsp; <i class="iconfont icon-inbox"></i> <a href="/categories/Leetcode/">Leetcode</a>&nbsp; &nbsp; <i class="iconfont icon-tag"></i> <a href="/tags/Leetcode/">Leetcode</a>&nbsp; <a href="/tags/C/">C++</a>&nbsp;</div></div></div><div class="row mx-auto index-card"><div class="col-12 col-md-12 mx-auto index-info"><a href="/2020/04/27/Leetcode-33-搜索旋转排序数组【C-】/"><p class="h4 index-header">Leetcode 33.搜索旋转排序数组【C++】</p></a><a href="/2020/04/27/Leetcode-33-搜索旋转排序数组【C-】/"><div class="index-excerpt"><div class="index-text mb-1">地址：https://leetcode-cn.com/problems/search-in-rotated-sorted-array/题目假设按照升序排序的数组在预先未知的某个点上进行了旋转。( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。搜索一个给定的目标值，如果数组中存在这个目标值，则返回它的索引，否则返回 -1 。你可以假设数组中不存在重复的元素。你的算法时间复杂度必须是 O(log n) 级别。示例 1:输入: nums = [4,5,6,7,0,1,2], target = 0 输出: 4示例 2:输入: nums = [4,5,6,7,</div></div></a><div class="index-btm"><i class="iconfont icon-riqi2"></i>&nbsp;2020-04-27&nbsp;&nbsp; <i class="iconfont icon-inbox"></i> <a href="/categories/Leetcode/">Leetcode</a>&nbsp; &nbsp; <i class="iconfont icon-tag"></i> <a href="/tags/Leetcode/">Leetcode</a>&nbsp; <a href="/tags/C/">C++</a>&nbsp;</div></div></div><div class="row mx-auto index-card"><div class="col-12 col-md-12 mx-auto index-info"><a href="/2020/04/27/2020-04-26-记录今天的两个人生第一次/"><p class="h4 index-header">2020.04.26 记录今天的两个人生第一次</p></a><a href="/2020/04/27/2020-04-26-记录今天的两个人生第一次/"><div class="index-excerpt"><div class="index-text mb-1">记录一下特别的今天，两个人生第一次(ง •_•)ง（1）求职第一次被拒绝3月27投的美团点评的简历，4月2日做了笔试，4月15日第一轮面试，然后是一周多没消息，昨天差点都发消息问面试官了，最后没问，结果今天一早醒来，美团点评就彻底凉凉了ಠಿ_ಠ也不是多难过，确实自己太菜了，还是有点自知之明，所以也没抱着那种一定会拿下这个岗位的心态，后面继续努力吧！（2）第一次域名备案成功也不至于多么激动人心啦，只不过确实人生第一次做这个事😂mxy493.xyz 这个域名已经注册一年多了，但是一直没备案。一方面因为我这博客用的是 GitHub 的静态网页服务，不备案也不影响使用；另一方面，域名备案必须要有服务</div></div></a><div class="index-btm"><i class="iconfont icon-riqi2"></i>&nbsp;2020-04-27&nbsp;&nbsp; <i class="iconfont icon-tag"></i> <a href="/tags/随笔/">随笔</a>&nbsp;</div></div></div><div class="row mx-auto index-card"><div class="col-12 col-md-12 mx-auto index-info"><a href="/2020/04/26/2020-04-26-鲁大师C-实习笔试题目/"><p class="h4 index-header">2020.04.26 鲁大师C++实习笔试题目</p></a><a href="/2020/04/26/2020-04-26-鲁大师C-实习笔试题目/"><div class="index-excerpt"><div class="index-text mb-1">昨天在拉勾上投了鲁大师的C++实习岗位，今天下午接到了HR的电话，商量了下晚上七点做笔试。没有使用在线笔试平台，HR直接发给我的一个word文档。简要记录一下，以下解答为笔试结束后整理~题目一：符号&amp;的意义题目：下列几个C语言表达式是否正确？如果正确，写出它们表达的意思：a&amp;ba&amp;(&amp;b)a&amp;&amp;ba**b解答：正确。结果为 a 与 b 的二进制按位相与；不正确。括号内为取址符，取变量 b 的地址；括号外为按位与运算；正确。逻辑运算符，当且仅当 a ， b 同时为真时，结果为真；正确。前一个为乘法运算，后一个表示指针，即变量 a 乘上指针 b 所指</div></div></a><div class="index-btm"><i class="iconfont icon-riqi2"></i>&nbsp;2020-04-26&nbsp;&nbsp; <i class="iconfont icon-tag"></i> <a href="/tags/笔经/">笔经</a>&nbsp;</div></div></div><div class="row mx-auto index-card"><div class="col-12 col-md-12 mx-auto index-info"><a href="/2020/04/25/Leetcode-46-全排列【C-】/"><p class="h4 index-header">Leetcode 46.全排列【C++】</p></a><a href="/2020/04/25/Leetcode-46-全排列【C-】/"><div class="index-excerpt"><div class="index-text mb-1">地址：https://leetcode-cn.com/problems/permutations/题目给定一个 没有重复 数字的序列，返回其所有可能的全排列。示例:输入: [1,2,3] 输出: [ [1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1] ]解题思路其实按照我们人的思维很容易想到，全排列就是每次从剩余的数字里面取一个数字，只要保证相同的操作就可以了，但是要写代码来求解还是有些不太一样的。起初我试图找到一点什么规律，比如，知道数组的长度 n 其实就可以确定不同全排列的个数为 n! ，但是对解题并没什么益处。</div></div></a><div class="index-btm"><i class="iconfont icon-riqi2"></i>&nbsp;2020-04-25&nbsp;&nbsp; <i class="iconfont icon-inbox"></i> <a href="/categories/Leetcode/">Leetcode</a>&nbsp; &nbsp; <i class="iconfont icon-tag"></i> <a href="/tags/Leetcode/">Leetcode</a>&nbsp; <a href="/tags/C/">C++</a>&nbsp;</div></div></div><div class="row mx-auto index-card"><div class="col-12 col-md-12 mx-auto index-info"><a href="/2020/04/22/Leetcode-199-二叉树的右视图【C-】/"><p class="h4 index-header">Leetcode 199.二叉树的右视图【C++】</p></a><a href="/2020/04/22/Leetcode-199-二叉树的右视图【C-】/"><div class="index-excerpt"><div class="index-text mb-1">地址：https://leetcode-cn.com/problems/binary-tree-right-side-view/题目给定一棵二叉树，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。示例:输入: [1,2,3,null,5,null,4] 输出: [1, 3, 4] 解释: 1 &lt;--- / \ 2 3 &lt;--- \ \ 5 4 &lt;---解题思路首先这是一个很明显的使用递归算法的题目，由于是“右视图”，所以应该采用后序遍历，先遍历右子女结点，再</div></div></a><div class="index-btm"><i class="iconfont icon-riqi2"></i>&nbsp;2020-04-22&nbsp;&nbsp; <i class="iconfont icon-inbox"></i> <a href="/categories/Leetcode/">Leetcode</a>&nbsp; &nbsp; <i class="iconfont icon-tag"></i> <a href="/tags/Leetcode/">Leetcode</a>&nbsp; <a href="/tags/C/">C++</a>&nbsp;</div></div></div><div class="row mx-auto index-card"><div class="col-12 col-md-12 mx-auto index-info"><a href="/2020/04/21/Leetcode-1248-统计「优美子数组」【C-】/"><p class="h4 index-header">Leetcode 1248.统计「优美子数组」【C++】</p></a><a href="/2020/04/21/Leetcode-1248-统计「优美子数组」【C-】/"><div class="index-excerpt"><div class="index-text mb-1">地址：https://leetcode-cn.com/problems/count-number-of-nice-subarrays/题目给你一个整数数组 nums 和一个整数 k。如果某个 连续 子数组中恰好有 k 个奇数数字，我们就认为这个子数组是「优美子数组」。请返回这个数组中「优美子数组」的数目。示例 1：输入：nums = [1,1,2,1,1], k = 3 输出：2 解释：包含 3 个奇数的子数组是 [1,1,2,1] 和 [1,2,1,1] 。示例 2：输入：nums = [2,4,6], k = 1 输出：0 解释：数列中不包含任何奇数，所以不存在优美子数组。示例 3：输入：</div></div></a><div class="index-btm"><i class="iconfont icon-riqi2"></i>&nbsp;2020-04-21&nbsp;&nbsp; <i class="iconfont icon-inbox"></i> <a href="/categories/Leetcode/">Leetcode</a>&nbsp; &nbsp; <i class="iconfont icon-tag"></i> <a href="/tags/Leetcode/">Leetcode</a>&nbsp; <a href="/tags/C/">C++</a>&nbsp;</div></div></div><div class="row mx-auto index-card"><div class="col-12 col-md-12 mx-auto index-info"><a href="/2020/04/20/Leetcode-200-岛屿数量【C-】/"><p class="h4 index-header">Leetcode 200.岛屿数量【C++】</p></a><a href="/2020/04/20/Leetcode-200-岛屿数量【C-】/"><div class="index-excerpt"><div class="index-text mb-1">地址：https://leetcode-cn.com/problems/number-of-islands/题目给你一个由 ‘1’（陆地）和 ‘0’（水）组成的的二维网格，请你计算网格中岛屿的数量。岛屿总是被水包围，并且每座岛屿只能由水平方向和/或竖直方向上相邻的陆地连接形成。此外，你可以假设该网格的四条边均被水包围。示例 1:输入: 11110 11010 11000 00000 输出: 1示例 2:输入: 11000 11000 00100 00011 输出: 3 解释: 每座岛屿只能由水平和/或竖直方向上相邻的陆地连接而成。解题思路很巧的是，之前做过一个同类型的题，岛屿的最大面积 。所以</div></div></a><div class="index-btm"><i class="iconfont icon-riqi2"></i>&nbsp;2020-04-20&nbsp;&nbsp; <i class="iconfont icon-inbox"></i> <a href="/categories/Leetcode/">Leetcode</a>&nbsp; &nbsp; <i class="iconfont icon-tag"></i> <a href="/tags/Leetcode/">Leetcode</a>&nbsp; <a href="/tags/C/">C++</a>&nbsp;</div></div></div><div class="row mx-auto index-card"><div class="col-12 col-md-12 mx-auto index-info"><a href="/2020/04/18/Leetcode-11-盛最多水的容器【C-】/"><p class="h4 index-header">Leetcode 11.盛最多水的容器【C++】</p></a><a href="/2020/04/18/Leetcode-11-盛最多水的容器【C-】/"><div class="index-excerpt"><div class="index-text mb-1">地址：https://leetcode-cn.com/problems/container-with-most-water/题目给你 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。说明：你不能倾斜容器，且 n 的值至少为 2。图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。示例：输入：[1,8,6,2,5,4,8,3,7] 输</div></div></a><div class="index-btm"><i class="iconfont icon-riqi2"></i>&nbsp;2020-04-18&nbsp;&nbsp; <i class="iconfont icon-inbox"></i> <a href="/categories/Leetcode/">Leetcode</a>&nbsp; &nbsp; <i class="iconfont icon-tag"></i> <a href="/tags/Leetcode/">Leetcode</a>&nbsp; <a href="/tags/C/">C++</a>&nbsp;</div></div></div><div class="row mx-auto index-card"><div class="col-12 col-md-12 mx-auto index-info"><a href="/2020/04/17/Hexo-压缩-优化插件-Hexo-all-minifier/"><p class="h4 index-header">Hexo 压缩&amp;优化插件 Hexo-all-minifier</p></a><a href="/2020/04/17/Hexo-压缩-优化插件-Hexo-all-minifier/"><div class="index-excerpt"><div class="index-text mb-1">Hexo-all-minifier：https://github.com/chenzhutian/hexo-all-minifier一款 Hexo 插件，通过压缩 HTML、CSS、JS 和图片来优化博客访问速度。安装npm install hexo-all-minifier --save注：我在执行以上命令进行安装的时候遇到了问题 Failed to connect to raw.githubusercontent.com port 443 ，查了下原因，其实就是这个域名（raw.githubusercontent.com）被墙了。解决办法：查真实 IP 地址 https://www.ipa</div></div></a><div class="index-btm"><i class="iconfont icon-riqi2"></i>&nbsp;2020-04-17&nbsp;&nbsp; <i class="iconfont icon-inbox"></i> <a href="/categories/博客/">博客</a>&nbsp; &nbsp; <i class="iconfont icon-tag"></i> <a href="/tags/Hexo/">Hexo</a>&nbsp; <a href="/tags/博客/">博客</a>&nbsp;</div></div></div><nav aria-label="index posts navigation"><span class="pagination pg-blue justify-content-center mt-5" id="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a></span></nav><script>for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
+  <link rel="icon" type="image/png" href="/img/devil.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content>
+  <meta name="author" content="mxy">
+  <meta name="keywords" content>
+  <title>mxy</title>
+
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
+
+
+<!-- 自定义样式保持在最底部 -->
+
+  <link rel="stylesheet" href="/css/custom.css">
+
+
+</head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>mxy</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">友链</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" false
+         style="background: url('/img/xqmy.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-md">
+        <div class="py-5 z-depth-3" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/28/Leetcode-面试题56-I-数组中数字出现的次数【C-】/">
+        <p class="h4 index-header">Leetcode 面试题56 - I.数组中数字出现的次数【C++】</p>
+      </a>
+
+      <a href="/2020/04/28/Leetcode-面试题56-I-数组中数字出现的次数【C-】/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/
+
+题目一个整型数组 nums 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是O(1)。
+示例 1：
+输入：nums = [4,1,4,6]
+输出：[1,6] 或 [6,1]示例 2：
+输入：nums = [1,2,10,4,1,4,3,3]
+输出：[2,10] 或 [10,2]限制：
+
+2 &lt;= nums &lt;= 10000
+
+解题思路这个题暴力解其实很简</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-28&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C/">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/27/Leetcode-33-搜索旋转排序数组【C-】/">
+        <p class="h4 index-header">Leetcode 33.搜索旋转排序数组【C++】</p>
+      </a>
+
+      <a href="/2020/04/27/Leetcode-33-搜索旋转排序数组【C-】/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
+
+题目假设按照升序排序的数组在预先未知的某个点上进行了旋转。
+( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。
+搜索一个给定的目标值，如果数组中存在这个目标值，则返回它的索引，否则返回 -1 。
+你可以假设数组中不存在重复的元素。
+你的算法时间复杂度必须是 O(log n) 级别。
+示例 1:
+输入: nums = [4,5,6,7,0,1,2], target = 0
+输出: 4示例 2:
+输入: nums =</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-27&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C/">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/27/2020-04-26-记录今天的两个人生第一次/">
+        <p class="h4 index-header">2020.04.26 记录今天的两个人生第一次</p>
+      </a>
+
+      <a href="/2020/04/27/2020-04-26-记录今天的两个人生第一次/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">记录一下特别的今天，两个人生第一次(ง •_•)ง
+（1）求职第一次被拒绝3月27投的美团点评的简历，4月2日做了笔试，4月15日第一轮面试，然后是一周多没消息，昨天差点都发消息问面试官了，最后没问，结果今天一早醒来，美团点评就彻底凉凉了ಠಿ_ಠ
+也不是多难过，确实自己太菜了，还是有点自知之明，所以也没抱着那种一定会拿下这个岗位的心态，后面继续努力吧！
+
+（2）第一次域名备案成功也不至于多么激动人心啦，只不过确实人生第一次做这个事😂
+mxy493.xyz 这个域名已经注册一年多了，但是一直没备案。一方面因为我这博客用的是 GitHub 的静态网页服务，不备案也不影响使用；另一方面，域名备案必</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-27&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/随笔/">随笔</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/26/2020-04-26-鲁大师C-实习笔试题目/">
+        <p class="h4 index-header">2020.04.26 鲁大师C++实习笔试题目</p>
+      </a>
+
+      <a href="/2020/04/26/2020-04-26-鲁大师C-实习笔试题目/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+昨天在拉勾上投了鲁大师的C++实习岗位，今天下午接到了HR的电话，商量了下晚上七点做笔试。
+没有使用在线笔试平台，HR直接发给我的一个word文档。简要记录一下，以下解答为笔试结束后整理~
+
+题目一：符号&amp;的意义题目：下列几个C语言表达式是否正确？如果正确，写出它们表达的意思：
+
+a&amp;b
+a&amp;(&amp;b)
+a&amp;&amp;b
+a**b
+
+解答：
+
+正确。结果为 a 与 b 的二进制按位相与；
+不正确。括号内为取址符，取变量 b 的地址；括号外为按位与运算；
+正确。逻辑运算符，当且仅当 a ， b 同时为真时，结果为真；
+正确。前一个为乘法运算，后一个表示指针</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-26&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/笔经/">笔经</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/25/Leetcode-46-全排列【C-】/">
+        <p class="h4 index-header">Leetcode 46.全排列【C++】</p>
+      </a>
+
+      <a href="/2020/04/25/Leetcode-46-全排列【C-】/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/permutations/
+
+题目给定一个 没有重复 数字的序列，返回其所有可能的全排列。
+示例:
+输入: [1,2,3]
+输出:
+[
+  [1,2,3],
+  [1,3,2],
+  [2,1,3],
+  [2,3,1],
+  [3,1,2],
+  [3,2,1]
+]解题思路其实按照我们人的思维很容易想到，全排列就是每次从剩余的数字里面取一个数字，只要保证相同的操作就可以了，但是要写代码来求解还是有些不太一样的。起初我试图找到一点什么规律，比如，知道数组的长度 n 其实就可以确定不同全排列的个数为 n! ，但是对解题并没</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-25&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C/">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/22/Leetcode-199-二叉树的右视图【C-】/">
+        <p class="h4 index-header">Leetcode 199.二叉树的右视图【C++】</p>
+      </a>
+
+      <a href="/2020/04/22/Leetcode-199-二叉树的右视图【C-】/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/binary-tree-right-side-view/
+
+题目给定一棵二叉树，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。
+示例:
+输入: [1,2,3,null,5,null,4]
+输出: [1, 3, 4]
+解释:
+
+   1            &lt;---
+ /   \
+2     3         &lt;---
+ \     \
+  5     4       &lt;---解题思路首先这是一个很明显的使用递归算法的题目，由于是“右视图”，所以应该采用后序遍历，先遍历右子</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-22&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C/">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/21/Leetcode-1248-统计「优美子数组」【C-】/">
+        <p class="h4 index-header">Leetcode 1248.统计「优美子数组」【C++】</p>
+      </a>
+
+      <a href="/2020/04/21/Leetcode-1248-统计「优美子数组」【C-】/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/count-number-of-nice-subarrays/
+
+题目给你一个整数数组 nums 和一个整数 k。
+如果某个 连续 子数组中恰好有 k 个奇数数字，我们就认为这个子数组是「优美子数组」。
+请返回这个数组中「优美子数组」的数目。
+示例 1：
+输入：nums = [1,1,2,1,1], k = 3
+输出：2
+解释：包含 3 个奇数的子数组是 [1,1,2,1] 和 [1,2,1,1] 。示例 2：
+输入：nums = [2,4,6], k = 1
+输出：0
+解释：数列中不包含任何奇数，所以不存在优美子数组。</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-21&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C/">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/20/Leetcode-200-岛屿数量【C-】/">
+        <p class="h4 index-header">Leetcode 200.岛屿数量【C++】</p>
+      </a>
+
+      <a href="/2020/04/20/Leetcode-200-岛屿数量【C-】/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/number-of-islands/
+
+题目给你一个由 ‘1’（陆地）和 ‘0’（水）组成的的二维网格，请你计算网格中岛屿的数量。
+岛屿总是被水包围，并且每座岛屿只能由水平方向和/或竖直方向上相邻的陆地连接形成。
+此外，你可以假设该网格的四条边均被水包围。
+示例 1:
+输入:
+11110
+11010
+11000
+00000
+输出: 1示例 2:
+输入:
+11000
+11000
+00100
+00011
+输出: 3
+解释: 每座岛屿只能由水平和/或竖直方向上相邻的陆地连接而成。解题思路很巧的是，之前做过一个同类型的题，岛屿的</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-20&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C/">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/18/Leetcode-11-盛最多水的容器【C-】/">
+        <p class="h4 index-header">Leetcode 11.盛最多水的容器【C++】</p>
+      </a>
+
+      <a href="/2020/04/18/Leetcode-11-盛最多水的容器【C-】/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/container-with-most-water/
+
+题目给你 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。
+说明：你不能倾斜容器，且 n 的值至少为 2。
+
+图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。
+示例：
+输入：[1,8,6,2,5,4,</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-18&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C/">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/04/17/Hexo-压缩-优化插件-Hexo-all-minifier/">
+        <p class="h4 index-header">Hexo 压缩&amp;优化插件 Hexo-all-minifier</p>
+      </a>
+
+      <a href="/2020/04/17/Hexo-压缩-优化插件-Hexo-all-minifier/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Hexo-all-minifier：https://github.com/chenzhutian/hexo-all-minifier
+一款 Hexo 插件，通过压缩 HTML、CSS、JS 和图片来优化博客访问速度。
+安装npm install hexo-all-minifier --save
+注：我在执行以上命令进行安装的时候遇到了问题 Failed to connect to raw.githubusercontent.com port 443 ，查了下原因，其实就是这个域名（raw.githubusercontent.com）被墙了。
+解决办法：
+
+查真实 IP 地址 https://w</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-17&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/博客/">博客</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Hexo/">Hexo</a>&nbsp;
+          
+            <a href="/tags/博客/">博客</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <nav aria-label="index posts navigation">
+    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
       ele.href += '#board';
-    }</script></div></div></div></div></div></main><a class="z-depth-1" id="scroll-top-button" href="#" role="button"><i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i></a><div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable modal-lg" role="document"><div class="modal-content"><div class="modal-header text-center"><h4 class="modal-title w-100 font-weight-bold">搜索</h4><button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body mx-3"><div class="md-form mb-5"><input type="text" id="local-search-input" class="form-control validate"> <label data-error="x" data-success="v" for="local-search-input">关键词</label></div><div class="list-group" id="local-search-result"></div></div></div></div></div><footer class="mt-5"><div class="text-center py-3"><div><a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><b>Fluid</b></a></div><div><span id="busuanzi_container_site_pv" style="display:none">总访问量 <span id="busuanzi_value_site_pv"></span> 次 </span><span id="busuanzi_container_site_uv" style="display:none">总访客数 <span id="busuanzi_value_site_uv"></span> 人</span></div></div></footer><script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script><script src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js"></script><script src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script><script src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js"></script><script src="/js/main.js"></script><script src="/js/lazyload.js"></script><script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script><script src="/js/clipboard-use.js"></script><script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js"></script><script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script defer>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><script src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js"></script><script>$(document).ready(function(){$("pre").addClass("prettyprint  linenums"),prettyPrint()})</script><script src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js"></script><script>var typed=new Typed("#subtitle",{strings:["  ","禅模式忘情工作中~&nbsp;"],cursorChar:"_",typeSpeed:70,loop:!1});typed.stop(),$(document).ready(function(){$(".typed-cursor").addClass("h2"),typed.start()})</script><script src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js"></script><script>anchors.options = {
+    }
+  </script>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "禅模式忘情工作中~&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
       placement: "right",
       visible: "hover",
       
@@ -10,4 +842,95 @@
     for (item of el) {
       res.push(".markdown-body > " + item)
     }
-    anchors.add(res.join(", "))</script><script src="/js/local-search.js"></script><script>var path="/local-search.xml",inputArea=document.querySelector("#local-search-input");inputArea.onclick=function(){getSearchFile(path),this.onclick=null}</script><script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script><script>$("#post img:not(.no-zoom img, img[no-zoom])").each(function(){var t=document.createElement("a");$(t).attr("data-fancybox","images"),$(t).attr("href",$(this).attr("src")),$(this).wrap(t)})</script><script type="text/javascript">var a_idx=0;jQuery(document).ready(function(d){d("body").click(function(a){var o=new Array("富强","民主","文明","和谐","自由","平等","公正","法治","爱国","敬业","诚信","友善"),t=d("<span/>").text(o[a_idx]);a_idx=(a_idx+1)%o.length;var n=a.pageX,e=a.pageY;t.css({"z-index":999,top:e-20,left:n,position:"absolute","font-weight":"bold",color:"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}),d("body").append(t),t.animate({top:e-180,opacity:0},1500,function(){t.remove()})})})</script></body></html>
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+  
+    <script type="text/javascript">
+      //定义获取词语下标
+      var a_idx = 0;
+      jQuery(document).ready(function ($) {
+        //点击body时触发事件
+        $("body").click(function (e) {
+          //需要显示的词语
+          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+          //设置词语给span标签
+          var $i = $("<span/>").text(a[a_idx]);
+          //下标等于原来下标+1  余 词语总数
+          a_idx = (a_idx + 1) % a.length;
+          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
+          //获取x和y的指针坐标
+          var x = e.pageX, y = e.pageY;
+          //在鼠标的指针的位置给$i定义的span标签添加css样式
+          $i.css({
+            "z-index": 999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": rand_color()
+          });
+          // 随机颜色
+          function rand_color() {
+            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+          }
+          //在body添加这个标签
+          $("body").append($i);
+          //animate() 方法执行 CSS 属性集的自定义动画。
+          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
+          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
+          $i.animate({
+            //将原来的位置向上移动180
+            "top": y - 180,
+            "opacity": 0
+            //1500动画的速度
+          }, 1500, function () {
+            //时间到了自动删除
+            $i.remove();
+          });
+        });
+      })
+      ;
+    </script>
+  
+
+
+
+
+
+
+
+
+</body>
+</html>

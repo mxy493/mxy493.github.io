@@ -1,4 +1,203 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png"><link rel="icon" type="image/png" href="/img/devil.png"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="theme-color" content="#2f4154"><meta name="description" content><meta name="author" content="mxy"><meta name="keywords" content><title>Leetcode 355.设计推特【C++】 - mxy</title><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css"><link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"><link rel="stylesheet" href="/css/main.css"><link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="/css/custom.css"></head><body><header style="height:70vh"><nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"><div class="container"><a class="navbar-brand" href="/">&nbsp;<strong>mxy</strong>&nbsp;</a> <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><div class="animated-icon"><span></span><span></span><span></span></div></button><div class="collapse navbar-collapse" id="navbarSupportedContent"><ul class="navbar-nav ml-auto text-center"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/archives/">归档</a></li><li class="nav-item"><a class="nav-link" href="/categories/">分类</a></li><li class="nav-item"><a class="nav-link" href="/tags/">标签</a></li><li class="nav-item"><a class="nav-link" href="/about/">关于</a></li><li class="nav-item"><a class="nav-link" href="/links/">友链</a></li><li class="nav-item" id="search-btn"><a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i class="iconfont icon-search"></i>&nbsp;&nbsp;</a></li></ul></div></div></nav><div class="view intro-2" id="background" false style="background:url(/img/xqmy.png) no-repeat center center;background-size:cover"><div class="full-bg-img"><div class="mask rgba-black-light flex-center"><div class="container text-center white-text fadeInUp"><span class="h2" id="subtitle"></span><p class="mt-3 post-meta"><i class="fas fa-calendar-alt" aria-hidden="true"></i> 星期一, 四月 13日 2020, 8:22 晚上</p><p class="mt-1"><span class="post-meta"><i class="far fa-chart-bar"></i> 1.9k 字 </span><span class="post-meta"><i class="far fa-clock"></i> 8 分钟 </span><span id="busuanzi_container_page_pv" class="post-meta" style="display:none"><i class="far fa-eye" aria-hidden="true"></i> <span id="busuanzi_value_page_pv"></span> 次</span></p></div></div></div></div></header><main><div class="container-fluid"><div class="row"><div class="d-none d-lg-block col-lg-2"></div><div class="col-lg-8 nopadding-md"><div class="container nopadding-md" id="board-ctn"><div class="py-5 z-depth-3" id="board"><div class="post-content mx-auto" id="post"><p class="note note-warning">本文最后更新于：星期一, 四月 13日 2020, 9:10 晚上</p><div class="markdown-body"><blockquote><p>地址：<a href="https://leetcode-cn.com/problems/design-twitter/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/design-twitter/</a></p></blockquote><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>设计一个简化版的推特(Twitter)，可以让用户实现发送推文，关注/取消关注其他用户，能够看见关注人（包括自己）的最近十条推文。你的设计需要支持以下的几个功能：</p><ol><li><code>postTweet(userId, tweetId)</code>: 创建一条新的推文</li><li><code>getNewsFeed(userId)</code>: 检索最近的十条推文。每个推文都必须是由此用户关注的人或者是用户自己发出的。推文必须按照时间顺序由最近的开始排序。</li><li><code>follow(followerId, followeeId)</code>: 关注一个用户</li><li><code>unfollow(followerId, followeeId)</code>: 取消关注一个用户</li></ol><p><strong>示例：</strong></p><pre><code>Twitter twitter = new Twitter();
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
+  <link rel="icon" type="image/png" href="/img/devil.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content>
+  <meta name="author" content="mxy">
+  <meta name="keywords" content>
+  <title>Leetcode 355.设计推特【C++】 - mxy</title>
+
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
+
+
+<!-- 自定义样式保持在最底部 -->
+
+  <link rel="stylesheet" href="/css/custom.css">
+
+
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>mxy</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">友链</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" false
+         style="background: url('/img/xqmy.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期一, 四月 13日 2020, 8:22 晚上
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    1.9k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      8 分钟
+                  </span>
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
+                    <i class="far fa-eye" aria-hidden="true"></i>
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p
+                class="note note-warning">本文最后更新于：星期一, 四月 13日 2020, 9:10 晚上</p>
+            
+            <div class="markdown-body">
+              <blockquote>
+<p>地址：<a href="https://leetcode-cn.com/problems/design-twitter/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/design-twitter/</a></p>
+</blockquote>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>设计一个简化版的推特(Twitter)，可以让用户实现发送推文，关注/取消关注其他用户，能够看见关注人（包括自己）的最近十条推文。你的设计需要支持以下的几个功能：</p>
+<ol>
+<li><code>postTweet(userId, tweetId)</code>: 创建一条新的推文</li>
+<li><code>getNewsFeed(userId)</code>: 检索最近的十条推文。每个推文都必须是由此用户关注的人或者是用户自己发出的。推文必须按照时间顺序由最近的开始排序。</li>
+<li><code>follow(followerId, followeeId)</code>: 关注一个用户</li>
+<li><code>unfollow(followerId, followeeId)</code>: 取消关注一个用户</li>
+</ol>
+<p><strong>示例：</strong></p>
+<pre><code>Twitter twitter = new Twitter();
 
 // 用户1发送了一条新推文 (用户id = 1, 推文id = 5).
 twitter.postTweet(1, 5);
@@ -21,7 +220,23 @@ twitter.unfollow(1, 2);
 
 // 用户1的获取推文应当返回一个列表，其中包含一个id为5的推文.
 // 因为用户1已经不再关注用户2.
-twitter.getNewsFeed(1);</code></pre><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先，我写了一个多小时写出来，但是超时了，很尴尬~</p><p>还是留下我的解题思路。</p><p>根据题目要求，我们知道要保存每一条推文及其发布者，定义了一个 <code>vector&lt;pair&lt;int, int&gt;&gt;</code> 类型的数组 <code>tweets</code> 用于存储成对的 <code>userID</code> 和 <code>tweetID</code>，并且题目要求检索最近的10条推文，所以发布的时候我们就顺序存储每一条推文，这样避免了每次检索都要对推文进行排序；另外还需要对应每一个用户要存储该用户所关注的用户，考虑每一个用户关注的用户ID都是唯一的，所以我选择用集合来存储每一个用户关注的用户，定义了一个 <code>vector&lt;pair&lt;int, set&lt;int&gt;&gt;&gt;</code> 类型的数组 <code>users</code> ，存储所有用户的用户ID及其对应的关注的用户的集合。</p><h4 id="（1）发推"><a href="#（1）发推" class="headerlink" title="（1）发推"></a>（1）发推</h4><p>首先直接将需要发布的推文及其发布者加入到 <code>tweets</code> 的末尾，然后判断发布该推文的用户是否已存在与用户数组 <code>users</code> ，如果已存在则不做处理，否则将该用户加入到用户数组。</p><h4 id="（2）检索最近10条推文"><a href="#（2）检索最近10条推文" class="headerlink" title="（2）检索最近10条推文"></a>（2）检索最近10条推文</h4><p>判断传入的用户ID是否存在，若不存在该ID的用户，则直接返回空数组。</p><p>否则从后往前遍历推文数组 <code>tweets</code> ，定义一个整型 <code>count</code> 用于计数已找到的符合要求的推文数量，遍历结束的条件即已检索到的推文数量 <code>count</code> 达到10条或者已遍历完整个推文数组。对遍历到的每一个推文，判断其对应的发布者ID是否就是要检索的用户ID或者该用户所关注的某个用户的ID，若是，将该推文加入返回数组，<code>count++</code> ，否则继续遍历。</p><h4 id="（3）关注"><a href="#（3）关注" class="headerlink" title="（3）关注"></a>（3）关注</h4><p>遍历用户数组查找该用户，如果找到，则将其要关注的用户加入到关注的用户集合种；否则先将该用户加入到用户数组，再将要关注的用户ID加入到关注的用户集合。</p><h4 id="（4）取关"><a href="#（4）取关" class="headerlink" title="（4）取关"></a>（4）取关</h4><p>遍历用户数组查找该用户，若找到，则将要取关的用户从关注的用户集合中删除，同时结束函数。</p><h4 id="优化"><a href="#优化" class="headerlink" title="# 优化"></a># 优化</h4><p>优化这部分是后面改过的，虽然还是很耗时并且内存消耗也大，不过好歹通过了。</p><ul><li>执行用时 :1648 ms, 在所有 C++ 提交中击败了5.15%的用户</li><li>内存消耗 :189.6 MB, 在所有 C++ 提交中击败了16.67%的用户</li></ul><p>其实就是最开始的代码在索引的那一部分，我首先遍历了一次用户数组判断该用户是否存在，如果不存在，函数直接结束了那倒没什么影响。但如果存在的话，后续对每一条推文，我都还要再遍历一次去找这个用户，如果遍历了 n 条推文，那么就会做 <code>n + 1</code> 次完全重复的遍历查找，显然这是没有必要的。</p><p>所有我将判断该用户是否存在的标志改为了整型 <code>index</code> 并初始化为 <code>-1</code> ，即表示该用户不存在，如果找到了该用户，则将 <code>index</code> 修改为该用户在用户数组中的位置，后续就不再需要遍历用户数组去查找该用户了。</p><p>我将优化部分的代码放到了👇🏻最后面👇🏻</p><h3 id="代码（超时）"><a href="#代码（超时）" class="headerlink" title="代码（超时）"></a>代码（超时）</h3><h4 id="原始代码（未优化）"><a href="#原始代码（未优化）" class="headerlink" title="原始代码（未优化）"></a>原始代码（未优化）</h4><pre><code class="c++">class Twitter {
+twitter.getNewsFeed(1);</code></pre><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先，我写了一个多小时写出来，但是超时了，很尴尬~</p>
+<p>还是留下我的解题思路。</p>
+<p>根据题目要求，我们知道要保存每一条推文及其发布者，定义了一个 <code>vector&lt;pair&lt;int, int&gt;&gt;</code> 类型的数组 <code>tweets</code> 用于存储成对的 <code>userID</code> 和 <code>tweetID</code>，并且题目要求检索最近的10条推文，所以发布的时候我们就顺序存储每一条推文，这样避免了每次检索都要对推文进行排序；另外还需要对应每一个用户要存储该用户所关注的用户，考虑每一个用户关注的用户ID都是唯一的，所以我选择用集合来存储每一个用户关注的用户，定义了一个 <code>vector&lt;pair&lt;int, set&lt;int&gt;&gt;&gt;</code> 类型的数组 <code>users</code> ，存储所有用户的用户ID及其对应的关注的用户的集合。</p>
+<h4 id="（1）发推"><a href="#（1）发推" class="headerlink" title="（1）发推"></a>（1）发推</h4><p>首先直接将需要发布的推文及其发布者加入到 <code>tweets</code> 的末尾，然后判断发布该推文的用户是否已存在与用户数组 <code>users</code> ，如果已存在则不做处理，否则将该用户加入到用户数组。</p>
+<h4 id="（2）检索最近10条推文"><a href="#（2）检索最近10条推文" class="headerlink" title="（2）检索最近10条推文"></a>（2）检索最近10条推文</h4><p>判断传入的用户ID是否存在，若不存在该ID的用户，则直接返回空数组。</p>
+<p>否则从后往前遍历推文数组 <code>tweets</code> ，定义一个整型 <code>count</code> 用于计数已找到的符合要求的推文数量，遍历结束的条件即已检索到的推文数量 <code>count</code> 达到10条或者已遍历完整个推文数组。对遍历到的每一个推文，判断其对应的发布者ID是否就是要检索的用户ID或者该用户所关注的某个用户的ID，若是，将该推文加入返回数组，<code>count++</code> ，否则继续遍历。</p>
+<h4 id="（3）关注"><a href="#（3）关注" class="headerlink" title="（3）关注"></a>（3）关注</h4><p>遍历用户数组查找该用户，如果找到，则将其要关注的用户加入到关注的用户集合种；否则先将该用户加入到用户数组，再将要关注的用户ID加入到关注的用户集合。</p>
+<h4 id="（4）取关"><a href="#（4）取关" class="headerlink" title="（4）取关"></a>（4）取关</h4><p>遍历用户数组查找该用户，若找到，则将要取关的用户从关注的用户集合中删除，同时结束函数。</p>
+<h4 id="优化"><a href="#优化" class="headerlink" title="# 优化"></a># 优化</h4><p>优化这部分是后面改过的，虽然还是很耗时并且内存消耗也大，不过好歹通过了。</p>
+<ul>
+<li>执行用时 :1648 ms, 在所有 C++ 提交中击败了5.15%的用户</li>
+<li>内存消耗 :189.6 MB, 在所有 C++ 提交中击败了16.67%的用户</li>
+</ul>
+<p>其实就是最开始的代码在索引的那一部分，我首先遍历了一次用户数组判断该用户是否存在，如果不存在，函数直接结束了那倒没什么影响。但如果存在的话，后续对每一条推文，我都还要再遍历一次去找这个用户，如果遍历了 n 条推文，那么就会做 <code>n + 1</code> 次完全重复的遍历查找，显然这是没有必要的。</p>
+<p>所有我将判断该用户是否存在的标志改为了整型 <code>index</code> 并初始化为 <code>-1</code> ，即表示该用户不存在，如果找到了该用户，则将 <code>index</code> 修改为该用户在用户数组中的位置，后续就不再需要遍历用户数组去查找该用户了。</p>
+<p>我将优化部分的代码放到了👇🏻最后面👇🏻</p>
+<h3 id="代码（超时）"><a href="#代码（超时）" class="headerlink" title="代码（超时）"></a>代码（超时）</h3><h4 id="原始代码（未优化）"><a href="#原始代码（未优化）" class="headerlink" title="原始代码（未优化）"></a>原始代码（未优化）</h4><pre><code class="c++">class Twitter {
     vector&lt;pair&lt;int, int&gt;&gt; tweets;//所有推文
     vector&lt;pair&lt;int, set&lt;int&gt;&gt;&gt; users;//所有用户及其关注的用户
 public:
@@ -114,7 +329,9 @@ public:
  * vector&lt;int&gt; param_2 = obj-&gt;getNewsFeed(userId);
  * obj-&gt;follow(followerId,followeeId);
  * obj-&gt;unfollow(followerId,followeeId);
- */</code></pre><h4 id="优化部分"><a href="#优化部分" class="headerlink" title="优化部分"></a>优化部分</h4><p>对函数 <code>getNewsFeed(int userId)</code> 进行了修改，并删除了函数 <code>isFollowing(int id1, int id2)</code>。</p><pre><code class="c++">/** Retrieve the 10 most recent tweet ids in the user&#39;s news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */
+ */</code></pre>
+<h4 id="优化部分"><a href="#优化部分" class="headerlink" title="优化部分"></a>优化部分</h4><p>对函数 <code>getNewsFeed(int userId)</code> 进行了修改，并删除了函数 <code>isFollowing(int id1, int id2)</code>。</p>
+<pre><code class="c++">/** Retrieve the 10 most recent tweet ids in the user&#39;s news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */
 vector&lt;int&gt; getNewsFeed(int userId) {
     vector&lt;int&gt; ans;
     //判断是否存在该id的用户
@@ -140,7 +357,326 @@ vector&lt;int&gt; getNewsFeed(int userId) {
         }
     }
     return ans;
-}</code></pre></div><hr><div><p><span><i class="iconfont icon-inbox"></i> <a class="hover-with-bg" href="/categories/Leetcode/">Leetcode</a> &nbsp; </span>&nbsp;&nbsp; <span><i class="iconfont icon-tag"></i> <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a> <a class="hover-with-bg" href="/tags/C/">C++</a></span></p><p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p><div class="post-prevnext row"><div class="post-prev col-6"><a href="/2020/04/15/2020-04-15-美团点评一面【前端】/"><i class="fa fa-chevron-left"></i> <span class="hidden-mobile">2020.04.15 美团点评一面【前端】</span> <span class="visible-mobile">上一篇</span></a></div><div class="post-next col-6"><a href="/2020/04/10/Leetcode-151-翻转字符串里的单词【C-】/"><span class="hidden-mobile">Leetcode 151.翻转字符串里的单词【C++】</span> <span class="visible-mobile">下一篇</span> <i class="fa fa-chevron-right"></i></a></div></div></div><div class="comments" id="comments"><div id="vcomments"></div><script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script defer src="//unpkg.com/valine/dist/Valine.min.js"></script><script type="text/javascript">var notify=!1,verify=!1,oldLoad=window.onload;window.onload=function(){new Valine({el:"#vcomments",notify:notify,verify:verify,app_id:"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",app_key:"iNppU37sPwRdpmjgAsJ3dgnC",placeholder:"ヾﾉ≧∀≦)o来吖，快活吖!",avatar:"/retro",meta:["nick","mail","link"],pageSize:"10"}),oldLoad&&oldLoad()}</script><noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments powered by Valine.</a></noscript></div></div></div></div></div><div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn"><div id="toc-start"></div><div id="toc"><p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p><div id="tocbot"></div></div></div></div></div></main><a class="z-depth-1" id="scroll-top-button" href="#" role="button"><i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i></a><div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable modal-lg" role="document"><div class="modal-content"><div class="modal-header text-center"><h4 class="modal-title w-100 font-weight-bold">搜索</h4><button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body mx-3"><div class="md-form mb-5"><input type="text" id="local-search-input" class="form-control validate"> <label data-error="x" data-success="v" for="local-search-input">关键词</label></div><div class="list-group" id="local-search-result"></div></div></div></div></div><footer class="mt-5"><div class="text-center py-3"><div><a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><b>Fluid</b></a></div><div><span id="busuanzi_container_site_pv" style="display:none">总访问量 <span id="busuanzi_value_site_pv"></span> 次 </span><span id="busuanzi_container_site_uv" style="display:none">总访客数 <span id="busuanzi_value_site_uv"></span> 人</span></div></div></footer><script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script><script src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js"></script><script src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script><script src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js"></script><script src="/js/main.js"></script><script src="/js/lazyload.js"></script><script src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js"></script><script>$(document).ready(function(){var s=$("#navbar").height(),c=$("#toc"),t=$("#board-ctn"),o=t.offset().top,i=2*o+t.height();$(window).scroll(function(){var t=$("#toc-start").offset().top-s,o=document.body.scrollTop+document.documentElement.scrollTop;t<=o&&o<=i?c.css({display:"block",position:"fixed",top:s}):o<=t?c.css({position:"",top:""}):i<o&&c.css("display","none")}),tocbot.init({tocSelector:"#tocbot",contentSelector:".post-content",headingSelector:"h1,h2,h3,h4,h5,h6",linkClass:"tocbot-link",activeLinkClass:"tocbot-active-link",listClass:"tocbot-list",isCollapsedClass:"tocbot-is-collapsed",collapsibleClass:"tocbot-is-collapsible",scrollSmooth:!0,headingsOffset:-o}),0<$(".toc-list-item").length&&$("#toc > p").css("visibility","visible");var l=t.css("margin-right");$("#toc-ctn").css({right:l})})</script><script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script><script src="/js/clipboard-use.js"></script><script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js"></script><script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script defer>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><script src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js"></script><script>$(document).ready(function(){$("pre").addClass("prettyprint  linenums"),prettyPrint()})</script><script src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js"></script><script>var typed=new Typed("#subtitle",{strings:["  ","Leetcode 355.设计推特【C++】&nbsp;"],cursorChar:"_",typeSpeed:70,loop:!1});typed.stop(),$(document).ready(function(){$(".typed-cursor").addClass("h2"),typed.start()})</script><script src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js"></script><script>anchors.options = {
+}</code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                  <span>
+                <i class="iconfont icon-inbox"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Leetcode/">Leetcode</a>
+                      &nbsp;
+                    
+                  </span>&nbsp;&nbsp;
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/15/2020-04-15-美团点评一面【前端】/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span class="hidden-mobile">2020.04.15 美团点评一面【前端】</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/10/Leetcode-151-翻转字符串里的单词【C-】/">
+                        <span class="hidden-mobile">Leetcode 151.翻转字符串里的单词【C++】</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+                <!-- Comments -->
+                <div class="comments" id="comments">
+                  
+                  
+  <div id="vcomments"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script type="text/javascript">
+    var notify = 'false' === 'true';
+    var verify = 'false' === 'true';
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+        app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+        placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+        avatar: "/retro",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+      powered by Valine.</a></noscript>
+
+
+                </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Leetcode 355.设计推特【C++】&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
       placement: "right",
       visible: "hover",
       
@@ -150,4 +686,95 @@ vector&lt;int&gt; getNewsFeed(int userId) {
     for (item of el) {
       res.push(".markdown-body > " + item)
     }
-    anchors.add(res.join(", "))</script><script src="/js/local-search.js"></script><script>var path="/local-search.xml",inputArea=document.querySelector("#local-search-input");inputArea.onclick=function(){getSearchFile(path),this.onclick=null}</script><script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script><script>$("#post img:not(.no-zoom img, img[no-zoom])").each(function(){var t=document.createElement("a");$(t).attr("data-fancybox","images"),$(t).attr("href",$(this).attr("src")),$(this).wrap(t)})</script><script type="text/javascript">var a_idx=0;jQuery(document).ready(function(d){d("body").click(function(a){var o=new Array("富强","民主","文明","和谐","自由","平等","公正","法治","爱国","敬业","诚信","友善"),t=d("<span/>").text(o[a_idx]);a_idx=(a_idx+1)%o.length;var n=a.pageX,e=a.pageY;t.css({"z-index":999,top:e-20,left:n,position:"absolute","font-weight":"bold",color:"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}),d("body").append(t),t.animate({top:e-180,opacity:0},1500,function(){t.remove()})})})</script></body></html>
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+  
+    <script type="text/javascript">
+      //定义获取词语下标
+      var a_idx = 0;
+      jQuery(document).ready(function ($) {
+        //点击body时触发事件
+        $("body").click(function (e) {
+          //需要显示的词语
+          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+          //设置词语给span标签
+          var $i = $("<span/>").text(a[a_idx]);
+          //下标等于原来下标+1  余 词语总数
+          a_idx = (a_idx + 1) % a.length;
+          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
+          //获取x和y的指针坐标
+          var x = e.pageX, y = e.pageY;
+          //在鼠标的指针的位置给$i定义的span标签添加css样式
+          $i.css({
+            "z-index": 999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": rand_color()
+          });
+          // 随机颜色
+          function rand_color() {
+            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+          }
+          //在body添加这个标签
+          $("body").append($i);
+          //animate() 方法执行 CSS 属性集的自定义动画。
+          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
+          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
+          $i.animate({
+            //将原来的位置向上移动180
+            "top": y - 180,
+            "opacity": 0
+            //1500动画的速度
+          }, 1500, function () {
+            //时间到了自动删除
+            $i.remove();
+          });
+        });
+      })
+      ;
+    </script>
+  
+
+
+
+
+
+
+
+
+</body>
+</html>

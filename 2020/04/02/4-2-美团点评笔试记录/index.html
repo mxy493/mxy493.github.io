@@ -1,8 +1,222 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png"><link rel="icon" type="image/png" href="/img/devil.png"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="theme-color" content="#2f4154"><meta name="description" content><meta name="author" content="mxy"><meta name="keywords" content><title>4.2 美团点评笔试记录 - mxy</title><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css"><link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"><link rel="stylesheet" href="/css/main.css"><link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="/css/custom.css"></head><body><header style="height:70vh"><nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"><div class="container"><a class="navbar-brand" href="/">&nbsp;<strong>mxy</strong>&nbsp;</a> <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><div class="animated-icon"><span></span><span></span><span></span></div></button><div class="collapse navbar-collapse" id="navbarSupportedContent"><ul class="navbar-nav ml-auto text-center"><li class="nav-item"><a class="nav-link" href="/">首页</a></li><li class="nav-item"><a class="nav-link" href="/archives/">归档</a></li><li class="nav-item"><a class="nav-link" href="/categories/">分类</a></li><li class="nav-item"><a class="nav-link" href="/tags/">标签</a></li><li class="nav-item"><a class="nav-link" href="/about/">关于</a></li><li class="nav-item"><a class="nav-link" href="/links/">友链</a></li><li class="nav-item" id="search-btn"><a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i class="iconfont icon-search"></i>&nbsp;&nbsp;</a></li></ul></div></div></nav><div class="view intro-2" id="background" false style="background:url(/img/xqmy.png) no-repeat center center;background-size:cover"><div class="full-bg-img"><div class="mask rgba-black-light flex-center"><div class="container text-center white-text fadeInUp"><span class="h2" id="subtitle"></span><p class="mt-3 post-meta"><i class="fas fa-calendar-alt" aria-hidden="true"></i> 星期四, 四月 2日 2020, 9:12 晚上</p><p class="mt-1"><span class="post-meta"><i class="far fa-chart-bar"></i> 2.5k 字 </span><span class="post-meta"><i class="far fa-clock"></i> 10 分钟 </span><span id="busuanzi_container_page_pv" class="post-meta" style="display:none"><i class="far fa-eye" aria-hidden="true"></i> <span id="busuanzi_value_page_pv"></span> 次</span></p></div></div></div></div></header><main><div class="container-fluid"><div class="row"><div class="d-none d-lg-block col-lg-2"></div><div class="col-lg-8 nopadding-md"><div class="container nopadding-md" id="board-ctn"><div class="py-5 z-depth-3" id="board"><div class="post-content mx-auto" id="post"><p class="note note-warning">本文最后更新于：星期五, 四月 3日 2020, 7:02 晚上</p><div class="markdown-body"><p>几天前投了美团点评后端开发工程师的岗位，今晚七点到九点两个小时的笔试。</p><p>估计我已经没了😓五个编程题，就做出来无错误提交了一个……</p><p>笔试系统用的<a href="https://www.acmcoder.com" target="_blank" rel="noopener"><strong>赛码网</strong></a> ，可以提前刷点题适应一下。</p><p>以下解题思路以及代码只是我自己做的，不保证正确，如果存在错误还请指正！</p><h3 id="题目一：最少删除多少个数字"><a href="#题目一：最少删除多少个数字" class="headerlink" title="题目一：最少删除多少个数字"></a>题目一：最少删除多少个数字</h3><p><img src="exam1.png" srcset="/img/loading.gif" alt></p><h4 id="1-1-题目"><a href="#1-1-题目" class="headerlink" title="1.1 题目"></a>1.1 题目</h4><ul><li>时间限制：C/C++语言 1000MS；其他语言 3000MS</li><li>内存限制：C/C++语言 65536KB；其他语言 589824KB</li></ul><p><strong>题目描述：</strong></p><p>给出一个序列包含 n 个正整数的序列 <code>A</code>，你可以从中删除若干个数，使得剩下的数字中的最大值和最小值之差不超过 <code>x</code> ，请问最少删除多少个数字。</p><p><strong>输入：</strong></p><ul><li><p>输入第一行仅包含两个正整数n和x，表示给出的序列的长度和给定的正整数。<code>(1 &lt;= n &lt;= 1000,1 &lt;= x &lt;= 10000)</code></p></li><li><p>接下来一行有 n 个正整数，即这个序列，中间用空格隔开。<code>(1 &lt;= a[i] &lt;= 10000)</code></p></li></ul><p><strong>输出：</strong></p><p>输出仅包含一个正整数，表示最少删除的数字的数量。</p><pre><code>样例输入
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
+  <link rel="icon" type="image/png" href="/img/devil.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content>
+  <meta name="author" content="mxy">
+  <meta name="keywords" content>
+  <title>4.2 美团点评笔试记录 - mxy</title>
+
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
+
+
+<!-- 自定义样式保持在最底部 -->
+
+  <link rel="stylesheet" href="/css/custom.css">
+
+
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>mxy</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">友链</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" false
+         style="background: url('/img/xqmy.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期四, 四月 2日 2020, 9:12 晚上
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    2.5k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      10 分钟
+                  </span>
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
+                    <i class="far fa-eye" aria-hidden="true"></i>
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p
+                class="note note-warning">本文最后更新于：星期五, 四月 3日 2020, 7:02 晚上</p>
+            
+            <div class="markdown-body">
+              <p>几天前投了美团点评后端开发工程师的岗位，今晚七点到九点两个小时的笔试。</p>
+<p>估计我已经没了😓五个编程题，就做出来无错误提交了一个……</p>
+<p>笔试系统用的<a href="https://www.acmcoder.com" target="_blank" rel="noopener"><strong>赛码网</strong></a> ，可以提前刷点题适应一下。</p>
+<p>以下解题思路以及代码只是我自己做的，不保证正确，如果存在错误还请指正！</p>
+<h3 id="题目一：最少删除多少个数字"><a href="#题目一：最少删除多少个数字" class="headerlink" title="题目一：最少删除多少个数字"></a>题目一：最少删除多少个数字</h3><p><img src="exam1.png" srcset="/img/loading.gif" alt></p>
+<h4 id="1-1-题目"><a href="#1-1-题目" class="headerlink" title="1.1 题目"></a>1.1 题目</h4><ul>
+<li>时间限制：C/C++语言 1000MS；其他语言 3000MS</li>
+<li>内存限制：C/C++语言 65536KB；其他语言 589824KB</li>
+</ul>
+<p><strong>题目描述：</strong></p>
+<p>给出一个序列包含 n 个正整数的序列 <code>A</code>，你可以从中删除若干个数，使得剩下的数字中的最大值和最小值之差不超过 <code>x</code> ，请问最少删除多少个数字。</p>
+<p><strong>输入：</strong></p>
+<ul>
+<li><p>输入第一行仅包含两个正整数n和x，表示给出的序列的长度和给定的正整数。<code>(1 &lt;= n &lt;= 1000,1 &lt;= x &lt;= 10000)</code></p>
+</li>
+<li><p>接下来一行有 n 个正整数，即这个序列，中间用空格隔开。<code>(1 &lt;= a[i] &lt;= 10000)</code></p>
+</li>
+</ul>
+<p><strong>输出：</strong></p>
+<p>输出仅包含一个正整数，表示最少删除的数字的数量。</p>
+<pre><code>样例输入
 5 2
 2 1 3 2 5
 样例输出
-1</code></pre><p><strong>提示：</strong></p><ul><li>极端情况下，当删除到仅剩1个数时，最大值和最小值的差为0，故不会出现无解的情况。</li></ul><h4 id="1-2-解题思路"><a href="#1-2-解题思路" class="headerlink" title="1.2 解题思路"></a>1.2 解题思路</h4><p>笔试的时候写的有问题，更改过了不知道对不对~</p><p><strong>思路：</strong>先对数组排序，因为排序后的数组最小最大的数可以直接取到，要尽可能少的删除数字的话，肯定要么删除最大的数，要么删除最小的数，所以我写了一个递归，如果当前传入的有序数组已经满足最大的数与最小的数的差（<code>vec.back() - vec.front()</code>）不超过 <code>x</code> ，那么就结束递归返回 <code>0</code> ，否则返回 <code>1 + std::min(getMin(vec1, x), getMin(vec2, x))</code> 。</p><h4 id="1-3-代码"><a href="#1-3-代码" class="headerlink" title="1.3 代码"></a>1.3 代码</h4><pre><code class="c++">#include&lt;iostream&gt;
+1</code></pre><p><strong>提示：</strong></p>
+<ul>
+<li>极端情况下，当删除到仅剩1个数时，最大值和最小值的差为0，故不会出现无解的情况。</li>
+</ul>
+<h4 id="1-2-解题思路"><a href="#1-2-解题思路" class="headerlink" title="1.2 解题思路"></a>1.2 解题思路</h4><p>笔试的时候写的有问题，更改过了不知道对不对~</p>
+<p><strong>思路：</strong>先对数组排序，因为排序后的数组最小最大的数可以直接取到，要尽可能少的删除数字的话，肯定要么删除最大的数，要么删除最小的数，所以我写了一个递归，如果当前传入的有序数组已经满足最大的数与最小的数的差（<code>vec.back() - vec.front()</code>）不超过 <code>x</code> ，那么就结束递归返回 <code>0</code> ，否则返回 <code>1 + std::min(getMin(vec1, x), getMin(vec2, x))</code> 。</p>
+<h4 id="1-3-代码"><a href="#1-3-代码" class="headerlink" title="1.3 代码"></a>1.3 代码</h4><pre><code class="c++">#include&lt;iostream&gt;
 #include&lt;vector&gt;
 #include &lt;algorithm&gt;
 
@@ -45,14 +259,37 @@ int main() {
     ans = getMin(seq, x);
     std::cout &lt;&lt; ans;
     return 0;
-}</code></pre><h3 id="题目二：空间回廊"><a href="#题目二：空间回廊" class="headerlink" title="题目二：空间回廊"></a>题目二：空间回廊</h3><p><img src="exam2.png" srcset="/img/loading.gif" alt></p><h4 id="2-1-题目"><a href="#2-1-题目" class="headerlink" title="2.1 题目"></a>2.1 题目</h4><ul><li>时间限制：C/C++语言 1000MS；其他语言 3000MS</li><li>内存限制：C/C++语言 65536KB；其他语言 589824KB</li></ul><p><strong>题目描述：</strong></p><p>有一款叫做空间回廊的游戏，游戏中有着n个房间依次相连，如图，1号房间可以走到2号房间，以此类推，n 号房间可以走到1号房间。</p><p>这个游戏的最终目的是为了在这些房间中留下尽可能多的烙印，在每个房间里留下烙印所花费的法力值是不相同的，已知他共有 m 点法力值，这些法力是不可恢复的。</p><p>小明刚接触这款游戏，所以只会耿直的玩，所以他的每一个行动都是可以预料的：</p><ol><li>一开始小明位于1号房间。</li><li>如果他剩余的法力能在当前的房间中留下一个烙印，那么他就会毫不犹豫的花费法力值。</li><li>无论是否留下了烙印，下一个时刻他都会进入下一个房间，如果当前位于i房间，则会进入 i+1 房间，如果在 n 号房间则会进入 1 号房间。</li><li>当重复经过某一个房间时，可以再次留下烙印。</li></ol><p>很显然，这个游戏是会终止的，即剩余的法力值不能在任何房间留下烙印的时候，游戏终止。请问他共能留下多少个烙印。</p><p><strong>输入：</strong><br>输入第一行有两个正整数 n 和 m ，分别代表房间数量和小明拥有的法力值。<code>(1 &lt;= n &lt;= 100000,1 &lt;= m &lt;= 10^18)</code></p><p>输入第二行有 n 个正整数，分别代表1~n号房间留下烙印的法力值花费。<code>(1 &lt;= a[i] &lt;= 10^9)</code></p><p><strong>输出：</strong></p><p>输出仅包含一个整数，即最多能留下的烙印。</p><pre><code>样例输入
+}</code></pre>
+<h3 id="题目二：空间回廊"><a href="#题目二：空间回廊" class="headerlink" title="题目二：空间回廊"></a>题目二：空间回廊</h3><p><img src="exam2.png" srcset="/img/loading.gif" alt></p>
+<h4 id="2-1-题目"><a href="#2-1-题目" class="headerlink" title="2.1 题目"></a>2.1 题目</h4><ul>
+<li>时间限制：C/C++语言 1000MS；其他语言 3000MS</li>
+<li>内存限制：C/C++语言 65536KB；其他语言 589824KB</li>
+</ul>
+<p><strong>题目描述：</strong></p>
+<p>有一款叫做空间回廊的游戏，游戏中有着n个房间依次相连，如图，1号房间可以走到2号房间，以此类推，n 号房间可以走到1号房间。</p>
+<p>这个游戏的最终目的是为了在这些房间中留下尽可能多的烙印，在每个房间里留下烙印所花费的法力值是不相同的，已知他共有 m 点法力值，这些法力是不可恢复的。</p>
+<p>小明刚接触这款游戏，所以只会耿直的玩，所以他的每一个行动都是可以预料的：</p>
+<ol>
+<li>一开始小明位于1号房间。</li>
+<li>如果他剩余的法力能在当前的房间中留下一个烙印，那么他就会毫不犹豫的花费法力值。</li>
+<li>无论是否留下了烙印，下一个时刻他都会进入下一个房间，如果当前位于i房间，则会进入 i+1 房间，如果在 n 号房间则会进入 1 号房间。</li>
+<li>当重复经过某一个房间时，可以再次留下烙印。</li>
+</ol>
+<p>很显然，这个游戏是会终止的，即剩余的法力值不能在任何房间留下烙印的时候，游戏终止。请问他共能留下多少个烙印。</p>
+<p><strong>输入：</strong><br>输入第一行有两个正整数 n 和 m ，分别代表房间数量和小明拥有的法力值。<code>(1 &lt;= n &lt;= 100000,1 &lt;= m &lt;= 10^18)</code></p>
+<p>输入第二行有 n 个正整数，分别代表1~n号房间留下烙印的法力值花费。<code>(1 &lt;= a[i] &lt;= 10^9)</code></p>
+<p><strong>输出：</strong></p>
+<p>输出仅包含一个整数，即最多能留下的烙印。</p>
+<pre><code>样例输入
 4 21
 2 1 4 3
 样例输出
 9
 
 样例解释：
-显然是所有房间都留下两个烙印，然后剩下1点法力值，仅能在2号房间再留下一个烙印.</code></pre><h4 id="2-2-解题思路"><a href="#2-2-解题思路" class="headerlink" title="2.2 解题思路"></a>2.2 解题思路</h4><p>这题挺像约瑟夫环问题的，所以思路倒是很好想到，只要循环遍历数组，如果剩下的法力值不少于当前房间要消耗的法力值，就减掉当前房间要消耗的法力值，同时烙印数+1。</p><p>跳出循环的条件是，没有足够的法力值可以消耗了，也就是剩下的法力值都不够在消耗法力最少的房间花费了。所以在传入数组的时候就定义了一个 <code>min</code> 用以保存最少需要花费的法力，只要剩下的法力小于 <code>min</code> 就可以跳出循环。</p><h4 id="2-3-代码"><a href="#2-3-代码" class="headerlink" title="2.3 代码"></a>2.3 代码</h4><pre><code class="c++">#include&lt;iostream&gt;
+显然是所有房间都留下两个烙印，然后剩下1点法力值，仅能在2号房间再留下一个烙印.</code></pre><h4 id="2-2-解题思路"><a href="#2-2-解题思路" class="headerlink" title="2.2 解题思路"></a>2.2 解题思路</h4><p>这题挺像约瑟夫环问题的，所以思路倒是很好想到，只要循环遍历数组，如果剩下的法力值不少于当前房间要消耗的法力值，就减掉当前房间要消耗的法力值，同时烙印数+1。</p>
+<p>跳出循环的条件是，没有足够的法力值可以消耗了，也就是剩下的法力值都不够在消耗法力最少的房间花费了。所以在传入数组的时候就定义了一个 <code>min</code> 用以保存最少需要花费的法力，只要剩下的法力小于 <code>min</code> 就可以跳出循环。</p>
+<h4 id="2-3-代码"><a href="#2-3-代码" class="headerlink" title="2.3 代码"></a>2.3 代码</h4><pre><code class="c++">#include&lt;iostream&gt;
 #include&lt;vector&gt;
 
 int main() {
@@ -79,7 +316,27 @@ int main() {
     }
     std::cout &lt;&lt; ans;
     return 0;
-}</code></pre><h3 id="题目三：小仓的射击练习4"><a href="#题目三：小仓的射击练习4" class="headerlink" title="题目三：小仓的射击练习4"></a>题目三：小仓的射击练习4</h3><p><img src="exam3.png" srcset="/img/loading.gif" alt></p><h4 id="3-1-题目"><a href="#3-1-题目" class="headerlink" title="3.1 题目"></a>3.1 题目</h4><ul><li>时间限制：C/C++语言 1000MS；其他语言 3000MS</li><li>内存限制：C/C++语言 65536KB；其他语言 589824KB</li></ul><p><strong>题目描述：</strong></p><p>小仓酷爱射击运动。今天的小仓想挑战自我。小仓有 N 颗子弹，接下来小仓每次会自由选择 K 颗子弹进行连续射击，全中靶心的概率为 <code>p[k]</code> 。如果成功小仓将获得 <code>a[k]</code> 的得分，并且可以使用余下子弹继续射击，否则今天的挑战结束。小仓想知道在最佳策略下，自己能得到的最高期望分数是多少。</p><p><strong>输入：</strong></p><ul><li>第一行一个数N，代表子弹数量。</li><li>第二行N个数p[]，第 i 个数代表p[i]。</li><li>第三行N个数a[]，第 i 个数代表a[i]。</li><li>1&lt;=N&lt;=5000 0&lt;=p[i]&lt;=1 0&lt;=a[i]&lt;=1000</li></ul><p><strong>输出：</strong></p><ul><li>一个数表示最高期望得分，保留两位小数。</li></ul><p><strong>示例1：</strong></p><pre><code>样例输入
+}</code></pre>
+<h3 id="题目三：小仓的射击练习4"><a href="#题目三：小仓的射击练习4" class="headerlink" title="题目三：小仓的射击练习4"></a>题目三：小仓的射击练习4</h3><p><img src="exam3.png" srcset="/img/loading.gif" alt></p>
+<h4 id="3-1-题目"><a href="#3-1-题目" class="headerlink" title="3.1 题目"></a>3.1 题目</h4><ul>
+<li>时间限制：C/C++语言 1000MS；其他语言 3000MS</li>
+<li>内存限制：C/C++语言 65536KB；其他语言 589824KB</li>
+</ul>
+<p><strong>题目描述：</strong></p>
+<p>小仓酷爱射击运动。今天的小仓想挑战自我。小仓有 N 颗子弹，接下来小仓每次会自由选择 K 颗子弹进行连续射击，全中靶心的概率为 <code>p[k]</code> 。如果成功小仓将获得 <code>a[k]</code> 的得分，并且可以使用余下子弹继续射击，否则今天的挑战结束。小仓想知道在最佳策略下，自己能得到的最高期望分数是多少。</p>
+<p><strong>输入：</strong></p>
+<ul>
+<li>第一行一个数N，代表子弹数量。</li>
+<li>第二行N个数p[]，第 i 个数代表p[i]。</li>
+<li>第三行N个数a[]，第 i 个数代表a[i]。</li>
+<li>1&lt;=N&lt;=5000 0&lt;=p[i]&lt;=1 0&lt;=a[i]&lt;=1000</li>
+</ul>
+<p><strong>输出：</strong></p>
+<ul>
+<li>一个数表示最高期望得分，保留两位小数。</li>
+</ul>
+<p><strong>示例1：</strong></p>
+<pre><code>样例输入
 2
 0.80 0.50
 1 2
@@ -89,22 +346,375 @@ int main() {
 样例1解释
 选择用一颗子弹射击：如果命中则再用余下子弹射击（仅剩一颗子弹故只能选择一颗）：0.80 * 1 + 0.80 * 0.80 * 1= 1.44
 选择用两颗子弹射击：0.5 * 2 = 1.00
-此时最高期望得分为1.44</code></pre><p><strong>示例2：</strong></p><pre><code>输入样例2
+此时最高期望得分为1.44</code></pre><p><strong>示例2：</strong></p>
+<pre><code>输入样例2
 3
 0.90 0.10 0.10
 2 1 1
 输出样例2
 4.88
 
-选择用一颗子弹射击：如果命中则再用一颗子弹进行射击，如果命中则再用一颗子弹进行射击（即3轮均使用了一颗子弹进行）：0.90 * 2 + 0.90 * 0.90 * 2+0.90 * 0.90 * 0.90 * 2= 4.878≈4.88 此种情况的期望得分最高，故为4.88</code></pre><h4 id="3-2-解题思路"><a href="#3-2-解题思路" class="headerlink" title="3.2 解题思路"></a>3.2 解题思路</h4><p>绝了，概率也不行，动态规划也不行……</p><h4 id="3-3-代码"><a href="#3-3-代码" class="headerlink" title="3.3 代码"></a>3.3 代码</h4><pre><code></code></pre><h3 id="题目四：拆分"><a href="#题目四：拆分" class="headerlink" title="题目四：拆分"></a>题目四：拆分</h3><p><img src="exam4.png" srcset="/img/loading.gif" alt></p><h4 id="4-1-题目"><a href="#4-1-题目" class="headerlink" title="4.1 题目"></a>4.1 题目</h4><ul><li>时间限制：C/C++语言 1000MS；其他语言 3000MS</li><li>内存限制：C/C++语言 65536KB；其他语言 589824KB</li></ul><p><strong>题目描述：</strong></p><p>给定长度为n的串S，仅包含小写字母。定义：</p><p>公式中，|A|代表字符串A的长度。</p><p>也就是说如果子串是一个 ABA 型的字符串，且满足长度限制，则f(l,r)=1，否则等于0。（注意：形如 “ababab” 也可视为 ABA 型）</p><p>例如当n=2时，原式为 f(1,1)+f(1,2)+f(2,2) 。</p><p><strong>输入：</strong></p><ul><li>第一行一个字符串S</li><li>第二行一个数字k</li></ul><p><strong>输出：</strong></p><ul><li>输出题目描述中式子的值</li></ul><p><strong>示例：</strong></p><pre><code>样例输入
+选择用一颗子弹射击：如果命中则再用一颗子弹进行射击，如果命中则再用一颗子弹进行射击（即3轮均使用了一颗子弹进行）：0.90 * 2 + 0.90 * 0.90 * 2+0.90 * 0.90 * 0.90 * 2= 4.878≈4.88 此种情况的期望得分最高，故为4.88</code></pre><h4 id="3-2-解题思路"><a href="#3-2-解题思路" class="headerlink" title="3.2 解题思路"></a>3.2 解题思路</h4><p>绝了，概率也不行，动态规划也不行……</p>
+<h4 id="3-3-代码"><a href="#3-3-代码" class="headerlink" title="3.3 代码"></a>3.3 代码</h4><pre><code></code></pre><h3 id="题目四：拆分"><a href="#题目四：拆分" class="headerlink" title="题目四：拆分"></a>题目四：拆分</h3><p><img src="exam4.png" srcset="/img/loading.gif" alt></p>
+<h4 id="4-1-题目"><a href="#4-1-题目" class="headerlink" title="4.1 题目"></a>4.1 题目</h4><ul>
+<li>时间限制：C/C++语言 1000MS；其他语言 3000MS</li>
+<li>内存限制：C/C++语言 65536KB；其他语言 589824KB</li>
+</ul>
+<p><strong>题目描述：</strong></p>
+<p>给定长度为n的串S，仅包含小写字母。定义：</p>
+<p>公式中，|A|代表字符串A的长度。</p>
+<p>也就是说如果子串是一个 ABA 型的字符串，且满足长度限制，则f(l,r)=1，否则等于0。（注意：形如 “ababab” 也可视为 ABA 型）</p>
+<p>例如当n=2时，原式为 f(1,1)+f(1,2)+f(2,2) 。</p>
+<p><strong>输入：</strong></p>
+<ul>
+<li>第一行一个字符串S</li>
+<li>第二行一个数字k</li>
+</ul>
+<p><strong>输出：</strong></p>
+<ul>
+<li>输出题目描述中式子的值</li>
+</ul>
+<p><strong>示例：</strong></p>
+<pre><code>样例输入
 abcabcabc
 2
 样例输出
-8</code></pre><p><strong>提示</strong></p><ul><li><code>1 &lt;= n &lt;= 2000</code> ，<code>S[i]</code> 为小写字母</li></ul><p><strong>样例解释：</strong></p><p>在这个字符串中，有 <code>f(1,5),f(1,8),f(1,9),f(2,6),f(2,9),f(3,7),f(4,8),f(5,9)</code> 的值为 <code>1</code>，其他为 <code>0</code> ，故和为 <code>8</code> 。以 <code>f(1,5)</code> 为例，选择的子串是 <code>abcab</code>，令 <code>A=“ab”</code> ，<code>B=“c”</code> ，则 <code>|A|&gt;=k</code> 且 <code>|B|&gt;=1</code> ，因此 <code>f(1,5)</code> 等于 <code>1</code> ，以此类推。</p><h4 id="4-2-解题思路"><a href="#4-2-解题思路" class="headerlink" title="4.2 解题思路"></a>4.2 解题思路</h4><h4 id="4-3-代码"><a href="#4-3-代码" class="headerlink" title="4.3 代码"></a>4.3 代码</h4><pre><code></code></pre><h3 id="题目五：max-xor-min"><a href="#题目五：max-xor-min" class="headerlink" title="题目五：max xor min"></a>题目五：max xor min</h3><p><img src="exam5.png" srcset="/img/loading.gif" alt></p><h4 id="5-1-题目"><a href="#5-1-题目" class="headerlink" title="5.1 题目"></a>5.1 题目</h4><ul><li>时间限制：C/C++语言 1000MS；其他语言 3000MS</li><li>内存限制：C/C++语言 65536KB；其他语言 589824KB</li></ul><p><strong>题目描述：</strong></p><p>给你一个长度为n的序列 <code>a</code>，请你求出对每一个 <code>1&lt;=l&lt;r&lt;=n</code> 的区间中最大值和最小值的异或和的异或和。</p><p>例如序列为 <code>{1,3,5}</code> ,不同的 <code>a(1,2)=1^3,a(1,3)=1^5,a(2,3)=(3^5),a(1,2)^a(1,3)^a(2,3)=0</code> ，所以最后的答案是 <code>0</code> 。</p><p><strong>输入：</strong></p><ul><li>输入第一行仅包含一个正整数n，表示序列的长度。<code>(1&lt;=n&lt;=10^5)</code></li><li>接下来一行有n个正整数a_i，表示序列a。<code>(1&lt;=a_i&lt;=10^9)</code></li></ul><p><strong>输出：</strong></p><ul><li>输出仅包含一个整数表示所求的答案。</li></ul><pre><code>样例输入
+8</code></pre><p><strong>提示</strong></p>
+<ul>
+<li><code>1 &lt;= n &lt;= 2000</code> ，<code>S[i]</code> 为小写字母</li>
+</ul>
+<p><strong>样例解释：</strong></p>
+<p>在这个字符串中，有 <code>f(1,5),f(1,8),f(1,9),f(2,6),f(2,9),f(3,7),f(4,8),f(5,9)</code> 的值为 <code>1</code>，其他为 <code>0</code> ，故和为 <code>8</code> 。以 <code>f(1,5)</code> 为例，选择的子串是 <code>abcab</code>，令 <code>A=“ab”</code> ，<code>B=“c”</code> ，则 <code>|A|&gt;=k</code> 且 <code>|B|&gt;=1</code> ，因此 <code>f(1,5)</code> 等于 <code>1</code> ，以此类推。</p>
+<h4 id="4-2-解题思路"><a href="#4-2-解题思路" class="headerlink" title="4.2 解题思路"></a>4.2 解题思路</h4><h4 id="4-3-代码"><a href="#4-3-代码" class="headerlink" title="4.3 代码"></a>4.3 代码</h4><pre><code></code></pre><h3 id="题目五：max-xor-min"><a href="#题目五：max-xor-min" class="headerlink" title="题目五：max xor min"></a>题目五：max xor min</h3><p><img src="exam5.png" srcset="/img/loading.gif" alt></p>
+<h4 id="5-1-题目"><a href="#5-1-题目" class="headerlink" title="5.1 题目"></a>5.1 题目</h4><ul>
+<li>时间限制：C/C++语言 1000MS；其他语言 3000MS</li>
+<li>内存限制：C/C++语言 65536KB；其他语言 589824KB</li>
+</ul>
+<p><strong>题目描述：</strong></p>
+<p>给你一个长度为n的序列 <code>a</code>，请你求出对每一个 <code>1&lt;=l&lt;r&lt;=n</code> 的区间中最大值和最小值的异或和的异或和。</p>
+<p>例如序列为 <code>{1,3,5}</code> ,不同的 <code>a(1,2)=1^3,a(1,3)=1^5,a(2,3)=(3^5),a(1,2)^a(1,3)^a(2,3)=0</code> ，所以最后的答案是 <code>0</code> 。</p>
+<p><strong>输入：</strong></p>
+<ul>
+<li>输入第一行仅包含一个正整数n，表示序列的长度。<code>(1&lt;=n&lt;=10^5)</code></li>
+<li>接下来一行有n个正整数a_i，表示序列a。<code>(1&lt;=a_i&lt;=10^9)</code></li>
+</ul>
+<p><strong>输出：</strong></p>
+<ul>
+<li>输出仅包含一个整数表示所求的答案。</li>
+</ul>
+<pre><code>样例输入
 3
 1 3 5
 样例输出
-0</code></pre><h4 id="5-2-解题思路"><a href="#5-2-解题思路" class="headerlink" title="5.2 解题思路"></a>5.2 解题思路</h4><h4 id="5-3-代码"><a href="#5-3-代码" class="headerlink" title="5.3 代码"></a>5.3 代码</h4><pre><code></code></pre></div><hr><div><p><span><i class="iconfont icon-tag"></i> <a class="hover-with-bg" href="/tags/笔经/">笔经</a></span></p><p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p><div class="post-prevnext row"><div class="post-prev col-6"><a href="/2020/04/02/Leetcode-289-生命游戏【C-】/"><i class="fa fa-chevron-left"></i> <span class="hidden-mobile">Leetcode 289.生命游戏【C++】</span> <span class="visible-mobile">上一篇</span></a></div><div class="post-next col-6"><a href="/2020/04/01/Leetcode-1111-有效括号的嵌套深度【C-】/"><span class="hidden-mobile">Leetcode 1111.有效括号的嵌套深度【C++】</span> <span class="visible-mobile">下一篇</span> <i class="fa fa-chevron-right"></i></a></div></div></div><div class="comments" id="comments"><div id="vcomments"></div><script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script defer src="//unpkg.com/valine/dist/Valine.min.js"></script><script type="text/javascript">var notify=!1,verify=!1,oldLoad=window.onload;window.onload=function(){new Valine({el:"#vcomments",notify:notify,verify:verify,app_id:"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",app_key:"iNppU37sPwRdpmjgAsJ3dgnC",placeholder:"ヾﾉ≧∀≦)o来吖，快活吖!",avatar:"/retro",meta:["nick","mail","link"],pageSize:"10"}),oldLoad&&oldLoad()}</script><noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments powered by Valine.</a></noscript></div></div></div></div></div><div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn"><div id="toc-start"></div><div id="toc"><p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p><div id="tocbot"></div></div></div></div></div></main><a class="z-depth-1" id="scroll-top-button" href="#" role="button"><i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i></a><div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable modal-lg" role="document"><div class="modal-content"><div class="modal-header text-center"><h4 class="modal-title w-100 font-weight-bold">搜索</h4><button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body mx-3"><div class="md-form mb-5"><input type="text" id="local-search-input" class="form-control validate"> <label data-error="x" data-success="v" for="local-search-input">关键词</label></div><div class="list-group" id="local-search-result"></div></div></div></div></div><footer class="mt-5"><div class="text-center py-3"><div><a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><b>Fluid</b></a></div><div><span id="busuanzi_container_site_pv" style="display:none">总访问量 <span id="busuanzi_value_site_pv"></span> 次 </span><span id="busuanzi_container_site_uv" style="display:none">总访客数 <span id="busuanzi_value_site_uv"></span> 人</span></div></div></footer><script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script><script src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js"></script><script src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script><script src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js"></script><script src="/js/main.js"></script><script src="/js/lazyload.js"></script><script src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js"></script><script>$(document).ready(function(){var s=$("#navbar").height(),c=$("#toc"),t=$("#board-ctn"),o=t.offset().top,i=2*o+t.height();$(window).scroll(function(){var t=$("#toc-start").offset().top-s,o=document.body.scrollTop+document.documentElement.scrollTop;t<=o&&o<=i?c.css({display:"block",position:"fixed",top:s}):o<=t?c.css({position:"",top:""}):i<o&&c.css("display","none")}),tocbot.init({tocSelector:"#tocbot",contentSelector:".post-content",headingSelector:"h1,h2,h3,h4,h5,h6",linkClass:"tocbot-link",activeLinkClass:"tocbot-active-link",listClass:"tocbot-list",isCollapsedClass:"tocbot-is-collapsed",collapsibleClass:"tocbot-is-collapsible",scrollSmooth:!0,headingsOffset:-o}),0<$(".toc-list-item").length&&$("#toc > p").css("visibility","visible");var l=t.css("margin-right");$("#toc-ctn").css({right:l})})</script><script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script><script src="/js/clipboard-use.js"></script><script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js"></script><script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script defer>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><script src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js"></script><script>$(document).ready(function(){$("pre").addClass("prettyprint  linenums"),prettyPrint()})</script><script src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js"></script><script>var typed=new Typed("#subtitle",{strings:["  ","4.2 美团点评笔试记录&nbsp;"],cursorChar:"_",typeSpeed:70,loop:!1});typed.stop(),$(document).ready(function(){$(".typed-cursor").addClass("h2"),typed.start()})</script><script src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js"></script><script>anchors.options = {
+0</code></pre><h4 id="5-2-解题思路"><a href="#5-2-解题思路" class="headerlink" title="5.2 解题思路"></a>5.2 解题思路</h4><h4 id="5-3-代码"><a href="#5-3-代码" class="headerlink" title="5.3 代码"></a>5.3 代码</h4><pre><code></code></pre>
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/笔经/">笔经</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/02/Leetcode-289-生命游戏【C-】/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span class="hidden-mobile">Leetcode 289.生命游戏【C++】</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/01/Leetcode-1111-有效括号的嵌套深度【C-】/">
+                        <span class="hidden-mobile">Leetcode 1111.有效括号的嵌套深度【C++】</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+                <!-- Comments -->
+                <div class="comments" id="comments">
+                  
+                  
+  <div id="vcomments"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script type="text/javascript">
+    var notify = 'false' === 'true';
+    var verify = 'false' === 'true';
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+        app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+        placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+        avatar: "/retro",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+      powered by Valine.</a></noscript>
+
+
+                </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "4.2 美团点评笔试记录&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
       placement: "right",
       visible: "hover",
       
@@ -114,4 +724,95 @@ abcabcabc
     for (item of el) {
       res.push(".markdown-body > " + item)
     }
-    anchors.add(res.join(", "))</script><script src="/js/local-search.js"></script><script>var path="/local-search.xml",inputArea=document.querySelector("#local-search-input");inputArea.onclick=function(){getSearchFile(path),this.onclick=null}</script><script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script><script>$("#post img:not(.no-zoom img, img[no-zoom])").each(function(){var t=document.createElement("a");$(t).attr("data-fancybox","images"),$(t).attr("href",$(this).attr("src")),$(this).wrap(t)})</script><script type="text/javascript">var a_idx=0;jQuery(document).ready(function(d){d("body").click(function(a){var o=new Array("富强","民主","文明","和谐","自由","平等","公正","法治","爱国","敬业","诚信","友善"),t=d("<span/>").text(o[a_idx]);a_idx=(a_idx+1)%o.length;var n=a.pageX,e=a.pageY;t.css({"z-index":999,top:e-20,left:n,position:"absolute","font-weight":"bold",color:"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}),d("body").append(t),t.animate({top:e-180,opacity:0},1500,function(){t.remove()})})})</script></body></html>
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+  
+    <script type="text/javascript">
+      //定义获取词语下标
+      var a_idx = 0;
+      jQuery(document).ready(function ($) {
+        //点击body时触发事件
+        $("body").click(function (e) {
+          //需要显示的词语
+          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+          //设置词语给span标签
+          var $i = $("<span/>").text(a[a_idx]);
+          //下标等于原来下标+1  余 词语总数
+          a_idx = (a_idx + 1) % a.length;
+          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
+          //获取x和y的指针坐标
+          var x = e.pageX, y = e.pageY;
+          //在鼠标的指针的位置给$i定义的span标签添加css样式
+          $i.css({
+            "z-index": 999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": rand_color()
+          });
+          // 随机颜色
+          function rand_color() {
+            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+          }
+          //在body添加这个标签
+          $("body").append($i);
+          //animate() 方法执行 CSS 属性集的自定义动画。
+          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
+          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
+          $i.animate({
+            //将原来的位置向上移动180
+            "top": y - 180,
+            "opacity": 0
+            //1500动画的速度
+          }, 1500, function () {
+            //时间到了自动删除
+            $i.remove();
+          });
+        });
+      })
+      ;
+    </script>
+  
+
+
+
+
+
+
+
+
+</body>
+</html>
