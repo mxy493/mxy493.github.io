@@ -16,7 +16,7 @@
   <meta name="description" content>
   <meta name="author" content="mxy">
   <meta name="keywords" content>
-  <title>归档 - mxy</title>
+  <title>使用jQuery on()方法绑定动态添加的元素 - mxy</title>
 
   <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
@@ -42,7 +42,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -128,6 +128,40 @@
             </span>
 
             
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期二, 五月 5日 2020, 10:59 晚上
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    316 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      1 分钟
+                  </span>
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
+                    <i class="far fa-eye" aria-hidden="true"></i>
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>
+                
+              </p>
+            
           </div>
 
           
@@ -138,49 +172,129 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 98 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2019</p>
-    
-    <a href="/2019/04/12/Connecting-to-GitHub-with-SSH/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Connecting to GitHub with SSH</span>
-      <span style="float: right;">04-12</span>
-    </a>
-  
-    
-    <a href="/2019/04/09/Ubuntu通过Deepin-wine-for-Ubuntu安装QQ、微信/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Ubuntu通过Deepin wine for Ubuntu安装QQ、微信</span>
-      <span style="float: right;">04-09</span>
-    </a>
-  
-    
-    <a href="/2019/04/08/Ubuntu安装WPS（解决字体缺失问题）/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Ubuntu安装WPS（解决字体缺失问题）</span>
-      <span style="float: right;">04-08</span>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p
+                class="note note-warning">本文最后更新于：星期二, 五月 5日 2020, 11:01 晚上</p>
+            
+            <div class="markdown-body">
+              <p>关于 jQuery <code>on()</code> 方法的 API 文档：<a href="https://api.jquery.com/on/" target="_blank" rel="noopener">https://api.jquery.com/on/</a></p>
+<pre><code>.on( events [, selector ] [, data ], handler )</code></pre><p>网页往往需要根据服务器返回的数据动态的添加HTML元素，但是动态添加的HTML元素用常规方法绑定事件往往没有效果。</p>
+<p>可以使用 jQuery 的 <code>on()</code> 方法进行动态绑定，使用起来很简单，网上也有很多这个方法的使用说明，但是我觉得网上的都没有把最重要的问题说清楚。</p>
+<p>实际使用的代码大概是这样的：</p>
+<pre><code>$(&quot;#parent&quot;).on(&quot;click&quot;, &quot;#child&quot;, function(){
+    ......
+}</code></pre><p>其中最重要的是两个选择器 <code>$(&quot;#parent&quot;)</code> 和 <code>&quot;#child&quot;</code> 。</p>
+<p>前面的选择器是选择一个父元素，注意是要动态添加的元素的父元素，我的理解是，只要能保证这个父元素不受动态添加的元素的影响即可，比如说你可以直接将其设置为 <code>$(&quot;body&quot;)</code> 。</p>
+<p>后面的 <code>&quot;#child&quot;</code> 才是要绑定事件的元素，比如说动态添加了一个 <code>&lt;button id=&quot;btn&quot;&gt;确定&lt;/button&gt;</code> 按钮，要绑定这个动态添加的 <code>button</code> 的点击事件，就应该将后面的选择器设置为 <code>&quot;#btn&quot;</code> 。</p>
 
-
-              </div>
             </div>
+            <hr>
+            <div>
+              <p>
+                
+                  <span>
+                <i class="iconfont icon-inbox"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/前端/">前端</a>
+                      &nbsp;
+                    
+                  </span>&nbsp;&nbsp;
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/jQuery/">jQuery</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/28/Leetcode-面试题56-I-数组中数字出现的次数【C-】/">
+                        <span class="hidden-mobile">Leetcode 面试题56 - I.数组中数字出现的次数【C++】</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+                <!-- Comments -->
+                <div class="comments" id="comments">
+                  
+                  
+  <div id="vcomments"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script type="text/javascript">
+    var notify = 'false' === 'true';
+    var verify = 'false' === 'true';
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+        app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+        placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+        avatar: "/retro",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+      powered by Valine.</a></noscript>
+
+
+                </div>
+              
           </div>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -268,6 +382,59 @@
 
 
 
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
@@ -327,7 +494,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "使用jQuery on()方法绑定动态添加的元素&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>使用jQuery on()方法绑定动态添加的元素</title>
+    <link href="/2020/05/05/%E4%BD%BF%E7%94%A8jQuery-on-%E6%96%B9%E6%B3%95%E7%BB%91%E5%AE%9A%E5%8A%A8%E6%80%81%E6%B7%BB%E5%8A%A0%E7%9A%84%E5%85%83%E7%B4%A0/"/>
+    <url>/2020/05/05/%E4%BD%BF%E7%94%A8jQuery-on-%E6%96%B9%E6%B3%95%E7%BB%91%E5%AE%9A%E5%8A%A8%E6%80%81%E6%B7%BB%E5%8A%A0%E7%9A%84%E5%85%83%E7%B4%A0/</url>
+    
+    <content type="html"><![CDATA[<p>关于 jQuery <code>on()</code> 方法的 API 文档：<a href="https://api.jquery.com/on/" target="_blank" rel="noopener">https://api.jquery.com/on/</a></p><pre><code>.on( events [, selector ] [, data ], handler )</code></pre><p>网页往往需要根据服务器返回的数据动态的添加HTML元素，但是动态添加的HTML元素用常规方法绑定事件往往没有效果。</p><p>可以使用 jQuery 的 <code>on()</code> 方法进行动态绑定，使用起来很简单，网上也有很多这个方法的使用说明，但是我觉得网上的都没有把最重要的问题说清楚。</p><p>实际使用的代码大概是这样的：</p><pre><code>$(&quot;#parent&quot;).on(&quot;click&quot;, &quot;#child&quot;, function(){    ......}</code></pre><p>其中最重要的是两个选择器 <code>$(&quot;#parent&quot;)</code> 和 <code>&quot;#child&quot;</code> 。</p><p>前面的选择器是选择一个父元素，注意是要动态添加的元素的父元素，我的理解是，只要能保证这个父元素不受动态添加的元素的影响即可，比如说你可以直接将其设置为 <code>$(&quot;body&quot;)</code> 。</p><p>后面的 <code>&quot;#child&quot;</code> 才是要绑定事件的元素，比如说动态添加了一个 <code>&lt;button id=&quot;btn&quot;&gt;确定&lt;/button&gt;</code> 按钮，要绑定这个动态添加的 <code>button</code> 的点击事件，就应该将后面的选择器设置为 <code>&quot;#btn&quot;</code> 。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>jQuery</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Leetcode 面试题56 - I.数组中数字出现的次数【C++】</title>
     <link href="/2020/04/28/Leetcode-%E9%9D%A2%E8%AF%95%E9%A2%9856-I-%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%E3%80%90C-%E3%80%91/"/>
     <url>/2020/04/28/Leetcode-%E9%9D%A2%E8%AF%95%E9%A2%9856-I-%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%E3%80%90C-%E3%80%91/</url>
