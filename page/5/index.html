@@ -156,6 +156,56 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2020/03/13/Leetcode-169-多数元素【C-】/">
+        <p class="h4 index-header">Leetcode 169.多数元素【C++】</p>
+      </a>
+
+      <a href="/2020/03/13/Leetcode-169-多数元素【C-】/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+地址：https://leetcode-cn.com/problems/majority-element
+
+题目给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。
+你可以假设数组是非空的，并且给定的数组总是存在多数元素。
+示例 1:
+输入: [3,2,3]
+输出: 3示例 2:
+输入: [2,2,1,1,1,2,2]
+输出: 2解题思路思路很简单，就是遍历数组记录每一个元素的个数，由于最终是要返回元素，所以需要将元素和其个数成对保存，我使用了 vector&lt;pair&lt;int, int&gt;&gt; 的数组来存储。
+遍历数组</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-13&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
+          
+            <a href="/tags/C/">C++</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
       <a href="/2020/03/12/Leetcode-1071-字符串的最大公因子【C-】/">
         <p class="h4 index-header">Leetcode 1071.字符串的最大公因子【C++】</p>
       </a>
@@ -577,69 +627,6 @@ public:
 输出: 2
 说明: 8 的平方根是 2.82842...，由于返回类型是整数，小数部分将被舍去。解题思路采用二分法求解。
 平方根一定是 &gt;= 0 的，则 low 取初始值为0；平方根不大于这个数的一半再+1，所以 up 取初始值为 x / 2.0 + 1.0，然后两头向中间逼近。题目</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/07/Leetcode-70-爬楼梯【C-】/">
-        <p class="h4 index-header">Leetcode 70.爬楼梯【C++】</p>
-      </a>
-
-      <a href="/2020/03/07/Leetcode-70-爬楼梯【C-】/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
-地址：
-
-题目假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
-每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
-注意：给定 n 是一个正整数。
-示例 1：
-输入：2
-输出：2
-解释：有两种方法可以爬到楼顶。
-1. 1 阶 + 1 阶
-2. 1 阶示例 2：
-输入：3
-输出：3
-解释：有三种方法可以爬到楼顶。
-1. 1 阶 + 1 阶 + 1 阶
-2. 1 阶 + 2 阶
-3. 2 阶 + 1 阶解题思路参考官方题解，采用动态规划法。
-第 i 阶可以由以下两种方法得到：
-
-在第 (i - 1) 阶后向上爬 1 阶；
-在第 (i - 2) 阶后向上爬 2 阶。
-
-所以，只要</div>
         </div>
       </a>
 
