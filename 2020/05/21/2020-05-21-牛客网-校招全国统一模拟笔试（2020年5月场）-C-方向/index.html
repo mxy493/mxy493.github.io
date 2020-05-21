@@ -16,7 +16,7 @@
   <meta name="description" content>
   <meta name="author" content="mxy">
   <meta name="keywords" content>
-  <title>2020.05.11 字节跳动笔试题目:记事本程序 - mxy</title>
+  <title>2020.05.21 牛客网 校招全国统一模拟笔试（2020年5月场）- C++方向 - mxy</title>
 
   <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
@@ -131,7 +131,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期一, 五月 11日 2020, 4:07 下午
+                  星期四, 五月 21日 2020, 11:49 晚上
                 </p>
               
 
@@ -140,7 +140,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    1.5k 字
+                    2.5k 字
                   </span>
                 
 
@@ -148,7 +148,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      6 分钟
+                      9 分钟
                   </span>
                 
 
@@ -183,125 +183,180 @@
           <div class="post-content mx-auto" id="post">
             
               <p
-                class="note note-warning">本文最后更新于：星期一, 五月 11日 2020, 4:23 下午</p>
+                class="note note-warning">本文最后更新于：星期五, 五月 22日 2020, 1:08 凌晨</p>
             
             <div class="markdown-body">
-              <p>都5月份了，意外收到字节跳动的笔试链接，今天上午十点到十二点的笔试。</p>
-<p>四个编程题目，换句话说就是考算法吧，一点不出意外的我只做出来一个题，另外三个题几乎都没时间看，实不相瞒做出一个题我都很激动了……第二个题目大概看了下，很显然的动态规划的题目，给我两个小时也不一定能做出来的那种……</p>
-<p>啊啊啊，我真菜……😭</p>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>忘了截图，题目大概是这样的~</p>
-<p>一个记事本程序，里面的内容用字符串 <code>S</code> 表示。</p>
-<p>可以执行以下四种命令：</p>
+              <p>几天前报名了牛客网的“校招全国统一模拟笔试（2020年5月场）- C++方向”，考试时间也就是今晚的 19:00 - 21:00 ~</p>
+<p>整体题目难度中等吧，至少算不上难的。总共20个选择题，3个编程题，编程题我做出来两个，最后一个时间不够了。</p>
+<p>下面大概写一下我的3个编程题的解题思路(●’◡’●)</p>
+<h1 id="题目一：偶串"><a href="#题目一：偶串" class="headerlink" title="题目一：偶串"></a>题目一：偶串</h1><h2 id="（1）题目"><a href="#（1）题目" class="headerlink" title="（1）题目"></a>（1）题目</h2><blockquote>
+<p>时间限制： C/C++1秒，其他语言2秒</p>
+<p>空间限制： C/C++ 32768K，其他语言65536K</p>
+<p>64bit I0 Format: %lld</p>
+</blockquote>
+<p>如果一个字符串由两个相同字符串连接而成，就称这个字符串是偶串。例如 <code>&quot;xyzxyz&quot;</code> 和 <code>&quot;aaaaa&quot;</code> 是偶串，但是 <code>&quot;ababab&quot;</code> 和 <code>&quot;xyzxy&quot;</code> 却不是。</p>
+<p>牛牛现在给你一个只包含小写字母的偶串 <code>s</code> ，你可以从字符串 <code>s</code> 的未尾删除1个或者多个字符，保证删除之后的字符串还是一个偶串，牛牛想知道删除之后得到最长偶串长度是多少。</p>
+<p><strong>输入描述：</strong></p>
 <ul>
-<li>1 W：表示添加字符串 <code>W</code> 到字符串 <code>S</code> 的末尾；</li>
-<li>2 k：表示删除字符串 <code>S</code> 末尾的 k 个字符；</li>
-<li>3 k：表示输出字符串 <code>S</code> 的第 k 个字符；</li>
-<li>4：回滚上一步对字符串 <code>S</code> 的操作，操作 3 并没有对字符串进行更改，所以只回滚1、2两种操作。</li>
+<li>输入包括一个字符串 <code>s</code> ，字符串长度 <code>length</code>（<code>2 &lt;= length &lt;= 2000</code>），保证 <code>s</code> 是一个偶串且由小写字母构成</li>
 </ul>
-<p><strong>输入规范：</strong></p>
+<p><strong>输出描述：</strong></p>
 <ul>
-<li>第一行输入一个整数 <code>N</code> ，表示总共有多少步操作；</li>
-<li>从第二行开始输入每一步具体的命令。</li>
+<li>输出一个整数，表示删除之后能得到的最长偶串长度是多少。保证测试数据有非零解</li>
 </ul>
-<p>示例：</p>
-<pre><code>8
-1 abc
-3 3
-2 3
-1 xy
-3 2
-4 
-4 
-3 1</code></pre><p><strong>输出说明：</strong></p>
-<p>输出：</p>
-<pre><code>c
-y
-a</code></pre><p>说明：</p>
-<pre><code>1 abc // 字符串S默认初始为空&quot;&quot;，第一步插入&quot;abc&quot;后S变为&quot;abc&quot;
-3 3 // 输出S的第三个字符，即输出&#39;c&#39;
-2 3 // 删除字符串S的末尾3个字符，删除后S变为&quot;&quot;
-1 xy // 在字符串S末尾插入&quot;xy&quot;，插入后S为&quot;xy&quot;
-3 2 // 输出字符串S的第二个字符，即输出&#39;y&#39;
-4 // 回滚，即回滚对&quot;xy&quot;的插入，回滚后S为&quot;&quot;
-4 // 回滚，即回滚对字符串S末尾3个字符的删除操作，回滚后S为&quot;abc&quot;
-3 1 // 输出字符串S的第一个字符，即输出&#39;a&#39;</code></pre><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>毕竟是笔试啊，有点慌。因为需要对一些操作步骤进行回滚，一开始我想着应该要把操作的步骤记录下来，所以我定义了一个 <code>vector&lt;pair&lt;int, string&gt;&gt;</code> 类型的数组用于保存输入的每一步命令，每个命令保存为 int 类型的整数，参数保存为 string 类型的字符串，主要是为了兼容不同的参数，如果是命令 <code>4</code> 则将其参数保存为空字符串 <code>&quot;&quot;</code> 。</p>
-<p>最初的想法是遍历保存下来的命令数组一步一步执行就好了，但是到处理命令 <code>4</code> 的操作时就遇到问题了，感觉处理回滚操作很麻烦，同时觉得回滚这个操作完全就是<strong>回溯法</strong>相同的模式，想了想觉得应该可行，就改用了回溯法来执行每一步命令。</p>
-<p>定义回溯函数 <code>void execute(string S,vector&lt;pair&lt;int, string&gt;&gt;&amp; vec, int&amp; seq, bool&amp; rollback)</code> ，字符串 <code>S</code> 即题目中所述的字符串，数组 <code>vec</code> 即保存下来的命令数组，<code>seq</code> 为当前命令执行到的位置，回滚操作需要记录当前命令执行到的位置，所以 <code>seq</code> 采用引用传参的方式，布尔型的 <code>rollback</code> 用于判断当前命令是回滚操作还是正常的顺序执行。</p>
-<p><code>seq</code> 是递增的，当所有命令都执行完毕后 <code>seq == vec.size()</code> ，此时已经没有可执行的命令，退出回溯函数。</p>
-<p>默认要执行当前的命令，对于命令1、2、3，当前命令执行完毕后，只需要将 seq + 1，递归执行下一条命令。对于命令4，回滚操作，对于回溯法来说也就是 return 就可以了，但也需要将 seq + 1，即当前回滚命令已执行。</p>
-<p>具体的回滚操作需要交给具体的某一步操作去执行，对于命令3，不需要做任何处理，继续往上回溯，对于命令1、2，在执行递归的下一行，判断 <code>rollback == true</code> 则表明在后续命令中遇到了回滚操作，这里就需要进行回滚处理，对于命令1来说，即删除原本插入的字符串；对于命令2来说即恢复原本删除的字符串。回滚操作完毕需要将 <code>rollback</code> 重新置为 <code>false</code> 。</p>
-<p>处理完回滚操作后，还需要继续顺序执行剩下的命令，我用一个 <code>do {...}while(...)</code> 循环来模拟递归执行命令的操作，也就是让命令的执行恢复到顺序执行。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">#include &lt;iostream&gt;
-#include &lt;vector&gt;
+<p><strong>示例（输入输出示例仅供调试，后台判题数据一般不包含示例）</strong></p>
+<p>输入：</p>
+<pre><code>abaababaab</code></pre><p>输出：</p>
+<pre><code>6</code></pre><h2 id="（2）解题思路"><a href="#（2）解题思路" class="headerlink" title="（2）解题思路"></a>（2）解题思路</h2><p>首先容易观察到的是，这个偶串的长度其实始终是偶数，即使我们从字符串 <code>s</code> 末尾删掉字符也必然是两个一组删除的，因为<strong>不可能存在长度为奇数的偶串</strong>。</p>
+<p>又由于给定的字符串本身就是一个偶串，同时至少需要删除一个字符，所以直接先删掉末尾两个字符，然后循环，直接使用 <code>substr()</code> 函数比较字符串 <code>s</code> 的前一半和后一半是否相同，相同则输出 <code>s</code> 的长度，跳出循环结束运行；不相同则继续删掉末尾两个字符，重复上述步骤。</p>
+<p><strong>小思路：</strong>其实可以把循环前面的删除字符操作统一写到循环内部，逻辑更加清晰！</p>
+<h2 id="（3）代码"><a href="#（3）代码" class="headerlink" title="（3）代码"></a>（3）代码</h2><pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;string&gt;
 using namespace std;
 
-void execute(string S, vector&lt;pair&lt;int, string&gt;&gt;&amp; vec, int&amp; seq, bool&amp; rollback) {
-    if (seq == vec.size()) return;
-    do {
-        string str = vec[seq].second;//命令参数
-        int k = 0;//将字符串参数vec[seq].second转换为整数k
-        if (vec[seq].first == 2 || vec[seq].first == 3) {
-            for (int i = 0; i &lt; str.size(); i++) {
-                k = k * 10 + (str[i] - &#39;0&#39;);
-            }
-        }
-        switch (vec[seq].first)
-        {
-        case 1:
-            S += str;//末尾插入字符串str
-            seq += 1;
-            execute(S, vec, seq, rollback);
-            if (rollback == true) {
-                //回滚
-                S.erase(S.begin() + S.size() - str.size(), S.end());//撤销插入
-                rollback = false;
-            }
-            break;
-        case 2: {
-            string tmp = S.substr(S.size() - k, k);//临时记录要删除的k个字符
-            S.erase(S.begin() + S.size() - k, S.end());//删除末尾k个字符
-            seq += 1;
-            execute(S, vec, seq, rollback);
-            if (rollback == true) {
-                //回滚
-                S += tmp;//插销删除
-                rollback = false;
-            }
+int main() {
+    string str;
+    cin &gt;&gt; str;
+    str.pop_back();//至少删除一个字符
+    str.pop_back();//至少删除一个字符
+    while (!str.empty())
+    {
+        int len = str.size() / 2;//字符串长度的一半
+        if (str.substr(0, len) == str.substr(len, len)) {
+            cout &lt;&lt; str.size() &lt;&lt; endl;
             break;
         }
-        case 3:
-            cout &lt;&lt; S[k - 1] &lt;&lt; endl;//输出第k个字符
-            seq += 1;
-            execute(S, vec, seq, rollback);
-            if (rollback == true) return;//不处理回滚操作
-            break;
-        case 4:
-            rollback = true;//回滚
-            seq += 1;
+        else {
+            //删除两个字符
+            str.pop_back();
+            str.pop_back();
+            continue;
+        }
+    }
+    return 0;
+}</code></pre>
+<h1 id="题目二：制造回文"><a href="#题目二：制造回文" class="headerlink" title="题目二：制造回文"></a>题目二：制造回文</h1><h2 id="（1）题目-1"><a href="#（1）题目-1" class="headerlink" title="（1）题目"></a>（1）题目</h2><blockquote>
+<p>时间限制： CIC++1秒，其他语言2秒</p>
+<p>空间限制： C/C++ 32768K，其他语言65536K</p>
+<p>64bit 10 Format: %lld</p>
+</blockquote>
+<p>牛牛有一些字母卡片，每张卡片上都有一个小写字母，所有卡片组成一个字符串 <code>s</code> 。牛牛一直认为回文这种性质十分优雅，于是牛牛希望用这些卡片拼凑出一些回文串，但是有以下要求：</p>
+<ol>
+<li>每张卡片只能使用一次</li>
+<li>要求构成的回文串的数量最少</li>
+</ol>
+<p>牛牛想知道用这些字母卡片，最少能拼凑出多少个回文串。</p>
+<p><strong>例如：</strong> </p>
+<ul>
+<li><code>s = &quot;abbaa&quot;</code>，输出1，因为最少可以拼凑出 <code>&quot;ababa&quot;</code> 这一个回文串</li>
+<li><code>s = &quot;abc&quot;</code>，输出3，因为最少只能拼凑出 <code>&quot;a&quot;</code>，<code>&quot;b&quot;</code>，<code>&quot;c&quot;</code> 这三个回文串</li>
+</ul>
+<p><strong>输入描述：</strong></p>
+<ul>
+<li><p>输入包括一行，一个字符串 <code>s</code>，字符串 <code>s</code> 长度 <code>length</code> （<code>1 &lt;= length &lt;= 1000</code>）.</p>
+</li>
+<li><p><code>s</code> 中每个字符都是小写字母</p>
+</li>
+</ul>
+<p><strong>输出描述：</strong></p>
+<ul>
+<li>输出一个整数，即最少的回文串个数。</li>
+</ul>
+<p><strong>示例（输入输出示例仅供调试，后台判题数据一般不包含示例）</strong></p>
+<p>输入：</p>
+<pre><code>abc</code></pre><p>输出：</p>
+<pre><code>3</code></pre><h2 id="（2）解题思路-1"><a href="#（2）解题思路-1" class="headerlink" title="（2）解题思路"></a>（2）解题思路</h2><p>之前在 Leetcode 上做过这个题。这一次思路大体也和之前一样，但有一点使得逻辑更加简单~</p>
+<p>题目的意思其实就是用尽可能多的字符来构造一个回文串。构成回文串的规律是，同一个字符的偶数个数一定可以是任意回文串的一部分，换言之偶数个数的同一字符对能生成的最少的回文串个数是没有影响的，所以我们应该关注的重心是个数为奇数的字符。</p>
+<p>要使构成的回文串的个数最少，那么根据前面所说的，首先我们尽可能的去构造一个最长的回文串，也就是把所有偶数个数的字符都用来构造这个回文串，这其中也包括 <code>&quot;aaa&quot;</code> 中的两个 <code>&#39;a&#39;</code> 也可以用于构造这个回文串，此时，如果有剩下的字符，显然都是单个的字符了。</p>
+<p>但事实上前面构造的最大回文串长度为偶数，其实还可以在其正中间插入任意一个单个的字符，插入后仍然是回文串，此时剩下的单个字符的个数，也就是其余可以构成的回文串的个数了。</p>
+<p>普遍情况下，可以根据前面所述的得到：<strong><em>最少的回文串个数 = 奇数个数的字符数 - 1 + 1 = 奇数个数的字符数</em></strong> </p>
+<p>但是特殊的，需要考虑没有奇数个数的字符的情况，这种情况也就更简单了，所有的字符都用来构造唯一的一个回文串，最少的回文串个数也就是 <code>1</code> 。</p>
+<h2 id="（3）代码-1"><a href="#（3）代码-1" class="headerlink" title="（3）代码"></a>（3）代码</h2><pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    string str;
+    cin &gt;&gt; str;
+    //统计不同字符的个数
+    vector&lt;pair&lt;char, int&gt;&gt; words;
+    for (int i = 0; i &lt; str.size(); i++) {
+        bool exist = false;
+        for (int j = 0; j &lt; words.size(); j++) {
+            if (words[j].first == str[i]) {
+                exist = true;
+                words[j].second++;
+            }
+        }
+        if (exist == false) {
+            words.push_back({ str[i], 1 });
+        }
+    }
+    int odd = 0;
+    for (int i = 0; i &lt; words.size(); i++) {
+        if (words[i].second % 2 != 0) {
+            odd++;
+        }
+    }
+    cout &lt;&lt; (odd &gt; 0 ? odd : 1) &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<h1 id="题目三：猜数游戏"><a href="#题目三：猜数游戏" class="headerlink" title="题目三：猜数游戏"></a>题目三：猜数游戏</h1><h2 id="（1）题目-2"><a href="#（1）题目-2" class="headerlink" title="（1）题目"></a>（1）题目</h2><blockquote>
+<p>时间限制： CIC++1秒，其他语言2秒</p>
+<p>间限制： C/C++ 32768K，其他语言65536K</p>
+<p>64bit 1O Format: %lld</p>
+</blockquote>
+<p>牛牛和羊羊在玩一个有趣的猜数游戏。在这个游戏中，牛牛玩家选择一个正整数，羊羊根据已给的提示猜这个数字。第个提示是 <code>&quot;Y&quot;</code> 或者 <code>&quot;N&quot;</code> ，表示牛牛选择的数是否是的倍数。</p>
+<p>例如，如果提示是 <code>&quot;YYNYY&quot;</code>，它表示这个数是1，2，4，5的倍数，但不是3的倍数。</p>
+<p>注意到一些提示会出现错误。例如：提示 <code>&quot;NYYY&quot;</code> 是错误的，因为所有的整数都是1的倍数，所以起始元素肯定不会是 <code>&quot;N&quot;</code> 。此外，例如 <code>&quot;YNNY&quot;</code> 的提示也是错误的，因为结果不可能是4的倍数但不是2的倍数。</p>
+<p>现在给出一个整数 <code>n</code> ，表示已给的提示的长度。请计算出长度为 <code>n</code> 的合法的提示的个数。</p>
+<p>例如 n = 5 ，合法的提示有：</p>
+<pre><code>YNNNN YNNNY YNYNN YNYNY YYNNN YYNNY
+YYNYN YYNYY YYYNN YYYNY YYYYN YYYYY</code></pre><p>所以输出 <code>12</code></p>
+<p><strong>输入描述：</strong></p>
+<p>输入包括一个整数 <code>n</code> （<code>1 &lt;= n &lt;= 10^6</code>） ，表示已给提示的长度。</p>
+<p><strong>输出描述：</strong></p>
+<p>输出一个整数，表示合法的提示个数。因为答案可能会很大，所以输出对于 <code>1000000007</code> 的模</p>
+<p><strong>示例（输入输出示例仅供调试，后台判题数据一般不包含示例）</strong></p>
+<p>输入：</p>
+<pre><code>5</code></pre><p>输出：</p>
+<pre><code>12</code></pre><h2 id="（2）解题思路-2"><a href="#（2）解题思路-2" class="headerlink" title="（2）解题思路"></a>（2）解题思路</h2><p>这个题看完题目就知道是动态规划了，知道难搞，不过还是尝试着做了一下，时间不够，大概写了个框架出来，明明还有十多分钟的，不知道为啥就自动给我交卷了……</p>
+<p>下面的代码是考试结束后我继续完善的，自己本地简单测试了几组较小的数据，主要是我也不知道正确答案应该是什么，就不方便测试了，也不确定代码的正确性。另外我觉得我这代码就算逻辑是对的，但是性能也不太好，应该是有更好的办法的o_o ….</p>
+<p>大概思路就是逐个的插入“提示”，也就是逐个的插入 <code>&#39;Y&#39;</code> 或 <code>&#39;N&#39;</code> ，判断当前插入是否合法，直到字符串长度达到输入的 <code>n</code> 并且该提示字符串合法，则合法的提示个数+1。</p>
+<p>其中我判断当前插入的字符是否合法的想法是，我认为只有插入的是 <code>&#39;Y&#39;</code> 才可能是不合法的，比如当前第四个字符插入的是 <code>&#39;Y&#39;</code> ，也就是说是 4 的倍数，但字符串前面可能第二个提示是 <code>&#39;N&#39;</code> ，即不是 2 的倍数，那么当前的插入就矛盾了，不合法。另外，前述不合法的情况，只需要判断当前第 i 个字符是 <code>&#39;Y&#39;</code> ，只要找到一个 i 的约数对应的提示为 <code>&#39;N&#39;</code> 则当前提示不合法。</p>
+<h2 id="（3）代码-2"><a href="#（3）代码-2" class="headerlink" title="（3）代码"></a>（3）代码</h2><pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+//动态规划，参数分别为合法提示的个数、可能的提示、剩余的提示个数
+void dp(long long&amp; count, string way, int n) {
+    //判断当前选择是否合法
+    bool legal = true;
+    int l = way.size();//当前长度
+    char ch = way.back();//末尾字符即当前的选择
+    for (int i = 1; ch == &#39;Y&#39; &amp;&amp; i &lt; l - 1; i++) {
+        if (l % (i + 1) == 0 &amp;&amp; way[i] == &#39;N&#39;) {
+            legal = false;
             return;
-        default:
-            break;
         }
-    } while (seq &lt; vec.size());
+    }
+    if (legal == true &amp;&amp; n == 0) {
+        count++;
+        //cout &lt;&lt; way &lt;&lt; endl;//打印合法的提示
+        return;
+    }
+    //做选择
+    dp(count, way + &quot;Y&quot;, n - 1);
+    dp(count, way + &quot;N&quot;, n - 1);
 }
 
 int main() {
-    string S = &quot;&quot;;
-    int N;//要执行的命令数
-    cin &gt;&gt; N;
-    vector&lt;pair&lt;int, string&gt;&gt; vec;//输入命令
-    for (int i = 0; i &lt; N; i++) {
-        int seq;
-        string str = &quot;&quot;;
-        cin &gt;&gt; seq;
-        if (seq != 4) {
-            cin &gt;&gt; str;
-        }
-        vec.push_back({ seq, str });
-    }
-    bool rollback = false;//是否回滚命令
-    int q = 0;//命令序号
-    execute(S, vec, q, rollback);//执行命令vec[q]，该命令不是回滚命令
+    int n;
+    cin &gt;&gt; n;
+    long long count = 0;
+    dp(count, &quot;Y&quot;, n - 1);
+    cout &lt;&lt; count &lt;&lt; endl;
     return 0;
 }</code></pre>
 
@@ -310,13 +365,6 @@ int main() {
             <div>
               <p>
                 
-                
-                  <span>
-                <i class="iconfont icon-tag"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/笔经/">笔经</a>
-                    
-                  </span>
                 
               </p>
               
@@ -327,18 +375,12 @@ int main() {
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/05/21/2020-05-21-牛客网-校招全国统一模拟笔试（2020年5月场）-C-方向/">
-                        <i class="fa fa-chevron-left"></i>
-                        <span class="hidden-mobile">2020.05.21 牛客网 校招全国统一模拟笔试（2020年5月场）- C++方向</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/05/05/使用jQuery-on-方法绑定动态添加的元素/">
-                        <span class="hidden-mobile">使用jQuery on()方法绑定动态添加的元素</span>
+                      <a href="/2020/05/11/2020-05-11-字节跳动笔试题目-记事本程序/">
+                        <span class="hidden-mobile">2020.05.11 字节跳动笔试题目:记事本程序</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="fa fa-chevron-right"></i>
                       </a>
@@ -601,7 +643,7 @@ int main() {
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "2020.05.11 字节跳动笔试题目:记事本程序&nbsp;",
+        "2020.05.21 牛客网 校招全国统一模拟笔试（2020年5月场）- C++方向&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
