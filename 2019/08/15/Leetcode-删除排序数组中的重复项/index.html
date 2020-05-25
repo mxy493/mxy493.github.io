@@ -18,24 +18,23 @@
   <meta name="keywords" content>
   <title>Leetcode 删除排序数组中的重复项 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="/lib/prettify/tranquil-heart.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
 
 <link rel="stylesheet" href="/css/main.css">
 
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
-
-
 <!-- 自定义样式保持在最底部 -->
-
-  <link rel="stylesheet" href="/css/custom.css">
 
 
 </head>
@@ -61,49 +60,55 @@
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
           </li>
         
         
@@ -121,7 +126,7 @@
          style="background: url('/img/xqmy.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
@@ -129,38 +134,36 @@
 
             
               
-                <p class="mt-3 post-meta">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期四, 八月 15日 2019, 9:40 晚上
-                </p>
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2019-08-15 21:40">
+                    2019年8月15日 晚上
+                  </time>
+                </div>
               
 
-              <p class="mt-1">
+              <div class="mt-1">
                 
                   
-                  <span class="post-meta">
-                    <i class="far fa-chart-bar"></i>
-                    844 字
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    846 字
                   </span>
                 
 
                 
                   
-                  <span class="post-meta">
-                      <i class="far fa-clock"></i>
-                      3 分钟
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    9
+                     分钟
                   </span>
                 
 
                 
-                  <!-- 不蒜子统计文章PV -->
-                  
-                  <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
-                    <i class="far fa-eye" aria-hidden="true"></i>
-                    <span id="busuanzi_value_page_pv"></span> 次
-                  </span>
-                
-              </p>
+              </div>
             
           </div>
 
@@ -179,76 +182,85 @@
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             
-              <p
-                class="note note-warning">本文最后更新于：星期六, 三月 7日 2020, 10:46 晚上</p>
+              <p class="note note-info">
+                
+                  本文最后更新于：2020年3月7日 晚上
+                
+              </p>
             
-            <div class="markdown-body">
+            <article class="markdown-body">
               <blockquote>
 <p>地址：<a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/</a></p>
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个排序数组，你需要在<strong>原地删除</strong>重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。</p>
 <p>不要使用额外的数组空间，你必须在<strong>原地修改</strong>输入数组并在使用 O(1) 额外空间的条件下完成。<a id="more"></a></p>
 <p><strong>示例 1:</strong></p>
-<pre><code>给定数组 nums = [1,1,2], 
+<pre><code class="hljs undefined">给定数组 nums = [1,1,2], 
 
 函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。 
 
-你不需要考虑数组中超出新长度后面的元素。</code></pre><p><strong>示例 2:</strong></p>
-<pre><code>给定 nums = [0,0,1,1,1,2,2,3,3,4],
+你不需要考虑数组中超出新长度后面的元素。</code></pre>
+
+<p><strong>示例 2:</strong></p>
+<pre><code class="hljs undefined">给定 nums = [0,0,1,1,1,2,2,3,3,4],
 
 函数应该返回新的长度 5, 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4。
 
-你不需要考虑数组中超出新长度后面的元素。</code></pre><p><strong>说明:</strong></p>
+你不需要考虑数组中超出新长度后面的元素。</code></pre>
+
+<p><strong>说明:</strong></p>
 <p>为什么返回数值是整数，但输出的答案是数组呢?</p>
 <p>请注意，输入数组是以“引用”方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。</p>
 <p>你可以想象内部操作如下:</p>
-<pre><code class="python">// nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝
+<pre><code class="hljs python">// nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝
 int len = removeDuplicates(nums);
 
 // 在函数里修改输入数组对于调用者是可见的。
 // 根据你的函数返回的长度, 它会打印出数组中该长度范围内的所有元素。
-for (int i = 0; i &lt; len; i++) {
+<span class="hljs-keyword">for</span> (int i = <span class="hljs-number">0</span>; i &lt; len; i++) &#123;
     print(nums[i]);
-}</code></pre>
+&#125;</code></pre>
+
 <h3 id="我的解决方案："><a href="#我的解决方案：" class="headerlink" title="我的解决方案："></a>我的解决方案：</h3><p>题目给出了一个很重要的信息<strong>“排序”</strong>，千万不能遗漏，否则会耗费过多的时间用来遍历整个数组。</p>
 <p><strong>易错点：</strong>一般情况下会想到用两个 for 循环来做，外层循环遍历第一个到倒数第二个元素，内层循环遍历从外层循环当前遍历到的的下一个元素开始找出与当前元素值相同的元素并删去，大致逻辑如下：</p>
-<pre><code class="python">for i in range(0, len(nums) - 1):
-    for j in range(i + 1, len(nums)):
-        if nums[i] == nums[j]:
+<pre><code class="hljs python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, len(nums) - <span class="hljs-number">1</span>):
+    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(i + <span class="hljs-number">1</span>, len(nums)):
+        <span class="hljs-keyword">if</span> nums[i] == nums[j]:
             nums.pop(j)</code></pre>
+
 <p>看似逻辑没问题的，但是我们在内部删除了列表 <code>nums[]</code> 的元素之后，列表长度 <code>len(nums)</code> 就已经改变了，而 range() 函数的不会动态的根据 <code>len(nums)</code> 改变它的范围，最终就会导致删除元素后列表长度已经改变但是for语句不知道，超范围后仍然进入循环内部，当访问到 <code>nums[j]</code> 是已经超出列表索引范围。</p>
 <p><strong>正解：</strong>要解决上述问题，不难想到改用while循环，并且只需要一个循环即可，代码如下：</p>
-<pre><code class="python">class Solution:
-    def removeDuplicates(self, nums: List[int]) -&gt; int:
-        i = 0  # 作为索引遍历列表元素
-        while i &lt; len(nums) - 1:  # 最多只遍历到倒数第二个元素
-            if nums[i] == nums[i + 1]:  # 这就是问什么只遍历到倒数第二个元素的原因，因为始终要和下一个元素作比较
-                nums.pop(i + 1)
-                continue  # i保持不变，继续判断nums[i]和补位上来的nums[i + 1]是否相等
-            i += 1
-        return len(nums)</code></pre>
+<pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">removeDuplicates</span><span class="hljs-params">(self, nums: List[int])</span> -&gt; int:</span>
+        i = <span class="hljs-number">0</span>  <span class="hljs-comment"># 作为索引遍历列表元素</span>
+        <span class="hljs-keyword">while</span> i &lt; len(nums) - <span class="hljs-number">1</span>:  <span class="hljs-comment"># 最多只遍历到倒数第二个元素</span>
+            <span class="hljs-keyword">if</span> nums[i] == nums[i + <span class="hljs-number">1</span>]:  <span class="hljs-comment"># 这就是问什么只遍历到倒数第二个元素的原因，因为始终要和下一个元素作比较</span>
+                nums.pop(i + <span class="hljs-number">1</span>)
+                <span class="hljs-keyword">continue</span>  <span class="hljs-comment"># i保持不变，继续判断nums[i]和补位上来的nums[i + 1]是否相等</span>
+            i += <span class="hljs-number">1</span>
+        <span class="hljs-keyword">return</span> len(nums)</code></pre>
+
 <p>while语句中的 <code>len(nums)</code> 是动态更新的，这就解决了索引超出范围的问题；</p>
 <p>continue 很重要，它解决了数组中有多个重复项的问题。</p>
 
-            </div>
+            </article>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 
-                  <span>
-                <i class="iconfont icon-inbox"></i>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
                     
                       <a class="hover-with-bg" href="/categories/Leetcode/">Leetcode</a>
-                      &nbsp;
                     
-                  </span>&nbsp;&nbsp;
+                  </div>
                 
                 
-                  <span>
-                <i class="iconfont icon-tag"></i>
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
                     
@@ -256,9 +268,9 @@ for (int i = 0; i &lt; len; i++) {
                     
                       <a class="hover-with-bg" href="/tags/python/">python</a>
                     
-                  </span>
+                  </div>
                 
-              </p>
+              </div>
               
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
               
@@ -268,7 +280,7 @@ for (int i = 0; i &lt; len; i++) {
                     
                     
                       <a href="/2020/01/17/博客搭建一周年ᓚᘏᗢ/">
-                        <i class="fa fa-chevron-left"></i>
+                        <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">博客搭建一周年ᓚᘏᗢ</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
@@ -280,7 +292,7 @@ for (int i = 0; i &lt; len; i++) {
                       <a href="/2019/05/25/Ubuntu上自定义Code-Blocks工作区颜色主题/">
                         <span class="hidden-mobile">Ubuntu上自定义Code::Blocks工作区颜色主题</span>
                         <span class="visible-mobile">下一篇</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     
                   </div>
@@ -288,49 +300,49 @@ for (int i = 0; i &lt; len; i++) {
               
             </div>
 
-              
-                <!-- Comments -->
-                <div class="comments" id="comments">
-                  
-                  
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
   <div id="vcomments"></div>
-  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
 
   <script type="text/javascript">
-    var notify = 'false' === 'true';
-    var verify = 'false' === 'true';
-    var oldLoad = window.onload;
+    var oldLoadVa = window.onload;
     window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
       new Valine({
-        el: '#vcomments',
-        notify: notify,
-        verify: verify,
+        el: "#vcomments",
         app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
         app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
         placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
-        avatar: "/retro",
-        meta: ['nick', 'mail', 'link'],
+        path: window.location.pathname,
+        avatar: "retro",
+        meta: ["nick","mail","link"],
         pageSize: "10",
+        lang: "zh-CN",
+        highlight: false,
+        recordIP: false,
+        serverURLs: "",
       });
-      oldLoad && oldLoad();
     };
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
       powered by Valine.</a></noscript>
 
 
-                </div>
-              
+              </div>
+            
           </div>
         </div>
       </div>
     </div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc-start"></div>
-<div id="toc">
-  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div id="tocbot"></div>
 </div>
 
@@ -346,8 +358,8 @@ for (int i = 0; i &lt; len; i++) {
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -382,9 +394,10 @@ for (int i = 0; i &lt; len; i++) {
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
     </div>
     
   <div>
@@ -408,9 +421,10 @@ for (int i = 0; i &lt; len; i++) {
     
   <!-- 备案信息 -->
   <div>
-    <a href="http://beian.miit.gov.cn/" target="_blank"
+    <a href="http://beian.miit.gov.cn/" target="_blank" class="beian-icp"
        rel="nofollow noopener">蜀ICP备20011971号</a>
     
+  </div>
 
 
     
@@ -419,9 +433,7 @@ for (int i = 0; i &lt; len; i++) {
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
 
@@ -430,34 +442,12 @@ for (int i = 0; i &lt; len; i++) {
 
 
   
-  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
-      var navHeight = $('#navbar').height();
-      var toc = $('#toc');
       var boardCtn = $('#board-ctn');
       var boardTop = boardCtn.offset().top;
-      var tocLimMax = 2 * boardTop + boardCtn.height();
 
-      $(window).scroll(function () {
-        var tocLimMin = $('#toc-start').offset().top - navHeight;
-        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-
-        if (tocLimMin <= scroH && scroH <= tocLimMax) {
-          toc.css({
-            'display': 'block',
-            'position': 'fixed',
-            'top': navHeight,
-          });
-        } else if (scroH <= tocLimMin) {
-          toc.css({
-            'position': '',
-            'top': '',
-          });
-        } else if (scroH > tocLimMax) {
-          toc.css('display', 'none');
-        }
-      });
       tocbot.init({
         tocSelector: '#tocbot',
         contentSelector: '.post-content',
@@ -467,16 +457,13 @@ for (int i = 0; i &lt; len; i++) {
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });
       if ($('.toc-list-item').length > 0) {
-        $('#toc > p').css('visibility', 'visible');
+        $('#toc').css('visibility', 'visible');
       }
-      var offset = boardCtn.css('margin-right')
-      $('#toc-ctn').css({
-        'right': offset
-      })
     });
   </script>
 
@@ -489,50 +476,12 @@ for (int i = 0; i &lt; len; i++) {
 
 
 
-  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
-
-
-
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
 
 <!-- Plugins -->
-
-
-  
-    <!-- Baidu Analytics -->
-    <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 
@@ -562,6 +511,8 @@ for (int i = 0; i &lt; len; i++) {
       placement: "right",
       visible: "hover",
       
+      icon: "❡"
+      
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
     var res = [];
@@ -578,24 +529,28 @@ for (int i = 0; i &lt; len; i++) {
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
-      getSearchFile(path);
+      searchFunc(path, 'local-search-input', 'local-search-result');
       this.onclick = null
     }
   </script>
 
 
 
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
   <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
       function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
         $(this).wrap(element);
       }
     );
   </script>
+
+
 
 
 
@@ -650,6 +605,10 @@ for (int i = 0; i &lt; len; i++) {
       ;
     </script>
   
+
+
+
+
 
 
 

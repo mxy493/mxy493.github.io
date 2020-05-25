@@ -18,24 +18,23 @@
   <meta name="keywords" content>
   <title>Hexo博客使用插件hexo-git-backup通过GitHub备份与恢复 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="/lib/prettify/tranquil-heart.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
 
 <link rel="stylesheet" href="/css/main.css">
 
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
-
-
 <!-- 自定义样式保持在最底部 -->
-
-  <link rel="stylesheet" href="/css/custom.css">
 
 
 </head>
@@ -61,49 +60,55 @@
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
           </li>
         
         
@@ -121,7 +126,7 @@
          style="background: url('/img/xqmy.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
@@ -129,38 +134,36 @@
 
             
               
-                <p class="mt-3 post-meta">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期六, 五月 25日 2019, 1:11 凌晨
-                </p>
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2019-05-25 01:11">
+                    2019年5月25日 凌晨
+                  </time>
+                </div>
               
 
-              <p class="mt-1">
+              <div class="mt-1">
                 
                   
-                  <span class="post-meta">
-                    <i class="far fa-chart-bar"></i>
-                    740 字
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    743 字
                   </span>
                 
 
                 
                   
-                  <span class="post-meta">
-                      <i class="far fa-clock"></i>
-                      2 分钟
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    9
+                     分钟
                   </span>
                 
 
                 
-                  <!-- 不蒜子统计文章PV -->
-                  
-                  <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
-                    <i class="far fa-eye" aria-hidden="true"></i>
-                    <span id="busuanzi_value_page_pv"></span> 次
-                  </span>
-                
-              </p>
+              </div>
             
           </div>
 
@@ -179,75 +182,97 @@
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             
-              <p
-                class="note note-warning">本文最后更新于：星期六, 三月 7日 2020, 10:52 晚上</p>
+              <p class="note note-info">
+                
+                  本文最后更新于：2020年3月7日 晚上
+                
+              </p>
             
-            <div class="markdown-body">
+            <article class="markdown-body">
               <p>好久没更新过博客了，现在用的这台电脑是前些天刚装的Ubuntu系统，今天打算把博客迁移过来，折腾了好一会儿，所以准备写一篇关于Hexo博客的备份与恢复的。<a id="more"></a></p>
 <p>用的是一个插件：<a href="https://github.com/coneycode/hexo-git-backup" target="_blank" rel="noopener">hexo-git-backup</a>，Hexo官网的插件里搜不到，这个插件发布在了GitHub上，关于安装使用官方也给了很简洁易懂的说明文档。</p>
 <h1 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h1><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>如果你的Hexo版本是2.x.x（查看Hexo版本可使用命令：<code>hexo version</code>）在终端中使用如下命令安装：</p>
-<pre><code>$ npm install hexo-git-backup@0.0.91 --save</code></pre><p>如果你的Hexo版本是3.x.x则使用如下命令安装：</p>
-<pre><code>$ npm install hexo-git-backup --save</code></pre><h2 id="插件升级"><a href="#插件升级" class="headerlink" title="插件升级"></a>插件升级</h2><p>如果你是通过<code>--save</code>安装的，那么升级之前你必须先删除旧的版本：</p>
-<pre><code>$ npm remove hexo-git-backup
-$ npm install hexo-git-backup --save</code></pre><h3 id="新建GitHub仓库"><a href="#新建GitHub仓库" class="headerlink" title="新建GitHub仓库"></a>新建GitHub仓库</h3><p>新建一个 GitHub 仓库用来备份博客（具体操作不再赘述）</p>
+<pre><code class="hljs undefined">$ npm install hexo-git-backup@0.0.91 --save</code></pre>
+
+<p>如果你的Hexo版本是3.x.x则使用如下命令安装：</p>
+<pre><code class="hljs undefined">$ npm install hexo-git-backup --save</code></pre>
+
+<h2 id="插件升级"><a href="#插件升级" class="headerlink" title="插件升级"></a>插件升级</h2><p>如果你是通过<code>--save</code>安装的，那么升级之前你必须先删除旧的版本：</p>
+<pre><code class="hljs undefined">$ npm remove hexo-git-backup
+$ npm install hexo-git-backup --save</code></pre>
+
+<h3 id="新建GitHub仓库"><a href="#新建GitHub仓库" class="headerlink" title="新建GitHub仓库"></a>新建GitHub仓库</h3><p>新建一个 GitHub 仓库用来备份博客（具体操作不再赘述）</p>
 <p>复制仓库ＳＳＨ链接备用，此处需确保你的电脑已通过SSH连接到 GitHub ，具体操作可参考<a href="https://help.github.com/en/articles/connecting-to-github-with-ssh" target="_blank" rel="noopener"> GitHub 官方帮助文档</a>。</p>
 <h2 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h2><p>在博客根目录下的 <code>_config.yml</code> 文件中配置插件：</p>
-<pre><code>backup:
+<pre><code class="hljs undefined">backup:
     type: git
     repository:
        github: git@github.com:xxx/xxx.git,branchName
-       gitcafe: git@github.com:xxx/xxx.git,branchName</code></pre><h4 id="配置说明："><a href="#配置说明：" class="headerlink" title="配置说明："></a>配置说明：</h4><p>如果你想连同主题一起备份，在 <code>_config.yml</code> 文件中添加主题名即可：</p>
-<pre><code>backup:
+       gitcafe: git@github.com:xxx/xxx.git,branchName</code></pre>
+
+<h4 id="配置说明："><a href="#配置说明：" class="headerlink" title="配置说明："></a>配置说明：</h4><p>如果你想连同主题一起备份，在 <code>_config.yml</code> 文件中添加主题名即可：</p>
+<pre><code class="hljs undefined">backup:
     type: git
     theme: coney,landscape,xxx
     repository:
        github: git@github.com:xxx/xxx.git,branchName
-       gitcafe: git@github.com:xxx/xxx.git,branchName</code></pre><p><strong>注意：如果你选择了备份主题例如landscape，那么landscape主题文件夹下的 themes/landscape/.git 文件就会被删除</strong></p>
+       gitcafe: git@github.com:xxx/xxx.git,branchName</code></pre>
+
+<p><strong>注意：如果你选择了备份主题例如landscape，那么landscape主题文件夹下的 themes/landscape/.git 文件就会被删除</strong></p>
 <p>如果你想自定义 commit 信息，添加一行 <code>message: update xxx</code> 即可：</p>
-<pre><code>backup:
+<pre><code class="hljs undefined">backup:
     type: git
     message: update xxx
     repository:
        github: git@github.com:xxx/xxx.git,branchName
-       gitcafe: git@github.com:xxx/xxx.git,branchName</code></pre><h2 id="插件使用"><a href="#插件使用" class="headerlink" title="插件使用"></a>插件使用</h2><p>现在就可以使用以下命令备份你的博客到GitHub了</p>
-<pre><code>$ hexo backup </code></pre><p>或者</p>
-<pre><code>$ hexo b</code></pre><p>博客备份至此就已经结束！安全起见可以每次 <code>hexo d</code> 的时候同步 <code>hexo b</code> 备份一下博文。</p>
+       gitcafe: git@github.com:xxx/xxx.git,branchName</code></pre>
+
+<h2 id="插件使用"><a href="#插件使用" class="headerlink" title="插件使用"></a>插件使用</h2><p>现在就可以使用以下命令备份你的博客到GitHub了</p>
+<pre><code class="hljs undefined">$ hexo backup</code></pre>
+
+<p>或者</p>
+<pre><code class="hljs undefined">$ hexo b</code></pre>
+
+<p>博客备份至此就已经结束！安全起见可以每次 <code>hexo d</code> 的时候同步 <code>hexo b</code> 备份一下博文。</p>
 <h1 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h1><p>有时候换了另一台电脑或者另一个系统环境下，想要写博客就不得不把博客文件迁移过去，这一部分是关于博客的迁移，接上文使用 hexo-git-backup 插件的情况下（其他方法备份的博客原理类似）。</p>
 <h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>根据 Hexo 官网说明安装 Hexo 即可</p>
 <p>附上官网地址：<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">https://hexo.io/zh-cn/</a></p>
 <p>要部署博客到 GitHub 还需要安装插件：</p>
-<pre><code>$ npm install --save hexo-deployer-git</code></pre><h3 id="恢复博客"><a href="#恢复博客" class="headerlink" title="恢复博客"></a>恢复博客</h3><p>下载或者 clone 前文所述备份的博客到本地任意位置，复制备份文件夹内所有文件到新安装的博客目录下，重复文件保留备份的即可。</p>
+<pre><code class="hljs undefined">$ npm install --save hexo-deployer-git</code></pre>
+
+<h3 id="恢复博客"><a href="#恢复博客" class="headerlink" title="恢复博客"></a>恢复博客</h3><p>下载或者 clone 前文所述备份的博客到本地任意位置，复制备份文件夹内所有文件到新安装的博客目录下，重复文件保留备份的即可。</p>
 <p>至此博客迁移已完成，可以”三部曲“测试一下是否迁移成功：</p>
-<pre><code>$ hexo clean
+<pre><code class="hljs undefined">$ hexo clean
 $ hexo g
 $ hexo s</code></pre>
-            </div>
+
+
+            </article>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 
-                  <span>
-                <i class="iconfont icon-inbox"></i>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
                     
                       <a class="hover-with-bg" href="/categories/博客/">博客</a>
-                      &nbsp;
                     
-                  </span>&nbsp;&nbsp;
+                  </div>
                 
                 
-                  <span>
-                <i class="iconfont icon-tag"></i>
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
                     
                       <a class="hover-with-bg" href="/tags/博客/">博客</a>
                     
-                  </span>
+                  </div>
                 
-              </p>
+              </div>
               
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
               
@@ -257,7 +282,7 @@ $ hexo s</code></pre>
                     
                     
                       <a href="/2019/05/25/Ubuntu上自定义Code-Blocks工作区颜色主题/">
-                        <i class="fa fa-chevron-left"></i>
+                        <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Ubuntu上自定义Code::Blocks工作区颜色主题</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
@@ -269,7 +294,7 @@ $ hexo s</code></pre>
                       <a href="/2019/04/12/Connecting-to-GitHub-with-SSH/">
                         <span class="hidden-mobile">Connecting to GitHub with SSH</span>
                         <span class="visible-mobile">下一篇</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     
                   </div>
@@ -277,49 +302,49 @@ $ hexo s</code></pre>
               
             </div>
 
-              
-                <!-- Comments -->
-                <div class="comments" id="comments">
-                  
-                  
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
   <div id="vcomments"></div>
-  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
 
   <script type="text/javascript">
-    var notify = 'false' === 'true';
-    var verify = 'false' === 'true';
-    var oldLoad = window.onload;
+    var oldLoadVa = window.onload;
     window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
       new Valine({
-        el: '#vcomments',
-        notify: notify,
-        verify: verify,
+        el: "#vcomments",
         app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
         app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
         placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
-        avatar: "/retro",
-        meta: ['nick', 'mail', 'link'],
+        path: window.location.pathname,
+        avatar: "retro",
+        meta: ["nick","mail","link"],
         pageSize: "10",
+        lang: "zh-CN",
+        highlight: false,
+        recordIP: false,
+        serverURLs: "",
       });
-      oldLoad && oldLoad();
     };
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
       powered by Valine.</a></noscript>
 
 
-                </div>
-              
+              </div>
+            
           </div>
         </div>
       </div>
     </div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc-start"></div>
-<div id="toc">
-  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div id="tocbot"></div>
 </div>
 
@@ -335,8 +360,8 @@ $ hexo s</code></pre>
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -371,9 +396,10 @@ $ hexo s</code></pre>
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
     </div>
     
   <div>
@@ -397,9 +423,10 @@ $ hexo s</code></pre>
     
   <!-- 备案信息 -->
   <div>
-    <a href="http://beian.miit.gov.cn/" target="_blank"
+    <a href="http://beian.miit.gov.cn/" target="_blank" class="beian-icp"
        rel="nofollow noopener">蜀ICP备20011971号</a>
     
+  </div>
 
 
     
@@ -408,9 +435,7 @@ $ hexo s</code></pre>
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
 
@@ -419,34 +444,12 @@ $ hexo s</code></pre>
 
 
   
-  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
-      var navHeight = $('#navbar').height();
-      var toc = $('#toc');
       var boardCtn = $('#board-ctn');
       var boardTop = boardCtn.offset().top;
-      var tocLimMax = 2 * boardTop + boardCtn.height();
 
-      $(window).scroll(function () {
-        var tocLimMin = $('#toc-start').offset().top - navHeight;
-        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-
-        if (tocLimMin <= scroH && scroH <= tocLimMax) {
-          toc.css({
-            'display': 'block',
-            'position': 'fixed',
-            'top': navHeight,
-          });
-        } else if (scroH <= tocLimMin) {
-          toc.css({
-            'position': '',
-            'top': '',
-          });
-        } else if (scroH > tocLimMax) {
-          toc.css('display', 'none');
-        }
-      });
       tocbot.init({
         tocSelector: '#tocbot',
         contentSelector: '.post-content',
@@ -456,16 +459,13 @@ $ hexo s</code></pre>
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });
       if ($('.toc-list-item').length > 0) {
-        $('#toc > p').css('visibility', 'visible');
+        $('#toc').css('visibility', 'visible');
       }
-      var offset = boardCtn.css('margin-right')
-      $('#toc-ctn').css({
-        'right': offset
-      })
     });
   </script>
 
@@ -478,50 +478,12 @@ $ hexo s</code></pre>
 
 
 
-  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
-
-
-
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
 
 <!-- Plugins -->
-
-
-  
-    <!-- Baidu Analytics -->
-    <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 
@@ -551,6 +513,8 @@ $ hexo s</code></pre>
       placement: "right",
       visible: "hover",
       
+      icon: "❡"
+      
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
     var res = [];
@@ -567,24 +531,28 @@ $ hexo s</code></pre>
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
-      getSearchFile(path);
+      searchFunc(path, 'local-search-input', 'local-search-result');
       this.onclick = null
     }
   </script>
 
 
 
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
   <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
       function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
         $(this).wrap(element);
       }
     );
   </script>
+
+
 
 
 
@@ -639,6 +607,10 @@ $ hexo s</code></pre>
       ;
     </script>
   
+
+
+
+
 
 
 

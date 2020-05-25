@@ -18,24 +18,23 @@
   <meta name="keywords" content>
   <title>Connecting to GitHub with SSH - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="/lib/prettify/tranquil-heart.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
 
 <link rel="stylesheet" href="/css/main.css">
 
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
-
-
 <!-- 自定义样式保持在最底部 -->
-
-  <link rel="stylesheet" href="/css/custom.css">
 
 
 </head>
@@ -61,49 +60,55 @@
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
           </li>
         
         
@@ -121,7 +126,7 @@
          style="background: url('/img/xqmy.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
@@ -129,38 +134,36 @@
 
             
               
-                <p class="mt-3 post-meta">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期五, 四月 12日 2019, 7:20 晚上
-                </p>
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2019-04-12 19:20">
+                    2019年4月12日 晚上
+                  </time>
+                </div>
               
 
-              <p class="mt-1">
+              <div class="mt-1">
                 
                   
-                  <span class="post-meta">
-                    <i class="far fa-chart-bar"></i>
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
                     2.7k 字
                   </span>
                 
 
                 
                   
-                  <span class="post-meta">
-                      <i class="far fa-clock"></i>
-                      11 分钟
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    34
+                     分钟
                   </span>
                 
 
                 
-                  <!-- 不蒜子统计文章PV -->
-                  
-                  <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
-                    <i class="far fa-eye" aria-hidden="true"></i>
-                    <span id="busuanzi_value_page_pv"></span> 次
-                  </span>
-                
-              </p>
+              </div>
             
           </div>
 
@@ -179,13 +182,16 @@
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             
-              <p
-                class="note note-warning">本文最后更新于：星期日, 七月 28日 2019, 1:26 凌晨</p>
+              <p class="note note-info">
+                
+                  本文最后更新于：2019年7月28日 凌晨
+                
+              </p>
             
-            <div class="markdown-body">
+            <article class="markdown-body">
               <p>通过SSH连接到GitHub</p>
 <blockquote>
 <p>整理自GitHub官方帮助文档：<a href="https://help.github.com/articles/connecting-to-github-with-ssh" target="_blank" rel="noopener">https://help.github.com/articles/connecting-to-github-with-ssh</a><a id="more"></a></p>
@@ -202,14 +208,17 @@
 </blockquote>
 <p>1.打开终端Git Bash。</p>
 <p>2.输入<code>ls -al ~/.ssh</code>查看是否系统中已存在SSH密钥：</p>
-<pre><code class="shell">$ ls -al ~/.ssh
-# Lists the files in your .ssh directory, if they exist</code></pre>
+<pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> ls -al ~/.ssh</span>
+<span class="hljs-meta">#</span><span class="bash"> Lists the files <span class="hljs-keyword">in</span> your .ssh directory, <span class="hljs-keyword">if</span> they exist</span></code></pre>
+
 <p>3.查看您的列表中是否已存在公共SSH密钥。</p>
 <p>默认情况下，公钥的文件名是以下之一：</p>
-<pre><code>id_dsa.pub
+<pre><code class="hljs undefined">id_dsa.pub
 id_ecdsa.pub
 id_ed25519.pub
-id_rsa.pub</code></pre><ul>
+id_rsa.pub</code></pre>
+
+<ul>
 <li>如果您的系统中不存在公钥和私钥对，或者没有任何可用的密钥可以连接到GitHub，那么你可以<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank" rel="noopener">生成新的SSH密钥</a>。</li>
 <li>如果列表中存在用于连接到GitHub 的现有公钥和私钥对（例如<em>id_rsa.pub</em>和<em>id_rsa</em>），则可以<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent" target="_blank" rel="noopener">将SSH密钥添加到ssh-agent</a>。</li>
 </ul>
@@ -226,14 +235,18 @@ id_rsa.pub</code></pre><ul>
 </blockquote>
 <p>1.打开Git Bash.</p>
 <p>2.粘贴下面的文本，用您的GitHub邮箱地址替换双引号中的内容。</p>
-<pre><code class="shell">$ ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</code></pre>
+<pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> ssh-keygen -t rsa -b 4096 -C <span class="hljs-string">"your_email@example.com"</span></span></code></pre>
+
 <p>这将使用您提供的电子邮件作为标记创建一个新的ssh密钥。</p>
-<pre><code class="shell">&gt; Generating public/private rsa key pair.</code></pre>
+<pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash"> Generating public/private rsa key pair.</span></code></pre>
+
 <p>3.当系统提示您 “Enter a file in which to save the key” 时，按Enter键。密钥将保存在默认的路径下。</p>
-<pre><code class="shell">&gt; Enter a file in which to save the key (/c/Users/you/.ssh/id_rsa):[Press enter]</code></pre>
+<pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash"> Enter a file <span class="hljs-keyword">in</span> <span class="hljs-built_in">which</span> to save the key (/c/Users/you/.ssh/id_rsa):[Press enter]</span></code></pre>
+
 <p>4.根据提示，您需要输入密码。更多信息请查看<a href="https://help.github.com/en/articles/working-with-ssh-key-passphrases" target="_blank" rel="noopener">“Working with SSH key passphrases”</a>。</p>
-<pre><code class="shell">&gt; Enter passphrase (empty for no passphrase): [Type a passphrase]
-&gt; Enter same passphrase again: [Type passphrase again]</code></pre>
+<pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash"> Enter passphrase (empty <span class="hljs-keyword">for</span> no passphrase): [Type a passphrase]</span>
+<span class="hljs-meta">&gt;</span><span class="bash"> Enter same passphrase again: [Type passphrase again]</span></code></pre>
+
 <h4 id="将SSH密钥添加到ssh-agent"><a href="#将SSH密钥添加到ssh-agent" class="headerlink" title="将SSH密钥添加到ssh-agent"></a><a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent" target="_blank" rel="noopener">将SSH密钥添加到ssh-agent</a></h4><p>在将新的SSH密钥添加到ssh-agent以管理密钥之前，您应该<a href="https://help.github.com/en/articles/checking-for-existing-ssh-keys" target="_blank" rel="noopener">检查现有的SSH密钥</a>并<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key" target="_blank" rel="noopener">生成新的SSH密钥</a>。</p>
 <p>如果安装了<a href="https://desktop.github.com/" target="_blank" rel="noopener">GitHub Desktop</a>，则可以使用它来克隆存储库而不处理SSH密钥。它还附带了Git Bash工具，这是<code>git</code>在Windows 上运行命令的首选方式。</p>
 <p>1.确保ssh-agent正在运行：</p>
@@ -241,13 +254,15 @@ id_rsa.pub</code></pre><ul>
 <li><p>如果您使用的Git Shell是随着GitHub Desktop一起安装的，那么ssh-agent应该在运行中。</p>
 </li>
 <li><p>如果您使用的时其它命令提示符终端，例如Git for Windows，则可以使用“<a href="https://help.github.com/en/articles/working-with-ssh-key-passphrases" target="_blank" rel="noopener">Working with SSH key passphrases</a>”中所说的“Auto-launching the ssh-agent”，或者通过以下命令手动启动：</p>
-<pre><code class="shell"># start the ssh-agent in the background
-$ eval $(ssh-agent -s)
-&gt; Agent pid 59566</code></pre>
+<pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> start the ssh-agent <span class="hljs-keyword">in</span> the background</span>
+<span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">eval</span> $(ssh-agent -s)</span>
+<span class="hljs-meta">&gt;</span><span class="bash"> Agent pid 59566</span></code></pre>
+
 </li>
 </ul>
 <p>2.将SSH私钥添加到ssh-agent。如果您使用了其他名称创建密钥，或者要添加不同名称的已有的密钥，请将如下命令中的<em>id_rsa</em>替换为您的私钥文件的名称。</p>
-<pre><code class="shell">$ ssh-add ~/.ssh/id_rsa</code></pre>
+<pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> ssh-add ~/.ssh/id_rsa</span></code></pre>
+
 <p>3.将SSH密钥添加到您的GitHub帐户。</p>
 <h3 id="四、添加一个新的SSH密钥到您的GitHub帐户"><a href="#四、添加一个新的SSH密钥到您的GitHub帐户" class="headerlink" title="四、添加一个新的SSH密钥到您的GitHub帐户"></a><a href="https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account" target="_blank" rel="noopener">四、添加一个新的SSH密钥到您的GitHub帐户</a></h3><p>要配置您的GitHub帐户使用新的（或现有的）SSH密钥，还需要将其添加到GitHub帐户中。</p>
 <p>在向GitHub帐户添加新的SSH密钥之前，您应该已经做了一下两步：</p>
@@ -261,8 +276,9 @@ $ eval $(ssh-agent -s)
 </blockquote>
 <p>1.将SSH密钥复制到剪贴板。</p>
 <p>如果您的SSH密钥文件的名称与示例代码不同，请根据您的文件名修改以下命令并执行。复制密钥时，请勿添加任何换行符或空格。</p>
-<pre><code class="shell">$ clip &lt; ~/.ssh/id_rsa.pub
-# Copies the contents of the id_rsa.pub file to your clipboard</code></pre>
+<pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> clip &lt; ~/.ssh/id_rsa.pub</span>
+<span class="hljs-meta">#</span><span class="bash"> Copies the contents of the id_rsa.pub file to your clipboard</span></code></pre>
+
 <blockquote>
 <p><strong>提示：</strong>如果<code>clip</code>不起作用，您可以找到隐藏的<code>.ssh</code>文件夹，用文本编辑器打开密钥文件，然后将其中的内容复制到剪贴板。</p>
 </blockquote>
@@ -291,83 +307,90 @@ $ eval $(ssh-agent -s)
 <p>测试连接时，您需要使用您之前创建SSH密钥时的密码验证此操作。有关使用SSH密钥密码的更多信息，请参阅“<a href="https://help.github.com/en/articles/working-with-ssh-key-passphrases" target="_blank" rel="noopener">Working with SSH key passphrases</a>”。</p>
 <p>1.打开Git Bash。</p>
 <p>2.输入以下内容：</p>
-<pre><code class="shell">$ ssh -T git@github.com
-# Attempts to ssh to GitHub</code></pre>
+<pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> ssh -T git@github.com</span>
+<span class="hljs-meta">#</span><span class="bash"> Attempts to ssh to GitHub</span></code></pre>
+
 <p>您可能会看到如下提示信息：</p>
-<pre><code class="shell">&gt; The authenticity of host &#39;github.com (IP ADDRESS)&#39; can&#39;t be established.
-  &gt; RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
-  &gt; Are you sure you want to continue connecting (yes/no)?</code></pre>
+<pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash"> The authenticity of host <span class="hljs-string">'github.com (IP ADDRESS)'</span> can<span class="hljs-string">'t be established.</span></span>
+<span class="hljs-meta">  &gt;</span><span class="bash"><span class="hljs-string"> RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span></span>
+<span class="hljs-meta">  &gt;</span><span class="bash"><span class="hljs-string"> Are you sure you want to continue connecting (yes/no)?</span></span></code></pre>
+
 <p>或者像这样：</p>
-<pre><code class="shell">&gt; The authenticity of host &#39;github.com (IP ADDRESS)&#39; can&#39;t be established.
-  &gt; RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
-  &gt; Are you sure you want to continue connecting (yes/no)?</code></pre>
+<pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash"> The authenticity of host <span class="hljs-string">'github.com (IP ADDRESS)'</span> can<span class="hljs-string">'t be established.</span></span>
+<span class="hljs-meta">  &gt;</span><span class="bash"><span class="hljs-string"> RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.</span></span>
+<span class="hljs-meta">  &gt;</span><span class="bash"><span class="hljs-string"> Are you sure you want to continue connecting (yes/no)?</span></span></code></pre>
+
 <p>3.验证您看到的信息中的编码是否与步骤2中的某条信息匹配，然后输入<code>yes</code>：</p>
-<pre><code class="shell">&gt; Hi username! You&#39;ve successfully authenticated, but GitHub does not
-&gt; provide shell access.</code></pre>
+<pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash"> Hi username! You<span class="hljs-string">'ve successfully authenticated, but GitHub does not</span></span>
+<span class="hljs-meta">&gt;</span><span class="bash"><span class="hljs-string"> provide shell access.</span></span></code></pre>
+
 <p>4.验证生成的消息是否包含您的用户名。如果返回“permission denied”，请参阅“<a href="https://help.github.com/en/articles/error-permission-denied-publickey" target="_blank" rel="noopener">Error: Permission denied (publickey)</a>”。</p>
 <h3 id="六、使用SSH密钥密码"><a href="#六、使用SSH密钥密码" class="headerlink" title="六、使用SSH密钥密码"></a>六、使用SSH密钥密码</h3><p>您可以加密SSH密钥并配置身份验证代理，这样您就不必在每次使用SSH密钥时重新输入密码。</p>
 <p>使用SSH密钥，如果有人获得对您计算机的访问权限，他们也可以访问使用该密钥的每个系统。要添加额外的安全层，可以对SSH密钥添加密码。您可以使用<code>ssh-agent</code>来安全地保存您的密码，这样您就不必重新输入密码。</p>
 <h4 id="添加或更改密码"><a href="#添加或更改密码" class="headerlink" title="添加或更改密码"></a><a href="https://help.github.com/en/articles/working-with-ssh-key-passphrases#adding-or-changing-a-passphrase" target="_blank" rel="noopener">添加或更改密码</a></h4><p>您可以通过键入以下命令来更改现有私钥的密码，而无需重新生成密钥对：</p>
-<pre><code class="shell">$ ssh-keygen -p
-# Start the SSH key creation process
-&gt; Enter file in which the key is (/Users/you/.ssh/id_rsa): [Hit enter]
-&gt; Key has comment &#39;/Users/you/.ssh/id_rsa&#39;
-&gt; Enter new passphrase (empty for no passphrase): [Type new passphrase]
-&gt; Enter same passphrase again: [One more time for luck]
-&gt; Your identification has been saved with the new passphrase.</code></pre>
+<pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> ssh-keygen -p</span>
+<span class="hljs-meta">#</span><span class="bash"> Start the SSH key creation process</span>
+<span class="hljs-meta">&gt;</span><span class="bash"> Enter file <span class="hljs-keyword">in</span> <span class="hljs-built_in">which</span> the key is (/Users/you/.ssh/id_rsa): [Hit enter]</span>
+<span class="hljs-meta">&gt;</span><span class="bash"> Key has comment <span class="hljs-string">'/Users/you/.ssh/id_rsa'</span></span>
+<span class="hljs-meta">&gt;</span><span class="bash"> Enter new passphrase (empty <span class="hljs-keyword">for</span> no passphrase): [Type new passphrase]</span>
+<span class="hljs-meta">&gt;</span><span class="bash"> Enter same passphrase again: [One more time <span class="hljs-keyword">for</span> luck]</span>
+<span class="hljs-meta">&gt;</span><span class="bash"> Your identification has been saved with the new passphrase.</span></code></pre>
+
 <p>如果您的SSH密钥已有密码，系统会提示您输入原密码，验证后才能更改为新密码。</p>
 <h4 id="在Git-for-Windows上自动启动ssh-agent"><a href="#在Git-for-Windows上自动启动ssh-agent" class="headerlink" title="在Git for Windows上自动启动ssh-agent"></a><a href="https://help.github.com/en/articles/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows" target="_blank" rel="noopener">在Git for Windows上自动启动ssh-agent</a></h4><p>如果您使用的是与GitHub Desktop一起安装的Git Shell，则无需执行以下步骤。GitHub Desktop会自动为您启动<code>ssh-agent</code>。</p>
 <p>否则，请按照以下步骤在打开bash或Git shell时自动运行<code>ssh-agent</code>。复制下面的内容，并通过Git Shell将其粘贴到您的<code>~/.profile</code>或<code>~/.bashrc</code>文件：</p>
-<pre><code class="bash">env=~/.ssh/agent.env
+<pre><code class="hljs bash">env=~/.ssh/agent.env
 
-agent_load_env () { test -f &quot;$env&quot; &amp;&amp; . &quot;$env&quot; &gt;| /dev/null ; }
+<span class="hljs-function"><span class="hljs-title">agent_load_env</span></span> () &#123; <span class="hljs-built_in">test</span> -f <span class="hljs-string">"<span class="hljs-variable">$env</span>"</span> &amp;&amp; . <span class="hljs-string">"<span class="hljs-variable">$env</span>"</span> &gt;| /dev/null ; &#125;
 
-agent_start () {
-    (umask 077; ssh-agent &gt;| &quot;$env&quot;)
-    . &quot;$env&quot; &gt;| /dev/null ; }
+<span class="hljs-function"><span class="hljs-title">agent_start</span></span> () &#123;
+    (<span class="hljs-built_in">umask</span> 077; ssh-agent &gt;| <span class="hljs-string">"<span class="hljs-variable">$env</span>"</span>)
+    . <span class="hljs-string">"<span class="hljs-variable">$env</span>"</span> &gt;| /dev/null ; &#125;
 
 agent_load_env
 
-# agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2= agent not running
-agent_run_state=$(ssh-add -l &gt;| /dev/null 2&gt;&amp;1; echo $?)
+<span class="hljs-comment"># agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2= agent not running</span>
+agent_run_state=$(ssh-add -l &gt;| /dev/null 2&gt;&amp;1; <span class="hljs-built_in">echo</span> $?)
 
-if [ ! &quot;$SSH_AUTH_SOCK&quot; ] || [ $agent_run_state = 2 ]; then
+<span class="hljs-keyword">if</span> [ ! <span class="hljs-string">"<span class="hljs-variable">$SSH_AUTH_SOCK</span>"</span> ] || [ <span class="hljs-variable">$agent_run_state</span> = 2 ]; <span class="hljs-keyword">then</span>
     agent_start
     ssh-add
-elif [ &quot;$SSH_AUTH_SOCK&quot; ] &amp;&amp; [ $agent_run_state = 1 ]; then
+<span class="hljs-keyword">elif</span> [ <span class="hljs-string">"<span class="hljs-variable">$SSH_AUTH_SOCK</span>"</span> ] &amp;&amp; [ <span class="hljs-variable">$agent_run_state</span> = 1 ]; <span class="hljs-keyword">then</span>
     ssh-add
-fi
+<span class="hljs-keyword">fi</span>
 
-unset env</code></pre>
+<span class="hljs-built_in">unset</span> env</code></pre>
+
 <p>如果您的私钥没有存储在默认位置（<code>~/.ssh/id_rsa</code>或<code>~/.ssh/id_dsa</code>），那么您需要告知您的SSH身份验证代理在哪里找到它。要将你的SSH密钥添加到ssh-agent，请键入<code>ssh-add ~/path/to/my_key</code>。更多信息，请参阅“<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="noopener">Generating a new SSH key and adding it to the ssh-agent</a>”</p>
 <blockquote>
 <p><strong>提示：</strong>如果您想<code>ssh-agent</code>在一段时间后忘记密钥，可以通过键入命令<code>ssh-add -t &lt;seconds&gt;</code>进行设置。</p>
 </blockquote>
 <p>现在，当您第一次运行Git Bash时，系统会提示您输入密码：</p>
-<pre><code class="shell">&gt; Initializing new SSH agent...
-&gt; succeeded
-&gt; Enter passphrase for /c/Users/you/.ssh/id_rsa:
-&gt; Identity added: /c/Users/you/.ssh/id_rsa (/c/Users/you/.ssh/id_rsa)
-&gt; Welcome to Git (version 1.6.0.2-preview20080923)
-&gt;
-&gt; Run &#39;git help git&#39; to display the help index.
-&gt; Run &#39;git help &#39; to display help for specific commands.</code></pre>
+<pre><code class="hljs shell"><span class="hljs-meta">&gt;</span><span class="bash"> Initializing new SSH agent...</span>
+<span class="hljs-meta">&gt;</span><span class="bash"> succeeded</span>
+<span class="hljs-meta">&gt;</span><span class="bash"> Enter passphrase <span class="hljs-keyword">for</span> /c/Users/you/.ssh/id_rsa:</span>
+<span class="hljs-meta">&gt;</span><span class="bash"> Identity added: /c/Users/you/.ssh/id_rsa (/c/Users/you/.ssh/id_rsa)</span>
+<span class="hljs-meta">&gt;</span><span class="bash"> Welcome to Git (version 1.6.0.2-preview20080923)</span>
+<span class="hljs-meta">&gt;</span><span class="bash"></span>
+<span class="hljs-meta">&gt;</span><span class="bash"> Run <span class="hljs-string">'git help git'</span> to display the <span class="hljs-built_in">help</span> index.</span>
+<span class="hljs-meta">&gt;</span><span class="bash"> Run <span class="hljs-string">'git help '</span> to display <span class="hljs-built_in">help</span> <span class="hljs-keyword">for</span> specific commands.</span></code></pre>
+
 <p><code>ssh-agent</code>进程将持续运行，直到您注销，关闭计算机或终止这个进程。</p>
 
-            </div>
+            </article>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 
                 
-                  <span>
-                <i class="iconfont icon-tag"></i>
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/GitHub/">GitHub</a>
                     
-                  </span>
+                  </div>
                 
-              </p>
+              </div>
               
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
               
@@ -377,7 +400,7 @@ unset env</code></pre>
                     
                     
                       <a href="/2019/05/25/Hexo博客使用插件hexo-git-backup通过GitHub备份与恢复/">
-                        <i class="fa fa-chevron-left"></i>
+                        <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Hexo博客使用插件hexo-git-backup通过GitHub备份与恢复</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
@@ -389,7 +412,7 @@ unset env</code></pre>
                       <a href="/2019/04/09/Ubuntu通过Deepin-wine-for-Ubuntu安装QQ、微信/">
                         <span class="hidden-mobile">Ubuntu通过Deepin wine for Ubuntu安装QQ、微信</span>
                         <span class="visible-mobile">下一篇</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     
                   </div>
@@ -397,49 +420,49 @@ unset env</code></pre>
               
             </div>
 
-              
-                <!-- Comments -->
-                <div class="comments" id="comments">
-                  
-                  
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
   <div id="vcomments"></div>
-  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
 
   <script type="text/javascript">
-    var notify = 'false' === 'true';
-    var verify = 'false' === 'true';
-    var oldLoad = window.onload;
+    var oldLoadVa = window.onload;
     window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
       new Valine({
-        el: '#vcomments',
-        notify: notify,
-        verify: verify,
+        el: "#vcomments",
         app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
         app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
         placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
-        avatar: "/retro",
-        meta: ['nick', 'mail', 'link'],
+        path: window.location.pathname,
+        avatar: "retro",
+        meta: ["nick","mail","link"],
         pageSize: "10",
+        lang: "zh-CN",
+        highlight: false,
+        recordIP: false,
+        serverURLs: "",
       });
-      oldLoad && oldLoad();
     };
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
       powered by Valine.</a></noscript>
 
 
-                </div>
-              
+              </div>
+            
           </div>
         </div>
       </div>
     </div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc-start"></div>
-<div id="toc">
-  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div id="tocbot"></div>
 </div>
 
@@ -455,8 +478,8 @@ unset env</code></pre>
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -491,9 +514,10 @@ unset env</code></pre>
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
     </div>
     
   <div>
@@ -517,9 +541,10 @@ unset env</code></pre>
     
   <!-- 备案信息 -->
   <div>
-    <a href="http://beian.miit.gov.cn/" target="_blank"
+    <a href="http://beian.miit.gov.cn/" target="_blank" class="beian-icp"
        rel="nofollow noopener">蜀ICP备20011971号</a>
     
+  </div>
 
 
     
@@ -528,9 +553,7 @@ unset env</code></pre>
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
 
@@ -539,34 +562,12 @@ unset env</code></pre>
 
 
   
-  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
-      var navHeight = $('#navbar').height();
-      var toc = $('#toc');
       var boardCtn = $('#board-ctn');
       var boardTop = boardCtn.offset().top;
-      var tocLimMax = 2 * boardTop + boardCtn.height();
 
-      $(window).scroll(function () {
-        var tocLimMin = $('#toc-start').offset().top - navHeight;
-        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-
-        if (tocLimMin <= scroH && scroH <= tocLimMax) {
-          toc.css({
-            'display': 'block',
-            'position': 'fixed',
-            'top': navHeight,
-          });
-        } else if (scroH <= tocLimMin) {
-          toc.css({
-            'position': '',
-            'top': '',
-          });
-        } else if (scroH > tocLimMax) {
-          toc.css('display', 'none');
-        }
-      });
       tocbot.init({
         tocSelector: '#tocbot',
         contentSelector: '.post-content',
@@ -576,16 +577,13 @@ unset env</code></pre>
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });
       if ($('.toc-list-item').length > 0) {
-        $('#toc > p').css('visibility', 'visible');
+        $('#toc').css('visibility', 'visible');
       }
-      var offset = boardCtn.css('margin-right')
-      $('#toc-ctn').css({
-        'right': offset
-      })
     });
   </script>
 
@@ -598,50 +596,12 @@ unset env</code></pre>
 
 
 
-  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
-
-
-
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
 
 <!-- Plugins -->
-
-
-  
-    <!-- Baidu Analytics -->
-    <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 
@@ -671,6 +631,8 @@ unset env</code></pre>
       placement: "right",
       visible: "hover",
       
+      icon: "❡"
+      
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
     var res = [];
@@ -687,24 +649,28 @@ unset env</code></pre>
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
-      getSearchFile(path);
+      searchFunc(path, 'local-search-input', 'local-search-result');
       this.onclick = null
     }
   </script>
 
 
 
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
   <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
       function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
         $(this).wrap(element);
       }
     );
   </script>
+
+
 
 
 
@@ -759,6 +725,10 @@ unset env</code></pre>
       ;
     </script>
   
+
+
+
+
 
 
 

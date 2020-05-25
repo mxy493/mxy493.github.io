@@ -18,24 +18,23 @@
   <meta name="keywords" content>
   <title>2020.05.11 字节跳动笔试题目:记事本程序 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="/lib/prettify/tranquil-heart.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
 
 <link rel="stylesheet" href="/css/main.css">
 
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
-
-
 <!-- 自定义样式保持在最底部 -->
-
-  <link rel="stylesheet" href="/css/custom.css">
 
 
 </head>
@@ -61,49 +60,55 @@
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
           </li>
         
         
@@ -121,7 +126,7 @@
          style="background: url('/img/xqmy.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
@@ -129,38 +134,36 @@
 
             
               
-                <p class="mt-3 post-meta">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期一, 五月 11日 2020, 4:07 下午
-                </p>
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-05-11 16:07">
+                    2020年5月11日 下午
+                  </time>
+                </div>
               
 
-              <p class="mt-1">
+              <div class="mt-1">
                 
                   
-                  <span class="post-meta">
-                    <i class="far fa-chart-bar"></i>
-                    1.5k 字
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    1.6k 字
                   </span>
                 
 
                 
                   
-                  <span class="post-meta">
-                      <i class="far fa-clock"></i>
-                      6 分钟
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    19
+                     分钟
                   </span>
                 
 
                 
-                  <!-- 不蒜子统计文章PV -->
-                  
-                  <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
-                    <i class="far fa-eye" aria-hidden="true"></i>
-                    <span id="busuanzi_value_page_pv"></span> 次
-                  </span>
-                
-              </p>
+              </div>
             
           </div>
 
@@ -179,13 +182,16 @@
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             
-              <p
-                class="note note-warning">本文最后更新于：星期一, 五月 11日 2020, 4:23 下午</p>
+              <p class="note note-info">
+                
+                  本文最后更新于：2020年5月11日 下午
+                
+              </p>
             
-            <div class="markdown-body">
+            <article class="markdown-body">
               <p>都5月份了，意外收到字节跳动的笔试链接，今天上午十点到十二点的笔试。</p>
 <p>四个编程题目，换句话说就是考算法吧，一点不出意外的我只做出来一个题，另外三个题几乎都没时间看，实不相瞒做出一个题我都很激动了……第二个题目大概看了下，很显然的动态规划的题目，给我两个小时也不一定能做出来的那种……</p>
 <p>啊啊啊，我真菜……😭</p>
@@ -204,7 +210,7 @@
 <li>从第二行开始输入每一步具体的命令。</li>
 </ul>
 <p>示例：</p>
-<pre><code>8
+<pre><code class="hljs undefined">8
 1 abc
 3 3
 2 3
@@ -212,113 +218,120 @@
 3 2
 4 
 4 
-3 1</code></pre><p><strong>输出说明：</strong></p>
+3 1</code></pre>
+
+<p><strong>输出说明：</strong></p>
 <p>输出：</p>
-<pre><code>c
+<pre><code class="hljs undefined">c
 y
-a</code></pre><p>说明：</p>
-<pre><code>1 abc // 字符串S默认初始为空&quot;&quot;，第一步插入&quot;abc&quot;后S变为&quot;abc&quot;
-3 3 // 输出S的第三个字符，即输出&#39;c&#39;
+a</code></pre>
+
+<p>说明：</p>
+<pre><code class="hljs undefined">1 abc // 字符串S默认初始为空&quot;&quot;，第一步插入&quot;abc&quot;后S变为&quot;abc&quot;
+3 3 // 输出S的第三个字符，即输出&apos;c&apos;
 2 3 // 删除字符串S的末尾3个字符，删除后S变为&quot;&quot;
 1 xy // 在字符串S末尾插入&quot;xy&quot;，插入后S为&quot;xy&quot;
-3 2 // 输出字符串S的第二个字符，即输出&#39;y&#39;
+3 2 // 输出字符串S的第二个字符，即输出&apos;y&apos;
 4 // 回滚，即回滚对&quot;xy&quot;的插入，回滚后S为&quot;&quot;
 4 // 回滚，即回滚对字符串S末尾3个字符的删除操作，回滚后S为&quot;abc&quot;
-3 1 // 输出字符串S的第一个字符，即输出&#39;a&#39;</code></pre><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>毕竟是笔试啊，有点慌。因为需要对一些操作步骤进行回滚，一开始我想着应该要把操作的步骤记录下来，所以我定义了一个 <code>vector&lt;pair&lt;int, string&gt;&gt;</code> 类型的数组用于保存输入的每一步命令，每个命令保存为 int 类型的整数，参数保存为 string 类型的字符串，主要是为了兼容不同的参数，如果是命令 <code>4</code> 则将其参数保存为空字符串 <code>&quot;&quot;</code> 。</p>
+3 1 // 输出字符串S的第一个字符，即输出&apos;a&apos;</code></pre>
+
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>毕竟是笔试啊，有点慌。因为需要对一些操作步骤进行回滚，一开始我想着应该要把操作的步骤记录下来，所以我定义了一个 <code>vector&lt;pair&lt;int, string&gt;&gt;</code> 类型的数组用于保存输入的每一步命令，每个命令保存为 int 类型的整数，参数保存为 string 类型的字符串，主要是为了兼容不同的参数，如果是命令 <code>4</code> 则将其参数保存为空字符串 <code>&quot;&quot;</code> 。</p>
 <p>最初的想法是遍历保存下来的命令数组一步一步执行就好了，但是到处理命令 <code>4</code> 的操作时就遇到问题了，感觉处理回滚操作很麻烦，同时觉得回滚这个操作完全就是<strong>回溯法</strong>相同的模式，想了想觉得应该可行，就改用了回溯法来执行每一步命令。</p>
 <p>定义回溯函数 <code>void execute(string S,vector&lt;pair&lt;int, string&gt;&gt;&amp; vec, int&amp; seq, bool&amp; rollback)</code> ，字符串 <code>S</code> 即题目中所述的字符串，数组 <code>vec</code> 即保存下来的命令数组，<code>seq</code> 为当前命令执行到的位置，回滚操作需要记录当前命令执行到的位置，所以 <code>seq</code> 采用引用传参的方式，布尔型的 <code>rollback</code> 用于判断当前命令是回滚操作还是正常的顺序执行。</p>
 <p><code>seq</code> 是递增的，当所有命令都执行完毕后 <code>seq == vec.size()</code> ，此时已经没有可执行的命令，退出回溯函数。</p>
 <p>默认要执行当前的命令，对于命令1、2、3，当前命令执行完毕后，只需要将 seq + 1，递归执行下一条命令。对于命令4，回滚操作，对于回溯法来说也就是 return 就可以了，但也需要将 seq + 1，即当前回滚命令已执行。</p>
 <p>具体的回滚操作需要交给具体的某一步操作去执行，对于命令3，不需要做任何处理，继续往上回溯，对于命令1、2，在执行递归的下一行，判断 <code>rollback == true</code> 则表明在后续命令中遇到了回滚操作，这里就需要进行回滚处理，对于命令1来说，即删除原本插入的字符串；对于命令2来说即恢复原本删除的字符串。回滚操作完毕需要将 <code>rollback</code> 重新置为 <code>false</code> 。</p>
 <p>处理完回滚操作后，还需要继续顺序执行剩下的命令，我用一个 <code>do {...}while(...)</code> 循环来模拟递归执行命令的操作，也就是让命令的执行恢复到顺序执行。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="c++">#include &lt;iostream&gt;
-#include &lt;vector&gt;
-using namespace std;
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
 
-void execute(string S, vector&lt;pair&lt;int, string&gt;&gt;&amp; vec, int&amp; seq, bool&amp; rollback) {
-    if (seq == vec.size()) return;
-    do {
-        string str = vec[seq].second;//命令参数
-        int k = 0;//将字符串参数vec[seq].second转换为整数k
-        if (vec[seq].first == 2 || vec[seq].first == 3) {
-            for (int i = 0; i &lt; str.size(); i++) {
-                k = k * 10 + (str[i] - &#39;0&#39;);
-            }
-        }
-        switch (vec[seq].first)
-        {
-        case 1:
-            S += str;//末尾插入字符串str
-            seq += 1;
-            execute(S, vec, seq, rollback);
-            if (rollback == true) {
-                //回滚
-                S.erase(S.begin() + S.size() - str.size(), S.end());//撤销插入
-                rollback = false;
-            }
-            break;
-        case 2: {
-            string tmp = S.substr(S.size() - k, k);//临时记录要删除的k个字符
-            S.erase(S.begin() + S.size() - k, S.end());//删除末尾k个字符
-            seq += 1;
-            execute(S, vec, seq, rollback);
-            if (rollback == true) {
-                //回滚
-                S += tmp;//插销删除
-                rollback = false;
-            }
-            break;
-        }
-        case 3:
-            cout &lt;&lt; S[k - 1] &lt;&lt; endl;//输出第k个字符
-            seq += 1;
-            execute(S, vec, seq, rollback);
-            if (rollback == true) return;//不处理回滚操作
-            break;
-        case 4:
-            rollback = true;//回滚
-            seq += 1;
-            return;
-        default:
-            break;
-        }
-    } while (seq &lt; vec.size());
-}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">execute</span><span class="hljs-params">(<span class="hljs-built_in">string</span> S, <span class="hljs-built_in">vector</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-built_in">string</span>&gt;&gt;&amp; vec, <span class="hljs-keyword">int</span>&amp; seq, <span class="hljs-keyword">bool</span>&amp; rollback)</span> </span>&#123;
+	<span class="hljs-keyword">if</span> (seq == vec.size()) <span class="hljs-keyword">return</span>;
+	<span class="hljs-keyword">do</span> &#123;
+		<span class="hljs-built_in">string</span> str = vec[seq].second;<span class="hljs-comment">//命令参数</span>
+		<span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>;<span class="hljs-comment">//将字符串参数vec[seq].second转换为整数k</span>
+		<span class="hljs-keyword">if</span> (vec[seq].first == <span class="hljs-number">2</span> || vec[seq].first == <span class="hljs-number">3</span>) &#123;
+			<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; str.size(); i++) &#123;
+				k = k * <span class="hljs-number">10</span> + (str[i] - <span class="hljs-string">'0'</span>);
+			&#125;
+		&#125;
+		<span class="hljs-keyword">switch</span> (vec[seq].first)
+		&#123;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+			S += str;<span class="hljs-comment">//末尾插入字符串str</span>
+			seq += <span class="hljs-number">1</span>;
+			execute(S, vec, seq, rollback);
+			<span class="hljs-keyword">if</span> (rollback == <span class="hljs-literal">true</span>) &#123;
+				<span class="hljs-comment">//回滚</span>
+				S.erase(S.begin() + S.size() - str.size(), S.end());<span class="hljs-comment">//撤销插入</span>
+				rollback = <span class="hljs-literal">false</span>;
+			&#125;
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>: &#123;
+			<span class="hljs-built_in">string</span> tmp = S.substr(S.size() - k, k);<span class="hljs-comment">//临时记录要删除的k个字符</span>
+			S.erase(S.begin() + S.size() - k, S.end());<span class="hljs-comment">//删除末尾k个字符</span>
+			seq += <span class="hljs-number">1</span>;
+			execute(S, vec, seq, rollback);
+			<span class="hljs-keyword">if</span> (rollback == <span class="hljs-literal">true</span>) &#123;
+				<span class="hljs-comment">//回滚</span>
+				S += tmp;<span class="hljs-comment">//插销删除</span>
+				rollback = <span class="hljs-literal">false</span>;
+			&#125;
+			<span class="hljs-keyword">break</span>;
+		&#125;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+			<span class="hljs-built_in">cout</span> &lt;&lt; S[k - <span class="hljs-number">1</span>] &lt;&lt; <span class="hljs-built_in">endl</span>;<span class="hljs-comment">//输出第k个字符</span>
+			seq += <span class="hljs-number">1</span>;
+			execute(S, vec, seq, rollback);
+			<span class="hljs-keyword">if</span> (rollback == <span class="hljs-literal">true</span>) <span class="hljs-keyword">return</span>;<span class="hljs-comment">//不处理回滚操作</span>
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+			rollback = <span class="hljs-literal">true</span>;<span class="hljs-comment">//回滚</span>
+			seq += <span class="hljs-number">1</span>;
+			<span class="hljs-keyword">return</span>;
+		<span class="hljs-keyword">default</span>:
+			<span class="hljs-keyword">break</span>;
+		&#125;
+	&#125; <span class="hljs-keyword">while</span> (seq &lt; vec.size());
+&#125;
 
-int main() {
-    string S = &quot;&quot;;
-    int N;//要执行的命令数
-    cin &gt;&gt; N;
-    vector&lt;pair&lt;int, string&gt;&gt; vec;//输入命令
-    for (int i = 0; i &lt; N; i++) {
-        int seq;
-        string str = &quot;&quot;;
-        cin &gt;&gt; seq;
-        if (seq != 4) {
-            cin &gt;&gt; str;
-        }
-        vec.push_back({ seq, str });
-    }
-    bool rollback = false;//是否回滚命令
-    int q = 0;//命令序号
-    execute(S, vec, q, rollback);//执行命令vec[q]，该命令不是回滚命令
-    return 0;
-}</code></pre>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+	<span class="hljs-built_in">string</span> S = <span class="hljs-string">""</span>;
+	<span class="hljs-keyword">int</span> N;<span class="hljs-comment">//要执行的命令数</span>
+	<span class="hljs-built_in">cin</span> &gt;&gt; N;
+	<span class="hljs-built_in">vector</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-built_in">string</span>&gt;&gt; vec;<span class="hljs-comment">//输入命令</span>
+	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; N; i++) &#123;
+		<span class="hljs-keyword">int</span> seq;
+		<span class="hljs-built_in">string</span> str = <span class="hljs-string">""</span>;
+		<span class="hljs-built_in">cin</span> &gt;&gt; seq;
+		<span class="hljs-keyword">if</span> (seq != <span class="hljs-number">4</span>) &#123;
+			<span class="hljs-built_in">cin</span> &gt;&gt; str;
+		&#125;
+		vec.push_back(&#123; seq, str &#125;);
+	&#125;
+	<span class="hljs-keyword">bool</span> rollback = <span class="hljs-literal">false</span>;<span class="hljs-comment">//是否回滚命令</span>
+	<span class="hljs-keyword">int</span> q = <span class="hljs-number">0</span>;<span class="hljs-comment">//命令序号</span>
+	execute(S, vec, q, rollback);<span class="hljs-comment">//执行命令vec[q]，该命令不是回滚命令</span>
+	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;</code></pre>
 
-            </div>
+
+            </article>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 
                 
-                  <span>
-                <i class="iconfont icon-tag"></i>
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/笔经/">笔经</a>
                     
-                  </span>
+                  </div>
                 
-              </p>
+              </div>
               
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
               
@@ -328,7 +341,7 @@ int main() {
                     
                     
                       <a href="/2020/05/21/2020-05-21-牛客网-校招全国统一模拟笔试（2020年5月场）-C-方向/">
-                        <i class="fa fa-chevron-left"></i>
+                        <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">2020.05.21 牛客网 校招全国统一模拟笔试（2020年5月场）- C++方向</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
@@ -340,7 +353,7 @@ int main() {
                       <a href="/2020/05/05/使用jQuery-on-方法绑定动态添加的元素/">
                         <span class="hidden-mobile">使用jQuery on()方法绑定动态添加的元素</span>
                         <span class="visible-mobile">下一篇</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     
                   </div>
@@ -348,49 +361,49 @@ int main() {
               
             </div>
 
-              
-                <!-- Comments -->
-                <div class="comments" id="comments">
-                  
-                  
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
   <div id="vcomments"></div>
-  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
 
   <script type="text/javascript">
-    var notify = 'false' === 'true';
-    var verify = 'false' === 'true';
-    var oldLoad = window.onload;
+    var oldLoadVa = window.onload;
     window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
       new Valine({
-        el: '#vcomments',
-        notify: notify,
-        verify: verify,
+        el: "#vcomments",
         app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
         app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
         placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
-        avatar: "/retro",
-        meta: ['nick', 'mail', 'link'],
+        path: window.location.pathname,
+        avatar: "retro",
+        meta: ["nick","mail","link"],
         pageSize: "10",
+        lang: "zh-CN",
+        highlight: false,
+        recordIP: false,
+        serverURLs: "",
       });
-      oldLoad && oldLoad();
     };
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
       powered by Valine.</a></noscript>
 
 
-                </div>
-              
+              </div>
+            
           </div>
         </div>
       </div>
     </div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc-start"></div>
-<div id="toc">
-  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div id="tocbot"></div>
 </div>
 
@@ -406,8 +419,8 @@ int main() {
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -442,9 +455,10 @@ int main() {
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
     </div>
     
   <div>
@@ -468,9 +482,10 @@ int main() {
     
   <!-- 备案信息 -->
   <div>
-    <a href="http://beian.miit.gov.cn/" target="_blank"
+    <a href="http://beian.miit.gov.cn/" target="_blank" class="beian-icp"
        rel="nofollow noopener">蜀ICP备20011971号</a>
     
+  </div>
 
 
     
@@ -479,9 +494,7 @@ int main() {
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
 
@@ -490,34 +503,12 @@ int main() {
 
 
   
-  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
-      var navHeight = $('#navbar').height();
-      var toc = $('#toc');
       var boardCtn = $('#board-ctn');
       var boardTop = boardCtn.offset().top;
-      var tocLimMax = 2 * boardTop + boardCtn.height();
 
-      $(window).scroll(function () {
-        var tocLimMin = $('#toc-start').offset().top - navHeight;
-        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-
-        if (tocLimMin <= scroH && scroH <= tocLimMax) {
-          toc.css({
-            'display': 'block',
-            'position': 'fixed',
-            'top': navHeight,
-          });
-        } else if (scroH <= tocLimMin) {
-          toc.css({
-            'position': '',
-            'top': '',
-          });
-        } else if (scroH > tocLimMax) {
-          toc.css('display', 'none');
-        }
-      });
       tocbot.init({
         tocSelector: '#tocbot',
         contentSelector: '.post-content',
@@ -527,16 +518,13 @@ int main() {
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });
       if ($('.toc-list-item').length > 0) {
-        $('#toc > p').css('visibility', 'visible');
+        $('#toc').css('visibility', 'visible');
       }
-      var offset = boardCtn.css('margin-right')
-      $('#toc-ctn').css({
-        'right': offset
-      })
     });
   </script>
 
@@ -549,50 +537,12 @@ int main() {
 
 
 
-  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
-
-
-
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
 
 <!-- Plugins -->
-
-
-  
-    <!-- Baidu Analytics -->
-    <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 
@@ -622,6 +572,8 @@ int main() {
       placement: "right",
       visible: "hover",
       
+      icon: "❡"
+      
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
     var res = [];
@@ -638,24 +590,28 @@ int main() {
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
-      getSearchFile(path);
+      searchFunc(path, 'local-search-input', 'local-search-result');
       this.onclick = null
     }
   </script>
 
 
 
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
   <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
       function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
         $(this).wrap(element);
       }
     );
   </script>
+
+
 
 
 
@@ -710,6 +666,10 @@ int main() {
       ;
     </script>
   
+
+
+
+
 
 
 

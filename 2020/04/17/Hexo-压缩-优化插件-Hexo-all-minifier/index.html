@@ -18,24 +18,23 @@
   <meta name="keywords" content>
   <title>Hexo 压缩&amp;优化插件 Hexo-all-minifier - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="/lib/prettify/tranquil-heart.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
 
 <link rel="stylesheet" href="/css/main.css">
 
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
-
-
 <!-- 自定义样式保持在最底部 -->
-
-  <link rel="stylesheet" href="/css/custom.css">
 
 
 </head>
@@ -61,49 +60,55 @@
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
           </li>
         
         
@@ -121,7 +126,7 @@
          style="background: url('/img/xqmy.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
@@ -129,38 +134,36 @@
 
             
               
-                <p class="mt-3 post-meta">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期五, 四月 17日 2020, 5:20 下午
-                </p>
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-04-17 17:20">
+                    2020年4月17日 下午
+                  </time>
+                </div>
               
 
-              <p class="mt-1">
+              <div class="mt-1">
                 
                   
-                  <span class="post-meta">
-                    <i class="far fa-chart-bar"></i>
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
                     619 字
                   </span>
                 
 
                 
                   
-                  <span class="post-meta">
-                      <i class="far fa-clock"></i>
-                      2 分钟
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    8
+                     分钟
                   </span>
                 
 
                 
-                  <!-- 不蒜子统计文章PV -->
-                  
-                  <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
-                    <i class="far fa-eye" aria-hidden="true"></i>
-                    <span id="busuanzi_value_page_pv"></span> 次
-                  </span>
-                
-              </p>
+              </div>
             
           </div>
 
@@ -179,57 +182,71 @@
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             
-              <p
-                class="note note-warning">本文最后更新于：星期五, 四月 17日 2020, 6:04 晚上</p>
+              <p class="note note-info">
+                
+                  本文最后更新于：2020年4月17日 晚上
+                
+              </p>
             
-            <div class="markdown-body">
+            <article class="markdown-body">
               <p><strong>Hexo-all-minifier：</strong><a href="https://github.com/chenzhutian/hexo-all-minifier" target="_blank" rel="noopener">https://github.com/chenzhutian/hexo-all-minifier</a></p>
 <p>一款 Hexo 插件，通过压缩 HTML、CSS、JS 和图片来优化博客访问速度。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code class="shell">npm install hexo-all-minifier --save</code></pre>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code class="hljs shell">npm install hexo-all-minifier --save</code></pre>
+
 <p><strong>注：</strong>我在执行以上命令进行安装的时候遇到了问题 <code>Failed to connect to raw.githubusercontent.com port 443</code> ，查了下原因，其实就是这个域名（<code>raw.githubusercontent.com</code>）被墙了。</p>
 <p><strong>解决办法：</strong></p>
 <ol>
 <li><p>查真实 IP 地址 <a href="https://www.ipaddress.com/" target="_blank" rel="noopener">https://www.ipaddress.com/</a> ，我查到的IP地址是：<code>199.232.68.133</code></p>
 </li>
 <li><p>修改系统 <code>hosts</code> 。Windows 系统上的路径为 <code>C:\Windows\System32\drivers\etc\hosts</code> ，在 <code>hosts</code> 文件中添加一行：</p>
-<pre><code>199.232.68.133 raw.githubusercontent.com</code></pre></li>
+<pre><code class="hljs undefined">199.232.68.133 raw.githubusercontent.com</code></pre>
+
+</li>
 </ol>
 <p>Mac 电脑还需要安装一些其他东西：</p>
-<pre><code class="shell">brew install libtool automake autoconf nasm</code></pre>
+<pre><code class="hljs shell">brew install libtool automake autoconf nasm</code></pre>
+
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>将这行代码填写到 Hexo 博客根目录下的博客配置文件 <code>_config.yml</code> 中就可以了。</p>
-<pre><code>all_minifier: true</code></pre><p>默认添加以上代码就可以了，比较简单，但仅添加以上代码的情况下，如果在 <code>hexo g</code> 生成静态网页时遇到了问题，或者说有更进阶的需求，那么可以使用以下更进阶一些的设置。</p>
+<pre><code class="hljs undefined">all_minifier: true</code></pre>
+
+<p>默认添加以上代码就可以了，比较简单，但仅添加以上代码的情况下，如果在 <code>hexo g</code> 生成静态网页时遇到了问题，或者说有更进阶的需求，那么可以使用以下更进阶一些的设置。</p>
 <h3 id="进阶设置"><a href="#进阶设置" class="headerlink" title="进阶设置"></a>进阶设置</h3><p>如果使用默认的 <code>all_minifier: true</code> 遇到了问题，将对应出问题的某一项关闭即可（<code>enable: false</code>）。</p>
-<h4 id="HTML-优化"><a href="#HTML-优化" class="headerlink" title="HTML 优化"></a>HTML 优化</h4><pre><code class="yaml">html_minifier:
-  enable: true
-  ignore_error: false
-  silent: false
-  exclude:</code></pre>
+<h4 id="HTML-优化"><a href="#HTML-优化" class="headerlink" title="HTML 优化"></a>HTML 优化</h4><pre><code class="hljs yaml"><span class="hljs-attr">html_minifier:</span>
+<span class="hljs-attr">  enable:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">  ignore_error:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">  silent:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">  exclude:</span></code></pre>
+
 <ul>
 <li><strong>enable</strong> - 开启 HTML minifier. 默认为 <code>true</code> 。</li>
 <li><strong>ignore_error</strong> - 忽视 HTML 优化时遇到的错误。</li>
 <li><strong>silent</strong> - 禁用日志优化，默认为 <code>false</code> 。</li>
 <li><strong>exclude</strong> - 排除文件。</li>
 </ul>
-<h4 id="CSS-优化"><a href="#CSS-优化" class="headerlink" title="CSS 优化"></a>CSS 优化</h4><pre><code>css_minifier:
+<h4 id="CSS-优化"><a href="#CSS-优化" class="headerlink" title="CSS 优化"></a>CSS 优化</h4><pre><code class="hljs undefined">css_minifier:
   enable: true
   silent: false
   exclude: 
-    - &#39;*.min.css&#39;</code></pre><ul>
+    - &apos;*.min.css&apos;</code></pre>
+
+<ul>
 <li><strong>enable</strong> - 开启 CSS minifier，默认为 <code>true</code> 。</li>
 <li><strong>silent</strong> - 禁用日志优化，默认为 <code>false</code> 。</li>
 <li><strong>exclude</strong> - 排除文件。</li>
 </ul>
-<h4 id="JS-优化"><a href="#JS-优化" class="headerlink" title="JS 优化"></a>JS 优化</h4><pre><code>js_minifier:
+<h4 id="JS-优化"><a href="#JS-优化" class="headerlink" title="JS 优化"></a>JS 优化</h4><pre><code class="hljs undefined">js_minifier:
   enable: true
   mangle: true
   silent: false
   output:
   compress:
   exclude: 
-    - &#39;*.min.js&#39;</code></pre><ul>
+    - &apos;*.min.js&apos;</code></pre>
+
+<ul>
 <li><strong>enable</strong> - 开启 JS minifier，默认为 <code>true</code> 。</li>
 <li><strong>mangle</strong> - Mangle file names</li>
 <li><strong>output</strong> - 输出选项。如果为空，请从 <code>.yml</code> 文件中将其删除！否则，它将被设置为 <code>null</code>，<code>null</code> 不同于 <code>undefined</code>。</li>
@@ -238,14 +255,16 @@
 <li><strong>exclude</strong> - 排除文件。</li>
 </ul>
 <h4 id="图片优化"><a href="#图片优化" class="headerlink" title="图片优化"></a>图片优化</h4><hr>
-<pre><code>image_minifier:
+<pre><code class="hljs undefined">image_minifier:
   enable: true
   interlaced: false
   multipass: false
   optimizationLevel: 2
   pngquant: false
   progressive: false
-  silent: false</code></pre><ul>
+  silent: false</code></pre>
+
+<ul>
 <li><strong>enable</strong> - 开启 image minifier. 默认为 <code>true</code> 。</li>
 <li><strong>interlaced</strong> - Interlace gif for progressive rendering. 默认为 <code>false</code> 。</li>
 <li><strong>multipass</strong> - 多次优化 svg 图片，直到完全优化。默认为 <code>false</code> 。</li>
@@ -256,30 +275,29 @@
 <li><strong>exclude</strong> - 排除特定类型的图片文件。可选的值有 <code>gif</code>,<code>jpg</code>, <code>png</code>, or <code>svg</code> 。默认为 <code>null</code> ，不支持 Glob 。</li>
 </ul>
 
-            </div>
+            </article>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 
-                  <span>
-                <i class="iconfont icon-inbox"></i>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
                     
                       <a class="hover-with-bg" href="/categories/博客/">博客</a>
-                      &nbsp;
                     
-                  </span>&nbsp;&nbsp;
+                  </div>
                 
                 
-                  <span>
-                <i class="iconfont icon-tag"></i>
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
                     
                       <a class="hover-with-bg" href="/tags/博客/">博客</a>
                     
-                  </span>
+                  </div>
                 
-              </p>
+              </div>
               
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
               
@@ -289,7 +307,7 @@
                     
                     
                       <a href="/2020/04/18/Leetcode-11-盛最多水的容器【C-】/">
-                        <i class="fa fa-chevron-left"></i>
+                        <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Leetcode 11.盛最多水的容器【C++】</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
@@ -301,7 +319,7 @@
                       <a href="/2020/04/16/Leetcode-56-合并区间【C-】/">
                         <span class="hidden-mobile">Leetcode 56.合并区间【C++】</span>
                         <span class="visible-mobile">下一篇</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     
                   </div>
@@ -309,49 +327,49 @@
               
             </div>
 
-              
-                <!-- Comments -->
-                <div class="comments" id="comments">
-                  
-                  
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
   <div id="vcomments"></div>
-  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
 
   <script type="text/javascript">
-    var notify = 'false' === 'true';
-    var verify = 'false' === 'true';
-    var oldLoad = window.onload;
+    var oldLoadVa = window.onload;
     window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
       new Valine({
-        el: '#vcomments',
-        notify: notify,
-        verify: verify,
+        el: "#vcomments",
         app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
         app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
         placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
-        avatar: "/retro",
-        meta: ['nick', 'mail', 'link'],
+        path: window.location.pathname,
+        avatar: "retro",
+        meta: ["nick","mail","link"],
         pageSize: "10",
+        lang: "zh-CN",
+        highlight: false,
+        recordIP: false,
+        serverURLs: "",
       });
-      oldLoad && oldLoad();
     };
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
       powered by Valine.</a></noscript>
 
 
-                </div>
-              
+              </div>
+            
           </div>
         </div>
       </div>
     </div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc-start"></div>
-<div id="toc">
-  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div id="tocbot"></div>
 </div>
 
@@ -367,8 +385,8 @@
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -403,9 +421,10 @@
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
     </div>
     
   <div>
@@ -429,9 +448,10 @@
     
   <!-- 备案信息 -->
   <div>
-    <a href="http://beian.miit.gov.cn/" target="_blank"
+    <a href="http://beian.miit.gov.cn/" target="_blank" class="beian-icp"
        rel="nofollow noopener">蜀ICP备20011971号</a>
     
+  </div>
 
 
     
@@ -440,9 +460,7 @@
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
 
@@ -451,34 +469,12 @@
 
 
   
-  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
-      var navHeight = $('#navbar').height();
-      var toc = $('#toc');
       var boardCtn = $('#board-ctn');
       var boardTop = boardCtn.offset().top;
-      var tocLimMax = 2 * boardTop + boardCtn.height();
 
-      $(window).scroll(function () {
-        var tocLimMin = $('#toc-start').offset().top - navHeight;
-        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-
-        if (tocLimMin <= scroH && scroH <= tocLimMax) {
-          toc.css({
-            'display': 'block',
-            'position': 'fixed',
-            'top': navHeight,
-          });
-        } else if (scroH <= tocLimMin) {
-          toc.css({
-            'position': '',
-            'top': '',
-          });
-        } else if (scroH > tocLimMax) {
-          toc.css('display', 'none');
-        }
-      });
       tocbot.init({
         tocSelector: '#tocbot',
         contentSelector: '.post-content',
@@ -488,16 +484,13 @@
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });
       if ($('.toc-list-item').length > 0) {
-        $('#toc > p').css('visibility', 'visible');
+        $('#toc').css('visibility', 'visible');
       }
-      var offset = boardCtn.css('margin-right')
-      $('#toc-ctn').css({
-        'right': offset
-      })
     });
   </script>
 
@@ -510,50 +503,12 @@
 
 
 
-  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
-
-
-
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
 
 <!-- Plugins -->
-
-
-  
-    <!-- Baidu Analytics -->
-    <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 
@@ -583,6 +538,8 @@
       placement: "right",
       visible: "hover",
       
+      icon: "❡"
+      
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
     var res = [];
@@ -599,24 +556,28 @@
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
-      getSearchFile(path);
+      searchFunc(path, 'local-search-input', 'local-search-result');
       this.onclick = null
     }
   </script>
 
 
 
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
   <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
       function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
         $(this).wrap(element);
       }
     );
   </script>
+
+
 
 
 
@@ -671,6 +632,10 @@
       ;
     </script>
   
+
+
+
+
 
 
 

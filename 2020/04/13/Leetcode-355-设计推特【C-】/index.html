@@ -18,24 +18,23 @@
   <meta name="keywords" content>
   <title>Leetcode 355.设计推特【C++】 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="/lib/prettify/tranquil-heart.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
 
 <link rel="stylesheet" href="/css/main.css">
 
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
-
-
 <!-- 自定义样式保持在最底部 -->
-
-  <link rel="stylesheet" href="/css/custom.css">
 
 
 </head>
@@ -61,49 +60,55 @@
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
           </li>
         
         
@@ -121,7 +126,7 @@
          style="background: url('/img/xqmy.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
@@ -129,38 +134,36 @@
 
             
               
-                <p class="mt-3 post-meta">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期一, 四月 13日 2020, 8:22 晚上
-                </p>
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-04-13 20:22">
+                    2020年4月13日 晚上
+                  </time>
+                </div>
               
 
-              <p class="mt-1">
+              <div class="mt-1">
                 
                   
-                  <span class="post-meta">
-                    <i class="far fa-chart-bar"></i>
-                    1.9k 字
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    2k 字
                   </span>
                 
 
                 
                   
-                  <span class="post-meta">
-                      <i class="far fa-clock"></i>
-                      8 分钟
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    26
+                     分钟
                   </span>
                 
 
                 
-                  <!-- 不蒜子统计文章PV -->
-                  
-                  <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
-                    <i class="far fa-eye" aria-hidden="true"></i>
-                    <span id="busuanzi_value_page_pv"></span> 次
-                  </span>
-                
-              </p>
+              </div>
             
           </div>
 
@@ -179,13 +182,16 @@
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             
-              <p
-                class="note note-warning">本文最后更新于：星期一, 四月 13日 2020, 9:10 晚上</p>
+              <p class="note note-info">
+                
+                  本文最后更新于：2020年4月13日 晚上
+                
+              </p>
             
-            <div class="markdown-body">
+            <article class="markdown-body">
               <blockquote>
 <p>地址：<a href="https://leetcode-cn.com/problems/design-twitter/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/design-twitter/</a></p>
 </blockquote>
@@ -197,7 +203,7 @@
 <li><code>unfollow(followerId, followeeId)</code>: 取消关注一个用户</li>
 </ol>
 <p><strong>示例：</strong></p>
-<pre><code>Twitter twitter = new Twitter();
+<pre><code class="hljs undefined">Twitter twitter = new Twitter();
 
 // 用户1发送了一条新推文 (用户id = 1, 推文id = 5).
 twitter.postTweet(1, 5);
@@ -220,7 +226,9 @@ twitter.unfollow(1, 2);
 
 // 用户1的获取推文应当返回一个列表，其中包含一个id为5的推文.
 // 因为用户1已经不再关注用户2.
-twitter.getNewsFeed(1);</code></pre><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先，我写了一个多小时写出来，但是超时了，很尴尬~</p>
+twitter.getNewsFeed(1);</code></pre>
+
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先，我写了一个多小时写出来，但是超时了，很尴尬~</p>
 <p>还是留下我的解题思路。</p>
 <p>根据题目要求，我们知道要保存每一条推文及其发布者，定义了一个 <code>vector&lt;pair&lt;int, int&gt;&gt;</code> 类型的数组 <code>tweets</code> 用于存储成对的 <code>userID</code> 和 <code>tweetID</code>，并且题目要求检索最近的10条推文，所以发布的时候我们就顺序存储每一条推文，这样避免了每次检索都要对推文进行排序；另外还需要对应每一个用户要存储该用户所关注的用户，考虑每一个用户关注的用户ID都是唯一的，所以我选择用集合来存储每一个用户关注的用户，定义了一个 <code>vector&lt;pair&lt;int, set&lt;int&gt;&gt;&gt;</code> 类型的数组 <code>users</code> ，存储所有用户的用户ID及其对应的关注的用户的集合。</p>
 <h4 id="（1）发推"><a href="#（1）发推" class="headerlink" title="（1）发推"></a>（1）发推</h4><p>首先直接将需要发布的推文及其发布者加入到 <code>tweets</code> 的末尾，然后判断发布该推文的用户是否已存在与用户数组 <code>users</code> ，如果已存在则不做处理，否则将该用户加入到用户数组。</p>
@@ -236,153 +244,154 @@ twitter.getNewsFeed(1);</code></pre><h3 id="解题思路"><a href="#解题思路
 <p>其实就是最开始的代码在索引的那一部分，我首先遍历了一次用户数组判断该用户是否存在，如果不存在，函数直接结束了那倒没什么影响。但如果存在的话，后续对每一条推文，我都还要再遍历一次去找这个用户，如果遍历了 n 条推文，那么就会做 <code>n + 1</code> 次完全重复的遍历查找，显然这是没有必要的。</p>
 <p>所有我将判断该用户是否存在的标志改为了整型 <code>index</code> 并初始化为 <code>-1</code> ，即表示该用户不存在，如果找到了该用户，则将 <code>index</code> 修改为该用户在用户数组中的位置，后续就不再需要遍历用户数组去查找该用户了。</p>
 <p>我将优化部分的代码放到了👇🏻最后面👇🏻</p>
-<h3 id="代码（超时）"><a href="#代码（超时）" class="headerlink" title="代码（超时）"></a>代码（超时）</h3><h4 id="原始代码（未优化）"><a href="#原始代码（未优化）" class="headerlink" title="原始代码（未优化）"></a>原始代码（未优化）</h4><pre><code class="c++">class Twitter {
-    vector&lt;pair&lt;int, int&gt;&gt; tweets;//所有推文
-    vector&lt;pair&lt;int, set&lt;int&gt;&gt;&gt; users;//所有用户及其关注的用户
-public:
-    /** Initialize your data structure here. */
-    Twitter() {
+<h3 id="代码（超时）"><a href="#代码（超时）" class="headerlink" title="代码（超时）"></a>代码（超时）</h3><h4 id="原始代码（未优化）"><a href="#原始代码（未优化）" class="headerlink" title="原始代码（未优化）"></a>原始代码（未优化）</h4><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Twitter</span> &#123;</span>
+    <span class="hljs-built_in">vector</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; tweets;<span class="hljs-comment">//所有推文</span>
+    <span class="hljs-built_in">vector</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&gt; users;<span class="hljs-comment">//所有用户及其关注的用户</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-comment">/** Initialize your data structure here. */</span>
+    Twitter() &#123;
 
-    }
+    &#125;
 
-    /** Compose a new tweet. */
-    void postTweet(int userId, int tweetId) {
-        //加入推文数组
-        tweets.push_back({ userId,tweetId });
-        //判断该用户是否存在
-        for (auto user : users) {
-            if (user.first == userId) {
-                return;//如果用户存在，函数将在这里结束
-            }
-        }
-        //函数执行到这里说明用户不存在，将用户加入到用户列表
-        users.push_back({ userId,{} });
-    }
+    <span class="hljs-comment">/** Compose a new tweet. */</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">postTweet</span><span class="hljs-params">(<span class="hljs-keyword">int</span> userId, <span class="hljs-keyword">int</span> tweetId)</span> </span>&#123;
+        <span class="hljs-comment">//加入推文数组</span>
+        tweets.push_back(&#123; userId,tweetId &#125;);
+        <span class="hljs-comment">//判断该用户是否存在</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> user : users) &#123;
+            <span class="hljs-keyword">if</span> (user.first == userId) &#123;
+                <span class="hljs-keyword">return</span>;<span class="hljs-comment">//如果用户存在，函数将在这里结束</span>
+            &#125;
+        &#125;
+        <span class="hljs-comment">//函数执行到这里说明用户不存在，将用户加入到用户列表</span>
+        users.push_back(&#123; userId,&#123;&#125; &#125;);
+    &#125;
 
-    /** Retrieve the 10 most recent tweet ids in the user&#39;s news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */
-    vector&lt;int&gt; getNewsFeed(int userId) {
-        vector&lt;int&gt; ans;
-        //判断是否存在该id的用户
-        bool exist = false;
-        for (auto user : users) {
-            if (userId == user.first) {
-                exist = true;
-                break;
-            }
-        }
-        //不存在直接返回空数组
-        if (exist == false) {
-            return ans;
-        }
-        int amount = tweets.size();
-        int count = 0;
-        for (int i = 0; count &lt; 10 &amp;&amp; i &lt; tweets.size(); i++) {
-            if (tweets[amount - i - 1].first == userId || isFollowing(userId, tweets[amount - i - 1].first)) {
-                ans.push_back(tweets[amount - i - 1].second);
+    <span class="hljs-comment">/** Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */</span>
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; getNewsFeed(<span class="hljs-keyword">int</span> userId) &#123;
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ans;
+        <span class="hljs-comment">//判断是否存在该id的用户</span>
+        <span class="hljs-keyword">bool</span> exist = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> user : users) &#123;
+            <span class="hljs-keyword">if</span> (userId == user.first) &#123;
+                exist = <span class="hljs-literal">true</span>;
+                <span class="hljs-keyword">break</span>;
+            &#125;
+        &#125;
+        <span class="hljs-comment">//不存在直接返回空数组</span>
+        <span class="hljs-keyword">if</span> (exist == <span class="hljs-literal">false</span>) &#123;
+            <span class="hljs-keyword">return</span> ans;
+        &#125;
+        <span class="hljs-keyword">int</span> amount = tweets.size();
+        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; count &lt; <span class="hljs-number">10</span> &amp;&amp; i &lt; tweets.size(); i++) &#123;
+            <span class="hljs-keyword">if</span> (tweets[amount - i - <span class="hljs-number">1</span>].first == userId || isFollowing(userId, tweets[amount - i - <span class="hljs-number">1</span>].first)) &#123;
+                ans.push_back(tweets[amount - i - <span class="hljs-number">1</span>].second);
                 count++;
-            }
-        }
-        return ans;
-    }
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
 
-    // id1是否关注了id2
-    bool isFollowing(int id1, int id2) {
-        for (int i = 0; i &lt; users.size(); i++) {
-            if (users[i].first == id1 &amp;&amp; users[i].second.find(id2) != users[i].second.end()) {
-                return true;
-            }
-        }
-        return false;
-    }
+    <span class="hljs-comment">// id1是否关注了id2</span>
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isFollowing</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id1, <span class="hljs-keyword">int</span> id2)</span> </span>&#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; users.size(); i++) &#123;
+            <span class="hljs-keyword">if</span> (users[i].first == id1 &amp;&amp; users[i].second.find(id2) != users[i].second.end()) &#123;
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    &#125;
 
-    /** Follower follows a followee. If the operation is invalid, it should be a no-op. */
-    void follow(int followerId, int followeeId) {
-        bool exist = false;
-        for (int i = 0; i &lt; users.size(); i++) {
-            if (followerId == users[i].first) {
-                exist = true;
+    <span class="hljs-comment">/** Follower follows a followee. If the operation is invalid, it should be a no-op. */</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">follow</span><span class="hljs-params">(<span class="hljs-keyword">int</span> followerId, <span class="hljs-keyword">int</span> followeeId)</span> </span>&#123;
+        <span class="hljs-keyword">bool</span> exist = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; users.size(); i++) &#123;
+            <span class="hljs-keyword">if</span> (followerId == users[i].first) &#123;
+                exist = <span class="hljs-literal">true</span>;
                 users[i].second.insert(followeeId);
-                return;
-            }
-        }
-        if (exist == false) {
-            users.push_back({ followerId,{} });
-            users[users.size() - 1].second.insert(followeeId);
-        }
-    }
+                <span class="hljs-keyword">return</span>;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">if</span> (exist == <span class="hljs-literal">false</span>) &#123;
+            users.push_back(&#123; followerId,&#123;&#125; &#125;);
+            users[users.size() - <span class="hljs-number">1</span>].second.insert(followeeId);
+        &#125;
+    &#125;
 
-    /** Follower unfollows a followee. If the operation is invalid, it should be a no-op. */
-    void unfollow(int followerId, int followeeId) {
-        for (int i = 0; i &lt; users.size(); i++) {
-            if (followerId == users[i].first) {
+    <span class="hljs-comment">/** Follower unfollows a followee. If the operation is invalid, it should be a no-op. */</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">unfollow</span><span class="hljs-params">(<span class="hljs-keyword">int</span> followerId, <span class="hljs-keyword">int</span> followeeId)</span> </span>&#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; users.size(); i++) &#123;
+            <span class="hljs-keyword">if</span> (followerId == users[i].first) &#123;
                 users[i].second.erase(followeeId);
-                return;
-            }
-        }
-    }
-};
+                <span class="hljs-keyword">return</span>;
+            &#125;
+        &#125;
+    &#125;
+&#125;;
 
-/**
+<span class="hljs-comment">/**
  * Your Twitter object will be instantiated and called as such:
  * Twitter* obj = new Twitter();
  * obj-&gt;postTweet(userId,tweetId);
  * vector&lt;int&gt; param_2 = obj-&gt;getNewsFeed(userId);
  * obj-&gt;follow(followerId,followeeId);
  * obj-&gt;unfollow(followerId,followeeId);
- */</code></pre>
-<h4 id="优化部分"><a href="#优化部分" class="headerlink" title="优化部分"></a>优化部分</h4><p>对函数 <code>getNewsFeed(int userId)</code> 进行了修改，并删除了函数 <code>isFollowing(int id1, int id2)</code>。</p>
-<pre><code class="c++">/** Retrieve the 10 most recent tweet ids in the user&#39;s news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */
-vector&lt;int&gt; getNewsFeed(int userId) {
-    vector&lt;int&gt; ans;
-    //判断是否存在该id的用户
-    bool exist = false;
-    int index = -1;
-    for (int i = 0; i &lt; users.size(); i++) {
-        if (userId == users[i].first) {
-            index = i;
-            break;
-        }
-    }
-    //不存在直接返回空数组
-    if (index == -1) {
-        return ans;
-    }
-    int amount = tweets.size();
-    int count = 0;
-    for (int i = 0; count &lt; 10 &amp;&amp; i &lt; tweets.size(); i++) {
-        int cur = tweets[amount - i - 1].first;
-        if (cur == userId || users[index].second.find(cur) != users[index].second.end()) {
-            ans.push_back(tweets[amount - i - 1].second);
-            count++;
-        }
-    }
-    return ans;
-}</code></pre>
+ */</span></code></pre>
 
-            </div>
+<h4 id="优化部分"><a href="#优化部分" class="headerlink" title="优化部分"></a>优化部分</h4><p>对函数 <code>getNewsFeed(int userId)</code> 进行了修改，并删除了函数 <code>isFollowing(int id1, int id2)</code>。</p>
+<pre><code class="hljs c++"><span class="hljs-comment">/** Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */</span>
+<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; getNewsFeed(<span class="hljs-keyword">int</span> userId) &#123;
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ans;
+    <span class="hljs-comment">//判断是否存在该id的用户</span>
+    <span class="hljs-keyword">bool</span> exist = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">int</span> index = <span class="hljs-number">-1</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; users.size(); i++) &#123;
+        <span class="hljs-keyword">if</span> (userId == users[i].first) &#123;
+            index = i;
+            <span class="hljs-keyword">break</span>;
+        &#125;
+    &#125;
+    <span class="hljs-comment">//不存在直接返回空数组</span>
+    <span class="hljs-keyword">if</span> (index == <span class="hljs-number">-1</span>) &#123;
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+    <span class="hljs-keyword">int</span> amount = tweets.size();
+    <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; count &lt; <span class="hljs-number">10</span> &amp;&amp; i &lt; tweets.size(); i++) &#123;
+        <span class="hljs-keyword">int</span> cur = tweets[amount - i - <span class="hljs-number">1</span>].first;
+        <span class="hljs-keyword">if</span> (cur == userId || users[index].second.find(cur) != users[index].second.end()) &#123;
+            ans.push_back(tweets[amount - i - <span class="hljs-number">1</span>].second);
+            count++;
+        &#125;
+    &#125;
+    <span class="hljs-keyword">return</span> ans;
+&#125;</code></pre>
+
+
+            </article>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 
-                  <span>
-                <i class="iconfont icon-inbox"></i>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
                     
                       <a class="hover-with-bg" href="/categories/Leetcode/">Leetcode</a>
-                      &nbsp;
                     
-                  </span>&nbsp;&nbsp;
+                  </div>
                 
                 
-                  <span>
-                <i class="iconfont icon-tag"></i>
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
                     
                       <a class="hover-with-bg" href="/tags/C/">C++</a>
                     
-                  </span>
+                  </div>
                 
-              </p>
+              </div>
               
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
               
@@ -392,7 +401,7 @@ vector&lt;int&gt; getNewsFeed(int userId) {
                     
                     
                       <a href="/2020/04/15/2020-04-15-美团点评一面【前端】/">
-                        <i class="fa fa-chevron-left"></i>
+                        <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">2020.04.15 美团点评一面【前端】</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
@@ -404,7 +413,7 @@ vector&lt;int&gt; getNewsFeed(int userId) {
                       <a href="/2020/04/10/Leetcode-151-翻转字符串里的单词【C-】/">
                         <span class="hidden-mobile">Leetcode 151.翻转字符串里的单词【C++】</span>
                         <span class="visible-mobile">下一篇</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     
                   </div>
@@ -412,49 +421,49 @@ vector&lt;int&gt; getNewsFeed(int userId) {
               
             </div>
 
-              
-                <!-- Comments -->
-                <div class="comments" id="comments">
-                  
-                  
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
   <div id="vcomments"></div>
-  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
 
   <script type="text/javascript">
-    var notify = 'false' === 'true';
-    var verify = 'false' === 'true';
-    var oldLoad = window.onload;
+    var oldLoadVa = window.onload;
     window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
       new Valine({
-        el: '#vcomments',
-        notify: notify,
-        verify: verify,
+        el: "#vcomments",
         app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
         app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
         placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
-        avatar: "/retro",
-        meta: ['nick', 'mail', 'link'],
+        path: window.location.pathname,
+        avatar: "retro",
+        meta: ["nick","mail","link"],
         pageSize: "10",
+        lang: "zh-CN",
+        highlight: false,
+        recordIP: false,
+        serverURLs: "",
       });
-      oldLoad && oldLoad();
     };
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
       powered by Valine.</a></noscript>
 
 
-                </div>
-              
+              </div>
+            
           </div>
         </div>
       </div>
     </div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc-start"></div>
-<div id="toc">
-  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div id="tocbot"></div>
 </div>
 
@@ -470,8 +479,8 @@ vector&lt;int&gt; getNewsFeed(int userId) {
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -506,9 +515,10 @@ vector&lt;int&gt; getNewsFeed(int userId) {
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
     </div>
     
   <div>
@@ -532,9 +542,10 @@ vector&lt;int&gt; getNewsFeed(int userId) {
     
   <!-- 备案信息 -->
   <div>
-    <a href="http://beian.miit.gov.cn/" target="_blank"
+    <a href="http://beian.miit.gov.cn/" target="_blank" class="beian-icp"
        rel="nofollow noopener">蜀ICP备20011971号</a>
     
+  </div>
 
 
     
@@ -543,9 +554,7 @@ vector&lt;int&gt; getNewsFeed(int userId) {
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
 
@@ -554,34 +563,12 @@ vector&lt;int&gt; getNewsFeed(int userId) {
 
 
   
-  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
-      var navHeight = $('#navbar').height();
-      var toc = $('#toc');
       var boardCtn = $('#board-ctn');
       var boardTop = boardCtn.offset().top;
-      var tocLimMax = 2 * boardTop + boardCtn.height();
 
-      $(window).scroll(function () {
-        var tocLimMin = $('#toc-start').offset().top - navHeight;
-        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-
-        if (tocLimMin <= scroH && scroH <= tocLimMax) {
-          toc.css({
-            'display': 'block',
-            'position': 'fixed',
-            'top': navHeight,
-          });
-        } else if (scroH <= tocLimMin) {
-          toc.css({
-            'position': '',
-            'top': '',
-          });
-        } else if (scroH > tocLimMax) {
-          toc.css('display', 'none');
-        }
-      });
       tocbot.init({
         tocSelector: '#tocbot',
         contentSelector: '.post-content',
@@ -591,16 +578,13 @@ vector&lt;int&gt; getNewsFeed(int userId) {
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });
       if ($('.toc-list-item').length > 0) {
-        $('#toc > p').css('visibility', 'visible');
+        $('#toc').css('visibility', 'visible');
       }
-      var offset = boardCtn.css('margin-right')
-      $('#toc-ctn').css({
-        'right': offset
-      })
     });
   </script>
 
@@ -613,50 +597,12 @@ vector&lt;int&gt; getNewsFeed(int userId) {
 
 
 
-  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
-
-
-
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
 
 <!-- Plugins -->
-
-
-  
-    <!-- Baidu Analytics -->
-    <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 
@@ -686,6 +632,8 @@ vector&lt;int&gt; getNewsFeed(int userId) {
       placement: "right",
       visible: "hover",
       
+      icon: "❡"
+      
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
     var res = [];
@@ -702,24 +650,28 @@ vector&lt;int&gt; getNewsFeed(int userId) {
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
-      getSearchFile(path);
+      searchFunc(path, 'local-search-input', 'local-search-result');
       this.onclick = null
     }
   </script>
 
 
 
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
   <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
       function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
         $(this).wrap(element);
       }
     );
   </script>
+
+
 
 
 
@@ -774,6 +726,10 @@ vector&lt;int&gt; getNewsFeed(int userId) {
       ;
     </script>
   
+
+
+
+
 
 
 

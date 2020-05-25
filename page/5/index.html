@@ -18,24 +18,23 @@
   <meta name="keywords" content>
   <title>mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="/lib/prettify/tranquil-heart.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
 
 <link rel="stylesheet" href="/css/main.css">
 
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
-
-
 <!-- 自定义样式保持在最底部 -->
-
-  <link rel="stylesheet" href="/css/custom.css">
 
 
 </head>
@@ -61,49 +60,55 @@
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
           </li>
         
         
@@ -121,7 +126,7 @@
          style="background: url('/img/xqmy.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
@@ -132,7 +137,7 @@
 
           
             <div class="scroll-down-bar">
-              <i class="fas fa-angle-down scroll-down-arrow"></i>
+              <i class="iconfont icon-arrowdown"></i>
             </div>
           
         </div>
@@ -143,7 +148,7 @@
   <main>
     
       <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board"
+        <div class="py-5" id="board"
           >
           
           <div class="container">
@@ -156,49 +161,50 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/14/Leetcode-300-最长上升子序列【C-】/">
-        <p class="h4 index-header">Leetcode 300.最长上升子序列【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/14/Leetcode-300-最长上升子序列【C-】/">Leetcode 300.最长上升子序列【C++】</a>
 
-      <a href="/2020/03/14/Leetcode-300-最长上升子序列【C-】/">
+      <a href="/2020/03/14/Leetcode-300-最长上升子序列【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/longest-increasing-subsequence/
 
 题目给定一个无序的整数数组，找到其中最长上升子序列的长度。
 示例：
 输入: [10,9,2,5,3,7,101,18]
 输出: 4 
-解释: 最长的上升子序列是 [2,3,7,101]，它的长度是 4。说明：
+解释: 最长的上升子序列是 [2,3,7,101]，它的长度是 4。
 
-可能会有多种最长上升子序列的组合，你只需要输出对应的长度即可。
-你算法的时间复杂度应该为 O(n2) 。进阶： 你能将算法的时间复杂度降低到 O(n log n) 吗?
+说明：
 
-解题思路没思路，然后看了官方题解： https://leetcode-cn.</div>
-        </div>
+可能会有多种最长上升子序列的组合，你只需要输</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-14&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-14
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -208,47 +214,52 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/13/Leetcode-169-多数元素【C-】/">
-        <p class="h4 index-header">Leetcode 169.多数元素【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/13/Leetcode-169-多数元素【C-】/">Leetcode 169.多数元素【C++】</a>
 
-      <a href="/2020/03/13/Leetcode-169-多数元素【C-】/">
+      <a href="/2020/03/13/Leetcode-169-多数元素【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/majority-element
 
 题目给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。
 你可以假设数组是非空的，并且给定的数组总是存在多数元素。
 示例 1:
 输入: [3,2,3]
-输出: 3示例 2:
+输出: 3
+
+示例 2:
 输入: [2,2,1,1,1,2,2]
-输出: 2解题思路思路很简单，就是遍历数组记录每一个元素的个数，由于最终是要返回元素，所以需要将元素和其个数成对保存，我使用了 vector&lt;pair&lt;int, int&gt;&gt; 的数组来存储。
-遍历数组</div>
-        </div>
+输出: 2
+
+解题</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-13&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-13
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -258,45 +269,45 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/12/Leetcode-1071-字符串的最大公因子【C-】/">
-        <p class="h4 index-header">Leetcode 1071.字符串的最大公因子【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/12/Leetcode-1071-字符串的最大公因子【C-】/">Leetcode 1071.字符串的最大公因子【C++】</a>
 
-      <a href="/2020/03/12/Leetcode-1071-字符串的最大公因子【C-】/">
+      <a href="/2020/03/12/Leetcode-1071-字符串的最大公因子【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/greatest-common-divisor-of-strings/
 
 题目对于字符串 S 和 T，只有在 S = T + ... + T（T 与自身连接 1 次或多次）时，我们才认定 “T 能除尽 S”。
 返回最长字符串 X，要求满足 X 能除尽 str1 且 X 能除尽 str2。
 示例 1：
-输入：str1 = &quot;ABCABC&quot;, str2 = &quot;ABC&quot;
-输出：&quot;ABC&quot;示例 2：
-输入：str1 = &quot;ABABAB&quot;, str2 </div>
-        </div>
+输入：str1 = &q</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-12
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -306,43 +317,43 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/11/Leetcode-1013-将数组分成和相等的三个部分【C-】/">
-        <p class="h4 index-header">Leetcode 1013.将数组分成和相等的三个部分【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/11/Leetcode-1013-将数组分成和相等的三个部分【C-】/">Leetcode 1013.将数组分成和相等的三个部分【C++】</a>
 
-      <a href="/2020/03/11/Leetcode-1013-将数组分成和相等的三个部分【C-】/">
+      <a href="/2020/03/11/Leetcode-1013-将数组分成和相等的三个部分【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/partition-array-into-three-parts-with-equal-sum/
 
 题目给你一个整数数组 A，只有可以将其划分为三个和相等的非空部分时才返回 true，否则返回 false。
-形式上，如果可以找出索引 i+1 &lt; j 且满足 (A[0] + A[1] + ... + A[i] == A[i+1] + A[i+2] + ... + A[j-1] == A[j] + A[j-1] + ... + A[A.length - 1]) 就可以将数组三等分。
-示例 1：
-输出：[0,2,1,-6</div>
-        </div>
+形式上，如果可以找出索引 i+1 &lt; j 且满足 (A[0] + A[1] + ... + A[i] == A[</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-11&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-11
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -352,48 +363,48 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/10/Leetcode-543-二叉树的直径【C-】/">
-        <p class="h4 index-header">Leetcode 543.二叉树的直径【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/10/Leetcode-543-二叉树的直径【C-】/">Leetcode 543.二叉树的直径【C++】</a>
 
-      <a href="/2020/03/10/Leetcode-543-二叉树的直径【C-】/">
+      <a href="/2020/03/10/Leetcode-543-二叉树的直径【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/diameter-of-binary-tree/
 
 题目给定一棵二叉树，你需要计算它的直径长度。一棵二叉树的直径长度是任意两个结点路径长度中的最大值。这条路径可能穿过根结点。
 示例 :给定二叉树
-      1
-     / \
-    2   3
-   / \     
-  4   5    返回 3, 它的长度是路径 [4,2,1,3] 或者 [5,2,1,3]。
-注意：两结点之间的路径长度是以它们之间边的数目表示。
-解题思路首先这个题需要注意一点，整棵树的最长路径，不一定是左右子树的深度相加，因为可能最长路径并没有</div>
-        </div>
+    1
+   / \
+  2   3
+ / \     
+4   5    返回 3, 它的长度是路径 [4,2,1,3] 或</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-10&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-10
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -403,17 +414,14 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/09/Leetcode-121-买卖股票的最佳时机【C-】/">
-        <p class="h4 index-header">Leetcode 121.买卖股票的最佳时机【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/09/Leetcode-121-买卖股票的最佳时机【C-】/">Leetcode 121.买卖股票的最佳时机【C++】</a>
 
-      <a href="/2020/03/09/Leetcode-121-买卖股票的最佳时机【C-】/">
+      <a href="/2020/03/09/Leetcode-121-买卖股票的最佳时机【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/
 
 题目给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
@@ -421,29 +429,32 @@
 注意你不能在买入股票前卖出股票。
 示例 1:
 输入: [7,1,5,3,6,4]
-输出: 5
-解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。
-      注意利润不能是 7-1 = 6, 因为卖出价格需要大于买</div>
-        </div>
+输出: 5</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-09&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-09
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -453,49 +464,46 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/08/Leetcode-322-零钱兑换【C-】/">
-        <p class="h4 index-header">Leetcode 322.零钱兑换【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/08/Leetcode-322-零钱兑换【C-】/">Leetcode 322.零钱兑换【C++】</a>
 
-      <a href="/2020/03/08/Leetcode-322-零钱兑换【C-】/">
+      <a href="/2020/03/08/Leetcode-322-零钱兑换【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/coin-change/
 
 题目给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。
 示例 1:
 输入: coins = [1, 2, 5], amount = 11
 输出: 3 
-解释: 11 = 5 + 5 + 1示例 2:
-输入: coins = [2], amount = 3
-输出: -1说明:
-你可以认为每种硬币的数量是无限的。
-解题思路解题思路参考官方题解~
-一开始的时候自己尝试做这道题，首先想到的</div>
-        </div>
+解释: 11 = 5 + 5 +</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-08&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-08
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -505,49 +513,49 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/07/Leetcode-53-最大子序和【C-】/">
-        <p class="h4 index-header">Leetcode 53.最大子序和【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/07/Leetcode-53-最大子序和【C-】/">Leetcode 53.最大子序和【C++】</a>
 
-      <a href="/2020/03/07/Leetcode-53-最大子序和【C-】/">
+      <a href="/2020/03/07/Leetcode-53-最大子序和【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/maximum-subarray/
 
 题目给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
 示例:
 输入: [-2,1,-3,4,-1,2,1,-5,4],
 输出: 6
-解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。进阶:
-如果你已经实现复杂度为 O(n) 的解法，尝试使用更为精妙的分治法求解。
-解题思路笨办法！遍历所有可能的子序并计算其子序和，不断地更新最大子序和。
-代码class Solution {
-public:
-    int maxSubAr</div>
-        </div>
+解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
+
+进阶:
+如果你已经实现复杂度为 O(n</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-07
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -557,46 +565,46 @@ public:
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/07/Leetcode-58-最后一个单词的长度【C-】/">
-        <p class="h4 index-header">Leetcode 58.最后一个单词的长度【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/07/Leetcode-58-最后一个单词的长度【C-】/">Leetcode 58.最后一个单词的长度【C++】</a>
 
-      <a href="/2020/03/07/Leetcode-58-最后一个单词的长度【C-】/">
+      <a href="/2020/03/07/Leetcode-58-最后一个单词的长度【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/length-of-last-word/
 
 题目给定一个仅包含大小写字母和空格 &#39; &#39; 的字符串 s，返回其最后一个单词的长度。如果字符串从左向右滚动显示，那么最后一个单词就是最后出现的单词。
 如果不存在最后一个单词，请返回 0 。
 说明：一个单词是指仅由字母组成、不包含任何空格字符的最大子字符串。
 示例：
-输入: &quot;Hello World&quot;
-输出: 5解题思路一开始想着就是遍历字符串，思路是每遇到一个单词的第一个字符就开始统计这个单词的长度，然后找到最后的这个单词就可以了。
-后来一下</div>
-        </div>
+</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-07
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -606,47 +614,49 @@ public:
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/07/Leetcode-67-二进制求和【C-】/">
-        <p class="h4 index-header">Leetcode 67.二进制求和【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/07/Leetcode-67-二进制求和【C-】/">Leetcode 67.二进制求和【C++】</a>
 
-      <a href="/2020/03/07/Leetcode-67-二进制求和【C-】/">
+      <a href="/2020/03/07/Leetcode-67-二进制求和【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/add-binary/
 
 题目给定两个二进制字符串，返回他们的和（用二进制表示）。
 输入为非空字符串且只包含数字 1 和 0。
 示例 1:
 输入: a = &quot;11&quot;, b = &quot;1&quot;
-输出: &quot;100&quot;示例 2:
-输入: a = &quot;1010&quot;, b = &quot;1011&quot;
-输出: &quot;10101&quot;解题思路这个题不可避免的要处理十进制和二进制之间的转换问题，按照二进制求和的方法，从低位到高位依次相加。
-定义一个 </div>
-        </div>
+输出: &quot;100&quot;
+
+示例 2:
+输入: a = &quot;1010&quot;</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-07&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-07
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -654,9 +664,9 @@ public:
 
 
 
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/4/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/6/"><i class="fas fa-angle-double-right"></i></a>
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/4/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/6/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   
@@ -677,8 +687,8 @@ public:
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -713,9 +723,10 @@ public:
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
     </div>
     
   <div>
@@ -739,9 +750,10 @@ public:
     
   <!-- 备案信息 -->
   <div>
-    <a href="http://beian.miit.gov.cn/" target="_blank"
+    <a href="http://beian.miit.gov.cn/" target="_blank" class="beian-icp"
        rel="nofollow noopener">蜀ICP备20011971号</a>
     
+  </div>
 
 
     
@@ -750,9 +762,7 @@ public:
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
 
@@ -767,50 +777,12 @@ public:
 
 
 
-  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
-
-
-
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
 
 <!-- Plugins -->
-
-
-  
-    <!-- Baidu Analytics -->
-    <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 
@@ -840,6 +812,8 @@ public:
       placement: "right",
       visible: "hover",
       
+      icon: "❡"
+      
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
     var res = [];
@@ -856,24 +830,14 @@ public:
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
-      getSearchFile(path);
+      searchFunc(path, 'local-search-input', 'local-search-result');
       this.onclick = null
     }
   </script>
 
 
 
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
-      function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
-        $(this).wrap(element);
-      }
-    );
-  </script>
+
 
 
 
@@ -928,6 +892,10 @@ public:
       ;
     </script>
   
+
+
+
+
 
 
 

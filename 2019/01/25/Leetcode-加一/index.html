@@ -18,24 +18,23 @@
   <meta name="keywords" content>
   <title>Leetcode 加一 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="/lib/prettify/tranquil-heart.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
 
 <link rel="stylesheet" href="/css/main.css">
 
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
-
-
 <!-- 自定义样式保持在最底部 -->
-
-  <link rel="stylesheet" href="/css/custom.css">
 
 
 </head>
@@ -61,49 +60,55 @@
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
           </li>
         
         
@@ -121,7 +126,7 @@
          style="background: url('/img/xqmy.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
@@ -129,38 +134,36 @@
 
             
               
-                <p class="mt-3 post-meta">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期五, 一月 25日 2019, 11:54 晚上
-                </p>
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2019-01-25 23:54">
+                    2019年1月25日 晚上
+                  </time>
+                </div>
               
 
-              <p class="mt-1">
+              <div class="mt-1">
                 
                   
-                  <span class="post-meta">
-                    <i class="far fa-chart-bar"></i>
-                    796 字
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    820 字
                   </span>
                 
 
                 
                   
-                  <span class="post-meta">
-                      <i class="far fa-clock"></i>
-                      3 分钟
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    10
+                     分钟
                   </span>
                 
 
                 
-                  <!-- 不蒜子统计文章PV -->
-                  
-                  <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
-                    <i class="far fa-eye" aria-hidden="true"></i>
-                    <span id="busuanzi_value_page_pv"></span> 次
-                  </span>
-                
-              </p>
+              </div>
             
           </div>
 
@@ -179,13 +182,16 @@
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             
-              <p
-                class="note note-warning">本文最后更新于：星期六, 三月 7日 2020, 10:49 晚上</p>
+              <p class="note note-info">
+                
+                  本文最后更新于：2020年3月7日 晚上
+                
+              </p>
             
-            <div class="markdown-body">
+            <article class="markdown-body">
               <blockquote>
 <p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/27/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/27/</a></p>
 </blockquote>
@@ -195,94 +201,99 @@
 <p>最高位数字存放在数组的首位， 数组中每个元素只存储一个数字。</p>
 <p>你可以假设除了整数 0 之外，这个整数不会以零开头。</p>
 <p><strong>示例 1:</strong></p>
-<pre><code>输入: [1,2,3]
+<pre><code class="hljs undefined">输入: [1,2,3]
 输出: [1,2,4]
-解释: 输入数组表示数字 123。</code></pre><p><strong>示例 2:</strong></p>
-<pre><code>输入: [4,3,2,1]
+解释: 输入数组表示数字 123。</code></pre>
+
+<p><strong>示例 2:</strong></p>
+<pre><code class="hljs undefined">输入: [4,3,2,1]
 输出: [4,3,2,2]
-解释: 输入数组表示数字 4321。</code></pre><h3 id="二、我的解决方案"><a href="#二、我的解决方案" class="headerlink" title="二、我的解决方案"></a>二、我的解决方案</h3><p>首先想到用一个int型整数来保存输入的这个数，因为整数+1很容易实现，把数组的各个数字合并成一个整数以及将一个整数拆分成单个数字都很容易实现，所以写出了这份代码，也理所当然的造成了太大的数<strong>溢出</strong>的问题：</p>
-<pre><code class="c++">class Solution {
-public:
-    vector&lt;int&gt; plusOne(vector&lt;int&gt;&amp; digits) {
-        vector&lt;int&gt; plusone;
-        int integer = digits[0];    //默认输入数组非空，最小为0
+解释: 输入数组表示数字 4321。</code></pre>
 
-        if (digits.size() &gt; 0) {    //计算出对应的数字integer
-            for (int i = 1; i &lt; digits.size(); i++) {
-                integer = integer * 10 + digits[i];
-            }
-        }
-        integer += 1;   //整数+1
+<h3 id="二、我的解决方案"><a href="#二、我的解决方案" class="headerlink" title="二、我的解决方案"></a>二、我的解决方案</h3><p>首先想到用一个int型整数来保存输入的这个数，因为整数+1很容易实现，把数组的各个数字合并成一个整数以及将一个整数拆分成单个数字都很容易实现，所以写出了这份代码，也理所当然的造成了太大的数<strong>溢出</strong>的问题：</p>
+<pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; plusOne(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; digits) &#123;
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; plusone;
+        <span class="hljs-keyword">int</span> integer = digits[<span class="hljs-number">0</span>];    <span class="hljs-comment">//默认输入数组非空，最小为0</span>
 
-        while (integer!=0) {    //将整数拆分成单个数字并逆序保存到plusone数组中
-            plusone.insert(plusone.end(), integer % 10);
-            integer /= 10;
-        }
+        <span class="hljs-keyword">if</span> (digits.size() &gt; <span class="hljs-number">0</span>) &#123;    <span class="hljs-comment">//计算出对应的数字integer</span>
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; digits.size(); i++) &#123;
+                integer = integer * <span class="hljs-number">10</span> + digits[i];
+            &#125;
+        &#125;
+        integer += <span class="hljs-number">1</span>;   <span class="hljs-comment">//整数+1</span>
 
-        for (int i = 0; i &lt; plusone.size() / 2; i++) {   //逆序排列得出结果
-            int temp = plusone[i];
-            plusone[i] = plusone[plusone.size() - 1 - i];
-            plusone[plusone.size() - 1 - i] = temp;
-        }
-        return plusone;
-    }
-};</code></pre>
+        <span class="hljs-keyword">while</span> (integer!=<span class="hljs-number">0</span>) &#123;    <span class="hljs-comment">//将整数拆分成单个数字并逆序保存到plusone数组中</span>
+            plusone.insert(plusone.end(), integer % <span class="hljs-number">10</span>);
+            integer /= <span class="hljs-number">10</span>;
+        &#125;
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; plusone.size() / <span class="hljs-number">2</span>; i++) &#123;   <span class="hljs-comment">//逆序排列得出结果</span>
+            <span class="hljs-keyword">int</span> temp = plusone[i];
+            plusone[i] = plusone[plusone.size() - <span class="hljs-number">1</span> - i];
+            plusone[plusone.size() - <span class="hljs-number">1</span> - i] = temp;
+        &#125;
+        <span class="hljs-keyword">return</span> plusone;
+    &#125;
+&#125;;</code></pre>
+
 <p>例如当输入的数字为<code>[9,8,7,6,5,4,3,2,1,0]</code>时，将得到错误的结果<code>[1,2,8,6,6,0,8,6,1,9]</code>。</p>
 <p><strong>改进后的代码：</strong></p>
-<pre><code class="c++">class Solution {
-public:
-    vector&lt;int&gt; plusOne(vector&lt;int&gt;&amp; digits) {
-        int car = 1;   //对最后一位+1以及判断当前项是否有进位
+<pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; plusOne(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; digits) &#123;
+        <span class="hljs-keyword">int</span> car = <span class="hljs-number">1</span>;   <span class="hljs-comment">//对最后一位+1以及判断当前项是否有进位</span>
 
-        for (int i = digits.size() - 1; i &gt;= 0; i--) {  //从最后一项开始往前遍历
-            if (car == 1) {
-                if (digits[i] == 9) {   //如果当前项为9并且要+1，则当前项置0，进位标志置1
-                    digits[i] = 0;
-                    car = 1;
-                    continue;
-                }
-                else {    //如果当前项非9并且要+1，当前项直接+1，并将进位标志置0
-                    digits[i] += 1;
-                    car = 0;
-                    break;    //一旦进位标志置0表明往前不会再有进位，无需继续遍历
-                }
-            }
-        }
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = digits.size() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;  <span class="hljs-comment">//从最后一项开始往前遍历</span>
+            <span class="hljs-keyword">if</span> (car == <span class="hljs-number">1</span>) &#123;
+                <span class="hljs-keyword">if</span> (digits[i] == <span class="hljs-number">9</span>) &#123;   <span class="hljs-comment">//如果当前项为9并且要+1，则当前项置0，进位标志置1</span>
+                    digits[i] = <span class="hljs-number">0</span>;
+                    car = <span class="hljs-number">1</span>;
+                    <span class="hljs-keyword">continue</span>;
+                &#125;
+                <span class="hljs-keyword">else</span> &#123;    <span class="hljs-comment">//如果当前项非9并且要+1，当前项直接+1，并将进位标志置0</span>
+                    digits[i] += <span class="hljs-number">1</span>;
+                    car = <span class="hljs-number">0</span>;
+                    <span class="hljs-keyword">break</span>;    <span class="hljs-comment">//一旦进位标志置0表明往前不会再有进位，无需继续遍历</span>
+                &#125;
+            &#125;
+        &#125;
 
-        if (car == 1)  //如果上面循环结束后进位标志仍为1，则还需要在数组最前面补1
-            digits.insert(digits.begin(), 1);
+        <span class="hljs-keyword">if</span> (car == <span class="hljs-number">1</span>)  <span class="hljs-comment">//如果上面循环结束后进位标志仍为1，则还需要在数组最前面补1</span>
+            digits.insert(digits.begin(), <span class="hljs-number">1</span>);
 
-        return digits;
-    }
-};</code></pre>
+        <span class="hljs-keyword">return</span> digits;
+    &#125;
+&#125;;</code></pre>
+
 <p>很明显，改进后的代码相对更简洁一些，同时不再受限于整型溢出导致的错误结果。</p>
 <p>前面的代码思路比较简单，也更切合我们日常生活中整数简单+1的操作；事实上改进后的代码思路也并不是很复杂，相对于前面的方法不是那么的抽象，逻辑上略微复杂一点点，因为要把+1的操作作用到单个数字上，要考虑进位的处理（也就是9+1=10的情况下，应该是当前位置0，进位导致前一位要+1）。</p>
 <p>不管怎么说，应该可以说后者在各方面都是要优于前者的。</p>
 
-            </div>
+            </article>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 
-                  <span>
-                <i class="iconfont icon-inbox"></i>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
                     
                       <a class="hover-with-bg" href="/categories/Leetcode/">Leetcode</a>
-                      &nbsp;
                     
-                  </span>&nbsp;&nbsp;
+                  </div>
                 
                 
-                  <span>
-                <i class="iconfont icon-tag"></i>
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
                     
                       <a class="hover-with-bg" href="/tags/数组/">数组</a>
                     
-                  </span>
+                  </div>
                 
-              </p>
+              </div>
               
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
               
@@ -292,7 +303,7 @@ public:
                     
                     
                       <a href="/2019/01/26/Leetcode-移动零/">
-                        <i class="fa fa-chevron-left"></i>
+                        <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Leetcode 移动零</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
@@ -304,7 +315,7 @@ public:
                       <a href="/2019/01/24/Leetcode-两个数组的交集-II/">
                         <span class="hidden-mobile">Leetcode 两个数组的交集 II</span>
                         <span class="visible-mobile">下一篇</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     
                   </div>
@@ -312,49 +323,49 @@ public:
               
             </div>
 
-              
-                <!-- Comments -->
-                <div class="comments" id="comments">
-                  
-                  
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
   <div id="vcomments"></div>
-  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
 
   <script type="text/javascript">
-    var notify = 'false' === 'true';
-    var verify = 'false' === 'true';
-    var oldLoad = window.onload;
+    var oldLoadVa = window.onload;
     window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
       new Valine({
-        el: '#vcomments',
-        notify: notify,
-        verify: verify,
+        el: "#vcomments",
         app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
         app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
         placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
-        avatar: "/retro",
-        meta: ['nick', 'mail', 'link'],
+        path: window.location.pathname,
+        avatar: "retro",
+        meta: ["nick","mail","link"],
         pageSize: "10",
+        lang: "zh-CN",
+        highlight: false,
+        recordIP: false,
+        serverURLs: "",
       });
-      oldLoad && oldLoad();
     };
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
       powered by Valine.</a></noscript>
 
 
-                </div>
-              
+              </div>
+            
           </div>
         </div>
       </div>
     </div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc-start"></div>
-<div id="toc">
-  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div id="tocbot"></div>
 </div>
 
@@ -370,8 +381,8 @@ public:
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -406,9 +417,10 @@ public:
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
     </div>
     
   <div>
@@ -432,9 +444,10 @@ public:
     
   <!-- 备案信息 -->
   <div>
-    <a href="http://beian.miit.gov.cn/" target="_blank"
+    <a href="http://beian.miit.gov.cn/" target="_blank" class="beian-icp"
        rel="nofollow noopener">蜀ICP备20011971号</a>
     
+  </div>
 
 
     
@@ -443,9 +456,7 @@ public:
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
 
@@ -454,34 +465,12 @@ public:
 
 
   
-  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
-      var navHeight = $('#navbar').height();
-      var toc = $('#toc');
       var boardCtn = $('#board-ctn');
       var boardTop = boardCtn.offset().top;
-      var tocLimMax = 2 * boardTop + boardCtn.height();
 
-      $(window).scroll(function () {
-        var tocLimMin = $('#toc-start').offset().top - navHeight;
-        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-
-        if (tocLimMin <= scroH && scroH <= tocLimMax) {
-          toc.css({
-            'display': 'block',
-            'position': 'fixed',
-            'top': navHeight,
-          });
-        } else if (scroH <= tocLimMin) {
-          toc.css({
-            'position': '',
-            'top': '',
-          });
-        } else if (scroH > tocLimMax) {
-          toc.css('display', 'none');
-        }
-      });
       tocbot.init({
         tocSelector: '#tocbot',
         contentSelector: '.post-content',
@@ -491,16 +480,13 @@ public:
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });
       if ($('.toc-list-item').length > 0) {
-        $('#toc > p').css('visibility', 'visible');
+        $('#toc').css('visibility', 'visible');
       }
-      var offset = boardCtn.css('margin-right')
-      $('#toc-ctn').css({
-        'right': offset
-      })
     });
   </script>
 
@@ -513,50 +499,12 @@ public:
 
 
 
-  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
-
-
-
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
 
 <!-- Plugins -->
-
-
-  
-    <!-- Baidu Analytics -->
-    <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 
@@ -586,6 +534,8 @@ public:
       placement: "right",
       visible: "hover",
       
+      icon: "❡"
+      
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
     var res = [];
@@ -602,24 +552,28 @@ public:
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
-      getSearchFile(path);
+      searchFunc(path, 'local-search-input', 'local-search-result');
       this.onclick = null
     }
   </script>
 
 
 
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
   <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
       function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
         $(this).wrap(element);
       }
     );
   </script>
+
+
 
 
 
@@ -674,6 +628,10 @@ public:
       ;
     </script>
   
+
+
+
+
 
 
 

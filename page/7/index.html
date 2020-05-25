@@ -18,24 +18,23 @@
   <meta name="keywords" content>
   <title>mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="/lib/prettify/tranquil-heart.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
 
 <link rel="stylesheet" href="/css/main.css">
 
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
-
-
 <!-- 自定义样式保持在最底部 -->
-
-  <link rel="stylesheet" href="/css/custom.css">
 
 
 </head>
@@ -61,49 +60,55 @@
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
           </li>
         
         
@@ -121,7 +126,7 @@
          style="background: url('/img/xqmy.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
@@ -132,7 +137,7 @@
 
           
             <div class="scroll-down-bar">
-              <i class="fas fa-angle-down scroll-down-arrow"></i>
+              <i class="iconfont icon-arrowdown"></i>
             </div>
           
         </div>
@@ -143,7 +148,7 @@
   <main>
     
       <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board"
+        <div class="py-5" id="board"
           >
           
           <div class="container">
@@ -156,50 +161,46 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/06/Leetcode-面试题57-II-和为s的连续正数序列【C-】/">
-        <p class="h4 index-header">Leetcode 面试题57 - II.和为s的连续正数序列【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/06/Leetcode-面试题57-II-和为s的连续正数序列【C-】/">Leetcode 面试题57 - II.和为s的连续正数序列【C++】</a>
 
-      <a href="/2020/03/06/Leetcode-面试题57-II-和为s的连续正数序列【C-】/">
+      <a href="/2020/03/06/Leetcode-面试题57-II-和为s的连续正数序列【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/
 
 题目输入一个正整数 target ，输出所有和为 target 的连续正整数序列（至少含有两个数）。
 序列内的数字由小到大排列，不同序列按照首个数字从小到大排列。
 示例 1：
 输入：target = 9
-输出：[[2,3,4],[4,5]]示例 2：
-输入：target = 15
-输出：[[1,2,3,4,5],[4,5,6],[7,8]]限制：
-
-1 &lt;= target &lt;= 10^5
-
-解题思路首先很容易想到一点，最大可</div>
-        </div>
+输出：[[2,3,4],[4,5]]</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-06
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -209,17 +210,14 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/05/Leetcode-994-腐烂的橘子-C/">
-        <p class="h4 index-header">Leetcode 994.腐烂的橘子【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/05/Leetcode-994-腐烂的橘子-C/">Leetcode 994.腐烂的橘子【C++】</a>
 
-      <a href="/2020/03/05/Leetcode-994-腐烂的橘子-C/">
+      <a href="/2020/03/05/Leetcode-994-腐烂的橘子-C/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/rotting-oranges/
 
 题目在给定的网格中，每个单元格可以有以下三个值之一：
@@ -227,31 +225,32 @@
 返回直到单元格中没有新鲜橘子为止所必须经过的最小分钟数。如果不可能，返回 -1。
 示例 1：
 
-输入：[[2,1,1],[1,1,0],[0,1,1]]
-输出：4示例 2：
-输入：[[2,1,1],[0,1,1],[1,0,1]]
-输出：-1
-解释：左下角的橘子（第 2 行， 第 0 列）永远不</div>
-        </div>
+</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-05&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-05
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -261,44 +260,45 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/05/Leetcode-1103-分糖果-II-C/">
-        <p class="h4 index-header">Leetcode 1103.分糖果II【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/05/Leetcode-1103-分糖果-II-C/">Leetcode 1103.分糖果II【C++】</a>
 
-      <a href="/2020/03/05/Leetcode-1103-分糖果-II-C/">
+      <a href="/2020/03/05/Leetcode-1103-分糖果-II-C/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/distribute-candies-to-people/
 
 题目排排坐，分糖果。
 我们买了一些糖果 candies，打算把它们分给排好队的 n = num_people 个小朋友。
 给第一个小朋友 1 颗糖果，第二个小朋友 2 颗，依此类推，直到给最后一个小朋友 n 颗糖果。
-然后，我们再回到队伍的起点，给第一个小朋友 n + 1 颗糖果，第二个小朋友 n + 2 颗，依此类推，直到给最后一个小朋友 2 * n 颗糖果。
-重复上述过程（每次都比上一次多给出一颗糖果，当到达队伍终点后再次从队伍起点开始），直到我们分完所有</div>
-        </div>
+然后，我们再回到队伍的起点，给第一个小朋友 n</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-05&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-05
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -308,27 +308,25 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/01/17/博客搭建一周年ᓚᘏᗢ/">
-        <p class="h4 index-header">博客搭建一周年ᓚᘏᗢ</p>
-      </a>
+      <a class="index-header" href="/2020/01/17/博客搭建一周年ᓚᘏᗢ/">博客搭建一周年ᓚᘏᗢ</a>
 
-      <a href="/2020/01/17/博客搭建一周年ᓚᘏᗢ/">
+      <a href="/2020/01/17/博客搭建一周年ᓚᘏᗢ/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">哈哈哈，博客搭建一周年，小纪念一下吧~
+        <div>哈哈哈，博客搭建一周年，小纪念一下吧~
 搭了博客才发现，坚持写可太难了，而且写一篇博客可不简单啊，要自己动手做一遍，然后把整个过程写下来，也许还要贴一些图片，实在是不简单，不过好歹也算是做了件有那么些意义的事，虽然这一年里并没有多大的产量，但零零散散写了一些总好过没有吧，哈哈哈O(∩_∩)O
 新的一年，加油(ง •_•)ง
 2020年1月17日
 </div>
-        </div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-01-17&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-01-17
+          </div>
         
         
         
@@ -340,44 +338,45 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/08/15/Leetcode-删除排序数组中的重复项/">
-        <p class="h4 index-header">Leetcode 删除排序数组中的重复项</p>
-      </a>
+      <a class="index-header" href="/2019/08/15/Leetcode-删除排序数组中的重复项/">Leetcode 删除排序数组中的重复项</a>
 
-      <a href="/2019/08/15/Leetcode-删除排序数组中的重复项/">
+      <a href="/2019/08/15/Leetcode-删除排序数组中的重复项/" class="index-excerpt">
         
         
           
-          
         
-        <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
 
 题目给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
-不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。...</div>
-        </div>
+不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-08-15&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-08-15
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/数组/">数组</a>&nbsp;
-          
-            <a href="/tags/python/">python</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/数组/">数组</a>
+            
+              <a href="/tags/python/">python</a>
+            
+          </div>
         
       </div>
     </div>
@@ -387,35 +386,33 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/05/25/Ubuntu上自定义Code-Blocks工作区颜色主题/">
-        <p class="h4 index-header">Ubuntu上自定义Code::Blocks工作区颜色主题</p>
+      <a class="index-header" href="/2019/05/25/Ubuntu上自定义Code-Blocks工作区颜色主题/">Ubuntu上自定义Code::Blocks工作区颜色主题</a>
+
+      <a href="/2019/05/25/Ubuntu上自定义Code-Blocks工作区颜色主题/" class="index-excerpt">
+        
+        
+          
+        
+        <div>本文主要针对 Ubuntu 系统，理论上任何系统上也都是通用的。网上关于设置 Code::Blocks 主题的教程很多，但是都是在 Windows 系统环境下，并不适用于 Linux 系统。
+可能大家都知道 Code::Blocks 的工作区主题是可以自定义的，路径 Settings —&gt; Editor —&gt; Syntax highlighting ，在这里就可以设置你想要的代码以及背</div>
       </a>
 
-      <a href="/2019/05/25/Ubuntu上自定义Code-Blocks工作区颜色主题/">
+      <div class="index-btm post-metas">
         
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">本文主要针对 Ubuntu 系统，理论上任何系统上也都是通用的。网上关于设置 Code::Blocks 主题的教程很多，但是都是在 Windows 系统环境下，并不适用于 Linux 系统。
-可能大家都知道 Code::Blocks 的工作区主题是可以自定义的，路径 Settings —&gt; Editor —&gt; Syntax highlighting ，在这里就可以设置你想要的代码以及背景颜色，如图：
-
-可以注意到顶部的 Colour theme 即颜色主题，然而后面的选项里默认只有一个 default 的主题，事实上尽管官方没有提供更多的主题，但是还是有大神做好了一系列的主题分享在</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-05-25&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-05-25
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Ubuntu/">Ubuntu</a>&nbsp;
-          
-            <a href="/tags/CodeBlocks/">CodeBlocks</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Ubuntu/">Ubuntu</a>
+            
+              <a href="/tags/CodeBlocks/">CodeBlocks</a>
+            
+          </div>
         
       </div>
     </div>
@@ -425,38 +422,39 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/05/25/Hexo博客使用插件hexo-git-backup通过GitHub备份与恢复/">
-        <p class="h4 index-header">Hexo博客使用插件hexo-git-backup通过GitHub备份与恢复</p>
+      <a class="index-header" href="/2019/05/25/Hexo博客使用插件hexo-git-backup通过GitHub备份与恢复/">Hexo博客使用插件hexo-git-backup通过GitHub备份与恢复</a>
+
+      <a href="/2019/05/25/Hexo博客使用插件hexo-git-backup通过GitHub备份与恢复/" class="index-excerpt">
+        
+        
+          
+        
+        <div>好久没更新过博客了，现在用的这台电脑是前些天刚装的Ubuntu系统，今天打算把博客迁移过来，折腾了好一会儿，所以准备写一篇关于Hexo博客的备份与恢复的。</div>
       </a>
 
-      <a href="/2019/05/25/Hexo博客使用插件hexo-git-backup通过GitHub备份与恢复/">
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-05-25
+          </div>
         
         
-          
-          
-        
-        <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">好久没更新过博客了，现在用的这台电脑是前些天刚装的Ubuntu系统，今天打算把博客迁移过来，折腾了好一会儿，所以准备写一篇关于Hexo博客的备份与恢复的。...</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-05-25&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/博客/">博客</a>
+            
+          </div>
         
         
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/博客/">博客</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Hexo/">Hexo</a>&nbsp;
-          
-            <a href="/tags/博客/">博客</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Hexo/">Hexo</a>
+            
+              <a href="/tags/博客/">博客</a>
+            
+          </div>
         
       </div>
     </div>
@@ -466,33 +464,32 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/04/12/Connecting-to-GitHub-with-SSH/">
-        <p class="h4 index-header">Connecting to GitHub with SSH</p>
+      <a class="index-header" href="/2019/04/12/Connecting-to-GitHub-with-SSH/">Connecting to GitHub with SSH</a>
+
+      <a href="/2019/04/12/Connecting-to-GitHub-with-SSH/" class="index-excerpt">
+        
+        
+          
+        
+        <div>通过SSH连接到GitHub
+
+整理自GitHub官方帮助文档：https://help.github.com/articles/connecting-to-github-with-ssh</div>
       </a>
 
-      <a href="/2019/04/12/Connecting-to-GitHub-with-SSH/">
+      <div class="index-btm post-metas">
         
-        
-          
-          
-        
-        <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">通过SSH连接到GitHub
-
-整理自GitHub官方帮助文档：https://help.github.com/articles/connecting-to-github-with-ssh...</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-04-12&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-04-12
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/GitHub/">GitHub</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/GitHub/">GitHub</a>
+            
+          </div>
         
       </div>
     </div>
@@ -502,35 +499,34 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/04/09/Ubuntu通过Deepin-wine-for-Ubuntu安装QQ、微信/">
-        <p class="h4 index-header">Ubuntu通过Deepin wine for Ubuntu安装QQ、微信</p>
-      </a>
+      <a class="index-header" href="/2019/04/09/Ubuntu通过Deepin-wine-for-Ubuntu安装QQ、微信/">Ubuntu通过Deepin wine for Ubuntu安装QQ、微信</a>
 
-      <a href="/2019/04/09/Ubuntu通过Deepin-wine-for-Ubuntu安装QQ、微信/">
+      <a href="/2019/04/09/Ubuntu通过Deepin-wine-for-Ubuntu安装QQ、微信/" class="index-excerpt">
         
         
           
-          
         
-        <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">Deepin wine for Ubuntu 是 Deepin-wine 环境的 Ubuntu 移植版，GitHub上的一个开源项目。
+        <div>Deepin wine for Ubuntu 是 Deepin-wine 环境的 Ubuntu 移植版，GitHub上的一个开源项目。
 项目地址：https://github.com/wszqkzqk/deepin-wine-ubuntu
-以下内容主要参考项目说明。...</div>
-        </div>
+以下内容主要参考项目说明。</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-04-09&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-04-09
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Linux/">Linux</a>&nbsp;
-          
-            <a href="/tags/软件/">软件</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">Linux</a>
+            
+              <a href="/tags/软件/">软件</a>
+            
+          </div>
         
       </div>
     </div>
@@ -540,33 +536,32 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/04/08/Ubuntu安装WPS（解决字体缺失问题）/">
-        <p class="h4 index-header">Ubuntu安装WPS（解决字体缺失问题）</p>
+      <a class="index-header" href="/2019/04/08/Ubuntu安装WPS（解决字体缺失问题）/">Ubuntu安装WPS（解决字体缺失问题）</a>
+
+      <a href="/2019/04/08/Ubuntu安装WPS（解决字体缺失问题）/" class="index-excerpt">
+        
+        
+          
+        
+        <div>下载WPSWPS for Linux官网：http://www.wps.cn/product/wpslinux/</div>
       </a>
 
-      <a href="/2019/04/08/Ubuntu安装WPS（解决字体缺失问题）/">
+      <div class="index-btm post-metas">
         
-        
-          
-          
-        
-        <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">下载WPSWPS for Linux官网：http://www.wps.cn/product/wpslinux/...</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-04-08&nbsp;&nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2019-04-08
+          </div>
         
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Linux/">Linux</a>&nbsp;
-          
-            <a href="/tags/软件/">软件</a>&nbsp;
-          
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">Linux</a>
+            
+              <a href="/tags/软件/">软件</a>
+            
+          </div>
         
       </div>
     </div>
@@ -574,9 +569,9 @@
 
 
 
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/6/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/"><i class="fas fa-angle-double-right"></i></a>
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/6/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   
@@ -597,8 +592,8 @@
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -633,9 +628,10 @@
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
     </div>
     
   <div>
@@ -659,9 +655,10 @@
     
   <!-- 备案信息 -->
   <div>
-    <a href="http://beian.miit.gov.cn/" target="_blank"
+    <a href="http://beian.miit.gov.cn/" target="_blank" class="beian-icp"
        rel="nofollow noopener">蜀ICP备20011971号</a>
     
+  </div>
 
 
     
@@ -670,9 +667,7 @@
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
 
@@ -687,50 +682,12 @@
 
 
 
-  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
-
-
-
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
 
 <!-- Plugins -->
-
-
-  
-    <!-- Baidu Analytics -->
-    <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 
@@ -760,6 +717,8 @@
       placement: "right",
       visible: "hover",
       
+      icon: "❡"
+      
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
     var res = [];
@@ -776,24 +735,14 @@
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
-      getSearchFile(path);
+      searchFunc(path, 'local-search-input', 'local-search-result');
       this.onclick = null
     }
   </script>
 
 
 
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
-      function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
-        $(this).wrap(element);
-      }
-    );
-  </script>
+
 
 
 
@@ -848,6 +797,10 @@
       ;
     </script>
   
+
+
+
+
 
 
 

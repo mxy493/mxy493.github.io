@@ -18,24 +18,23 @@
   <meta name="keywords" content>
   <title>Leetcode 最长公共前缀 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="/lib/prettify/tranquil-heart.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
 
 <link rel="stylesheet" href="/css/main.css">
 
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
-
-
 <!-- 自定义样式保持在最底部 -->
-
-  <link rel="stylesheet" href="/css/custom.css">
 
 
 </head>
@@ -61,49 +60,55 @@
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
           </li>
         
         
@@ -121,7 +126,7 @@
          style="background: url('/img/xqmy.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
@@ -129,38 +134,36 @@
 
             
               
-                <p class="mt-3 post-meta">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期三, 二月 6日 2019, 1:13 下午
-                </p>
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2019-02-06 13:13">
+                    2019年2月6日 下午
+                  </time>
+                </div>
               
 
-              <p class="mt-1">
+              <div class="mt-1">
                 
                   
-                  <span class="post-meta">
-                    <i class="far fa-chart-bar"></i>
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
                     1.1k 字
                   </span>
                 
 
                 
                   
-                  <span class="post-meta">
-                      <i class="far fa-clock"></i>
-                      4 分钟
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    13
+                     分钟
                   </span>
                 
 
                 
-                  <!-- 不蒜子统计文章PV -->
-                  
-                  <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
-                    <i class="far fa-eye" aria-hidden="true"></i>
-                    <span id="busuanzi_value_page_pv"></span> 次
-                  </span>
-                
-              </p>
+              </div>
             
           </div>
 
@@ -179,13 +182,16 @@
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             
-              <p
-                class="note note-warning">本文最后更新于：星期六, 三月 7日 2020, 10:45 晚上</p>
+              <p class="note note-info">
+                
+                  本文最后更新于：2020年3月7日 晚上
+                
+              </p>
             
-            <div class="markdown-body">
+            <article class="markdown-body">
               <blockquote>
 <p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/40/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/40/</a></p>
 </blockquote>
@@ -193,67 +199,73 @@
 <a id="more"></a>
 
 <p>如果不存在公共前缀，返回空字符串 <code>&quot;&quot;</code>。</p>
-<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例 1:"></a>示例 1:</h4><pre><code>输入: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]
-输出: &quot;fl&quot;</code></pre><h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例 2:"></a>示例 2:</h4><pre><code>输入: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]
+<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例 1:"></a>示例 1:</h4><pre><code class="hljs undefined">输入: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]
+输出: &quot;fl&quot;</code></pre>
+
+<h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例 2:"></a>示例 2:</h4><pre><code class="hljs undefined">输入: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]
 输出: &quot;&quot;
-解释: 输入不存在公共前缀。</code></pre><h4 id="说明"><a href="#说明" class="headerlink" title="说明:"></a>说明:</h4><p>所有输入只包含小写字母 <code>a-z</code> 。</p>
+解释: 输入不存在公共前缀。</code></pre>
+
+<h4 id="说明"><a href="#说明" class="headerlink" title="说明:"></a>说明:</h4><p>所有输入只包含小写字母 <code>a-z</code> 。</p>
 <h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><p>刚读完题就诞生了两个解题思路，所以都尝试写了一下，确实也都是可行的方法。</p>
 <p>相对来说，如果公有部分较长的话应该方法二会高效一些，反之方法一可能更高效。个人感觉方法二应该更普适。</p>
 <p><strong>方法一：</strong></p>
 <p>这个方法比较容易想到，因为要找的是公共前缀，也就是所有字符串有有的前缀，所以从每个字符串的第1个元素开始判断是否都相等，相等则将这个字符插入到返回字符串str，直到找到某个字符不是所有字符串的公共部分，则不再插入到返回值str，并且后续无需继续判断。此时得出的字符串str就是字符串数组的公共前缀。</p>
 <p><strong>缺点</strong>：如果公共前缀太长的话，会做公共前缀对应长度的无效益的循环用于判断是否这些字符是否是公共的。</p>
-<pre><code class="c++">class Solution {
-public:
-    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) {
-        string str = &quot;&quot;;   //返回值，初始化为空字符串
-        if (strs.size() &gt; 0) {   //strs为空的话直接执行return语句返回空字符串，否则执行下面的部分
-            for (int j = 0;; j++) {
-                if (j &gt;= strs[0].size())   //因为总是从第一个字符串开始，所以第一个字符串遍历完后后续就不可能再存在公有的字符了
-                    break;
-                else {
-                    char ch = strs[0][j];    //字符串str[0]的第j+1个字符
-                    bool bl = true;     //字符ch是否公有的标志
-                    for (int k = 0; k &lt; strs.size(); k++) {
-                        if (strs[k][j] != ch) {   //如果某个字符串的第j个字符和ch不同说明ch不是公有字符
-                            bl = false;
-                            break;
-                        }
-                    }
-                    if (bl == true)   //说明ch是公有字符，插入到str尾部
+<pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">longestCommonPrefix</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt;&amp; strs)</span> </span>&#123;
+        <span class="hljs-built_in">string</span> str = <span class="hljs-string">""</span>;   <span class="hljs-comment">//返回值，初始化为空字符串</span>
+        <span class="hljs-keyword">if</span> (strs.size() &gt; <span class="hljs-number">0</span>) &#123;   <span class="hljs-comment">//strs为空的话直接执行return语句返回空字符串，否则执行下面的部分</span>
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;; j++) &#123;
+                <span class="hljs-keyword">if</span> (j &gt;= strs[<span class="hljs-number">0</span>].size())   <span class="hljs-comment">//因为总是从第一个字符串开始，所以第一个字符串遍历完后后续就不可能再存在公有的字符了</span>
+                    <span class="hljs-keyword">break</span>;
+                <span class="hljs-keyword">else</span> &#123;
+                    <span class="hljs-keyword">char</span> ch = strs[<span class="hljs-number">0</span>][j];    <span class="hljs-comment">//字符串str[0]的第j+1个字符</span>
+                    <span class="hljs-keyword">bool</span> bl = <span class="hljs-literal">true</span>;     <span class="hljs-comment">//字符ch是否公有的标志</span>
+                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>; k &lt; strs.size(); k++) &#123;
+                        <span class="hljs-keyword">if</span> (strs[k][j] != ch) &#123;   <span class="hljs-comment">//如果某个字符串的第j个字符和ch不同说明ch不是公有字符</span>
+                            bl = <span class="hljs-literal">false</span>;
+                            <span class="hljs-keyword">break</span>;
+                        &#125;
+                    &#125;
+                    <span class="hljs-keyword">if</span> (bl == <span class="hljs-literal">true</span>)   <span class="hljs-comment">//说明ch是公有字符，插入到str尾部</span>
                         str.insert(str.end(), ch);
-                    else break;   //说明ch不是公有字符，后续不需要再判断
-                }
-            }
-        }
-        return str;
-    }
-};</code></pre>
+                    <span class="hljs-keyword">else</span> <span class="hljs-keyword">break</span>;   <span class="hljs-comment">//说明ch不是公有字符，后续不需要再判断</span>
+                &#125;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> str;
+    &#125;
+&#125;;</code></pre>
+
 <p><strong>方法二：</strong></p>
 <p>这个方法感觉高效一些，正好弥补了方法一的缺点。</p>
 <p>思路是，任选一个字符串作为初始的str（为了方便遍历字符串数组，所以选第一个字符串strs[0]作为初始值），然后用其余每一个字符串依次和str比较查找公共部分，然后删去非公共部分，当整个字符串数组遍历完的时候也就删掉了字符串str与其余所有字符串的非公共部分，剩下的就是公共部分也就是所有字符串的公共前缀。</p>
-<pre><code class="c++">class Solution {
-public:
-    string longestCommonPrefix(vector&lt;string&gt;&amp; strs) {
-        string str = &quot;&quot;;   //返回值，初始化为空字符串
-        if (strs.size() &gt; 0) {
-            str = strs[0];   //strs至少有一个字符串strs[0]，用它初始化str，因为公有部分的长度一定小于strs中的任意一个字符串
-            if (strs.size() &gt; 1) {  //如果strs.size（）大于1，则需要判断字符串str的哪部分为公有的
-                for (int i = 1; i &lt; strs.size(); i++) {  //从第二个字符串开始依次与str比较寻找公有部分，并删除str的非公有部分
-                    int size = str.size() &lt; strs[i].size() ? str.size() : strs[i].size();
-                    str.erase(str.begin() + size, str.end());  //如果str更长一些可以直接删除多余部分
-                    for (int j = 0; j &lt; size; j++) {
-                        if (str[j] != strs[i][j]) {   //某一个字符不相等说明从这个字符开始的后面所有字符都是多余的，删除即可
+<pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">longestCommonPrefix</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt;&amp; strs)</span> </span>&#123;
+        <span class="hljs-built_in">string</span> str = <span class="hljs-string">""</span>;   <span class="hljs-comment">//返回值，初始化为空字符串</span>
+        <span class="hljs-keyword">if</span> (strs.size() &gt; <span class="hljs-number">0</span>) &#123;
+            str = strs[<span class="hljs-number">0</span>];   <span class="hljs-comment">//strs至少有一个字符串strs[0]，用它初始化str，因为公有部分的长度一定小于strs中的任意一个字符串</span>
+            <span class="hljs-keyword">if</span> (strs.size() &gt; <span class="hljs-number">1</span>) &#123;  <span class="hljs-comment">//如果strs.size（）大于1，则需要判断字符串str的哪部分为公有的</span>
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; strs.size(); i++) &#123;  <span class="hljs-comment">//从第二个字符串开始依次与str比较寻找公有部分，并删除str的非公有部分</span>
+                    <span class="hljs-keyword">int</span> size = str.size() &lt; strs[i].size() ? str.size() : strs[i].size();
+                    str.erase(str.begin() + size, str.end());  <span class="hljs-comment">//如果str更长一些可以直接删除多余部分</span>
+                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; size; j++) &#123;
+                        <span class="hljs-keyword">if</span> (str[j] != strs[i][j]) &#123;   <span class="hljs-comment">//某一个字符不相等说明从这个字符开始的后面所有字符都是多余的，删除即可</span>
                             str.erase(str.begin() + j, str.end());
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-        return str;
-    }
-};</code></pre>
-<h4 id="测试数据"><a href="#测试数据" class="headerlink" title="测试数据"></a>测试数据</h4><pre><code>测试1：
+                            <span class="hljs-keyword">break</span>;
+                        &#125;
+                    &#125;
+                &#125;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> str;
+    &#125;
+&#125;;</code></pre>
+
+<h4 id="测试数据"><a href="#测试数据" class="headerlink" title="测试数据"></a>测试数据</h4><pre><code class="hljs undefined">测试1：
 flower
 flow
 flight
@@ -261,32 +273,33 @@ flight
 测试2：
 dog
 racecar
-car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况以及<code>strs数组大小为1</code>的较特殊情况。</p>
+car</code></pre>
 
-            </div>
+<p>测试数据需要考虑下<code>数组为空</code>的情况以及<code>strs数组大小为1</code>的较特殊情况。</p>
+
+            </article>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 
-                  <span>
-                <i class="iconfont icon-inbox"></i>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
                     
                       <a class="hover-with-bg" href="/categories/Leetcode/">Leetcode</a>
-                      &nbsp;
                     
-                  </span>&nbsp;&nbsp;
+                  </div>
                 
                 
-                  <span>
-                <i class="iconfont icon-tag"></i>
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
                     
                       <a class="hover-with-bg" href="/tags/字符串/">字符串</a>
                     
-                  </span>
+                  </div>
                 
-              </p>
+              </div>
               
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
               
@@ -296,7 +309,7 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
                     
                     
                       <a href="/2019/02/22/Leetcode-删除链表中的节点/">
-                        <i class="fa fa-chevron-left"></i>
+                        <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Leetcode 删除链表中的节点</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
@@ -308,7 +321,7 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
                       <a href="/2019/02/06/Leetcode-报数/">
                         <span class="hidden-mobile">Leetcode 报数</span>
                         <span class="visible-mobile">下一篇</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     
                   </div>
@@ -316,49 +329,49 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
               
             </div>
 
-              
-                <!-- Comments -->
-                <div class="comments" id="comments">
-                  
-                  
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
   <div id="vcomments"></div>
-  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
 
   <script type="text/javascript">
-    var notify = 'false' === 'true';
-    var verify = 'false' === 'true';
-    var oldLoad = window.onload;
+    var oldLoadVa = window.onload;
     window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
       new Valine({
-        el: '#vcomments',
-        notify: notify,
-        verify: verify,
+        el: "#vcomments",
         app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
         app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
         placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
-        avatar: "/retro",
-        meta: ['nick', 'mail', 'link'],
+        path: window.location.pathname,
+        avatar: "retro",
+        meta: ["nick","mail","link"],
         pageSize: "10",
+        lang: "zh-CN",
+        highlight: false,
+        recordIP: false,
+        serverURLs: "",
       });
-      oldLoad && oldLoad();
     };
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
       powered by Valine.</a></noscript>
 
 
-                </div>
-              
+              </div>
+            
           </div>
         </div>
       </div>
     </div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc-start"></div>
-<div id="toc">
-  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div id="tocbot"></div>
 </div>
 
@@ -374,8 +387,8 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -410,9 +423,10 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
     </div>
     
   <div>
@@ -436,9 +450,10 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
     
   <!-- 备案信息 -->
   <div>
-    <a href="http://beian.miit.gov.cn/" target="_blank"
+    <a href="http://beian.miit.gov.cn/" target="_blank" class="beian-icp"
        rel="nofollow noopener">蜀ICP备20011971号</a>
     
+  </div>
 
 
     
@@ -447,9 +462,7 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
 
@@ -458,34 +471,12 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
 
 
   
-  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
-      var navHeight = $('#navbar').height();
-      var toc = $('#toc');
       var boardCtn = $('#board-ctn');
       var boardTop = boardCtn.offset().top;
-      var tocLimMax = 2 * boardTop + boardCtn.height();
 
-      $(window).scroll(function () {
-        var tocLimMin = $('#toc-start').offset().top - navHeight;
-        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-
-        if (tocLimMin <= scroH && scroH <= tocLimMax) {
-          toc.css({
-            'display': 'block',
-            'position': 'fixed',
-            'top': navHeight,
-          });
-        } else if (scroH <= tocLimMin) {
-          toc.css({
-            'position': '',
-            'top': '',
-          });
-        } else if (scroH > tocLimMax) {
-          toc.css('display', 'none');
-        }
-      });
       tocbot.init({
         tocSelector: '#tocbot',
         contentSelector: '.post-content',
@@ -495,16 +486,13 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });
       if ($('.toc-list-item').length > 0) {
-        $('#toc > p').css('visibility', 'visible');
+        $('#toc').css('visibility', 'visible');
       }
-      var offset = boardCtn.css('margin-right')
-      $('#toc-ctn').css({
-        'right': offset
-      })
     });
   </script>
 
@@ -517,50 +505,12 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
 
 
 
-  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
-
-
-
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
 
 <!-- Plugins -->
-
-
-  
-    <!-- Baidu Analytics -->
-    <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 
@@ -590,6 +540,8 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
       placement: "right",
       visible: "hover",
       
+      icon: "❡"
+      
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
     var res = [];
@@ -606,24 +558,28 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
-      getSearchFile(path);
+      searchFunc(path, 'local-search-input', 'local-search-result');
       this.onclick = null
     }
   </script>
 
 
 
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
   <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
       function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
         $(this).wrap(element);
       }
     );
   </script>
+
+
 
 
 
@@ -678,6 +634,10 @@ car</code></pre><p>测试数据需要考虑下<code>数组为空</code>的情况
       ;
     </script>
   
+
+
+
+
 
 
 

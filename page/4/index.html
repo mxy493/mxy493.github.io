@@ -18,24 +18,23 @@
   <meta name="keywords" content>
   <title>mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="/lib/prettify/tranquil-heart.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
 
 <link rel="stylesheet" href="/css/main.css">
 
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
-
-
 <!-- 自定义样式保持在最底部 -->
-
-  <link rel="stylesheet" href="/css/custom.css">
 
 
 </head>
@@ -61,49 +60,55 @@
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
           </li>
         
         
@@ -121,7 +126,7 @@
          style="background: url('/img/xqmy.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
@@ -132,7 +137,7 @@
 
           
             <div class="scroll-down-bar">
-              <i class="fas fa-angle-down scroll-down-arrow"></i>
+              <i class="iconfont icon-arrowdown"></i>
             </div>
           
         </div>
@@ -143,7 +148,7 @@
   <main>
     
       <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board"
+        <div class="py-5" id="board"
           >
           
           <div class="container">
@@ -156,50 +161,48 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/24/Leetcode-面试题-17-16-按摩师【C-】/">
-        <p class="h4 index-header">Leetcode 面试题 17.16.按摩师【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/24/Leetcode-面试题-17-16-按摩师【C-】/">Leetcode 面试题 17.16.按摩师【C++】</a>
 
-      <a href="/2020/03/24/Leetcode-面试题-17-16-按摩师【C-】/">
+      <a href="/2020/03/24/Leetcode-面试题-17-16-按摩师【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/the-masseuse-lcci/
 
 题目一个有名的按摩师会收到源源不断的预约请求，每个预约都可以选择接或不接。在每次预约服务之间要有休息时间，因此她不能接受相邻的预约。给定一个预约请求序列，替按摩师找到最优的预约集合（总预约时间最长），返回总的分钟数。
 注意：本题相对原题稍作改动
 示例 1：
 输入： [1,2,3,1]
-输出： 4
-解释： 选择 1 号预约和 3 号预约，总时长 = 1 + 3 = 4。示例 2：
-输入： [2,7,9,3,1]
-输出： 12
-解释： 选择 1 号预约、 3 号预约和 5 号预约，总时</div>
-        </div>
+</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-24&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-24
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
-            <a href="/tags/动态规划/">动态规划</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+              <a href="/tags/动态规划/">动态规划</a>
+            
+          </div>
         
       </div>
     </div>
@@ -209,17 +212,14 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/23/Leetcode-876-链表的中间结点【C-】/">
-        <p class="h4 index-header">Leetcode 876.链表的中间结点【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/23/Leetcode-876-链表的中间结点【C-】/">Leetcode 876.链表的中间结点【C++】</a>
 
-      <a href="/2020/03/23/Leetcode-876-链表的中间结点【C-】/">
+      <a href="/2020/03/23/Leetcode-876-链表的中间结点【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/middle-of-the-linked-list/
 
 题目给定一个带有头结点 head 的非空单链表，返回链表的中间结点。
@@ -227,29 +227,32 @@
 示例 1：
 输入：[1,2,3,4,5]
 输出：此列表中的结点 3 (序列化形式：[3,4,5])
-返回的结点值为 3 。 (测评系统对该结点序列化表述是 [3,4,5])。
-注意，我们返回了一个 ListNode 类型的对象 ans，这样：
-ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
-        </div>
+返回的结点值为 3 。 (测评系统对该结点序列化表述是 </div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-23&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-23
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -259,17 +262,14 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/22/Leetcode-945-使数组唯一的最小增量【C-】/">
-        <p class="h4 index-header">Leetcode 945.使数组唯一的最小增量【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/22/Leetcode-945-使数组唯一的最小增量【C-】/">Leetcode 945.使数组唯一的最小增量【C++】</a>
 
-      <a href="/2020/03/22/Leetcode-945-使数组唯一的最小增量【C-】/">
+      <a href="/2020/03/22/Leetcode-945-使数组唯一的最小增量【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/minimum-increment-to-make-array-unique/
 
 题目给定整数数组 A，每次 move 操作将会选择任意 A[i]，并将其递增 1。
@@ -277,31 +277,34 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
 示例 1:
 输入：[1,2,2]
 输出：1
-解释：经过一次 move 操作，数组将变为 [1, 2, 3]。示例 2:
-输入：[3,2,1,2,1,7]
-输出：6
-解释：经过 6 次 move 操作，数组将变为 [3, 4, 1, 2, 5, 7]。
-可以看出 5 次或 5 次以下的 move 操作是不能让数组</div>
-        </div>
+解释：经过一次 move 操作，数组将变为 [1, 2, 3]。
+
+</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-22&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-22
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -311,17 +314,14 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/21/Leetcode-365-水壶问题【C-】/">
-        <p class="h4 index-header">Leetcode 365.水壶问题【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/21/Leetcode-365-水壶问题【C-】/">Leetcode 365.水壶问题【C++】</a>
 
-      <a href="/2020/03/21/Leetcode-365-水壶问题【C-】/">
+      <a href="/2020/03/21/Leetcode-365-水壶问题【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/water-and-jug-problem/
 
 题目有两个容量分别为 x升 和 y升 的水壶以及无限多的水。请判断能否通过使用这两个水壶，从而可以得到恰好 z升 的水？
@@ -330,32 +330,32 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
 
 装满任意一个水壶
 清空任意一个水壶
-从一个水壶向另外一个水壶倒水，直到装满或者倒空
-
-示例 1: (From the famous *”Die Hard”* example)
-输入: x = 3, y = 5, z = 4
-输出: True示例 2:
-输入: x = 2, y =</div>
-        </div>
+从一个水壶向另外一个水壶倒水，直到装满或者倒</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-21&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-21
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -365,50 +365,48 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/21/Leetcode-面试题40-最小的k个数【C-】/">
-        <p class="h4 index-header">Leetcode 面试题40.最小的k个数【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/21/Leetcode-面试题40-最小的k个数【C-】/">Leetcode 面试题40.最小的k个数【C++】</a>
 
-      <a href="/2020/03/21/Leetcode-面试题40-最小的k个数【C-】/">
+      <a href="/2020/03/21/Leetcode-面试题40-最小的k个数【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/
 
 题目输入整数数组 arr ，找出其中最小的 k 个数。例如，输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。
 示例 1：
 输入：arr = [3,2,1], k = 2
-输出：[1,2] 或者 [2,1]示例 2：
-输入：arr = [0,1,2,1], k = 1
-输出：[0]限制：
+输出：[1,2] 或者 [2,1]
 
-0 &lt;= k &lt;= arr.length &lt;= 10000
-0 &lt;= arr[i] &lt;= 10000
-
-解题思路这个题思</div>
-        </div>
+示例 2：
+输入：arr = [</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-21&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-21
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -418,17 +416,14 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/19/Leetcode-409-最长回文串【C-】/">
-        <p class="h4 index-header">Leetcode 409.最长回文串【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/19/Leetcode-409-最长回文串【C-】/">Leetcode 409.最长回文串【C++】</a>
 
-      <a href="/2020/03/19/Leetcode-409-最长回文串【C-】/">
+      <a href="/2020/03/19/Leetcode-409-最长回文串【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/longest-palindrome/
 
 题目给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。
@@ -437,32 +432,32 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
 示例 1:
 输入:
 &quot;abccccdd&quot;
-
-输出:
-7
-
-解释:
-我们可以构造的最长的回文串是&quot;dccaccd&quot;, 它的长度是 7。解题思路解题思路还是很容易想到的，回文串的特征很明显，就是左右对称，也就是说只有正中可能存</div>
-        </div>
+</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-19&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-19
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -472,49 +467,46 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/18/Leetcode-836-矩形重叠【C-】/">
-        <p class="h4 index-header">Leetcode 836.矩形重叠【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/18/Leetcode-836-矩形重叠【C-】/">Leetcode 836.矩形重叠【C++】</a>
 
-      <a href="/2020/03/18/Leetcode-836-矩形重叠【C-】/">
+      <a href="/2020/03/18/Leetcode-836-矩形重叠【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/rectangle-overlap/
 
 题目矩形以列表 [x1, y1, x2, y2] 的形式表示，其中 (x1, y1) 为左下角的坐标，(x2, y2) 是右上角的坐标。
 如果相交的面积为正，则称两矩形重叠。需要明确的是，只在角或边接触的两个矩形不构成重叠。
 给出两个矩形，判断它们是否重叠并返回结果。
 示例 1：
-输入：rec1 = [0,0,2,2], rec2 = [1,1,3,3]
-输出：true示例 2：
-输入：rec1 = [0,0,1,1], rec2 = [1,0,2,1]
-输出：false提示：
-
-</div>
-        </div>
+输入</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-18&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-18
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -524,45 +516,44 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/17/Leetcode-1160-拼写单词【C-】/">
-        <p class="h4 index-header">Leetcode 1160.拼写单词【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/17/Leetcode-1160-拼写单词【C-】/">Leetcode 1160.拼写单词【C++】</a>
 
-      <a href="/2020/03/17/Leetcode-1160-拼写单词【C-】/">
+      <a href="/2020/03/17/Leetcode-1160-拼写单词【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters/
 
 题目给你一份『词汇表』（字符串数组） words 和一张『字母表』（字符串） chars。
 假如你可以用 chars 中的『字母』（字符）拼写出 words 中的某个『单词』（字符串），那么我们就认为你掌握了这个单词。
-注意：每次拼写时，chars 中的每个字母都只能用一次。
-返回词汇表 words 中你掌握的所有单词的 长度之和。
-示例 1：
-输入：words = [&quot;cat&quot;,&quot;bt&quot;,</div>
-        </div>
+注意：每次拼写</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-17&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-17
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -572,46 +563,44 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/16/Leetcode-面试题-01-06-字符串压缩【C-】/">
-        <p class="h4 index-header">Leetcode 面试题 01.06.字符串压缩【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/16/Leetcode-面试题-01-06-字符串压缩【C-】/">Leetcode 面试题 01.06.字符串压缩【C++】</a>
 
-      <a href="/2020/03/16/Leetcode-面试题-01-06-字符串压缩【C-】/">
+      <a href="/2020/03/16/Leetcode-面试题-01-06-字符串压缩【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/compress-string-lcci/
 
 题目字符串压缩。利用字符重复出现的次数，编写一种方法，实现基本的字符串压缩功能。比如，字符串 aabcccccaaa 会变为 a2b1c5a3。若“压缩”后的字符串没有变短，则返回原先的字符串。你可以假设字符串中只包含大小写英文字母（a至z）。
 示例1:
- 输入：&quot;aabcccccaaa&quot;
- 输出：&quot;a2b1c5a3&quot;示例2:
- 输入：&quot;abbccd&quot;
- 输出：&quot;abbccd&quot;
- 解释：&quot</div>
-        </div>
+输入：&quot;aab</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-16&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-16
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -621,46 +610,45 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2020/03/15/Leetcode-695-岛屿的最大面积【C-】/">
-        <p class="h4 index-header">Leetcode 695.岛屿的最大面积【C++】</p>
-      </a>
+      <a class="index-header" href="/2020/03/15/Leetcode-695-岛屿的最大面积【C-】/">Leetcode 695.岛屿的最大面积【C++】</a>
 
-      <a href="/2020/03/15/Leetcode-695-岛屿的最大面积【C-】/">
+      <a href="/2020/03/15/Leetcode-695-岛屿的最大面积【C-】/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">
+        <div>
 地址：https://leetcode-cn.com/problems/max-area-of-island/
 
 题目给定一个包含了一些 0 和 1的非空二维数组 grid , 一个 岛屿 是由四个方向 (水平或垂直) 的 1 (代表土地) 构成的组合。你可以假设二维矩阵的四个边缘都被水包围着。
 找到给定的二维数组中最大的岛屿面积。(如果没有岛屿，则返回面积为0。)
 示例 1:
-[[0,0,1,0,0,0,0,1,0,0,0,0,0],
- [0,0,0,0,0,0,0,1,1,1,0,0,0],
- [0,1,1,0,1,0,0,0,0,0,0,0,0],
- [0,1,0,0,1,1,0,0,</div>
-        </div>
+[[0,0,1,</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-15&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Leetcode/">Leetcode</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-15
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Leetcode/">Leetcode</a>&nbsp;
-          
-            <a href="/tags/C/">C++</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Leetcode/">Leetcode</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Leetcode/">Leetcode</a>
+            
+              <a href="/tags/C/">C++</a>
+            
+          </div>
         
       </div>
     </div>
@@ -668,9 +656,9 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
 
 
 
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/3/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/"><i class="fas fa-angle-double-right"></i></a>
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/3/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   
@@ -691,8 +679,8 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -727,9 +715,10 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
     </div>
     
   <div>
@@ -753,9 +742,10 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
     
   <!-- 备案信息 -->
   <div>
-    <a href="http://beian.miit.gov.cn/" target="_blank"
+    <a href="http://beian.miit.gov.cn/" target="_blank" class="beian-icp"
        rel="nofollow noopener">蜀ICP备20011971号</a>
     
+  </div>
 
 
     
@@ -764,9 +754,7 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
 
@@ -781,50 +769,12 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
 
 
 
-  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
-
-
-
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
 
 <!-- Plugins -->
-
-
-  
-    <!-- Baidu Analytics -->
-    <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 
@@ -854,6 +804,8 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
       placement: "right",
       visible: "hover",
       
+      icon: "❡"
+      
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
     var res = [];
@@ -870,24 +822,14 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
-      getSearchFile(path);
+      searchFunc(path, 'local-search-input', 'local-search-result');
       this.onclick = null
     }
   </script>
 
 
 
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
-      function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
-        $(this).wrap(element);
-      }
-    );
-  </script>
+
 
 
 
@@ -942,6 +884,10 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及</div>
       ;
     </script>
   
+
+
+
+
 
 
 

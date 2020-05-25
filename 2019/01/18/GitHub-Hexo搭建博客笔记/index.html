@@ -18,24 +18,23 @@
   <meta name="keywords" content>
   <title>GitHub+Hexo搭建博客笔记 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css">
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="/lib/prettify/tranquil-heart.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
 
 <link rel="stylesheet" href="/css/main.css">
 
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
-
-
 <!-- 自定义样式保持在最底部 -->
-
-  <link rel="stylesheet" href="/css/custom.css">
 
 
 </head>
@@ -61,49 +60,55 @@
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
           </li>
         
         
@@ -121,7 +126,7 @@
          style="background: url('/img/xqmy.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
@@ -129,38 +134,36 @@
 
             
               
-                <p class="mt-3 post-meta">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期五, 一月 18日 2019, 3:05 下午
-                </p>
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2019-01-18 15:05">
+                    2019年1月18日 下午
+                  </time>
+                </div>
               
 
-              <p class="mt-1">
+              <div class="mt-1">
                 
                   
-                  <span class="post-meta">
-                    <i class="far fa-chart-bar"></i>
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
                     1.4k 字
                   </span>
                 
 
                 
                   
-                  <span class="post-meta">
-                      <i class="far fa-clock"></i>
-                      5 分钟
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    15
+                     分钟
                   </span>
                 
 
                 
-                  <!-- 不蒜子统计文章PV -->
-                  
-                  <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
-                    <i class="far fa-eye" aria-hidden="true"></i>
-                    <span id="busuanzi_value_page_pv"></span> 次
-                  </span>
-                
-              </p>
+              </div>
             
           </div>
 
@@ -179,13 +182,16 @@
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             
-              <p
-                class="note note-warning">本文最后更新于：星期日, 七月 28日 2019, 1:26 凌晨</p>
+              <p class="note note-info">
+                
+                  本文最后更新于：2019年7月28日 凌晨
+                
+              </p>
             
-            <div class="markdown-body">
+            <article class="markdown-body">
               <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>一直想搭建一个个人博客主要是为了学习吧，我可以不写博客但是我得会搭建博客，会搭博客了我写不写是我的事，哈哈。。。</p>
 <a id="more"></a>
 
@@ -201,57 +207,74 @@
 <p>1.下载并安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a></p>
 <p>官网首页就有醒目的下载按钮，下载好后自选位置（尽量自己记着安装在哪儿）安装就行。</p>
 <p>安装后输入Win+R输入cmd打开控制台输入以下代码：</p>
-<pre><code>node -v
-npm -v</code></pre><p>如果安装没有问题的话，会返回安装的版本号。</p>
+<pre><code class="hljs undefined">node -v
+npm -v</code></pre>
+
+<p>如果安装没有问题的话，会返回安装的版本号。</p>
 <h3 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>安装</h3><p>为了避免出现错误后面的操作都在Git Bash进行。</p>
 <p>首先新建一个存放Hexo文件的目录，自己找个位置就行，然后cd到该目录下，或者直接在该目录下鼠标右键点Git Bash Here就可以，开始安装</p>
-<pre><code>$ cd D:/mxy/Documents/Hexo #换成自己新建的的目录，斜杠不能反了，是&#39;/&#39;，&#39;\&#39;这样不行
+<pre><code class="hljs undefined">$ cd D:/mxy/Documents/Hexo #换成自己新建的的目录，斜杠不能反了，是&apos;/&apos;，&apos;\&apos;这样不行
 $ npm install hexo-cli -g #安装hexo脚手架，没啥说的，官网给的安装命令
 $ hexo init #Hexo自动在当前文件夹下下载搭建网站所需的所有文件
 $ npm install #安装依赖包
 $ hexo clean #清理缓存
 $ hexo g #完整命令为hexo generate，生成静态文件
-$ hexo s #完整命令为hexo server，启动服务器，用来本地预览</code></pre><p>用浏览器访问 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> ，人生第一个博客就生成好了，巨简单，这是Hexo自动生成的博客，现在是本地浏览的，并没有发布到网上，使用了默认主题landscape，可以根据个人喜好更换主题，官网提供了很多可以使用的<a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题</a>。</p>
+$ hexo s #完整命令为hexo server，启动服务器，用来本地预览</code></pre>
+
+<p>用浏览器访问 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> ，人生第一个博客就生成好了，巨简单，这是Hexo自动生成的博客，现在是本地浏览的，并没有发布到网上，使用了默认主题landscape，可以根据个人喜好更换主题，官网提供了很多可以使用的<a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题</a>。</p>
 <h3 id="通过Github部署到网上"><a href="#通过Github部署到网上" class="headerlink" title="通过Github部署到网上"></a>通过<a href="https://github.com/" target="_blank" rel="noopener">Github</a>部署到网上</h3><p>本地博客搭建好了接下来是要把它部署到网上，通过GitHub部署，也可以使用Coding，都差不多。</p>
 <p>没有GitHub账号的话现在就需要注册一个了，名字别太花哨吧，记着自己注册用的邮箱账号。</p>
 <p>Github Page：</p>
 <p>浏览器打开GitHub主页，右上角“+”新建仓库New repository，</p>
 <p>Repository name：<em>mxy493.github.io</em> 填入自己的仓库名称，<em>自己用户名.github.io</em>，最后自己的博客地址就是：<em>https://自己的用户名.github.io/</em></p>
 <h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h3><p>Git Bash中输入命令：邮件地址为注册GitHub时的邮箱</p>
-<pre><code>$ ssh-keygen -t rsa -C &quot;你的邮件地址&quot;  </code></pre><p>回车回车回车，会提示输入密码，输入即可（输入密码是看不到的），也可以不用输入，然后会确认输入一次，就可以在刚刚的路径看到生成了两个文件，一个是id_rsa，另一个是id_rsa.pub，用VS code或者别的软件打开id_rsa.pub然后选中里面的全部内容，复制下来。</p>
+<pre><code class="hljs undefined">$ ssh-keygen -t rsa -C &quot;你的邮件地址&quot;</code></pre>
+
+<p>回车回车回车，会提示输入密码，输入即可（输入密码是看不到的），也可以不用输入，然后会确认输入一次，就可以在刚刚的路径看到生成了两个文件，一个是id_rsa，另一个是id_rsa.pub，用VS code或者别的软件打开id_rsa.pub然后选中里面的全部内容，复制下来。</p>
 <p>打开GitHub，右上角点击自己的头像，选择settings，左侧选择SSH and GPG keys，然后New SSH key，Title随意把复制的内容粘贴到下面的Key的框里面，最后点击Add SSH key完事。</p>
 <h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><p>打开D:\mxy\Documents\Hexo\mxy，用VS code（或者别的可以编辑的软件都可以）打开_config.yml文件，文件最后可以看到</p>
-<pre><code>deploy:
-  type: </code></pre><p>修改（注意要换上自己的链接）</p>
-<pre><code>deploy:
+<pre><code class="hljs undefined">deploy:
+  type:</code></pre>
+
+<p>修改（注意要换上自己的链接）</p>
+<pre><code class="hljs undefined">deploy:
   type: git
   repository: git@github.com:mxy493/mxy493.github.io.git  #这里换成自己的地址
-  branch: master</code></pre><p>不清楚自己的地址可以到GitHub上面看，右上角头像-&gt;Your Rrepositories，找到自己建的代码仓库打开</p>
+  branch: master</code></pre>
+
+<p>不清楚自己的地址可以到GitHub上面看，右上角头像-&gt;Your Rrepositories，找到自己建的代码仓库打开</p>
 <p>修改完成保存！</p>
 <p>继续在Git Bash中输入以下命令：</p>
-<pre><code>$ hexo d #完整命令为hexo deploy，将本地文件发布到page服务平台上</code></pre><p>如果遇到异常：</p>
-<pre><code>$ hexo clean &amp;&amp; hexo g
-$ hexo d</code></pre><p>如果出现以下异常</p>
-<pre><code>ERROR Deployer not found: git</code></pre><p>尝试输入以下命令，然后重新执行刚刚的两条命令</p>
-<pre><code>$ npm install hexo-deployer-git --save</code></pre><p>这时候如果弹出一个对话框，输入在GitHub上面的用户名和密码即可</p>
+<pre><code class="hljs undefined">$ hexo d #完整命令为hexo deploy，将本地文件发布到page服务平台上</code></pre>
+
+<p>如果遇到异常：</p>
+<pre><code class="hljs undefined">$ hexo clean &amp;&amp; hexo g
+$ hexo d</code></pre>
+
+<p>如果出现以下异常</p>
+<pre><code class="hljs undefined">ERROR Deployer not found: git</code></pre>
+
+<p>尝试输入以下命令，然后重新执行刚刚的两条命令</p>
+<pre><code class="hljs undefined">$ npm install hexo-deployer-git --save</code></pre>
+
+<p>这时候如果弹出一个对话框，输入在GitHub上面的用户名和密码即可</p>
 <p>现在，博客就已经发布到网上了，可以通过地址https://自己的用户名.github.io/访问</p>
 
-            </div>
+            </article>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 
-                  <span>
-                <i class="iconfont icon-inbox"></i>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
                     
                       <a class="hover-with-bg" href="/categories/博客/">博客</a>
-                      &nbsp;
                     
-                  </span>&nbsp;&nbsp;
+                  </div>
                 
                 
-                  <span>
-                <i class="iconfont icon-tag"></i>
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
                     
@@ -259,9 +282,9 @@ $ hexo d</code></pre><p>如果出现以下异常</p>
                     
                       <a class="hover-with-bg" href="/tags/GitHub/">GitHub</a>
                     
-                  </span>
+                  </div>
                 
-              </p>
+              </div>
               
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
               
@@ -271,7 +294,7 @@ $ hexo d</code></pre><p>如果出现以下异常</p>
                     
                     
                       <a href="/2019/01/22/Leetcode-只出现一次的数字/">
-                        <i class="fa fa-chevron-left"></i>
+                        <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Leetcode 只出现一次的数字</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
@@ -283,7 +306,7 @@ $ hexo d</code></pre><p>如果出现以下异常</p>
                       <a href="/2019/01/17/hello-world/">
                         <span class="hidden-mobile">Hello World</span>
                         <span class="visible-mobile">下一篇</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     
                   </div>
@@ -291,49 +314,49 @@ $ hexo d</code></pre><p>如果出现以下异常</p>
               
             </div>
 
-              
-                <!-- Comments -->
-                <div class="comments" id="comments">
-                  
-                  
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
   <div id="vcomments"></div>
-  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
 
   <script type="text/javascript">
-    var notify = 'false' === 'true';
-    var verify = 'false' === 'true';
-    var oldLoad = window.onload;
+    var oldLoadVa = window.onload;
     window.onload = function () {
+      oldLoadVa && oldLoadVa();
+
       new Valine({
-        el: '#vcomments',
-        notify: notify,
-        verify: verify,
+        el: "#vcomments",
         app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
         app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
         placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
-        avatar: "/retro",
-        meta: ['nick', 'mail', 'link'],
+        path: window.location.pathname,
+        avatar: "retro",
+        meta: ["nick","mail","link"],
         pageSize: "10",
+        lang: "zh-CN",
+        highlight: false,
+        recordIP: false,
+        serverURLs: "",
       });
-      oldLoad && oldLoad();
     };
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
       powered by Valine.</a></noscript>
 
 
-                </div>
-              
+              </div>
+            
           </div>
         </div>
       </div>
     </div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc-start"></div>
-<div id="toc">
-  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div id="tocbot"></div>
 </div>
 
@@ -349,8 +372,8 @@ $ hexo d</code></pre><p>如果出现以下异常</p>
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -385,9 +408,10 @@ $ hexo d</code></pre><p>如果出现以下异常</p>
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
     </div>
     
   <div>
@@ -411,9 +435,10 @@ $ hexo d</code></pre><p>如果出现以下异常</p>
     
   <!-- 备案信息 -->
   <div>
-    <a href="http://beian.miit.gov.cn/" target="_blank"
+    <a href="http://beian.miit.gov.cn/" target="_blank" class="beian-icp"
        rel="nofollow noopener">蜀ICP备20011971号</a>
     
+  </div>
 
 
     
@@ -422,9 +447,7 @@ $ hexo d</code></pre><p>如果出现以下异常</p>
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
 
@@ -433,34 +456,12 @@ $ hexo d</code></pre><p>如果出现以下异常</p>
 
 
   
-  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
-      var navHeight = $('#navbar').height();
-      var toc = $('#toc');
       var boardCtn = $('#board-ctn');
       var boardTop = boardCtn.offset().top;
-      var tocLimMax = 2 * boardTop + boardCtn.height();
 
-      $(window).scroll(function () {
-        var tocLimMin = $('#toc-start').offset().top - navHeight;
-        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-
-        if (tocLimMin <= scroH && scroH <= tocLimMax) {
-          toc.css({
-            'display': 'block',
-            'position': 'fixed',
-            'top': navHeight,
-          });
-        } else if (scroH <= tocLimMin) {
-          toc.css({
-            'position': '',
-            'top': '',
-          });
-        } else if (scroH > tocLimMax) {
-          toc.css('display', 'none');
-        }
-      });
       tocbot.init({
         tocSelector: '#tocbot',
         contentSelector: '.post-content',
@@ -470,16 +471,13 @@ $ hexo d</code></pre><p>如果出现以下异常</p>
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });
       if ($('.toc-list-item').length > 0) {
-        $('#toc > p').css('visibility', 'visible');
+        $('#toc').css('visibility', 'visible');
       }
-      var offset = boardCtn.css('margin-right')
-      $('#toc-ctn').css({
-        'right': offset
-      })
     });
   </script>
 
@@ -492,50 +490,12 @@ $ hexo d</code></pre><p>如果出现以下异常</p>
 
 
 
-  <script defer src="https://cdn.staticfile.org/smoothscroll/1.4.10/SmoothScroll.min.js" ></script>
-
-
-
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
 
 <!-- Plugins -->
-
-
-  
-    <!-- Baidu Analytics -->
-    <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 
@@ -565,6 +525,8 @@ $ hexo d</code></pre><p>如果出现以下异常</p>
       placement: "right",
       visible: "hover",
       
+      icon: "❡"
+      
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
     var res = [];
@@ -581,24 +543,28 @@ $ hexo d</code></pre><p>如果出现以下异常</p>
     var path = "/local-search.xml";
     var inputArea = document.querySelector("#local-search-input");
     inputArea.onclick = function () {
-      getSearchFile(path);
+      searchFunc(path, 'local-search-input', 'local-search-result');
       this.onclick = null
     }
   </script>
 
 
 
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
   <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
       function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
         $(this).wrap(element);
       }
     );
   </script>
+
+
 
 
 
@@ -653,6 +619,10 @@ $ hexo d</code></pre><p>如果出现以下异常</p>
       ;
     </script>
   
+
+
+
+
 
 
 
