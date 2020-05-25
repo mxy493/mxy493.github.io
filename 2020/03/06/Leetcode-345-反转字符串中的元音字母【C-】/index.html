@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -197,19 +197,19 @@
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>编写一个函数，以字符串作为输入，反转该字符串中的元音字母。</p>
 <p><strong>示例 1:</strong></p>
-<pre><code class="hljs undefined">输入: &quot;hello&quot;
-输出: &quot;holle&quot;</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">输入: &quot;hello&quot;
+输出: &quot;holle&quot;</code></pre></div>
 
 <p><strong>示例 2:</strong></p>
-<pre><code class="hljs undefined">输入: &quot;leetcode&quot;
-输出: &quot;leotcede&quot;</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">输入: &quot;leetcode&quot;
+输出: &quot;leotcede&quot;</code></pre></div>
 
 <p><strong>说明:</strong></p>
 <p>元音字母不包含字母”y”。</p>
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>26个英文字母中，21个是辅音字母，5个是元音字母。5个元音字母分别是：a、e、i、o、u。</p>
 <p>双指针。分别指向字符串的首尾元素，前指针从前往后查找元音字母，后指针从后往前查找元音字母。</p>
 <p>两层循环，第一层即从前往后找元音字母，找到一个元音字母就进入二层循环，从后往前查找元音字母，找到后互换前后两个元音字母，<code>j--</code> 并跳出二层循环，继续遍历一层循环，直到 <code>i</code> 不再小于 <code>j</code> 即找完了字符串的所有元音字母。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">reverseVowels</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s)</span> </span>&#123;
         <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
@@ -238,7 +238,7 @@
             <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
         <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
     &#125;
-&#125;;</code></pre>
+&#125;;</code></pre></div>
 
 
             </article>
@@ -503,8 +503,6 @@
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

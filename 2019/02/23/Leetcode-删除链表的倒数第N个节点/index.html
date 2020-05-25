@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -197,15 +197,15 @@
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个链表，删除链表的倒数第 <em>n</em> 个节点，并且返回链表的头结点。<a id="more"></a></p>
 <p><strong>示例：</strong></p>
-<pre><code class="hljs undefined">给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.
-当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.
+当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</code></pre></div>
 
 <p><strong>说明：</strong></p>
 <p>给定的 <em>n</em> 保证是有效的。</p>
 <p><strong>进阶：</strong></p>
 <p>你能尝试使用一趟扫描实现吗？</p>
 <h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><p>常规的方法会想到要计算出链表的长度<code>L</code>，然后再从头结点开始往后遍历<code>L-n-1</code>个结点，即倒数第n个结点的前一个结点，再删除要删除的倒数第n个结点（<code>pre-&gt;next = pre-&gt;next-&gt;next;</code>）。而题目要求用一趟扫描实现，所以需要用到两个指针<code>pre</code>、<code>cur</code>都初始化为指向链表头结点，然后<code>cur</code>指针往后移n个结点到链表的第 n+1 个结点，再把 <code>pre</code> 和 <code>cur</code> 同时往后移直到 <code>cur</code> 的 <code>next</code> 指针指向 <code>NULL</code> ，即 <code>cur</code> 指向链表最后一个结点，此时 <code>pre</code> 指向倒数第 n 个结点的前一个结点，用同样的方法（<code>pre-&gt;next = pre-&gt;next-&gt;next;</code>）删除倒数第 n 个结点即可。</p>
-<pre><code class="hljs c++"><span class="hljs-comment">/**
+<div class="hljs"><pre><code class="hljs c++"><span class="hljs-comment">/**
  * Definition for singly-linked list.
  * struct ListNode &#123;
  *     int val;
@@ -233,7 +233,7 @@
         &#125;
         <span class="hljs-keyword">return</span> root;
     &#125;
-&#125;;</code></pre>
+&#125;;</code></pre></div>
 
 
             </article>
@@ -498,8 +498,6 @@
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

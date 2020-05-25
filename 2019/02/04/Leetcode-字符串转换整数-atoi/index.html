@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -206,33 +206,33 @@
 <p><strong>说明：</strong></p>
 <p>假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为 [−231,  231 − 1]。如果数值超过这个范围，请返回  INT_MAX (231 − 1) 或 INT_MIN (−231) 。</p>
 <p><strong>示例 1:</strong></p>
-<pre><code class="hljs undefined">输入: &quot;42&quot;
-输出: 42</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">输入: &quot;42&quot;
+输出: 42</code></pre></div>
 
 <p><strong>示例 2:</strong></p>
-<pre><code class="hljs undefined">输入: &quot;   -42&quot;
+<div class="hljs"><pre><code class="hljs undefined">输入: &quot;   -42&quot;
 输出: -42
 解释: 第一个非空白字符为 &apos;-&apos;, 它是一个负号。
-     我们尽可能将负号与后面所有连续出现的数字组合起来，最后得到 -42 。</code></pre>
+     我们尽可能将负号与后面所有连续出现的数字组合起来，最后得到 -42 。</code></pre></div>
 
 <p><strong>示例 3:</strong></p>
-<pre><code class="hljs undefined">输入: &quot;4193 with words&quot;
+<div class="hljs"><pre><code class="hljs undefined">输入: &quot;4193 with words&quot;
 输出: 4193
-解释: 转换截止于数字 &apos;3&apos; ，因为它的下一个字符不为数字。</code></pre>
+解释: 转换截止于数字 &apos;3&apos; ，因为它的下一个字符不为数字。</code></pre></div>
 
 <p><strong>示例 4:</strong></p>
-<pre><code class="hljs undefined">输入: &quot;words and 987&quot;
+<div class="hljs"><pre><code class="hljs undefined">输入: &quot;words and 987&quot;
 输出: 0
 解释: 第一个非空字符是 &apos;w&apos;, 但它不是数字或正、负号。
-     因此无法执行有效的转换。</code></pre>
+     因此无法执行有效的转换。</code></pre></div>
 
 <p><strong>示例 5:</strong></p>
-<pre><code class="hljs undefined">输入: &quot;-91283472332&quot;
+<div class="hljs"><pre><code class="hljs undefined">输入: &quot;-91283472332&quot;
 输出: -2147483648
 解释: 数字 &quot;-91283472332&quot; 超过 32 位有符号整数范围。 
-     因此返回 INT_MIN (−231) 。</code></pre>
+     因此返回 INT_MIN (−231) 。</code></pre></div>
 
-<h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">myAtoi</span><span class="hljs-params">(<span class="hljs-built_in">string</span> str)</span> </span>&#123;
         <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ans = <span class="hljs-number">0</span>;   <span class="hljs-comment">//和之前做过的一个题类似需要定义一个比int存储得更多的数据类型</span>
@@ -270,7 +270,7 @@
         &#125;
         <span class="hljs-keyword">return</span> sym * ans;  <span class="hljs-comment">//返回正常转换的结果</span>
     &#125;
-&#125;;</code></pre>
+&#125;;</code></pre></div>
 
 
             </article>
@@ -535,8 +535,6 @@
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

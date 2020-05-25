@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -197,13 +197,13 @@
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>反转一个单链表。</p>
 <p><strong>示例:</strong></p>
-<pre><code class="hljs undefined">输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL
-输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL
+输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</code></pre></div>
 
 <p><strong>进阶:</strong><br>你可以迭代或递归地反转链表。你能否用两种方法解决这道题？</p>
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题我的做法很清奇，但是我觉得应该很容易想到这种做法，通过栈，依次读取链表元素压入栈中，然后取出来的时候就是逆序取出的，同样依次从栈中去除所有元素插入到链表中即可得到逆序后的链表。</p>
 <p>用到了一个临时存储用的栈，应该有更好的直接修改链表的解法，可以尝试一下~</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="hljs c++"><span class="hljs-comment">/**
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-comment">/**
  * Definition for singly-linked list.
  * struct ListNode &#123;
  *     int val;
@@ -233,7 +233,7 @@
         &#125;
         <span class="hljs-keyword">return</span> head;
     &#125;
-&#125;;</code></pre>
+&#125;;</code></pre></div>
 
 
             </article>
@@ -498,8 +498,6 @@
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

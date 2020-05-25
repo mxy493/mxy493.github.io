@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -211,13 +211,13 @@
 <li><p>分析上一步：取 1 ~ 40 的随机数 <code>x</code> 对10求余，<code>x % 10</code> 可以得到随机的 <code>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}</code> ，所以还需要+1最终得到 <code>rand10()</code> 。</p>
 </li>
 </ul>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><pre><code class="hljs undefined">int rand10() &#123;
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><div class="hljs"><pre><code class="hljs undefined">int rand10() &#123;
     int x;
     do &#123;
         x = (rand7()-1) * 7 + rand7();
     &#125;while(x &gt; 40);
     return x % 10 + 1;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 <h3 id="推广"><a href="#推广" class="headerlink" title="推广"></a>推广</h3><ol>
 <li><strong>利用 randA() 构造 randA*A()：</strong>对于任意的 <code>randA()</code> 都可以通过类似 <code>rand7()</code> 的前四步，获取到 <code>randA*A()</code> ，即 <code>1 ~ A*A</code> 的随机数。</li>
@@ -477,8 +477,6 @@
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

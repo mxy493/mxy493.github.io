@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -212,11 +212,11 @@
 </ul>
 <p><strong>输出：</strong></p>
 <p>输出仅包含一个正整数，表示最少删除的数字的数量。</p>
-<pre><code class="hljs undefined">样例输入
+<div class="hljs"><pre><code class="hljs undefined">样例输入
 5 2
 2 1 3 2 5
 样例输出
-1</code></pre>
+1</code></pre></div>
 
 <p><strong>提示：</strong></p>
 <ul>
@@ -224,7 +224,7 @@
 </ul>
 <h4 id="1-2-解题思路"><a href="#1-2-解题思路" class="headerlink" title="1.2 解题思路"></a>1.2 解题思路</h4><p>笔试的时候写的有问题，更改过了不知道对不对~</p>
 <p><strong>思路：</strong>先对数组排序，因为排序后的数组最小最大的数可以直接取到，要尽可能少的删除数字的话，肯定要么删除最大的数，要么删除最小的数，所以我写了一个递归，如果当前传入的有序数组已经满足最大的数与最小的数的差（<code>vec.back() - vec.front()</code>）不超过 <code>x</code> ，那么就结束递归返回 <code>0</code> ，否则返回 <code>1 + std::min(getMin(vec1, x), getMin(vec2, x))</code> 。</p>
-<h4 id="1-3-代码"><a href="#1-3-代码" class="headerlink" title="1.3 代码"></a>1.3 代码</h4><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<h4 id="1-3-代码"><a href="#1-3-代码" class="headerlink" title="1.3 代码"></a>1.3 代码</h4><div class="hljs"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;vector&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span>
 
@@ -267,7 +267,7 @@
 	ans = getMin(seq, x);
 	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; ans;
 	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 <h3 id="题目二：空间回廊"><a href="#题目二：空间回廊" class="headerlink" title="题目二：空间回廊"></a>题目二：空间回廊</h3><p><img src="exam2.png" srcset="/img/loading.gif" alt></p>
 <h4 id="2-1-题目"><a href="#2-1-题目" class="headerlink" title="2.1 题目"></a>2.1 题目</h4><ul>
@@ -289,18 +289,18 @@
 <p>输入第二行有 n 个正整数，分别代表1~n号房间留下烙印的法力值花费。<code>(1 &lt;= a[i] &lt;= 10^9)</code></p>
 <p><strong>输出：</strong></p>
 <p>输出仅包含一个整数，即最多能留下的烙印。</p>
-<pre><code class="hljs undefined">样例输入
+<div class="hljs"><pre><code class="hljs undefined">样例输入
 4 21
 2 1 4 3
 样例输出
 9
 
 样例解释：
-显然是所有房间都留下两个烙印，然后剩下1点法力值，仅能在2号房间再留下一个烙印.</code></pre>
+显然是所有房间都留下两个烙印，然后剩下1点法力值，仅能在2号房间再留下一个烙印.</code></pre></div>
 
 <h4 id="2-2-解题思路"><a href="#2-2-解题思路" class="headerlink" title="2.2 解题思路"></a>2.2 解题思路</h4><p>这题挺像约瑟夫环问题的，所以思路倒是很好想到，只要循环遍历数组，如果剩下的法力值不少于当前房间要消耗的法力值，就减掉当前房间要消耗的法力值，同时烙印数+1。</p>
 <p>跳出循环的条件是，没有足够的法力值可以消耗了，也就是剩下的法力值都不够在消耗法力最少的房间花费了。所以在传入数组的时候就定义了一个 <code>min</code> 用以保存最少需要花费的法力，只要剩下的法力小于 <code>min</code> 就可以跳出循环。</p>
-<h4 id="2-3-代码"><a href="#2-3-代码" class="headerlink" title="2.3 代码"></a>2.3 代码</h4><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<h4 id="2-3-代码"><a href="#2-3-代码" class="headerlink" title="2.3 代码"></a>2.3 代码</h4><div class="hljs"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;vector&gt;</span></span>
 
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
@@ -327,7 +327,7 @@
 	&#125;
 	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; ans;
 	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 <h3 id="题目三：小仓的射击练习4"><a href="#题目三：小仓的射击练习4" class="headerlink" title="题目三：小仓的射击练习4"></a>题目三：小仓的射击练习4</h3><p><img src="exam3.png" srcset="/img/loading.gif" alt></p>
 <h4 id="3-1-题目"><a href="#3-1-题目" class="headerlink" title="3.1 题目"></a>3.1 题目</h4><ul>
@@ -348,7 +348,7 @@
 <li>一个数表示最高期望得分，保留两位小数。</li>
 </ul>
 <p><strong>示例1：</strong></p>
-<pre><code class="hljs undefined">样例输入
+<div class="hljs"><pre><code class="hljs undefined">样例输入
 2
 0.80 0.50
 1 2
@@ -358,21 +358,21 @@
 样例1解释
 选择用一颗子弹射击：如果命中则再用余下子弹射击（仅剩一颗子弹故只能选择一颗）：0.80 * 1 + 0.80 * 0.80 * 1= 1.44
 选择用两颗子弹射击：0.5 * 2 = 1.00
-此时最高期望得分为1.44</code></pre>
+此时最高期望得分为1.44</code></pre></div>
 
 <p><strong>示例2：</strong></p>
-<pre><code class="hljs undefined">输入样例2
+<div class="hljs"><pre><code class="hljs undefined">输入样例2
 3
 0.90 0.10 0.10
 2 1 1
 输出样例2
 4.88
 
-选择用一颗子弹射击：如果命中则再用一颗子弹进行射击，如果命中则再用一颗子弹进行射击（即3轮均使用了一颗子弹进行）：0.90 * 2 + 0.90 * 0.90 * 2+0.90 * 0.90 * 0.90 * 2= 4.878≈4.88 此种情况的期望得分最高，故为4.88</code></pre>
+选择用一颗子弹射击：如果命中则再用一颗子弹进行射击，如果命中则再用一颗子弹进行射击（即3轮均使用了一颗子弹进行）：0.90 * 2 + 0.90 * 0.90 * 2+0.90 * 0.90 * 0.90 * 2= 4.878≈4.88 此种情况的期望得分最高，故为4.88</code></pre></div>
 
 <h4 id="3-2-解题思路"><a href="#3-2-解题思路" class="headerlink" title="3.2 解题思路"></a>3.2 解题思路</h4><p>绝了，概率也不行，动态规划也不行……</p>
-<h4 id="3-3-代码"><a href="#3-3-代码" class="headerlink" title="3.3 代码"></a>3.3 代码</h4><pre><code class="hljs undefined">
-</code></pre>
+<h4 id="3-3-代码"><a href="#3-3-代码" class="headerlink" title="3.3 代码"></a>3.3 代码</h4><div class="hljs"><pre><code class="hljs undefined">
+</code></pre></div>
 
 <h3 id="题目四：拆分"><a href="#题目四：拆分" class="headerlink" title="题目四：拆分"></a>题目四：拆分</h3><p><img src="exam4.png" srcset="/img/loading.gif" alt></p>
 <h4 id="4-1-题目"><a href="#4-1-题目" class="headerlink" title="4.1 题目"></a>4.1 题目</h4><ul>
@@ -394,11 +394,11 @@
 <li>输出题目描述中式子的值</li>
 </ul>
 <p><strong>示例：</strong></p>
-<pre><code class="hljs undefined">样例输入
+<div class="hljs"><pre><code class="hljs undefined">样例输入
 abcabcabc
 2
 样例输出
-8</code></pre>
+8</code></pre></div>
 
 <p><strong>提示</strong></p>
 <ul>
@@ -406,8 +406,8 @@ abcabcabc
 </ul>
 <p><strong>样例解释：</strong></p>
 <p>在这个字符串中，有 <code>f(1,5),f(1,8),f(1,9),f(2,6),f(2,9),f(3,7),f(4,8),f(5,9)</code> 的值为 <code>1</code>，其他为 <code>0</code> ，故和为 <code>8</code> 。以 <code>f(1,5)</code> 为例，选择的子串是 <code>abcab</code>，令 <code>A=“ab”</code> ，<code>B=“c”</code> ，则 <code>|A|&gt;=k</code> 且 <code>|B|&gt;=1</code> ，因此 <code>f(1,5)</code> 等于 <code>1</code> ，以此类推。</p>
-<h4 id="4-2-解题思路"><a href="#4-2-解题思路" class="headerlink" title="4.2 解题思路"></a>4.2 解题思路</h4><h4 id="4-3-代码"><a href="#4-3-代码" class="headerlink" title="4.3 代码"></a>4.3 代码</h4><pre><code class="hljs undefined">
-</code></pre>
+<h4 id="4-2-解题思路"><a href="#4-2-解题思路" class="headerlink" title="4.2 解题思路"></a>4.2 解题思路</h4><h4 id="4-3-代码"><a href="#4-3-代码" class="headerlink" title="4.3 代码"></a>4.3 代码</h4><div class="hljs"><pre><code class="hljs undefined">
+</code></pre></div>
 
 <h3 id="题目五：max-xor-min"><a href="#题目五：max-xor-min" class="headerlink" title="题目五：max xor min"></a>题目五：max xor min</h3><p><img src="exam5.png" srcset="/img/loading.gif" alt></p>
 <h4 id="5-1-题目"><a href="#5-1-题目" class="headerlink" title="5.1 题目"></a>5.1 题目</h4><ul>
@@ -426,14 +426,14 @@ abcabcabc
 <ul>
 <li>输出仅包含一个整数表示所求的答案。</li>
 </ul>
-<pre><code class="hljs undefined">样例输入
+<div class="hljs"><pre><code class="hljs undefined">样例输入
 3
 1 3 5
 样例输出
-0</code></pre>
+0</code></pre></div>
 
-<h4 id="5-2-解题思路"><a href="#5-2-解题思路" class="headerlink" title="5.2 解题思路"></a>5.2 解题思路</h4><h4 id="5-3-代码"><a href="#5-3-代码" class="headerlink" title="5.3 代码"></a>5.3 代码</h4><pre><code class="hljs undefined">
-</code></pre>
+<h4 id="5-2-解题思路"><a href="#5-2-解题思路" class="headerlink" title="5.2 解题思路"></a>5.2 解题思路</h4><h4 id="5-3-代码"><a href="#5-3-代码" class="headerlink" title="5.3 代码"></a>5.3 代码</h4><div class="hljs"><pre><code class="hljs undefined">
+</code></pre></div>
             </article>
             <hr>
             <div>
@@ -687,8 +687,6 @@ abcabcabc
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

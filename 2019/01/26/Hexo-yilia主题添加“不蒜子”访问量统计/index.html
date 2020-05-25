@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -200,29 +200,29 @@
 <a id="more"></a>
 
 <h3 id="一、添加不蒜子"><a href="#一、添加不蒜子" class="headerlink" title="一、添加不蒜子"></a>一、添加不蒜子</h3><p>将下面的代码添加到<code>/themes/根据个人目录修改/layout/_partial/footer.ejs</code>（代码添加到不同的位置，在页面上显示的位置也不同）：</p>
-<pre><code class="hljs javascript">&lt;script <span class="hljs-keyword">async</span> src=<span class="hljs-string">"//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;&lt;/script&gt;</code></pre>
+<div class="hljs"><pre><code class="hljs javascript">&lt;script <span class="hljs-keyword">async</span> src=<span class="hljs-string">"//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;&lt;/script&gt;</code></pre></div>
 
 <p>我将它放在了页面下方正中。</p>
 <p>这段代码我写在了<code>footer.ejs</code>里，也可以写在<code>header.ejs</code>里或者<code>layout.ejs</code>里。</p>
 <p><img src="Snipaste_2019-01-26_22-35-45.png" srcset="/img/loading.gif" alt></p>
 <h3 id="二、添加站点访问量"><a href="#二、添加站点访问量" class="headerlink" title="二、添加站点访问量"></a>二、添加站点访问量</h3><p>通常站点的总访问量会显示在<code>footer</code>的位置，所以我们可以在<code>footer.ejs</code>里添加如下标签，两种算法根据需要任选其一即可（如上图）：</p>
 <p><strong>算法a</strong>：pv的方式，单个用户连续点击n篇文章，记录n次访问量。</p>
-<pre><code class="hljs javascript">&lt;span id=<span class="hljs-string">"busuanzi_container_site_pv"</span>&gt;
+<div class="hljs"><pre><code class="hljs javascript">&lt;span id=<span class="hljs-string">"busuanzi_container_site_pv"</span>&gt;
     本站总访问量&lt;span id=<span class="hljs-string">"busuanzi_value_site_pv"</span>&gt;&lt;/span&gt;次
-&lt;<span class="hljs-regexp">/span&gt;</span></code></pre>
+&lt;<span class="hljs-regexp">/span&gt;</span></code></pre></div>
 
 <p><strong>算法b</strong>：uv的方式，单个用户连续点击n篇文章，只记录1次访客数。</p>
-<pre><code class="hljs javascript">&lt;span id=<span class="hljs-string">"busuanzi_container_site_uv"</span>&gt;
+<div class="hljs"><pre><code class="hljs javascript">&lt;span id=<span class="hljs-string">"busuanzi_container_site_uv"</span>&gt;
   本站访客数&lt;span id=<span class="hljs-string">"busuanzi_value_site_uv"</span>&gt;&lt;/span&gt;人次
-&lt;<span class="hljs-regexp">/span&gt;</span></code></pre>
+&lt;<span class="hljs-regexp">/span&gt;</span></code></pre></div>
 
 <h3 id="三、添加文章阅读量"><a href="#三、添加文章阅读量" class="headerlink" title="三、添加文章阅读量"></a>三、添加文章阅读量</h3><p>添加文章阅读量和站点访问量基本一致，但是要添加一个判断条件只在文章中显示文章阅读量，主页自然是没有阅读量一说的。</p>
 <p>将下面的代码添加到<code>/themes/根据个人目录修改/layout/_partial/article.ejs</code>的合适位置：</p>
-<pre><code class="hljs javascript">&lt;% <span class="hljs-keyword">if</span> (!index)&#123; %&gt;
+<div class="hljs"><pre><code class="hljs javascript">&lt;% <span class="hljs-keyword">if</span> (!index)&#123; %&gt;
   &lt;span id="busuanzi_container_page_pv"&gt;
     ⋉(●本文总阅读量 &lt;span id="busuanzi_value_page_pv"&gt;&lt;/span&gt; 次●)⋊
   &lt;/span&gt;
-&lt;% &#125; %&gt;</code></pre>
+&lt;% &#125; %&gt;</code></pre></div>
 
 <p>例如我放在了如图所示位置，最终会现在在文章底部的标签后面。</p>
 <p><img src="Snipaste_2019-01-26_22-55-12.png" srcset="/img/loading.gif" alt></p>
@@ -493,8 +493,6 @@
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

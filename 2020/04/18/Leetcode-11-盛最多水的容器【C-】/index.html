@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -200,23 +200,23 @@
 <p><img src="container.jpg" srcset="/img/loading.gif" alt></p>
 <p>图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</p>
 <p><strong>示例：</strong></p>
-<pre><code class="hljs undefined">输入：[1,8,6,2,5,4,8,3,7]
-输出：49</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">输入：[1,8,6,2,5,4,8,3,7]
+输出：49</code></pre></div>
 
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>比较典型的<strong>双指针问题</strong>，这个题难在要把问题读懂，如果能想到是双指针问题，那么这个题已经做好了 80% 了。</p>
 <p>双指针问题通用模板：</p>
-<pre><code class="hljs undefined">int i = 0;
+<div class="hljs"><pre><code class="hljs undefined">int i = 0;
 int j = nums.size() - 1;
 while(i &lt; j)&#123;
 	do something
 	i++;
 	j--;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 <p>我们的目标值只有一个，就是题目要求的最大值。遍历所有可能的情况是很容易写出来的，但却没有必要那么做。</p>
 <p>以题目的示例为例，考虑 <code>[1,8,6,2,5,4,8,3,7]</code> 的首尾两个数，我们要找最大值，那么较小的值就可以不再考虑，也就是左侧1小于右侧的7，如果有更大的值，肯定是和较大的数所构成的，第一步我们把左指针右移一位，8和7所能容纳的水量显然大于1和7。</p>
 <p>重复上述步骤，根据两端的值移动左右指针，同时不断更新最大值。当遍历结束，题目要求的最大值也就找到了。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxArea</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; height)</span> </span>&#123;
         <span class="hljs-comment">//初始化最大值为首尾两条线所围成的容器能容纳的水</span>
@@ -239,7 +239,7 @@ while(i &lt; j)&#123;
         &#125;
         <span class="hljs-keyword">return</span> area;
     &#125;
-&#125;;</code></pre>
+&#125;;</code></pre></div>
 
 
             </article>
@@ -504,8 +504,6 @@ while(i &lt; j)&#123;
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

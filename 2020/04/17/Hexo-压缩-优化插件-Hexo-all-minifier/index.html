@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -194,7 +194,7 @@
             <article class="markdown-body">
               <p><strong>Hexo-all-minifier：</strong><a href="https://github.com/chenzhutian/hexo-all-minifier" target="_blank" rel="noopener">https://github.com/chenzhutian/hexo-all-minifier</a></p>
 <p>一款 Hexo 插件，通过压缩 HTML、CSS、JS 和图片来优化博客访问速度。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code class="hljs shell">npm install hexo-all-minifier --save</code></pre>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><div class="hljs"><pre><code class="hljs shell">npm install hexo-all-minifier --save</code></pre></div>
 
 <p><strong>注：</strong>我在执行以上命令进行安装的时候遇到了问题 <code>Failed to connect to raw.githubusercontent.com port 443</code> ，查了下原因，其实就是这个域名（<code>raw.githubusercontent.com</code>）被墙了。</p>
 <p><strong>解决办法：</strong></p>
@@ -202,23 +202,23 @@
 <li><p>查真实 IP 地址 <a href="https://www.ipaddress.com/" target="_blank" rel="noopener">https://www.ipaddress.com/</a> ，我查到的IP地址是：<code>199.232.68.133</code></p>
 </li>
 <li><p>修改系统 <code>hosts</code> 。Windows 系统上的路径为 <code>C:\Windows\System32\drivers\etc\hosts</code> ，在 <code>hosts</code> 文件中添加一行：</p>
-<pre><code class="hljs undefined">199.232.68.133 raw.githubusercontent.com</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">199.232.68.133 raw.githubusercontent.com</code></pre></div>
 
 </li>
 </ol>
 <p>Mac 电脑还需要安装一些其他东西：</p>
-<pre><code class="hljs shell">brew install libtool automake autoconf nasm</code></pre>
+<div class="hljs"><pre><code class="hljs shell">brew install libtool automake autoconf nasm</code></pre></div>
 
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>将这行代码填写到 Hexo 博客根目录下的博客配置文件 <code>_config.yml</code> 中就可以了。</p>
-<pre><code class="hljs undefined">all_minifier: true</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">all_minifier: true</code></pre></div>
 
 <p>默认添加以上代码就可以了，比较简单，但仅添加以上代码的情况下，如果在 <code>hexo g</code> 生成静态网页时遇到了问题，或者说有更进阶的需求，那么可以使用以下更进阶一些的设置。</p>
 <h3 id="进阶设置"><a href="#进阶设置" class="headerlink" title="进阶设置"></a>进阶设置</h3><p>如果使用默认的 <code>all_minifier: true</code> 遇到了问题，将对应出问题的某一项关闭即可（<code>enable: false</code>）。</p>
-<h4 id="HTML-优化"><a href="#HTML-优化" class="headerlink" title="HTML 优化"></a>HTML 优化</h4><pre><code class="hljs yaml"><span class="hljs-attr">html_minifier:</span>
+<h4 id="HTML-优化"><a href="#HTML-优化" class="headerlink" title="HTML 优化"></a>HTML 优化</h4><div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">html_minifier:</span>
 <span class="hljs-attr">  enable:</span> <span class="hljs-literal">true</span>
 <span class="hljs-attr">  ignore_error:</span> <span class="hljs-literal">false</span>
 <span class="hljs-attr">  silent:</span> <span class="hljs-literal">false</span>
-<span class="hljs-attr">  exclude:</span></code></pre>
+<span class="hljs-attr">  exclude:</span></code></pre></div>
 
 <ul>
 <li><strong>enable</strong> - 开启 HTML minifier. 默认为 <code>true</code> 。</li>
@@ -226,25 +226,25 @@
 <li><strong>silent</strong> - 禁用日志优化，默认为 <code>false</code> 。</li>
 <li><strong>exclude</strong> - 排除文件。</li>
 </ul>
-<h4 id="CSS-优化"><a href="#CSS-优化" class="headerlink" title="CSS 优化"></a>CSS 优化</h4><pre><code class="hljs undefined">css_minifier:
+<h4 id="CSS-优化"><a href="#CSS-优化" class="headerlink" title="CSS 优化"></a>CSS 优化</h4><div class="hljs"><pre><code class="hljs undefined">css_minifier:
   enable: true
   silent: false
   exclude: 
-    - &apos;*.min.css&apos;</code></pre>
+    - &apos;*.min.css&apos;</code></pre></div>
 
 <ul>
 <li><strong>enable</strong> - 开启 CSS minifier，默认为 <code>true</code> 。</li>
 <li><strong>silent</strong> - 禁用日志优化，默认为 <code>false</code> 。</li>
 <li><strong>exclude</strong> - 排除文件。</li>
 </ul>
-<h4 id="JS-优化"><a href="#JS-优化" class="headerlink" title="JS 优化"></a>JS 优化</h4><pre><code class="hljs undefined">js_minifier:
+<h4 id="JS-优化"><a href="#JS-优化" class="headerlink" title="JS 优化"></a>JS 优化</h4><div class="hljs"><pre><code class="hljs undefined">js_minifier:
   enable: true
   mangle: true
   silent: false
   output:
   compress:
   exclude: 
-    - &apos;*.min.js&apos;</code></pre>
+    - &apos;*.min.js&apos;</code></pre></div>
 
 <ul>
 <li><strong>enable</strong> - 开启 JS minifier，默认为 <code>true</code> 。</li>
@@ -255,14 +255,14 @@
 <li><strong>exclude</strong> - 排除文件。</li>
 </ul>
 <h4 id="图片优化"><a href="#图片优化" class="headerlink" title="图片优化"></a>图片优化</h4><hr>
-<pre><code class="hljs undefined">image_minifier:
+<div class="hljs"><pre><code class="hljs undefined">image_minifier:
   enable: true
   interlaced: false
   multipass: false
   optimizationLevel: 2
   pngquant: false
   progressive: false
-  silent: false</code></pre>
+  silent: false</code></pre></div>
 
 <ul>
 <li><strong>enable</strong> - 开启 image minifier. 默认为 <code>true</code> 。</li>
@@ -537,8 +537,6 @@
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -210,7 +210,7 @@
 <li>从第二行开始输入每一步具体的命令。</li>
 </ul>
 <p>示例：</p>
-<pre><code class="hljs undefined">8
+<div class="hljs"><pre><code class="hljs undefined">8
 1 abc
 3 3
 2 3
@@ -218,23 +218,23 @@
 3 2
 4 
 4 
-3 1</code></pre>
+3 1</code></pre></div>
 
 <p><strong>输出说明：</strong></p>
 <p>输出：</p>
-<pre><code class="hljs undefined">c
+<div class="hljs"><pre><code class="hljs undefined">c
 y
-a</code></pre>
+a</code></pre></div>
 
 <p>说明：</p>
-<pre><code class="hljs undefined">1 abc // 字符串S默认初始为空&quot;&quot;，第一步插入&quot;abc&quot;后S变为&quot;abc&quot;
+<div class="hljs"><pre><code class="hljs undefined">1 abc // 字符串S默认初始为空&quot;&quot;，第一步插入&quot;abc&quot;后S变为&quot;abc&quot;
 3 3 // 输出S的第三个字符，即输出&apos;c&apos;
 2 3 // 删除字符串S的末尾3个字符，删除后S变为&quot;&quot;
 1 xy // 在字符串S末尾插入&quot;xy&quot;，插入后S为&quot;xy&quot;
 3 2 // 输出字符串S的第二个字符，即输出&apos;y&apos;
 4 // 回滚，即回滚对&quot;xy&quot;的插入，回滚后S为&quot;&quot;
 4 // 回滚，即回滚对字符串S末尾3个字符的删除操作，回滚后S为&quot;abc&quot;
-3 1 // 输出字符串S的第一个字符，即输出&apos;a&apos;</code></pre>
+3 1 // 输出字符串S的第一个字符，即输出&apos;a&apos;</code></pre></div>
 
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>毕竟是笔试啊，有点慌。因为需要对一些操作步骤进行回滚，一开始我想着应该要把操作的步骤记录下来，所以我定义了一个 <code>vector&lt;pair&lt;int, string&gt;&gt;</code> 类型的数组用于保存输入的每一步命令，每个命令保存为 int 类型的整数，参数保存为 string 类型的字符串，主要是为了兼容不同的参数，如果是命令 <code>4</code> 则将其参数保存为空字符串 <code>&quot;&quot;</code> 。</p>
 <p>最初的想法是遍历保存下来的命令数组一步一步执行就好了，但是到处理命令 <code>4</code> 的操作时就遇到问题了，感觉处理回滚操作很麻烦，同时觉得回滚这个操作完全就是<strong>回溯法</strong>相同的模式，想了想觉得应该可行，就改用了回溯法来执行每一步命令。</p>
@@ -243,7 +243,7 @@ a</code></pre>
 <p>默认要执行当前的命令，对于命令1、2、3，当前命令执行完毕后，只需要将 seq + 1，递归执行下一条命令。对于命令4，回滚操作，对于回溯法来说也就是 return 就可以了，但也需要将 seq + 1，即当前回滚命令已执行。</p>
 <p>具体的回滚操作需要交给具体的某一步操作去执行，对于命令3，不需要做任何处理，继续往上回溯，对于命令1、2，在执行递归的下一行，判断 <code>rollback == true</code> 则表明在后续命令中遇到了回滚操作，这里就需要进行回滚处理，对于命令1来说，即删除原本插入的字符串；对于命令2来说即恢复原本删除的字符串。回滚操作完毕需要将 <code>rollback</code> 重新置为 <code>false</code> 。</p>
 <p>处理完回滚操作后，还需要继续顺序执行剩下的命令，我用一个 <code>do {...}while(...)</code> 循环来模拟递归执行命令的操作，也就是让命令的执行恢复到顺序执行。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
 
@@ -315,7 +315,7 @@ a</code></pre>
 	<span class="hljs-keyword">int</span> q = <span class="hljs-number">0</span>;<span class="hljs-comment">//命令序号</span>
 	execute(S, vec, q, rollback);<span class="hljs-comment">//执行命令vec[q]，该命令不是回滚命令</span>
 	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 
             </article>
@@ -571,8 +571,6 @@ a</code></pre>
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

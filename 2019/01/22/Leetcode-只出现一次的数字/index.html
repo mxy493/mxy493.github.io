@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -202,15 +202,15 @@
 <p><strong>说明：</strong></p>
 <p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
 <p><strong>示例 1:</strong></p>
-<pre><code class="hljs undefined">输入: [2,2,1]
-输出: 1</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">输入: [2,2,1]
+输出: 1</code></pre></div>
 
 <p><strong>示例 2:</strong></p>
-<pre><code class="hljs undefined">输入: [4,1,2,1,2]
-输出: 4</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">输入: [4,1,2,1,2]
+输出: 4</code></pre></div>
 
 <p><strong>我的解决方案：</strong></p>
-<pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">singleNumber</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
     <span class="hljs-comment">//如果数组为空显然不存在题述两种情况</span>
@@ -242,7 +242,7 @@
 	&#125;
 	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
     &#125;
-&#125;;</code></pre>
+&#125;;</code></pre></div>
 
 
             </article>
@@ -507,8 +507,6 @@
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -197,16 +197,16 @@
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个非负整数 <code>c</code> ，你要判断是否存在两个整数 <code>a</code> 和 <code>b</code>，使得 <code>a2 + b2 = c</code>。</p>
 <p><strong>示例1:</strong></p>
-<pre><code class="hljs undefined">输入: 5
+<div class="hljs"><pre><code class="hljs undefined">输入: 5
 输出: True
-解释: 1 * 1 + 2 * 2 = 5</code></pre>
+解释: 1 * 1 + 2 * 2 = 5</code></pre></div>
 
 <p><strong>示例2:</strong></p>
-<pre><code class="hljs undefined">输入: 3
-输出: False</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">输入: 3
+输出: False</code></pre></div>
 
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p><strong>双指针</strong>。设置返回值 <code>ret</code> 默认为 <code>false</code>，分别取最小的数（0）和最大的数，最大的数可以直接使用 <code>sqrt()</code> 函数求目标数的平方根并向下取整，小数的平方与大数的平方求和，若大于目标值，大数减1，继续循环；若小于目标值，小数加1，继续循环；直到与目标值相等（置 <code>ret</code> 为 <code>true</code>）或者小数不再小于大数，跳出循环。返回结果。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">judgeSquareSum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> c)</span> </span>&#123;
         <span class="hljs-keyword">bool</span> ret = <span class="hljs-literal">false</span>;
@@ -232,7 +232,7 @@
         &#125;
         <span class="hljs-keyword">return</span> ret;
     &#125;
-&#125;;</code></pre>
+&#125;;</code></pre></div>
 
 
             </article>
@@ -497,8 +497,6 @@
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

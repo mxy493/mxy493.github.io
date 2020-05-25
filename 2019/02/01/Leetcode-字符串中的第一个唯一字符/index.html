@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -199,14 +199,14 @@
 <a id="more"></a>
 
 <p><strong>案例:</strong></p>
-<pre><code class="hljs undefined">s = &quot;leetcode&quot;
+<div class="hljs"><pre><code class="hljs undefined">s = &quot;leetcode&quot;
 返回 0.
 
 s = &quot;loveleetcode&quot;,
-返回 2.</code></pre>
+返回 2.</code></pre></div>
 
 <p><strong>注意事项：</strong>您可以假定该字符串只包含小写字母。</p>
-<h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">firstUniqChar</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s)</span> </span>&#123;
         <span class="hljs-keyword">int</span> addr = <span class="hljs-number">-1</span>;  <span class="hljs-comment">//保存第一个不重复的字符的索引并初始化为-1</span>
@@ -229,7 +229,7 @@ s = &quot;loveleetcode&quot;,
         &#125;
         <span class="hljs-keyword">return</span> addr;
     &#125;
-&#125;;</code></pre>
+&#125;;</code></pre></div>
 
 
             </article>
@@ -494,8 +494,6 @@ s = &quot;loveleetcode&quot;,
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

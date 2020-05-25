@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -212,15 +212,15 @@
 </ul>
 <p><strong>示例（输入输出示例仅供调试，后台判题数据一般不包含示例）</strong></p>
 <p>输入：</p>
-<pre><code class="hljs undefined">abaababaab</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">abaababaab</code></pre></div>
 
 <p>输出：</p>
-<pre><code class="hljs undefined">6</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">6</code></pre></div>
 
 <h2 id="（2）解题思路"><a href="#（2）解题思路" class="headerlink" title="（2）解题思路"></a>（2）解题思路</h2><p>首先容易观察到的是，这个偶串的长度其实始终是偶数，即使我们从字符串 <code>s</code> 末尾删掉字符也必然是两个一组删除的，因为<strong>不可能存在长度为奇数的偶串</strong>。</p>
 <p>又由于给定的字符串本身就是一个偶串，同时至少需要删除一个字符，所以直接先删掉末尾两个字符，然后循环，直接使用 <code>substr()</code> 函数比较字符串 <code>s</code> 的前一半和后一半是否相同，相同则输出 <code>s</code> 的长度，跳出循环结束运行；不相同则继续删掉末尾两个字符，重复上述步骤。</p>
 <p><strong>小思路：</strong>其实可以把循环前面的删除字符操作统一写到循环内部，逻辑更加清晰！</p>
-<h2 id="（3）代码"><a href="#（3）代码" class="headerlink" title="（3）代码"></a>（3）代码</h2><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<h2 id="（3）代码"><a href="#（3）代码" class="headerlink" title="（3）代码"></a>（3）代码</h2><div class="hljs"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
 
@@ -244,7 +244,7 @@
 		&#125;
 	&#125;
 	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 <h1 id="题目二：制造回文"><a href="#题目二：制造回文" class="headerlink" title="题目二：制造回文"></a>题目二：制造回文</h1><h2 id="（1）题目-1"><a href="#（1）题目-1" class="headerlink" title="（1）题目"></a>（1）题目</h2><blockquote>
 <p>时间限制： CIC++1秒，其他语言2秒</p>
@@ -275,10 +275,10 @@
 </ul>
 <p><strong>示例（输入输出示例仅供调试，后台判题数据一般不包含示例）</strong></p>
 <p>输入：</p>
-<pre><code class="hljs undefined">abc</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">abc</code></pre></div>
 
 <p>输出：</p>
-<pre><code class="hljs undefined">3</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">3</code></pre></div>
 
 <h2 id="（2）解题思路-1"><a href="#（2）解题思路-1" class="headerlink" title="（2）解题思路"></a>（2）解题思路</h2><p>之前在 Leetcode 上做过这个题。这一次思路大体也和之前一样，但有一点使得逻辑更加简单~</p>
 <p>题目的意思其实就是用尽可能多的字符来构造一个回文串。构成回文串的规律是，同一个字符的偶数个数一定可以是任意回文串的一部分，换言之偶数个数的同一字符对能生成的最少的回文串个数是没有影响的，所以我们应该关注的重心是个数为奇数的字符。</p>
@@ -286,7 +286,7 @@
 <p>但事实上前面构造的最大回文串长度为偶数，其实还可以在其正中间插入任意一个单个的字符，插入后仍然是回文串，此时剩下的单个字符的个数，也就是其余可以构成的回文串的个数了。</p>
 <p>普遍情况下，可以根据前面所述的得到：<strong><em>最少的回文串个数 = 奇数个数的字符数 - 1 + 1 = 奇数个数的字符数</em></strong> </p>
 <p>但是特殊的，需要考虑没有奇数个数的字符的情况，这种情况也就更简单了，所有的字符都用来构造唯一的一个回文串，最少的回文串个数也就是 <code>1</code> 。</p>
-<h2 id="（3）代码-1"><a href="#（3）代码-1" class="headerlink" title="（3）代码"></a>（3）代码</h2><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<h2 id="（3）代码-1"><a href="#（3）代码-1" class="headerlink" title="（3）代码"></a>（3）代码</h2><div class="hljs"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
@@ -316,7 +316,7 @@
 	&#125;
 	<span class="hljs-built_in">cout</span> &lt;&lt; (odd &gt; <span class="hljs-number">0</span> ? odd : <span class="hljs-number">1</span>) &lt;&lt; <span class="hljs-built_in">endl</span>;
 	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 <h1 id="题目三：猜数游戏"><a href="#题目三：猜数游戏" class="headerlink" title="题目三：猜数游戏"></a>题目三：猜数游戏</h1><h2 id="（1）题目-2"><a href="#（1）题目-2" class="headerlink" title="（1）题目"></a>（1）题目</h2><blockquote>
 <p>时间限制： CIC++1秒，其他语言2秒</p>
@@ -328,8 +328,8 @@
 <p>注意到一些提示会出现错误。例如：提示 <code>&quot;NYYY&quot;</code> 是错误的，因为所有的整数都是1的倍数，所以起始元素肯定不会是 <code>&quot;N&quot;</code> 。此外，例如 <code>&quot;YNNY&quot;</code> 的提示也是错误的，因为结果不可能是4的倍数但不是2的倍数。</p>
 <p>现在给出一个整数 <code>n</code> ，表示已给的提示的长度。请计算出长度为 <code>n</code> 的合法的提示的个数。</p>
 <p>例如 n = 5 ，合法的提示有：</p>
-<pre><code class="hljs undefined">YNNNN YNNNY YNYNN YNYNY YYNNN YYNNY
-YYNYN YYNYY YYYNN YYYNY YYYYN YYYYY</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">YNNNN YNNNY YNYNN YNYNY YYNNN YYNNY
+YYNYN YYNYY YYYNN YYYNY YYYYN YYYYY</code></pre></div>
 
 <p>所以输出 <code>12</code></p>
 <p><strong>输入描述：</strong></p>
@@ -338,16 +338,16 @@ YYNYN YYNYY YYYNN YYYNY YYYYN YYYYY</code></pre>
 <p>输出一个整数，表示合法的提示个数。因为答案可能会很大，所以输出对于 <code>1000000007</code> 的模</p>
 <p><strong>示例（输入输出示例仅供调试，后台判题数据一般不包含示例）</strong></p>
 <p>输入：</p>
-<pre><code class="hljs undefined">5</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">5</code></pre></div>
 
 <p>输出：</p>
-<pre><code class="hljs undefined">12</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">12</code></pre></div>
 
 <h2 id="（2）解题思路-2"><a href="#（2）解题思路-2" class="headerlink" title="（2）解题思路"></a>（2）解题思路</h2><p>这个题看完题目就知道是动态规划了，知道难搞，不过还是尝试着做了一下，时间不够，大概写了个框架出来，明明还有十多分钟的，不知道为啥就自动给我交卷了……</p>
 <p>下面的代码是考试结束后我继续完善的，自己本地简单测试了几组较小的数据，主要是我也不知道正确答案应该是什么，就不方便测试了，也不确定代码的正确性。另外我觉得我这代码就算逻辑是对的，但是性能也不太好，应该是有更好的办法的o_o ….</p>
 <p>大概思路就是逐个的插入“提示”，也就是逐个的插入 <code>&#39;Y&#39;</code> 或 <code>&#39;N&#39;</code> ，判断当前插入是否合法，直到字符串长度达到输入的 <code>n</code> 并且该提示字符串合法，则合法的提示个数+1。</p>
 <p>其中我判断当前插入的字符是否合法的想法是，我认为只有插入的是 <code>&#39;Y&#39;</code> 才可能是不合法的，比如当前第四个字符插入的是 <code>&#39;Y&#39;</code> ，也就是说是 4 的倍数，但字符串前面可能第二个提示是 <code>&#39;N&#39;</code> ，即不是 2 的倍数，那么当前的插入就矛盾了，不合法。另外，前述不合法的情况，只需要判断当前第 i 个字符是 <code>&#39;Y&#39;</code> ，只要找到一个 i 的约数对应的提示为 <code>&#39;N&#39;</code> 则当前提示不合法。</p>
-<h2 id="（3）代码-2"><a href="#（3）代码-2" class="headerlink" title="（3）代码"></a>（3）代码</h2><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<h2 id="（3）代码-2"><a href="#（3）代码-2" class="headerlink" title="（3）代码"></a>（3）代码</h2><div class="hljs"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
 
@@ -380,7 +380,7 @@ YYNYN YYNYY YYYNN YYYNY YYYYN YYYYY</code></pre>
 	dp(count, <span class="hljs-string">"Y"</span>, n - <span class="hljs-number">1</span>);
 	<span class="hljs-built_in">cout</span> &lt;&lt; count &lt;&lt; <span class="hljs-built_in">endl</span>;
 	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
             </article>
             <hr>
             <div>
@@ -621,8 +621,6 @@ YYNYN YYNYY YYYNN YYYNY YYYYN YYYYY</code></pre>
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

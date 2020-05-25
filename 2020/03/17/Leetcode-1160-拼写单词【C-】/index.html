@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -200,16 +200,16 @@
 <p>注意：每次拼写时，<code>chars</code> 中的每个字母都只能用一次。</p>
 <p>返回词汇表 <code>words</code> 中你掌握的所有单词的 <strong>长度之和</strong>。</p>
 <p><strong>示例 1：</strong></p>
-<pre><code class="hljs undefined">输入：words = [&quot;cat&quot;,&quot;bt&quot;,&quot;hat&quot;,&quot;tree&quot;], chars = &quot;atach&quot;
+<div class="hljs"><pre><code class="hljs undefined">输入：words = [&quot;cat&quot;,&quot;bt&quot;,&quot;hat&quot;,&quot;tree&quot;], chars = &quot;atach&quot;
 输出：6
 解释： 
-可以形成字符串 &quot;cat&quot; 和 &quot;hat&quot;，所以答案是 3 + 3 = 6。</code></pre>
+可以形成字符串 &quot;cat&quot; 和 &quot;hat&quot;，所以答案是 3 + 3 = 6。</code></pre></div>
 
 <p><strong>示例 2：</strong></p>
-<pre><code class="hljs undefined">输入：words = [&quot;hello&quot;,&quot;world&quot;,&quot;leetcode&quot;], chars = &quot;welldonehoneyr&quot;
+<div class="hljs"><pre><code class="hljs undefined">输入：words = [&quot;hello&quot;,&quot;world&quot;,&quot;leetcode&quot;], chars = &quot;welldonehoneyr&quot;
 输出：10
 解释：
-可以形成字符串 &quot;hello&quot; 和 &quot;world&quot;，所以答案是 5 + 5 = 10。</code></pre>
+可以形成字符串 &quot;hello&quot; 和 &quot;world&quot;，所以答案是 5 + 5 = 10。</code></pre></div>
 
 <p><strong>提示：</strong></p>
 <ol>
@@ -219,7 +219,7 @@
 </ol>
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题其实就是从 <code>words</code> 中取出一个单词，然后到 <code>chars</code> 中去找字符看是否能组成这个单词。唯一需要考虑的是， <code>chars</code> 中的每个字符在一个单词中只能使用一次，所以应该标记已经使用过的单词。</p>
 <p>首先如果 <code>words</code> 或 <code>chars</code> 为空，则直接返回0，因为不可能有能拼写的单词。然后定义一个 <code>length</code> 并将其初始化为0，用于保存掌握的单词的长度和，遍历 <code>words</code> 中的所有单词，定义一个和字母表中字符个数相同的 <code>vector&lt;int&gt;</code> 数组 <code>mark[]</code>，将其初始化为全1，表示所有字符均未被使用，然后二层循环遍历每个单词的所有字母，然后第三层循环遍历 <code>chars</code> 查找是否有还未使用过的这个字母，如果有，将 <code>chars</code> 中的这个字母标记为已经用，即 <code>mark[j] = 0;</code> ，继续循环查找下一个字母。只要三层循环中有一个字母找不到，则表示这个单词不能拼写，应直接查找下一个单词。找到一个能拼写的单词，就将这个单词的长度加到 <code>length</code> 上。循环上述步骤，直到遍历完 <code>words</code> 。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">countCharacters</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt;&amp; words, <span class="hljs-built_in">string</span> chars)</span> </span>&#123;
         <span class="hljs-keyword">if</span> (words.empty() || chars.empty())
@@ -250,7 +250,7 @@
         &#125;
         <span class="hljs-keyword">return</span> length;
     &#125;
-&#125;;</code></pre>
+&#125;;</code></pre></div>
 
 
             </article>
@@ -515,8 +515,6 @@
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

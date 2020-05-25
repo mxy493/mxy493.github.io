@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -199,12 +199,12 @@
 <a id="more"></a>
 
 <p>如果不存在公共前缀，返回空字符串 <code>&quot;&quot;</code>。</p>
-<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例 1:"></a>示例 1:</h4><pre><code class="hljs undefined">输入: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]
-输出: &quot;fl&quot;</code></pre>
+<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例 1:"></a>示例 1:</h4><div class="hljs"><pre><code class="hljs undefined">输入: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;]
+输出: &quot;fl&quot;</code></pre></div>
 
-<h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例 2:"></a>示例 2:</h4><pre><code class="hljs undefined">输入: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]
+<h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例 2:"></a>示例 2:</h4><div class="hljs"><pre><code class="hljs undefined">输入: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;]
 输出: &quot;&quot;
-解释: 输入不存在公共前缀。</code></pre>
+解释: 输入不存在公共前缀。</code></pre></div>
 
 <h4 id="说明"><a href="#说明" class="headerlink" title="说明:"></a>说明:</h4><p>所有输入只包含小写字母 <code>a-z</code> 。</p>
 <h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><p>刚读完题就诞生了两个解题思路，所以都尝试写了一下，确实也都是可行的方法。</p>
@@ -212,7 +212,7 @@
 <p><strong>方法一：</strong></p>
 <p>这个方法比较容易想到，因为要找的是公共前缀，也就是所有字符串有有的前缀，所以从每个字符串的第1个元素开始判断是否都相等，相等则将这个字符插入到返回字符串str，直到找到某个字符不是所有字符串的公共部分，则不再插入到返回值str，并且后续无需继续判断。此时得出的字符串str就是字符串数组的公共前缀。</p>
 <p><strong>缺点</strong>：如果公共前缀太长的话，会做公共前缀对应长度的无效益的循环用于判断是否这些字符是否是公共的。</p>
-<pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">longestCommonPrefix</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt;&amp; strs)</span> </span>&#123;
         <span class="hljs-built_in">string</span> str = <span class="hljs-string">""</span>;   <span class="hljs-comment">//返回值，初始化为空字符串</span>
@@ -237,12 +237,12 @@
         &#125;
         <span class="hljs-keyword">return</span> str;
     &#125;
-&#125;;</code></pre>
+&#125;;</code></pre></div>
 
 <p><strong>方法二：</strong></p>
 <p>这个方法感觉高效一些，正好弥补了方法一的缺点。</p>
 <p>思路是，任选一个字符串作为初始的str（为了方便遍历字符串数组，所以选第一个字符串strs[0]作为初始值），然后用其余每一个字符串依次和str比较查找公共部分，然后删去非公共部分，当整个字符串数组遍历完的时候也就删掉了字符串str与其余所有字符串的非公共部分，剩下的就是公共部分也就是所有字符串的公共前缀。</p>
-<pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">longestCommonPrefix</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt;&amp; strs)</span> </span>&#123;
         <span class="hljs-built_in">string</span> str = <span class="hljs-string">""</span>;   <span class="hljs-comment">//返回值，初始化为空字符串</span>
@@ -263,9 +263,9 @@
         &#125;
         <span class="hljs-keyword">return</span> str;
     &#125;
-&#125;;</code></pre>
+&#125;;</code></pre></div>
 
-<h4 id="测试数据"><a href="#测试数据" class="headerlink" title="测试数据"></a>测试数据</h4><pre><code class="hljs undefined">测试1：
+<h4 id="测试数据"><a href="#测试数据" class="headerlink" title="测试数据"></a>测试数据</h4><div class="hljs"><pre><code class="hljs undefined">测试1：
 flower
 flow
 flight
@@ -273,7 +273,7 @@ flight
 测试2：
 dog
 racecar
-car</code></pre>
+car</code></pre></div>
 
 <p>测试数据需要考虑下<code>数组为空</code>的情况以及<code>strs数组大小为1</code>的较特殊情况。</p>
 
@@ -539,8 +539,6 @@ car</code></pre>
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

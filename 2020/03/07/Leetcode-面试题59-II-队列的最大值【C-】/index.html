@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -198,16 +198,16 @@
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>请定义一个队列并实现函数 <code>max_value</code> 得到队列里的最大值，要求函数 <code>max_value</code>、<code>push_back</code> 和 <code>pop_front</code> 的时间复杂度都是O(1)。</p>
 <p>若队列为空，<code>pop_front</code> 和 <code>max_value</code> 需要返回 -1。</p>
 <p><strong>示例 1：</strong></p>
-<pre><code class="hljs undefined">输入: 
+<div class="hljs"><pre><code class="hljs undefined">输入: 
 [&quot;MaxQueue&quot;,&quot;push_back&quot;,&quot;push_back&quot;,&quot;max_value&quot;,&quot;pop_front&quot;,&quot;max_value&quot;]
 [[],[1],[2],[],[],[]]
-输出: [null,null,null,2,1,2]</code></pre>
+输出: [null,null,null,2,1,2]</code></pre></div>
 
 <p><strong>示例 2：</strong></p>
-<pre><code class="hljs undefined">输入: 
+<div class="hljs"><pre><code class="hljs undefined">输入: 
 [&quot;MaxQueue&quot;,&quot;pop_front&quot;,&quot;max_value&quot;]
 [[],[],[]]
-输出: [null,-1,-1]</code></pre>
+输出: [null,-1,-1]</code></pre></div>
 
 <p><strong>限制：</strong></p>
 <ul>
@@ -227,7 +227,7 @@
 <p>定义一个 <code>queue&lt;int&gt;</code> 队列，主要用于元素的入队与出队操作。</p>
 <p>在元素入队的函数中，如果双端队列 d 为空或者入队的元素小于 d 的队尾元素，则分别将该元素插入到 d 和 q 的队尾；如果双端队列 d 非空并且入队元素大于 d 的队尾元素，则将 d 的队尾元素逐个弹出，直到 d 的队尾元素大于入队元素或者 d 空，然后将该元素插入到 d 和 q 的队尾。</p>
 <p>在队列 q 的出对函数中，需要注意对双端队列 d 的操作，不然可能会造成 q 中已将最大元素删除，但 d 没有进行任何操作，就会导致获取最大值的时候获取到已经删除的不存在于队列中的元素的值。所以需要在 q 和 d 的队首元素相同的情况下，同步删除 d 的队首元素。以保证 <code>d.front()</code> 仍然是队列 q 中剩余元素的最大值。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MaxQueue</span> &#123;</span>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MaxQueue</span> &#123;</span>
 <span class="hljs-keyword">private</span>:
     <span class="hljs-built_in">queue</span>&lt;<span class="hljs-keyword">int</span>&gt; q;<span class="hljs-comment">//队列</span>
     <span class="hljs-built_in">deque</span>&lt;<span class="hljs-keyword">int</span>&gt; d;<span class="hljs-comment">//双端队列，用于求最大值</span>
@@ -269,7 +269,7 @@
  * int param_1 = obj-&gt;max_value();
  * obj-&gt;push_back(value);
  * int param_3 = obj-&gt;pop_front();
- */</span></code></pre>
+ */</span></code></pre></div>
             </article>
             <hr>
             <div>
@@ -532,8 +532,6 @@
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

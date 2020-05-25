@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -207,19 +207,19 @@
 <p>1.下载并安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a></p>
 <p>官网首页就有醒目的下载按钮，下载好后自选位置（尽量自己记着安装在哪儿）安装就行。</p>
 <p>安装后输入Win+R输入cmd打开控制台输入以下代码：</p>
-<pre><code class="hljs undefined">node -v
-npm -v</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">node -v
+npm -v</code></pre></div>
 
 <p>如果安装没有问题的话，会返回安装的版本号。</p>
 <h3 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>安装</h3><p>为了避免出现错误后面的操作都在Git Bash进行。</p>
 <p>首先新建一个存放Hexo文件的目录，自己找个位置就行，然后cd到该目录下，或者直接在该目录下鼠标右键点Git Bash Here就可以，开始安装</p>
-<pre><code class="hljs undefined">$ cd D:/mxy/Documents/Hexo #换成自己新建的的目录，斜杠不能反了，是&apos;/&apos;，&apos;\&apos;这样不行
+<div class="hljs"><pre><code class="hljs undefined">$ cd D:/mxy/Documents/Hexo #换成自己新建的的目录，斜杠不能反了，是&apos;/&apos;，&apos;\&apos;这样不行
 $ npm install hexo-cli -g #安装hexo脚手架，没啥说的，官网给的安装命令
 $ hexo init #Hexo自动在当前文件夹下下载搭建网站所需的所有文件
 $ npm install #安装依赖包
 $ hexo clean #清理缓存
 $ hexo g #完整命令为hexo generate，生成静态文件
-$ hexo s #完整命令为hexo server，启动服务器，用来本地预览</code></pre>
+$ hexo s #完整命令为hexo server，启动服务器，用来本地预览</code></pre></div>
 
 <p>用浏览器访问 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> ，人生第一个博客就生成好了，巨简单，这是Hexo自动生成的博客，现在是本地浏览的，并没有发布到网上，使用了默认主题landscape，可以根据个人喜好更换主题，官网提供了很多可以使用的<a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题</a>。</p>
 <h3 id="通过Github部署到网上"><a href="#通过Github部署到网上" class="headerlink" title="通过Github部署到网上"></a>通过<a href="https://github.com/" target="_blank" rel="noopener">Github</a>部署到网上</h3><p>本地博客搭建好了接下来是要把它部署到网上，通过GitHub部署，也可以使用Coding，都差不多。</p>
@@ -228,34 +228,34 @@ $ hexo s #完整命令为hexo server，启动服务器，用来本地预览</cod
 <p>浏览器打开GitHub主页，右上角“+”新建仓库New repository，</p>
 <p>Repository name：<em>mxy493.github.io</em> 填入自己的仓库名称，<em>自己用户名.github.io</em>，最后自己的博客地址就是：<em>https://自己的用户名.github.io/</em></p>
 <h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h3><p>Git Bash中输入命令：邮件地址为注册GitHub时的邮箱</p>
-<pre><code class="hljs undefined">$ ssh-keygen -t rsa -C &quot;你的邮件地址&quot;</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">$ ssh-keygen -t rsa -C &quot;你的邮件地址&quot;</code></pre></div>
 
 <p>回车回车回车，会提示输入密码，输入即可（输入密码是看不到的），也可以不用输入，然后会确认输入一次，就可以在刚刚的路径看到生成了两个文件，一个是id_rsa，另一个是id_rsa.pub，用VS code或者别的软件打开id_rsa.pub然后选中里面的全部内容，复制下来。</p>
 <p>打开GitHub，右上角点击自己的头像，选择settings，左侧选择SSH and GPG keys，然后New SSH key，Title随意把复制的内容粘贴到下面的Key的框里面，最后点击Add SSH key完事。</p>
 <h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><p>打开D:\mxy\Documents\Hexo\mxy，用VS code（或者别的可以编辑的软件都可以）打开_config.yml文件，文件最后可以看到</p>
-<pre><code class="hljs undefined">deploy:
-  type:</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">deploy:
+  type:</code></pre></div>
 
 <p>修改（注意要换上自己的链接）</p>
-<pre><code class="hljs undefined">deploy:
+<div class="hljs"><pre><code class="hljs undefined">deploy:
   type: git
   repository: git@github.com:mxy493/mxy493.github.io.git  #这里换成自己的地址
-  branch: master</code></pre>
+  branch: master</code></pre></div>
 
 <p>不清楚自己的地址可以到GitHub上面看，右上角头像-&gt;Your Rrepositories，找到自己建的代码仓库打开</p>
 <p>修改完成保存！</p>
 <p>继续在Git Bash中输入以下命令：</p>
-<pre><code class="hljs undefined">$ hexo d #完整命令为hexo deploy，将本地文件发布到page服务平台上</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">$ hexo d #完整命令为hexo deploy，将本地文件发布到page服务平台上</code></pre></div>
 
 <p>如果遇到异常：</p>
-<pre><code class="hljs undefined">$ hexo clean &amp;&amp; hexo g
-$ hexo d</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">$ hexo clean &amp;&amp; hexo g
+$ hexo d</code></pre></div>
 
 <p>如果出现以下异常</p>
-<pre><code class="hljs undefined">ERROR Deployer not found: git</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">ERROR Deployer not found: git</code></pre></div>
 
 <p>尝试输入以下命令，然后重新执行刚刚的两条命令</p>
-<pre><code class="hljs undefined">$ npm install hexo-deployer-git --save</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">$ npm install hexo-deployer-git --save</code></pre></div>
 
 <p>这时候如果弹出一个对话框，输入在GitHub上面的用户名和密码即可</p>
 <p>现在，博客就已经发布到网上了，可以通过地址https://自己的用户名.github.io/访问</p>
@@ -524,8 +524,6 @@ $ hexo d</code></pre>
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

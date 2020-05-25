@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -203,7 +203,7 @@
 <li><code>unfollow(followerId, followeeId)</code>: 取消关注一个用户</li>
 </ol>
 <p><strong>示例：</strong></p>
-<pre><code class="hljs undefined">Twitter twitter = new Twitter();
+<div class="hljs"><pre><code class="hljs undefined">Twitter twitter = new Twitter();
 
 // 用户1发送了一条新推文 (用户id = 1, 推文id = 5).
 twitter.postTweet(1, 5);
@@ -226,7 +226,7 @@ twitter.unfollow(1, 2);
 
 // 用户1的获取推文应当返回一个列表，其中包含一个id为5的推文.
 // 因为用户1已经不再关注用户2.
-twitter.getNewsFeed(1);</code></pre>
+twitter.getNewsFeed(1);</code></pre></div>
 
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先，我写了一个多小时写出来，但是超时了，很尴尬~</p>
 <p>还是留下我的解题思路。</p>
@@ -244,7 +244,7 @@ twitter.getNewsFeed(1);</code></pre>
 <p>其实就是最开始的代码在索引的那一部分，我首先遍历了一次用户数组判断该用户是否存在，如果不存在，函数直接结束了那倒没什么影响。但如果存在的话，后续对每一条推文，我都还要再遍历一次去找这个用户，如果遍历了 n 条推文，那么就会做 <code>n + 1</code> 次完全重复的遍历查找，显然这是没有必要的。</p>
 <p>所有我将判断该用户是否存在的标志改为了整型 <code>index</code> 并初始化为 <code>-1</code> ，即表示该用户不存在，如果找到了该用户，则将 <code>index</code> 修改为该用户在用户数组中的位置，后续就不再需要遍历用户数组去查找该用户了。</p>
 <p>我将优化部分的代码放到了👇🏻最后面👇🏻</p>
-<h3 id="代码（超时）"><a href="#代码（超时）" class="headerlink" title="代码（超时）"></a>代码（超时）</h3><h4 id="原始代码（未优化）"><a href="#原始代码（未优化）" class="headerlink" title="原始代码（未优化）"></a>原始代码（未优化）</h4><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Twitter</span> &#123;</span>
+<h3 id="代码（超时）"><a href="#代码（超时）" class="headerlink" title="代码（超时）"></a>代码（超时）</h3><h4 id="原始代码（未优化）"><a href="#原始代码（未优化）" class="headerlink" title="原始代码（未优化）"></a>原始代码（未优化）</h4><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Twitter</span> &#123;</span>
     <span class="hljs-built_in">vector</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; tweets;<span class="hljs-comment">//所有推文</span>
     <span class="hljs-built_in">vector</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&gt; users;<span class="hljs-comment">//所有用户及其关注的用户</span>
 <span class="hljs-keyword">public</span>:
@@ -337,10 +337,10 @@ twitter.getNewsFeed(1);</code></pre>
  * vector&lt;int&gt; param_2 = obj-&gt;getNewsFeed(userId);
  * obj-&gt;follow(followerId,followeeId);
  * obj-&gt;unfollow(followerId,followeeId);
- */</span></code></pre>
+ */</span></code></pre></div>
 
 <h4 id="优化部分"><a href="#优化部分" class="headerlink" title="优化部分"></a>优化部分</h4><p>对函数 <code>getNewsFeed(int userId)</code> 进行了修改，并删除了函数 <code>isFollowing(int id1, int id2)</code>。</p>
-<pre><code class="hljs c++"><span class="hljs-comment">/** Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */</span>
+<div class="hljs"><pre><code class="hljs c++"><span class="hljs-comment">/** Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */</span>
 <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; getNewsFeed(<span class="hljs-keyword">int</span> userId) &#123;
     <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ans;
     <span class="hljs-comment">//判断是否存在该id的用户</span>
@@ -366,7 +366,7 @@ twitter.getNewsFeed(1);</code></pre>
         &#125;
     &#125;
     <span class="hljs-keyword">return</span> ans;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 
             </article>
@@ -631,8 +631,6 @@ twitter.getNewsFeed(1);</code></pre>
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

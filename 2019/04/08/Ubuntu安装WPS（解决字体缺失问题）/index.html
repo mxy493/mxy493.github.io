@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -196,26 +196,26 @@
 <a id="more"></a>
 
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>双击安装或者命令行安装</p>
-<pre><code class="hljs undefined">sudo dpkg -i ***/wps-office_10.1.0.6757_amd64.deb</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">sudo dpkg -i ***/wps-office_10.1.0.6757_amd64.deb</code></pre></div>
 
 <h3 id="字体缺失"><a href="#字体缺失" class="headerlink" title="字体缺失"></a>字体缺失</h3><p>安装后如果有字体缺失问题</p>
 <p>下载：<a href="wps_symbol_fonts.zip">wps_symbol_fonts.zip</a></p>
 <p>将下载好的字体压缩包移至 <code>/usr/share/fonts</code> 文件夹下</p>
-<pre><code class="hljs undefined">sudo mv wps_symbol_fonts.zip /usr/share/fonts</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">sudo mv wps_symbol_fonts.zip /usr/share/fonts</code></pre></div>
 
 <p>终端进入到 <code>/usr/share/fonts</code> 文件夹</p>
-<pre><code class="hljs undefined">cd /usr/share/fonts</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">cd /usr/share/fonts</code></pre></div>
 
 <p>解压缩（解压缩后可以把压缩包删了）</p>
-<pre><code class="hljs undefined">sudo unzip wps_symbol_fonts.zip
-sudo rm wps_symbol_fonts.zip</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">sudo unzip wps_symbol_fonts.zip
+sudo rm wps_symbol_fonts.zip</code></pre></div>
 
 <p>执行命令生成字体的索引信息：</p>
-<pre><code class="hljs undefined">sudo mkfontscale
-sudo mkfontdir</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">sudo mkfontscale
+sudo mkfontdir</code></pre></div>
 
 <p>运行fc-cache命令更新字体缓存：</p>
-<pre><code class="hljs undefined">sudo fc-cache</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">sudo fc-cache</code></pre></div>
 
 
             </article>
@@ -473,8 +473,6 @@ sudo mkfontdir</code></pre>
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

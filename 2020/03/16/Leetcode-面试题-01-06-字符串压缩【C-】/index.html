@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -197,13 +197,13 @@
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>字符串压缩。利用字符重复出现的次数，编写一种方法，实现基本的字符串压缩功能。比如，字符串 <code>aabcccccaaa</code> 会变为 <code>a2b1c5a3</code>。若“压缩”后的字符串没有变短，则返回原先的字符串。你可以假设字符串中只包含大小写英文字母（a至z）。</p>
 <p><strong>示例1:</strong></p>
-<pre><code class="hljs undefined">输入：&quot;aabcccccaaa&quot;
-输出：&quot;a2b1c5a3&quot;</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">输入：&quot;aabcccccaaa&quot;
+输出：&quot;a2b1c5a3&quot;</code></pre></div>
 
 <p><strong>示例2:</strong></p>
-<pre><code class="hljs undefined">输入：&quot;abbccd&quot;
+<div class="hljs"><pre><code class="hljs undefined">输入：&quot;abbccd&quot;
 输出：&quot;abbccd&quot;
-解释：&quot;abbccd&quot;压缩后为&quot;a1b2c2d1&quot;，比原字符串长度更长。</code></pre>
+解释：&quot;abbccd&quot;压缩后为&quot;a1b2c2d1&quot;，比原字符串长度更长。</code></pre></div>
 
 <p><strong>提示：</strong></p>
 <p>字符串长度在[0, 50000]范围内。</p>
@@ -211,7 +211,7 @@
 <p>由于题目要求是压缩字符串，但是如果“压缩”后的字符串长度没有变短的话，就应该返回原字符串，所以不应该在原字符串上进行修改，所以我定义了一个新的字符串 <code>cpStr</code> 存储压缩后的字符串。</p>
 <p>思路很简单，遍历原字符串，取出一个字符串将其追加到 <code>cpStr</code> 末尾，然后对这个字符进行计数，直到遇到下一个不同的字符计数结束，将计数追加到 <code>cpStr</code> 末尾，并重新将计数 <code>count</code> 修改为1，即当前新遇到的字符个数为1，然后再对新遇到的字符计数，循环前述步骤，直到遍历完原字符串。最后跳出循环还应该将最后一个字符的计数值追加到 <code>cpStr</code> 末尾，因为循环内部最后一个字符不会再遇到新的字符，所以虽然对其进行了计数但是并没有将它的个数追加到压缩的字符串的末尾。</p>
 <p>最后返回结果用一个条件表达式，判断 <code>cpStr</code> 的长度是否小于原字符串长度，当且仅当小于原字符串长度的时候才将压缩后的 <code>cpStr</code> 返回，否则应返回原字符串。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">compressString</span><span class="hljs-params">(<span class="hljs-built_in">string</span> str)</span> </span>&#123;
         <span class="hljs-keyword">int</span> length = str.length();<span class="hljs-comment">//获取字符串长度</span>
@@ -237,7 +237,7 @@
         cpStr += to_string(count);<span class="hljs-comment">//追加最后一个字符的个数</span>
         <span class="hljs-keyword">return</span> cpStr.length() &lt; length ? cpStr : str;
     &#125;
-&#125;;</code></pre>
+&#125;;</code></pre></div>
 
 
             </article>
@@ -502,8 +502,6 @@
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

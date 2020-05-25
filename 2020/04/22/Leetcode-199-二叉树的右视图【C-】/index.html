@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -197,7 +197,7 @@
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一棵二叉树，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。</p>
 <p><strong>示例:</strong></p>
-<pre><code class="hljs undefined">输入: [1,2,3,null,5,null,4]
+<div class="hljs"><pre><code class="hljs undefined">输入: [1,2,3,null,5,null,4]
 输出: [1, 3, 4]
 解释:
 
@@ -205,14 +205,14 @@
  /   \
 2     3         &lt;---
  \     \
-  5     4       &lt;---</code></pre>
+  5     4       &lt;---</code></pre></div>
 
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先这是一个很明显的使用递归算法的题目，由于是“右视图”，所以应该采用<strong>后序遍历</strong>，先遍历右子女结点，再遍历左子女结点。</p>
 <p>二叉树的递归遍历是不难实现的，但是这个题要找的是从右侧能看到的结点，以上述示例为例，显然能看到的结点就是右侧的三个结点 <code>[1, 3, 4]</code> 。假设结点 <code>5</code> 还有一个左孩子结点值为 <code>6</code> ，那么在结点 <code>6</code> 的右侧是没有任何结点阻挡的，所以 <code>6</code> 也应该能看到。</p>
 <p>不难发现，具体能看到的结点并不一定只是最右侧一条路径上的的所有结点，而是跟 <strong>深度</strong> 有关。如果左子树存在深度更深的结点，那就也可以被看到。</p>
 <p>在函数外部定义一个 <code>depth</code> 用于记录当前遍历过的所有路径所达到的最深的深度，换言之如果遇到大于 <code>depth</code> 的结点，那么这个结点就是可以被看到的。在调用递归函数前，需要确保传入的是非空结点，当然也可以在递归函数内部判断当前结点是否为空。</p>
 <p>递归函数有三个参数，<code>vector&lt;int&gt;&amp; nodes</code> 用于保存返回值，注意必须是引用，这样才能始终在一个数组上更新找到的结点；<code>TreeNode* cur</code> 即传入的非空结点，将其作为新的树根；<code>int dp</code> 即实际的深度，用于和最大到达深度 <code>depth</code> 做对比。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="hljs c++"><span class="hljs-comment">/**
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-comment">/**
  * Definition for a binary tree node.
  * struct TreeNode &#123;
  *     int val;
@@ -253,7 +253,7 @@
             backtrack(nodes, cur-&gt;left, dp + <span class="hljs-number">1</span>);
         &#125;
     &#125;
-&#125;;</code></pre>
+&#125;;</code></pre></div>
 
 
             </article>
@@ -518,8 +518,6 @@
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

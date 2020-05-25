@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -197,16 +197,16 @@
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。</p>
 <p><strong>示例 1:</strong></p>
-<pre><code class="hljs undefined">输入: 1-&gt;1-&gt;2
-输出: 1-&gt;2</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">输入: 1-&gt;1-&gt;2
+输出: 1-&gt;2</code></pre></div>
 
 <p><strong>示例 2:</strong></p>
-<pre><code class="hljs undefined">输入: 1-&gt;1-&gt;2-&gt;3-&gt;3
-输出: 1-&gt;2-&gt;3</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">输入: 1-&gt;1-&gt;2-&gt;3-&gt;3
+输出: 1-&gt;2-&gt;3</code></pre></div>
 
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>就是一个简单的遍历链表的方法，外层循环遍历链表中的每一个结点，内存循环查找这个结点后面的所有结点是否有重复元素，找到重复元素就将其删除。</p>
 <p>需要考虑传入的链表为空的特殊情况。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code class="hljs c++"><span class="hljs-comment">/**
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-comment">/**
  * Definition for singly-linked list.
  * struct ListNode &#123;
  *     int val;
@@ -239,7 +239,7 @@
         &#125;
         <span class="hljs-keyword">return</span> head;
     &#125;
-&#125;;</code></pre>
+&#125;;</code></pre></div>
             </article>
             <hr>
             <div>
@@ -502,8 +502,6 @@
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

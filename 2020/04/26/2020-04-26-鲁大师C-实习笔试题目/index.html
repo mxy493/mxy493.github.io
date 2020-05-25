@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -230,7 +230,7 @@
 <p>C/C++ 中 static 的用法全局变量与局部变量：<a href="https://www.runoob.com/w3cnote/cpp-static-usage.html" target="_blank" rel="noopener">https://www.runoob.com/w3cnote/cpp-static-usage.html</a></p>
 </blockquote>
 <h3 id="题目五：找出程序的问题"><a href="#题目五：找出程序的问题" class="headerlink" title="题目五：找出程序的问题"></a>题目五：找出程序的问题</h3><p><strong>题目：</strong>这段代码有哪些问题。</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span>* <span class="hljs-title">GetTextA</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span>* <span class="hljs-title">GetTextA</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
 </span>&#123;
    <span class="hljs-keyword">char</span> p[] = <span class="hljs-string">"AAAAAAAA"</span>;
    <span class="hljs-keyword">return</span> p;
@@ -249,7 +249,7 @@
    <span class="hljs-built_in">printf</span>(p);
    p = GetTextB();
    <span class="hljs-built_in">printf</span>(p);
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 <p><strong>解答：</strong></p>
 <ul>
@@ -257,7 +257,7 @@
 <li>函数<code>GetTextB(void)</code> 和 <code>GetTextB(void)</code> 中的变量 <code>p</code> 为局部变量，作用域为所在的函数内部，函数调用结束后变量 <code>p</code> 所占用的内存就会被释放掉，而 <code>main()</code> 函数中的指针 <code>p</code> 仍指向已释放内存的地址，输出的结果将是无意义的。一个简单的解决办法是，可以将两个函数中的 <code>p</code> 声明为 <code>static</code> 的，<strong>延长其生命周期，直到程序运行结束以后才释放</strong>。（参考题目四）</li>
 </ul>
 <p><strong>修改后的代码为：</strong></p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span>* <span class="hljs-title">GetTextA</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span>* <span class="hljs-title">GetTextA</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
 </span>&#123;
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">char</span> p[] = <span class="hljs-string">"AAAAAAAA"</span>;
     <span class="hljs-keyword">return</span> p;
@@ -276,7 +276,7 @@
     <span class="hljs-built_in">printf</span>(p);
     p = GetTextB();
     <span class="hljs-built_in">printf</span>(p);
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 <h3 id="题目六：内存泄漏"><a href="#题目六：内存泄漏" class="headerlink" title="题目六：内存泄漏"></a>题目六：内存泄漏</h3><p><strong>题目：</strong>什么是内存泄漏？</p>
 <p><strong>解答：</strong>由于疏忽或错误造成程序未能释放已经不再使用的内存。内存泄漏并非指内存在物理上的消失，而是应用程序分配某段内存后，由于设计错误，导致在释放该段内存之前就失去了对该段内存的控制，从而造成了内存的浪费。（来自<a href="https://zh.wikipedia.org/wiki/%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F" target="_blank" rel="noopener">维基百科</a>）</p>
@@ -284,7 +284,7 @@
 <p><strong>解答：</strong>API Index for desktop Windows applications：<a href="https://docs.microsoft.com/en-us/windows/win32/apiindex/api-index-portal" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/windows/win32/apiindex/api-index-portal</a></p>
 <h3 id="题目八-unsigned-long-转字符串"><a href="#题目八-unsigned-long-转字符串" class="headerlink" title="题目八 unsigned long 转字符串"></a>题目八 unsigned long 转字符串</h3><p><strong>题目：</strong>写程序，把 <code>unsigned long</code> 型变量转为字符串。在函数调用上，只允许使用 <code>malloc</code> 这个函数，无需 free，不准调用其它函数。如果不调用任何函数更好。如果使用数组要指出数组大小的设置理由。用注释指出哪个变量是结果即可，无需输出。</p>
 <p><strong>解答：</strong></p>
-<pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">ultostr</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> n)</span> </span>&#123;
+<div class="hljs"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">ultostr</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> n)</span> </span>&#123;
 	<span class="hljs-built_in">string</span> str = <span class="hljs-string">""</span>;
 	<span class="hljs-keyword">while</span> (n != <span class="hljs-number">0</span>)
 	&#123;
@@ -293,7 +293,7 @@
 		n /= <span class="hljs-number">10</span>;
 	&#125;
 	<span class="hljs-keyword">return</span> str;<span class="hljs-comment">//结果</span>
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 <h3 id="题目九：统计字母出现的次数"><a href="#题目九：统计字母出现的次数" class="headerlink" title="题目九：统计字母出现的次数"></a>题目九：统计字母出现的次数</h3><p><strong>题目：</strong>写程序，输入一个由英文小写字母组成的字符串，字母可重复出现，<code>&#39;0&#39;</code> 结尾，统计每个字母出现的次数。输出格式自定。</p>
 <p><strong>解答：</strong></p>
@@ -301,7 +301,7 @@
 <p>笔试的时候连题目都搞错了，因为前些天刚做过压缩字符串的题目，那个题是把连续相同的多个字符压缩为两个个数加该字符，例如字符串 <code>&quot;aaabbbbcc&quot;</code> 就可以压缩为 <code>&quot;3a4b2c&quot;</code> 。但是，这个题目它不一样吖，人都傻了……</p>
 <p><code>&#39;0&#39;</code> 应该也是字符串的一部分，解题的时候我并没有把它作为字符串的一部分。</p>
 </blockquote>
-<pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<div class="hljs"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
 
@@ -335,13 +335,13 @@
 		<span class="hljs-built_in">cout</span> &lt;&lt; v.first &lt;&lt; v.second &lt;&lt; <span class="hljs-built_in">endl</span>;
 	&#125;
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 <h3 id="题目十：字符串查找"><a href="#题目十：字符串查找" class="headerlink" title="题目十：字符串查找"></a>题目十：字符串查找</h3><p><strong>题目：</strong>完成这个程序。<code>input</code> 是一个由英文小写字母组成的字符串，<code>&#39;0&#39;</code> 结尾。<code>sub_string</code> 是一个由英文小写字母组成的字符串，<code>&#39;0&#39;</code> 结尾。要查找 <code>sub_string</code> 在 <code>input</code> 中第一次出现时的位置（返回这个地址），如果没找到，则返回 <code>NULL</code> 。不准调用任何函数。</p>
-<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span>* <span class="hljs-title">strstr</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *input, <span class="hljs-keyword">char</span> *sub_string)</span>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">char</span>* <span class="hljs-title">strstr</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *input, <span class="hljs-keyword">char</span> *sub_string)</span>
 </span>&#123;
 	...
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 <p><strong>解答：</strong></p>
 <blockquote>
@@ -352,7 +352,7 @@
 <li>二层循环对字符进行遍历，应该更新指针，最初的代码忘了更改指针了。</li>
 </ul>
 </blockquote>
-<pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">char</span>* <span class="hljs-title">strstr</span><span class="hljs-params">(<span class="hljs-keyword">char</span>* input, <span class="hljs-keyword">char</span>* sub_string)</span>
+<div class="hljs"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">char</span>* <span class="hljs-title">strstr</span><span class="hljs-params">(<span class="hljs-keyword">char</span>* input, <span class="hljs-keyword">char</span>* sub_string)</span>
 </span>&#123;
 	<span class="hljs-keyword">char</span>* ans = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>();<span class="hljs-comment">//结果</span>
 	<span class="hljs-keyword">char</span>* s1 = input;
@@ -383,7 +383,7 @@
 		s1++;
 	&#125;
 	<span class="hljs-keyword">return</span> ans;<span class="hljs-comment">//返回结果</span>
-&#125;</code></pre>
+&#125;</code></pre></div>
             </article>
             <hr>
             <div>
@@ -637,8 +637,6 @@
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -193,14 +193,14 @@
             
             <article class="markdown-body">
               <p>关于 jQuery <code>on()</code> 方法的 API 文档：<a href="https://api.jquery.com/on/" target="_blank" rel="noopener">https://api.jquery.com/on/</a></p>
-<pre><code class="hljs undefined">.on( events [, selector ] [, data ], handler )</code></pre>
+<div class="hljs"><pre><code class="hljs undefined">.on( events [, selector ] [, data ], handler )</code></pre></div>
 
 <p>网页往往需要根据服务器返回的数据动态的添加HTML元素，但是动态添加的HTML元素用常规方法绑定事件往往没有效果。</p>
 <p>可以使用 jQuery 的 <code>on()</code> 方法进行动态绑定，使用起来很简单，网上也有很多这个方法的使用说明，但是我觉得网上的都没有把最重要的问题说清楚。</p>
 <p>实际使用的代码大概是这样的：</p>
-<pre><code class="hljs undefined">$(&quot;#parent&quot;).on(&quot;click&quot;, &quot;#child&quot;, function()&#123;
+<div class="hljs"><pre><code class="hljs undefined">$(&quot;#parent&quot;).on(&quot;click&quot;, &quot;#child&quot;, function()&#123;
 	......
-&#125;</code></pre>
+&#125;</code></pre></div>
 
 <p>其中最重要的是两个选择器 <code>$(&quot;#parent&quot;)</code> 和 <code>&quot;#child&quot;</code> 。</p>
 <p>前面的选择器是选择一个父元素，注意是要动态添加的元素的父元素，我的理解是，只要能保证这个父元素不受动态添加的元素的影响即可，比如说你可以直接将其设置为 <code>$(&quot;body&quot;)</code> 。</p>
@@ -466,8 +466,6 @@
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");

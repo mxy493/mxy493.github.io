@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/solarized-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -201,17 +201,17 @@
 <p>最高位数字存放在数组的首位， 数组中每个元素只存储一个数字。</p>
 <p>你可以假设除了整数 0 之外，这个整数不会以零开头。</p>
 <p><strong>示例 1:</strong></p>
-<pre><code class="hljs undefined">输入: [1,2,3]
+<div class="hljs"><pre><code class="hljs undefined">输入: [1,2,3]
 输出: [1,2,4]
-解释: 输入数组表示数字 123。</code></pre>
+解释: 输入数组表示数字 123。</code></pre></div>
 
 <p><strong>示例 2:</strong></p>
-<pre><code class="hljs undefined">输入: [4,3,2,1]
+<div class="hljs"><pre><code class="hljs undefined">输入: [4,3,2,1]
 输出: [4,3,2,2]
-解释: 输入数组表示数字 4321。</code></pre>
+解释: 输入数组表示数字 4321。</code></pre></div>
 
 <h3 id="二、我的解决方案"><a href="#二、我的解决方案" class="headerlink" title="二、我的解决方案"></a>二、我的解决方案</h3><p>首先想到用一个int型整数来保存输入的这个数，因为整数+1很容易实现，把数组的各个数字合并成一个整数以及将一个整数拆分成单个数字都很容易实现，所以写出了这份代码，也理所当然的造成了太大的数<strong>溢出</strong>的问题：</p>
-<pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; plusOne(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; digits) &#123;
         <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; plusone;
@@ -236,11 +236,11 @@
         &#125;
         <span class="hljs-keyword">return</span> plusone;
     &#125;
-&#125;;</code></pre>
+&#125;;</code></pre></div>
 
 <p>例如当输入的数字为<code>[9,8,7,6,5,4,3,2,1,0]</code>时，将得到错误的结果<code>[1,2,8,6,6,0,8,6,1,9]</code>。</p>
 <p><strong>改进后的代码：</strong></p>
-<pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; plusOne(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; digits) &#123;
         <span class="hljs-keyword">int</span> car = <span class="hljs-number">1</span>;   <span class="hljs-comment">//对最后一位+1以及判断当前项是否有进位</span>
@@ -265,7 +265,7 @@
 
         <span class="hljs-keyword">return</span> digits;
     &#125;
-&#125;;</code></pre>
+&#125;;</code></pre></div>
 
 <p>很明显，改进后的代码相对更简洁一些，同时不再受限于整型溢出导致的错误结果。</p>
 <p>前面的代码思路比较简单，也更切合我们日常生活中整数简单+1的操作；事实上改进后的代码思路也并不是很复杂，相对于前面的方法不是那么的抽象，逻辑上略微复杂一点点，因为要把+1的操作作用到单个数字上，要考虑进位的处理（也就是9+1=10的情况下，应该是当前位置0，进位导致前一位要+1）。</p>
@@ -533,8 +533,6 @@
     anchors.options = {
       placement: "right",
       visible: "hover",
-      
-      icon: "❡"
       
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
