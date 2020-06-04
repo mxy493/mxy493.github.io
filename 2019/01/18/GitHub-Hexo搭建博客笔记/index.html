@@ -19,24 +19,29 @@
   <title>GitHub+Hexo搭建博客笔记 - mxy</title>
 
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
+  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+
+  
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
-
-
 
 <link rel="stylesheet" href="/css/main.css">
 
 <!-- 自定义样式保持在最底部 -->
 
 
+  <script src="/js/utils.js"></script>
 </head>
 
 
@@ -60,56 +65,74 @@
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">
-              <i class="iconfont icon-home-fill"></i>
-              首页</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">
-              <i class="iconfont icon-archive-fill"></i>
-              归档</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">
-              <i class="iconfont icon-category-fill"></i>
-              分类</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">
-              <i class="iconfont icon-tags-fill"></i>
-              标签</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">
-              <i class="iconfont icon-user-fill"></i>
-              关于</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
         
           
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/links/">
-              <i class="iconfont icon-link-fill"></i>
-              友链</a>
-          </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
@@ -134,36 +157,38 @@
 
             
               
-                <div class="mt-3 post-meta">
-                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2019-01-18 15:05">
-                    2019年1月18日 下午
-                  </time>
-                </div>
-              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2019-01-18 15:05">
+      2019年1月18日 下午
+    </time>
+  </div>
 
-              <div class="mt-1">
-                
-                  
-                  <span class="post-meta mr-2">
-                    <i class="iconfont icon-chart"></i>
-                    1.4k 字
-                  </span>
-                
 
-                
-                  
-                  <span class="post-meta mr-2">
-                      <i class="iconfont icon-clock-fill"></i>
-                    
-                    
-                    15
-                     分钟
-                  </span>
-                
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
 
-                
-              </div>
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
             
           </div>
 
@@ -207,19 +232,19 @@
 <p>1.下载并安装<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a></p>
 <p>官网首页就有醒目的下载按钮，下载好后自选位置（尽量自己记着安装在哪儿）安装就行。</p>
 <p>安装后输入Win+R输入cmd打开控制台输入以下代码：</p>
-<div class="hljs"><pre><code class="hljs undefined">node -v
+<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-keyword">node</span> <span class="hljs-title">-v</span>
 npm -v</code></pre></div>
 
 <p>如果安装没有问题的话，会返回安装的版本号。</p>
 <h3 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a>安装</h3><p>为了避免出现错误后面的操作都在Git Bash进行。</p>
 <p>首先新建一个存放Hexo文件的目录，自己找个位置就行，然后cd到该目录下，或者直接在该目录下鼠标右键点Git Bash Here就可以，开始安装</p>
-<div class="hljs"><pre><code class="hljs undefined">$ cd D:/mxy/Documents/Hexo #换成自己新建的的目录，斜杠不能反了，是&apos;/&apos;，&apos;\&apos;这样不行
-$ npm install hexo-cli -g #安装hexo脚手架，没啥说的，官网给的安装命令
-$ hexo init #Hexo自动在当前文件夹下下载搭建网站所需的所有文件
-$ npm install #安装依赖包
-$ hexo clean #清理缓存
-$ hexo g #完整命令为hexo generate，生成静态文件
-$ hexo s #完整命令为hexo server，启动服务器，用来本地预览</code></pre></div>
+<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> D:/mxy/Documents/Hexo <span class="hljs-comment">#换成自己新建的的目录，斜杠不能反了，是'/'，'\'这样不行</span></span>
+<span class="hljs-meta">$</span><span class="bash"> npm install hexo-cli -g <span class="hljs-comment">#安装hexo脚手架，没啥说的，官网给的安装命令</span></span>
+<span class="hljs-meta">$</span><span class="bash"> hexo init <span class="hljs-comment">#Hexo自动在当前文件夹下下载搭建网站所需的所有文件</span></span>
+<span class="hljs-meta">$</span><span class="bash"> npm install <span class="hljs-comment">#安装依赖包</span></span>
+<span class="hljs-meta">$</span><span class="bash"> hexo clean <span class="hljs-comment">#清理缓存</span></span>
+<span class="hljs-meta">$</span><span class="bash"> hexo g <span class="hljs-comment">#完整命令为hexo generate，生成静态文件</span></span>
+<span class="hljs-meta">$</span><span class="bash"> hexo s <span class="hljs-comment">#完整命令为hexo server，启动服务器，用来本地预览</span></span></code></pre></div>
 
 <p>用浏览器访问 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> ，人生第一个博客就生成好了，巨简单，这是Hexo自动生成的博客，现在是本地浏览的，并没有发布到网上，使用了默认主题landscape，可以根据个人喜好更换主题，官网提供了很多可以使用的<a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题</a>。</p>
 <h3 id="通过Github部署到网上"><a href="#通过Github部署到网上" class="headerlink" title="通过Github部署到网上"></a>通过<a href="https://github.com/" target="_blank" rel="noopener">Github</a>部署到网上</h3><p>本地博客搭建好了接下来是要把它部署到网上，通过GitHub部署，也可以使用Coding，都差不多。</p>
@@ -228,34 +253,34 @@ $ hexo s #完整命令为hexo server，启动服务器，用来本地预览</cod
 <p>浏览器打开GitHub主页，右上角“+”新建仓库New repository，</p>
 <p>Repository name：<em>mxy493.github.io</em> 填入自己的仓库名称，<em>自己用户名.github.io</em>，最后自己的博客地址就是：<em>https://自己的用户名.github.io/</em></p>
 <h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h3><p>Git Bash中输入命令：邮件地址为注册GitHub时的邮箱</p>
-<div class="hljs"><pre><code class="hljs undefined">$ ssh-keygen -t rsa -C &quot;你的邮件地址&quot;</code></pre></div>
+<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-variable">$ </span>ssh-keygen -t rsa -C <span class="hljs-string">"你的邮件地址"</span></code></pre></div>
 
 <p>回车回车回车，会提示输入密码，输入即可（输入密码是看不到的），也可以不用输入，然后会确认输入一次，就可以在刚刚的路径看到生成了两个文件，一个是id_rsa，另一个是id_rsa.pub，用VS code或者别的软件打开id_rsa.pub然后选中里面的全部内容，复制下来。</p>
 <p>打开GitHub，右上角点击自己的头像，选择settings，左侧选择SSH and GPG keys，然后New SSH key，Title随意把复制的内容粘贴到下面的Key的框里面，最后点击Add SSH key完事。</p>
 <h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><p>打开D:\mxy\Documents\Hexo\mxy，用VS code（或者别的可以编辑的软件都可以）打开_config.yml文件，文件最后可以看到</p>
-<div class="hljs"><pre><code class="hljs undefined">deploy:
-  type:</code></pre></div>
+<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-symbol">deploy:</span>
+<span class="hljs-symbol">  type:</span></code></pre></div>
 
 <p>修改（注意要换上自己的链接）</p>
-<div class="hljs"><pre><code class="hljs undefined">deploy:
-  type: git
-  repository: git@github.com:mxy493/mxy493.github.io.git  #这里换成自己的地址
-  branch: master</code></pre></div>
+<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-attribute">deploy</span>:
+  <span class="hljs-attribute">type</span>: git
+  <span class="hljs-attribute">repository</span>: git<span class="hljs-variable">@github</span>.<span class="hljs-attribute">com</span>:mxy493/mxy493.github.io.git  #这里换成自己的地址
+  <span class="hljs-attribute">branch</span>: master</code></pre></div>
 
 <p>不清楚自己的地址可以到GitHub上面看，右上角头像-&gt;Your Rrepositories，找到自己建的代码仓库打开</p>
 <p>修改完成保存！</p>
 <p>继续在Git Bash中输入以下命令：</p>
-<div class="hljs"><pre><code class="hljs undefined">$ hexo d #完整命令为hexo deploy，将本地文件发布到page服务平台上</code></pre></div>
+<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-variable">$ </span>hexo d <span class="hljs-comment">#完整命令为hexo deploy，将本地文件发布到page服务平台上</span></code></pre></div>
 
 <p>如果遇到异常：</p>
-<div class="hljs"><pre><code class="hljs undefined">$ hexo clean &amp;&amp; hexo g
-$ hexo d</code></pre></div>
+<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-variable">$ </span>hexo clean &amp;&amp; hexo g
+<span class="hljs-variable">$ </span>hexo d</code></pre></div>
 
 <p>如果出现以下异常</p>
-<div class="hljs"><pre><code class="hljs undefined">ERROR Deployer not found: git</code></pre></div>
+<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-keyword">ERROR </span>Deployer not found: git</code></pre></div>
 
 <p>尝试输入以下命令，然后重新执行刚刚的两条命令</p>
-<div class="hljs"><pre><code class="hljs undefined">$ npm install hexo-deployer-git --save</code></pre></div>
+<div class="hljs"><pre><code class="hljs undefined">$ npm <span class="hljs-keyword">install</span> hexo-deployer-git <span class="hljs-comment">--save</span></code></pre></div>
 
 <p>这时候如果弹出一个对话框，输入在GitHub上面的用户名和密码即可</p>
 <p>现在，博客就已经发布到网上了，可以通过地址https://自己的用户名.github.io/访问</p>
@@ -286,7 +311,7 @@ $ hexo d</code></pre></div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -320,28 +345,26 @@ $ hexo d</code></pre></div>
                 
                 
   <div id="vcomments"></div>
-  <script defer src="https://cdn.staticfile.org/valine/1.4.14/Valine.min.js" ></script>
-
   <script type="text/javascript">
-    var oldLoadVa = window.onload;
-    window.onload = function () {
-      oldLoadVa && oldLoadVa();
-
-      new Valine({
-        el: "#vcomments",
-        app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
-        app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
-        placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
-        path: window.location.pathname,
-        avatar: "retro",
-        meta: ["nick","mail","link"],
-        pageSize: "10",
-        lang: "zh-CN",
-        highlight: false,
-        recordIP: false,
-        serverURLs: "",
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+          app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+          placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
       });
-    };
+    }
+    createObserver(loadValine, 'vcomments');
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
       powered by Valine.</a></noscript>
@@ -414,28 +437,36 @@ $ hexo d</code></pre></div>
         <span>Fluid</span></a>
     </div>
     
-  <div>
+  <div class="statistics">
     
-      <!-- 不蒜子统计PV -->
+    
+
+    
       
-      <span id="busuanzi_container_site_pv" style="display: none">
-      总访问量 <span id="busuanzi_value_site_pv"></span> 次
-    </span>
-    
-    
-      <!-- 不蒜子统计UV -->
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
       
-      <span id="busuanzi_container_site_uv" style="display: none">
-      总访客数 <span id="busuanzi_value_site_uv"></span> 人
-    </span>
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
     
   </div>
 
 
     
   <!-- 备案信息 -->
-  <div>
-    <a href="http://beian.miit.gov.cn/" target="_blank" class="beian-icp"
+  <div class="beian">
+    <a href="http://beian.miit.gov.cn/" target="_blank"
        rel="nofollow noopener">蜀ICP备20011971号</a>
     
   </div>
@@ -448,14 +479,207 @@ $ hexo d</code></pre></div>
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
 <script  src="/js/main.js" ></script>
 
-
-  <script  src="/js/lazyload.js" ></script>
-
+<!-- Plugins -->
 
 
   
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer>
+  (function () {
+    // 查询存储的记录
+    function getRecord(Counter, target) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {target, time: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    }
+
+    // 发起自增请求
+    function increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    }
+
+    // 构建自增请求体
+    function buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "time": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    }
+
+    // 校验是否为有效的 UV
+    function validUV() {
+      var key = 'LeanCloud_UV_Flag';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    }
+
+    function addCount(Counter) {
+      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
+      var getterArr = [];
+      var incrArr = [];
+
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#leancloud-site-pv-container');
+      if (pvCtn || enableIncr) {
+        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
+          incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-pv');
+          if (ele) {
+            ele.innerText = record.time + 1;
+            if (pvCtn) {
+              pvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#leancloud-site-uv-container');
+      if (uvCtn || enableIncr) {
+        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
+          var vuv = validUV();
+          vuv && incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-uv');
+          if (ele) {
+            ele.innerText = record.time + (vuv ? 1 : 0);
+            if (uvCtn) {
+              uvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 如果是文章，请求文章的浏览数，并自增
+      if ('true' === 'true') {
+        var viewCtn = document.querySelector('#leancloud-post-views-container');
+        if (viewCtn || enableIncr) {
+          var target = decodeURI('/2019/01/18/GitHub-Hexo搭建博客笔记/');
+          var viewGetter = getRecord(Counter, target).then((record) => {
+            incrArr.push(buildIncrement(record.objectId))
+            if (viewCtn) {
+              var ele = document.querySelector('#leancloud-post-views');
+              if (ele) {
+                ele.innerText = (record.time || 0) + 1;
+                viewCtn.style.display = 'inline';
+              }
+            }
+          });
+          getterArr.push(viewGetter);
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && increment(Counter, incrArr);
+        })
+      }
+    }
+
+    var app_id = 'zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz'
+    var app_key = 'iNppU37sPwRdpmjgAsJ3dgnC'
+    var server_url = 'https://zsgoil44.lc-cn-n1-shared.com'
+
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': app_id,
+            'X-LC-Key': app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+
+      addCount(Counter);
+    }
+
+    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(resp => resp.json())
+        .then(({api_server}) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+
+
+
+
   <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
@@ -464,7 +688,7 @@ $ hexo d</code></pre></div>
 
       tocbot.init({
         tocSelector: '#tocbot',
-        contentSelector: '.post-content',
+        contentSelector: 'article.markdown-body',
         headingSelector: 'h1,h2,h3,h4,h5,h6',
         linkClass: 'tocbot-link',
         activeLinkClass: 'tocbot-active-link',
@@ -480,22 +704,6 @@ $ hexo d</code></pre></div>
       }
     });
   </script>
-
-
-
-
-
-  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
-  <script  src="/js/clipboard-use.js" ></script>
-
-
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-<!-- Plugins -->
 
 
 
@@ -624,6 +832,32 @@ $ hexo d</code></pre></div>
 
 
 
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
 
 
