@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>主流的个人博客搭建方案</title>
+    <link href="/2020/07/01/%E4%B8%BB%E6%B5%81%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%96%B9%E6%A1%88/"/>
+    <url>/2020/07/01/%E4%B8%BB%E6%B5%81%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%96%B9%E6%A1%88/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a></h2><p>快速、简洁且高效的博客框架，基于 Node.js ，用户量极大，文档完善，主题多。</p><h2 id="HUGO"><a href="#HUGO" class="headerlink" title="HUGO"></a><a href="https://gohugo.io/" target="_blank" rel="noopener">HUGO</a></h2><p>Go 语言编写的开源静态网站生成器，主题多，速度快。</p><h2 id="Jekyll"><a href="#Jekyll" class="headerlink" title="Jekyll"></a><a href="https://jekyllrb.com/" target="_blank" rel="noopener">Jekyll</a></h2><p>基于 Ruby 的静态网站生成器。用户多，主题多。</p><h2 id="Metalsmith"><a href="#Metalsmith" class="headerlink" title="Metalsmith"></a><a href="https://metalsmith.io/" target="_blank" rel="noopener">Metalsmith</a></h2><p>简单可扩展的开源静态网站生成器。</p><h2 id="VuePress"><a href="#VuePress" class="headerlink" title="VuePress"></a><a href="https://vuepress.vuejs.org/zh/" target="_blank" rel="noopener">VuePress</a></h2><p>Vue 驱动的静态网站生成器</p><h2 id="Expose"><a href="#Expose" class="headerlink" title="Expose"></a><a href="https://github.com/Jack000/Expose" target="_blank" rel="noopener">Expose</a></h2><p>简单的静态网站生成器。</p><h2 id="Wintersmith"><a href="#Wintersmith" class="headerlink" title="Wintersmith"></a><a href="http://wintersmith.io/" target="_blank" rel="noopener">Wintersmith</a></h2><p>简单灵活的开源静态网站生成器。</p><h2 id="Next-js"><a href="#Next-js" class="headerlink" title="Next.js"></a><a href="https://nextjs.org/" target="_blank" rel="noopener">Next.js</a></h2><p>The React Framework.</p><h2 id="Nuxt-js"><a href="#Nuxt-js" class="headerlink" title="Nuxt.js"></a><a href="https://zh.nuxtjs.org/" target="_blank" rel="noopener">Nuxt.js</a></h2><p>基于 Vue 的开源 Web 开发框架。</p><h2 id="Gatsby"><a href="#Gatsby" class="headerlink" title="Gatsby"></a><a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener">Gatsby</a></h2><p>基于 React 的开源框架，快速构建网站和应用程序。</p><h2 id="Typecho"><a href="#Typecho" class="headerlink" title="Typecho"></a><a href="http://typecho.org/" target="_blank" rel="noopener">Typecho</a></h2><p>基于 PHP 的博客平台。</p><h2 id="GitBook"><a href="#GitBook" class="headerlink" title="GitBook"></a><a href="https://www.gitbook.com/" target="_blank" rel="noopener">GitBook</a></h2><p>适合写电子书或者项目文档，支持输出多种格式文档。</p><h2 id="docsify"><a href="#docsify" class="headerlink" title="docsify"></a><a href="https://docsify.js.org/#/" target="_blank" rel="noopener">docsify</a></h2><p>文档生成器，更适合用于编写项目文档。</p><h2 id="MkDocs"><a href="#MkDocs" class="headerlink" title="MkDocs"></a><a href="https://www.mkdocs.org/" target="_blank" rel="noopener">MkDocs</a></h2><p>同 docsify 。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>博客</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>博客</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>2020.05.21 牛客网 校招全国统一模拟笔试（2020年5月场）- C++方向</title>
     <link href="/2020/05/21/2020-05-21-%E7%89%9B%E5%AE%A2%E7%BD%91-%E6%A0%A1%E6%8B%9B%E5%85%A8%E5%9B%BD%E7%BB%9F%E4%B8%80%E6%A8%A1%E6%8B%9F%E7%AC%94%E8%AF%95%EF%BC%882020%E5%B9%B45%E6%9C%88%E5%9C%BA%EF%BC%89-C-%E6%96%B9%E5%90%91/"/>
     <url>/2020/05/21/2020-05-21-%E7%89%9B%E5%AE%A2%E7%BD%91-%E6%A0%A1%E6%8B%9B%E5%85%A8%E5%9B%BD%E7%BB%9F%E4%B8%80%E6%A8%A1%E6%8B%9F%E7%AC%94%E8%AF%95%EF%BC%882020%E5%B9%B45%E6%9C%88%E5%9C%BA%EF%BC%89-C-%E6%96%B9%E5%90%91/</url>
