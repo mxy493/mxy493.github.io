@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
+  <link rel="icon" type="image/png" href="/img/devil.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content>
+  <meta name="author" content="mxy">
+  <meta name="keywords" content>
+  <title>YAML语法简记 - mxy</title>
+
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
+  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+
+  
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script src="/js/utils.js"></script>
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>mxy</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('http://mxyblog.mxy493.xyz/xqmy.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2019-01-23 10:35">
+      2019年1月23日 上午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      16
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2020年7月4日 晚上
+                
+              </p>
+            
+            <article class="markdown-body">
+              <p>YAML Ain’t Markup Language</p>
+<h3 id="基本语法规则"><a href="#基本语法规则" class="headerlink" title="基本语法规则"></a>基本语法规则</h3><ul>
+<li>大小写敏感</li>
+<li>使用缩进表示层级关系</li>
+<li>缩进时不允许使用Tab键，只允许使用空格</li>
+<li>缩进的空格数目不重要，只要相同层级的元素左侧对齐即可</li>
+<li>#表示注释，从这个字符一直到行尾，都会被解析器忽略</li>
+</ul>
+<a id="more"></a>
+
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><p>YAML uses three dashes (“—”) to separate directives from document content. This also serves to signal the start of a document. if no directives are present. Three dots ( “…”) indicate the end of a document without starting a new one, for use in communication channels.</p>
+<p>YAML以（“—”）表示文章的开始，以（“…”）表示结束（不代表新的文章的开始）。</p>
+<p>Structure通过空格来展示。Sequence里的项用”-“来代表，Map里的键值对用”:”分隔。</p>
+<p>一般YAML文件扩展名为.yaml。比如：John.yaml</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">John</span> <span class="hljs-string">Smith</span>
+<span class="hljs-attr">age:</span> <span class="hljs-number">37</span>
+<span class="hljs-attr">spouse:</span>
+<span class="hljs-attr">  name:</span> <span class="hljs-string">Jane</span> <span class="hljs-string">Smith</span>
+<span class="hljs-attr">  age:</span> <span class="hljs-number">25</span>
+<span class="hljs-attr">children:</span>
+<span class="hljs-attr">  - name:</span> <span class="hljs-string">Jimmy</span> <span class="hljs-string">Smith</span>
+<span class="hljs-attr">    age:</span> <span class="hljs-number">15</span>
+<span class="hljs-attr">  - name:</span> <span class="hljs-string">Jenny</span> <span class="hljs-string">Smith</span>
+<span class="hljs-attr">    age:</span> <span class="hljs-number">12</span></code></pre></div>
+
+<p>John Smith今年37岁，有一个幸福的四口之家。两个孩子Jimmy 和Jenny活泼可爱。妻子Jane年轻美貌。</p>
+<p>可见YAML的可读性是不错。</p>
+<p><strong>列表</strong>中的所有成员都开始于相同的缩进级别, 并且使用一个 <code>&quot;- &quot;</code> 作为开头(一个横杠和一个空格):</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<span class="hljs-comment"># 一个美味水果的列表</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">Apple</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">Orange</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">Strawberry</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">Mango</span></code></pre></div>
+
+<p>一个<strong>字典</strong>是由一个简单的 <code>键: 值</code> 的形式组成(这个冒号后面必须是一个空格)：</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<span class="hljs-comment"># 一位职工的记录</span>
+<span class="hljs-attr">name:</span> <span class="hljs-string">Example</span> <span class="hljs-string">Developer</span>
+<span class="hljs-attr">job:</span> <span class="hljs-string">Developer</span>
+<span class="hljs-attr">skill:</span> <span class="hljs-string">Elite</span></code></pre></div>
+
+<p>字典也可以使用缩进形式来表示, 如果你喜欢这样的话：</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<span class="hljs-comment"># 一位职工的记录</span>
+<span class="hljs-string">&#123;name:</span> <span class="hljs-string">Example</span> <span class="hljs-string">Developer,</span> <span class="hljs-attr">job:</span> <span class="hljs-string">Developer,</span> <span class="hljs-attr">skill:</span> <span class="hljs-string">Elite&#125;</span></code></pre></div>
+
+<p>可以通过以下格式来指定一个<strong>布尔值</strong>(true/fase)：</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">create_key:</span> <span class="hljs-literal">yes</span>
+<span class="hljs-attr">needs_agent:</span> <span class="hljs-literal">no</span>
+<span class="hljs-attr">knows_oop:</span> <span class="hljs-literal">True</span>
+<span class="hljs-attr">likes_emacs:</span> <span class="hljs-literal">TRUE</span>
+<span class="hljs-attr">uses_cvs:</span> <span class="hljs-literal">false</span></code></pre></div>
+
+<p>综合以上信息：</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<span class="hljs-comment"># 一位职工记录</span>
+<span class="hljs-attr">name:</span> <span class="hljs-string">Example</span> <span class="hljs-string">Developer</span>
+<span class="hljs-attr">job:</span> <span class="hljs-string">Developer</span>
+<span class="hljs-attr">skill:</span> <span class="hljs-string">Elite</span>
+<span class="hljs-attr">employed:</span> <span class="hljs-literal">True</span>
+<span class="hljs-attr">foods:</span>
+<span class="hljs-bullet">    -</span> <span class="hljs-string">Apple</span>    <span class="hljs-comment">#缩进只能用空格不能用Tab</span>
+<span class="hljs-bullet">    -</span> <span class="hljs-string">Orange</span>
+<span class="hljs-bullet">    -</span> <span class="hljs-string">Strawberry</span>
+<span class="hljs-bullet">    -</span> <span class="hljs-string">Mango</span>
+<span class="hljs-attr">languages:</span>
+<span class="hljs-attr">    ruby:</span> <span class="hljs-string">Elite</span>
+<span class="hljs-attr">    python:</span> <span class="hljs-string">Elite</span>
+<span class="hljs-attr">    dotnet:</span> <span class="hljs-string">Lame</span></code></pre></div>
+
+<p>尽管 YAML 通常是友好的, 但是下面将会导致一个 YAML 语法错误:</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">foo:</span> <span class="hljs-string">somebody</span> <span class="hljs-string">said</span> <span class="hljs-string">I</span> <span class="hljs-string">should</span> <span class="hljs-string">put</span> <span class="hljs-string">a</span> <span class="hljs-string">colon</span> <span class="hljs-attr">here:</span> <span class="hljs-string">so</span> <span class="hljs-string">I</span> <span class="hljs-string">did</span></code></pre></div>
+
+<p>你需要使用引号来包裹任何包含冒号的哈希值, 像这样:</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">foo:</span> <span class="hljs-string">"somebody said I should put a colon here: so I did"</span></code></pre></div>
+
+<p>然后这个冒号将会被结尾.</p>
+<p>此外, Ansible 使用 “” 来引用变量. 如果一个值以 “{” 开头, YAML 将认为它是一个字典, 所以我们必须引用它, 像这样:</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">foo:</span> <span class="hljs-string">"<span class="hljs-template-variable">&#123;&#123; variable &#125;&#125;</span>"</span></code></pre></div>
+
+<h3 id="三种数据结构"><a href="#三种数据结构" class="headerlink" title="三种数据结构"></a>三种数据结构</h3><ol>
+<li>对象：键值对的集合，又称为映射（mapping）/ 哈希（hashes） / 字典（dictionary）</li>
+<li>数组：一组按次序排列的值，又称为序列（sequence） / 列表（list）</li>
+<li>纯量（scalars）：单个的、不可再分的值</li>
+</ol>
+<h4 id="1-对象"><a href="#1-对象" class="headerlink" title="1. 对象"></a>1. 对象</h4><p>对象的一组键值对，使用冒号结构表示</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">animal:</span> <span class="hljs-string">pets</span></code></pre></div>
+
+<p> Yaml 也允许另一种写法，将所有键值对写成一个行内对象</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">hash:</span> <span class="hljs-string">&#123;</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Steve,</span> <span class="hljs-attr">foo:</span> <span class="hljs-string">bar</span> <span class="hljs-string">&#125;</span></code></pre></div>
+
+<h4 id="2-数组"><a href="#2-数组" class="headerlink" title="2.数组"></a>2.数组</h4><p>一组连词线开头的行，构成一个数组</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-string">Cat</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">Dog</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">Goldfish</span></code></pre></div>
+
+<p>数据结构的子成员是一个数组，则可以在该项下面缩进一个空格。</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> 
+<span class="hljs-bullet"> -</span> <span class="hljs-string">Cat</span>
+<span class="hljs-bullet"> -</span> <span class="hljs-string">Dog</span>
+<span class="hljs-bullet"> -</span> <span class="hljs-string">Goldfish</span></code></pre></div>
+
+<p> 数组也可以采用行内表示法。</p>
+<p>animal: [Cat, Dog]</p>
+<h4 id="3-复合结构"><a href="#3-复合结构" class="headerlink" title="3. 复合结构"></a>3. 复合结构</h4><p>对象和数组可以结合使用，形成复合结构。</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">languages:</span>   <span class="hljs-comment">#数组</span>
+<span class="hljs-bullet">   -</span> <span class="hljs-string">Ruby</span>
+<span class="hljs-bullet">   -</span> <span class="hljs-string">Perl</span>
+<span class="hljs-bullet">   -</span> <span class="hljs-string">Python</span>
+<span class="hljs-attr"> websites:</span>   <span class="hljs-comment">#对象</span>
+<span class="hljs-attr">   YAML:</span> <span class="hljs-string">yaml.org</span>
+<span class="hljs-attr">   Ruby:</span> <span class="hljs-string">ruby-lang.org</span>
+<span class="hljs-attr">   Python:</span> <span class="hljs-string">python.org</span>
+<span class="hljs-attr">   Perl:</span> <span class="hljs-string">use.perl.org</span></code></pre></div>
+
+<h4 id="4-纯量"><a href="#4-纯量" class="headerlink" title="4. 纯量"></a>4. 纯量</h4><p>纯量是最基本的、不可再分的值。</p>
+<ul>
+<li>字符串</li>
+<li>布尔值</li>
+<li>整数</li>
+<li>浮点数</li>
+<li>Null</li>
+<li>时间</li>
+<li>日期</li>
+</ul>
+<p>数值直接以字面量的形式表示。</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">number:</span> <span class="hljs-number">12.30</span></code></pre></div>
+
+<p>{ number: 12.30 }<br> 布尔值用true和false表示。</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">isSet:</span> <span class="hljs-literal">true</span></code></pre></div>
+
+<p> null用~表示。</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">parent:</span> <span class="hljs-string">~</span></code></pre></div>
+
+<p> 时间采用 ISO8601 格式。</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">iso8601:</span> <span class="hljs-number">2001</span><span class="hljs-bullet">-12</span><span class="hljs-bullet">-14</span><span class="hljs-attr">t21:59:43.10-05:00</span></code></pre></div>
+
+<p>日期采用复合 iso8601 格式的年、月、日表示。</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">date:</span> <span class="hljs-number">1976</span><span class="hljs-bullet">-07</span><span class="hljs-bullet">-31</span></code></pre></div>
+
+<p>YAML 允许使用两个感叹号，强制转换数据类型。</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">e:</span> <span class="hljs-type">!!str</span> <span class="hljs-number">123</span>
+<span class="hljs-attr">f:</span> <span class="hljs-type">!!str</span> <span class="hljs-literal">true</span></code></pre></div>
+
+<h4 id="5-字符串"><a href="#5-字符串" class="headerlink" title="5. 字符串"></a>5. 字符串</h4><p>字符串是最常见，也是最复杂的一种数据类型。</p>
+<p>字符串默认不使用引号表示。</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">这是一行字符串</span></code></pre></div>
+
+<p>如果字符串之中包含空格或特殊字符，需要放在引号之中。</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">'内容：字符串'</span></code></pre></div>
+
+<p>单引号和双引号都可以使用，双引号不会对特殊字符转义。</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">s1:</span> <span class="hljs-string">'内容\n字符串'</span>
+<span class="hljs-attr">s2:</span> <span class="hljs-string">"内容\n字符串"</span></code></pre></div>
+
+<p>单引号之中如果还有单引号，必须连续使用两个单引号转义。</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">'labor'</span><span class="hljs-string">'s day'</span></code></pre></div>
+
+<p>字符串可以写成多行，从第二行开始，必须有一个单空格缩进。换行符会被转为空格。</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">这是一段</span>
+<span class="hljs-string">多行</span>
+<span class="hljs-string">字符串</span></code></pre></div>
+
+<p>多行字符串可以使用|保留换行符，也可以使用&gt;折叠换行。</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">this:</span> <span class="hljs-string">|
+  Foo
+  Bar
+</span><span class="hljs-attr">that:</span> <span class="hljs-string">&gt;
+  Foo
+  Bar</span></code></pre></div>
+
+<p> +表示保留文字块末尾的换行，-表示删除字符串末尾的换行。</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">s1:</span> <span class="hljs-string">|
+  Foo
+</span><span class="hljs-attr">s2:</span> <span class="hljs-string">|+</span>
+  <span class="hljs-string">Foo</span>
+<span class="hljs-attr">s3:</span> <span class="hljs-string">|-</span>
+  <span class="hljs-string">Foo</span></code></pre></div>
+
+<p>字符串之中可以插入 HTML 标记。</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">message:</span> <span class="hljs-string">|
+&lt;p style="color: red"&gt;
+段落
+&lt;/p&gt;</span></code></pre></div>
+
+<h4 id="6-引用"><a href="#6-引用" class="headerlink" title="6. 引用"></a>6. 引用</h4><p>锚点&amp;和别名*，可以用来引用。</p>
+<p>&amp;用来建立锚点（defaults），&lt;&lt;表示合并到当前数据，*用来引用锚点。</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">defaults:</span> <span class="hljs-meta">&amp;defaults</span>   <span class="hljs-comment">#建立锚点&amp;defaults</span>
+<span class="hljs-attr">  adapter:</span> <span class="hljs-string">postgres</span>
+<span class="hljs-attr">  host:</span> <span class="hljs-string">localhost</span>
+
+<span class="hljs-attr">development:</span>
+<span class="hljs-attr">  database:</span> <span class="hljs-string">myapp_development</span>
+  <span class="hljs-string">&lt;&lt;:</span> <span class="hljs-meta">*defaults</span>    <span class="hljs-comment">#引用锚点</span>
+
+<span class="hljs-attr">test:</span>
+<span class="hljs-attr">  database:</span> <span class="hljs-string">myapp_test</span>
+  <span class="hljs-string">&lt;&lt;:</span> <span class="hljs-meta">*defaults</span>    <span class="hljs-comment">#引用锚点</span></code></pre></div>
+
+<p> 等同于下面的代码。</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">defaults:</span>
+<span class="hljs-attr">  adapter:</span> <span class="hljs-string">postgres</span>
+<span class="hljs-attr">  host:</span> <span class="hljs-string">localhost</span>
+
+<span class="hljs-attr">development:</span>
+<span class="hljs-attr">  database:</span> <span class="hljs-string">myapp_development</span>
+<span class="hljs-attr">  adapter:</span> <span class="hljs-string">postgres</span>
+<span class="hljs-attr">  host:</span> <span class="hljs-string">localhost</span>
+
+<span class="hljs-attr">test:</span>
+<span class="hljs-attr">  database:</span> <span class="hljs-string">myapp_test</span>
+<span class="hljs-attr">  adapter:</span> <span class="hljs-string">postgres</span>
+<span class="hljs-attr">  host:</span> <span class="hljs-string">localhost</span></code></pre></div>
+
+<p> 下面是另一个例子。</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-meta">&amp;showell</span> <span class="hljs-string">Steve</span>  <span class="hljs-comment">#建立showell锚点</span>
+<span class="hljs-string">Clark</span>
+<span class="hljs-string">Brian</span>
+<span class="hljs-string">Oren</span>
+<span class="hljs-meta">*showell</span>   <span class="hljs-comment">#引用锚点showell，即Steve</span></code></pre></div>
+
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/YAML/">YAML</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2019012413367/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Leetcode 两个数组的交集 II</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2019012229459/">
+                        <span class="hidden-mobile">Leetcode 只出现一次的数字</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <div class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+          app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+          placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    }
+    createObserver(loadValine, 'vcomments');
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+    
+  <!-- 备案信息 -->
+  <div class="beian">
+    <a href="http://beian.miit.gov.cn/" target="_blank"
+       rel="nofollow noopener">蜀ICP备20011971号</a>
+    
+  </div>
+
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer>
+  (function () {
+    // 查询存储的记录
+    function getRecord(Counter, target) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {target, time: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    }
+
+    // 发起自增请求
+    function increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    }
+
+    // 构建自增请求体
+    function buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "time": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    }
+
+    // 校验是否为有效的 UV
+    function validUV() {
+      var key = 'LeanCloud_UV_Flag';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    }
+
+    function addCount(Counter) {
+      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
+      var getterArr = [];
+      var incrArr = [];
+
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#leancloud-site-pv-container');
+      if (pvCtn || enableIncr) {
+        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
+          incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-pv');
+          if (ele) {
+            ele.innerText = record.time + 1;
+            if (pvCtn) {
+              pvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#leancloud-site-uv-container');
+      if (uvCtn || enableIncr) {
+        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
+          var vuv = validUV();
+          vuv && incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-uv');
+          if (ele) {
+            ele.innerText = record.time + (vuv ? 1 : 0);
+            if (uvCtn) {
+              uvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 如果是文章，请求文章的浏览数，并自增
+      if ('true' === 'true') {
+        var viewCtn = document.querySelector('#leancloud-post-views-container');
+        if (viewCtn || enableIncr) {
+          var target = decodeURI('/2019012330553/');
+          var viewGetter = getRecord(Counter, target).then((record) => {
+            incrArr.push(buildIncrement(record.objectId))
+            if (viewCtn) {
+              var ele = document.querySelector('#leancloud-post-views');
+              if (ele) {
+                ele.innerText = (record.time || 0) + 1;
+                viewCtn.style.display = 'inline';
+              }
+            }
+          });
+          getterArr.push(viewGetter);
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && increment(Counter, incrArr);
+        })
+      }
+    }
+
+    var app_id = 'zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz'
+    var app_key = 'iNppU37sPwRdpmjgAsJ3dgnC'
+    var server_url = 'https://zsgoil44.lc-cn-n1-shared.com'
+
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': app_id,
+            'X-LC-Key': app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+
+      addCount(Counter);
+    }
+
+    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(resp => resp.json())
+        .then(({api_server}) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "YAML语法简记&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript">
+      //定义获取词语下标
+      var a_idx = 0;
+      jQuery(document).ready(function ($) {
+        //点击body时触发事件
+        $("body").click(function (e) {
+          //需要显示的词语
+          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+          //设置词语给span标签
+          var $i = $("<span/>").text(a[a_idx]);
+          //下标等于原来下标+1  余 词语总数
+          a_idx = (a_idx + 1) % a.length;
+          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
+          //获取x和y的指针坐标
+          var x = e.pageX, y = e.pageY;
+          //在鼠标的指针的位置给$i定义的span标签添加css样式
+          $i.css({
+            "z-index": 999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": rand_color()
+          });
+          // 随机颜色
+          function rand_color() {
+            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+          }
+          //在body添加这个标签
+          $("body").append($i);
+          //animate() 方法执行 CSS 属性集的自定义动画。
+          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
+          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
+          $i.animate({
+            //将原来的位置向上移动180
+            "top": y - 180,
+            "opacity": 0
+            //1500动画的速度
+          }, 1500, function () {
+            //时间到了自动删除
+            $i.remove();
+          });
+        });
+      })
+      ;
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>
