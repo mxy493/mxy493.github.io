@@ -1,7 +1,7 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -23,7 +23,7 @@
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
@@ -33,6 +33,7 @@
 
 
   <script src="/js/utils.js"></script>
+  <script src="/js/color-schema.js"></script>
 </head>
 
 
@@ -127,8 +128,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -136,12 +143,12 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner intro-2" id="background" parallax=true
          style="background: url('http://mxyblog.mxy493.xyz/xqmy.webp') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
+          <div class="container page-header text-center fade-in-up">
             <span class="h2" id="subtitle">
               
             </span>
@@ -176,61 +183,61 @@
     
     <a href="/2020030761994/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">Leetcode 69.x的平方根【C++】</span>
-      <span style="float: right;">03-07</span>
+      <time style="float: right;">03-07</time>
     </a>
   
     
     <a href="/2020030738502/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">Leetcode 70.爬楼梯【C++】</span>
-      <span style="float: right;">03-07</span>
+      <time style="float: right;">03-07</time>
     </a>
   
     
     <a href="/2020030757743/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">Leetcode 面试题59 - II.队列的最大值【C++】</span>
-      <span style="float: right;">03-07</span>
+      <time style="float: right;">03-07</time>
     </a>
   
     
     <a href="/2020030653639/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">Leetcode 83.删除排序链表中的重复元素【C++】</span>
-      <span style="float: right;">03-06</span>
+      <time style="float: right;">03-06</time>
     </a>
   
     
     <a href="/2020030634217/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">Leetcode 167.两数之和II - 输入有序数组【C++】</span>
-      <span style="float: right;">03-06</span>
+      <time style="float: right;">03-06</time>
     </a>
   
     
     <a href="/202003064703/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">Leetcode 633.平方数之和【C++】</span>
-      <span style="float: right;">03-06</span>
+      <time style="float: right;">03-06</time>
     </a>
   
     
     <a href="/2020030641619/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">Leetcode 345.反转字符串中的元音字母【C++】</span>
-      <span style="float: right;">03-06</span>
+      <time style="float: right;">03-06</time>
     </a>
   
     
     <a href="/2020030656924/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">Leetcode 225.用队列实现栈【C++】</span>
-      <span style="float: right;">03-06</span>
+      <time style="float: right;">03-06</time>
     </a>
   
     
     <a href="/2020030649994/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">Leetcode 206.反转链表【C++】</span>
-      <span style="float: right;">03-06</span>
+      <time style="float: right;">03-06</time>
     </a>
   
     
     <a href="/2020030627193/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">Leetcode 面试题 10.01. 合并排序的数组【C++】</span>
-      <span style="float: right;">03-06</span>
+      <time style="float: right;">03-06</time>
     </a>
   
 </div>
@@ -359,186 +366,6 @@
 
 
 
-  <script defer>
-  (function () {
-    // 查询存储的记录
-    function getRecord(Counter, target) {
-      return new Promise(function (resolve, reject) {
-        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
-          .then(resp => resp.json())
-          .then(({results, code, error}) => {
-            if (code === 401) {
-              throw error;
-            }
-            if (results && results.length > 0) {
-              var record = results[0];
-              resolve(record);
-            } else {
-              Counter('post', '/classes/Counter', {target, time: 0})
-                .then(resp => resp.json())
-                .then((record, error) => {
-                  if (error) {
-                    throw error;
-                  }
-                  resolve(record);
-                }).catch(error => {
-                console.error('Failed to create', error);
-                reject(error);
-              });
-            }
-          }).catch((error) => {
-          console.error('LeanCloud Counter Error:', error);
-          reject(error);
-        });
-      })
-    }
-
-    // 发起自增请求
-    function increment(Counter, incrArr) {
-      return new Promise(function (resolve, reject) {
-        Counter('post', '/batch', {
-          "requests": incrArr
-        }).then((res) => {
-          res = res.json();
-          if (res.error) {
-            throw res.error;
-          }
-          resolve(res);
-        }).catch((error) => {
-          console.error('Failed to save visitor count', error);
-          reject(error);
-        });
-      });
-    }
-
-    // 构建自增请求体
-    function buildIncrement(objectId) {
-      return {
-        "method": "PUT",
-        "path": `/1.1/classes/Counter/${ objectId }`,
-        "body": {
-          "time": {
-            '__op': 'Increment',
-            'amount': 1
-          }
-        }
-      }
-    }
-
-    // 校验是否为有效的 UV
-    function validUV() {
-      var key = 'LeanCloud_UV_Flag';
-      var flag = localStorage.getItem(key);
-      if (flag) {
-        // 距离标记小于 24 小时则不计为 UV
-        if (new Date().getTime() - parseInt(flag) <= 86400000) {
-          return false;
-        }
-      }
-      localStorage.setItem(key, new Date().getTime().toString());
-      return true;
-    }
-
-    function addCount(Counter) {
-      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
-      var getterArr = [];
-      var incrArr = [];
-
-      // 请求 PV 并自增
-      var pvCtn = document.querySelector('#leancloud-site-pv-container');
-      if (pvCtn || enableIncr) {
-        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
-          incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-pv');
-          if (ele) {
-            ele.innerText = record.time + 1;
-            if (pvCtn) {
-              pvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(pvGetter);
-      }
-
-      // 请求 UV 并自增
-      var uvCtn = document.querySelector('#leancloud-site-uv-container');
-      if (uvCtn || enableIncr) {
-        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
-          var vuv = validUV();
-          vuv && incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-uv');
-          if (ele) {
-            ele.innerText = record.time + (vuv ? 1 : 0);
-            if (uvCtn) {
-              uvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(uvGetter);
-      }
-
-      // 如果是文章，请求文章的浏览数，并自增
-      if ('false' === 'true') {
-        var viewCtn = document.querySelector('#leancloud-post-views-container');
-        if (viewCtn || enableIncr) {
-          var target = decodeURI('/categories/Leetcode/page/5/index.html');
-          var viewGetter = getRecord(Counter, target).then((record) => {
-            incrArr.push(buildIncrement(record.objectId))
-            if (viewCtn) {
-              var ele = document.querySelector('#leancloud-post-views');
-              if (ele) {
-                ele.innerText = (record.time || 0) + 1;
-                viewCtn.style.display = 'inline';
-              }
-            }
-          });
-          getterArr.push(viewGetter);
-        }
-      }
-
-      // 如果启动计数自增，批量发起自增请求
-      if (enableIncr) {
-        Promise.all(getterArr).then(() => {
-          incrArr.length > 0 && increment(Counter, incrArr);
-        })
-      }
-    }
-
-    var app_id = 'zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz'
-    var app_key = 'iNppU37sPwRdpmjgAsJ3dgnC'
-    var server_url = 'https://zsgoil44.lc-cn-n1-shared.com'
-
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${ api_server }/1.1${ url }`, {
-          method,
-          headers: {
-            'X-LC-Id': app_id,
-            'X-LC-Key': app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-
-      addCount(Counter);
-    }
-
-    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(resp => resp.json())
-        .then(({api_server}) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
-
-
 
 
 
@@ -656,6 +483,8 @@
         s.parentNode.insertBefore(hm, s);
       })();
     </script>
+  
+
   
 
   

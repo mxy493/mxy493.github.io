@@ -1,7 +1,7 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -23,7 +23,7 @@
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
@@ -33,6 +33,7 @@
 
 
   <script src="/js/utils.js"></script>
+  <script src="/js/color-schema.js"></script>
 </head>
 
 
@@ -127,8 +128,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -136,12 +143,12 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner intro-2" id="background" parallax=true
          style="background: url('http://mxyblog.mxy493.xyz/xqmy.webp') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
+          <div class="container page-header text-center fade-in-up">
             <span class="h2" id="subtitle">
               
             </span>
@@ -174,26 +181,33 @@
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020031713987/">Leetcode 1160.拼写单词【C++】</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020031713987/">Leetcode 1160.拼写单词【C++】</a>
+      </h1>
 
-      <a href="/2020031713987/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020031713987/">
           
-        
-        <div>
+          
+            
+          
+          
 地址：https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters/
 
 题目给你一份『词汇表』（字符串数组） words 和一张『字母表』（字符串） chars。
 假如你可以用 chars 中的『字母』（字符）拼写出 words 中的某个『单词』（字符串），那么我们就认为你掌握了这个单词。
-注意：每次拼写</div>
-      </a>
+注意：每次拼写
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-17
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-17 20:04" pubdate>
+              2020-03-17
+            </time>
           </div>
         
         
@@ -215,32 +229,39 @@
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020031636595/">Leetcode 面试题 01.06.字符串压缩【C++】</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020031636595/">Leetcode 面试题 01.06.字符串压缩【C++】</a>
+      </h1>
 
-      <a href="/2020031636595/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020031636595/">
           
-        
-        <div>
+          
+            
+          
+          
 地址：https://leetcode-cn.com/problems/compress-string-lcci/
 
 题目字符串压缩。利用字符重复出现的次数，编写一种方法，实现基本的字符串压缩功能。比如，字符串 aabcccccaaa 会变为 a2b1c5a3。若“压缩”后的字符串没有变短，则返回原先的字符串。你可以假设字符串中只包含大小写英文字母（a至z）。
 示例1:
-输入："aabccccc</div>
-      </a>
+输入："aabccccc
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-16
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-16 13:14" pubdate>
+              2020-03-16
+            </time>
           </div>
         
         
@@ -262,33 +283,40 @@
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020031511361/">Leetcode 695.岛屿的最大面积【C++】</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020031511361/">Leetcode 695.岛屿的最大面积【C++】</a>
+      </h1>
 
-      <a href="/2020031511361/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020031511361/">
           
-        
-        <div>
+          
+            
+          
+          
 地址：https://leetcode-cn.com/problems/max-area-of-island/
 
 题目给定一个包含了一些 0 和 1的非空二维数组 grid , 一个 岛屿 是由四个方向 (水平或垂直) 的 1 (代表土地) 构成的组合。你可以假设二维矩阵的四个边缘都被水包围着。
 找到给定的二维数组中最大的岛屿面积。(如果没有岛屿，则返回面积为0。)
 示例 1:
-[[0,0,1,</div>
-      </a>
+[[0,0,1,
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-15
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-15 23:46" pubdate>
+              2020-03-15
+            </time>
           </div>
         
         
@@ -310,21 +338,24 @@
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020031457288/">Leetcode 300.最长上升子序列【C++】</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020031457288/">Leetcode 300.最长上升子序列【C++】</a>
+      </h1>
 
-      <a href="/2020031457288/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020031457288/">
           
-        
-        <div>
+          
+            
+          
+          
 地址：https://leetcode-cn.com/problems/longest-increasing-subsequence/
 
 题目给定一个无序的整数数组，找到其中最长上升子序列的长度。
@@ -335,13 +366,17 @@
 
 说明：
 
-可能会有多种最长上升子序列的组合，你只需要输</div>
-      </a>
+可能会有多种最长上升子序列的组合，你只需要输
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-14
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-14 18:36" pubdate>
+              2020-03-14
+            </time>
           </div>
         
         
@@ -363,21 +398,24 @@
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020031339745/">Leetcode 169.多数元素【C++】</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020031339745/">Leetcode 169.多数元素【C++】</a>
+      </h1>
 
-      <a href="/2020031339745/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020031339745/">
           
-        
-        <div>
+          
+            
+          
+          
 地址：https://leetcode-cn.com/problems/majority-element
 
 题目给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。
@@ -390,13 +428,17 @@
 输入: [2,2,1,1,1,2,2]
 输出: 2
 
-解题</div>
-      </a>
+解题
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-13
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-13 13:28" pubdate>
+              2020-03-13
+            </time>
           </div>
         
         
@@ -418,33 +460,40 @@
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020031242499/">Leetcode 1071.字符串的最大公因子【C++】</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020031242499/">Leetcode 1071.字符串的最大公因子【C++】</a>
+      </h1>
 
-      <a href="/2020031242499/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020031242499/">
           
-        
-        <div>
+          
+            
+          
+          
 地址：https://leetcode-cn.com/problems/greatest-common-divisor-of-strings/
 
 题目对于字符串 S 和 T，只有在 S = T + ... + T（T 与自身连接 1 次或多次）时，我们才认定 “T 能除尽 S”。
 返回最长字符串 X，要求满足 X 能除尽 str1 且 X 能除尽 str2。
 示例 1：
-输入：str1 = "A</div>
-      </a>
+输入：str1 = "A
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-12
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-12 15:04" pubdate>
+              2020-03-12
+            </time>
           </div>
         
         
@@ -466,31 +515,38 @@
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020031157295/">Leetcode 1013.将数组分成和相等的三个部分【C++】</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020031157295/">Leetcode 1013.将数组分成和相等的三个部分【C++】</a>
+      </h1>
 
-      <a href="/2020031157295/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020031157295/">
           
-        
-        <div>
+          
+            
+          
+          
 地址：https://leetcode-cn.com/problems/partition-array-into-three-parts-with-equal-sum/
 
 题目给你一个整数数组 A，只有可以将其划分为三个和相等的非空部分时才返回 true，否则返回 false。
-形式上，如果可以找出索引 i+1 &lt; j 且满足 (A[0] + A[1] + ... + A[i] == A[</div>
-      </a>
+形式上，如果可以找出索引 i+1 &lt; j 且满足 (A[0] + A[1] + ... + A[i] == A[
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-11
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-11 13:11" pubdate>
+              2020-03-11
+            </time>
           </div>
         
         
@@ -512,21 +568,24 @@
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020031047606/">Leetcode 543.二叉树的直径【C++】</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020031047606/">Leetcode 543.二叉树的直径【C++】</a>
+      </h1>
 
-      <a href="/2020031047606/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020031047606/">
           
-        
-        <div>
+          
+            
+          
+          
 地址：https://leetcode-cn.com/problems/diameter-of-binary-tree/
 
 题目给定一棵二叉树，你需要计算它的直径长度。一棵二叉树的直径长度是任意两个结点路径长度中的最大值。这条路径可能穿过根结点。
@@ -535,13 +594,17 @@
    / \
   2   3
  / \     
-4   5    返回 3, 它的长度是路径 [4,2,1,3] 或</div>
-      </a>
+4   5    返回 3, 它的长度是路径 [4,2,1,3] 或
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-10
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-10 17:52" pubdate>
+              2020-03-10
+            </time>
           </div>
         
         
@@ -563,21 +626,24 @@
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020030911514/">Leetcode 121.买卖股票的最佳时机【C++】</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020030911514/">Leetcode 121.买卖股票的最佳时机【C++】</a>
+      </h1>
 
-      <a href="/2020030911514/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020030911514/">
           
-        
-        <div>
+          
+            
+          
+          
 地址：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/
 
 题目给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
@@ -585,13 +651,17 @@
 注意你不能在买入股票前卖出股票。
 示例 1:
 输入: [7,1,5,3,6,4]
-输出: 5</div>
-      </a>
+输出: 5
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-09
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-09 14:20" pubdate>
+              2020-03-09
+            </time>
           </div>
         
         
@@ -613,34 +683,41 @@
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/202003087706/">Leetcode 322.零钱兑换【C++】</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/202003087706/">Leetcode 322.零钱兑换【C++】</a>
+      </h1>
 
-      <a href="/202003087706/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/202003087706/">
           
-        
-        <div>
+          
+            
+          
+          
 地址：https://leetcode-cn.com/problems/coin-change/
 
 题目给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。
 示例 1:
 输入: coins = [1, 2, 5], amount = 11
 输出: 3 
-解释: 11 = 5 + 5 +</div>
-      </a>
+解释: 11 = 5 + 5 +
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-08
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-08 23:54" pubdate>
+              2020-03-08
+            </time>
           </div>
         
         
@@ -662,7 +739,7 @@
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
 
@@ -791,186 +868,6 @@
 
 
 
-  <script defer>
-  (function () {
-    // 查询存储的记录
-    function getRecord(Counter, target) {
-      return new Promise(function (resolve, reject) {
-        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
-          .then(resp => resp.json())
-          .then(({results, code, error}) => {
-            if (code === 401) {
-              throw error;
-            }
-            if (results && results.length > 0) {
-              var record = results[0];
-              resolve(record);
-            } else {
-              Counter('post', '/classes/Counter', {target, time: 0})
-                .then(resp => resp.json())
-                .then((record, error) => {
-                  if (error) {
-                    throw error;
-                  }
-                  resolve(record);
-                }).catch(error => {
-                console.error('Failed to create', error);
-                reject(error);
-              });
-            }
-          }).catch((error) => {
-          console.error('LeanCloud Counter Error:', error);
-          reject(error);
-        });
-      })
-    }
-
-    // 发起自增请求
-    function increment(Counter, incrArr) {
-      return new Promise(function (resolve, reject) {
-        Counter('post', '/batch', {
-          "requests": incrArr
-        }).then((res) => {
-          res = res.json();
-          if (res.error) {
-            throw res.error;
-          }
-          resolve(res);
-        }).catch((error) => {
-          console.error('Failed to save visitor count', error);
-          reject(error);
-        });
-      });
-    }
-
-    // 构建自增请求体
-    function buildIncrement(objectId) {
-      return {
-        "method": "PUT",
-        "path": `/1.1/classes/Counter/${ objectId }`,
-        "body": {
-          "time": {
-            '__op': 'Increment',
-            'amount': 1
-          }
-        }
-      }
-    }
-
-    // 校验是否为有效的 UV
-    function validUV() {
-      var key = 'LeanCloud_UV_Flag';
-      var flag = localStorage.getItem(key);
-      if (flag) {
-        // 距离标记小于 24 小时则不计为 UV
-        if (new Date().getTime() - parseInt(flag) <= 86400000) {
-          return false;
-        }
-      }
-      localStorage.setItem(key, new Date().getTime().toString());
-      return true;
-    }
-
-    function addCount(Counter) {
-      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
-      var getterArr = [];
-      var incrArr = [];
-
-      // 请求 PV 并自增
-      var pvCtn = document.querySelector('#leancloud-site-pv-container');
-      if (pvCtn || enableIncr) {
-        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
-          incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-pv');
-          if (ele) {
-            ele.innerText = record.time + 1;
-            if (pvCtn) {
-              pvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(pvGetter);
-      }
-
-      // 请求 UV 并自增
-      var uvCtn = document.querySelector('#leancloud-site-uv-container');
-      if (uvCtn || enableIncr) {
-        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
-          var vuv = validUV();
-          vuv && incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-uv');
-          if (ele) {
-            ele.innerText = record.time + (vuv ? 1 : 0);
-            if (uvCtn) {
-              uvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(uvGetter);
-      }
-
-      // 如果是文章，请求文章的浏览数，并自增
-      if ('false' === 'true') {
-        var viewCtn = document.querySelector('#leancloud-post-views-container');
-        if (viewCtn || enableIncr) {
-          var target = decodeURI('/page/5/index.html');
-          var viewGetter = getRecord(Counter, target).then((record) => {
-            incrArr.push(buildIncrement(record.objectId))
-            if (viewCtn) {
-              var ele = document.querySelector('#leancloud-post-views');
-              if (ele) {
-                ele.innerText = (record.time || 0) + 1;
-                viewCtn.style.display = 'inline';
-              }
-            }
-          });
-          getterArr.push(viewGetter);
-        }
-      }
-
-      // 如果启动计数自增，批量发起自增请求
-      if (enableIncr) {
-        Promise.all(getterArr).then(() => {
-          incrArr.length > 0 && increment(Counter, incrArr);
-        })
-      }
-    }
-
-    var app_id = 'zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz'
-    var app_key = 'iNppU37sPwRdpmjgAsJ3dgnC'
-    var server_url = 'https://zsgoil44.lc-cn-n1-shared.com'
-
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${ api_server }/1.1${ url }`, {
-          method,
-          headers: {
-            'X-LC-Id': app_id,
-            'X-LC-Key': app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-
-      addCount(Counter);
-    }
-
-    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(resp => resp.json())
-        .then(({api_server}) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
-
-
 
 
 
@@ -1088,6 +985,8 @@
         s.parentNode.insertBefore(hm, s);
       })();
     </script>
+  
+
   
 
   

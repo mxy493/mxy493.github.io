@@ -1,7 +1,7 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -23,7 +23,7 @@
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
@@ -33,6 +33,7 @@
 
 
   <script src="/js/utils.js"></script>
+  <script src="/js/color-schema.js"></script>
 </head>
 
 
@@ -127,8 +128,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -136,12 +143,12 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner intro-2" id="background" parallax=true
          style="background: url('http://mxyblog.mxy493.xyz/xqmy.webp') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
+          <div class="container page-header text-center fade-in-up">
             <span class="h2" id="subtitle">
               
             </span>
@@ -174,15 +181,18 @@
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020030656924/">Leetcode 225.用队列实现栈【C++】</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020030656924/">Leetcode 225.用队列实现栈【C++】</a>
+      </h1>
 
-      <a href="/2020030656924/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020030656924/">
           
-        
-        <div>
+          
+            
+          
+          
 地址：https://leetcode-cn.com/problems/implement-stack-using-queues/
 
 题目使用队列实现栈的下列操作：
@@ -194,13 +204,17 @@ empty() – 返回栈是否为空
 
 注意:
 
-你只能使用队列的基本操作 – 也就是 push to back，peek/pop fr</div>
-      </a>
+你只能使用队列的基本操作 – 也就是 push to back，peek/pop fr
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-06
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-06 18:27" pubdate>
+              2020-03-06
+            </time>
           </div>
         
         
@@ -222,21 +236,24 @@ empty() – 返回栈是否为空
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020030649994/">Leetcode 206.反转链表【C++】</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020030649994/">Leetcode 206.反转链表【C++】</a>
+      </h1>
 
-      <a href="/2020030649994/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020030649994/">
           
-        
-        <div>
+          
+            
+          
+          
 地址：https://leetcode-cn.com/problems/reverse-linked-list/
 
 题目反转一个单链表。
@@ -245,13 +262,17 @@ empty() – 返回栈是否为空
 输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL
 
 进阶:你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
-解题思路这个题我的做法很清奇，</div>
-      </a>
+解题思路这个题我的做法很清奇，
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-06
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-06 18:23" pubdate>
+              2020-03-06
+            </time>
           </div>
         
         
@@ -273,21 +294,24 @@ empty() – 返回栈是否为空
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020030627193/">Leetcode 面试题 10.01. 合并排序的数组【C++】</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020030627193/">Leetcode 面试题 10.01. 合并排序的数组【C++】</a>
+      </h1>
 
-      <a href="/2020030627193/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020030627193/">
           
-        
-        <div>
+          
+            
+          
+          
 地址：https://leetcode-cn.com/problems/sorted-merge-lcci/
 
 题目给定两个排序后的数组 A 和 B，其中 A 的末端有足够的缓冲空间容纳 B。 编写一个方法，将 B 合并入 A 并排序。
@@ -295,13 +319,17 @@ empty() – 返回栈是否为空
 示例:
 输入:
 A = [1,2,3,0,0,0], m = 3
-B = [2,5,6],       n </div>
-      </a>
+B = [2,5,6],       n 
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-06
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-06 18:15" pubdate>
+              2020-03-06
+            </time>
           </div>
         
         
@@ -323,34 +351,41 @@ B = [2,5,6],       n </div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/202003065179/">Leetcode 面试题57 - II.和为s的连续正数序列【C++】</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/202003065179/">Leetcode 面试题57 - II.和为s的连续正数序列【C++】</a>
+      </h1>
 
-      <a href="/202003065179/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/202003065179/">
           
-        
-        <div>
+          
+            
+          
+          
 地址：https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/
 
 题目输入一个正整数 target ，输出所有和为 target 的连续正整数序列（至少含有两个数）。
 序列内的数字由小到大排列，不同序列按照首个数字从小到大排列。
 示例 1：
 输入：target = 9
-输出：[[2,3,4],[4,5]]</div>
-      </a>
+输出：[[2,3,4],[4,5]]
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-06
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-06 14:37" pubdate>
+              2020-03-06
+            </time>
           </div>
         
         
@@ -372,21 +407,24 @@ B = [2,5,6],       n </div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020030518450/">Leetcode 994.腐烂的橘子【C++】</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020030518450/">Leetcode 994.腐烂的橘子【C++】</a>
+      </h1>
 
-      <a href="/2020030518450/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020030518450/">
           
-        
-        <div>
+          
+            
+          
+          
 地址：https://leetcode-cn.com/problems/rotting-oranges/
 
 题目在给定的网格中，每个单元格可以有以下三个值之一：
@@ -394,13 +432,17 @@ B = [2,5,6],       n </div>
 返回直到单元格中没有新鲜橘子为止所必须经过的最小分钟数。如果不可能，返回 -1。
 示例 1：
 
-</div>
-      </a>
+
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-05
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-05 17:00" pubdate>
+              2020-03-05
+            </time>
           </div>
         
         
@@ -422,33 +464,40 @@ B = [2,5,6],       n </div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020030545178/">Leetcode 1103.分糖果II【C++】</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020030545178/">Leetcode 1103.分糖果II【C++】</a>
+      </h1>
 
-      <a href="/2020030545178/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020030545178/">
           
-        
-        <div>
+          
+            
+          
+          
 地址：https://leetcode-cn.com/problems/distribute-candies-to-people/
 
 题目排排坐，分糖果。
 我们买了一些糖果 candies，打算把它们分给排好队的 n = num_people 个小朋友。
 给第一个小朋友 1 颗糖果，第二个小朋友 2 颗，依此类推，直到给最后一个小朋友 n 颗糖果。
-然后，我们再回到队伍的起点，给第一个小朋友 n</div>
-      </a>
+然后，我们再回到队伍的起点，给第一个小朋友 n
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-03-05
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-05 16:43" pubdate>
+              2020-03-05
+            </time>
           </div>
         
         
@@ -470,61 +519,75 @@ B = [2,5,6],       n </div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020011755548/">博客搭建一周年ᓚᘏᗢ</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020011755548/">博客搭建一周年ᓚᘏᗢ</a>
+      </h1>
 
-      <a href="/2020011755548/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020011755548/">
           
-        
-        <div>哈哈哈，博客搭建一周年，小纪念一下吧~
+          
+            
+          
+          哈哈哈，博客搭建一周年，小纪念一下吧~
 搭了博客才发现，坚持写可太难了，而且写一篇博客可不简单啊，要自己动手做一遍，然后把整个过程写下来，也许还要贴一些图片，实在是不简单，不过好歹也算是做了件有那么些意义的事，虽然这一年里并没有多大的产量，但零零散散写了一些总好过没有吧，哈哈哈O(∩_∩)O
 新的一年，加油(ง •_•)ง
 2020年1月17日
-</div>
-      </a>
+
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-01-17
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-01-17 16:59" pubdate>
+              2020-01-17
+            </time>
           </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019081564979/">Leetcode 删除排序数组中的重复项</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2019081564979/">Leetcode 删除排序数组中的重复项</a>
+      </h1>
 
-      <a href="/2019081564979/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019081564979/">
           
-        
-        <div>
+          
+            
+          
+          
 地址：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
 
 题目给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
-不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。</div>
-      </a>
+不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-08-15
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-08-15 21:40" pubdate>
+              2019-08-15
+            </time>
           </div>
         
         
@@ -548,28 +611,35 @@ B = [2,5,6],       n </div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019052565269/">Ubuntu上自定义Code::Blocks工作区颜色主题</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2019052565269/">Ubuntu上自定义Code::Blocks工作区颜色主题</a>
+      </h1>
 
-      <a href="/2019052565269/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019052565269/">
           
-        
-        <div>本文主要针对 Ubuntu 系统，理论上任何系统上也都是通用的。网上关于设置 Code::Blocks 主题的教程很多，但是都是在 Windows 系统环境下，并不适用于 Linux 系统。
-可能大家都知道 Code::Blocks 的工作区主题是可以自定义的，路径 Settings —&gt; Editor —&gt; Syntax highlighting ，在这里就可以设置你想要的代码以及背</div>
-      </a>
+          
+            
+          
+          本文主要针对 Ubuntu 系统，理论上任何系统上也都是通用的。网上关于设置 Code::Blocks 主题的教程很多，但是都是在 Windows 系统环境下，并不适用于 Linux 系统。
+可能大家都知道 Code::Blocks 的工作区主题是可以自定义的，路径 Settings —&gt; Editor —&gt; Syntax highlighting ，在这里就可以设置你想要的代码以及背
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-05-25
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-05-25 13:57" pubdate>
+              2019-05-25
+            </time>
           </div>
         
         
@@ -584,27 +654,34 @@ B = [2,5,6],       n </div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2019052557154/">Hexo博客使用插件hexo-git-backup通过GitHub备份与恢复</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2019052557154/">Hexo博客使用插件hexo-git-backup通过GitHub备份与恢复</a>
+      </h1>
 
-      <a href="/2019052557154/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2019052557154/">
           
-        
-        <div>好久没更新过博客了，现在用的这台电脑是前些天刚装的Ubuntu系统，今天打算把博客迁移过来，折腾了好一会儿，所以准备写一篇关于Hexo博客的备份与恢复的。</div>
-      </a>
+          
+            
+          
+          好久没更新过博客了，现在用的这台电脑是前些天刚装的Ubuntu系统，今天打算把博客迁移过来，折腾了好一会儿，所以准备写一篇关于Hexo博客的备份与恢复的。
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2019-05-25
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-05-25 01:11" pubdate>
+              2019-05-25
+            </time>
           </div>
         
         
@@ -626,7 +703,7 @@ B = [2,5,6],       n </div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
 
@@ -755,186 +832,6 @@ B = [2,5,6],       n </div>
 
 
 
-  <script defer>
-  (function () {
-    // 查询存储的记录
-    function getRecord(Counter, target) {
-      return new Promise(function (resolve, reject) {
-        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
-          .then(resp => resp.json())
-          .then(({results, code, error}) => {
-            if (code === 401) {
-              throw error;
-            }
-            if (results && results.length > 0) {
-              var record = results[0];
-              resolve(record);
-            } else {
-              Counter('post', '/classes/Counter', {target, time: 0})
-                .then(resp => resp.json())
-                .then((record, error) => {
-                  if (error) {
-                    throw error;
-                  }
-                  resolve(record);
-                }).catch(error => {
-                console.error('Failed to create', error);
-                reject(error);
-              });
-            }
-          }).catch((error) => {
-          console.error('LeanCloud Counter Error:', error);
-          reject(error);
-        });
-      })
-    }
-
-    // 发起自增请求
-    function increment(Counter, incrArr) {
-      return new Promise(function (resolve, reject) {
-        Counter('post', '/batch', {
-          "requests": incrArr
-        }).then((res) => {
-          res = res.json();
-          if (res.error) {
-            throw res.error;
-          }
-          resolve(res);
-        }).catch((error) => {
-          console.error('Failed to save visitor count', error);
-          reject(error);
-        });
-      });
-    }
-
-    // 构建自增请求体
-    function buildIncrement(objectId) {
-      return {
-        "method": "PUT",
-        "path": `/1.1/classes/Counter/${ objectId }`,
-        "body": {
-          "time": {
-            '__op': 'Increment',
-            'amount': 1
-          }
-        }
-      }
-    }
-
-    // 校验是否为有效的 UV
-    function validUV() {
-      var key = 'LeanCloud_UV_Flag';
-      var flag = localStorage.getItem(key);
-      if (flag) {
-        // 距离标记小于 24 小时则不计为 UV
-        if (new Date().getTime() - parseInt(flag) <= 86400000) {
-          return false;
-        }
-      }
-      localStorage.setItem(key, new Date().getTime().toString());
-      return true;
-    }
-
-    function addCount(Counter) {
-      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
-      var getterArr = [];
-      var incrArr = [];
-
-      // 请求 PV 并自增
-      var pvCtn = document.querySelector('#leancloud-site-pv-container');
-      if (pvCtn || enableIncr) {
-        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
-          incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-pv');
-          if (ele) {
-            ele.innerText = record.time + 1;
-            if (pvCtn) {
-              pvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(pvGetter);
-      }
-
-      // 请求 UV 并自增
-      var uvCtn = document.querySelector('#leancloud-site-uv-container');
-      if (uvCtn || enableIncr) {
-        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
-          var vuv = validUV();
-          vuv && incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-uv');
-          if (ele) {
-            ele.innerText = record.time + (vuv ? 1 : 0);
-            if (uvCtn) {
-              uvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(uvGetter);
-      }
-
-      // 如果是文章，请求文章的浏览数，并自增
-      if ('false' === 'true') {
-        var viewCtn = document.querySelector('#leancloud-post-views-container');
-        if (viewCtn || enableIncr) {
-          var target = decodeURI('/page/7/index.html');
-          var viewGetter = getRecord(Counter, target).then((record) => {
-            incrArr.push(buildIncrement(record.objectId))
-            if (viewCtn) {
-              var ele = document.querySelector('#leancloud-post-views');
-              if (ele) {
-                ele.innerText = (record.time || 0) + 1;
-                viewCtn.style.display = 'inline';
-              }
-            }
-          });
-          getterArr.push(viewGetter);
-        }
-      }
-
-      // 如果启动计数自增，批量发起自增请求
-      if (enableIncr) {
-        Promise.all(getterArr).then(() => {
-          incrArr.length > 0 && increment(Counter, incrArr);
-        })
-      }
-    }
-
-    var app_id = 'zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz'
-    var app_key = 'iNppU37sPwRdpmjgAsJ3dgnC'
-    var server_url = 'https://zsgoil44.lc-cn-n1-shared.com'
-
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${ api_server }/1.1${ url }`, {
-          method,
-          headers: {
-            'X-LC-Id': app_id,
-            'X-LC-Key': app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-
-      addCount(Counter);
-    }
-
-    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(resp => resp.json())
-        .then(({api_server}) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
-
-
 
 
 
@@ -1052,6 +949,8 @@ B = [2,5,6],       n </div>
         s.parentNode.insertBefore(hm, s);
       })();
     </script>
+  
+
   
 
   

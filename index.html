@@ -1,7 +1,7 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
 
 
 
@@ -23,7 +23,7 @@
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
@@ -33,6 +33,7 @@
 
 
   <script src="/js/utils.js"></script>
+  <script src="/js/color-schema.js"></script>
 </head>
 
 
@@ -127,8 +128,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
@@ -136,12 +143,12 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="banner intro-2" id="background" parallax=true
          style="background: url('http://mxyblog.mxy493.xyz/xqmy.webp') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container text-center white-text fadeInUp">
+          <div class="container page-header text-center fade-in-up">
             <span class="h2" id="subtitle">
               
             </span>
@@ -174,24 +181,31 @@
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020070417822/">Hexo博客使用插件hexo-abbrlink生成永久短链接</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020070417822/">Hexo博客使用插件hexo-abbrlink生成永久短链接</a>
+      </h1>
 
-      <a href="/2020070417822/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020070417822/">
           
-        
-        <div>一、简述使用Hexo搭建博客已经有很长一段时间了，文章的链接也一直是使用的默认格式，文章的链接格式可以在博客根目录下的 _config.yml 文件中修改，默认的配置如下所示，最终生成的链接大概是这样的：https://mxy493.xyz/2020/07/04/title 。
+          
+            
+          
+          一、简述使用Hexo搭建博客已经有很长一段时间了，文章的链接也一直是使用的默认格式，文章的链接格式可以在博客根目录下的 _config.yml 文件中修改，默认的配置如下所示，最终生成的链接大概是这样的：https://mxy493.xyz/2020/07/04/title 。
 url: https://mxy493.xyz
 root: /
-permalink: :year/:month/:day</div>
-      </a>
+permalink: :year/:month/:day
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-07-04
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-07-04 21:03" pubdate>
+              2020-07-04
+            </time>
           </div>
         
         
@@ -213,21 +227,24 @@ permalink: :year/:month/:day</div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020070151339/">成都有计算机方向岗位的互联网公司</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020070151339/">成都有计算机方向岗位的互联网公司</a>
+      </h1>
 
-      <a href="/2020070151339/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020070151339/">
           
-        
-        <div>
+          
+            
+          
+          
 腾讯
 
 阿里巴巴
@@ -242,45 +259,56 @@ OPPO
 华为
 
 汇顶科技
-汇顶科技（SH：603160）是一家基于芯片设计和软件开发的整体应用解决方案提供商，目前主要面向智能终端、物联网及汽车电子领域提</div>
-      </a>
+汇顶科技（SH：603160）是一家基于芯片设计和软件开发的整体应用解决方案提供商，目前主要面向智能终端、物联网及汽车电子领域提
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-07-01
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-07-01 08:01" pubdate>
+              2020-07-01
+            </time>
           </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020070150115/">主流的个人博客搭建方案</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020070150115/">主流的个人博客搭建方案</a>
+      </h1>
 
-      <a href="/2020070150115/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020070150115/">
           
-        
-        <div>Hexo快速、简洁且高效的博客框架，基于 Node.js ，用户量极大，文档完善，主题多。
+          
+            
+          
+          Hexo快速、简洁且高效的博客框架，基于 Node.js ，用户量极大，文档完善，主题多。
 HUGOGo 语言编写的开源静态网站生成器，主题多，速度快。
 Jekyll基于 Ruby 的静态网站生成器。用户多，主题多。
 Metalsmith简单可扩展的开源静态网站生成器。
 VuePressVue 驱动的静态网站生成器
 Expose简单的静态网站生成器。
-Wintersmith简单灵活的开源静态网站生</div>
-      </a>
+Wintersmith简单灵活的开源静态网站生
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-07-01
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-07-01 06:51" pubdate>
+              2020-07-01
+            </time>
           </div>
         
         
@@ -300,63 +328,77 @@ Wintersmith简单灵活的开源静态网站生</div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020052151134/">2020.05.21 牛客网 校招全国统一模拟笔试（2020年5月场）- C++方向</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020052151134/">2020.05.21 牛客网 校招全国统一模拟笔试（2020年5月场）- C++方向</a>
+      </h1>
 
-      <a href="/2020052151134/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020052151134/">
           
-        
-        <div>几天前报名了牛客网的“校招全国统一模拟笔试（2020年5月场）- C++方向”，考试时间也就是今晚的 19:00 - 21:00 ~
+          
+            
+          
+          几天前报名了牛客网的“校招全国统一模拟笔试（2020年5月场）- C++方向”，考试时间也就是今晚的 19:00 - 21:00 ~
 整体题目难度中等吧，至少算不上难的。总共20个选择题，3个编程题，编程题我做出来两个，最后一个时间不够了。
 下面大概写一下我的3个编程题的解题思路(●’◡’●)
 题目一：偶串（1）题目
 时间限制： C/C++1秒，其他语言2秒
-空间限制： C/C++ 32768K，</div>
-      </a>
+空间限制： C/C++ 32768K，
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-05-21
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-05-21 23:49" pubdate>
+              2020-05-21
+            </time>
           </div>
         
         
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/202005119793/">2020.05.11 字节跳动笔试题目:记事本程序</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/202005119793/">2020.05.11 字节跳动笔试题目:记事本程序</a>
+      </h1>
 
-      <a href="/202005119793/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/202005119793/">
           
-        
-        <div>都5月份了，意外收到字节跳动的笔试链接，今天上午十点到十二点的笔试。
+          
+            
+          
+          都5月份了，意外收到字节跳动的笔试链接，今天上午十点到十二点的笔试。
 四个编程题目，换句话说就是考算法吧，一点不出意外的我只做出来一个题，另外三个题几乎都没时间看，实不相瞒做出一个题我都很激动了……第二个题目大概看了下，很显然的动态规划的题目，给我两个小时也不一定能做出来的那种……
 啊啊啊，我真菜……😭
 题目忘了截图，题目大概是这样的~
 一个记事本程序，里面的内容用字符串 S 表示。
-可以执行以</div>
-      </a>
+可以执行以
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-05-11
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-05-11 16:07" pubdate>
+              2020-05-11
+            </time>
           </div>
         
         
@@ -369,31 +411,38 @@ Wintersmith简单灵活的开源静态网站生</div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020050549325/">使用jQuery on()方法绑定动态添加的元素</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020050549325/">使用jQuery on()方法绑定动态添加的元素</a>
+      </h1>
 
-      <a href="/2020050549325/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020050549325/">
           
-        
-        <div>关于 jQuery on() 方法的 API 文档：https://api.jquery.com/on/
+          
+            
+          
+          关于 jQuery on() 方法的 API 文档：https://api.jquery.com/on/
 .on( events [, selector ] [, data ], handler )
 
 网页往往需要根据服务器返回的数据动态的添加HTML元素，但是动态添加的HTML元素用常规方法绑定事件往往没有效果。
-可以使用 jQuery 的 on() 方法进行动态绑定，使用起来很简单，网上也有很</div>
-      </a>
+可以使用 jQuery 的 on() 方法进行动态绑定，使用起来很简单，网上也有很
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-05-05
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-05-05 22:59" pubdate>
+              2020-05-05
+            </time>
           </div>
         
         
@@ -413,33 +462,40 @@ Wintersmith简单灵活的开源静态网站生</div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020042825600/">Leetcode 面试题56 - I.数组中数字出现的次数【C++】</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020042825600/">Leetcode 面试题56 - I.数组中数字出现的次数【C++】</a>
+      </h1>
 
-      <a href="/2020042825600/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020042825600/">
           
-        
-        <div>
+          
+            
+          
+          
 地址：https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/
 
 题目一个整型数组 nums 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是O(1)。
 示例 1：
 输入：nums = [4,1,4,6]
-输出：[1,6] 或 [6,</div>
-      </a>
+输出：[1,6] 或 [6,
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-04-28
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-28 13:35" pubdate>
+              2020-04-28
+            </time>
           </div>
         
         
@@ -461,33 +517,40 @@ Wintersmith简单灵活的开源静态网站生</div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020042730620/">Leetcode 33.搜索旋转排序数组【C++】</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020042730620/">Leetcode 33.搜索旋转排序数组【C++】</a>
+      </h1>
 
-      <a href="/2020042730620/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020042730620/">
           
-        
-        <div>
+          
+            
+          
+          
 地址：https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
 
 题目假设按照升序排序的数组在预先未知的某个点上进行了旋转。
 ( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。
 搜索一个给定的目标值，如果数组中存在这个目标值，则返回它的索引，否则返回 -1 。
-你可以假设数组中不存</div>
-      </a>
+你可以假设数组中不存
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-04-27
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-27 13:24" pubdate>
+              2020-04-27
+            </time>
           </div>
         
         
@@ -509,31 +572,38 @@ Wintersmith简单灵活的开源静态网站生</div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020042757742/">2020.04.26 记录今天的两个人生第一次</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020042757742/">2020.04.26 记录今天的两个人生第一次</a>
+      </h1>
 
-      <a href="/2020042757742/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020042757742/">
           
-        
-        <div>记录一下特别的今天，两个人生第一次(ง •_•)ง
+          
+            
+          
+          记录一下特别的今天，两个人生第一次(ง •_•)ง
 （1）求职第一次被拒绝3月27投的美团点评的简历，4月2日做了笔试，4月15日第一轮面试，然后是一周多没消息，昨天差点都发消息问面试官了，最后没问，结果今天一早醒来，美团点评就彻底凉凉了ಠಿ_ಠ
 也不是多难过，确实自己太菜了，还是有点自知之明，所以也没抱着那种一定会拿下这个岗位的心态，后面继续努力吧！
 
-（2）第一次域名备案成功也不至于多么激动人</div>
-      </a>
+（2）第一次域名备案成功也不至于多么激动人
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-04-27
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-27 01:11" pubdate>
+              2020-04-27
+            </time>
           </div>
         
         
@@ -546,21 +616,24 @@ Wintersmith简单灵活的开源静态网站生</div>
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2020042641730/">2020.04.26 鲁大师C++实习笔试题目</a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020042641730/">2020.04.26 鲁大师C++实习笔试题目</a>
+      </h1>
 
-      <a href="/2020042641730/" class="index-excerpt">
-        
-        
+      <p class="index-excerpt">
+        <a href="/2020042641730/">
           
-        
-        <div>
+          
+            
+          
+          
 昨天在拉勾上投了鲁大师的C++实习岗位，今天下午接到了HR的电话，商量了下晚上七点做笔试。
 没有使用在线笔试平台，HR直接发给我的一个word文档。简要记录一下，以下解答为笔试结束后整理~
 
@@ -573,13 +646,17 @@ a**b
 
 解答：
 
-正确。结果为 </div>
-      </a>
+正确。结果为 
+        </a>
+      </p>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2020-04-26
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-04-26 20:28" pubdate>
+              2020-04-26
+            </time>
           </div>
         
         
@@ -592,7 +669,7 @@ a**b
           </div>
         
       </div>
-    </div>
+    </article>
   </div>
 
 
@@ -721,186 +798,6 @@ a**b
 
 
 
-  <script defer>
-  (function () {
-    // 查询存储的记录
-    function getRecord(Counter, target) {
-      return new Promise(function (resolve, reject) {
-        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
-          .then(resp => resp.json())
-          .then(({results, code, error}) => {
-            if (code === 401) {
-              throw error;
-            }
-            if (results && results.length > 0) {
-              var record = results[0];
-              resolve(record);
-            } else {
-              Counter('post', '/classes/Counter', {target, time: 0})
-                .then(resp => resp.json())
-                .then((record, error) => {
-                  if (error) {
-                    throw error;
-                  }
-                  resolve(record);
-                }).catch(error => {
-                console.error('Failed to create', error);
-                reject(error);
-              });
-            }
-          }).catch((error) => {
-          console.error('LeanCloud Counter Error:', error);
-          reject(error);
-        });
-      })
-    }
-
-    // 发起自增请求
-    function increment(Counter, incrArr) {
-      return new Promise(function (resolve, reject) {
-        Counter('post', '/batch', {
-          "requests": incrArr
-        }).then((res) => {
-          res = res.json();
-          if (res.error) {
-            throw res.error;
-          }
-          resolve(res);
-        }).catch((error) => {
-          console.error('Failed to save visitor count', error);
-          reject(error);
-        });
-      });
-    }
-
-    // 构建自增请求体
-    function buildIncrement(objectId) {
-      return {
-        "method": "PUT",
-        "path": `/1.1/classes/Counter/${ objectId }`,
-        "body": {
-          "time": {
-            '__op': 'Increment',
-            'amount': 1
-          }
-        }
-      }
-    }
-
-    // 校验是否为有效的 UV
-    function validUV() {
-      var key = 'LeanCloud_UV_Flag';
-      var flag = localStorage.getItem(key);
-      if (flag) {
-        // 距离标记小于 24 小时则不计为 UV
-        if (new Date().getTime() - parseInt(flag) <= 86400000) {
-          return false;
-        }
-      }
-      localStorage.setItem(key, new Date().getTime().toString());
-      return true;
-    }
-
-    function addCount(Counter) {
-      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
-      var getterArr = [];
-      var incrArr = [];
-
-      // 请求 PV 并自增
-      var pvCtn = document.querySelector('#leancloud-site-pv-container');
-      if (pvCtn || enableIncr) {
-        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
-          incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-pv');
-          if (ele) {
-            ele.innerText = record.time + 1;
-            if (pvCtn) {
-              pvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(pvGetter);
-      }
-
-      // 请求 UV 并自增
-      var uvCtn = document.querySelector('#leancloud-site-uv-container');
-      if (uvCtn || enableIncr) {
-        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
-          var vuv = validUV();
-          vuv && incrArr.push(buildIncrement(record.objectId))
-          var ele = document.querySelector('#leancloud-site-uv');
-          if (ele) {
-            ele.innerText = record.time + (vuv ? 1 : 0);
-            if (uvCtn) {
-              uvCtn.style.display = 'inline';
-            }
-          }
-        });
-        getterArr.push(uvGetter);
-      }
-
-      // 如果是文章，请求文章的浏览数，并自增
-      if ('false' === 'true') {
-        var viewCtn = document.querySelector('#leancloud-post-views-container');
-        if (viewCtn || enableIncr) {
-          var target = decodeURI('/index.html');
-          var viewGetter = getRecord(Counter, target).then((record) => {
-            incrArr.push(buildIncrement(record.objectId))
-            if (viewCtn) {
-              var ele = document.querySelector('#leancloud-post-views');
-              if (ele) {
-                ele.innerText = (record.time || 0) + 1;
-                viewCtn.style.display = 'inline';
-              }
-            }
-          });
-          getterArr.push(viewGetter);
-        }
-      }
-
-      // 如果启动计数自增，批量发起自增请求
-      if (enableIncr) {
-        Promise.all(getterArr).then(() => {
-          incrArr.length > 0 && increment(Counter, incrArr);
-        })
-      }
-    }
-
-    var app_id = 'zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz'
-    var app_key = 'iNppU37sPwRdpmjgAsJ3dgnC'
-    var server_url = 'https://zsgoil44.lc-cn-n1-shared.com'
-
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${ api_server }/1.1${ url }`, {
-          method,
-          headers: {
-            'X-LC-Id': app_id,
-            'X-LC-Key': app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-
-      addCount(Counter);
-    }
-
-    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(resp => resp.json())
-        .then(({api_server}) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
-
-
 
 
 
@@ -1018,6 +915,8 @@ a**b
         s.parentNode.insertBefore(hm, s);
       })();
     </script>
+  
+
   
 
   
