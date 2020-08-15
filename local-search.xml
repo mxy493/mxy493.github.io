@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>美团笔试题 - 小团的旅行线路</title>
+    <link href="/202008152656/"/>
+    <url>/202008152656/</url>
+    
+    <content type="html"><![CDATA[<h1 id="题目：小团的旅行线路"><a href="#题目：小团的旅行线路" class="headerlink" title="题目：小团的旅行线路"></a>题目：小团的旅行线路</h1><p><strong>时间限制：</strong> 1000MS<br><strong>内存限制：</strong> 65536KB</p><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>小团是一个旅游爱好者，快要过春节了，他想统计一下，在过去的一年中他进行过几次旅行，于是他打开了美团app的订单记录，记录显示了他的购买车票的记录。记录是按时间顺序给出的，已知一次旅行的线路一定是一个闭环，即起点和终点是同一个地点。因此当每找到一段闭合的行程，即认为完成了一次旅行。数据保证不会出现不在闭环路径中的数据。请你在小团的购票记录中统计出他全年共进行了多少次旅行？</p><h2 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述"></a>输入描述</h2><p>输入第一行包含一个正整数n，表示小团的购票记录数量。(1&lt;=n&lt;=10000)</p><p>接下来有n行，每行是两个长度不超过10的仅由小写字母组成的字符串S_a，S_b，表示购买了一张从S_a到S_b的车票。</p><h2 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述"></a>输出描述</h2><p>输出仅包含一个整数，表示小团的旅行次数。</p><h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><div class="hljs"><pre><code class="hljs undefined"><span class="hljs-number">6</span><span class="hljs-keyword">beijing </span>nanjingnanjing guangzhouguangzhou <span class="hljs-keyword">shanghai</span><span class="hljs-keyword">shanghai </span><span class="hljs-keyword">beijing</span>fuzhou <span class="hljs-keyword">beijing</span><span class="hljs-keyword">beijing </span>fuzhou</code></pre></div><h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><div class="hljs"><pre><code class="hljs undefined"><span class="hljs-number">2</span></code></pre></div><h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>需要注意的是，题目指明了两个重要信息，第一，记录是按时间顺序给出的；第二，不存在不在闭环中的数据。</p><p>也就是说从一个地方出发，总会在后续某一个行程中回到这个地方，那么问题就好解决了，只需要记录小团出发的城市，并且每添加一条数据我们就可以判断当前行程的到达城市是否之前的某个出发城市，如果是那么就找到了一个闭环，将旅行次数+1即可。</p><h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><div class="hljs"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;    <span class="hljs-keyword">int</span> times = <span class="hljs-number">0</span>;  <span class="hljs-comment">// 次数</span>    <span class="hljs-keyword">int</span> n;  <span class="hljs-comment">// 数量</span>    <span class="hljs-built_in">cin</span> &gt;&gt; n;    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt; vec;  <span class="hljs-comment">// 出发城市列表</span>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;        <span class="hljs-built_in">string</span> str1, str2;        <span class="hljs-built_in">cin</span> &gt;&gt; str1 &gt;&gt; str2;        vec.push_back(str1);  <span class="hljs-comment">//添加当前出发地到出发城市列表</span>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; vec.size(); j++) &#123;            <span class="hljs-comment">// 遍历出发城市列表判断当前行程的到大城市是否是之前的出发城市</span>            <span class="hljs-comment">// 如果是，则找到一个闭环，旅行次数+1，并将该城市从列表中删除</span>            <span class="hljs-keyword">if</span> (vec[j] == str2) &#123;                vec.erase(vec.begin() + j);                times++;            &#125;        &#125;    &#125;    <span class="hljs-built_in">cout</span> &lt;&lt; times &lt;&lt; <span class="hljs-built_in">endl</span>;    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;&#125;</code></pre></div>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>笔经</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hexo博客使用插件hexo-abbrlink生成永久短链接</title>
     <link href="/2020070417822/"/>
     <url>/2020070417822/</url>
