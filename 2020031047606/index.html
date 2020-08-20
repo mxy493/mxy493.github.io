@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Leetcode 543.二叉树的直径【C++】 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -228,27 +233,28 @@
             
             <div class="markdown-body" id="post-body">
               <blockquote>
-<p>地址：<a href="https://leetcode-cn.com/problems/diameter-of-binary-tree/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/diameter-of-binary-tree/</a></p>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/diameter-of-binary-tree/">https://leetcode-cn.com/problems/diameter-of-binary-tree/</a></p>
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一棵二叉树，你需要计算它的直径长度。一棵二叉树的直径长度是任意两个结点路径长度中的最大值。这条路径可能穿过根结点。</p>
 <p><strong>示例 :</strong><br>给定二叉树</p>
-<div class="hljs"><pre><code>    1
-   / \
-  2   3
- / \     
-4   5    </code></pre></div><p>返回 <strong>3</strong>, 它的长度是路径 [4,2,1,3] 或者 [5,2,1,3]。</p>
+<div class="hljs"><pre><code>      1
+     / \
+    2   3
+   / \     
+  4   5    </code></pre></div>
+<p>返回 <strong>3</strong>, 它的长度是路径 [4,2,1,3] 或者 [5,2,1,3]。</p>
 <p><strong>注意：</strong>两结点之间的路径长度是以它们之间边的数目表示。</p>
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先这个题需要注意一点，整棵树的最长路径，不一定是左右子树的深度相加，因为可能最长路径并没有经过根结点。但是可以确定的是，最长路径一定是某一个结点作为根节点的左右子树的深度相加。</p>
 <p>所以如果求出每一个结点作为根结点的左右子树的深度，也就可以找出所有可能的最长路径，只需要不断更新最大长度即可。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-comment">/**
- * Definition for a binary tree node.
- * struct TreeNode &#123;
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;
- * &#125;;
- */</span>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * Definition for a binary tree node.</span>
+<span class="hljs-comment"> * struct TreeNode &#123;</span>
+<span class="hljs-comment"> *     int val;</span>
+<span class="hljs-comment"> *     TreeNode *left;</span>
+<span class="hljs-comment"> *     TreeNode *right;</span>
+<span class="hljs-comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span>
+<span class="hljs-comment"> * &#125;;</span>
+<span class="hljs-comment"> */</span>
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
@@ -271,11 +277,10 @@
         <span class="hljs-keyword">int</span> rightDepth = getDepth(root-&gt;right);<span class="hljs-comment">//右子树深度</span>
         <span class="hljs-comment">//当前树的左右深度相加即经过根结点的最长路径（但不是整棵树的最长路径）</span>
         <span class="hljs-comment">//整棵树的最长路径需要根据经过每一个结点作为根结点并且经过该根结点的最长路径动态更新</span>
-        maxLength = max(maxLength, leftDepth + rightDepth);
-        <span class="hljs-keyword">return</span> max(leftDepth, rightDepth) + <span class="hljs-number">1</span>;<span class="hljs-comment">//+1即当前根结点到父节点之间的路径</span>
+        maxLength = <span class="hljs-built_in">max</span>(maxLength, leftDepth + rightDepth);
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(leftDepth, rightDepth) + <span class="hljs-number">1</span>;<span class="hljs-comment">//+1即当前根结点到父节点之间的路径</span>
     &#125;
 &#125;;</code></pre></div>
-
 
             </div>
             <hr>
@@ -301,7 +306,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -356,7 +361,7 @@
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

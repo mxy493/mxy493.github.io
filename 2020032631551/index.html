@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Leetcode 999.车的可用捕获量【C++】 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -178,7 +183,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      969 字
+      1.4k 字
     </span>
   
 
@@ -188,7 +193,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12
+      20
        分钟
     </span>
   
@@ -228,27 +233,29 @@
             
             <div class="markdown-body" id="post-body">
               <blockquote>
-<p>地址：<a href="https://leetcode-cn.com/problems/available-captures-for-rook/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/available-captures-for-rook/</a></p>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/available-captures-for-rook/">https://leetcode-cn.com/problems/available-captures-for-rook/</a></p>
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>在一个 8 x 8 的棋盘上，有一个白色车（rook）。也可能有空方块，白色的象（bishop）和黑色的卒（pawn）。它们分别以字符 “R”，“.”，“B” 和 “p” 给出。大写字符表示白棋，小写字符表示黑棋。</p>
 <p>车按国际象棋中的规则移动：它选择四个基本方向中的一个（北，东，西和南），然后朝那个方向移动，直到它选择停止、到达棋盘的边缘或移动到同一方格来捕获该方格上颜色相反的卒。另外，车不能与其他友方（白色）象进入同一个方格。</p>
 <p>返回车能够在一次移动中捕获到的卒的数量。</p>
 <p>示例 1：</p>
-<p><img src="p1.png" srcset="/img/loading.gif" alt></p>
-<div class="hljs"><pre><code class="hljs undefined">输入：[[<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>],[<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>],[<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"R"</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"p"</span>],[<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>],[<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>],[<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>],[<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>],[<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>]]
+<p><img src="p1.png" srcset="/img/loading.gif"></p>
+<div class="hljs"><pre><code class="hljs prolog">输入：[[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>],[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>],[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;R&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>],[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>],[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>],[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>],[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>],[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>]]
 输出：<span class="hljs-number">3</span></code></pre></div>
 
 <p>解释：<br>在本例中，车能够捕获所有的卒。<br>示例 2：</p>
-<p><img src="p2.png" srcset="/img/loading.gif" alt></p>
-<div class="hljs"><pre><code class="hljs undefined">输入：[[<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>],[<span class="hljs-string">"."</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>],[<span class="hljs-string">"."</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"B"</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>],[<span class="hljs-string">"."</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"B"</span>,<span class="hljs-string">"R"</span>,<span class="hljs-string">"B"</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>],[<span class="hljs-string">"."</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"B"</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>],[<span class="hljs-string">"."</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>],[<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>],[<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>]]
+<p><img src="p2.png" srcset="/img/loading.gif"></p>
+<div class="hljs"><pre><code class="hljs prolog">输入：[[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>],[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>],[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;B&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>],[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;B&quot;</span>,<span class="hljs-string">&quot;R&quot;</span>,<span class="hljs-string">&quot;B&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>],[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;B&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>],[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>],[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>],[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>]]
 输出：<span class="hljs-number">0</span></code></pre></div>
 
+
 <p>解释：<br>象阻止了车捕获任何卒。<br>示例 3：</p>
-<p><img src="p3.png" srcset="/img/loading.gif" alt></p>
-<div class="hljs"><pre><code class="hljs undefined">输入：[[<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>],[<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>],[<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>],[<span class="hljs-string">"p"</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"R"</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"B"</span>,<span class="hljs-string">"."</span>],[<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>],[<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"B"</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>],[<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"p"</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>],[<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>,<span class="hljs-string">"."</span>]]
+<p><img src="p3.png" srcset="/img/loading.gif"></p>
+<div class="hljs"><pre><code class="hljs prolog">输入：[[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>],[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>],[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>],[<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;R&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;B&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>],[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>],[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;B&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>],[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;p&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>],[<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>,<span class="hljs-string">&quot;.&quot;</span>]]
 输出：<span class="hljs-number">3</span>
 解释： 
 车可以捕获位置 b5，d6 和 f5 的卒。</code></pre></div>
+
 
 <p>提示：</p>
 <ul>
@@ -268,9 +275,9 @@
         <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) &#123;
             <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">8</span>; j++) &#123;
                 <span class="hljs-comment">//前后同时往中间遍历，加快一半的查找速度</span>
-                <span class="hljs-keyword">if</span> (board[i][j] == <span class="hljs-string">'R'</span> || board[<span class="hljs-number">7</span> - i][j] == <span class="hljs-string">'R'</span>) &#123;
+                <span class="hljs-keyword">if</span> (board[i][j] == <span class="hljs-string">&#x27;R&#x27;</span> || board[<span class="hljs-number">7</span> - i][j] == <span class="hljs-string">&#x27;R&#x27;</span>) &#123;
                     <span class="hljs-keyword">int</span> ai, aj;<span class="hljs-comment">//白车的坐标</span>
-                    <span class="hljs-keyword">if</span> (board[i][j] == <span class="hljs-string">'R'</span>) &#123;
+                    <span class="hljs-keyword">if</span> (board[i][j] == <span class="hljs-string">&#x27;R&#x27;</span>) &#123;
                         ai = i;
                         aj = j;
                     &#125;
@@ -278,18 +285,18 @@
                         ai = <span class="hljs-number">7</span> - i;
                         aj = j;
                     &#125;
-                    <span class="hljs-built_in">vector</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; dir = &#123; &#123;<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>&#125; &#125;;<span class="hljs-comment">//上、下、左、右</span>
+                    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; dir = &#123; &#123;<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>&#125; &#125;;<span class="hljs-comment">//上、下、左、右</span>
                     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> d : dir) &#123;
                         <span class="hljs-keyword">int</span> ii = ai + d.first;
                         <span class="hljs-keyword">int</span> jj = aj + d.second;
                         <span class="hljs-comment">//往一个方向遍历</span>
                         <span class="hljs-keyword">while</span> (ii &gt;= <span class="hljs-number">0</span> &amp;&amp; ii &lt; <span class="hljs-number">8</span> &amp;&amp; jj &gt;= <span class="hljs-number">0</span> &amp;&amp; jj &lt; <span class="hljs-number">8</span>) &#123;
                             <span class="hljs-comment">//白色的象</span>
-                            <span class="hljs-keyword">if</span> (board[ii][jj] == <span class="hljs-string">'B'</span>) &#123;
+                            <span class="hljs-keyword">if</span> (board[ii][jj] == <span class="hljs-string">&#x27;B&#x27;</span>) &#123;
                                 <span class="hljs-keyword">break</span>;
                             &#125;
                             <span class="hljs-comment">//黑色的卒</span>
-                            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (board[ii][jj] == <span class="hljs-string">'p'</span>) &#123;
+                            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (board[ii][jj] == <span class="hljs-string">&#x27;p&#x27;</span>) &#123;
                                 num++;
                                 <span class="hljs-keyword">break</span>;
                             &#125;
@@ -330,7 +337,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -385,7 +392,7 @@
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

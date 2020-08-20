@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Leetcode 200.岛屿数量【C++】 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -178,7 +183,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      774 字
+      786 字
     </span>
   
 
@@ -188,7 +193,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      10
        分钟
     </span>
   
@@ -228,27 +233,27 @@
             
             <div class="markdown-body" id="post-body">
               <blockquote>
-<p>地址：<a href="https://leetcode-cn.com/problems/number-of-islands/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/number-of-islands/</a></p>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/number-of-islands/">https://leetcode-cn.com/problems/number-of-islands/</a></p>
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个由 ‘1’（陆地）和 ‘0’（水）组成的的二维网格，请你计算网格中岛屿的数量。</p>
 <p>岛屿总是被水包围，并且每座岛屿只能由水平方向和/或竖直方向上相邻的陆地连接形成。</p>
 <p>此外，你可以假设该网格的四条边均被水包围。</p>
 <p><strong>示例 1:</strong></p>
-<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-section">输入:</span>
-11110
-11010
-11000
-00000
-<span class="hljs-section">输出: 1</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs angelscript">输入:
+<span class="hljs-number">11110</span>
+<span class="hljs-number">11010</span>
+<span class="hljs-number">11000</span>
+<span class="hljs-number">00000</span>
+输出: <span class="hljs-number">1</span></code></pre></div>
 
 <p><strong>示例 2:</strong></p>
-<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-section">输入:</span>
-11000
-11000
-00100
-00011
-<span class="hljs-section">输出: 3</span>
-<span class="hljs-section">解释: 每座岛屿只能由水平和/或竖直方向上相邻的陆地连接而成。</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs angelscript">输入:
+<span class="hljs-number">11000</span>
+<span class="hljs-number">11000</span>
+<span class="hljs-number">00100</span>
+<span class="hljs-number">00011</span>
+输出: <span class="hljs-number">3</span>
+解释: 每座岛屿只能由水平和/或竖直方向上相邻的陆地连接而成。</code></pre></div>
 
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>很巧的是，之前做过一个同类型的题，<a href="https://mxy493.xyz/2020/03/15/Leetcode-695-%E5%B2%9B%E5%B1%BF%E7%9A%84%E6%9C%80%E5%A4%A7%E9%9D%A2%E7%A7%AF%E3%80%90C-%E3%80%91/">岛屿的最大面积</a> 。</p>
 <p>所以这次很容易就有思路了。首先显然的要遍历二维数组找岛屿，很容易，遇到字符 <code>&#39;1&#39;</code> 就是遇到了岛屿，将岛屿数量 <code>count++</code> ，那么剩下的问题就是，怎么避免重复遇到同一个岛屿？</p>
@@ -259,11 +264,11 @@
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">numIslands</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">char</span>&gt;&gt;&amp; grid)</span> </span>&#123;
         <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; grid.size(); i++) &#123;
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; grid[<span class="hljs-number">0</span>].size(); j++) &#123;
-                <span class="hljs-comment">//找到任意一个'1'即表示找到了一个岛屿</span>
-                <span class="hljs-comment">//首先岛屿数量count++，再通过回溯将该岛屿全部置为'0'</span>
-                <span class="hljs-keyword">if</span> (grid[i][j] == <span class="hljs-string">'1'</span>) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; grid.<span class="hljs-built_in">size</span>(); i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; grid[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>(); j++) &#123;
+                <span class="hljs-comment">//找到任意一个&#x27;1&#x27;即表示找到了一个岛屿</span>
+                <span class="hljs-comment">//首先岛屿数量count++，再通过回溯将该岛屿全部置为&#x27;0&#x27;</span>
+                <span class="hljs-keyword">if</span> (grid[i][j] == <span class="hljs-string">&#x27;1&#x27;</span>) &#123;
                     count++;
                     backtrack(grid, i, j);
                 &#125;
@@ -274,14 +279,14 @@
 
     <span class="hljs-comment">//将grid[i][j]所在的岛屿全部置为0，避免重复判断的问题</span>
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">backtrack</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">char</span>&gt;&gt;&amp; grid, <span class="hljs-keyword">int</span> i,<span class="hljs-keyword">int</span> j)</span> </span>&#123;
-        <span class="hljs-built_in">vector</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; dir = &#123; &#123;<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>&#125; &#125;;
-        grid[i][j] = <span class="hljs-string">'0'</span>;
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; dir = &#123; &#123;<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>&#125; &#125;;
+        grid[i][j] = <span class="hljs-string">&#x27;0&#x27;</span>;
         <span class="hljs-comment">//做选择，上下左右四个方向</span>
         <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> d : dir) &#123;
             <span class="hljs-keyword">int</span> ii = i + d.first;
             <span class="hljs-keyword">int</span> jj = j + d.second;
-            <span class="hljs-comment">//当且仅当索引ii，jj合法且grid[ii][jj]为'1'是递归</span>
-            <span class="hljs-keyword">if</span> (ii &gt;= <span class="hljs-number">0</span> &amp;&amp; ii &lt; grid.size() &amp;&amp; jj &gt;= <span class="hljs-number">0</span> &amp;&amp; jj &lt; grid[<span class="hljs-number">0</span>].size() &amp;&amp; grid[ii][jj] == <span class="hljs-string">'1'</span>) &#123;
+            <span class="hljs-comment">//当且仅当索引ii，jj合法且grid[ii][jj]为&#x27;1&#x27;是递归</span>
+            <span class="hljs-keyword">if</span> (ii &gt;= <span class="hljs-number">0</span> &amp;&amp; ii &lt; grid.<span class="hljs-built_in">size</span>() &amp;&amp; jj &gt;= <span class="hljs-number">0</span> &amp;&amp; jj &lt; grid[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>() &amp;&amp; grid[ii][jj] == <span class="hljs-string">&#x27;1&#x27;</span>) &#123;
                 backtrack(grid, ii, jj);
             &#125;
         &#125;
@@ -311,7 +316,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -366,7 +371,7 @@
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

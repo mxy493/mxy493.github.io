@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Leetcode 1248.统计「优美子数组」【C++】 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -228,23 +233,23 @@
             
             <div class="markdown-body" id="post-body">
               <blockquote>
-<p>地址：<a href="https://leetcode-cn.com/problems/count-number-of-nice-subarrays/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/count-number-of-nice-subarrays/</a></p>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/count-number-of-nice-subarrays/">https://leetcode-cn.com/problems/count-number-of-nice-subarrays/</a></p>
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code>。</p>
 <p>如果某个 <strong>连续</strong> 子数组中恰好有 <code>k</code> 个奇数数字，我们就认为这个子数组是「<strong>优美子数组</strong>」。</p>
 <p>请返回这个数组中「优美子数组」的数目。</p>
 <p><strong>示例 1：</strong></p>
-<div class="hljs"><pre><code class="hljs undefined">输入：nums = [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>], k = <span class="hljs-number">3</span>
+<div class="hljs"><pre><code class="hljs angelscript">输入：nums = [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>], k = <span class="hljs-number">3</span>
 输出：<span class="hljs-number">2</span>
 解释：包含 <span class="hljs-number">3</span> 个奇数的子数组是 [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>] 和 [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>] 。</code></pre></div>
 
 <p><strong>示例 2：</strong></p>
-<div class="hljs"><pre><code class="hljs undefined">输入：nums = [<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>], k = <span class="hljs-number">1</span>
+<div class="hljs"><pre><code class="hljs angelscript">输入：nums = [<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>], k = <span class="hljs-number">1</span>
 输出：<span class="hljs-number">0</span>
 解释：数列中不包含任何奇数，所以不存在优美子数组。</code></pre></div>
 
 <p><strong>示例 3：</strong></p>
-<div class="hljs"><pre><code class="hljs undefined">输入：nums = [<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>], k = <span class="hljs-number">2</span>
+<div class="hljs"><pre><code class="hljs angelscript">输入：nums = [<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>], k = <span class="hljs-number">2</span>
 输出：<span class="hljs-number">16</span></code></pre></div>
 
 <p><strong>提示：</strong></p>
@@ -255,7 +260,7 @@
 </ul>
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先，这个题是需要找规律的，要怎么怎么去计算优美子数组的个数，不然就算是暴力解那也没法下手。</p>
 <p>这个题 读懂题就很重要，通过题目给出的三个示例，以<strong>示例3</strong>为例，题目要求是“<strong>恰有</strong>” <code>k</code> 个奇数数字的“<strong>连续</strong>”子数组，所以在示例3种，要找的是恰有 2 个连续奇数数字的连续子数组，而示例3种仅有 2 个奇数数字，显然必须要有 <code>1,2,2,1</code> 这部分。剩下可能的组合仅与左右两侧的偶数个数有关，简要列举可能的几个情况如下：</p>
-<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-comment">//左侧共有连续的3个偶数，可能的情况有4种</span>
+<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-comment">//左侧共有连续的3个偶数，可能的情况有4种</span>
 
 <span class="hljs-comment">//左侧没有更多的偶数（为数组边界或相邻位置是奇数）</span>
 <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>
@@ -278,7 +283,7 @@
         <span class="hljs-comment">//模拟快慢指针，快指针比慢指针快k个奇数</span>
         <span class="hljs-keyword">int</span> front = <span class="hljs-number">0</span>;
         <span class="hljs-keyword">int</span> slow = <span class="hljs-number">0</span>;
-        <span class="hljs-keyword">for</span> (; front &lt; nums.size(); front++) &#123;
+        <span class="hljs-keyword">for</span> (; front &lt; nums.<span class="hljs-built_in">size</span>(); front++) &#123;
             <span class="hljs-comment">//前k个奇数不做处理</span>
             <span class="hljs-keyword">if</span> (nums[front] % <span class="hljs-number">2</span> == <span class="hljs-number">1</span> &amp;&amp; k != <span class="hljs-number">0</span>) &#123;
                 k--;
@@ -288,7 +293,7 @@
                 <span class="hljs-keyword">int</span> left = <span class="hljs-number">1</span>;<span class="hljs-comment">//左右两侧偶数可能的组合情况</span>
                 <span class="hljs-keyword">int</span> right = <span class="hljs-number">1</span>;<span class="hljs-comment">//默认为1，即一个偶数也没有</span>
                 <span class="hljs-comment">//慢指针遍历到下一个奇数，同时计数偶数的个数，m个偶数有m+1种可能的情况</span>
-                <span class="hljs-keyword">for</span> (; slow &lt; nums.size(); slow++) &#123;
+                <span class="hljs-keyword">for</span> (; slow &lt; nums.<span class="hljs-built_in">size</span>(); slow++) &#123;
                     <span class="hljs-keyword">if</span> (nums[slow] % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>) &#123;
                         slow++;
                         <span class="hljs-keyword">break</span>;
@@ -296,7 +301,7 @@
                     left++;
                 &#125;
                 <span class="hljs-comment">//快指针遍历到下一个计数，同时计数偶数个数</span>
-                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> t = front + <span class="hljs-number">1</span>; t &lt; nums.size(); t++) &#123;
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> t = front + <span class="hljs-number">1</span>; t &lt; nums.<span class="hljs-built_in">size</span>(); t++) &#123;
                     <span class="hljs-keyword">if</span> (nums[t] % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>) &#123;
                         <span class="hljs-keyword">break</span>;
                     &#125;
@@ -333,7 +338,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -388,7 +393,7 @@
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>2020.05.11 字节跳动笔试题目:记事本程序 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -178,7 +183,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      1.6k 字
     </span>
   
 
@@ -245,7 +250,7 @@
 <li>从第二行开始输入每一步具体的命令。</li>
 </ul>
 <p>示例：</p>
-<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-number">8</span>
+<div class="hljs"><pre><code class="hljs basic"><span class="hljs-number">8</span>
 <span class="hljs-symbol">1 </span>abc
 <span class="hljs-symbol">3 </span><span class="hljs-number">3</span>
 <span class="hljs-symbol">2 </span><span class="hljs-number">3</span>
@@ -257,19 +262,19 @@
 
 <p><strong>输出说明：</strong></p>
 <p>输出：</p>
-<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-attribute">c
-y
-a</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">c</span>
+<span class="hljs-attribute">y</span>
+<span class="hljs-attribute">a</span></code></pre></div>
 
 <p>说明：</p>
-<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-symbol">1 </span>abc // 字符串S默认初始为空<span class="hljs-string">""</span>，第一步插入<span class="hljs-string">"abc"</span>后S变为<span class="hljs-string">"abc"</span>
-<span class="hljs-symbol">3 </span><span class="hljs-number">3</span> // 输出S的第三个字符，即输出<span class="hljs-comment">'c'</span>
-<span class="hljs-symbol">2 </span><span class="hljs-number">3</span> // 删除字符串S的末尾<span class="hljs-number">3</span>个字符，删除后S变为<span class="hljs-string">""</span>
-<span class="hljs-symbol">1 </span>xy // 在字符串S末尾插入<span class="hljs-string">"xy"</span>，插入后S为<span class="hljs-string">"xy"</span>
-<span class="hljs-symbol">3 </span><span class="hljs-number">2</span> // 输出字符串S的第二个字符，即输出<span class="hljs-comment">'y'</span>
-<span class="hljs-symbol">4 </span>// 回滚，即回滚对<span class="hljs-string">"xy"</span>的插入，回滚后S为<span class="hljs-string">""</span>
-<span class="hljs-symbol">4 </span>// 回滚，即回滚对字符串S末尾<span class="hljs-number">3</span>个字符的删除操作，回滚后S为<span class="hljs-string">"abc"</span>
-<span class="hljs-symbol">3 </span><span class="hljs-number">1</span> // 输出字符串S的第一个字符，即输出<span class="hljs-comment">'a'</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs basic"><span class="hljs-symbol">1 </span>abc // 字符串S默认初始为空<span class="hljs-string">&quot;&quot;</span>，第一步插入<span class="hljs-string">&quot;abc&quot;</span>后S变为<span class="hljs-string">&quot;abc&quot;</span>
+<span class="hljs-symbol">3 </span><span class="hljs-number">3</span> // 输出S的第三个字符，即输出<span class="hljs-comment">&#x27;c&#x27;</span>
+<span class="hljs-symbol">2 </span><span class="hljs-number">3</span> // 删除字符串S的末尾<span class="hljs-number">3</span>个字符，删除后S变为<span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-symbol">1 </span>xy // 在字符串S末尾插入<span class="hljs-string">&quot;xy&quot;</span>，插入后S为<span class="hljs-string">&quot;xy&quot;</span>
+<span class="hljs-symbol">3 </span><span class="hljs-number">2</span> // 输出字符串S的第二个字符，即输出<span class="hljs-comment">&#x27;y&#x27;</span>
+<span class="hljs-symbol">4 </span>// 回滚，即回滚对<span class="hljs-string">&quot;xy&quot;</span>的插入，回滚后S为<span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-symbol">4 </span>// 回滚，即回滚对字符串S末尾<span class="hljs-number">3</span>个字符的删除操作，回滚后S为<span class="hljs-string">&quot;abc&quot;</span>
+<span class="hljs-symbol">3 </span><span class="hljs-number">1</span> // 输出字符串S的第一个字符，即输出<span class="hljs-comment">&#x27;a&#x27;</span></code></pre></div>
 
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>毕竟是笔试啊，有点慌。因为需要对一些操作步骤进行回滚，一开始我想着应该要把操作的步骤记录下来，所以我定义了一个 <code>vector&lt;pair&lt;int, string&gt;&gt;</code> 类型的数组用于保存输入的每一步命令，每个命令保存为 int 类型的整数，参数保存为 string 类型的字符串，主要是为了兼容不同的参数，如果是命令 <code>4</code> 则将其参数保存为空字符串 <code>&quot;&quot;</code> 。</p>
 <p>最初的想法是遍历保存下来的命令数组一步一步执行就好了，但是到处理命令 <code>4</code> 的操作时就遇到问题了，感觉处理回滚操作很麻烦，同时觉得回滚这个操作完全就是<strong>回溯法</strong>相同的模式，想了想觉得应该可行，就改用了回溯法来执行每一步命令。</p>
@@ -277,81 +282,80 @@ a</span></code></pre></div>
 <p><code>seq</code> 是递增的，当所有命令都执行完毕后 <code>seq == vec.size()</code> ，此时已经没有可执行的命令，退出回溯函数。</p>
 <p>默认要执行当前的命令，对于命令1、2、3，当前命令执行完毕后，只需要将 seq + 1，递归执行下一条命令。对于命令4，回滚操作，对于回溯法来说也就是 return 就可以了，但也需要将 seq + 1，即当前回滚命令已执行。</p>
 <p>具体的回滚操作需要交给具体的某一步操作去执行，对于命令3，不需要做任何处理，继续往上回溯，对于命令1、2，在执行递归的下一行，判断 <code>rollback == true</code> 则表明在后续命令中遇到了回滚操作，这里就需要进行回滚处理，对于命令1来说，即删除原本插入的字符串；对于命令2来说即恢复原本删除的字符串。回滚操作完毕需要将 <code>rollback</code> 重新置为 <code>false</code> 。</p>
-<p>处理完回滚操作后，还需要继续顺序执行剩下的命令，我用一个 <code>do {...}while(...)</code> 循环来模拟递归执行命令的操作，也就是让命令的执行恢复到顺序执行。</p>
+<p>处理完回滚操作后，还需要继续顺序执行剩下的命令，我用一个 <code>do &#123;...&#125;while(...)</code> 循环来模拟递归执行命令的操作，也就是让命令的执行恢复到顺序执行。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
 
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">execute</span><span class="hljs-params">(<span class="hljs-built_in">string</span> S, <span class="hljs-built_in">vector</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-built_in">string</span>&gt;&gt;&amp; vec, <span class="hljs-keyword">int</span>&amp; seq, <span class="hljs-keyword">bool</span>&amp; rollback)</span> </span>&#123;
-	<span class="hljs-keyword">if</span> (seq == vec.size()) <span class="hljs-keyword">return</span>;
-	<span class="hljs-keyword">do</span> &#123;
-		<span class="hljs-built_in">string</span> str = vec[seq].second;<span class="hljs-comment">//命令参数</span>
-		<span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>;<span class="hljs-comment">//将字符串参数vec[seq].second转换为整数k</span>
-		<span class="hljs-keyword">if</span> (vec[seq].first == <span class="hljs-number">2</span> || vec[seq].first == <span class="hljs-number">3</span>) &#123;
-			<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; str.size(); i++) &#123;
-				k = k * <span class="hljs-number">10</span> + (str[i] - <span class="hljs-string">'0'</span>);
-			&#125;
-		&#125;
-		<span class="hljs-keyword">switch</span> (vec[seq].first)
-		&#123;
-		<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
-			S += str;<span class="hljs-comment">//末尾插入字符串str</span>
-			seq += <span class="hljs-number">1</span>;
-			execute(S, vec, seq, rollback);
-			<span class="hljs-keyword">if</span> (rollback == <span class="hljs-literal">true</span>) &#123;
-				<span class="hljs-comment">//回滚</span>
-				S.erase(S.begin() + S.size() - str.size(), S.end());<span class="hljs-comment">//撤销插入</span>
-				rollback = <span class="hljs-literal">false</span>;
-			&#125;
-			<span class="hljs-keyword">break</span>;
-		<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>: &#123;
-			<span class="hljs-built_in">string</span> tmp = S.substr(S.size() - k, k);<span class="hljs-comment">//临时记录要删除的k个字符</span>
-			S.erase(S.begin() + S.size() - k, S.end());<span class="hljs-comment">//删除末尾k个字符</span>
-			seq += <span class="hljs-number">1</span>;
-			execute(S, vec, seq, rollback);
-			<span class="hljs-keyword">if</span> (rollback == <span class="hljs-literal">true</span>) &#123;
-				<span class="hljs-comment">//回滚</span>
-				S += tmp;<span class="hljs-comment">//插销删除</span>
-				rollback = <span class="hljs-literal">false</span>;
-			&#125;
-			<span class="hljs-keyword">break</span>;
-		&#125;
-		<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
-			<span class="hljs-built_in">cout</span> &lt;&lt; S[k - <span class="hljs-number">1</span>] &lt;&lt; <span class="hljs-built_in">endl</span>;<span class="hljs-comment">//输出第k个字符</span>
-			seq += <span class="hljs-number">1</span>;
-			execute(S, vec, seq, rollback);
-			<span class="hljs-keyword">if</span> (rollback == <span class="hljs-literal">true</span>) <span class="hljs-keyword">return</span>;<span class="hljs-comment">//不处理回滚操作</span>
-			<span class="hljs-keyword">break</span>;
-		<span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
-			rollback = <span class="hljs-literal">true</span>;<span class="hljs-comment">//回滚</span>
-			seq += <span class="hljs-number">1</span>;
-			<span class="hljs-keyword">return</span>;
-		<span class="hljs-keyword">default</span>:
-			<span class="hljs-keyword">break</span>;
-		&#125;
-	&#125; <span class="hljs-keyword">while</span> (seq &lt; vec.size());
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">execute</span><span class="hljs-params">(<span class="hljs-built_in">string</span> S, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-built_in">string</span>&gt;&gt;&amp; vec, <span class="hljs-keyword">int</span>&amp; seq, <span class="hljs-keyword">bool</span>&amp; rollback)</span> </span>&#123;
+    <span class="hljs-keyword">if</span> (seq == vec.<span class="hljs-built_in">size</span>()) <span class="hljs-keyword">return</span>;
+    <span class="hljs-keyword">do</span> &#123;
+        <span class="hljs-built_in">string</span> str = vec[seq].second;<span class="hljs-comment">//命令参数</span>
+        <span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>;<span class="hljs-comment">//将字符串参数vec[seq].second转换为整数k</span>
+        <span class="hljs-keyword">if</span> (vec[seq].first == <span class="hljs-number">2</span> || vec[seq].first == <span class="hljs-number">3</span>) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; str.<span class="hljs-built_in">size</span>(); i++) &#123;
+                k = k * <span class="hljs-number">10</span> + (str[i] - <span class="hljs-string">&#x27;0&#x27;</span>);
+            &#125;
+        &#125;
+        <span class="hljs-keyword">switch</span> (vec[seq].first)
+        &#123;
+        <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+            S += str;<span class="hljs-comment">//末尾插入字符串str</span>
+            seq += <span class="hljs-number">1</span>;
+            execute(S, vec, seq, rollback);
+            <span class="hljs-keyword">if</span> (rollback == <span class="hljs-literal">true</span>) &#123;
+                <span class="hljs-comment">//回滚</span>
+                S.erase(S.<span class="hljs-built_in">begin</span>() + S.<span class="hljs-built_in">size</span>() - str.<span class="hljs-built_in">size</span>(), S.<span class="hljs-built_in">end</span>());<span class="hljs-comment">//撤销插入</span>
+                rollback = <span class="hljs-literal">false</span>;
+            &#125;
+            <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>: &#123;
+            <span class="hljs-built_in">string</span> tmp = S.substr(S.<span class="hljs-built_in">size</span>() - k, k);<span class="hljs-comment">//临时记录要删除的k个字符</span>
+            S.erase(S.<span class="hljs-built_in">begin</span>() + S.<span class="hljs-built_in">size</span>() - k, S.<span class="hljs-built_in">end</span>());<span class="hljs-comment">//删除末尾k个字符</span>
+            seq += <span class="hljs-number">1</span>;
+            execute(S, vec, seq, rollback);
+            <span class="hljs-keyword">if</span> (rollback == <span class="hljs-literal">true</span>) &#123;
+                <span class="hljs-comment">//回滚</span>
+                S += tmp;<span class="hljs-comment">//插销删除</span>
+                rollback = <span class="hljs-literal">false</span>;
+            &#125;
+            <span class="hljs-keyword">break</span>;
+        &#125;
+        <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+            <span class="hljs-built_in">cout</span> &lt;&lt; S[k - <span class="hljs-number">1</span>] &lt;&lt; <span class="hljs-built_in">endl</span>;<span class="hljs-comment">//输出第k个字符</span>
+            seq += <span class="hljs-number">1</span>;
+            execute(S, vec, seq, rollback);
+            <span class="hljs-keyword">if</span> (rollback == <span class="hljs-literal">true</span>) <span class="hljs-keyword">return</span>;<span class="hljs-comment">//不处理回滚操作</span>
+            <span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+            rollback = <span class="hljs-literal">true</span>;<span class="hljs-comment">//回滚</span>
+            seq += <span class="hljs-number">1</span>;
+            <span class="hljs-keyword">return</span>;
+        <span class="hljs-keyword">default</span>:
+            <span class="hljs-keyword">break</span>;
+        &#125;
+    &#125; <span class="hljs-keyword">while</span> (seq &lt; vec.<span class="hljs-built_in">size</span>());
 &#125;
 
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
-	<span class="hljs-built_in">string</span> S = <span class="hljs-string">""</span>;
-	<span class="hljs-keyword">int</span> N;<span class="hljs-comment">//要执行的命令数</span>
-	<span class="hljs-built_in">cin</span> &gt;&gt; N;
-	<span class="hljs-built_in">vector</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-built_in">string</span>&gt;&gt; vec;<span class="hljs-comment">//输入命令</span>
-	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; N; i++) &#123;
-		<span class="hljs-keyword">int</span> seq;
-		<span class="hljs-built_in">string</span> str = <span class="hljs-string">""</span>;
-		<span class="hljs-built_in">cin</span> &gt;&gt; seq;
-		<span class="hljs-keyword">if</span> (seq != <span class="hljs-number">4</span>) &#123;
-			<span class="hljs-built_in">cin</span> &gt;&gt; str;
-		&#125;
-		vec.push_back(&#123; seq, str &#125;);
-	&#125;
-	<span class="hljs-keyword">bool</span> rollback = <span class="hljs-literal">false</span>;<span class="hljs-comment">//是否回滚命令</span>
-	<span class="hljs-keyword">int</span> q = <span class="hljs-number">0</span>;<span class="hljs-comment">//命令序号</span>
-	execute(S, vec, q, rollback);<span class="hljs-comment">//执行命令vec[q]，该命令不是回滚命令</span>
-	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-built_in">string</span> S = <span class="hljs-string">&quot;&quot;</span>;
+    <span class="hljs-keyword">int</span> N;<span class="hljs-comment">//要执行的命令数</span>
+    <span class="hljs-built_in">cin</span> &gt;&gt; N;
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-built_in">string</span>&gt;&gt; vec;<span class="hljs-comment">//输入命令</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; N; i++) &#123;
+        <span class="hljs-keyword">int</span> seq;
+        <span class="hljs-built_in">string</span> str = <span class="hljs-string">&quot;&quot;</span>;
+        <span class="hljs-built_in">cin</span> &gt;&gt; seq;
+        <span class="hljs-keyword">if</span> (seq != <span class="hljs-number">4</span>) &#123;
+            <span class="hljs-built_in">cin</span> &gt;&gt; str;
+        &#125;
+        vec.push_back(&#123; seq, str &#125;);
+    &#125;
+    <span class="hljs-keyword">bool</span> rollback = <span class="hljs-literal">false</span>;<span class="hljs-comment">//是否回滚命令</span>
+    <span class="hljs-keyword">int</span> q = <span class="hljs-number">0</span>;<span class="hljs-comment">//命令序号</span>
+    execute(S, vec, q, rollback);<span class="hljs-comment">//执行命令vec[q]，该命令不是回滚命令</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 &#125;</code></pre></div>
-
 
             </div>
             <hr>
@@ -362,13 +366,13 @@ a</span></code></pre></div>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/笔经/">笔经</a>
+                      <a class="hover-with-bg" href="/tags/%E7%AC%94%E7%BB%8F/">笔经</a>
                     
                   </div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -423,7 +427,7 @@ a</span></code></pre></div>
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

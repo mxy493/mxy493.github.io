@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Leetcode 355.设计推特【C++】 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -228,7 +233,7 @@
             
             <div class="markdown-body" id="post-body">
               <blockquote>
-<p>地址：<a href="https://leetcode-cn.com/problems/design-twitter/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/design-twitter/</a></p>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/design-twitter/">https://leetcode-cn.com/problems/design-twitter/</a></p>
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>设计一个简化版的推特(Twitter)，可以让用户实现发送推文，关注/取消关注其他用户，能够看见关注人（包括自己）的最近十条推文。你的设计需要支持以下的几个功能：</p>
 <ol>
@@ -238,7 +243,7 @@
 <li><code>unfollow(followerId, followeeId)</code>: 取消关注一个用户</li>
 </ol>
 <p><strong>示例：</strong></p>
-<div class="hljs"><pre><code class="hljs undefined">Twitter twitter = new Twitter();
+<div class="hljs"><pre><code class="hljs angelscript">Twitter twitter = new Twitter();
 
 <span class="hljs-comment">// 用户1发送了一条新推文 (用户id = 1, 推文id = 5).</span>
 twitter.postTweet(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>);
@@ -277,11 +282,11 @@ twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
 <li>内存消耗 :189.6 MB, 在所有 C++ 提交中击败了16.67%的用户</li>
 </ul>
 <p>其实就是最开始的代码在索引的那一部分，我首先遍历了一次用户数组判断该用户是否存在，如果不存在，函数直接结束了那倒没什么影响。但如果存在的话，后续对每一条推文，我都还要再遍历一次去找这个用户，如果遍历了 n 条推文，那么就会做 <code>n + 1</code> 次完全重复的遍历查找，显然这是没有必要的。</p>
-<p>所有我将判断该用户是否存在的标志改为了整型 <code>index</code> 并初始化为 <code>-1</code> ，即表示该用户不存在，如果找到了该用户，则将 <code>index</code> 修改为该用户在用户数组中的位置，后续就不再需要遍历用户数组去查找该用户了。</p>
+<p>所有我将判断该用户是否存在的标志改为了整型 <code> index</code> 并初始化为 <code>-1</code> ，即表示该用户不存在，如果找到了该用户，则将 <code>index</code> 修改为该用户在用户数组中的位置，后续就不再需要遍历用户数组去查找该用户了。</p>
 <p>我将优化部分的代码放到了👇🏻最后面👇🏻</p>
 <h3 id="代码（超时）"><a href="#代码（超时）" class="headerlink" title="代码（超时）"></a>代码（超时）</h3><h4 id="原始代码（未优化）"><a href="#原始代码（未优化）" class="headerlink" title="原始代码（未优化）"></a>原始代码（未优化）</h4><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Twitter</span> &#123;</span>
-    <span class="hljs-built_in">vector</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; tweets;<span class="hljs-comment">//所有推文</span>
-    <span class="hljs-built_in">vector</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&gt; users;<span class="hljs-comment">//所有用户及其关注的用户</span>
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; tweets;<span class="hljs-comment">//所有推文</span>
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&gt; users;<span class="hljs-comment">//所有用户及其关注的用户</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-comment">/** Initialize your data structure here. */</span>
     Twitter() &#123;
@@ -302,8 +307,8 @@ twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
         users.push_back(&#123; userId,&#123;&#125; &#125;);
     &#125;
 
-    <span class="hljs-comment">/** Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */</span>
-    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; getNewsFeed(<span class="hljs-keyword">int</span> userId) &#123;
+    <span class="hljs-comment">/** Retrieve the 10 most recent tweet ids in the user&#x27;s news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */</span>
+    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">getNewsFeed</span><span class="hljs-params">(<span class="hljs-keyword">int</span> userId)</span> </span>&#123;
         <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ans;
         <span class="hljs-comment">//判断是否存在该id的用户</span>
         <span class="hljs-keyword">bool</span> exist = <span class="hljs-literal">false</span>;
@@ -317,9 +322,9 @@ twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
         <span class="hljs-keyword">if</span> (exist == <span class="hljs-literal">false</span>) &#123;
             <span class="hljs-keyword">return</span> ans;
         &#125;
-        <span class="hljs-keyword">int</span> amount = tweets.size();
+        <span class="hljs-keyword">int</span> amount = tweets.<span class="hljs-built_in">size</span>();
         <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; count &lt; <span class="hljs-number">10</span> &amp;&amp; i &lt; tweets.size(); i++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; count &lt; <span class="hljs-number">10</span> &amp;&amp; i &lt; tweets.<span class="hljs-built_in">size</span>(); i++) &#123;
             <span class="hljs-keyword">if</span> (tweets[amount - i - <span class="hljs-number">1</span>].first == userId || isFollowing(userId, tweets[amount - i - <span class="hljs-number">1</span>].first)) &#123;
                 ans.push_back(tweets[amount - i - <span class="hljs-number">1</span>].second);
                 count++;
@@ -330,8 +335,8 @@ twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
 
     <span class="hljs-comment">// id1是否关注了id2</span>
     <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isFollowing</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id1, <span class="hljs-keyword">int</span> id2)</span> </span>&#123;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; users.size(); i++) &#123;
-            <span class="hljs-keyword">if</span> (users[i].first == id1 &amp;&amp; users[i].second.find(id2) != users[i].second.end()) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; users.<span class="hljs-built_in">size</span>(); i++) &#123;
+            <span class="hljs-keyword">if</span> (users[i].first == id1 &amp;&amp; users[i].second.<span class="hljs-built_in">find</span>(id2) != users[i].second.<span class="hljs-built_in">end</span>()) &#123;
                 <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
             &#125;
         &#125;
@@ -341,7 +346,7 @@ twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
     <span class="hljs-comment">/** Follower follows a followee. If the operation is invalid, it should be a no-op. */</span>
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">follow</span><span class="hljs-params">(<span class="hljs-keyword">int</span> followerId, <span class="hljs-keyword">int</span> followeeId)</span> </span>&#123;
         <span class="hljs-keyword">bool</span> exist = <span class="hljs-literal">false</span>;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; users.size(); i++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; users.<span class="hljs-built_in">size</span>(); i++) &#123;
             <span class="hljs-keyword">if</span> (followerId == users[i].first) &#123;
                 exist = <span class="hljs-literal">true</span>;
                 users[i].second.insert(followeeId);
@@ -350,13 +355,13 @@ twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
         &#125;
         <span class="hljs-keyword">if</span> (exist == <span class="hljs-literal">false</span>) &#123;
             users.push_back(&#123; followerId,&#123;&#125; &#125;);
-            users[users.size() - <span class="hljs-number">1</span>].second.insert(followeeId);
+            users[users.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>].second.insert(followeeId);
         &#125;
     &#125;
 
     <span class="hljs-comment">/** Follower unfollows a followee. If the operation is invalid, it should be a no-op. */</span>
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">unfollow</span><span class="hljs-params">(<span class="hljs-keyword">int</span> followerId, <span class="hljs-keyword">int</span> followeeId)</span> </span>&#123;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; users.size(); i++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; users.<span class="hljs-built_in">size</span>(); i++) &#123;
             <span class="hljs-keyword">if</span> (followerId == users[i].first) &#123;
                 users[i].second.erase(followeeId);
                 <span class="hljs-keyword">return</span>;
@@ -365,23 +370,23 @@ twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
     &#125;
 &#125;;
 
-<span class="hljs-comment">/**
- * Your Twitter object will be instantiated and called as such:
- * Twitter* obj = new Twitter();
- * obj-&gt;postTweet(userId,tweetId);
- * vector&lt;int&gt; param_2 = obj-&gt;getNewsFeed(userId);
- * obj-&gt;follow(followerId,followeeId);
- * obj-&gt;unfollow(followerId,followeeId);
- */</span></code></pre></div>
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * Your Twitter object will be instantiated and called as such:</span>
+<span class="hljs-comment"> * Twitter* obj = new Twitter();</span>
+<span class="hljs-comment"> * obj-&gt;postTweet(userId,tweetId);</span>
+<span class="hljs-comment"> * vector&lt;int&gt; param_2 = obj-&gt;getNewsFeed(userId);</span>
+<span class="hljs-comment"> * obj-&gt;follow(followerId,followeeId);</span>
+<span class="hljs-comment"> * obj-&gt;unfollow(followerId,followeeId);</span>
+<span class="hljs-comment"> */</span></code></pre></div>
 
 <h4 id="优化部分"><a href="#优化部分" class="headerlink" title="优化部分"></a>优化部分</h4><p>对函数 <code>getNewsFeed(int userId)</code> 进行了修改，并删除了函数 <code>isFollowing(int id1, int id2)</code>。</p>
-<div class="hljs"><pre><code class="hljs c++"><span class="hljs-comment">/** Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */</span>
-<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; getNewsFeed(<span class="hljs-keyword">int</span> userId) &#123;
+<div class="hljs"><pre><code class="hljs c++"><span class="hljs-comment">/** Retrieve the 10 most recent tweet ids in the user&#x27;s news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */</span>
+<span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">getNewsFeed</span><span class="hljs-params">(<span class="hljs-keyword">int</span> userId)</span> </span>&#123;
     <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ans;
     <span class="hljs-comment">//判断是否存在该id的用户</span>
     <span class="hljs-keyword">bool</span> exist = <span class="hljs-literal">false</span>;
     <span class="hljs-keyword">int</span> index = <span class="hljs-number">-1</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; users.size(); i++) &#123;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; users.<span class="hljs-built_in">size</span>(); i++) &#123;
         <span class="hljs-keyword">if</span> (userId == users[i].first) &#123;
             index = i;
             <span class="hljs-keyword">break</span>;
@@ -391,11 +396,11 @@ twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
     <span class="hljs-keyword">if</span> (index == <span class="hljs-number">-1</span>) &#123;
         <span class="hljs-keyword">return</span> ans;
     &#125;
-    <span class="hljs-keyword">int</span> amount = tweets.size();
+    <span class="hljs-keyword">int</span> amount = tweets.<span class="hljs-built_in">size</span>();
     <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; count &lt; <span class="hljs-number">10</span> &amp;&amp; i &lt; tweets.size(); i++) &#123;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; count &lt; <span class="hljs-number">10</span> &amp;&amp; i &lt; tweets.<span class="hljs-built_in">size</span>(); i++) &#123;
         <span class="hljs-keyword">int</span> cur = tweets[amount - i - <span class="hljs-number">1</span>].first;
-        <span class="hljs-keyword">if</span> (cur == userId || users[index].second.find(cur) != users[index].second.end()) &#123;
+        <span class="hljs-keyword">if</span> (cur == userId || users[index].second.<span class="hljs-built_in">find</span>(cur) != users[index].second.<span class="hljs-built_in">end</span>()) &#123;
             ans.push_back(tweets[amount - i - <span class="hljs-number">1</span>].second);
             count++;
         &#125;
@@ -428,7 +433,7 @@ twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -483,7 +488,7 @@ twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

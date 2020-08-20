@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Leetcode 876.链表的中间结点【C++】 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -228,19 +233,20 @@
             
             <div class="markdown-body" id="post-body">
               <blockquote>
-<p>地址：<a href="https://leetcode-cn.com/problems/middle-of-the-linked-list/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/middle-of-the-linked-list/</a></p>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/middle-of-the-linked-list/">https://leetcode-cn.com/problems/middle-of-the-linked-list/</a></p>
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个带有头结点 <code>head</code> 的非空单链表，返回链表的中间结点。</p>
 <p>如果有两个中间结点，则返回第二个中间结点。</p>
 <p><strong>示例 1：</strong></p>
-<div class="hljs"><pre><code class="hljs undefined">输入：[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]
+<div class="hljs"><pre><code class="hljs angelscript">输入：[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]
 输出：此列表中的结点 <span class="hljs-number">3</span> (序列化形式：[<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>])
 返回的结点值为 <span class="hljs-number">3</span> 。 (测评系统对该结点序列化表述是 [<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>])。
 注意，我们返回了一个 ListNode 类型的对象 ans，这样：
 ans.val = <span class="hljs-number">3</span>, ans.next.val = <span class="hljs-number">4</span>, ans.next.next.val = <span class="hljs-number">5</span>, 以及 ans.next.next.next = NULL.</code></pre></div>
 
+
 <p><strong>示例 2：</strong></p>
-<div class="hljs"><pre><code class="hljs undefined">输入：[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>]
+<div class="hljs"><pre><code class="hljs angelscript">输入：[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>]
 输出：此列表中的结点 <span class="hljs-number">4</span> (序列化形式：[<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>])
 由于该列表有两个中间结点，值分别为 <span class="hljs-number">3</span> 和 <span class="hljs-number">4</span>，我们返回第二个结点。</code></pre></div>
 
@@ -249,30 +255,30 @@ ans.val = <span class="hljs-number">3</span>, ans.next.val = <span class="hljs-n
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>思路很简单，定义两个指针并且都初始化为指向头结点，然后 <code>cur</code> 指针遍历整个链表，<code>cur</code> 每移动两个结点，<code>mid</code> 指针就往后移动一个结点，这样 <code>mid</code> 就始终是从 <code>head</code> 到 <code>cur</code> 的中间结点，直到 <code>cur</code> 遍历完整个链表，则 <code>mid</code> 所指向的结点即整个链表的中间结点。</p>
 <p>需要注意头结点本就是中间结点，往后移动一个结点的时候，就应该将 <code>mid</code> 指向第二个结点。</p>
 <p>👉🏻更好一点的办法是用 <code>step</code> 记录节点数，偶数个结点的时候 <code>mid</code> 就往后移动一个结点，这样就不用对头结点特殊处理。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-comment">/**
- * Definition for singly-linked list.
- * struct ListNode &#123;
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) &#123;&#125;
- * &#125;;
- */</span>
- 
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * Definition for singly-linked list.</span>
+<span class="hljs-comment"> * struct ListNode &#123;</span>
+<span class="hljs-comment"> *     int val;</span>
+<span class="hljs-comment"> *     ListNode *next;</span>
+<span class="hljs-comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span>
+<span class="hljs-comment"> * &#125;;</span>
+<span class="hljs-comment"> */</span>
+
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function">ListNode* <span class="hljs-title">middleNode</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;
         ListNode* mid = head;<span class="hljs-comment">//始终指向中间结点</span>
         ListNode* cur = head;<span class="hljs-comment">//当前结点</span>
-        <span class="hljs-keyword">int</span> step = <span class="hljs-number">1</span>;<span class="hljs-comment">//cur每隔一步往后移一位</span>
+        <span class="hljs-keyword">int</span> <span class="hljs-built_in">step</span> = <span class="hljs-number">1</span>;<span class="hljs-comment">//cur每隔一步往后移一位</span>
         <span class="hljs-keyword">while</span> (cur != <span class="hljs-literal">NULL</span>) &#123;
-            <span class="hljs-keyword">if</span> (step == <span class="hljs-number">0</span>) &#123;
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">step</span> == <span class="hljs-number">0</span>) &#123;
                 mid = mid-&gt;next;
-                step = <span class="hljs-number">1</span>;
+                <span class="hljs-built_in">step</span> = <span class="hljs-number">1</span>;
                 cur = cur-&gt;next;
                 <span class="hljs-keyword">continue</span>;
             &#125;
             cur = cur-&gt;next;
-            step--;
+            <span class="hljs-built_in">step</span>--;
         &#125;
         <span class="hljs-keyword">return</span> mid;
     &#125;
@@ -283,12 +289,12 @@ ans.val = <span class="hljs-number">3</span>, ans.next.val = <span class="hljs-n
     <span class="hljs-function">ListNode* <span class="hljs-title">middleNode</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;
         ListNode* mid = head;<span class="hljs-comment">//始终指向中间结点</span>
         ListNode* cur = head;<span class="hljs-comment">//当前结点</span>
-        <span class="hljs-keyword">int</span> step = <span class="hljs-number">1</span>;<span class="hljs-comment">//结点数为偶数的时候指针mid往后移一位</span>
+        <span class="hljs-keyword">int</span> <span class="hljs-built_in">step</span> = <span class="hljs-number">1</span>;<span class="hljs-comment">//结点数为偶数的时候指针mid往后移一位</span>
         <span class="hljs-keyword">while</span> (cur != <span class="hljs-literal">NULL</span>) &#123;
-            <span class="hljs-keyword">if</span> (step % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">step</span> % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)
                 mid = mid-&gt;next;
             cur = cur-&gt;next;
-            step++;
+            <span class="hljs-built_in">step</span>++;
         &#125;
         <span class="hljs-keyword">return</span> mid;
     &#125;
@@ -319,7 +325,7 @@ ans.val = <span class="hljs-number">3</span>, ans.next.val = <span class="hljs-n
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -374,7 +380,7 @@ ans.val = <span class="hljs-number">3</span>, ans.next.val = <span class="hljs-n
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Hexo 压缩&amp;优化插件 Hexo-all-minifier - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -178,7 +183,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      615 字
+      619 字
     </span>
   
 
@@ -227,17 +232,17 @@
               </p>
             
             <div class="markdown-body" id="post-body">
-              <p><strong>Hexo-all-minifier：</strong><a href="https://github.com/chenzhutian/hexo-all-minifier" target="_blank" rel="noopener">https://github.com/chenzhutian/hexo-all-minifier</a></p>
+              <p><strong>Hexo-all-minifier：</strong><a target="_blank" rel="noopener" href="https://github.com/chenzhutian/hexo-all-minifier">https://github.com/chenzhutian/hexo-all-minifier</a></p>
 <p>一款 Hexo 插件，通过压缩 HTML、CSS、JS 和图片来优化博客访问速度。</p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><div class="hljs"><pre><code class="hljs shell">npm install hexo-all-minifier --save</code></pre></div>
 
 <p><strong>注：</strong>我在执行以上命令进行安装的时候遇到了问题 <code>Failed to connect to raw.githubusercontent.com port 443</code> ，查了下原因，其实就是这个域名（<code>raw.githubusercontent.com</code>）被墙了。</p>
 <p><strong>解决办法：</strong></p>
 <ol>
-<li><p>查真实 IP 地址 <a href="https://www.ipaddress.com/" target="_blank" rel="noopener">https://www.ipaddress.com/</a> ，我查到的IP地址是：<code>199.232.68.133</code></p>
+<li><p>查真实 IP 地址 <a target="_blank" rel="noopener" href="https://www.ipaddress.com/">https://www.ipaddress.com/</a> ，我查到的IP地址是：<code>199.232.68.133</code></p>
 </li>
 <li><p>修改系统 <code>hosts</code> 。Windows 系统上的路径为 <code>C:\Windows\System32\drivers\etc\hosts</code> ，在 <code>hosts</code> 文件中添加一行：</p>
-<div class="hljs"><pre><code class="hljs undefined">199<span class="hljs-selector-class">.232</span><span class="hljs-selector-class">.68</span><span class="hljs-selector-class">.133</span> <span class="hljs-selector-tag">raw</span><span class="hljs-selector-class">.githubusercontent</span><span class="hljs-selector-class">.com</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs accesslog"><span class="hljs-number">199.232.68.133</span> raw.githubusercontent.com</code></pre></div>
 
 </li>
 </ol>
@@ -245,15 +250,15 @@
 <div class="hljs"><pre><code class="hljs shell">brew install libtool automake autoconf nasm</code></pre></div>
 
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>将这行代码填写到 Hexo 博客根目录下的博客配置文件 <code>_config.yml</code> 中就可以了。</p>
-<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-attr">all_minifier:</span> <span class="hljs-literal">true</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">all_minifier:</span> <span class="hljs-literal">true</span></code></pre></div>
 
 <p>默认添加以上代码就可以了，比较简单，但仅添加以上代码的情况下，如果在 <code>hexo g</code> 生成静态网页时遇到了问题，或者说有更进阶的需求，那么可以使用以下更进阶一些的设置。</p>
 <h3 id="进阶设置"><a href="#进阶设置" class="headerlink" title="进阶设置"></a>进阶设置</h3><p>如果使用默认的 <code>all_minifier: true</code> 遇到了问题，将对应出问题的某一项关闭即可（<code>enable: false</code>）。</p>
 <h4 id="HTML-优化"><a href="#HTML-优化" class="headerlink" title="HTML 优化"></a>HTML 优化</h4><div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">html_minifier:</span>
-<span class="hljs-attr">  enable:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">  ignore_error:</span> <span class="hljs-literal">false</span>
-<span class="hljs-attr">  silent:</span> <span class="hljs-literal">false</span>
-<span class="hljs-attr">  exclude:</span></code></pre></div>
+  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span>
+  <span class="hljs-attr">ignore_error:</span> <span class="hljs-literal">false</span>
+  <span class="hljs-attr">silent:</span> <span class="hljs-literal">false</span>
+  <span class="hljs-attr">exclude:</span></code></pre></div>
 
 <ul>
 <li><strong>enable</strong> - 开启 HTML minifier. 默认为 <code>true</code> 。</li>
@@ -261,25 +266,25 @@
 <li><strong>silent</strong> - 禁用日志优化，默认为 <code>false</code> 。</li>
 <li><strong>exclude</strong> - 排除文件。</li>
 </ul>
-<h4 id="CSS-优化"><a href="#CSS-优化" class="headerlink" title="CSS 优化"></a>CSS 优化</h4><div class="hljs"><pre><code class="hljs undefined"><span class="hljs-attr">css_minifier:</span>
-<span class="hljs-attr">  enable:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">  silent:</span> <span class="hljs-literal">false</span>
-<span class="hljs-attr">  exclude:</span> 
-<span class="hljs-bullet">    -</span> <span class="hljs-string">'*.min.css'</span></code></pre></div>
+<h4 id="CSS-优化"><a href="#CSS-优化" class="headerlink" title="CSS 优化"></a>CSS 优化</h4><div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">css_minifier:</span>
+  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span>
+  <span class="hljs-attr">silent:</span> <span class="hljs-literal">false</span>
+  <span class="hljs-attr">exclude:</span> 
+    <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;*.min.css&#x27;</span></code></pre></div>
 
 <ul>
 <li><strong>enable</strong> - 开启 CSS minifier，默认为 <code>true</code> 。</li>
 <li><strong>silent</strong> - 禁用日志优化，默认为 <code>false</code> 。</li>
 <li><strong>exclude</strong> - 排除文件。</li>
 </ul>
-<h4 id="JS-优化"><a href="#JS-优化" class="headerlink" title="JS 优化"></a>JS 优化</h4><div class="hljs"><pre><code class="hljs undefined"><span class="hljs-attr">js_minifier:</span>
-<span class="hljs-attr">  enable:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">  mangle:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">  silent:</span> <span class="hljs-literal">false</span>
-<span class="hljs-attr">  output:</span>
-<span class="hljs-attr">  compress:</span>
-<span class="hljs-attr">  exclude:</span> 
-<span class="hljs-bullet">    -</span> <span class="hljs-string">'*.min.js'</span></code></pre></div>
+<h4 id="JS-优化"><a href="#JS-优化" class="headerlink" title="JS 优化"></a>JS 优化</h4><div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">js_minifier:</span>
+  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span>
+  <span class="hljs-attr">mangle:</span> <span class="hljs-literal">true</span>
+  <span class="hljs-attr">silent:</span> <span class="hljs-literal">false</span>
+  <span class="hljs-attr">output:</span>
+  <span class="hljs-attr">compress:</span>
+  <span class="hljs-attr">exclude:</span> 
+    <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;*.min.js&#x27;</span></code></pre></div>
 
 <ul>
 <li><strong>enable</strong> - 开启 JS minifier，默认为 <code>true</code> 。</li>
@@ -290,21 +295,21 @@
 <li><strong>exclude</strong> - 排除文件。</li>
 </ul>
 <h4 id="图片优化"><a href="#图片优化" class="headerlink" title="图片优化"></a>图片优化</h4><hr>
-<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-attr">image_minifier:</span>
-<span class="hljs-attr">  enable:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">  interlaced:</span> <span class="hljs-literal">false</span>
-<span class="hljs-attr">  multipass:</span> <span class="hljs-literal">false</span>
-<span class="hljs-attr">  optimizationLevel:</span> <span class="hljs-number">2</span>
-<span class="hljs-attr">  pngquant:</span> <span class="hljs-literal">false</span>
-<span class="hljs-attr">  progressive:</span> <span class="hljs-literal">false</span>
-<span class="hljs-attr">  silent:</span> <span class="hljs-literal">false</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">image_minifier:</span>
+  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span>
+  <span class="hljs-attr">interlaced:</span> <span class="hljs-literal">false</span>
+  <span class="hljs-attr">multipass:</span> <span class="hljs-literal">false</span>
+  <span class="hljs-attr">optimizationLevel:</span> <span class="hljs-number">2</span>
+  <span class="hljs-attr">pngquant:</span> <span class="hljs-literal">false</span>
+  <span class="hljs-attr">progressive:</span> <span class="hljs-literal">false</span>
+  <span class="hljs-attr">silent:</span> <span class="hljs-literal">false</span></code></pre></div>
 
 <ul>
 <li><strong>enable</strong> - 开启 image minifier. 默认为 <code>true</code> 。</li>
 <li><strong>interlaced</strong> - Interlace gif for progressive rendering. 默认为 <code>false</code> 。</li>
 <li><strong>multipass</strong> - 多次优化 svg 图片，直到完全优化。默认为 <code>false</code> 。</li>
 <li><strong>optimizationLevel</strong> - 选择一个 0 - 7 之间的图片优化等级，默认为 <code>2</code> 。</li>
-<li><strong>pngquant</strong> - 开启 <a href="https://github.com/imagemin/imagemin-pngquant" target="_blank" rel="noopener">imagemin-pngquant</a> 插件。默认为 <code>false</code> 。</li>
+<li><strong>pngquant</strong> - 开启 <a target="_blank" rel="noopener" href="https://github.com/imagemin/imagemin-pngquant">imagemin-pngquant</a> 插件。默认为 <code>false</code> 。</li>
 <li><strong>progressive</strong> - Lossless conversion to progressive.默认为 <code>false</code> 。</li>
 <li><strong>silent</strong> - 禁用日志优化，默认为 <code>false</code> 。</li>
 <li><strong>exclude</strong> - 排除特定类型的图片文件。可选的值有 <code>gif</code>,<code>jpg</code>, <code>png</code>, or <code>svg</code> 。默认为 <code>null</code> ，不支持 Glob 。</li>
@@ -318,7 +323,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/博客/">博客</a>
+                      <a class="hover-with-bg" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a>
                     
                   </div>
                 
@@ -328,13 +333,13 @@
                     
                       <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
                     
-                      <a class="hover-with-bg" href="/tags/博客/">博客</a>
+                      <a class="hover-with-bg" href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
                     
                   </div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -389,7 +394,7 @@
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

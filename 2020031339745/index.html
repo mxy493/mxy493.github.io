@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Leetcode 169.多数元素【C++】 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -228,17 +233,17 @@
             
             <div class="markdown-body" id="post-body">
               <blockquote>
-<p>地址：<a href="https://leetcode-cn.com/problems/majority-element" target="_blank" rel="noopener">https://leetcode-cn.com/problems/majority-element</a></p>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/majority-element">https://leetcode-cn.com/problems/majority-element</a></p>
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 <code>⌊ n/2 ⌋</code> 的元素。</p>
 <p>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p>
 <p><strong>示例 1:</strong></p>
-<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-section">输入: [3,2,3]</span>
-<span class="hljs-section">输出: 3</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs angelscript">输入: [<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]
+输出: <span class="hljs-number">3</span></code></pre></div>
 
 <p><strong>示例 2:</strong></p>
-<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-section">输入: [2,2,1,1,1,2,2]</span>
-<span class="hljs-section">输出: 2</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs angelscript">输入: [<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]
+输出: <span class="hljs-number">2</span></code></pre></div>
 
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>思路很简单，就是遍历数组记录每一个元素的个数，由于最终是要返回元素，所以需要将元素和其个数成对保存，我使用了 <code>vector&lt;pair&lt;int, int&gt;&gt;</code> 的数组来存储。</p>
 <p>遍历数组，先到 <code>aNums[]</code> 中查找 <code>num</code> 是否已存在，如果已存在则将其个数+1；不存在，则将其添加到 <code>aNums[]</code> 并将其个数初始化为1。</p>
@@ -247,13 +252,13 @@
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">majorityElement</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
         <span class="hljs-comment">//可作为跳出循环的条件，因为多数元素只存在一个</span>
-        <span class="hljs-keyword">int</span> low = nums.size() / <span class="hljs-number">2</span>;
-        <span class="hljs-built_in">vector</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; aNums;<span class="hljs-comment">//保存元素及其个数</span>
+        <span class="hljs-keyword">int</span> low = nums.<span class="hljs-built_in">size</span>() / <span class="hljs-number">2</span>;
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; aNums;<span class="hljs-comment">//保存元素及其个数</span>
         <span class="hljs-comment">//统计不同元素的个数，一旦某个元素的个数大于low则可直接返回这个元素</span>
         <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> num : nums) &#123;
             <span class="hljs-keyword">int</span> quantity = <span class="hljs-number">0</span>;<span class="hljs-comment">//num的个数</span>
             <span class="hljs-comment">//查找aNums[]中是否已有num的记录</span>
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; aNums.size(); i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; aNums.<span class="hljs-built_in">size</span>(); i++) &#123;
                 <span class="hljs-comment">//如果有的话，将其数量+1，并更新quantity</span>
                 <span class="hljs-keyword">if</span> (aNums[i].first == num) &#123;
                     aNums[i].second++;
@@ -298,7 +303,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -353,7 +358,7 @@
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

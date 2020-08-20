@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Leetcode 409.最长回文串【C++】 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -178,7 +183,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      534 字
+      538 字
     </span>
   
 
@@ -228,20 +233,20 @@
             
             <div class="markdown-body" id="post-body">
               <blockquote>
-<p>地址：<a href="https://leetcode-cn.com/problems/longest-palindrome/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/longest-palindrome/</a></p>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-palindrome/">https://leetcode-cn.com/problems/longest-palindrome/</a></p>
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。</p>
 <p>在构造过程中，请注意区分大小写。比如 <code>&quot;Aa&quot;</code> 不能当做一个回文字符串。</p>
 <p><strong>注意:</strong><br>假设字符串的长度不会超过 <code>1010</code>。</p>
 <p><strong>示例 1:</strong></p>
-<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-section">输入:</span>
-<span class="hljs-string">"abccccdd"</span>
+<div class="hljs"><pre><code class="hljs makefile"><span class="hljs-section">输入:</span>
+<span class="hljs-string">&quot;abccccdd&quot;</span>
 
 <span class="hljs-section">输出:</span>
 7
 
 <span class="hljs-section">解释:</span>
-我们可以构造的最长的回文串是<span class="hljs-string">"dccaccd"</span>, 它的长度是 7。</code></pre></div>
+我们可以构造的最长的回文串是<span class="hljs-string">&quot;dccaccd&quot;</span>, 它的长度是 7。</code></pre></div>
 
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>解题思路还是很容易想到的，回文串的特征很明显，就是左右对称，也就是说只有正中可能存在单个的字符，其余的字符都一定是偶数个。</p>
 <p>所以我很快就想到了统计字符串中不同字符的个数，使用了一个 <code>vector&lt;pair&lt;char, int&gt;&gt;</code> 类型的数组 <code>count</code> 用于保存每个字符及其对应的个数。</p>
@@ -251,10 +256,10 @@
     <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">longestPalindrome</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s)</span> </span>&#123;
         <span class="hljs-keyword">int</span> length = <span class="hljs-number">0</span>;<span class="hljs-comment">//返回值默认为0</span>
         <span class="hljs-comment">//统计每个字符的个数</span>
-        <span class="hljs-built_in">vector</span>&lt;pair&lt;<span class="hljs-keyword">char</span>, <span class="hljs-keyword">int</span>&gt;&gt; count;
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">char</span>, <span class="hljs-keyword">int</span>&gt;&gt; count;
         <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> c : s) &#123;
             <span class="hljs-keyword">bool</span> exist = <span class="hljs-literal">false</span>;
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; count.size(); i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; count.<span class="hljs-built_in">size</span>(); i++) &#123;
                 <span class="hljs-keyword">if</span> (c == count[i].first) &#123;
                     count[i].second++;
                     exist = <span class="hljs-literal">true</span>;
@@ -310,7 +315,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -365,7 +370,7 @@
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

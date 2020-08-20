@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Hexo博客使用插件hexo-abbrlink生成永久短链接 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -228,16 +233,16 @@
             
             <div class="markdown-body" id="post-body">
               <h1 id="一、简述"><a href="#一、简述" class="headerlink" title="一、简述"></a>一、简述</h1><p>使用Hexo搭建博客已经有很长一段时间了，文章的链接也一直是使用的默认格式，文章的链接格式可以在博客根目录下的 <code>_config.yml</code> 文件中修改，默认的配置如下所示，最终生成的链接大概是这样的：<a href="https://mxy493.xyz/2020/07/04/title">https://mxy493.xyz/2020/07/04/title</a> 。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">url:</span> <span class="hljs-attr">https://mxy493.xyz</span>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">url:</span> <span class="hljs-string">https://mxy493.xyz</span>
 <span class="hljs-attr">root:</span> <span class="hljs-string">/</span>
 <span class="hljs-attr">permalink:</span> <span class="hljs-string">:year/:month/:day/:title/</span>
 <span class="hljs-attr">permalink_defaults:</span></code></pre></div>
 
-<p>更多关于永久链接的配置可以参考Hexo的官方文档：<a href="https://hexo.io/zh-cn/docs/permalinks" target="_blank" rel="noopener">永久链接（Permalinks）</a></p>
+<p>更多关于永久链接的配置可以参考Hexo的官方文档：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/permalinks">永久链接（Permalinks）</a></p>
 <p>如果说文章的标题是英文，那么生成的链接还是比较简洁的，但如果是是中文的标题，比如2020年7月1日的标题为“成都有计算机方向岗位的互联网公司”的文章生成的文章链接将是这样的：<code>http://mxy493.xyz/2020/07/01/%E6%88%90%E9%83%BD%E6%9C%89%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%96%B9%E5%90%91%E5%B2%97%E4%BD%8D%E7%9A%84%E4%BA%92%E8%81%94%E7%BD%91%E5%85%AC%E5%8F%B8/</code></p>
 <p>可以看到，默认配置下中文标题的文章链接是很复杂的类似于乱码的状态，而同样的中文标题，本文要达到的效果将是这样的：<code>https://mxy493.xyz/2020070151339/</code></p>
-<h1 id="二、使用-hexo-abbrlink-生成短链接"><a href="#二、使用-hexo-abbrlink-生成短链接" class="headerlink" title="二、使用 hexo-abbrlink 生成短链接"></a>二、使用 hexo-abbrlink 生成短链接</h1><p>使用生成短链接的插件 <a href="https://github.com/rozbo/hexo-abbrlink" target="_blank" rel="noopener">hexo-abbrlink</a> 。</p>
-<p>hexo-abbrlink：<a href="https://github.com/rozbo/hexo-abbrlink" target="_blank" rel="noopener">https://github.com/rozbo/hexo-abbrlink</a></p>
+<h1 id="二、使用-hexo-abbrlink-生成短链接"><a href="#二、使用-hexo-abbrlink-生成短链接" class="headerlink" title="二、使用 hexo-abbrlink 生成短链接"></a>二、使用 hexo-abbrlink 生成短链接</h1><p>使用生成短链接的插件 <a target="_blank" rel="noopener" href="https://github.com/rozbo/hexo-abbrlink">hexo-abbrlink</a> 。</p>
+<p>hexo-abbrlink：<a target="_blank" rel="noopener" href="https://github.com/rozbo/hexo-abbrlink">https://github.com/rozbo/hexo-abbrlink</a></p>
 <p>在博客根目录下，使用如下命令安装插件：</p>
 <div class="hljs"><pre><code class="hljs shell">npm install hexo-abbrlink --save</code></pre></div>
 
@@ -246,30 +251,30 @@
 
 <p><strong>注意：</strong>末尾必须要有 <code>/</code> ，否则点击某博文的时候将进行下载操作而不是跳转到该博文！</p>
 <p>另外还需要添加如下的对该插件的配置项：</p>
-<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-comment"># abbrlink config</span>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-comment"># abbrlink config</span>
 <span class="hljs-attr">abbrlink:</span>
-<span class="hljs-attr">  alg:</span> <span class="hljs-string">crc16</span>  <span class="hljs-comment">#support crc16(default) and crc32</span>
-<span class="hljs-attr">  rep:</span> <span class="hljs-string">dec</span>    <span class="hljs-comment">#support dec(default) and hex</span>
-<span class="hljs-attr">  drafts:</span> <span class="hljs-literal">false</span> <span class="hljs-comment">#(true)Process draft,(false)Do not process draft</span>
+  <span class="hljs-attr">alg:</span> <span class="hljs-string">crc16</span>  <span class="hljs-comment">#support crc16(default) and crc32</span>
+  <span class="hljs-attr">rep:</span> <span class="hljs-string">dec</span>    <span class="hljs-comment">#support dec(default) and hex</span>
+  <span class="hljs-attr">drafts:</span> <span class="hljs-literal">false</span> <span class="hljs-comment">#(true)Process draft,(false)Do not process draft</span>
   <span class="hljs-comment"># Generate categories from directory-tree</span>
   <span class="hljs-comment"># depth: the max_depth of directory-tree you want to generate, should &gt; 0</span>
-<span class="hljs-attr">  auto_category:</span>
-<span class="hljs-attr">     enable:</span> <span class="hljs-literal">false</span>
-<span class="hljs-attr">     depth:</span></code></pre></div>
+  <span class="hljs-attr">auto_category:</span>
+     <span class="hljs-attr">enable:</span> <span class="hljs-literal">false</span>
+     <span class="hljs-attr">depth:</span></code></pre></div>
 
 <p><strong>注意：</strong>必须完整添加上述所有配置（可能是bug，当前版本为2.1.5，也许后续会修复），否则会生成失败！</p>
 <p>不同参数的效果如下所示：</p>
-<div class="hljs"><pre><code class="hljs undefined">crc16 <span class="hljs-meta">&amp; hex</span>
-https:<span class="hljs-comment">//post.zz173.com/posts/66c8.html</span>
+<div class="hljs"><pre><code class="hljs awk">crc16 &amp; hex
+https:<span class="hljs-regexp">//</span>post.zz173.com<span class="hljs-regexp">/posts/</span><span class="hljs-number">66</span>c8.html
 
-crc16 <span class="hljs-meta">&amp; dec</span>
-https:<span class="hljs-comment">//post.zz173.com/posts/65535.html</span>
+crc16 &amp; dec
+https:<span class="hljs-regexp">//</span>post.zz173.com<span class="hljs-regexp">/posts/</span><span class="hljs-number">65535</span>.html
 
-crc32 <span class="hljs-meta">&amp; hex</span>
-https:<span class="hljs-comment">//post.zz173.com/posts/8ddf18fb.html</span>
+crc32 &amp; hex
+https:<span class="hljs-regexp">//</span>post.zz173.com<span class="hljs-regexp">/posts/</span><span class="hljs-number">8</span>ddf18fb.html
 
-crc32 <span class="hljs-meta">&amp; dec</span>
-https:<span class="hljs-comment">//post.zz173.com/posts/1690090958.html</span></code></pre></div>
+crc32 &amp; dec
+https:<span class="hljs-regexp">//</span>post.zz173.com<span class="hljs-regexp">/posts/</span><span class="hljs-number">1690090958</span>.html</code></pre></div>
 
 <p>最后，感谢开发者开发的这么好用的插件(╹ڡ╹ )</p>
 
@@ -281,7 +286,7 @@ https:<span class="hljs-comment">//post.zz173.com/posts/1690090958.html</span></
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/博客/">博客</a>
+                      <a class="hover-with-bg" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a>
                     
                   </div>
                 
@@ -291,13 +296,13 @@ https:<span class="hljs-comment">//post.zz173.com/posts/1690090958.html</span></
                     
                       <a class="hover-with-bg" href="/tags/Hexo/">Hexo</a>
                     
-                      <a class="hover-with-bg" href="/tags/博客/">博客</a>
+                      <a class="hover-with-bg" href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
                     
                   </div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -352,7 +357,7 @@ https:<span class="hljs-comment">//post.zz173.com/posts/1690090958.html</span></
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

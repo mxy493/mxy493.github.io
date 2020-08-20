@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>美团笔试题 - 不一样的逆序数 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -234,22 +239,22 @@
 <p>输入一个正整数n，n&lt;1e7。</p>
 <h2 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述"></a>输出描述</h2><p>第一行输出在不超过n的前提下有多少对逆序数，接下来每一行输出一对逆序数，以空格分隔。如果有多组逆序数，按照第一个数升序输出。</p>
 <p>如果没有一对逆序数则直接输出0即可。</p>
-<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><div class="hljs"><pre><code class="hljs undefined"><span class="hljs-number">10000</span></code></pre></div>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-number">10000</span></code></pre></div>
 
-<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><div class="hljs"><pre><code class="hljs undefined"><span class="hljs-number">1</span>
+<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><div class="hljs"><pre><code class="hljs basic"><span class="hljs-number">1</span>
 <span class="hljs-symbol">2178 </span><span class="hljs-number">8712</span></code></pre></div>
 
-<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><div class="hljs"><pre><code class="hljs undefined">在本题目的情景中我们认为：<span class="hljs-number">1234</span>的逆序数为<span class="hljs-number">4321</span>，<span class="hljs-number">1100</span>的逆序数为<span class="hljs-number">11</span></code></pre></div>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><div class="hljs"><pre><code class="hljs angelscript">在本题目的情景中我们认为：<span class="hljs-number">1234</span>的逆序数为<span class="hljs-number">4321</span>，<span class="hljs-number">1100</span>的逆序数为<span class="hljs-number">11</span></code></pre></div>
 
 <h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>其实这种题，思路并不难，暴力解遍历加判断就可以解决！</p>
 <p>但也显然的，这题为的就是让我们剔除大多数的无用数据，以更高的效率解题，直接遍历会超时的~</p>
 <p>很遗憾我笔试过程中真就没想出来怎么去剔除无用数据，不过笔试结束后仔细想了想，还是发现了一些规律。我们学过数学有点基础都知道，乘法运算末位数直接关系到结果的末位数，就从这一点入手，列表观察一下：</p>
-<div class="hljs"><pre><code class="hljs undefined">以<span class="hljs-keyword">x</span>结尾的数: <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>
-<span class="hljs-number">4</span>*<span class="hljs-keyword">x</span>的末位数: <span class="hljs-number">0</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>, <span class="hljs-number">2</span>, <span class="hljs-number">6</span>, <span class="hljs-number">0</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>, <span class="hljs-number">2</span>, <span class="hljs-number">6</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs angelscript">以x结尾的数: <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>
+<span class="hljs-number">4</span>*x的末位数: <span class="hljs-number">0</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>, <span class="hljs-number">2</span>, <span class="hljs-number">6</span>, <span class="hljs-number">0</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>, <span class="hljs-number">2</span>, <span class="hljs-number">6</span></code></pre></div>
 
 <p>这时候再考虑一下题目要找的是 <code>4*x</code> 和 <code>x</code> 的逆序数相等这个 <code>x</code> ，那我们现在根据上面的规律再观察一下逆序数呢~</p>
-<div class="hljs"><pre><code class="hljs undefined">以<span class="hljs-keyword">x</span>结尾的数: <span class="hljs-number">0</span>xx<span class="hljs-number">0</span>, <span class="hljs-number">4</span>xx<span class="hljs-number">1</span>, <span class="hljs-number">8</span>xx<span class="hljs-number">2</span>, <span class="hljs-number">2</span>xx<span class="hljs-number">3</span>, <span class="hljs-number">6</span>xx<span class="hljs-number">4</span>, <span class="hljs-number">0</span>xx<span class="hljs-number">5</span>, <span class="hljs-number">4</span>xx<span class="hljs-number">6</span>, <span class="hljs-number">8</span>xx<span class="hljs-number">7</span>, <span class="hljs-number">2</span>xx<span class="hljs-number">8</span>, <span class="hljs-number">6</span>xx<span class="hljs-number">9</span>
-<span class="hljs-number">4</span>*<span class="hljs-keyword">x</span>的末位数: <span class="hljs-number">0</span>xx<span class="hljs-number">0</span>, <span class="hljs-number">1</span>xx<span class="hljs-number">4</span>, <span class="hljs-number">2</span>xx<span class="hljs-number">8</span>, <span class="hljs-number">3</span>xx<span class="hljs-number">2</span>, <span class="hljs-number">4</span>xx<span class="hljs-number">6</span>, <span class="hljs-number">5</span>xx<span class="hljs-number">0</span>, <span class="hljs-number">6</span>xx<span class="hljs-number">4</span>, <span class="hljs-number">7</span>xx<span class="hljs-number">8</span>, <span class="hljs-number">8</span>xx<span class="hljs-number">2</span>, <span class="hljs-number">9</span>xx<span class="hljs-number">6</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs angelscript">以x结尾的数: <span class="hljs-number">0</span>xx0, <span class="hljs-number">4</span>xx1, <span class="hljs-number">8</span>xx2, <span class="hljs-number">2</span>xx3, <span class="hljs-number">6</span>xx4, <span class="hljs-number">0</span>xx5, <span class="hljs-number">4</span>xx6, <span class="hljs-number">8</span>xx7, <span class="hljs-number">2</span>xx8, <span class="hljs-number">6</span>xx9
+<span class="hljs-number">4</span>*x的末位数: <span class="hljs-number">0</span>xx0, <span class="hljs-number">1</span>xx4, <span class="hljs-number">2</span>xx8, <span class="hljs-number">3</span>xx2, <span class="hljs-number">4</span>xx6, <span class="hljs-number">5</span>xx0, <span class="hljs-number">6</span>xx4, <span class="hljs-number">7</span>xx8, <span class="hljs-number">8</span>xx2, <span class="hljs-number">9</span>xx6</code></pre></div>
 
 <p>看到这儿，是不是有头绪了，我们来分析一下：</p>
 <ol>
@@ -261,7 +266,7 @@
 </ol>
 <p>都分析到这一步了就太简单了，只需要在遍历的时候只遍历以8结尾的数即可，以python为例可以这样 <code>for n in range(8, num + 1, 10)</code> ，不过还可以再过滤掉一些，因为有了以上的基础，可以很容易得到第一个符合条件的正整数是 <code>2178</code> ，也就是说2178之前的数也是没必要遍历的，如果输入的正整数 <code>n &lt; 2178</code> ，那么按照题意直接打印 <code>&#39;0&#39;</code> 即可。</p>
 <p><strong>注：</strong>写到这里，我发现自己竟然遗漏了一些东西，其实根据上面的分析，可能的数据必然是2xx8的形式，所以还应该筛选一下以2开头的数，只需要做一点小小的更改就可以了，改进后的代码也放在后面<strong>源码二</strong>中了。</p>
-<h1 id="源码一"><a href="#源码一" class="headerlink" title="源码一"></a>源码一</h1><div class="hljs"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inverse_number</span><span class="hljs-params">()</span>:</span>
+<h1 id="源码一"><a href="#源码一" class="headerlink" title="源码一"></a>源码一</h1><div class="hljs"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inverse_number</span>():</span>
     num = int(input())
     <span class="hljs-comment"># 不存在小于8的符合条件的正整数</span>
     <span class="hljs-keyword">if</span> num &lt; <span class="hljs-number">8</span>:
@@ -274,15 +279,15 @@
         n4 = <span class="hljs-number">4</span> * n  <span class="hljs-comment"># n的4倍</span>
         <span class="hljs-keyword">if</span> n4 == rev:
             exist = <span class="hljs-literal">True</span>
-            print(str(n) + <span class="hljs-string">' '</span> + str(rev))
+            print(str(n) + <span class="hljs-string">&#x27; &#x27;</span> + str(rev))
     <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> exist:
         print(<span class="hljs-number">0</span>)
 
 
-<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:
     inverse_number()</code></pre></div>
 
-<h1 id="源码二"><a href="#源码二" class="headerlink" title="源码二"></a>源码二</h1><div class="hljs"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inverse_number</span><span class="hljs-params">()</span>:</span>
+<h1 id="源码二"><a href="#源码二" class="headerlink" title="源码二"></a>源码二</h1><div class="hljs"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inverse_number</span>():</span>
     num = int(input())
     <span class="hljs-comment"># 不存在小于8的符合条件的正整数</span>
     <span class="hljs-keyword">if</span> num &lt; <span class="hljs-number">8</span>:
@@ -302,13 +307,13 @@
         n4 = <span class="hljs-number">4</span> * n  <span class="hljs-comment"># n的4倍</span>
         <span class="hljs-keyword">if</span> n4 == rev:
             exist = <span class="hljs-literal">True</span>
-            print(str(n) + <span class="hljs-string">' '</span> + str(rev))
+            print(str(n) + <span class="hljs-string">&#x27; &#x27;</span> + str(rev))
         n += <span class="hljs-number">10</span>
     <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> exist:
         print(<span class="hljs-number">0</span>)
 
 
-<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:
     inverse_number()</code></pre></div>
             </div>
             <hr>
@@ -319,18 +324,24 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/笔经/">笔经</a>
+                      <a class="hover-with-bg" href="/tags/%E7%AC%94%E7%BB%8F/">笔经</a>
                     
                   </div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2020082054347/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Leetcode 647. 回文子串【C++】</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
@@ -374,7 +385,7 @@
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

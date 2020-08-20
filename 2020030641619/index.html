@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Leetcode 345.反转字符串中的元音字母【C++】 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -178,7 +183,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      336 字
+      364 字
     </span>
   
 
@@ -188,7 +193,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      5
        分钟
     </span>
   
@@ -228,16 +233,16 @@
             
             <div class="markdown-body" id="post-body">
               <blockquote>
-<p>地址：<a href="https://leetcode-cn.com/problems/reverse-vowels-of-a-string/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/reverse-vowels-of-a-string/</a></p>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-vowels-of-a-string/">https://leetcode-cn.com/problems/reverse-vowels-of-a-string/</a></p>
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>编写一个函数，以字符串作为输入，反转该字符串中的元音字母。</p>
 <p><strong>示例 1:</strong></p>
-<div class="hljs"><pre><code class="hljs undefined">输入: <span class="hljs-string">"hello"</span>
-输出: <span class="hljs-string">"holle"</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs 1c">输入: <span class="hljs-string">&quot;hello&quot;</span>
+输出: <span class="hljs-string">&quot;holle&quot;</span></code></pre></div>
 
 <p><strong>示例 2:</strong></p>
-<div class="hljs"><pre><code class="hljs undefined">输入: <span class="hljs-string">"leetcode"</span>
-输出: <span class="hljs-string">"leotcede"</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs 1c">输入: <span class="hljs-string">&quot;leetcode&quot;</span>
+输出: <span class="hljs-string">&quot;leotcede&quot;</span></code></pre></div>
 
 <p><strong>说明:</strong></p>
 <p>元音字母不包含字母”y”。</p>
@@ -268,8 +273,8 @@
         <span class="hljs-keyword">return</span> s;
     &#125;
     <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isVowel</span><span class="hljs-params">(<span class="hljs-keyword">char</span> c)</span> </span>&#123;
-        <span class="hljs-keyword">if</span> (c == <span class="hljs-string">'a'</span> || c == <span class="hljs-string">'e'</span> || c == <span class="hljs-string">'i'</span> || c == <span class="hljs-string">'o'</span> || c == <span class="hljs-string">'u'</span>||
-            c == <span class="hljs-string">'A'</span> || c == <span class="hljs-string">'E'</span> || c == <span class="hljs-string">'I'</span> || c == <span class="hljs-string">'O'</span> || c == <span class="hljs-string">'U'</span>)
+        <span class="hljs-keyword">if</span> (c == <span class="hljs-string">&#x27;a&#x27;</span> || c == <span class="hljs-string">&#x27;e&#x27;</span> || c == <span class="hljs-string">&#x27;i&#x27;</span> || c == <span class="hljs-string">&#x27;o&#x27;</span> || c == <span class="hljs-string">&#x27;u&#x27;</span>||
+            c == <span class="hljs-string">&#x27;A&#x27;</span> || c == <span class="hljs-string">&#x27;E&#x27;</span> || c == <span class="hljs-string">&#x27;I&#x27;</span> || c == <span class="hljs-string">&#x27;O&#x27;</span> || c == <span class="hljs-string">&#x27;U&#x27;</span>)
             <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
         <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
     &#125;
@@ -300,7 +305,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -355,7 +360,7 @@
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

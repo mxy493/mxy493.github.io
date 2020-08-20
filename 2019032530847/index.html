@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Windows平台使用Doxygen+GraphViz生成函数调用关系图 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -227,41 +232,41 @@
               </p>
             
             <div class="markdown-body" id="post-body">
-              <p>​    刚做了数据结构课程设计，报告要求给出函数调用关系图，然后就想有没有自动生成的工具，所以上网搜了下，总结下搜到的内容大概三类<a id="more"></a>：一是用VS的 <a href="https://docs.microsoft.com/en-us/visualstudio/modeling/map-dependencies-across-your-solutions?view=vs-2017" target="_blank" rel="noopener">code maps</a> ，但是前提是必须是专业版或者企业版，社区版无法安装这个组件；第二个是用 CodeViz 和 Graphviz 实现的，具体怎么操作我也没试过了；然后就是我现在要说的，也是网上比较多的一种方案，用 Doxygen + GraphViz 自动生成。</p>
+              <p>​    刚做了数据结构课程设计，报告要求给出函数调用关系图，然后就想有没有自动生成的工具，所以上网搜了下，总结下搜到的内容大概三类<a id="more"></a>：一是用VS的 <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/visualstudio/modeling/map-dependencies-across-your-solutions?view=vs-2017">code maps</a> ，但是前提是必须是专业版或者企业版，社区版无法安装这个组件；第二个是用 CodeViz 和 Graphviz 实现的，具体怎么操作我也没试过了；然后就是我现在要说的，也是网上比较多的一种方案，用 Doxygen + GraphViz 自动生成。</p>
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>如题所述，需要用到两个软件：</p>
-<p><strong>Doxygen</strong> ：<a href="http://www.doxygen.nl/" target="_blank" rel="noopener">http://www.doxygen.nl/</a> 【<a href="http://doxygen.nl/files/doxygen-1.8.15-setup.exe" target="_blank" rel="noopener">下载</a>】</p>
-<p><strong>GraphViz</strong> ：<a href="http://www.graphviz.org/" target="_blank" rel="noopener">http://www.graphviz.org/</a>【<a href="https://graphviz.gitlab.io/_pages/Download/windows/graphviz-2.38.zip" target="_blank" rel="noopener">下载</a>】</p>
+<p><strong>Doxygen</strong> ：<a target="_blank" rel="noopener" href="http://www.doxygen.nl/">http://www.doxygen.nl/</a> 【<a target="_blank" rel="noopener" href="http://doxygen.nl/files/doxygen-1.8.15-setup.exe">下载</a>】</p>
+<p><strong>GraphViz</strong> ：<a target="_blank" rel="noopener" href="http://www.graphviz.org/">http://www.graphviz.org/</a>【<a target="_blank" rel="noopener" href="https://graphviz.gitlab.io/_pages/Download/windows/graphviz-2.38.zip">下载</a>】</p>
 <p>点击【下载】可以直接下载官方的安装包</p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装步骤很简单，除了安装路径可以自己改一下，其它默认就行，一路 next 下去就安装好了</p>
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>主要是配置Doxygen，GraphViz安装好放那儿就行了</p>
 <p>运行Doxywizard，界面如图：</p>
-<p><img src="interface.png" srcset="/img/loading.gif" alt></p>
+<p><img src="interface.png" srcset="/img/loading.gif"></p>
 <p>1.工作目录需要设置一下，随便设一个空文件夹就可以，项目名称是你项目的名称，其实写什么不重要，最后生成的是一个HTML的网页，项目名称就是这个网页的名字，源码地址必须要设置正确，也就是程序代码的文件夹路径，递进扫描勾选上没坏处吧，然后自己输出路径选一个位置保存，设置完点击右下角 <code>Next</code></p>
-<p><img src="1.png" srcset="/img/loading.gif" alt></p>
+<p><img src="1.png" srcset="/img/loading.gif"></p>
 <p>2.如图勾选上就行，<code>Next</code></p>
-<p><img src="2.png" srcset="/img/loading.gif" alt></p>
+<p><img src="2.png" srcset="/img/loading.gif"></p>
 <p>3.默认就可以，红框的选项对生成的函数调用图没什么影响，<code>Change color...</code> 可以更改颜色，下面PDF相关的，默认所有的图片都会生成一个PDF文件，继续 <code>Next</code></p>
-<p><img src="3.png" srcset="/img/loading.gif" alt></p>
+<p><img src="3.png" srcset="/img/loading.gif"></p>
 <p>4.这一步很重要，这就使用到我们安装的 GraphViz 了，如图勾选上，继续 <code>Next</code></p>
-<p><img src="4.png" srcset="/img/loading.gif" alt></p>
+<p><img src="4.png" srcset="/img/loading.gif"></p>
 <p>5.上一个点击 <code>Next</code> 后实际上直接跳到了 <code>Run</code> 标签页，但是还要进行一些设置，所以点击左侧的 <code>Expert</code> 标签，<code>Topics</code> 列表中第一项 <code>Project</code> ，如图，默认为English，可以修改为 <code>Chinese</code> ，但是这一步的语言并不影响生成的函数调用图，只是最后生成的网页为中文</p>
-<p><img src="5.png" srcset="/img/loading.gif" alt></p>
+<p><img src="5.png" srcset="/img/loading.gif"></p>
 <p>6.左侧选择 <code>Build</code> ，如图将右侧前面几项勾选上</p>
-<p><img src="6.png" srcset="/img/loading.gif" alt></p>
+<p><img src="6.png" srcset="/img/loading.gif"></p>
 <p>7.左侧往下滑找到 <code>Dot</code> ，如图把对应的勾选上</p>
-<p><img src="7.png" srcset="/img/loading.gif" alt></p>
+<p><img src="7.png" srcset="/img/loading.gif"></p>
 <p>8.还是 <code>Dot</code> 往下滑，如图把对应的勾选上，<code>DOT_IMAGE_FORMAT</code> 也就是生成的图片的格式，自己根据自己需要选择</p>
-<p><img src="8.png" srcset="/img/loading.gif" alt></p>
+<p><img src="8.png" srcset="/img/loading.gif"></p>
 <p>9.关于图片格式简单说一下，自动生成的 png ， jpg 和 gif 格式清晰度都比较低，svg 格式是矢量图，清晰度肯定是没问题的，不过 svg 格式图片不能用一般的图片查看器查看，电脑上浏览器就可以查看，如果是要插入到WORD中那也是没问题的，自己可以根据需要选择，前面第③步也提到了函数调用图会生成 PDF 文件，PDF格式的函数调用图也是清晰的</p>
-<p><img src="9.png" srcset="/img/loading.gif" alt></p>
+<p><img src="9.png" srcset="/img/loading.gif"></p>
 <p>10.到此所有的设置就已经设好了，再将标签页切换到 <code>Run</code> ，点击左侧的 <code>Run doxygen</code> 即可，等待程序自动运行直至结束</p>
-<p><img src="10.png" srcset="/img/loading.gif" alt></p>
+<p><img src="10.png" srcset="/img/loading.gif"></p>
 <p>11.如图输出 <code>Doxygen has finished</code> 的提示就已经完成了，点击左下角的 <code>Show HTML output</code> 就可以通过浏览器查看生成的函数调用图了，所有生成的文件也可以在第一步设置的保存位置找到</p>
-<p><img src="11.png" srcset="/img/loading.gif" alt></p>
+<p><img src="11.png" srcset="/img/loading.gif"></p>
 <p>12.Doxygen软件默认不会保存你做的这些设置，但是可以手动保存，下一次使用的时候就可以只更改不同的设置就可以了</p>
-<p><img src="12.png" srcset="/img/loading.gif" alt></p>
+<p><img src="12.png" srcset="/img/loading.gif"></p>
 <h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p>附上一个效果图</p>
-<p><img src="library.svg" srcset="/img/loading.gif" alt></p>
+<p><img src="library.svg" srcset="/img/loading.gif"></p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>以上仅作为个人学习记录，为了写自己的课设报告，参考的网上的教程一步步做的，对 Doxygen 以及 GraphViz 我也并不太了解，有需要再深入学习吧，现在能作为工具用好它们也就可以了！</p>
 
             </div>
@@ -283,7 +288,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -338,7 +343,7 @@
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

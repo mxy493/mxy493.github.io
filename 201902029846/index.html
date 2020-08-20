@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Leetcode 有效的字母异位词 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -178,7 +183,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      370 字
+      378 字
     </span>
   
 
@@ -228,17 +233,17 @@
             
             <div class="markdown-body" id="post-body">
               <blockquote>
-<p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/35/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/35/</a></p>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/35/">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/35/</a></p>
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定两个字符串 <em>s</em> 和 <em>t</em> ，编写一个函数来判断 <em>t</em> 是否是 <em>s</em> 的一个字母异位词。</p>
 <a id="more"></a>
 
 <p><strong>示例 1:</strong></p>
-<div class="hljs"><pre><code class="hljs undefined">输入: <span class="hljs-attr">s</span> = <span class="hljs-string">"anagram"</span>, <span class="hljs-attr">t</span> = <span class="hljs-string">"nagaram"</span>
+<div class="hljs"><pre><code class="hljs nix">输入: <span class="hljs-attr">s</span> = <span class="hljs-string">&quot;anagram&quot;</span>, <span class="hljs-attr">t</span> = <span class="hljs-string">&quot;nagaram&quot;</span>
 输出: <span class="hljs-literal">true</span></code></pre></div>
 
 <p><strong>示例 2:</strong></p>
-<div class="hljs"><pre><code class="hljs undefined">输入: <span class="hljs-attr">s</span> = <span class="hljs-string">"rat"</span>, <span class="hljs-attr">t</span> = <span class="hljs-string">"car"</span>
+<div class="hljs"><pre><code class="hljs nix">输入: <span class="hljs-attr">s</span> = <span class="hljs-string">&quot;rat&quot;</span>, <span class="hljs-attr">t</span> = <span class="hljs-string">&quot;car&quot;</span>
 输出: <span class="hljs-literal">false</span></code></pre></div>
 
 <p><strong>说明:</strong><br>你可以假设字符串只包含小写字母。</p>
@@ -253,10 +258,10 @@
             sc[i] = <span class="hljs-number">0</span>;
             tc[i] = <span class="hljs-number">0</span>;
         &#125;
-        <span class="hljs-keyword">if</span> (s.size() != t.size())   <span class="hljs-comment">//字符串大小不等显然不是有效的字母异位词</span>
+        <span class="hljs-keyword">if</span> (s.<span class="hljs-built_in">size</span>() != t.<span class="hljs-built_in">size</span>())   <span class="hljs-comment">//字符串大小不等显然不是有效的字母异位词</span>
             bl = <span class="hljs-literal">false</span>;
         <span class="hljs-keyword">else</span> &#123;    <span class="hljs-comment">//字符串大小相等的情况</span>
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.size(); i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.<span class="hljs-built_in">size</span>(); i++) &#123;
                 <span class="hljs-keyword">int</span> saddr = s[i] - <span class="hljs-number">97</span>;    <span class="hljs-comment">//转换字符s[i]作为数组sc[]的下标</span>
                 <span class="hljs-keyword">int</span> taddr = t[i] - <span class="hljs-number">97</span>;    <span class="hljs-comment">//同上</span>
                 sc[saddr]++;   <span class="hljs-comment">//统计以saddr为下标代表的字符在字符串s中出现的次数</span>
@@ -292,13 +297,13 @@
                     
                       <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
                     
-                      <a class="hover-with-bg" href="/tags/字符串/">字符串</a>
+                      <a class="hover-with-bg" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>
                     
                   </div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -353,7 +358,7 @@
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

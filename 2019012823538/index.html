@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Leetcode 有效的数独 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -178,7 +183,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      757 字
+      1.1k 字
     </span>
   
 
@@ -188,7 +193,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      17
        分钟
     </span>
   
@@ -228,7 +233,7 @@
             
             <div class="markdown-body" id="post-body">
               <blockquote>
-<p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/30/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/30/</a></p>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/30/">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/30/</a></p>
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>判断一个 9x9 的数独是否有效。只需要<strong>根据以下规则</strong>，验证已经填入的数字是否有效即可。</p>
 <a id="more"></a>
@@ -242,32 +247,32 @@
 <p>上图是一个部分填充的有效的数独。</p>
 <p>数独部分空格内已填入了数字，空白格用 <code>&#39;.&#39;</code> 表示。</p>
 <p><strong>示例 1:</strong></p>
-<div class="hljs"><pre><code class="hljs undefined">输入:
-[<span class="hljs-meta">
-  [<span class="hljs-meta-string">"5"</span>,<span class="hljs-meta-string">"3"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"7"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span></span>],
-  [<span class="hljs-meta"><span class="hljs-meta-string">"6"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"1"</span>,<span class="hljs-meta-string">"9"</span>,<span class="hljs-meta-string">"5"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span></span>],
-  [<span class="hljs-meta"><span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"9"</span>,<span class="hljs-meta-string">"8"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"6"</span>,<span class="hljs-meta-string">"."</span></span>],
-  [<span class="hljs-meta"><span class="hljs-meta-string">"8"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"6"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"3"</span></span>],
-  [<span class="hljs-meta"><span class="hljs-meta-string">"4"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"8"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"3"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"1"</span></span>],
-  [<span class="hljs-meta"><span class="hljs-meta-string">"7"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"2"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"6"</span></span>],
-  [<span class="hljs-meta"><span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"6"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"2"</span>,<span class="hljs-meta-string">"8"</span>,<span class="hljs-meta-string">"."</span></span>],
-  [<span class="hljs-meta"><span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"4"</span>,<span class="hljs-meta-string">"1"</span>,<span class="hljs-meta-string">"9"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"5"</span></span>],
-  [<span class="hljs-meta"><span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"8"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"7"</span>,<span class="hljs-meta-string">"9"</span></span>]
+<div class="hljs"><pre><code class="hljs csharp">输入:
+[<span class="hljs-meta"></span>
+<span class="hljs-meta">  [<span class="hljs-meta-string">&quot;5&quot;</span>,<span class="hljs-meta-string">&quot;3&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;7&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span></span>],
+  [<span class="hljs-meta"><span class="hljs-meta-string">&quot;6&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;1&quot;</span>,<span class="hljs-meta-string">&quot;9&quot;</span>,<span class="hljs-meta-string">&quot;5&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span></span>],
+  [<span class="hljs-meta"><span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;9&quot;</span>,<span class="hljs-meta-string">&quot;8&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;6&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span></span>],
+  [<span class="hljs-meta"><span class="hljs-meta-string">&quot;8&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;6&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;3&quot;</span></span>],
+  [<span class="hljs-meta"><span class="hljs-meta-string">&quot;4&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;8&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;3&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;1&quot;</span></span>],
+  [<span class="hljs-meta"><span class="hljs-meta-string">&quot;7&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;2&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;6&quot;</span></span>],
+  [<span class="hljs-meta"><span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;6&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;2&quot;</span>,<span class="hljs-meta-string">&quot;8&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span></span>],
+  [<span class="hljs-meta"><span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;4&quot;</span>,<span class="hljs-meta-string">&quot;1&quot;</span>,<span class="hljs-meta-string">&quot;9&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;5&quot;</span></span>],
+  [<span class="hljs-meta"><span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;8&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;7&quot;</span>,<span class="hljs-meta-string">&quot;9&quot;</span></span>]
 ]
 输出: <span class="hljs-literal">true</span></code></pre></div>
 
 <p><strong>示例 2:</strong></p>
-<div class="hljs"><pre><code class="hljs undefined">输入:
-[<span class="hljs-meta">
-  [<span class="hljs-meta-string">"8"</span>,<span class="hljs-meta-string">"3"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"7"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span></span>],
-  [<span class="hljs-meta"><span class="hljs-meta-string">"6"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"1"</span>,<span class="hljs-meta-string">"9"</span>,<span class="hljs-meta-string">"5"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span></span>],
-  [<span class="hljs-meta"><span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"9"</span>,<span class="hljs-meta-string">"8"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"6"</span>,<span class="hljs-meta-string">"."</span></span>],
-  [<span class="hljs-meta"><span class="hljs-meta-string">"8"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"6"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"3"</span></span>],
-  [<span class="hljs-meta"><span class="hljs-meta-string">"4"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"8"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"3"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"1"</span></span>],
-  [<span class="hljs-meta"><span class="hljs-meta-string">"7"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"2"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"6"</span></span>],
-  [<span class="hljs-meta"><span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"6"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"2"</span>,<span class="hljs-meta-string">"8"</span>,<span class="hljs-meta-string">"."</span></span>],
-  [<span class="hljs-meta"><span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"4"</span>,<span class="hljs-meta-string">"1"</span>,<span class="hljs-meta-string">"9"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"5"</span></span>],
-  [<span class="hljs-meta"><span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"8"</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"."</span>,<span class="hljs-meta-string">"7"</span>,<span class="hljs-meta-string">"9"</span></span>]
+<div class="hljs"><pre><code class="hljs csharp">输入:
+[<span class="hljs-meta"></span>
+<span class="hljs-meta">  [<span class="hljs-meta-string">&quot;8&quot;</span>,<span class="hljs-meta-string">&quot;3&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;7&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span></span>],
+  [<span class="hljs-meta"><span class="hljs-meta-string">&quot;6&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;1&quot;</span>,<span class="hljs-meta-string">&quot;9&quot;</span>,<span class="hljs-meta-string">&quot;5&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span></span>],
+  [<span class="hljs-meta"><span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;9&quot;</span>,<span class="hljs-meta-string">&quot;8&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;6&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span></span>],
+  [<span class="hljs-meta"><span class="hljs-meta-string">&quot;8&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;6&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;3&quot;</span></span>],
+  [<span class="hljs-meta"><span class="hljs-meta-string">&quot;4&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;8&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;3&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;1&quot;</span></span>],
+  [<span class="hljs-meta"><span class="hljs-meta-string">&quot;7&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;2&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;6&quot;</span></span>],
+  [<span class="hljs-meta"><span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;6&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;2&quot;</span>,<span class="hljs-meta-string">&quot;8&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span></span>],
+  [<span class="hljs-meta"><span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;4&quot;</span>,<span class="hljs-meta-string">&quot;1&quot;</span>,<span class="hljs-meta-string">&quot;9&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;5&quot;</span></span>],
+  [<span class="hljs-meta"><span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;8&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;.&quot;</span>,<span class="hljs-meta-string">&quot;7&quot;</span>,<span class="hljs-meta-string">&quot;9&quot;</span></span>]
 ]
 输出: <span class="hljs-literal">false</span>
 解释: 除了第一行的第一个数字从 <span class="hljs-number">5</span> 改为 <span class="hljs-number">8</span> 以外，空格内其他数字均与 示例<span class="hljs-number">1</span> 相同。
@@ -283,28 +288,28 @@
 <h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><div class="hljs"><pre><code class="hljs C++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isValidSudoku</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">char</span>&gt;&gt;&amp; board)</span> </span>&#123;
-        <span class="hljs-keyword">bool</span> isValid = <span class="hljs-literal">true</span>;
+        <span class="hljs-keyword">bool</span> <span class="hljs-built_in">isValid</span> = <span class="hljs-literal">true</span>;
         <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">9</span>; i++) &#123;
             <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">9</span>; j++) &#123;    <span class="hljs-comment">//判断i行</span>
-                <span class="hljs-keyword">if</span> (board[i][j] == <span class="hljs-string">'.'</span>)
+                <span class="hljs-keyword">if</span> (board[i][j] == <span class="hljs-string">&#x27;.&#x27;</span>)
                     <span class="hljs-keyword">continue</span>;
                 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = j + <span class="hljs-number">1</span>; k &lt; <span class="hljs-number">9</span>; k++) &#123;
-                    <span class="hljs-keyword">if</span> (board[i][k] == <span class="hljs-string">'.'</span>)
+                    <span class="hljs-keyword">if</span> (board[i][k] == <span class="hljs-string">&#x27;.&#x27;</span>)
                         <span class="hljs-keyword">continue</span>;
                     <span class="hljs-keyword">if</span> (board[i][j] == board[i][k]) &#123;  <span class="hljs-comment">//如果i行有两个数字相等跳转至函数返回语句</span>
-                        isValid = <span class="hljs-literal">false</span>;   <span class="hljs-comment">//置isValid为false</span>
+                        <span class="hljs-built_in">isValid</span> = <span class="hljs-literal">false</span>;   <span class="hljs-comment">//置isValid为false</span>
                         <span class="hljs-keyword">goto</span> label;   <span class="hljs-comment">//并跳转至函数返回语句</span>
                     &#125;
                 &#125;
             &#125;
             <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">9</span>; j++) &#123;    <span class="hljs-comment">//判断i列</span>
-                <span class="hljs-keyword">if</span> (board[j][i] == <span class="hljs-string">'.'</span>)
+                <span class="hljs-keyword">if</span> (board[j][i] == <span class="hljs-string">&#x27;.&#x27;</span>)
                     <span class="hljs-keyword">continue</span>;
                 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = j + <span class="hljs-number">1</span>; k &lt; <span class="hljs-number">9</span>; k++) &#123;
-                    <span class="hljs-keyword">if</span> (board[k][i] == <span class="hljs-string">'.'</span>)
+                    <span class="hljs-keyword">if</span> (board[k][i] == <span class="hljs-string">&#x27;.&#x27;</span>)
                         <span class="hljs-keyword">continue</span>;
                     <span class="hljs-keyword">if</span> (board[j][i] == board[k][i]) &#123;
-                        isValid = <span class="hljs-literal">false</span>;
+                        <span class="hljs-built_in">isValid</span> = <span class="hljs-literal">false</span>;
                         <span class="hljs-keyword">goto</span> label;
                     &#125;
                 &#125;
@@ -312,14 +317,14 @@
         &#125;
         <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">9</span>; i += <span class="hljs-number">3</span>) &#123;    <span class="hljs-comment">//判断3x3宫内</span>
             <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">9</span>; j += <span class="hljs-number">3</span>) &#123;   <span class="hljs-comment">//前两层循环用于遍历每个3x3宫格的左上角元素所在位置</span>
-                <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec(<span class="hljs-number">10</span>);  <span class="hljs-comment">//事实上只用到vec[1]~vec[9]，用于记录3x3宫格内每个数字出现的次数</span>
+                <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">vec</span><span class="hljs-params">(<span class="hljs-number">10</span>)</span></span>;  <span class="hljs-comment">//事实上只用到vec[1]~vec[9]，用于记录3x3宫格内每个数字出现的次数</span>
                 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = i; k &lt; i + <span class="hljs-number">3</span>; k++) &#123;   <span class="hljs-comment">//后两层循环用于遍历以board[i][j]作为左上角元素的3x3宫格</span>
                     <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> l = j; l &lt; j + <span class="hljs-number">3</span>; l++) &#123;
                         <span class="hljs-keyword">int</span> num = board[k][l] - <span class="hljs-number">48</span>;   <span class="hljs-comment">//将字符转换为数字</span>
                         <span class="hljs-keyword">if</span> (num &gt;= <span class="hljs-number">1</span> &amp;&amp; num &lt;= <span class="hljs-number">9</span>)&#123;   <span class="hljs-comment">//判断字符是否是数字</span>
                             vec[num]++;    <span class="hljs-comment">//如果是数字，就以这个数字作为下标将vec[num]加一，表示num出现的次数</span>
                             <span class="hljs-keyword">if</span> (vec[num] &gt; <span class="hljs-number">1</span>) &#123;  <span class="hljs-comment">//vec[num]&gt;1说明这个数字重复出现了</span>
-                                isValid = <span class="hljs-literal">false</span>;   <span class="hljs-comment">//置isValid为false</span>
+                                <span class="hljs-built_in">isValid</span> = <span class="hljs-literal">false</span>;   <span class="hljs-comment">//置isValid为false</span>
                                 <span class="hljs-keyword">goto</span> label;   <span class="hljs-comment">//并跳转至函数返回语句</span>
                             &#125;
                         &#125;
@@ -328,7 +333,7 @@
             &#125;
         &#125;
     label:
-    <span class="hljs-keyword">return</span> isValid;
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">isValid</span>;
     &#125;
 &#125;;</code></pre></div>
 
@@ -351,13 +356,13 @@
                     
                       <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
                     
-                      <a class="hover-with-bg" href="/tags/数组/">数组</a>
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E7%BB%84/">数组</a>
                     
                   </div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -412,7 +417,7 @@
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

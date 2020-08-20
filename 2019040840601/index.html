@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Ubuntu安装WPS（解决字体缺失问题） - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -227,30 +232,30 @@
               </p>
             
             <div class="markdown-body" id="post-body">
-              <h3 id="下载WPS"><a href="#下载WPS" class="headerlink" title="下载WPS"></a>下载WPS</h3><p>WPS for Linux官网：<a href="http://www.wps.cn/product/wpslinux/" target="_blank" rel="noopener">http://www.wps.cn/product/wpslinux/</a></p>
+              <h3 id="下载WPS"><a href="#下载WPS" class="headerlink" title="下载WPS"></a>下载WPS</h3><p>WPS for Linux官网：<a target="_blank" rel="noopener" href="http://www.wps.cn/product/wpslinux/">http://www.wps.cn/product/wpslinux/</a></p>
 <a id="more"></a>
 
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>双击安装或者命令行安装</p>
-<div class="hljs"><pre><code class="hljs undefined">sudo dpkg -i ***/wps-office_10<span class="hljs-number">.1</span><span class="hljs-number">.0</span><span class="hljs-number">.6757</span>_amd64.deb</code></pre></div>
+<div class="hljs"><pre><code class="hljs angelscript">sudo dpkg -i ***/wps-office_10<span class="hljs-number">.1</span><span class="hljs-number">.0</span><span class="hljs-number">.6757</span>_amd64.deb</code></pre></div>
 
 <h3 id="字体缺失"><a href="#字体缺失" class="headerlink" title="字体缺失"></a>字体缺失</h3><p>安装后如果有字体缺失问题</p>
 <p>下载：<a href="wps_symbol_fonts.zip">wps_symbol_fonts.zip</a></p>
 <p>将下载好的字体压缩包移至 <code>/usr/share/fonts</code> 文件夹下</p>
-<div class="hljs"><pre><code class="hljs undefined">sudo mv wps_symbol_fonts<span class="hljs-selector-class">.zip</span> /usr/share/fonts</code></pre></div>
+<div class="hljs"><pre><code class="hljs awk">sudo mv wps_symbol_fonts.zip <span class="hljs-regexp">/usr/</span>share/fonts</code></pre></div>
 
 <p>终端进入到 <code>/usr/share/fonts</code> 文件夹</p>
-<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-keyword">cd</span> <span class="hljs-string">/usr/share/fonts</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs awk">cd <span class="hljs-regexp">/usr/</span>share/fonts</code></pre></div>
 
 <p>解压缩（解压缩后可以把压缩包删了）</p>
-<div class="hljs"><pre><code class="hljs undefined">sudo unzip wps_symbol_fonts.<span class="hljs-keyword">zip</span>
+<div class="hljs"><pre><code class="hljs stata">sudo unzip wps_symbol_fonts.<span class="hljs-keyword">zip</span>
 sudo <span class="hljs-keyword">rm</span> wps_symbol_fonts.<span class="hljs-keyword">zip</span></code></pre></div>
 
 <p>执行命令生成字体的索引信息：</p>
-<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-attribute">sudo mkfontscale
-sudo mkfontdir</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs properties"><span class="hljs-attr">sudo</span> <span class="hljs-string">mkfontscale</span>
+<span class="hljs-attr">sudo</span> <span class="hljs-string">mkfontdir</span></code></pre></div>
 
 <p>运行fc-cache命令更新字体缓存：</p>
-<div class="hljs"><pre><code class="hljs undefined">sudo <span class="hljs-built_in">fc</span>-cache</code></pre></div>
+<div class="hljs"><pre><code class="hljs bash">sudo <span class="hljs-built_in">fc</span>-cache</code></pre></div>
 
 
             </div>
@@ -264,13 +269,13 @@ sudo mkfontdir</span></code></pre></div>
                     
                       <a class="hover-with-bg" href="/tags/Linux/">Linux</a>
                     
-                      <a class="hover-with-bg" href="/tags/软件/">软件</a>
+                      <a class="hover-with-bg" href="/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
                     
                   </div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -325,7 +330,7 @@ sudo mkfontdir</span></code></pre></div>
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

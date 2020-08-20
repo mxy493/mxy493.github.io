@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Leetcode 1103.分糖果II【C++】 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -228,7 +233,7 @@
             
             <div class="markdown-body" id="post-body">
               <blockquote>
-<p>地址：<a href="https://leetcode-cn.com/problems/distribute-candies-to-people/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/distribute-candies-to-people/</a></p>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/distribute-candies-to-people/">https://leetcode-cn.com/problems/distribute-candies-to-people/</a></p>
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>排排坐，分糖果。</p>
 <p>我们买了一些糖果 candies，打算把它们分给排好队的 n = num_people 个小朋友。</p>
@@ -237,7 +242,7 @@
 <p>重复上述过程（每次都比上一次多给出一颗糖果，当到达队伍终点后再次从队伍起点开始），直到我们分完所有的糖果。注意，就算我们手中的剩下糖果数不够（不比前一次发出的糖果多），这些糖果也会全部发给当前的小朋友。</p>
 <p>返回一个长度为 num_people、元素之和为 candies 的数组，以表示糖果的最终分发情况（即 ans[i] 表示第 i 个小朋友分到的糖果数）。</p>
 <p><strong>示例 1：</strong></p>
-<div class="hljs"><pre><code class="hljs undefined">输入：candies = <span class="hljs-number">7</span>, num_people = <span class="hljs-number">4</span>
+<div class="hljs"><pre><code class="hljs angelscript">输入：candies = <span class="hljs-number">7</span>, num_people = <span class="hljs-number">4</span>
 输出：[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>]
 解释：
 第一次，ans[<span class="hljs-number">0</span>] += <span class="hljs-number">1</span>，数组变为 [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>]。
@@ -246,7 +251,7 @@
 第四次，ans[<span class="hljs-number">3</span>] += <span class="hljs-number">1</span>（因为此时只剩下 <span class="hljs-number">1</span> 颗糖果），最终数组变为 [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>]。</code></pre></div>
 
 <p><strong>示例 2：</strong></p>
-<div class="hljs"><pre><code class="hljs undefined">输入：candies = <span class="hljs-number">10</span>, num_people = <span class="hljs-number">3</span>
+<div class="hljs"><pre><code class="hljs angelscript">输入：candies = <span class="hljs-number">10</span>, num_people = <span class="hljs-number">3</span>
 输出：[<span class="hljs-number">5</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]
 解释：
 第一次，ans[<span class="hljs-number">0</span>] += <span class="hljs-number">1</span>，数组变为 [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>]。
@@ -260,11 +265,11 @@
 <li>1 &lt;= num_people &lt;= 1000</li>
 </ul>
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>定义一个数组（初始化为全0）用于记录每个小朋友分到的糖果数，定义一个整型count用于计数当前应该分给小朋友多少个糖果。</p>
-<p>每一次分糖果后总的糖果数减掉分发掉的糖果数，即为剩下的总糖果数，所以外层循环当糖果数<strong><code>candies == 0</code></strong>时退出循环。内层循环遍历每一个小朋友模拟分发糖果的真实情况，如果剩余的糖果数足够，就直接将应分发的count个糖果分发给ans[i]小朋友，即这个小朋友的糖果数+count，并且总的糖果数要减掉已分发出去的count，计数count++即应该分给下一个小朋友的糖果数；如果剩余的糖果数不足，则把剩下的所有糖果都分给这个小朋友，并将剩下的糖果数count置为0以跳出外层循环。</p>
+<p>每一次分糖果后总的糖果数减掉分发掉的糖果数，即为剩下的总糖果数，所以外层循环当糖果数**<code>candies == 0</code>**时退出循环。内层循环遍历每一个小朋友模拟分发糖果的真实情况，如果剩余的糖果数足够，就直接将应分发的count个糖果分发给ans[i]小朋友，即这个小朋友的糖果数+count，并且总的糖果数要减掉已分发出去的count，计数count++即应该分给下一个小朋友的糖果数；如果剩余的糖果数不足，则把剩下的所有糖果都分给这个小朋友，并将剩下的糖果数count置为0以跳出外层循环。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; distributeCandies(<span class="hljs-keyword">int</span> candies, <span class="hljs-keyword">int</span> num_people) &#123;
-        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ans(num_people);
+    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">distributeCandies</span><span class="hljs-params">(<span class="hljs-keyword">int</span> candies, <span class="hljs-keyword">int</span> num_people)</span> </span>&#123;
+        <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">ans</span><span class="hljs-params">(num_people)</span></span>;
         <span class="hljs-keyword">int</span> count = <span class="hljs-number">1</span>;<span class="hljs-comment">//当前应分发的糖果数</span>
         <span class="hljs-keyword">while</span> (candies != <span class="hljs-number">0</span>)
         &#123;
@@ -311,7 +316,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -366,7 +371,7 @@
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

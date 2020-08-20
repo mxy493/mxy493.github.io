@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Leetcode 最长公共前缀 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -228,17 +233,17 @@
             
             <div class="markdown-body" id="post-body">
               <blockquote>
-<p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/40/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/40/</a></p>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/40/">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/40/</a></p>
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>编写一个函数来查找字符串数组中的最长公共前缀。</p>
 <a id="more"></a>
 
 <p>如果不存在公共前缀，返回空字符串 <code>&quot;&quot;</code>。</p>
-<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例 1:"></a>示例 1:</h4><div class="hljs"><pre><code class="hljs undefined">输入: [<span class="hljs-string">"flower"</span>,<span class="hljs-string">"flow"</span>,<span class="hljs-string">"flight"</span>]
-输出: <span class="hljs-string">"fl"</span></code></pre></div>
+<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例 1:"></a>示例 1:</h4><div class="hljs"><pre><code class="hljs prolog">输入: [<span class="hljs-string">&quot;flower&quot;</span>,<span class="hljs-string">&quot;flow&quot;</span>,<span class="hljs-string">&quot;flight&quot;</span>]
+输出: <span class="hljs-string">&quot;fl&quot;</span></code></pre></div>
 
-<h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例 2:"></a>示例 2:</h4><div class="hljs"><pre><code class="hljs undefined">输入: [<span class="hljs-string">"dog"</span>,<span class="hljs-string">"racecar"</span>,<span class="hljs-string">"car"</span>]
-输出: <span class="hljs-string">""</span>
+<h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例 2:"></a>示例 2:</h4><div class="hljs"><pre><code class="hljs prolog">输入: [<span class="hljs-string">&quot;dog&quot;</span>,<span class="hljs-string">&quot;racecar&quot;</span>,<span class="hljs-string">&quot;car&quot;</span>]
+输出: <span class="hljs-string">&quot;&quot;</span>
 解释: 输入不存在公共前缀。</code></pre></div>
 
 <h4 id="说明"><a href="#说明" class="headerlink" title="说明:"></a>说明:</h4><p>所有输入只包含小写字母 <code>a-z</code> 。</p>
@@ -250,22 +255,22 @@
 <div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">longestCommonPrefix</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt;&amp; strs)</span> </span>&#123;
-        <span class="hljs-built_in">string</span> str = <span class="hljs-string">""</span>;   <span class="hljs-comment">//返回值，初始化为空字符串</span>
-        <span class="hljs-keyword">if</span> (strs.size() &gt; <span class="hljs-number">0</span>) &#123;   <span class="hljs-comment">//strs为空的话直接执行return语句返回空字符串，否则执行下面的部分</span>
+        <span class="hljs-built_in">string</span> str = <span class="hljs-string">&quot;&quot;</span>;   <span class="hljs-comment">//返回值，初始化为空字符串</span>
+        <span class="hljs-keyword">if</span> (strs.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">0</span>) &#123;   <span class="hljs-comment">//strs为空的话直接执行return语句返回空字符串，否则执行下面的部分</span>
             <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;; j++) &#123;
-                <span class="hljs-keyword">if</span> (j &gt;= strs[<span class="hljs-number">0</span>].size())   <span class="hljs-comment">//因为总是从第一个字符串开始，所以第一个字符串遍历完后后续就不可能再存在公有的字符了</span>
+                <span class="hljs-keyword">if</span> (j &gt;= strs[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>())   <span class="hljs-comment">//因为总是从第一个字符串开始，所以第一个字符串遍历完后后续就不可能再存在公有的字符了</span>
                     <span class="hljs-keyword">break</span>;
                 <span class="hljs-keyword">else</span> &#123;
                     <span class="hljs-keyword">char</span> ch = strs[<span class="hljs-number">0</span>][j];    <span class="hljs-comment">//字符串str[0]的第j+1个字符</span>
                     <span class="hljs-keyword">bool</span> bl = <span class="hljs-literal">true</span>;     <span class="hljs-comment">//字符ch是否公有的标志</span>
-                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>; k &lt; strs.size(); k++) &#123;
+                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>; k &lt; strs.<span class="hljs-built_in">size</span>(); k++) &#123;
                         <span class="hljs-keyword">if</span> (strs[k][j] != ch) &#123;   <span class="hljs-comment">//如果某个字符串的第j个字符和ch不同说明ch不是公有字符</span>
                             bl = <span class="hljs-literal">false</span>;
                             <span class="hljs-keyword">break</span>;
                         &#125;
                     &#125;
                     <span class="hljs-keyword">if</span> (bl == <span class="hljs-literal">true</span>)   <span class="hljs-comment">//说明ch是公有字符，插入到str尾部</span>
-                        str.insert(str.end(), ch);
+                        str.insert(str.<span class="hljs-built_in">end</span>(), ch);
                     <span class="hljs-keyword">else</span> <span class="hljs-keyword">break</span>;   <span class="hljs-comment">//说明ch不是公有字符，后续不需要再判断</span>
                 &#125;
             &#125;
@@ -280,16 +285,16 @@
 <div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">longestCommonPrefix</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt;&amp; strs)</span> </span>&#123;
-        <span class="hljs-built_in">string</span> str = <span class="hljs-string">""</span>;   <span class="hljs-comment">//返回值，初始化为空字符串</span>
-        <span class="hljs-keyword">if</span> (strs.size() &gt; <span class="hljs-number">0</span>) &#123;
+        <span class="hljs-built_in">string</span> str = <span class="hljs-string">&quot;&quot;</span>;   <span class="hljs-comment">//返回值，初始化为空字符串</span>
+        <span class="hljs-keyword">if</span> (strs.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">0</span>) &#123;
             str = strs[<span class="hljs-number">0</span>];   <span class="hljs-comment">//strs至少有一个字符串strs[0]，用它初始化str，因为公有部分的长度一定小于strs中的任意一个字符串</span>
-            <span class="hljs-keyword">if</span> (strs.size() &gt; <span class="hljs-number">1</span>) &#123;  <span class="hljs-comment">//如果strs.size（）大于1，则需要判断字符串str的哪部分为公有的</span>
-                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; strs.size(); i++) &#123;  <span class="hljs-comment">//从第二个字符串开始依次与str比较寻找公有部分，并删除str的非公有部分</span>
-                    <span class="hljs-keyword">int</span> size = str.size() &lt; strs[i].size() ? str.size() : strs[i].size();
-                    str.erase(str.begin() + size, str.end());  <span class="hljs-comment">//如果str更长一些可以直接删除多余部分</span>
-                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; size; j++) &#123;
+            <span class="hljs-keyword">if</span> (strs.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">1</span>) &#123;  <span class="hljs-comment">//如果strs.size（）大于1，则需要判断字符串str的哪部分为公有的</span>
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; strs.<span class="hljs-built_in">size</span>(); i++) &#123;  <span class="hljs-comment">//从第二个字符串开始依次与str比较寻找公有部分，并删除str的非公有部分</span>
+                    <span class="hljs-keyword">int</span> <span class="hljs-built_in">size</span> = str.<span class="hljs-built_in">size</span>() &lt; strs[i].<span class="hljs-built_in">size</span>() ? str.<span class="hljs-built_in">size</span>() : strs[i].<span class="hljs-built_in">size</span>();
+                    str.erase(str.<span class="hljs-built_in">begin</span>() + <span class="hljs-built_in">size</span>, str.<span class="hljs-built_in">end</span>());  <span class="hljs-comment">//如果str更长一些可以直接删除多余部分</span>
+                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-built_in">size</span>; j++) &#123;
                         <span class="hljs-keyword">if</span> (str[j] != strs[i][j]) &#123;   <span class="hljs-comment">//某一个字符不相等说明从这个字符开始的后面所有字符都是多余的，删除即可</span>
-                            str.erase(str.begin() + j, str.end());
+                            str.erase(str.<span class="hljs-built_in">begin</span>() + j, str.<span class="hljs-built_in">end</span>());
                             <span class="hljs-keyword">break</span>;
                         &#125;
                     &#125;
@@ -300,7 +305,7 @@
     &#125;
 &#125;;</code></pre></div>
 
-<h4 id="测试数据"><a href="#测试数据" class="headerlink" title="测试数据"></a>测试数据</h4><div class="hljs"><pre><code class="hljs undefined">测试<span class="hljs-number">1</span>：
+<h4 id="测试数据"><a href="#测试数据" class="headerlink" title="测试数据"></a>测试数据</h4><div class="hljs"><pre><code class="hljs angelscript">测试<span class="hljs-number">1</span>：
 flower
 flow
 flight
@@ -330,13 +335,13 @@ car</code></pre></div>
                     
                       <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
                     
-                      <a class="hover-with-bg" href="/tags/字符串/">字符串</a>
+                      <a class="hover-with-bg" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>
                     
                   </div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -391,7 +396,7 @@ car</code></pre></div>
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

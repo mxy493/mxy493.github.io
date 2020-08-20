@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>利用rand7()构造rand10()及其一些推广 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -178,7 +183,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      558 字
+      568 字
     </span>
   
 
@@ -232,22 +237,22 @@
 <h3 id="利用-rand7-构造-rand10"><a href="#利用-rand7-构造-rand10" class="headerlink" title="利用 rand7() 构造 rand10()"></a>利用 rand7() 构造 rand10()</h3><h4 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h4><p>其中一个解法是这样的：</p>
 <p>只要能构造10的倍数的随机数，就可用通过对10取余得到 <code>rand10()</code> 。</p>
 <ul>
-<li><p><code>rand7()</code> 可以生成随机的 <code>{1, 2, 3, 4, 5, 6, 7}</code> ；</p>
+<li><p><code>rand7()</code> 可以生成随机的 <code>&#123;1, 2, 3, 4, 5, 6, 7&#125;</code> ；</p>
 </li>
-<li><p><code>rand7() - 1</code> 可以生成随机的 <code>{0, 1, 2, 3, 4, 5, 6}</code> ；</p>
+<li><p><code>rand7() - 1</code> 可以生成随机的 <code>&#123;0, 1, 2, 3, 4, 5, 6&#125;</code> ；</p>
 </li>
-<li><p><code>(rand7() - 1) * 7</code> 可以生成随机的 <code>{0, 7, 14, 21, 28, 35, 42}</code> ；</p>
+<li><p><code>(rand7() - 1) * 7</code> 可以生成随机的 <code>&#123;0, 7, 14, 21, 28, 35, 42&#125;</code> ；</p>
 </li>
-<li><p><code>(rand7() - 1) * 7 + rand7()</code> 可以生成随机的 <code>{0, 7, 14, 21, 28, 35, 42} + {1, 2, 3, 4, 5, 6, 7}</code> ，也就是 1 ~ 49 的随机数；</p>
+<li><p><code>(rand7() - 1) * 7 + rand7()</code> 可以生成随机的 <code>&#123;0, 7, 14, 21, 28, 35, 42&#125; + &#123;1, 2, 3, 4, 5, 6, 7&#125;</code> ，也就是 1 ~ 49 的随机数；</p>
 </li>
 <li><p>上一步中取到的 1 ~ 49 的随机数，我们只需要取其中 1 ~ 40 的部分对10求余再加1即可得到 1 ~ 10 的随机数，即 <code>rand10()</code> 。特别需要注意的是，这里<strong>并不是单纯的舍去了 41 ~ 49 的随机数</strong>，其概率计算看下图。假设这里取到的是 1 ~ 48 的随机数，直接舍去 41 ~ 48 的话最终取到的每个数的概率并不是 <code>1/10</code>，而是 <code>1/9</code> 。</p>
-<p><img src="p.jpg" srcset="/img/loading.gif" alt></p>
+<p><img src="p.jpg" srcset="/img/loading.gif"></p>
 </li>
-<li><p>分析上一步：取 1 ~ 40 的随机数 <code>x</code> 对10求余，<code>x % 10</code> 可以得到随机的 <code>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}</code> ，所以还需要+1最终得到 <code>rand10()</code> 。</p>
+<li><p>分析上一步：取 1 ~ 40 的随机数 <code>x</code> 对10求余，<code>x % 10</code> 可以得到随机的 <code>&#123;0, 1, 2, 3, 4, 5, 6, 7, 8, 9&#125;</code> ，所以还需要+1最终得到 <code>rand10()</code> 。</p>
 </li>
 </ul>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><div class="hljs"><pre><code class="hljs undefined"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">rand10</span><span class="hljs-params">()</span> </span>&#123;
-    <span class="hljs-keyword">int</span> x;
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-built_in">int</span> rand10() &#123;
+    <span class="hljs-built_in">int</span> x;
     <span class="hljs-keyword">do</span> &#123;
         x = (rand7()<span class="hljs-number">-1</span>) * <span class="hljs-number">7</span> + rand7();
     &#125;<span class="hljs-keyword">while</span>(x &gt; <span class="hljs-number">40</span>);
@@ -255,8 +260,8 @@
 &#125;</code></pre></div>
 
 <h3 id="推广"><a href="#推广" class="headerlink" title="推广"></a>推广</h3><ol>
-<li><strong>利用 randA() 构造 randA*A()：</strong>对于任意的 <code>randA()</code> 都可以通过类似 <code>rand7()</code> 的前四步，获取到 <code>randA*A()</code> ，即 <code>1 ~ A*A</code> 的随机数。</li>
-<li><strong>可以利用 n*K - 1 的随机数构造 randK()：</strong>概率计算公式同上。例如 <code>49 = 5*10 - 1</code> 的随机数 <code>rand49()</code> ，就可以构造 <code>rand10()</code> 。刚好，利用 <code>rand5()</code> 来生成 <code>rand3()</code> 就是满足这一条件的，所以只需要取 <code>rand5()</code> 生成的 1 ~ 3 的随机数即可（已经是 1 ~ 3 的随机数，不需要对3求余再加1）。</li>
+<li>*<em>利用 randA() 构造 randA</em>A()：**对于任意的 <code>randA()</code> 都可以通过类似 <code>rand7()</code> 的前四步，获取到 <code>randA*A()</code> ，即 <code>1 ~ A*A</code> 的随机数。</li>
+<li>*<em>可以利用 n</em>K - 1 的随机数构造 randK()：**概率计算公式同上。例如 <code>49 = 5*10 - 1</code> 的随机数 <code>rand49()</code> ，就可以构造 <code>rand10()</code> 。刚好，利用 <code>rand5()</code> 来生成 <code>rand3()</code> 就是满足这一条件的，所以只需要取 <code>rand5()</code> 生成的 1 ~ 3 的随机数即可（已经是 1 ~ 3 的随机数，不需要对3求余再加1）。</li>
 </ol>
 
             </div>
@@ -268,13 +273,13 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/算法/">算法</a>
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
                     
                   </div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -329,7 +334,7 @@
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

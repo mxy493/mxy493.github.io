@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Leetcode 移动零 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -228,14 +233,14 @@
             
             <div class="markdown-body" id="post-body">
               <blockquote>
-<p> 地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/28/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/28/</a></p>
+<p> 地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/28/">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/28/</a></p>
 </blockquote>
 <h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给定一个数组 <code>nums</code>，编写一个函数将所有 <code>0</code> 移动到数组的末尾，同时保持非零元素的相对顺序。</p>
 <a id="more"></a>
 
 <p><strong>示例:</strong></p>
-<div class="hljs"><pre><code class="hljs undefined">输入: <span class="hljs-string">[0,1,0,3,12]</span>
-输出: <span class="hljs-string">[1,3,12,0,0]</span></code></pre></div>
+<div class="hljs"><pre><code class="hljs angelscript">输入: [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">12</span>]
+输出: [<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">12</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>]</code></pre></div>
 
 <p><strong>说明</strong>:</p>
 <ol>
@@ -246,10 +251,10 @@
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">moveZeroes</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
         <span class="hljs-keyword">int</span> q = <span class="hljs-number">0</span>;   <span class="hljs-comment">//用于记录当前遍历到的0的个数</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = nums.size() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;   <span class="hljs-comment">//从后往前遍历避免对已经后移的0重复处理</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;   <span class="hljs-comment">//从后往前遍历避免对已经后移的0重复处理</span>
             <span class="hljs-keyword">if</span> (nums[i] == <span class="hljs-number">0</span>) &#123;
-                nums.insert(nums.end() - q, <span class="hljs-number">0</span>);    <span class="hljs-comment">//在数组尾第q个0之前插入一个0</span>
-                nums.erase(nums.begin() + i);     <span class="hljs-comment">//删除nums[i]</span>
+                nums.insert(nums.<span class="hljs-built_in">end</span>() - q, <span class="hljs-number">0</span>);    <span class="hljs-comment">//在数组尾第q个0之前插入一个0</span>
+                nums.erase(nums.<span class="hljs-built_in">begin</span>() + i);     <span class="hljs-comment">//删除nums[i]</span>
                 q++;
             &#125;
         &#125;
@@ -276,13 +281,13 @@
                     
                       <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
                     
-                      <a class="hover-with-bg" href="/tags/数组/">数组</a>
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E7%BB%84/">数组</a>
                     
                   </div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -337,7 +342,7 @@
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

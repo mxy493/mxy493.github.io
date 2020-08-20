@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Leetcode 字符串转换整数(atoi) - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -178,7 +183,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      871 字
+      895 字
     </span>
   
 
@@ -188,7 +193,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      11
        分钟
     </span>
   
@@ -228,7 +233,7 @@
             
             <div class="markdown-body" id="post-body">
               <blockquote>
-<p>地址：<a href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/37/" target="_blank" rel="noopener">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/37/</a></p>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/37/">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/37/</a></p>
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>请你来实现一个 <code>atoi</code> 函数，使其能将字符串转换成整数。</p>
 <a id="more"></a>
@@ -241,30 +246,30 @@
 <p><strong>说明：</strong></p>
 <p>假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为 [−231,  231 − 1]。如果数值超过这个范围，请返回  INT_MAX (231 − 1) 或 INT_MIN (−231) 。</p>
 <p><strong>示例 1:</strong></p>
-<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-section">输入: "42"</span>
+<div class="hljs"><pre><code class="hljs makefile"><span class="hljs-section">输入: &quot;42&quot;</span>
 <span class="hljs-section">输出: 42</span></code></pre></div>
 
 <p><strong>示例 2:</strong></p>
-<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-section">输入: "   -42"</span>
+<div class="hljs"><pre><code class="hljs makefile"><span class="hljs-section">输入: &quot;   -42&quot;</span>
 <span class="hljs-section">输出: -42</span>
-<span class="hljs-section">解释: 第一个非空白字符为 '-', 它是一个负号。</span>
+<span class="hljs-section">解释: 第一个非空白字符为 &#x27;-&#x27;, 它是一个负号。</span>
      我们尽可能将负号与后面所有连续出现的数字组合起来，最后得到 -42 。</code></pre></div>
 
 <p><strong>示例 3:</strong></p>
-<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-section">输入: "4193 with words"</span>
+<div class="hljs"><pre><code class="hljs makefile"><span class="hljs-section">输入: &quot;4193 with words&quot;</span>
 <span class="hljs-section">输出: 4193</span>
-<span class="hljs-section">解释: 转换截止于数字 '3' ，因为它的下一个字符不为数字。</span></code></pre></div>
+<span class="hljs-section">解释: 转换截止于数字 &#x27;3&#x27; ，因为它的下一个字符不为数字。</span></code></pre></div>
 
 <p><strong>示例 4:</strong></p>
-<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-section">输入: "words and 987"</span>
+<div class="hljs"><pre><code class="hljs makefile"><span class="hljs-section">输入: &quot;words and 987&quot;</span>
 <span class="hljs-section">输出: 0</span>
-<span class="hljs-section">解释: 第一个非空字符是 'w', 但它不是数字或正、负号。</span>
+<span class="hljs-section">解释: 第一个非空字符是 &#x27;w&#x27;, 但它不是数字或正、负号。</span>
      因此无法执行有效的转换。</code></pre></div>
 
 <p><strong>示例 5:</strong></p>
-<div class="hljs"><pre><code class="hljs undefined">输入: "-<span class="hljs-number">91283472332</span>"
-输出: -<span class="hljs-number">2147483648</span>
-解释: 数字 "-<span class="hljs-number">91283472332</span>" 超过 <span class="hljs-number">32</span> 位有符号整数范围。 
+<div class="hljs"><pre><code class="hljs angelscript">输入: <span class="hljs-string">&quot;-91283472332&quot;</span>
+输出: <span class="hljs-number">-2147483648</span>
+解释: 数字 <span class="hljs-string">&quot;-91283472332&quot;</span> 超过 <span class="hljs-number">32</span> 位有符号整数范围。 
      因此返回 INT_MIN (−<span class="hljs-number">231</span>) 。</code></pre></div>
 
 <h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
@@ -273,15 +278,15 @@
         <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ans = <span class="hljs-number">0</span>;   <span class="hljs-comment">//和之前做过的一个题类似需要定义一个比int存储得更多的数据类型</span>
         <span class="hljs-keyword">int</span> sym = <span class="hljs-number">1</span>;   <span class="hljs-comment">//正负号</span>
         <span class="hljs-keyword">bool</span> fir = <span class="hljs-literal">false</span>;   <span class="hljs-comment">//是否找到第一个数字</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; str.size(); i++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; str.<span class="hljs-built_in">size</span>(); i++) &#123;
             <span class="hljs-keyword">if</span> (fir == <span class="hljs-literal">false</span>) &#123;   <span class="hljs-comment">//没找到第一个有效元素之前</span>
-                <span class="hljs-keyword">if</span> (str[i] == <span class="hljs-string">' '</span>)   <span class="hljs-comment">//跳过空格</span>
+                <span class="hljs-keyword">if</span> (str[i] == <span class="hljs-string">&#x27; &#x27;</span>)   <span class="hljs-comment">//跳过空格</span>
                     <span class="hljs-keyword">continue</span>;
-                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (str[i] == <span class="hljs-string">'+'</span>) &#123;   <span class="hljs-comment">//正号默认sym=1，修改fir为true</span>
+                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (str[i] == <span class="hljs-string">&#x27;+&#x27;</span>) &#123;   <span class="hljs-comment">//正号默认sym=1，修改fir为true</span>
                     fir = <span class="hljs-literal">true</span>;
                     <span class="hljs-keyword">continue</span>;
                 &#125;
-                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (str[i] == <span class="hljs-string">'-'</span>) &#123;   <span class="hljs-comment">//负号置sym为-1，修改fir为true</span>
+                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (str[i] == <span class="hljs-string">&#x27;-&#x27;</span>) &#123;   <span class="hljs-comment">//负号置sym为-1，修改fir为true</span>
                     sym = <span class="hljs-number">-1</span>;
                     fir = <span class="hljs-literal">true</span>;
                     <span class="hljs-keyword">continue</span>;
@@ -326,13 +331,13 @@
                     
                       <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
                     
-                      <a class="hover-with-bg" href="/tags/字符串/">字符串</a>
+                      <a class="hover-with-bg" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>
                     
                   </div>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -387,7 +392,7 @@
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

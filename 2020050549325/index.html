@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>使用jQuery on()方法绑定动态添加的元素 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -178,7 +183,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      312 字
+      318 字
     </span>
   
 
@@ -227,14 +232,14 @@
               </p>
             
             <div class="markdown-body" id="post-body">
-              <p>关于 jQuery <code>on()</code> 方法的 API 文档：<a href="https://api.jquery.com/on/" target="_blank" rel="noopener">https://api.jquery.com/on/</a></p>
-<div class="hljs"><pre><code class="hljs undefined"><span class="hljs-selector-class">.on</span>( <span class="hljs-selector-tag">events</span> <span class="hljs-selector-attr">[, selector ]</span> <span class="hljs-selector-attr">[, data ]</span>, <span class="hljs-selector-tag">handler</span> )</code></pre></div>
+              <p>关于 jQuery <code>on()</code> 方法的 API 文档：<a target="_blank" rel="noopener" href="https://api.jquery.com/on/">https://api.jquery.com/on/</a></p>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-class">.on</span>( <span class="hljs-selector-tag">events</span> <span class="hljs-selector-attr">[, selector ]</span> <span class="hljs-selector-attr">[, data ]</span>, <span class="hljs-selector-tag">handler</span> )</code></pre></div>
 
 <p>网页往往需要根据服务器返回的数据动态的添加HTML元素，但是动态添加的HTML元素用常规方法绑定事件往往没有效果。</p>
 <p>可以使用 jQuery 的 <code>on()</code> 方法进行动态绑定，使用起来很简单，网上也有很多这个方法的使用说明，但是我觉得网上的都没有把最重要的问题说清楚。</p>
 <p>实际使用的代码大概是这样的：</p>
-<div class="hljs"><pre><code class="hljs undefined">$(<span class="hljs-string">"#parent"</span>).on(<span class="hljs-string">"click"</span>, <span class="hljs-string">"#child"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
-	......
+<div class="hljs"><pre><code class="hljs arcade">$(<span class="hljs-string">&quot;#parent&quot;</span>).on(<span class="hljs-string">&quot;click&quot;</span>, <span class="hljs-string">&quot;#child&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
+    ......
 &#125;</code></pre></div>
 
 <p>其中最重要的是两个选择器 <code>$(&quot;#parent&quot;)</code> 和 <code>&quot;#child&quot;</code> 。</p>
@@ -249,7 +254,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/前端/">前端</a>
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
                     
                   </div>
                 
@@ -263,7 +268,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -318,7 +323,7 @@
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

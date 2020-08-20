@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Leetcode 460.LFU缓存【C++】 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -178,7 +183,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      996 字
+      998 字
     </span>
   
 
@@ -228,9 +233,9 @@
             
             <div class="markdown-body" id="post-body">
               <blockquote>
-<p>地址：<a href="https://leetcode-cn.com/problems/lfu-cache/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/lfu-cache/</a></p>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lfu-cache/">https://leetcode-cn.com/problems/lfu-cache/</a></p>
 </blockquote>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>请你为<a href="https://baike.baidu.com/item/%E7%BC%93%E5%AD%98%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">最不经常使用（LFU）</a>缓存算法设计并实现数据结构。它应该支持以下操作：<code>get</code> 和 <code>put</code>。</p>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>请你为<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BC%93%E5%AD%98%E7%AE%97%E6%B3%95">最不经常使用（LFU）</a>缓存算法设计并实现数据结构。它应该支持以下操作：<code>get</code> 和 <code>put</code>。</p>
 <ul>
 <li><code>get(key)</code> - 如果键存在于缓存中，则获取键的值（总是正数），否则返回 -1。</li>
 <li><code>put(key, value)</code> - 如果键不存在，请设置或插入值。当缓存达到其容量时，则应该在插入新项之前，使最不经常使用的项无效。在此问题中，当存在平局（即两个或更多个键具有相同使用频率）时，应该去除 <strong>最近</strong> 最少使用的键。</li>
@@ -239,30 +244,30 @@
 <p><strong>进阶：</strong></p>
 <p>你是否可以在 <strong>O(1)</strong> 时间复杂度内执行两项操作？</p>
 <p><strong>示例：</strong></p>
-<div class="hljs"><pre><code class="hljs undefined">LFUCache cache = new LFUCache( <span class="hljs-number">2</span> <span class="hljs-comment">/* capacity (缓存容量) */</span> );
+<div class="hljs"><pre><code class="hljs apache"><span class="hljs-attribute">LFUCache</span> cache = new LFUCache( <span class="hljs-number">2</span> /* capacity (缓存容量) */ );
 
-cache.put(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
-cache.put(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);
-cache.get(<span class="hljs-number">1</span>);       <span class="hljs-comment">// 返回 1</span>
-cache.put(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>);    <span class="hljs-comment">// 去除 key 2</span>
-cache.get(<span class="hljs-number">2</span>);       <span class="hljs-comment">// 返回 -1 (未找到key 2)</span>
-cache.get(<span class="hljs-number">3</span>);       <span class="hljs-comment">// 返回 3</span>
-cache.put(<span class="hljs-number">4</span>, <span class="hljs-number">4</span>);    <span class="hljs-comment">// 去除 key 1</span>
-cache.get(<span class="hljs-number">1</span>);       <span class="hljs-comment">// 返回 -1 (未找到 key 1)</span>
-cache.get(<span class="hljs-number">3</span>);       <span class="hljs-comment">// 返回 3</span>
-cache.get(<span class="hljs-number">4</span>);       <span class="hljs-comment">// 返回 4</span></code></pre></div>
+<span class="hljs-attribute">cache</span>.put(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
+<span class="hljs-attribute">cache</span>.put(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);
+<span class="hljs-attribute">cache</span>.get(<span class="hljs-number">1</span>);       // 返回 <span class="hljs-number">1</span>
+<span class="hljs-attribute">cache</span>.put(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>);    // 去除 key <span class="hljs-number">2</span>
+<span class="hljs-attribute">cache</span>.get(<span class="hljs-number">2</span>);       // 返回 -<span class="hljs-number">1</span> (未找到key <span class="hljs-number">2</span>)
+<span class="hljs-attribute">cache</span>.get(<span class="hljs-number">3</span>);       // 返回 <span class="hljs-number">3</span>
+<span class="hljs-attribute">cache</span>.put(<span class="hljs-number">4</span>, <span class="hljs-number">4</span>);    // 去除 key <span class="hljs-number">1</span>
+<span class="hljs-attribute">cache</span>.get(<span class="hljs-number">1</span>);       // 返回 -<span class="hljs-number">1</span> (未找到 key <span class="hljs-number">1</span>)
+<span class="hljs-attribute">cache</span>.get(<span class="hljs-number">3</span>);       // 返回 <span class="hljs-number">3</span>
+<span class="hljs-attribute">cache</span>.get(<span class="hljs-number">4</span>);       // 返回 <span class="hljs-number">4</span></code></pre></div>
 
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先，题目涉及到的几个数据：</p>
 <ul>
 <li><code>capacity</code> ：容量</li>
-<li><code>key</code> 、 <code>value</code> 、 <code>frequency</code> ：分别是码、值、频次，并且这三项数据是一一对应的关系，所以我定义了一个 <code>vector&lt;pair&lt;pair&lt;int, int&gt;, int&gt;&gt;</code> 类型的数组来存储。<code>vec.first</code> 即键值对 <code>{key, value}</code> ，<code>vec.second</code> 即该键值对对应的频次。</li>
+<li><code>key</code> 、 <code>value</code> 、 <code>frequency</code> ：分别是码、值、频次，并且这三项数据是一一对应的关系，所以我定义了一个 <code>vector&lt;pair&lt;pair&lt;int, int&gt;, int&gt;&gt;</code> 类型的数组来存储。<code>vec.first</code> 即键值对 <code>&#123;key, value&#125;</code> ，<code>vec.second</code> 即该键值对对应的频次。</li>
 </ul>
 <p>起初我的想法是，需要什么就去数组里遍历查找，但是后面发现，频次可以找到最低的频次，但是同样频次的两个数据怎么判断哪一个离得近哪一个离得远呢？所以我另外定义了一个函数 <code>rearrange(int index)</code> ，每次 <code>get</code> 或 <code>put</code> 之后就对该项数据重排序，以保证数组始终是以频次最高且最近使用的排在前面，而频次低且离得远的排在后面。对于容量已满但要插入新数据的情况，就可以直接 <code>vec.pop_back()</code> 删除数组末尾的元素，并在末尾插入新元素。</p>
 <p>需要注意，如果容量为0的话，<code>put()</code> 不应该执行任何操作，<code>get()</code> 默认将返回 <code>-1</code> 。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LFUCache</span> &#123;</span>
 <span class="hljs-keyword">private</span>:
     <span class="hljs-keyword">int</span> capacity;
-    <span class="hljs-built_in">vector</span>&lt;pair&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;, <span class="hljs-keyword">int</span>&gt;&gt; vec;<span class="hljs-comment">//默认使用频率高切最近使用的排在前面</span>
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">pair</span>&lt;<span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;, <span class="hljs-keyword">int</span>&gt;&gt; vec;<span class="hljs-comment">//默认使用频率高切最近使用的排在前面</span>
 <span class="hljs-keyword">public</span>:
     LFUCache(<span class="hljs-keyword">int</span> capacity) &#123;
         <span class="hljs-keyword">this</span>-&gt;capacity = capacity;
@@ -273,7 +278,7 @@ cache.get(<span class="hljs-number">4</span>);       <span class="hljs-comment">
         <span class="hljs-comment">//即使频率相同，但由于当前元素为最近使用，所以也应该排在前面</span>
         <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = index - <span class="hljs-number">1</span>; j &gt;= <span class="hljs-number">0</span>; j--) &#123;
             <span class="hljs-keyword">if</span> (vec[j + <span class="hljs-number">1</span>].second &gt;= vec[j].second) &#123;
-                pair&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;, <span class="hljs-keyword">int</span>&gt; tmp = vec[j + <span class="hljs-number">1</span>];
+                <span class="hljs-built_in">pair</span>&lt;<span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;, <span class="hljs-keyword">int</span>&gt; tmp = vec[j + <span class="hljs-number">1</span>];
                 vec[j + <span class="hljs-number">1</span>] = vec[j];
                 vec[j] = tmp;
             &#125;
@@ -281,7 +286,7 @@ cache.get(<span class="hljs-number">4</span>);       <span class="hljs-comment">
     &#125;
 
     <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-keyword">int</span> key)</span> </span>&#123;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; vec.size(); i++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; vec.<span class="hljs-built_in">size</span>(); i++) &#123;
             <span class="hljs-keyword">if</span> (vec[i].first.first == key) &#123;
                 vec[i].second++;
                 <span class="hljs-keyword">int</span> val = vec[i].first.second;
@@ -296,7 +301,7 @@ cache.get(<span class="hljs-number">4</span>);       <span class="hljs-comment">
         <span class="hljs-comment">//容量为0无法新增</span>
         <span class="hljs-keyword">if</span> (capacity == <span class="hljs-number">0</span>)
             <span class="hljs-keyword">return</span>;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; vec.size(); i++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; vec.<span class="hljs-built_in">size</span>(); i++) &#123;
             <span class="hljs-comment">//已存在值为key的元素应该更新其value，并将其频率+1</span>
             <span class="hljs-keyword">if</span> (vec[i].first.first == key) &#123;
                 vec[i].first.second = value;
@@ -306,26 +311,26 @@ cache.get(<span class="hljs-number">4</span>);       <span class="hljs-comment">
             &#125;
         &#125;
         <span class="hljs-comment">//元素不存在且容量未满</span>
-        <span class="hljs-keyword">if</span> (vec.size() &lt; capacity) &#123;
+        <span class="hljs-keyword">if</span> (vec.<span class="hljs-built_in">size</span>() &lt; capacity) &#123;
             vec.push_back(&#123; &#123;key,value&#125;,<span class="hljs-number">0</span> &#125;);
-            rearrange(vec.size() - <span class="hljs-number">1</span>);
+            rearrange(vec.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>);
             <span class="hljs-keyword">return</span>;
         &#125;
         <span class="hljs-comment">//元素不存在但容量已满</span>
         <span class="hljs-keyword">else</span> &#123;
             vec.pop_back();<span class="hljs-comment">//末尾元素就是最最远且少使用的元素</span>
             vec.push_back(&#123; &#123;key,value&#125;,<span class="hljs-number">0</span> &#125;);
-            rearrange(vec.size() - <span class="hljs-number">1</span>);
+            rearrange(vec.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>);
         &#125;
     &#125;
 &#125;;
 
-<span class="hljs-comment">/**
- * Your LFUCache object will be instantiated and called as such:
- * LFUCache* obj = new LFUCache(capacity);
- * int param_1 = obj-&gt;get(key);
- * obj-&gt;put(key,value);
- */</span></code></pre></div>
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * Your LFUCache object will be instantiated and called as such:</span>
+<span class="hljs-comment"> * LFUCache* obj = new LFUCache(capacity);</span>
+<span class="hljs-comment"> * int param_1 = obj-&gt;get(key);</span>
+<span class="hljs-comment"> * obj-&gt;put(key,value);</span>
+<span class="hljs-comment"> */</span></code></pre></div>
 
 
             </div>
@@ -352,7 +357,7 @@ cache.get(<span class="hljs-number">4</span>);       <span class="hljs-comment">
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -407,7 +412,7 @@ cache.get(<span class="hljs-number">4</span>);       <span class="hljs-comment">
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

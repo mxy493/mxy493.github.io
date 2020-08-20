@@ -5,46 +5,51 @@
 
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
   <link rel="icon" type="image/png" href="/img/devil.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content>
+  <meta name="description" content="">
   <meta name="author" content="mxy">
-  <meta name="keywords" content>
+  <meta name="keywords" content="">
   <title>Leetcode 289.生命游戏【C++】 - mxy</title>
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
 
-  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
-  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
     
-    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css">
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
   
 
   
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
 
-<link rel="stylesheet" href="/css/main.css">
+
+<link  rel="stylesheet" href="/css/main.css" />
 
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script src="/js/utils.js"></script>
-  <script src="/js/color-schema.js"></script>
-</head>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.0.2"></head>
 
 
 <body>
@@ -228,9 +233,9 @@
             
             <div class="markdown-body" id="post-body">
               <blockquote>
-<p>地址：<a href="https://leetcode-cn.com/problems/game-of-life/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/game-of-life/</a></p>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/game-of-life/">https://leetcode-cn.com/problems/game-of-life/</a></p>
 </blockquote>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>根据 <a href="https://baike.baidu.com/item/%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/2926434?fr=aladdin" target="_blank" rel="noopener">百度百科</a> ，生命游戏，简称为生命，是英国数学家约翰·何顿·康威在 1970 年发明的细胞自动机。</p>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>根据 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F/2926434?fr=aladdin">百度百科</a> ，生命游戏，简称为生命，是英国数学家约翰·何顿·康威在 1970 年发明的细胞自动机。</p>
 <p>给定一个包含 m × n 个格子的面板，每一个格子都可以看成是一个细胞。每个细胞都具有一个初始状态：1 即为活细胞（live），或 0 即为死细胞（dead）。每个细胞与其八个相邻位置（水平，垂直，对角线）的细胞都遵循以下四条生存定律：</p>
 <ol>
 <li>如果活细胞周围八个位置的活细胞数少于两个，则该位置活细胞死亡；</li>
@@ -240,7 +245,7 @@
 </ol>
 <p>根据当前状态，写一个函数来计算面板上所有细胞的下一个（一次更新后的）状态。下一个状态是通过将上述规则同时应用于当前状态下的每个细胞所形成的，其中细胞的出生和死亡是同时发生的。</p>
 <p><strong>示例：</strong></p>
-<div class="hljs"><pre><code class="hljs undefined">输入： 
+<div class="hljs"><pre><code class="hljs angelscript">输入： 
 [
   [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>],
   [<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>],
@@ -272,15 +277,15 @@
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">gameOfLife</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; board)</span> </span>&#123;
         <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; sta;<span class="hljs-comment">//记录每个坐标周围有多少个活细胞</span>
-        <span class="hljs-keyword">const</span> <span class="hljs-built_in">vector</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; dir = &#123; &#123;<span class="hljs-number">-1</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">-1</span>,<span class="hljs-number">1</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">1</span>&#125; &#125;;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; board.size(); i++) &#123;
+        <span class="hljs-keyword">const</span> <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; dir = &#123; &#123;<span class="hljs-number">-1</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">-1</span>,<span class="hljs-number">1</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">1</span>&#125; &#125;;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; board.<span class="hljs-built_in">size</span>(); i++) &#123;
             <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; s;
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; board[<span class="hljs-number">0</span>].size(); j++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; board[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>(); j++) &#123;
                 <span class="hljs-keyword">int</span> num = <span class="hljs-number">0</span>;<span class="hljs-comment">//周围活细胞个数</span>
                 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> d : dir) &#123;
                     <span class="hljs-keyword">int</span> ii = i + d.first;
                     <span class="hljs-keyword">int</span> jj = j + d.second;
-                    <span class="hljs-keyword">if</span> (ii &gt;= <span class="hljs-number">0</span> &amp;&amp; ii &lt; board.size() &amp;&amp; jj &gt;= <span class="hljs-number">0</span> &amp;&amp; jj &lt; board[<span class="hljs-number">0</span>].size() &amp;&amp; board[ii][jj] == <span class="hljs-number">1</span>)
+                    <span class="hljs-keyword">if</span> (ii &gt;= <span class="hljs-number">0</span> &amp;&amp; ii &lt; board.<span class="hljs-built_in">size</span>() &amp;&amp; jj &gt;= <span class="hljs-number">0</span> &amp;&amp; jj &lt; board[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>() &amp;&amp; board[ii][jj] == <span class="hljs-number">1</span>)
                         num++;
                 &#125;
                 s.push_back(num);
@@ -288,8 +293,8 @@
             sta.push_back(s);
         &#125;
         <span class="hljs-comment">//一次更新</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; board.size(); i++) &#123;
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; board[<span class="hljs-number">0</span>].size(); j++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; board.<span class="hljs-built_in">size</span>(); i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; board[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>(); j++) &#123;
                 <span class="hljs-keyword">if</span> (board[i][j] == <span class="hljs-number">1</span>) &#123;
                     <span class="hljs-keyword">if</span> (sta[i][j] &lt; <span class="hljs-number">2</span> || sta[i][j] &gt;<span class="hljs-number">3</span>)
                         board[i][j] = <span class="hljs-number">0</span>;
@@ -308,16 +313,16 @@
 <div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">gameOfLife</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; board)</span> </span>&#123;
-        <span class="hljs-keyword">const</span> <span class="hljs-built_in">vector</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; dir = &#123; &#123;<span class="hljs-number">-1</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">-1</span>,<span class="hljs-number">1</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">1</span>&#125; &#125;;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; board.size(); i++) &#123;
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; board[<span class="hljs-number">0</span>].size(); j++) &#123;
+        <span class="hljs-keyword">const</span> <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; dir = &#123; &#123;<span class="hljs-number">-1</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">-1</span>,<span class="hljs-number">1</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">1</span>&#125; &#125;;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; board.<span class="hljs-built_in">size</span>(); i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; board[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>(); j++) &#123;
                 <span class="hljs-comment">//活细胞用正数保存其周围活细胞的个数+1，死细胞用负数保存周围活细胞的个数+1</span>
                 board[i][j] = board[i][j] == <span class="hljs-number">0</span> ? <span class="hljs-number">-1</span> : <span class="hljs-number">1</span>;
                 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> d : dir) &#123;
                     <span class="hljs-keyword">int</span> ii = i + d.first;
                     <span class="hljs-keyword">int</span> jj = j + d.second;
                     <span class="hljs-comment">//周围格子只要大于0就是活细胞，小于或者等于0都是死细胞</span>
-                    <span class="hljs-keyword">if</span> (ii &gt;= <span class="hljs-number">0</span> &amp;&amp; ii &lt; board.size() &amp;&amp; jj &gt;= <span class="hljs-number">0</span> &amp;&amp; jj &lt; board[<span class="hljs-number">0</span>].size() &amp;&amp; board[ii][jj] &gt; <span class="hljs-number">0</span>) &#123;
+                    <span class="hljs-keyword">if</span> (ii &gt;= <span class="hljs-number">0</span> &amp;&amp; ii &lt; board.<span class="hljs-built_in">size</span>() &amp;&amp; jj &gt;= <span class="hljs-number">0</span> &amp;&amp; jj &lt; board[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>() &amp;&amp; board[ii][jj] &gt; <span class="hljs-number">0</span>) &#123;
                         <span class="hljs-comment">//当前细胞是活细胞则+1，否则-1</span>
                         <span class="hljs-keyword">if</span> (board[i][j] &gt; <span class="hljs-number">0</span>)
                             board[i][j]++;
@@ -327,8 +332,8 @@
             &#125;
         &#125;
         <span class="hljs-comment">//一次更新</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; board.size(); i++) &#123;
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; board[<span class="hljs-number">0</span>].size(); j++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; board.<span class="hljs-built_in">size</span>(); i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; board[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>(); j++) &#123;
                 <span class="hljs-keyword">if</span> (board[i][j] &gt; <span class="hljs-number">0</span>) &#123;
                     <span class="hljs-keyword">if</span> (board[i][j] - <span class="hljs-number">1</span> &lt; <span class="hljs-number">2</span> || board[i][j] - <span class="hljs-number">1</span> &gt; <span class="hljs-number">3</span>) &#123;
                         board[i][j] = <span class="hljs-number">0</span>;
@@ -352,7 +357,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -407,7 +412,7 @@
     }
     waitElementVisible('vcomments', loadValine);
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
       powered by Valine.</a></noscript>
 
 

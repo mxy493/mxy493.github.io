@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="mxy">
   <meta name="keywords" content="">
-  <title>Leetcode 反转字符串 - mxy</title>
+  <title>Leetcode 647. 回文子串【C++】 - mxy</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -172,8 +172,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2019-01-30 13:14" pubdate>
-      2019年1月30日 下午
+    <time datetime="2020-08-20 09:36" pubdate>
+      2020年8月20日 上午
     </time>
   </div>
 
@@ -183,7 +183,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      271 字
+      496 字
     </span>
   
 
@@ -193,7 +193,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      6
        分钟
     </span>
   
@@ -223,44 +223,58 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Leetcode 反转字符串</h1>
+            <h1 style="display: none">Leetcode 647. 回文子串【C++】</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2019年1月30日 下午
+                  本文最后更新于：2020年8月20日 上午
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <blockquote>
-<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/32/">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/32/</a></p>
-</blockquote>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 <code>char[]</code> 的形式给出。</p>
-<a id="more"></a>
+              <h1 id="回文子串"><a href="#回文子串" class="headerlink" title="回文子串"></a>回文子串</h1><p>给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。</p>
+<p>具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被视作不同的子串。</p>
+<h2 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h2><div class="hljs"><pre><code class="hljs smalltalk">输入：<span class="hljs-comment">&quot;abc&quot;</span>
+输出：<span class="hljs-number">3</span>
+解释：三个回文子串: <span class="hljs-comment">&quot;a&quot;</span>, <span class="hljs-comment">&quot;b&quot;</span>, <span class="hljs-comment">&quot;c&quot;</span></code></pre></div>
 
-<p>不要给另外的数组分配额外的空间，你必须<strong>原地修改输入数组</strong>、使用 O(1) 的额外空间解决这一问题。</p>
-<p>你可以假设数组中的所有字符都是 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/ASCII">ASCII</a> 码表中的可打印字符。</p>
-<p><strong>示例 1：</strong></p>
-<div class="hljs"><pre><code class="hljs css">输入：<span class="hljs-selector-attr">[<span class="hljs-string">&quot;h&quot;</span>,<span class="hljs-string">&quot;e&quot;</span>,<span class="hljs-string">&quot;l&quot;</span>,<span class="hljs-string">&quot;l&quot;</span>,<span class="hljs-string">&quot;o&quot;</span>]</span>
-输出：<span class="hljs-selector-attr">[<span class="hljs-string">&quot;o&quot;</span>,<span class="hljs-string">&quot;l&quot;</span>,<span class="hljs-string">&quot;l&quot;</span>,<span class="hljs-string">&quot;e&quot;</span>,<span class="hljs-string">&quot;h&quot;</span>]</span></code></pre></div>
+<h2 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h2><div class="hljs"><pre><code class="hljs smalltalk">输入：<span class="hljs-comment">&quot;aaa&quot;</span>
+输出：<span class="hljs-number">6</span>
+解释：<span class="hljs-number">6</span>个回文子串: <span class="hljs-comment">&quot;a&quot;</span>, <span class="hljs-comment">&quot;a&quot;</span>, <span class="hljs-comment">&quot;a&quot;</span>, <span class="hljs-comment">&quot;aa&quot;</span>, <span class="hljs-comment">&quot;aa&quot;</span>, <span class="hljs-comment">&quot;aaa&quot;</span></code></pre></div>
 
-<p><strong>示例 2：</strong></p>
-<div class="hljs"><pre><code class="hljs smalltalk">输入：[<span class="hljs-comment">&quot;H&quot;</span>,<span class="hljs-comment">&quot;a&quot;</span>,<span class="hljs-comment">&quot;n&quot;</span>,<span class="hljs-comment">&quot;n&quot;</span>,<span class="hljs-comment">&quot;a&quot;</span>,<span class="hljs-comment">&quot;h&quot;</span>]
-输出：[<span class="hljs-comment">&quot;h&quot;</span>,<span class="hljs-comment">&quot;a&quot;</span>,<span class="hljs-comment">&quot;n&quot;</span>,<span class="hljs-comment">&quot;n&quot;</span>,<span class="hljs-comment">&quot;a&quot;</span>,<span class="hljs-comment">&quot;H&quot;</span>]</code></pre></div>
-
-<h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><p>挺简单的，就是用一个临时变量<code>temp</code>做前后兑换。</p>
-<div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<h2 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h2><p>输入的字符串长度不会超过 1000 。</p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>很容易知道单个字符也是回文串，所以任意长度的字符串至少有 <code>s.length()</code> 个回文子串，问题就可以转化为求长度大于1回文子串的个数。</p>
+<p>回文串有两种情况，一种长度为奇数，一种长度为偶数，区别就在于正中心是单个字符（例如 <code>&#39;aba&#39;</code> ）还是两个相同的字符（例如 <code>&#39;abba&#39;</code> ），所以只要把这两种情况区别开来，然后以其为中心不断往两边扩展，实际上只要判断两侧对应位置上的字符是否相同即可，每多找到一个就+1，一旦遇到不相等字符则不可能有更大的回文子串了，所以跳出循环。</p>
+<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">reverseString</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">char</span>&gt;&amp; s)</span> </span>&#123;
-        <span class="hljs-keyword">int</span> n = s.<span class="hljs-built_in">size</span>();
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n / <span class="hljs-number">2</span>; i++) &#123;
-            <span class="hljs-keyword">char</span> temp = s[i];
-            s[i] = s[n - <span class="hljs-number">1</span> - i];
-            s[n - <span class="hljs-number">1</span> - i] = temp;
-        &#125;      
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">countSubstrings</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s)</span> </span>&#123;
+        <span class="hljs-keyword">int</span> len = s.length();  <span class="hljs-comment">// 字符串长度</span>
+        <span class="hljs-keyword">int</span> count = len;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; len - <span class="hljs-number">1</span>; i++) &#123;
+            <span class="hljs-keyword">int</span> c = <span class="hljs-number">1</span>;  <span class="hljs-comment">// 用于往两边扩展判断</span>
+            <span class="hljs-comment">//偶数回文串。下一个字符和当前字符相等</span>
+            <span class="hljs-keyword">if</span> (s[i] == s[i + <span class="hljs-number">1</span>]) &#123;
+                count++;  <span class="hljs-comment">// 回文子串&#x27;aa&#x27;</span>
+                <span class="hljs-comment">// 往两边扩展判断</span>
+                <span class="hljs-keyword">while</span> (i - c &gt;= <span class="hljs-number">0</span> &amp;&amp; i + c + <span class="hljs-number">1</span> &lt; len)
+                &#123;
+                    <span class="hljs-keyword">if</span> (s[i - c] == s[i + c + <span class="hljs-number">1</span>]) count++;
+                    <span class="hljs-keyword">else</span> <span class="hljs-keyword">break</span>;
+                    c++;
+                &#125;
+            &#125;
+            c = <span class="hljs-number">1</span>;
+            <span class="hljs-comment">//奇数回文串</span>
+            <span class="hljs-keyword">while</span> (i - c &gt;= <span class="hljs-number">0</span> &amp;&amp; i + c &lt; len)
+            &#123;
+                <span class="hljs-keyword">if</span> (s[i - c] == s[i + c]) count++;
+                <span class="hljs-keyword">else</span> <span class="hljs-keyword">break</span>;
+                c++;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> count;
     &#125;
 &#125;;</code></pre></div>
-
 
             </div>
             <hr>
@@ -280,7 +294,7 @@
                     
                       <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
                     
                   </div>
                 
@@ -293,18 +307,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2019013124102/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Leetcode 整数反转</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/201901292928/">
-                        <span class="hidden-mobile">Leetcode 旋转图像</span>
+                      <a href="/2020081564434/">
+                        <span class="hidden-mobile">美团笔试题 - 不一样的逆序数</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -507,7 +515,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Leetcode 反转字符串&nbsp;",
+        "Leetcode 647. 回文子串【C++】&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
