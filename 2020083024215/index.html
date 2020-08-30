@@ -17,10 +17,20 @@
   <meta name="description" content="">
   <meta name="author" content="mxy">
   <meta name="keywords" content="">
-  <title>分类 - mxy</title>
+  <title>京东2021校园招聘-测试开发笔试题：逆序五进制 - mxy</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -159,6 +169,40 @@
             </span>
 
             
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-08-30 13:01" pubdate>
+      2020年8月30日 下午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      328 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      3
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
           </div>
 
           
@@ -169,266 +213,153 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">京东2021校园招聘-测试开发笔试题：逆序五进制</h1>
+            
+              <p class="note note-info">
                 
+                  本文最后更新于：2020年8月30日 下午
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="题目：逆序五进制"><a href="#题目：逆序五进制" class="headerlink" title="题目：逆序五进制"></a>题目：逆序五进制</h1><ul>
+<li><strong>时间限制：</strong> 3000MS</li>
+<li><strong>内存限制：</strong> 589824KB</li>
+</ul>
+<h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p>编写一个程序，首先将一个十进制正整数逆序【需要去掉前导0】，然后转换成五进制正整数，最后输出该五进制正整数。</p>
+<h2 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述"></a>输入描述</h2><ul>
+<li><p>单组输入。</p>
+</li>
+<li><p>每组测试数据的输入占一行，输入一个十进制正整数n。 （n&lt;=100000）</p>
+</li>
+</ul>
+<h2 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述"></a>输出描述</h2><p>每组测试数据的输出占一行，输出转换后所得的五进制正整数。</p>
+<p><strong>样例1：</strong></p>
+<div class="hljs"><pre><code class="hljs angelscript">输入：
+<span class="hljs-number">1000</span>
+
+输出：
+<span class="hljs-number">1</span></code></pre></div>
+
+<p><strong>样例2：</strong></p>
+<div class="hljs"><pre><code class="hljs angelscript">输入：
+<span class="hljs-number">77267</span>
+
+输出：
+<span class="hljs-number">4420102</span></code></pre></div>
+
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>这个题思路其实很简单的，就正常逻辑先逆序，然后十进制转五进制就可以了。</p>
+<p>选用了Python来解这个题，因为Python将字符串逆序就是一行代码，而在Python中整数和字符串之间的转换也是很容易的。代码在下面，没什么难度。虽然题目是让求五进制整数，代码中我是用的字符串，是完全没什么影响的。</p>
+<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><div class="hljs"><pre><code class="hljs python">hexadecimal = <span class="hljs-string">&#x27;&#x27;</span>
+num = input()  <span class="hljs-comment"># 输入的是字符串</span>
+num = num[::<span class="hljs-number">-1</span>]  <span class="hljs-comment"># 逆序</span>
+num = num.lstrip(<span class="hljs-string">&#x27;0&#x27;</span>)  <span class="hljs-comment"># 去掉左侧的&#x27;0&#x27;</span>
+num = int(num)  <span class="hljs-comment"># 字符串转整数</span>
+<span class="hljs-keyword">while</span> num &gt; <span class="hljs-number">0</span>:
+    hexadecimal = str(num % <span class="hljs-number">5</span>) + hexadecimal
+    num //= <span class="hljs-number">5</span>
+print(hexadecimal)</code></pre></div>
 
 
-
-
-
-
-
-<div class="category-list">
-  
-  
-  
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckegpm8of000494pxfecn6qwb" role="tab" data-toggle="collapse" href="#collapse-ckegpm8of000494pxfecn6qwb"
-        aria-expanded="false"
-      >
-        Leetcode
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/Leetcode/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>78</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckegpm8of000494pxfecn6qwb" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckegpm8of000494pxfecn6qwb">
-    
-    
-    
-      
-      
-        <a href="/2020082918380/" class="list-group-item list-group-item-action">
-          <span class="category-post">Leetcode 64. 最小路径和【C++】</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020082942609/" class="list-group-item list-group-item-action">
-          <span class="category-post">Leetcode 面试题 08.01. 三步问题【C++】</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020082054347/" class="list-group-item list-group-item-action">
-          <span class="category-post">Leetcode 647. 回文子串【C++】</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020042825600/" class="list-group-item list-group-item-action">
-          <span class="category-post">Leetcode 面试题56 - I.数组中数字出现的次数【C++】</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020042730620/" class="list-group-item list-group-item-action">
-          <span class="category-post">Leetcode 33.搜索旋转排序数组【C++】</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020042559303/" class="list-group-item list-group-item-action">
-          <span class="category-post">Leetcode 46.全排列【C++】</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020042212988/" class="list-group-item list-group-item-action">
-          <span class="category-post">Leetcode 199.二叉树的右视图【C++】</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020042156763/" class="list-group-item list-group-item-action">
-          <span class="category-post">Leetcode 1248.统计「优美子数组」【C++】</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020042052344/" class="list-group-item list-group-item-action">
-          <span class="category-post">Leetcode 200.岛屿数量【C++】</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020041821614/" class="list-group-item list-group-item-action">
-          <span class="category-post">Leetcode 11.盛最多水的容器【C++】</span>
-        </a>
-      
-    
-      
-      
-        <a href="/categories/Leetcode/" class="list-group-item list-group-item-action">
-          <span class="category-post">More...</span>
-        </a>
-        
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckegpm8ot000l94px9ajyfla3" role="tab" data-toggle="collapse" href="#collapse-ckegpm8ot000l94px9ajyfla3"
-        aria-expanded="false"
-      >
-        博客
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>9</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckegpm8ot000l94px9ajyfla3" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckegpm8ot000l94px9ajyfla3">
-    
-    
-    
-      
-      
-        <a href="/2020070417822/" class="list-group-item list-group-item-action">
-          <span class="category-post">Hexo博客使用插件hexo-abbrlink生成永久短链接</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020070150115/" class="list-group-item list-group-item-action">
-          <span class="category-post">主流的个人博客搭建方案</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020041736855/" class="list-group-item list-group-item-action">
-          <span class="category-post">Hexo 压缩&amp;优化插件 Hexo-all-minifier</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2019052557154/" class="list-group-item list-group-item-action">
-          <span class="category-post">Hexo博客使用插件hexo-git-backup通过GitHub备份与恢复</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2019020144422/" class="list-group-item list-group-item-action">
-          <span class="category-post">关于Hexo yilia主题文章截断功能</span>
-        </a>
-      
-    
-      
-      
-        <a href="/201901283204/" class="list-group-item list-group-item-action">
-          <span class="category-post">Hexo博客（主题：yilia）添加Valine评论系统</span>
-        </a>
-      
-    
-      
-      
-        <a href="/201901272146/" class="list-group-item list-group-item-action">
-          <span class="category-post">Hexo中插入本地图片</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2019012656295/" class="list-group-item list-group-item-action">
-          <span class="category-post">Hexo yilia主题添加“不蒜子”访问量统计</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2019011817415/" class="list-group-item list-group-item-action">
-          <span class="category-post">GitHub+Hexo搭建博客笔记</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckegpm8rl007p94px1qozgmq7" role="tab" data-toggle="collapse" href="#collapse-ckegpm8rl007p94px1qozgmq7"
-        aria-expanded="false"
-      >
-        前端
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckegpm8rl007p94px1qozgmq7" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckegpm8rl007p94px1qozgmq7">
-    
-    
-    
-      
-      
-        <a href="/2020050549325/" class="list-group-item list-group-item-action">
-          <span class="category-post">使用jQuery on()方法绑定动态添加的元素</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-</div>
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AC%94%E7%BB%8F/">笔经</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020082918380/">
+                        <span class="hidden-mobile">Leetcode 64. 最小路径和【C++】</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+          app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+          placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    }
+    waitElementVisible('vcomments', loadValine);
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -538,6 +469,31 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -545,7 +501,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "分类&nbsp;",
+        "京东2021校园招聘-测试开发笔试题：逆序五进制&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -560,6 +516,21 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -573,6 +544,20 @@
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 
