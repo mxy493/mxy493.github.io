@@ -25,7 +25,7 @@
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
 
 
 
@@ -194,7 +194,7 @@
     <div class="category row">
       <a
         class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckeqs1fwc0004popxebvxfasi" role="tab" data-toggle="collapse" href="#collapse-ckeqs1fwc0004popxebvxfasi"
+        id="heading-ckeqzlmg50004i4pxbnje9sgy" role="tab" data-toggle="collapse" href="#collapse-ckeqzlmg50004i4pxbnje9sgy"
         aria-expanded="false"
       >
         Leetcode
@@ -207,8 +207,8 @@
       <div class="category-collapse">
         
           
-  <div id="collapse-ckeqs1fwc0004popxebvxfasi" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckeqs1fwc0004popxebvxfasi">
+  <div id="collapse-ckeqzlmg50004i4pxbnje9sgy" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-ckeqzlmg50004i4pxbnje9sgy">
     
     
     
@@ -299,7 +299,7 @@
     <div class="category row">
       <a
         class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckeqs1fwm000lpopx1svcc4pk" role="tab" data-toggle="collapse" href="#collapse-ckeqs1fwm000lpopx1svcc4pk"
+        id="heading-ckeqzlmgf000li4px8fki1miy" role="tab" data-toggle="collapse" href="#collapse-ckeqzlmgf000li4px8fki1miy"
         aria-expanded="false"
       >
         博客
@@ -312,8 +312,8 @@
       <div class="category-collapse">
         
           
-  <div id="collapse-ckeqs1fwm000lpopx1svcc4pk" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckeqs1fwm000lpopx1svcc4pk">
+  <div id="collapse-ckeqzlmgf000li4px8fki1miy" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-ckeqzlmgf000li4px8fki1miy">
     
     
     
@@ -391,7 +391,7 @@
     <div class="category row">
       <a
         class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckeqs1fzd007qpopxei9o9ikx" role="tab" data-toggle="collapse" href="#collapse-ckeqs1fzd007qpopxei9o9ikx"
+        id="heading-ckeqzlmit007zi4px7qug4acb" role="tab" data-toggle="collapse" href="#collapse-ckeqzlmit007zi4px7qug4acb"
         aria-expanded="false"
       >
         前端
@@ -404,8 +404,8 @@
       <div class="category-collapse">
         
           
-  <div id="collapse-ckeqs1fzd007qpopxei9o9ikx" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckeqs1fzd007qpopxei9o9ikx">
+  <div id="collapse-ckeqzlmit007zi4px7qug4acb" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-ckeqzlmit007zi4px7qug4acb">
     
     
     
@@ -427,7 +427,7 @@
     <div class="category row">
       <a
         class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckeqs1fzq008mpopx3ehv21vs" role="tab" data-toggle="collapse" href="#collapse-ckeqs1fzq008mpopx3ehv21vs"
+        id="heading-ckeqzlmj1008vi4pxdpp52dwd" role="tab" data-toggle="collapse" href="#collapse-ckeqzlmj1008vi4pxdpp52dwd"
         aria-expanded="false"
       >
         深度学习
@@ -440,8 +440,8 @@
       <div class="category-collapse">
         
           
-  <div id="collapse-ckeqs1fzq008mpopx3ehv21vs" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckeqs1fzq008mpopx3ehv21vs">
+  <div id="collapse-ckeqzlmj1008vi4pxdpp52dwd" class="collapse in" role="tabpanel"
+       aria-labelledby="heading-ckeqzlmj1008vi4pxdpp52dwd">
     
     
     
@@ -565,9 +565,193 @@
 
 
 
+  
+
+
+
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
   <script  src="/js/clipboard-use.js" ></script>
 
+
+
+  <script defer>
+  (function () {
+    // 查询存储的记录
+    function getRecord(Counter, target) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {target, time: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    }
+
+    // 发起自增请求
+    function increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    }
+
+    // 构建自增请求体
+    function buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "time": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    }
+
+    // 校验是否为有效的 UV
+    function validUV() {
+      var key = 'LeanCloud_UV_Flag';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    }
+
+    function addCount(Counter) {
+      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
+      var getterArr = [];
+      var incrArr = [];
+
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#leancloud-site-pv-container');
+      if (pvCtn || enableIncr) {
+        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
+          incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-pv');
+          if (ele) {
+            ele.innerText = record.time + 1;
+            if (pvCtn) {
+              pvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#leancloud-site-uv-container');
+      if (uvCtn || enableIncr) {
+        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
+          var vuv = validUV();
+          vuv && incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-uv');
+          if (ele) {
+            ele.innerText = record.time + (vuv ? 1 : 0);
+            if (uvCtn) {
+              uvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 如果是文章，请求文章的浏览数，并自增
+      if ('false' === 'true') {
+        var viewCtn = document.querySelector('#leancloud-post-views-container');
+        if (viewCtn || enableIncr) {
+          var target = decodeURI('/categories/index.html');
+          var viewGetter = getRecord(Counter, target).then((record) => {
+            incrArr.push(buildIncrement(record.objectId))
+            if (viewCtn) {
+              var ele = document.querySelector('#leancloud-post-views');
+              if (ele) {
+                ele.innerText = (record.time || 0) + 1;
+                viewCtn.style.display = 'inline';
+              }
+            }
+          });
+          getterArr.push(viewGetter);
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && increment(Counter, incrArr);
+        })
+      }
+    }
+
+    var app_id = 'zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz'
+    var app_key = 'iNppU37sPwRdpmjgAsJ3dgnC'
+    var server_url = 'https://leancloud.mxy.cool'
+
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': app_id,
+            'X-LC-Key': app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+
+      addCount(Counter);
+    }
+
+    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(resp => resp.json())
+        .then(({api_server}) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
 
 
 
@@ -687,8 +871,6 @@
         s.parentNode.insertBefore(hm, s);
       })();
     </script>
-  
-
   
 
   
