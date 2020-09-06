@@ -17,10 +17,20 @@
   <meta name="description" content="">
   <meta name="author" content="mxy">
   <meta name="keywords" content="">
-  <title>归档 - mxy</title>
+  <title>新网银行笔试题 - 分苹果 - mxy</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -159,6 +169,40 @@
             </span>
 
             
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-09-06 15:25" pubdate>
+      2020年9月6日 下午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      464 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      5
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
           </div>
 
           
@@ -169,37 +213,160 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 111 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020011755548/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">博客搭建一周年ᓚᘏᗢ</span>
-      <time style="float: right;">01-17</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">新网银行笔试题 - 分苹果</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2020年9月6日 下午
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>小朱有 n 个苹果要卖，他有两张桌子 S1，S2 ，要将所有 n 个苹果分别放在两张桌子上，使 S1 上最重的苹果和 S2 上最轻的苹果之差最小。</p>
+<p><strong>输入说明：</strong></p>
+<ul>
+<li>输入数据的组数 t （1行）；</li>
+<li>第 i 组数据的苹果数量 n （1行 × t）；</li>
+<li>第 i 组 n 个苹果的重量 n 个整数（1行 × t）；</li>
+</ul>
+<p><strong>输出说明：</strong></p>
+<ul>
+<li>t 行，t 组数据的最小值。</li>
+</ul>
+<p><strong>输入示例：</strong></p>
+<div class="hljs"><pre><code class="hljs basic"><span class="hljs-number">5</span>
+<span class="hljs-number">5</span>
+<span class="hljs-symbol">9 </span><span class="hljs-number">9</span> <span class="hljs-number">5</span> <span class="hljs-number">4</span> <span class="hljs-number">8</span>
+<span class="hljs-number">2</span>
+<span class="hljs-symbol">5 </span><span class="hljs-number">9</span>
+<span class="hljs-number">4</span>
+<span class="hljs-symbol">7 </span><span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">3</span>
+<span class="hljs-number">4</span>
+<span class="hljs-symbol">2 </span><span class="hljs-number">1</span> <span class="hljs-number">8</span> <span class="hljs-number">4</span>
+<span class="hljs-number">5</span>
+<span class="hljs-symbol">1 </span><span class="hljs-number">2</span> <span class="hljs-number">1</span> <span class="hljs-number">3</span> <span class="hljs-number">1</span></code></pre></div>
 
+<p><strong>输出示例：</strong></p>
+<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-number">0</span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">0</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">0</span></code></pre></div>
 
-              </div>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>这个题在笔试题里面确实算是简单的，当然可能有更好的解法~</p>
+<p>仔细思考一下，其实就是找最小的重量差。翻译为数学问题，任意一组数，只要找到最小差的两个数 a ， b （a &lt;= b），就可以把所有其它小于等于 a 的数分为一组，剩余的大于等于 b 的数分为一组，此时也就满足了一组数的最大值（a）和另一组数的最小值（b）之差最小。</p>
+<p>以下代码为一边输入一边就将各组输入数据的结果输出，如果需要计算完所有数据后统一输出，可以将结果暂存到一个列表中。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><div class="hljs"><pre><code class="hljs python">t = int(input())  <span class="hljs-comment"># 数据组数</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(t):
+    n = int(input())  <span class="hljs-comment"># 第i组数据的苹果数量n</span>
+    weights = [int(item) <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> input().split(<span class="hljs-string">&#x27; &#x27;</span>)]  <span class="hljs-comment"># 第i组数据n个苹果的重量</span>
+    weights.sort()  <span class="hljs-comment"># 先排序，效率高很多</span>
+    m = abs(weights[<span class="hljs-number">1</span>] - weights[<span class="hljs-number">0</span>])  <span class="hljs-comment"># 初始化m为任意两苹果的重量差</span>
+    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(n - <span class="hljs-number">1</span>):
+        tmp = abs(weights[j + <span class="hljs-number">1</span>] - weights[j])
+        m = tmp <span class="hljs-keyword">if</span> tmp &lt; m <span class="hljs-keyword">else</span> m  <span class="hljs-comment"># 更新最小重量差</span>
+        <span class="hljs-keyword">if</span> m == <span class="hljs-number">0</span>:
+            <span class="hljs-keyword">break</span>  <span class="hljs-comment"># 0为可能的最小值</span>
+    print(m)</code></pre></div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AC%94%E7%BB%8F/">笔经</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020083032973/">
+                        <span class="hidden-mobile">YOLOv5快速上手使用【WIN】</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+          app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+          placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    }
+    waitElementVisible('vcomments', loadValine);
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -309,6 +476,31 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -316,7 +508,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "新网银行笔试题 - 分苹果&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -331,6 +523,21 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -344,6 +551,20 @@
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 
