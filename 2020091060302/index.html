@@ -260,50 +260,50 @@
 <p>如果 NSIS 是安装的官方版本，那么如果要使用 HM NIS EDIT 就需要额外下载安装，如果是使用国内开发者修改过的集成安装版则均已安装好了，直接运行即可。</p>
 <p>这里我以集成增强版为例进行简要说明，官方版本差别并不大，不同版本功能有细微的差别也不用太在意，VNISEdit 仅仅是用来帮助创建 nsi 脚本，如前面所说，生成的脚本一般都是需要后续手动修改的。</p>
 <p>（1）继承增强版程序主界面如下图所示，这个界面其实是一个主菜单，第一个 MakeNSISW 是编译工具，向其中导入编写好的脚本就可以编译生成安装程序，第二个 HM VNISEdit 就是现在要介绍的帮助创建 nsi 脚本的程序，第三个 NotePad2 是一个文本编辑器。</p>
-<p><img src="main.png" srcset="/img/loading.gif"></p>
+<p><img src="main.webp" srcset="/img/loading.gif"></p>
 <p>（2）打开 HM VNISEdit ，界面如下，这个软件主要是用来编写 nsi 脚本的，但也集成了编译的功能。</p>
-<p>![](HM VNISEdit.png)</p>
+<p><img src="HMVNISEdit.webp" srcset="/img/loading.gif"></p>
 <p>（3）点击左上角“文件”，可以看到多种创建脚本的方法，这里我们使用向导进行创建，因为只需要一步一步按照向导的提示设置相关项即可，傻瓜式操作，对新手很友好🤣</p>
-<p><img src="guide.png" srcset="/img/loading.gif"></p>
+<p><img src="guide.webp" srcset="/img/loading.gif"></p>
 <p>（4）一般需要设置程序名和版本号，其它信息如果不需要的话选中删除即可，下一步。</p>
-<p><img src="info.png" srcset="/img/loading.gif"></p>
-<p>（5）设置【安装程序的图标】，注意并不是【程序的图标】，设置安装程序的名字，默认为 <code>Setup.exe</code> ，虽然可以但是建议改一下，之前在某个地方有看到说这个名字系统有可能报错<del>其它项一般不需要设置，感兴趣自行查阅相关资料</del></p>
-<p><img src="logo.png" srcset="/img/loading.gif"></p>
+<p><img src="info.webp" srcset="/img/loading.gif"></p>
+<p>（5）设置【安装程序的图标】，注意并不是【程序的图标】，设置安装程序的名字，默认为 <code>Setup.exe</code> ，虽然可以但是建议改一下，之前在某个地方有看到说这个名字系统有可能报错。其它项一般不需要设置，感兴趣自行查阅相关资料。</p>
+<p><img src="logo.webp" srcset="/img/loading.gif"></p>
 <p>（6）呃，这一页，算了，下一步，花里胡哨……</p>
-<p><img src="jump.png" srcset="/img/loading.gif"></p>
+<p><img src="jump.webp" srcset="/img/loading.gif"></p>
 <p>（7）设置默认的安装目录，<code>$PROGRAMFILES</code> 指系统的默认程序安装文件夹（一般不需要修改，但需要注意程序运行可能需要管理员权限），一般为 <code>C:\Program Files (x86)</code> ，具体运行的时候会自动检测；下面的授权文件如果没有的话删掉编辑框中内容即可。下一步。</p>
-<p><img src="installdir.png" srcset="/img/loading.gif"></p>
-<p>（8）删除下图的默认的两行，这里假设程序已经打包到一个文件夹里，点击 “AddDirTree” 按钮直接添加整个程序文件夹</p>
-<p><img src="files.png" srcset="/img/loading.gif"></p>
+<p><img src="installdir.webp" srcset="/img/loading.gif"></p>
+<p>（8）删除下图的默认的两行，这里假设程序已经打包到一个文件夹里，点击 “AddDirTree” 按钮直接添加整个程序文件夹。</p>
+<p><img src="files.webp" srcset="/img/loading.gif"></p>
 <p>（9）选择程序的目录，以我的 <code>D:\mxy\Desktop\Duang</code> 为例，选择后会自动加上 <code>*.*</code> ，指添加该路径下的所有文件；目的目录保持默认的 <code>$INSTDIR</code> ，即程序的安装目录，取决于用户安装程序时选择的安装位置，如果不修改则为第（7）步默认的 <code>C:\Program Files (x86)\Duang</code> ；注意勾选左下方的“包含子目录”项。其它按需自行修改，确定。</p>
-<p><img src="prodir.png" srcset="/img/loading.gif"></p>
+<p><img src="prodir.webp" srcset="/img/loading.gif"></p>
 <p>（10）建议点击 “添加文件” 按钮将程序的可执行文件单独添加到列表中，后一步会有用到，添加后的结构如下图所示。下一步。</p>
-<p><img src="prog.png" srcset="/img/loading.gif"></p>
+<p><img src="prog.webp" srcset="/img/loading.gif"></p>
 <p>（11）上一步如果没有单独添加可执行程序的话，这一步就不会有下图框中的两项，当然应该也可以自行添加，只是相对麻烦一些。参考下图的设置，安装程序会在开始菜单中创建一个名叫 “Duang” 的文件夹，然后在这个文件夹中创建程序的快捷方式以及卸载程序的快捷方式，还会创建一个桌面快捷方式。下一步。</p>
-<p><img src="shortcut.png" srcset="/img/loading.gif"></p>
+<p><img src="shortcut.webp" srcset="/img/loading.gif"></p>
 <p>（12）设置程序安装完后要做什么，下图为安装完后启动应用程序。下一步。</p>
-<p><img src="finish.png" srcset="/img/loading.gif"></p>
+<p><img src="finish.webp" srcset="/img/loading.gif"></p>
 <p>（13）关于卸载程序的一些设置，自行设置后下一步。</p>
-<p><img src="uninstall.png" srcset="/img/loading.gif"></p>
+<p><img src="uninstall.webp" srcset="/img/loading.gif"></p>
 <p>（14）建议保存脚本并转换文件路径到相对路径，方便重复使用该脚本。完成。</p>
-<p><img src="store.png" srcset="/img/loading.gif"></p>
+<p><img src="store.webp" srcset="/img/loading.gif"></p>
 <p>（15）此时可以看到 HM VNISEdit 的主界面已经加载了根据刚才的设置生成的脚本，看不懂，先不管脚本了，傻瓜式的点击菜单栏的 “NSIS” ，然后 “编译并运行” 即可。</p>
-<p><img src="compile.png" srcset="/img/loading.gif"></p>
+<p><img src="compile.webp" srcset="/img/loading.gif"></p>
 <p>（16）这时候耐心等待就好了，生成的安装程序会存放在上一步保存的脚本文件所在的目录下。</p>
-<p><img src="out.png" srcset="/img/loading.gif"></p>
+<p><img src="out.webp" srcset="/img/loading.gif"></p>
 <p>（17）这就不需要教了ᓚᘏᗢ</p>
-<p><img src="Duang.png" srcset="/img/loading.gif"></p>
+<p><img src="Duang.webp" srcset="/img/loading.gif"></p>
 <h1 id="四、自定义-NSIS-脚本"><a href="#四、自定义-NSIS-脚本" class="headerlink" title="四、自定义 NSIS 脚本"></a>四、自定义 NSIS 脚本</h1><p>显然前面向导生成的脚本可以自定义的地方是有限的，而且实际操作中可能还有些问题，例如我遇到的卸载程序不能将程序完全卸载掉的问题，所有这些问题都可以通过修改脚本文件来解决。</p>
 <p><strong>注意：</strong>特别需要注意以下 NSIS 脚本的编码问题，好像是官方版本不支持 Unicode 编码，反正我个人使用官方 NSIS 3.06.1 过程中 GBK 编码没有问题，UTF-8 编码会报错，但 UTF-8 with BOM 是可用的。</p>
 <h2 id="（1）使用-VScode-编辑脚本"><a href="#（1）使用-VScode-编辑脚本" class="headerlink" title="（1）使用 VScode 编辑脚本"></a>（1）使用 VScode 编辑脚本</h2><p>这里首先推荐使用 VScode 编辑脚本，因为 VScode 有 NSIS 的插件可以高亮显示代码，甚至简单配置了 NSIS 编译器路径后还可以直接在 VScode 中一键编译，非常方便。</p>
 <p>简单介绍一下吧，NSIS 插件自行搜索安装就好了，安装好后配置 NSIS 插件。</p>
-<p><img src="vscodensis.png" srcset="/img/loading.gif"></p>
+<p><img src="vscodensis.webp" srcset="/img/loading.gif"></p>
 <p>主要需要配置 NSIS 编译器的路径，如图所示。</p>
-<p><img src="pathtonsis.png" srcset="/img/loading.gif"></p>
+<p><img src="pathtonsis.webp" srcset="/img/loading.gif"></p>
 <p>NSIS 安装目录下的 makensis.exe 即 NSIS 编译器。</p>
-<p><img src="NSISpath.png" srcset="/img/loading.gif"></p>
+<p><img src="NSISpath.webp" srcset="/img/loading.gif"></p>
 <p>完毕后打开先前生成的脚本文件看看，真香 :-) 脚本编辑完毕后，点击右上角按钮即可编译生成安装程序。</p>
-<p><img src="goodvscode.png" srcset="/img/loading.gif"></p>
+<p><img src="goodvscode.webp" srcset="/img/loading.gif"></p>
 <h2 id="（2）正儿八经的编写脚本"><a href="#（2）正儿八经的编写脚本" class="headerlink" title="（2）正儿八经的编写脚本"></a>（2）正儿八经的编写脚本</h2><p>以我的脚本为例来一步一步说，也就是前面向导生成的没有修改过的脚本。</p>
 <p>a. <code>;</code> 为 NSIS 脚本的注释符，用法类似 C++ 的 <code>//</code> 或者 Python 的 <code>#</code> ，<code>!define</code> 用于定义常量，后接自定义的常量名和该常量的值。强烈建议将各种自定义的量在脚本的开头定义为常量，后续使用常量即可，这么做的目的是程序升级时方便简单修改一些常量的值即可重复使用该脚本。常量的使用如下方代码第 7 行所示即 <code>$&#123;变量名&#125;</code> 即可。</p>
 <div class="hljs"><pre><code class="hljs nsis"><span class="hljs-comment">; 安装程序初始定义常量</span>
@@ -438,7 +438,7 @@ FunctionEnd</code></pre></div>
 
 <h2 id="（3）编译试试"><a href="#（3）编译试试" class="headerlink" title="（3）编译试试"></a>（3）编译试试</h2><p>如果编译成功将看到输出结构如下的信息。编译生成的安装程序将和脚本文件存放在一起，可以安装测试一下功能是否正常。</p>
 <p>如果编译失败，会输出具体哪一行出现了错误，容易出错的地方就是路径问题，并不复杂，稍微细心一点就好了。</p>
-<p><img src="compilesuccess.png" srcset="/img/loading.gif"></p>
+<p><img src="compilesuccess.webp" srcset="/img/loading.gif"></p>
 <h1 id="五、进阶操作"><a href="#五、进阶操作" class="headerlink" title="五、进阶操作"></a>五、进阶操作</h1><p>进阶操作我也不会什么了，建议查阅 NSIS 官方文档：<a target="_blank" rel="noopener" href="https://nsis.sourceforge.io/Docs">https://nsis.sourceforge.io/Docs</a></p>
 <p>关于安装程序的界面的设置需要查阅 MUI 的相关文档：<a target="_blank" rel="noopener" href="https://nsis.sourceforge.io/Docs/Modern%20UI%202/Readme.html">https://nsis.sourceforge.io/Docs/Modern UI 2/Readme.html</a></p>
 <p>例如，以下两项分别可以设置安装程序欢迎界面的图片和文字。</p>
@@ -451,9 +451,9 @@ MUI_WELCOMEPAGE_TEXT text</code></pre></div>
 
 <h1 id="六、在-Python-中编译"><a href="#六、在-Python-中编译" class="headerlink" title="六、在 Python 中编译"></a>六、在 Python 中编译</h1><h2 id="（1）在-Python-中编译"><a href="#（1）在-Python-中编译" class="headerlink" title="（1）在 Python 中编译"></a>（1）在 Python 中编译</h2><p>其实在 Python 中编译本质上就是调用 NSIS 编译程序 “makensis.exe” 。</p>
 <p>首先要做的时将 NSIS 编译器所在的目录添加到系统环境变量，如图所示。</p>
-<p><img src="syspath.png" srcset="/img/loading.gif"></p>
+<p><img src="syspath.webp" srcset="/img/loading.gif"></p>
 <p>环境变量设置好后可以在命令行中输入命令 <code>makensis</code> 测试一下，如果输出如下信息，则说明配置成功了。</p>
-<p><img src="makensis.png" srcset="/img/loading.gif"></p>
+<p><img src="makensis.webp" srcset="/img/loading.gif"></p>
 <p>在 Python 中使用就很简单了，直接上代码：</p>
 <div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">import</span> subprocess
 
