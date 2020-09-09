@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -291,8 +291,8 @@
     <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">surfaceArea</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;
         <span class="hljs-keyword">int</span> area = <span class="hljs-number">0</span>;<span class="hljs-comment">//表面积</span>
         <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; dir = &#123; &#123;<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>&#125; &#125;;<span class="hljs-comment">//上、下、左、右</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; grid.<span class="hljs-built_in">size</span>(); i++) &#123;
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; grid[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>(); j++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; grid.size(); i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; grid[<span class="hljs-number">0</span>].size(); j++) &#123;
                 <span class="hljs-keyword">if</span> (grid[i][j] == <span class="hljs-number">0</span>)<span class="hljs-comment">//没有立方体不做处理，面积不改变</span>
                     <span class="hljs-keyword">continue</span>;
                 area += <span class="hljs-number">4</span> * grid[i][j] + <span class="hljs-number">2</span>;<span class="hljs-comment">//不考虑四周重叠部分的表面积</span>
@@ -301,7 +301,7 @@
                     <span class="hljs-keyword">int</span> jj = j + d.second;
                     <span class="hljs-comment">//减掉相邻立方体个数较少的一侧的面积</span>
                     <span class="hljs-comment">//例如4和2相邻，应减掉当前4个立方体与2相邻一侧的表面积2</span>
-                    <span class="hljs-keyword">if</span> (ii &gt;= <span class="hljs-number">0</span> &amp;&amp; ii &lt; grid.<span class="hljs-built_in">size</span>() &amp;&amp; jj &gt;= <span class="hljs-number">0</span> &amp;&amp; jj &lt; grid[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>()) &#123;
+                    <span class="hljs-keyword">if</span> (ii &gt;= <span class="hljs-number">0</span> &amp;&amp; ii &lt; grid.size() &amp;&amp; jj &gt;= <span class="hljs-number">0</span> &amp;&amp; jj &lt; grid[<span class="hljs-number">0</span>].size()) &#123;
                         area -= grid[i][j] &lt;= grid[ii][jj] ? grid[i][j] : grid[ii][jj];
                     &#125;
                 &#125;

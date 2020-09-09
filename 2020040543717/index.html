@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -300,7 +300,7 @@
     &#125;
 
     <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-keyword">int</span> key)</span> </span>&#123;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; vec.<span class="hljs-built_in">size</span>(); i++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; vec.size(); i++) &#123;
             <span class="hljs-keyword">if</span> (vec[i].first.first == key) &#123;
                 vec[i].second++;
                 <span class="hljs-keyword">int</span> val = vec[i].first.second;
@@ -315,7 +315,7 @@
         <span class="hljs-comment">//容量为0无法新增</span>
         <span class="hljs-keyword">if</span> (capacity == <span class="hljs-number">0</span>)
             <span class="hljs-keyword">return</span>;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; vec.<span class="hljs-built_in">size</span>(); i++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; vec.size(); i++) &#123;
             <span class="hljs-comment">//已存在值为key的元素应该更新其value，并将其频率+1</span>
             <span class="hljs-keyword">if</span> (vec[i].first.first == key) &#123;
                 vec[i].first.second = value;
@@ -325,16 +325,16 @@
             &#125;
         &#125;
         <span class="hljs-comment">//元素不存在且容量未满</span>
-        <span class="hljs-keyword">if</span> (vec.<span class="hljs-built_in">size</span>() &lt; capacity) &#123;
+        <span class="hljs-keyword">if</span> (vec.size() &lt; capacity) &#123;
             vec.push_back(&#123; &#123;key,value&#125;,<span class="hljs-number">0</span> &#125;);
-            rearrange(vec.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>);
+            rearrange(vec.size() - <span class="hljs-number">1</span>);
             <span class="hljs-keyword">return</span>;
         &#125;
         <span class="hljs-comment">//元素不存在但容量已满</span>
         <span class="hljs-keyword">else</span> &#123;
             vec.pop_back();<span class="hljs-comment">//末尾元素就是最最远且少使用的元素</span>
             vec.push_back(&#123; &#123;key,value&#125;,<span class="hljs-number">0</span> &#125;);
-            rearrange(vec.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>);
+            rearrange(vec.size() - <span class="hljs-number">1</span>);
         &#125;
     &#125;
 &#125;;

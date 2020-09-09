@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -263,10 +263,10 @@
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxSubArray</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
         <span class="hljs-keyword">int</span> maxSum = nums[<span class="hljs-number">0</span>];<span class="hljs-comment">//子序和</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); i++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.size(); i++) &#123;
             <span class="hljs-comment">//查找并更新从每一个数开始的所有可能子序的子序和</span>
             <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;<span class="hljs-comment">//以nums[i]开头的子序的子序和</span>
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = i; j &lt; nums.<span class="hljs-built_in">size</span>(); j++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = i; j &lt; nums.size(); j++) &#123;
                 sum += nums[j];
                 maxSum = sum &gt; maxSum ? sum : maxSum;
             &#125;

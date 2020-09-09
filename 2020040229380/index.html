@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -284,43 +284,43 @@
 
 <span class="hljs-comment">//递归算法</span>
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getMin</span><span class="hljs-params">(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; vec, <span class="hljs-keyword">int</span> x)</span> </span>&#123;
-    <span class="hljs-keyword">if</span> (vec.back() - vec.front() &lt;= x) &#123;
-        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-    &#125;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec1;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec2;
-    vec1.assign(vec.<span class="hljs-built_in">begin</span>(), vec.<span class="hljs-built_in">end</span>() - <span class="hljs-number">1</span>);
-    vec2.assign(vec.<span class="hljs-built_in">begin</span>() + <span class="hljs-number">1</span>, vec.<span class="hljs-built_in">end</span>());
-    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> + <span class="hljs-built_in">std</span>::<span class="hljs-built_in">min</span>(getMin(vec1, x), getMin(vec2, x));
+	<span class="hljs-keyword">if</span> (vec.back() - vec.front() &lt;= x) &#123;
+		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+	&#125;
+	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec1;
+	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec2;
+	vec1.assign(vec.begin(), vec.end() - <span class="hljs-number">1</span>);
+	vec2.assign(vec.begin() + <span class="hljs-number">1</span>, vec.end());
+	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span> + <span class="hljs-built_in">std</span>::min(getMin(vec1, x), getMin(vec2, x));
 &#125;
 
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
-    <span class="hljs-keyword">int</span> n;
-    <span class="hljs-keyword">int</span> x;
-    <span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; n &gt;&gt; x;
-    <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>) &#123;
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-number">0</span>;
-        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-    &#125;
-    <span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">seq</span><span class="hljs-params">(n)</span></span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; seq[i];
-    &#125;
+	<span class="hljs-keyword">int</span> n;
+	<span class="hljs-keyword">int</span> x;
+	<span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>;
+	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; n &gt;&gt; x;
+	<span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>) &#123;
+		<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-number">0</span>;
+		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+	&#125;
+	<span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">seq</span><span class="hljs-params">(n)</span></span>;
+	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
+		<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; seq[i];
+	&#125;
 
-    <span class="hljs-comment">//从小到大排序</span>
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n - i - <span class="hljs-number">1</span>; j++) &#123;
-            <span class="hljs-keyword">if</span> (seq[j] &gt; seq[j + <span class="hljs-number">1</span>]) &#123;
-                <span class="hljs-keyword">int</span> temp = seq[j];
-                seq[j] = seq[j + <span class="hljs-number">1</span>];
-                seq[j + <span class="hljs-number">1</span>] = temp;
-            &#125;
-        &#125;
-    &#125;
-    ans = getMin(seq, x);
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; ans;
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+	<span class="hljs-comment">//从小到大排序</span>
+	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
+		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n - i - <span class="hljs-number">1</span>; j++) &#123;
+			<span class="hljs-keyword">if</span> (seq[j] &gt; seq[j + <span class="hljs-number">1</span>]) &#123;
+				<span class="hljs-keyword">int</span> temp = seq[j];
+				seq[j] = seq[j + <span class="hljs-number">1</span>];
+				seq[j + <span class="hljs-number">1</span>] = temp;
+			&#125;
+		&#125;
+	&#125;
+	ans = getMin(seq, x);
+	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; ans;
+	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 &#125;</code></pre></div>
 
 <h3 id="题目二：空间回廊"><a href="#题目二：空间回廊" class="headerlink" title="题目二：空间回廊"></a>题目二：空间回廊</h3><p><img src="exam2.png" srcset="/img/loading.gif"></p>
@@ -358,29 +358,29 @@
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;vector&gt;</span></span>
 
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
-    <span class="hljs-keyword">int</span> n;<span class="hljs-comment">//房间数</span>
-    <span class="hljs-keyword">int</span> m;<span class="hljs-comment">//法力值</span>
-    <span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; n &gt;&gt; m;
-    <span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">room</span><span class="hljs-params">(n)</span></span>;
-    <span class="hljs-keyword">int</span> <span class="hljs-built_in">min</span> = <span class="hljs-number">-1</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
-        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; room[i];
-        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">min</span> == <span class="hljs-number">-1</span>) <span class="hljs-built_in">min</span> = room[i];
-        <span class="hljs-built_in">min</span> = <span class="hljs-built_in">min</span> &lt; room[i] ? <span class="hljs-built_in">min</span> : room[i];
-    &#125;
-    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">while</span> (m &gt;= <span class="hljs-built_in">min</span>)
-    &#123;
-        <span class="hljs-keyword">if</span> (m &gt;= room[i]) &#123;
-            m -= room[i];
-            ans++;
-        &#125;
-        i++;
-        <span class="hljs-keyword">if</span> (i == n) i = <span class="hljs-number">0</span>;
-    &#125;
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; ans;
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">int</span> n;<span class="hljs-comment">//房间数</span>
+	<span class="hljs-keyword">int</span> m;<span class="hljs-comment">//法力值</span>
+	<span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>;
+	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; n &gt;&gt; m;
+	<span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">room</span><span class="hljs-params">(n)</span></span>;
+	<span class="hljs-keyword">int</span> min = <span class="hljs-number">-1</span>;
+	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
+		<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; room[i];
+		<span class="hljs-keyword">if</span> (min == <span class="hljs-number">-1</span>) min = room[i];
+		min = min &lt; room[i] ? min : room[i];
+	&#125;
+	<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">while</span> (m &gt;= min)
+	&#123;
+		<span class="hljs-keyword">if</span> (m &gt;= room[i]) &#123;
+			m -= room[i];
+			ans++;
+		&#125;
+		i++;
+		<span class="hljs-keyword">if</span> (i == n) i = <span class="hljs-number">0</span>;
+	&#125;
+	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; ans;
+	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 &#125;</code></pre></div>
 
 <h3 id="题目三：小仓的射击练习4"><a href="#题目三：小仓的射击练习4" class="headerlink" title="题目三：小仓的射击练习4"></a>题目三：小仓的射击练习4</h3><p><img src="exam3.png" srcset="/img/loading.gif"></p>

@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -274,7 +274,7 @@
         <span class="hljs-keyword">if</span> (nums.empty()) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
         <span class="hljs-keyword">if</span> (target &gt;= nums[<span class="hljs-number">0</span>]) &#123;
             <span class="hljs-comment">//在前半部分找</span>
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.size(); i++) &#123;
                 <span class="hljs-keyword">if</span> (nums[i] == target) &#123;
                     ans = i;
                     <span class="hljs-keyword">break</span>;
@@ -283,7 +283,7 @@
         &#125;
         <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (target &lt;= nums.back()) &#123;
             <span class="hljs-comment">//在后半部分找</span>
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = nums.size() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;
                 <span class="hljs-keyword">if</span> (nums[i] == target) &#123;
                     ans = i;
                     <span class="hljs-keyword">break</span>;

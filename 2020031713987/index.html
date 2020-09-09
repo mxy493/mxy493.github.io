@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -280,10 +280,10 @@
             <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
         <span class="hljs-keyword">int</span> length = <span class="hljs-number">0</span>;<span class="hljs-comment">//总长度</span>
         <span class="hljs-keyword">int</span> n = chars.length();
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> <span class="hljs-keyword">word</span> : words) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> word : words) &#123;
             <span class="hljs-keyword">bool</span> b = <span class="hljs-literal">true</span>;<span class="hljs-comment">//该单词能否拼写</span>
             <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">mark</span><span class="hljs-params">(n, <span class="hljs-number">1</span>)</span></span>;<span class="hljs-comment">//标记字符是否被使用，0为已使用，1为未使用</span>
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> c : <span class="hljs-keyword">word</span>) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> c : word) &#123;
                 <span class="hljs-keyword">bool</span> findc = <span class="hljs-literal">false</span>;<span class="hljs-comment">//是否有没被使用过的这个字符</span>
                 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;
                     <span class="hljs-keyword">if</span> (c == chars[j] &amp;&amp; mark[j] == <span class="hljs-number">1</span>) &#123;
@@ -299,7 +299,7 @@
                 &#125;
             &#125;
             <span class="hljs-keyword">if</span> (b == <span class="hljs-literal">true</span>) &#123;
-                length += <span class="hljs-keyword">word</span>.length();
+                length += word.length();
             &#125;
         &#125;
         <span class="hljs-keyword">return</span> length;

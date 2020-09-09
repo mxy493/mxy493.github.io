@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -284,11 +284,11 @@
             <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (sum == target) &#123;
                 ans.push_back(consecutive);
                 sum -= consecutive[<span class="hljs-number">0</span>];<span class="hljs-comment">//减掉序列中最小的数</span>
-                consecutive.erase(consecutive.<span class="hljs-built_in">begin</span>());<span class="hljs-comment">//删去序列中最小的数</span>
+                consecutive.erase(consecutive.begin());<span class="hljs-comment">//删去序列中最小的数</span>
             &#125;
             <span class="hljs-keyword">else</span> &#123;
                 sum -= consecutive[<span class="hljs-number">0</span>];<span class="hljs-comment">//减掉序列中最小的数</span>
-                consecutive.erase(consecutive.<span class="hljs-built_in">begin</span>());<span class="hljs-comment">//删除第一个元素（最小的数）</span>
+                consecutive.erase(consecutive.begin());<span class="hljs-comment">//删除第一个元素（最小的数）</span>
             &#125;
         &#125;
         <span class="hljs-keyword">return</span> ans;

@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -277,22 +277,22 @@ ans.val = <span class="hljs-number">3</span>, ans.next.val = <span class="hljs-n
 <span class="hljs-comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span>
 <span class="hljs-comment"> * &#125;;</span>
 <span class="hljs-comment"> */</span>
-
+ 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function">ListNode* <span class="hljs-title">middleNode</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;
         ListNode* mid = head;<span class="hljs-comment">//始终指向中间结点</span>
         ListNode* cur = head;<span class="hljs-comment">//当前结点</span>
-        <span class="hljs-keyword">int</span> <span class="hljs-built_in">step</span> = <span class="hljs-number">1</span>;<span class="hljs-comment">//cur每隔一步往后移一位</span>
+        <span class="hljs-keyword">int</span> step = <span class="hljs-number">1</span>;<span class="hljs-comment">//cur每隔一步往后移一位</span>
         <span class="hljs-keyword">while</span> (cur != <span class="hljs-literal">NULL</span>) &#123;
-            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">step</span> == <span class="hljs-number">0</span>) &#123;
+            <span class="hljs-keyword">if</span> (step == <span class="hljs-number">0</span>) &#123;
                 mid = mid-&gt;next;
-                <span class="hljs-built_in">step</span> = <span class="hljs-number">1</span>;
+                step = <span class="hljs-number">1</span>;
                 cur = cur-&gt;next;
                 <span class="hljs-keyword">continue</span>;
             &#125;
             cur = cur-&gt;next;
-            <span class="hljs-built_in">step</span>--;
+            step--;
         &#125;
         <span class="hljs-keyword">return</span> mid;
     &#125;
@@ -303,12 +303,12 @@ ans.val = <span class="hljs-number">3</span>, ans.next.val = <span class="hljs-n
     <span class="hljs-function">ListNode* <span class="hljs-title">middleNode</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;
         ListNode* mid = head;<span class="hljs-comment">//始终指向中间结点</span>
         ListNode* cur = head;<span class="hljs-comment">//当前结点</span>
-        <span class="hljs-keyword">int</span> <span class="hljs-built_in">step</span> = <span class="hljs-number">1</span>;<span class="hljs-comment">//结点数为偶数的时候指针mid往后移一位</span>
+        <span class="hljs-keyword">int</span> step = <span class="hljs-number">1</span>;<span class="hljs-comment">//结点数为偶数的时候指针mid往后移一位</span>
         <span class="hljs-keyword">while</span> (cur != <span class="hljs-literal">NULL</span>) &#123;
-            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">step</span> % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)
+            <span class="hljs-keyword">if</span> (step % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)
                 mid = mid-&gt;next;
             cur = cur-&gt;next;
-            <span class="hljs-built_in">step</span>++;
+            step++;
         &#125;
         <span class="hljs-keyword">return</span> mid;
     &#125;

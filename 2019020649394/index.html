@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -270,21 +270,21 @@
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">longestCommonPrefix</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt;&amp; strs)</span> </span>&#123;
         <span class="hljs-built_in">string</span> str = <span class="hljs-string">&quot;&quot;</span>;   <span class="hljs-comment">//返回值，初始化为空字符串</span>
-        <span class="hljs-keyword">if</span> (strs.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">0</span>) &#123;   <span class="hljs-comment">//strs为空的话直接执行return语句返回空字符串，否则执行下面的部分</span>
+        <span class="hljs-keyword">if</span> (strs.size() &gt; <span class="hljs-number">0</span>) &#123;   <span class="hljs-comment">//strs为空的话直接执行return语句返回空字符串，否则执行下面的部分</span>
             <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>;; j++) &#123;
-                <span class="hljs-keyword">if</span> (j &gt;= strs[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>())   <span class="hljs-comment">//因为总是从第一个字符串开始，所以第一个字符串遍历完后后续就不可能再存在公有的字符了</span>
+                <span class="hljs-keyword">if</span> (j &gt;= strs[<span class="hljs-number">0</span>].size())   <span class="hljs-comment">//因为总是从第一个字符串开始，所以第一个字符串遍历完后后续就不可能再存在公有的字符了</span>
                     <span class="hljs-keyword">break</span>;
                 <span class="hljs-keyword">else</span> &#123;
                     <span class="hljs-keyword">char</span> ch = strs[<span class="hljs-number">0</span>][j];    <span class="hljs-comment">//字符串str[0]的第j+1个字符</span>
                     <span class="hljs-keyword">bool</span> bl = <span class="hljs-literal">true</span>;     <span class="hljs-comment">//字符ch是否公有的标志</span>
-                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>; k &lt; strs.<span class="hljs-built_in">size</span>(); k++) &#123;
+                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>; k &lt; strs.size(); k++) &#123;
                         <span class="hljs-keyword">if</span> (strs[k][j] != ch) &#123;   <span class="hljs-comment">//如果某个字符串的第j个字符和ch不同说明ch不是公有字符</span>
                             bl = <span class="hljs-literal">false</span>;
                             <span class="hljs-keyword">break</span>;
                         &#125;
                     &#125;
                     <span class="hljs-keyword">if</span> (bl == <span class="hljs-literal">true</span>)   <span class="hljs-comment">//说明ch是公有字符，插入到str尾部</span>
-                        str.insert(str.<span class="hljs-built_in">end</span>(), ch);
+                        str.insert(str.end(), ch);
                     <span class="hljs-keyword">else</span> <span class="hljs-keyword">break</span>;   <span class="hljs-comment">//说明ch不是公有字符，后续不需要再判断</span>
                 &#125;
             &#125;
@@ -300,15 +300,15 @@
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">longestCommonPrefix</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">string</span>&gt;&amp; strs)</span> </span>&#123;
         <span class="hljs-built_in">string</span> str = <span class="hljs-string">&quot;&quot;</span>;   <span class="hljs-comment">//返回值，初始化为空字符串</span>
-        <span class="hljs-keyword">if</span> (strs.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">0</span>) &#123;
+        <span class="hljs-keyword">if</span> (strs.size() &gt; <span class="hljs-number">0</span>) &#123;
             str = strs[<span class="hljs-number">0</span>];   <span class="hljs-comment">//strs至少有一个字符串strs[0]，用它初始化str，因为公有部分的长度一定小于strs中的任意一个字符串</span>
-            <span class="hljs-keyword">if</span> (strs.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">1</span>) &#123;  <span class="hljs-comment">//如果strs.size（）大于1，则需要判断字符串str的哪部分为公有的</span>
-                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; strs.<span class="hljs-built_in">size</span>(); i++) &#123;  <span class="hljs-comment">//从第二个字符串开始依次与str比较寻找公有部分，并删除str的非公有部分</span>
-                    <span class="hljs-keyword">int</span> <span class="hljs-built_in">size</span> = str.<span class="hljs-built_in">size</span>() &lt; strs[i].<span class="hljs-built_in">size</span>() ? str.<span class="hljs-built_in">size</span>() : strs[i].<span class="hljs-built_in">size</span>();
-                    str.erase(str.<span class="hljs-built_in">begin</span>() + <span class="hljs-built_in">size</span>, str.<span class="hljs-built_in">end</span>());  <span class="hljs-comment">//如果str更长一些可以直接删除多余部分</span>
-                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-built_in">size</span>; j++) &#123;
+            <span class="hljs-keyword">if</span> (strs.size() &gt; <span class="hljs-number">1</span>) &#123;  <span class="hljs-comment">//如果strs.size（）大于1，则需要判断字符串str的哪部分为公有的</span>
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; strs.size(); i++) &#123;  <span class="hljs-comment">//从第二个字符串开始依次与str比较寻找公有部分，并删除str的非公有部分</span>
+                    <span class="hljs-keyword">int</span> size = str.size() &lt; strs[i].size() ? str.size() : strs[i].size();
+                    str.erase(str.begin() + size, str.end());  <span class="hljs-comment">//如果str更长一些可以直接删除多余部分</span>
+                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; size; j++) &#123;
                         <span class="hljs-keyword">if</span> (str[j] != strs[i][j]) &#123;   <span class="hljs-comment">//某一个字符不相等说明从这个字符开始的后面所有字符都是多余的，删除即可</span>
-                            str.erase(str.<span class="hljs-built_in">begin</span>() + j, str.<span class="hljs-built_in">end</span>());
+                            str.erase(str.begin() + j, str.end());
                             <span class="hljs-keyword">break</span>;
                         &#125;
                     &#125;

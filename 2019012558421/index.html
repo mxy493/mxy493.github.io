@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -271,22 +271,22 @@
         <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; plusone;
         <span class="hljs-keyword">int</span> integer = digits[<span class="hljs-number">0</span>];    <span class="hljs-comment">//默认输入数组非空，最小为0</span>
 
-        <span class="hljs-keyword">if</span> (digits.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">0</span>) &#123;    <span class="hljs-comment">//计算出对应的数字integer</span>
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; digits.<span class="hljs-built_in">size</span>(); i++) &#123;
+        <span class="hljs-keyword">if</span> (digits.size() &gt; <span class="hljs-number">0</span>) &#123;    <span class="hljs-comment">//计算出对应的数字integer</span>
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; digits.size(); i++) &#123;
                 integer = integer * <span class="hljs-number">10</span> + digits[i];
             &#125;
         &#125;
         integer += <span class="hljs-number">1</span>;   <span class="hljs-comment">//整数+1</span>
 
         <span class="hljs-keyword">while</span> (integer!=<span class="hljs-number">0</span>) &#123;    <span class="hljs-comment">//将整数拆分成单个数字并逆序保存到plusone数组中</span>
-            plusone.insert(plusone.<span class="hljs-built_in">end</span>(), integer % <span class="hljs-number">10</span>);
+            plusone.insert(plusone.end(), integer % <span class="hljs-number">10</span>);
             integer /= <span class="hljs-number">10</span>;
         &#125;
 
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; plusone.<span class="hljs-built_in">size</span>() / <span class="hljs-number">2</span>; i++) &#123;   <span class="hljs-comment">//逆序排列得出结果</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; plusone.size() / <span class="hljs-number">2</span>; i++) &#123;   <span class="hljs-comment">//逆序排列得出结果</span>
             <span class="hljs-keyword">int</span> temp = plusone[i];
-            plusone[i] = plusone[plusone.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span> - i];
-            plusone[plusone.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span> - i] = temp;
+            plusone[i] = plusone[plusone.size() - <span class="hljs-number">1</span> - i];
+            plusone[plusone.size() - <span class="hljs-number">1</span> - i] = temp;
         &#125;
         <span class="hljs-keyword">return</span> plusone;
     &#125;
@@ -299,7 +299,7 @@
     <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">plusOne</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; digits)</span> </span>&#123;
         <span class="hljs-keyword">int</span> car = <span class="hljs-number">1</span>;   <span class="hljs-comment">//对最后一位+1以及判断当前项是否有进位</span>
 
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = digits.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;  <span class="hljs-comment">//从最后一项开始往前遍历</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = digits.size() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;  <span class="hljs-comment">//从最后一项开始往前遍历</span>
             <span class="hljs-keyword">if</span> (car == <span class="hljs-number">1</span>) &#123;
                 <span class="hljs-keyword">if</span> (digits[i] == <span class="hljs-number">9</span>) &#123;   <span class="hljs-comment">//如果当前项为9并且要+1，则当前项置0，进位标志置1</span>
                     digits[i] = <span class="hljs-number">0</span>;
@@ -315,7 +315,7 @@
         &#125;
 
         <span class="hljs-keyword">if</span> (car == <span class="hljs-number">1</span>)  <span class="hljs-comment">//如果上面循环结束后进位标志仍为1，则还需要在数组最前面补1</span>
-            digits.insert(digits.<span class="hljs-built_in">begin</span>(), <span class="hljs-number">1</span>);
+            digits.insert(digits.begin(), <span class="hljs-number">1</span>);
 
         <span class="hljs-keyword">return</span> digits;
     &#125;

@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -267,19 +267,19 @@
 <p><img src="1.png" srcset="/img/loading.gif" alt="1"></p>
 <h4 id="2-layout-partial-article-ejs"><a href="#2-layout-partial-article-ejs" class="headerlink" title="2.layout/_partial/article.ejs"></a>2.layout/_partial/article.ejs</h4><p>这段代码改过一点点，添加了一个判断条件如果在博客首页就不执行下面的代码（具体添加了下面代码的第一行和最后一行），也就是只在阅读全文的时候才在文章底部显示评论框，原Issue下的代码不含这个判断条件，也就是首页每篇博客下方都会有一个评论框，这应该不是我们想要的。</p>
 <div class="hljs"><pre><code class="hljs javascript">&lt;% <span class="hljs-keyword">if</span> (!index)&#123; %&gt;
-    &lt;% <span class="hljs-keyword">if</span> (theme.valine &amp;&amp; theme.valine.appid &amp;&amp; theme.valine.appkey)&#123; %&gt;
-        &lt;section id=<span class="hljs-string">&quot;comments&quot;</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;comments&quot;</span>&gt;
-          &lt;style&gt;
-            .comments&#123;margin:30px;padding:10px;background:#fff&#125;
-            @media screen and (max-width:800px)&#123;.comments&#123;margin:auto;padding:10px;background:#fff&#125;&#125;
-          &lt;/style&gt;
-          &lt;%- partial(<span class="hljs-string">&#x27;post/valine&#x27;</span>, &#123;
-            key: post.slug,
-            title: post.title,
-            url: config.url+url_for(post.path)
-            &#125;) %&gt;
-      &lt;/section&gt;
-    &lt;% &#125; %&gt;
+	&lt;% <span class="hljs-keyword">if</span> (theme.valine &amp;&amp; theme.valine.appid &amp;&amp; theme.valine.appkey)&#123; %&gt;
+	    &lt;section id=<span class="hljs-string">&quot;comments&quot;</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;comments&quot;</span>&gt;
+	      &lt;style&gt;
+	        .comments&#123;margin:30px;padding:10px;background:#fff&#125;
+	        @media screen and (max-width:800px)&#123;.comments&#123;margin:auto;padding:10px;background:#fff&#125;&#125;
+	      &lt;/style&gt;
+	      &lt;%- partial(<span class="hljs-string">&#x27;post/valine&#x27;</span>, &#123;
+	        key: post.slug,
+	        title: post.title,
+	        url: config.url+url_for(post.path)
+	        &#125;) %&gt;
+	  &lt;/section&gt;
+	&lt;% &#125; %&gt;
 &lt;% &#125; %&gt;</code></pre></div>
 
 <p>直接插入在最后面就可以，可以看到上面一段就是Gitment评论系统的相关代码，如图：</p>
@@ -356,7 +356,7 @@
 </tr>
 <tr>
 <td>SMTP_USER</td>
-<td align="left"><a href="mailto:&#x78;&#120;&#120;&#x78;&#120;&#120;&#64;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;">&#x78;&#120;&#120;&#x78;&#120;&#120;&#64;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;</a></td>
+<td align="left"><a href="mailto:&#120;&#120;&#x78;&#x78;&#120;&#120;&#x40;&#113;&#113;&#46;&#99;&#x6f;&#x6d;">&#120;&#120;&#x78;&#x78;&#120;&#120;&#x40;&#113;&#113;&#46;&#99;&#x6f;&#x6d;</a></td>
 <td>[必填]SMTP登录用户</td>
 </tr>
 <tr>
@@ -371,7 +371,7 @@
 </tr>
 <tr>
 <td>SENDER_EMAIL</td>
-<td align="left"><a href="mailto:&#x78;&#120;&#120;&#120;&#x78;&#120;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;">&#x78;&#120;&#120;&#120;&#x78;&#120;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;</a></td>
+<td align="left"><a href="mailto:&#120;&#120;&#120;&#x78;&#120;&#x78;&#64;&#113;&#113;&#x2e;&#x63;&#111;&#x6d;">&#120;&#120;&#120;&#x78;&#120;&#x78;&#64;&#113;&#113;&#x2e;&#x63;&#111;&#x6d;</a></td>
 <td>[必填]发件邮箱</td>
 </tr>
 <tr>
@@ -381,7 +381,7 @@
 </tr>
 <tr>
 <td>BLOGGER_EMAIL</td>
-<td align="left"><a href="mailto:&#x78;&#x78;&#120;&#120;&#120;&#120;&#x40;&#x71;&#113;&#46;&#x63;&#111;&#109;">&#x78;&#x78;&#120;&#120;&#120;&#120;&#x40;&#x71;&#113;&#46;&#x63;&#111;&#109;</a></td>
+<td align="left"><a href="mailto:&#120;&#x78;&#120;&#120;&#x78;&#120;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#109;">&#120;&#x78;&#120;&#120;&#x78;&#120;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#109;</a></td>
 <td>[可选]博主通知收件地址，默认使用SENDER_EMAIL</td>
 </tr>
 </tbody></table>

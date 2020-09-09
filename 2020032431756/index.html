@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -272,18 +272,18 @@
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">massage</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
-        <span class="hljs-keyword">int</span> n = (<span class="hljs-keyword">int</span>)nums.<span class="hljs-built_in">size</span>();
+        <span class="hljs-keyword">int</span> n = (<span class="hljs-keyword">int</span>)nums.size();
         <span class="hljs-keyword">if</span> (n == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
         <span class="hljs-keyword">int</span> dp0 = <span class="hljs-number">0</span>, dp1 = nums[<span class="hljs-number">0</span>];
 
         <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; n; ++i) &#123;
-            <span class="hljs-keyword">int</span> tdp0 = <span class="hljs-built_in">max</span>(dp0, dp1); <span class="hljs-comment">// 计算 dp[i][0]</span>
+            <span class="hljs-keyword">int</span> tdp0 = max(dp0, dp1); <span class="hljs-comment">// 计算 dp[i][0]</span>
             <span class="hljs-keyword">int</span> tdp1 = dp0 + nums[i]; <span class="hljs-comment">// 计算 dp[i][1]</span>
 
             dp0 = tdp0; <span class="hljs-comment">// 用 dp[i][0] 更新 dp_0</span>
             dp1 = tdp1; <span class="hljs-comment">// 用 dp[i][1] 更新 dp_1</span>
         &#125;
-        <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(dp0, dp1);
+        <span class="hljs-keyword">return</span> max(dp0, dp1);
     &#125;
 &#125;;</code></pre></div>
             </div>

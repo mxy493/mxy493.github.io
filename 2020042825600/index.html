@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -270,9 +270,9 @@
     <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">singleNumbers</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
         <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ans;<span class="hljs-comment">//返回值</span>
         <span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt; ns;<span class="hljs-comment">//存储数组中唯一的元素</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); i++) &#123;
-            <span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt;::iterator index = ns.<span class="hljs-built_in">find</span>(nums[i]);
-            <span class="hljs-keyword">if</span> (index == ns.<span class="hljs-built_in">end</span>()) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.size(); i++) &#123;
+            <span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt;::iterator index = ns.find(nums[i]);
+            <span class="hljs-keyword">if</span> (index == ns.end()) &#123;
                 ns.insert(nums[i]);
             &#125;
             <span class="hljs-keyword">else</span> &#123;
@@ -280,7 +280,7 @@
             &#125;
         &#125;
         <span class="hljs-comment">//集合转数组</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt;::iterator i = ns.<span class="hljs-built_in">begin</span>(); i != ns.<span class="hljs-built_in">end</span>(); i++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt;::iterator i = ns.begin(); i != ns.end(); i++) &#123;
             ans.push_back(*i);
         &#125;
         <span class="hljs-keyword">return</span> ans;

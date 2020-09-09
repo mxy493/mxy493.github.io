@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -293,15 +293,15 @@
             <span class="hljs-keyword">return</span>;
         &#125;
         <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
-        <span class="hljs-keyword">while</span> (i &lt; nums.<span class="hljs-built_in">size</span>())
+        <span class="hljs-keyword">while</span> (i &lt; nums.size())
         &#123;
             <span class="hljs-comment">//做选择</span>
             path.push_back(nums[i]);
-            nums.erase(nums.<span class="hljs-built_in">begin</span>() + i);
+            nums.erase(nums.begin() + i);
             <span class="hljs-comment">//回溯</span>
             backtrack(ans, nums, path);
             <span class="hljs-comment">//撤销选择</span>
-            nums.insert(nums.<span class="hljs-built_in">begin</span>() + i, path.back());
+            nums.insert(nums.begin() + i, path.back());
             path.pop_back();
             i++;
         &#125;

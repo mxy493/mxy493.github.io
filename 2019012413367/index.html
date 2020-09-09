@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -276,18 +276,18 @@
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">intersect</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums1, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums2)</span> </span>&#123;
         <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; inter;    <span class="hljs-comment">//保存交集的数组</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums1.<span class="hljs-built_in">size</span>(); i++) &#123;    <span class="hljs-comment">//任选一个数组作为外层循环，选小的数组较好</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums1.size(); i++) &#123;    <span class="hljs-comment">//任选一个数组作为外层循环，选小的数组较好</span>
             <span class="hljs-keyword">int</span> q = <span class="hljs-number">0</span>;     <span class="hljs-comment">//用于统计交集中有多少个与当前nums1[i]相等的数</span>
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; inter.<span class="hljs-built_in">size</span>(); j++) &#123;   <span class="hljs-comment">//统计</span>
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; inter.size(); j++) &#123;   <span class="hljs-comment">//统计</span>
                 <span class="hljs-keyword">if</span> (inter[j] == nums1[i])
                     q++;
             &#125;
             <span class="hljs-comment">//q&gt;=1表明交集中已存在q个与nums1[i]相等的数</span>
             <span class="hljs-comment">//q==0表明交集中不存在与nums1[i]相等的数</span>
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>; k &lt; nums2.<span class="hljs-built_in">size</span>(); k++) &#123;    <span class="hljs-comment">//在nums2中查找与nums1[i]相等的数</span>
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>; k &lt; nums2.size(); k++) &#123;    <span class="hljs-comment">//在nums2中查找与nums1[i]相等的数</span>
                 <span class="hljs-comment">//表明nums1[i]与nums2[k]是一对新相等的数，要插入到inter数组中</span>
                 <span class="hljs-keyword">if</span> (q == <span class="hljs-number">0</span> &amp;&amp; nums2[k] == nums1[i]) &#123;
-                    inter.insert(inter.<span class="hljs-built_in">end</span>(), nums1[i]);
+                    inter.insert(inter.end(), nums1[i]);
                     <span class="hljs-comment">//一旦插入一个新的相交的元素就跳出循环</span>
                     <span class="hljs-comment">//否则如果nums2中后序还有相等的数就会多次插入，逻辑错误</span>
                     <span class="hljs-keyword">break</span>;

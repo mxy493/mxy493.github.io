@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -336,9 +336,9 @@ twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
         <span class="hljs-keyword">if</span> (exist == <span class="hljs-literal">false</span>) &#123;
             <span class="hljs-keyword">return</span> ans;
         &#125;
-        <span class="hljs-keyword">int</span> amount = tweets.<span class="hljs-built_in">size</span>();
+        <span class="hljs-keyword">int</span> amount = tweets.size();
         <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; count &lt; <span class="hljs-number">10</span> &amp;&amp; i &lt; tweets.<span class="hljs-built_in">size</span>(); i++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; count &lt; <span class="hljs-number">10</span> &amp;&amp; i &lt; tweets.size(); i++) &#123;
             <span class="hljs-keyword">if</span> (tweets[amount - i - <span class="hljs-number">1</span>].first == userId || isFollowing(userId, tweets[amount - i - <span class="hljs-number">1</span>].first)) &#123;
                 ans.push_back(tweets[amount - i - <span class="hljs-number">1</span>].second);
                 count++;
@@ -349,8 +349,8 @@ twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
 
     <span class="hljs-comment">// id1是否关注了id2</span>
     <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isFollowing</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id1, <span class="hljs-keyword">int</span> id2)</span> </span>&#123;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; users.<span class="hljs-built_in">size</span>(); i++) &#123;
-            <span class="hljs-keyword">if</span> (users[i].first == id1 &amp;&amp; users[i].second.<span class="hljs-built_in">find</span>(id2) != users[i].second.<span class="hljs-built_in">end</span>()) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; users.size(); i++) &#123;
+            <span class="hljs-keyword">if</span> (users[i].first == id1 &amp;&amp; users[i].second.find(id2) != users[i].second.end()) &#123;
                 <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
             &#125;
         &#125;
@@ -360,7 +360,7 @@ twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
     <span class="hljs-comment">/** Follower follows a followee. If the operation is invalid, it should be a no-op. */</span>
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">follow</span><span class="hljs-params">(<span class="hljs-keyword">int</span> followerId, <span class="hljs-keyword">int</span> followeeId)</span> </span>&#123;
         <span class="hljs-keyword">bool</span> exist = <span class="hljs-literal">false</span>;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; users.<span class="hljs-built_in">size</span>(); i++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; users.size(); i++) &#123;
             <span class="hljs-keyword">if</span> (followerId == users[i].first) &#123;
                 exist = <span class="hljs-literal">true</span>;
                 users[i].second.insert(followeeId);
@@ -369,13 +369,13 @@ twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
         &#125;
         <span class="hljs-keyword">if</span> (exist == <span class="hljs-literal">false</span>) &#123;
             users.push_back(&#123; followerId,&#123;&#125; &#125;);
-            users[users.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>].second.insert(followeeId);
+            users[users.size() - <span class="hljs-number">1</span>].second.insert(followeeId);
         &#125;
     &#125;
 
     <span class="hljs-comment">/** Follower unfollows a followee. If the operation is invalid, it should be a no-op. */</span>
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">unfollow</span><span class="hljs-params">(<span class="hljs-keyword">int</span> followerId, <span class="hljs-keyword">int</span> followeeId)</span> </span>&#123;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; users.<span class="hljs-built_in">size</span>(); i++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; users.size(); i++) &#123;
             <span class="hljs-keyword">if</span> (followerId == users[i].first) &#123;
                 users[i].second.erase(followeeId);
                 <span class="hljs-keyword">return</span>;
@@ -400,7 +400,7 @@ twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
     <span class="hljs-comment">//判断是否存在该id的用户</span>
     <span class="hljs-keyword">bool</span> exist = <span class="hljs-literal">false</span>;
     <span class="hljs-keyword">int</span> index = <span class="hljs-number">-1</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; users.<span class="hljs-built_in">size</span>(); i++) &#123;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; users.size(); i++) &#123;
         <span class="hljs-keyword">if</span> (userId == users[i].first) &#123;
             index = i;
             <span class="hljs-keyword">break</span>;
@@ -410,11 +410,11 @@ twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
     <span class="hljs-keyword">if</span> (index == <span class="hljs-number">-1</span>) &#123;
         <span class="hljs-keyword">return</span> ans;
     &#125;
-    <span class="hljs-keyword">int</span> amount = tweets.<span class="hljs-built_in">size</span>();
+    <span class="hljs-keyword">int</span> amount = tweets.size();
     <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; count &lt; <span class="hljs-number">10</span> &amp;&amp; i &lt; tweets.<span class="hljs-built_in">size</span>(); i++) &#123;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; count &lt; <span class="hljs-number">10</span> &amp;&amp; i &lt; tweets.size(); i++) &#123;
         <span class="hljs-keyword">int</span> cur = tweets[amount - i - <span class="hljs-number">1</span>].first;
-        <span class="hljs-keyword">if</span> (cur == userId || users[index].second.<span class="hljs-built_in">find</span>(cur) != users[index].second.<span class="hljs-built_in">end</span>()) &#123;
+        <span class="hljs-keyword">if</span> (cur == userId || users[index].second.find(cur) != users[index].second.end()) &#123;
             ans.push_back(tweets[amount - i - <span class="hljs-number">1</span>].second);
             count++;
         &#125;

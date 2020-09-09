@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -272,10 +272,10 @@
             sc[i] = <span class="hljs-number">0</span>;
             tc[i] = <span class="hljs-number">0</span>;
         &#125;
-        <span class="hljs-keyword">if</span> (s.<span class="hljs-built_in">size</span>() != t.<span class="hljs-built_in">size</span>())   <span class="hljs-comment">//字符串大小不等显然不是有效的字母异位词</span>
+        <span class="hljs-keyword">if</span> (s.size() != t.size())   <span class="hljs-comment">//字符串大小不等显然不是有效的字母异位词</span>
             bl = <span class="hljs-literal">false</span>;
         <span class="hljs-keyword">else</span> &#123;    <span class="hljs-comment">//字符串大小相等的情况</span>
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.<span class="hljs-built_in">size</span>(); i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.size(); i++) &#123;
                 <span class="hljs-keyword">int</span> saddr = s[i] - <span class="hljs-number">97</span>;    <span class="hljs-comment">//转换字符s[i]作为数组sc[]的下标</span>
                 <span class="hljs-keyword">int</span> taddr = t[i] - <span class="hljs-number">97</span>;    <span class="hljs-comment">//同上</span>
                 sc[saddr]++;   <span class="hljs-comment">//统计以saddr为下标代表的字符在字符串s中出现的次数</span>

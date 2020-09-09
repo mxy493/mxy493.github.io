@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -270,33 +270,33 @@
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">singleNumber</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
     <span class="hljs-comment">//如果数组为空显然不存在题述两种情况</span>
-    <span class="hljs-keyword">if</span> (nums.<span class="hljs-built_in">size</span>() == <span class="hljs-number">0</span>)
-        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">if</span> (nums.size() == <span class="hljs-number">0</span>)
+		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
     <span class="hljs-comment">//如果数组只有一个元素，则直接返回这个元素</span>
-    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (nums.<span class="hljs-built_in">size</span>() == <span class="hljs-number">1</span>)
-        <span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>];
+	<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (nums.size() == <span class="hljs-number">1</span>)
+		<span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>];
     <span class="hljs-comment">//如果上述两种情况都不满足</span>
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); i++) &#123;
-        <span class="hljs-keyword">bool</span> bl = <span class="hljs-literal">false</span>;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; nums.<span class="hljs-built_in">size</span>(); j++) &#123;
+	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.size(); i++) &#123;
+		<span class="hljs-keyword">bool</span> bl = <span class="hljs-literal">false</span>;
+		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; nums.size(); j++) &#123;
             <span class="hljs-comment">//如果j==i，显然nums[j]==nums[i]，直接跳过这种情况</span>
-            <span class="hljs-keyword">if</span> (j == i)
-                <span class="hljs-keyword">continue</span>;
+			<span class="hljs-keyword">if</span> (j == i)
+				<span class="hljs-keyword">continue</span>;
             <span class="hljs-comment">//如果j!=i并且nums[j]==nums[i]，说明这个元素出现了不止一次</span>
-            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (nums[j] == nums[i])
-                <span class="hljs-keyword">break</span>;
+			<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (nums[j] == nums[i])
+				<span class="hljs-keyword">break</span>;
             <span class="hljs-comment">//如果i已经取到了最后一个元素，前面第一个if排除了j==i的情况</span>
             <span class="hljs-comment">//所以这里当j取到倒数第二个元素就判断结束</span>
-            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (i == nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span> &amp;&amp; j == nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">2</span>)
-                bl = <span class="hljs-literal">true</span>;
+			<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (i == nums.size() - <span class="hljs-number">1</span> &amp;&amp; j == nums.size() - <span class="hljs-number">2</span>)
+				bl = <span class="hljs-literal">true</span>;
             <span class="hljs-comment">//如果j取到最后一个元素都没有找到与nums[i]相同的元素，则元素nums[i]只出现了一次</span>
-            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (j == nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>)
-                bl = <span class="hljs-literal">true</span>;
-        &#125;
-        <span class="hljs-keyword">if</span> (bl == <span class="hljs-literal">true</span>)
-            <span class="hljs-keyword">return</span> nums[i];
-    &#125;
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+			<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (j == nums.size() - <span class="hljs-number">1</span>)
+				bl = <span class="hljs-literal">true</span>;
+		&#125;
+		<span class="hljs-keyword">if</span> (bl == <span class="hljs-literal">true</span>)
+			<span class="hljs-keyword">return</span> nums[i];
+	&#125;
+	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
     &#125;
 &#125;;</code></pre></div>
 

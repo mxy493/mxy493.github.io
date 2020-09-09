@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -279,11 +279,11 @@ guangzhou <span class="hljs-keyword">shanghai</span>
         <span class="hljs-built_in">string</span> str1, str2;
         <span class="hljs-built_in">cin</span> &gt;&gt; str1 &gt;&gt; str2;
         vec.push_back(str1);  <span class="hljs-comment">//添加当前出发地到出发城市列表</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; vec.<span class="hljs-built_in">size</span>(); j++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; vec.size(); j++) &#123;
             <span class="hljs-comment">// 遍历出发城市列表判断当前行程的到大城市是否是之前的出发城市</span>
             <span class="hljs-comment">// 如果是，则找到一个闭环，旅行次数+1，并将该城市从列表中删除</span>
             <span class="hljs-keyword">if</span> (vec[j] == str2) &#123;
-                vec.erase(vec.<span class="hljs-built_in">begin</span>() + j);
+                vec.erase(vec.begin() + j);
                 times++;
             &#125;
         &#125;

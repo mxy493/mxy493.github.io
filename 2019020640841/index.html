@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -279,19 +279,19 @@
             <span class="hljs-built_in">string</span> temp;   <span class="hljs-comment">//保存根据字符串str得出的下一个报数</span>
             <span class="hljs-keyword">int</span> q = <span class="hljs-number">0</span>;    <span class="hljs-comment">//记录字符e的数量</span>
             <span class="hljs-keyword">char</span> e = str[<span class="hljs-number">0</span>];   <span class="hljs-comment">//记录不同于前一个字符的新出现字符e，初始化为str[0]</span>
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; str.<span class="hljs-built_in">size</span>(); j++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; str.size(); j++) &#123;
                 <span class="hljs-keyword">if</span> (str[j] == e) &#123;    <span class="hljs-comment">//统计字符e连续出现的次数</span>
                     q++;
                 &#125;
                 <span class="hljs-keyword">else</span> &#123;    <span class="hljs-comment">//说明出现了新字符，将前一个字符e及其连续出现的次数插入到字符串temp尾部</span>
-                    temp.insert(temp.<span class="hljs-built_in">end</span>(), q + <span class="hljs-number">48</span>);   <span class="hljs-comment">//插入字符e的数量q</span>
-                    temp.insert(temp.<span class="hljs-built_in">end</span>(), e);        <span class="hljs-comment">//插入字符e</span>
+                    temp.insert(temp.end(), q + <span class="hljs-number">48</span>);   <span class="hljs-comment">//插入字符e的数量q</span>
+                    temp.insert(temp.end(), e);        <span class="hljs-comment">//插入字符e</span>
                     e = str[j];
                     q = <span class="hljs-number">1</span>;
                 &#125;
             &#125;
-            temp.insert(temp.<span class="hljs-built_in">end</span>(), <span class="hljs-keyword">int</span>(q + <span class="hljs-number">48</span>));   <span class="hljs-comment">//插入最后一个字符e的数量q</span>
-            temp.insert(temp.<span class="hljs-built_in">end</span>(), e);             <span class="hljs-comment">//插入最后一个字符e</span>
+            temp.insert(temp.end(), <span class="hljs-keyword">int</span>(q + <span class="hljs-number">48</span>));   <span class="hljs-comment">//插入最后一个字符e的数量q</span>
+            temp.insert(temp.end(), e);             <span class="hljs-comment">//插入最后一个字符e</span>
             str = temp;
         &#125;
         <span class="hljs-keyword">return</span> str;

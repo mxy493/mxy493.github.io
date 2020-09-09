@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -263,25 +263,25 @@
 <p>解决的办法是，按前述假设遍历完一次数组后，判断 <code>height.back() &lt; height[left]</code> ，如果很不幸遇到了这样的情况，那么我们就反过来以同样的思路从后往前遍历到 <code>left</code> 下标处即可。也就是将 <code>height.back()</code> 作为右侧最高点，而现在我们清楚的知道往前遍历到 <code>left</code> 下标处 <code>height[left] &gt; height[right]</code> 一定是成立的。以上述例子为例，也就是 <code>[5,1,2,4]</code> 从后往前遍历，首先减掉之前错误的水量，同时为总水量加上正确的水量 <code>(4-4)+(4-2)+(4-1) = 5</code> 。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">trap</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; <span class="hljs-built_in">height</span>)</span> </span>&#123;
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">trap</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; height)</span> </span>&#123;
         <span class="hljs-comment">//至少要三个柱子才可能接住雨水</span>
-        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">height</span>.<span class="hljs-built_in">size</span>() &lt; <span class="hljs-number">3</span>)
+        <span class="hljs-keyword">if</span> (height.size() &lt; <span class="hljs-number">3</span>)
             <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
         <span class="hljs-keyword">int</span> water = <span class="hljs-number">0</span>;
         <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>;<span class="hljs-comment">//左高点</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">height</span>.<span class="hljs-built_in">size</span>(); i++) &#123;
-            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">height</span>[i] &gt;= <span class="hljs-built_in">height</span>[left]) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; height.size(); i++) &#123;
+            <span class="hljs-keyword">if</span> (height[i] &gt;= height[left]) &#123;
                 left = i;
             &#125;
-            water += <span class="hljs-built_in">height</span>[left] - <span class="hljs-built_in">height</span>[i];
+            water += height[left] - height[i];
         &#125;
-        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">height</span>.back() &lt; <span class="hljs-built_in">height</span>[left]) &#123;
-            <span class="hljs-keyword">int</span> right = <span class="hljs-built_in">height</span>.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>;<span class="hljs-comment">//右高点</span>
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-built_in">height</span>.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>; i &gt; left; i--) &#123;
-                water -= <span class="hljs-built_in">height</span>[left] - <span class="hljs-built_in">height</span>[i];
-                <span class="hljs-keyword">if</span> (<span class="hljs-built_in">height</span>[i] &gt;= <span class="hljs-built_in">height</span>[right])
+        <span class="hljs-keyword">if</span> (height.back() &lt; height[left]) &#123;
+            <span class="hljs-keyword">int</span> right = height.size() - <span class="hljs-number">1</span>;<span class="hljs-comment">//右高点</span>
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = height.size() - <span class="hljs-number">1</span>; i &gt; left; i--) &#123;
+                water -= height[left] - height[i];
+                <span class="hljs-keyword">if</span> (height[i] &gt;= height[right])
                     right = i;
-                water += <span class="hljs-built_in">height</span>[right] - <span class="hljs-built_in">height</span>[i];
+                water += height[right] - height[i];
             &#125;
         &#125;
         <span class="hljs-keyword">return</span> water;

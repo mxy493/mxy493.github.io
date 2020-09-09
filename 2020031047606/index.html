@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -291,8 +291,8 @@
         <span class="hljs-keyword">int</span> rightDepth = getDepth(root-&gt;right);<span class="hljs-comment">//右子树深度</span>
         <span class="hljs-comment">//当前树的左右深度相加即经过根结点的最长路径（但不是整棵树的最长路径）</span>
         <span class="hljs-comment">//整棵树的最长路径需要根据经过每一个结点作为根结点并且经过该根结点的最长路径动态更新</span>
-        maxLength = <span class="hljs-built_in">max</span>(maxLength, leftDepth + rightDepth);
-        <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(leftDepth, rightDepth) + <span class="hljs-number">1</span>;<span class="hljs-comment">//+1即当前根结点到父节点之间的路径</span>
+        maxLength = max(maxLength, leftDepth + rightDepth);
+        <span class="hljs-keyword">return</span> max(leftDepth, rightDepth) + <span class="hljs-number">1</span>;<span class="hljs-comment">//+1即当前根结点到父节点之间的路径</span>
     &#125;
 &#125;;</code></pre></div>
 

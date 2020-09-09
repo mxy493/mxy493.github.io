@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -266,7 +266,7 @@
     <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isPalindrome</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s)</span> </span>&#123;
         <span class="hljs-keyword">bool</span> bl = <span class="hljs-literal">true</span>;    <span class="hljs-comment">//作为返回值</span>
         <span class="hljs-built_in">string</span> sta;   <span class="hljs-comment">//定义一个字符串sta将原字符串s标准化</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.<span class="hljs-built_in">size</span>(); i++) &#123;   <span class="hljs-comment">//将原字符串s除字母和数字外的字符去除并将大写字母全部转换为小写字母</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.size(); i++) &#123;   <span class="hljs-comment">//将原字符串s除字母和数字外的字符去除并将大写字母全部转换为小写字母</span>
             <span class="hljs-keyword">if</span> ((s[i] &gt;= <span class="hljs-number">48</span> &amp;&amp; s[i] &lt;= <span class="hljs-number">57</span>) || (s[i] &gt;= <span class="hljs-number">97</span> &amp;&amp; s[i] &lt;= <span class="hljs-number">122</span>)) &#123;
                 sta += s[i];
             &#125;
@@ -274,8 +274,8 @@
                 sta += <span class="hljs-keyword">char</span>(s[i] + <span class="hljs-number">32</span>);
             &#125;
         &#125;
-        <span class="hljs-keyword">int</span> n = sta.<span class="hljs-built_in">size</span>();   <span class="hljs-comment">//字符串sta的字符个数</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; sta.<span class="hljs-built_in">size</span>() / <span class="hljs-number">2</span>; j++) &#123;   <span class="hljs-comment">//判断是否回文串</span>
+        <span class="hljs-keyword">int</span> n = sta.size();   <span class="hljs-comment">//字符串sta的字符个数</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; sta.size() / <span class="hljs-number">2</span>; j++) &#123;   <span class="hljs-comment">//判断是否回文串</span>
             <span class="hljs-keyword">if</span> (sta[j] != sta[n - <span class="hljs-number">1</span> - j]) &#123;   <span class="hljs-comment">//说明不是回文串，将bl置为false并跳出循环，后续不必再判断</span>
                 bl = <span class="hljs-literal">false</span>;
                 <span class="hljs-keyword">break</span>;

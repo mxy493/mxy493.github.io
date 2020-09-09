@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -297,7 +297,7 @@
         <span class="hljs-comment">//模拟快慢指针，快指针比慢指针快k个奇数</span>
         <span class="hljs-keyword">int</span> front = <span class="hljs-number">0</span>;
         <span class="hljs-keyword">int</span> slow = <span class="hljs-number">0</span>;
-        <span class="hljs-keyword">for</span> (; front &lt; nums.<span class="hljs-built_in">size</span>(); front++) &#123;
+        <span class="hljs-keyword">for</span> (; front &lt; nums.size(); front++) &#123;
             <span class="hljs-comment">//前k个奇数不做处理</span>
             <span class="hljs-keyword">if</span> (nums[front] % <span class="hljs-number">2</span> == <span class="hljs-number">1</span> &amp;&amp; k != <span class="hljs-number">0</span>) &#123;
                 k--;
@@ -307,7 +307,7 @@
                 <span class="hljs-keyword">int</span> left = <span class="hljs-number">1</span>;<span class="hljs-comment">//左右两侧偶数可能的组合情况</span>
                 <span class="hljs-keyword">int</span> right = <span class="hljs-number">1</span>;<span class="hljs-comment">//默认为1，即一个偶数也没有</span>
                 <span class="hljs-comment">//慢指针遍历到下一个奇数，同时计数偶数的个数，m个偶数有m+1种可能的情况</span>
-                <span class="hljs-keyword">for</span> (; slow &lt; nums.<span class="hljs-built_in">size</span>(); slow++) &#123;
+                <span class="hljs-keyword">for</span> (; slow &lt; nums.size(); slow++) &#123;
                     <span class="hljs-keyword">if</span> (nums[slow] % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>) &#123;
                         slow++;
                         <span class="hljs-keyword">break</span>;
@@ -315,7 +315,7 @@
                     left++;
                 &#125;
                 <span class="hljs-comment">//快指针遍历到下一个计数，同时计数偶数个数</span>
-                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> t = front + <span class="hljs-number">1</span>; t &lt; nums.<span class="hljs-built_in">size</span>(); t++) &#123;
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> t = front + <span class="hljs-number">1</span>; t &lt; nums.size(); t++) &#123;
                     <span class="hljs-keyword">if</span> (nums[t] % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>) &#123;
                         <span class="hljs-keyword">break</span>;
                     &#125;

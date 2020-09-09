@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -262,9 +262,9 @@
 <div class="hljs"><pre><code class="hljs matlab">int <span class="hljs-built_in">i</span> = <span class="hljs-number">0</span>;
 int <span class="hljs-built_in">j</span> = nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>;
 <span class="hljs-keyword">while</span>(<span class="hljs-built_in">i</span> &lt; <span class="hljs-built_in">j</span>)&#123;
-    do something
-    <span class="hljs-built_in">i</span>++;
-    <span class="hljs-built_in">j</span>--;
+	do something
+	<span class="hljs-built_in">i</span>++;
+	<span class="hljs-built_in">j</span>--;
 &#125;</code></pre></div>
 
 <p>我们的目标值只有一个，就是题目要求的最大值。遍历所有可能的情况是很容易写出来的，但却没有必要那么做。</p>
@@ -272,22 +272,22 @@ int <span class="hljs-built_in">j</span> = nums.<span class="hljs-built_in">size
 <p>重复上述步骤，根据两端的值移动左右指针，同时不断更新最大值。当遍历结束，题目要求的最大值也就找到了。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxArea</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; <span class="hljs-built_in">height</span>)</span> </span>&#123;
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxArea</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; height)</span> </span>&#123;
         <span class="hljs-comment">//初始化最大值为首尾两条线所围成的容器能容纳的水</span>
-        <span class="hljs-keyword">int</span> area = (<span class="hljs-built_in">height</span>.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>) * <span class="hljs-built_in">min</span>(<span class="hljs-built_in">height</span>.front(), <span class="hljs-built_in">height</span>.back());
+        <span class="hljs-keyword">int</span> area = (height.size() - <span class="hljs-number">1</span>) * min(height.front(), height.back());
         <span class="hljs-keyword">int</span> l = <span class="hljs-number">0</span>;
-        <span class="hljs-keyword">int</span> r = <span class="hljs-built_in">height</span>.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">int</span> r = height.size() - <span class="hljs-number">1</span>;
         <span class="hljs-keyword">while</span> (l &lt; r)
         &#123;
             <span class="hljs-comment">//去掉较短的一边</span>
-            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">height</span>[l] &lt; <span class="hljs-built_in">height</span>[r]) &#123;
+            <span class="hljs-keyword">if</span> (height[l] &lt; height[r]) &#123;
                 l++;
             &#125;
             <span class="hljs-keyword">else</span> &#123;
                 r--;
             &#125;
             <span class="hljs-comment">//去掉较短一边后首位两条线围成的容器能容纳的水</span>
-            <span class="hljs-keyword">int</span> a = (r - l) * <span class="hljs-built_in">min</span>(<span class="hljs-built_in">height</span>[l], <span class="hljs-built_in">height</span>[r]);
+            <span class="hljs-keyword">int</span> a = (r - l) * min(height[l], height[r]);
             <span class="hljs-comment">//更新最大值</span>
             area = a &gt; area ? a : area;
         &#125;

@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -265,10 +265,10 @@
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">moveZeroes</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
         <span class="hljs-keyword">int</span> q = <span class="hljs-number">0</span>;   <span class="hljs-comment">//用于记录当前遍历到的0的个数</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;   <span class="hljs-comment">//从后往前遍历避免对已经后移的0重复处理</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = nums.size() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;   <span class="hljs-comment">//从后往前遍历避免对已经后移的0重复处理</span>
             <span class="hljs-keyword">if</span> (nums[i] == <span class="hljs-number">0</span>) &#123;
-                nums.insert(nums.<span class="hljs-built_in">end</span>() - q, <span class="hljs-number">0</span>);    <span class="hljs-comment">//在数组尾第q个0之前插入一个0</span>
-                nums.erase(nums.<span class="hljs-built_in">begin</span>() + i);     <span class="hljs-comment">//删除nums[i]</span>
+                nums.insert(nums.end() - q, <span class="hljs-number">0</span>);    <span class="hljs-comment">//在数组尾第q个0之前插入一个0</span>
+                nums.erase(nums.begin() + i);     <span class="hljs-comment">//删除nums[i]</span>
                 q++;
             &#125;
         &#125;

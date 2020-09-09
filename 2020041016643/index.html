@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -285,26 +285,26 @@
         <span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>;
         <span class="hljs-keyword">int</span> lenl = <span class="hljs-number">0</span>;<span class="hljs-comment">//前单词长度</span>
         <span class="hljs-keyword">int</span> lenr = <span class="hljs-number">0</span>;<span class="hljs-comment">//后单词长度</span>
-        <span class="hljs-keyword">while</span> (i + j &lt;= s.<span class="hljs-built_in">size</span>())
+        <span class="hljs-keyword">while</span> (i + j &lt;= s.size())
         &#123;
             <span class="hljs-comment">//单词长度+1</span>
             <span class="hljs-keyword">if</span> (s[i] != <span class="hljs-string">&#x27; &#x27;</span>) &#123;
                 lenl++;
             &#125;
             <span class="hljs-keyword">if</span> (s[i] == <span class="hljs-string">&#x27; &#x27;</span> &amp;&amp; lenl != <span class="hljs-number">0</span>) &#123;
-                <span class="hljs-keyword">while</span> (j + i &lt;= s.<span class="hljs-built_in">size</span>()) &#123;
+                <span class="hljs-keyword">while</span> (j + i &lt;= s.size()) &#123;
                     <span class="hljs-comment">//单词长度+1</span>
-                    <span class="hljs-keyword">if</span> (s[s.<span class="hljs-built_in">size</span>() - j] != <span class="hljs-string">&#x27; &#x27;</span>) &#123;
+                    <span class="hljs-keyword">if</span> (s[s.size() - j] != <span class="hljs-string">&#x27; &#x27;</span>) &#123;
                         lenr++;
                     &#125;
-                    <span class="hljs-keyword">if</span> (s[s.<span class="hljs-built_in">size</span>() - j] == <span class="hljs-string">&#x27; &#x27;</span> &amp;&amp; lenr != <span class="hljs-number">0</span>) &#123;
+                    <span class="hljs-keyword">if</span> (s[s.size() - j] == <span class="hljs-string">&#x27; &#x27;</span> &amp;&amp; lenr != <span class="hljs-number">0</span>) &#123;
                         <span class="hljs-built_in">string</span> tmp = s.substr(i - lenl, lenl);
                         <span class="hljs-comment">//替换前单词</span>
                         s.erase(i - lenl, lenl);
-                        s.insert(i - lenl, s.substr(s.<span class="hljs-built_in">size</span>() - j + <span class="hljs-number">1</span>, lenr));
+                        s.insert(i - lenl, s.substr(s.size() - j + <span class="hljs-number">1</span>, lenr));
                         <span class="hljs-comment">//替换后单词</span>
-                        s.insert(s.<span class="hljs-built_in">size</span>() - j + <span class="hljs-number">1</span>, tmp);
-                        s.erase(s.<span class="hljs-built_in">size</span>() - j + <span class="hljs-number">1</span>, lenr);
+                        s.insert(s.size() - j + <span class="hljs-number">1</span>, tmp);
+                        s.erase(s.size() - j + <span class="hljs-number">1</span>, lenr);
                         <span class="hljs-comment">//重新设置i，j</span>
                         i = i - lenl + lenr;
                         j = j - lenr + lenl;
@@ -319,16 +319,16 @@
             i++;
         &#125;
         <span class="hljs-comment">//去掉首尾空格</span>
-        <span class="hljs-keyword">while</span> (s.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">0</span> &amp;&amp; s.front() == <span class="hljs-string">&#x27; &#x27;</span>) &#123;
+        <span class="hljs-keyword">while</span> (s.size() &gt; <span class="hljs-number">0</span> &amp;&amp; s.front() == <span class="hljs-string">&#x27; &#x27;</span>) &#123;
             s.erase(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>);
         &#125;
-        <span class="hljs-keyword">while</span> (s.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">0</span> &amp;&amp; s.back() == <span class="hljs-string">&#x27; &#x27;</span>) &#123;
+        <span class="hljs-keyword">while</span> (s.size() &gt; <span class="hljs-number">0</span> &amp;&amp; s.back() == <span class="hljs-string">&#x27; &#x27;</span>) &#123;
             s.pop_back();
         &#125;
         <span class="hljs-comment">//去掉中间重复空格</span>
         <span class="hljs-keyword">int</span> ii = <span class="hljs-number">0</span>;
         <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
-        <span class="hljs-keyword">while</span> (ii &lt; s.<span class="hljs-built_in">size</span>()) &#123;
+        <span class="hljs-keyword">while</span> (ii &lt; s.size()) &#123;
             <span class="hljs-keyword">if</span> (s[ii] == <span class="hljs-string">&#x27; &#x27;</span>) &#123;
                 count++;
             &#125;

@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -266,8 +266,8 @@
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">twoSum</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; numbers, <span class="hljs-keyword">int</span> target)</span> </span>&#123;
         <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; numbers.<span class="hljs-built_in">size</span>(); i++) &#123;
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = i + <span class="hljs-number">1</span>; j &lt; numbers.<span class="hljs-built_in">size</span>(); j++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; numbers.size(); i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = i + <span class="hljs-number">1</span>; j &lt; numbers.size(); j++) &#123;
                 <span class="hljs-keyword">if</span> (numbers[i] + numbers[j] == target) &#123;
                     vec.push_back(i + <span class="hljs-number">1</span>);
                     vec.push_back(j + <span class="hljs-number">1</span>);

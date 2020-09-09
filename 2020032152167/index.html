@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.0.2"></head>
+<meta name="generator" content="Hexo 5.1.1"></head>
 
 
 <body>
@@ -271,28 +271,28 @@
 <h3 id="代码（原始思路）"><a href="#代码（原始思路）" class="headerlink" title="代码（原始思路）"></a>代码（原始思路）</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">getLeastNumbers</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; arr, <span class="hljs-keyword">int</span> k)</span> </span>&#123;
-        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-built_in">min</span>;<span class="hljs-comment">//返回值</span>
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; min;<span class="hljs-comment">//返回值</span>
         <span class="hljs-comment">//k &lt;= arr.length，如果k为0则直接返回空数组</span>
         <span class="hljs-keyword">if</span> (k == <span class="hljs-number">0</span>)
-            <span class="hljs-keyword">return</span> <span class="hljs-built_in">min</span>;
+            <span class="hljs-keyword">return</span> min;
         <span class="hljs-comment">//如果k刚好等于arr的大小，则直接返回原数组arr</span>
-        <span class="hljs-keyword">if</span> (arr.<span class="hljs-built_in">size</span>() == k)
+        <span class="hljs-keyword">if</span> (arr.size() == k)
             <span class="hljs-keyword">return</span> arr;
         <span class="hljs-comment">//冒泡排序，把最小的数从后往前冒泡</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; arr.<span class="hljs-built_in">size</span>(); i++) &#123;
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = arr.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>; j &gt; i; j--) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; arr.size(); i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = arr.size() - <span class="hljs-number">1</span>; j &gt; i; j--) &#123;
                 <span class="hljs-keyword">if</span> (arr[j] &lt; arr[j - <span class="hljs-number">1</span>]) &#123;
                     <span class="hljs-keyword">int</span> tmp = arr[j];
                     arr[j] = arr[j - <span class="hljs-number">1</span>];
                     arr[j - <span class="hljs-number">1</span>] = tmp;
                 &#125;
             &#125;
-            <span class="hljs-built_in">min</span>.push_back(arr[i]);
+            min.push_back(arr[i]);
             <span class="hljs-comment">//只要找到了k个数就可以不再继续往下找</span>
-            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">min</span>.<span class="hljs-built_in">size</span>() == k)
+            <span class="hljs-keyword">if</span> (min.size() == k)
                 <span class="hljs-keyword">break</span>;
         &#125;
-        <span class="hljs-keyword">return</span> <span class="hljs-built_in">min</span>;
+        <span class="hljs-keyword">return</span> min;
     &#125;
 &#125;;</code></pre></div>
 
