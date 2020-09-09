@@ -1,0 +1,1058 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/devil.png">
+  <link rel="icon" type="image/png" href="/img/devil.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="mxy">
+  <meta name="keywords" content="">
+  <title>使用NSIS制作安装程序 - mxy</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>mxy</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('http://mxyblog.mxy493.xyz/xqmy.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-09-10 00:40" pubdate>
+        2020年9月10日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      46
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-post-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">使用NSIS制作安装程序</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2020年9月10日 凌晨
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="一、简述"><a href="#一、简述" class="headerlink" title="一、简述"></a>一、简述</h1><p>最近实习的过程中，要将 Python 编写的程序打包发布，最初了解到了 PyInstaller ，可以用于将 Python 代码打包为可执行程序，但是要么直接打包为单文件的可执行程序（运行慢），要么打包为一个包含可执行程序的文件夹（运行快），如果要发给别人使用的话只能将整个文件夹压缩后再发过去。</p>
+<p>然后前些天搜索了一下了解到了制作安装程序的 NSIS ，本文将根据我的个人经历，简要介绍使用 NSIS 根据 PyInstaller 生成的含可执行程序的文件夹制作安装程序。</p>
+<p>NSIS 官方网站：<a target="_blank" rel="noopener" href="https://nsis.sourceforge.io/Main_Page">https://nsis.sourceforge.io/Main_Page</a></p>
+<p>NSIS 中文论坛：<a target="_blank" rel="noopener" href="https://www.nsisfans.com/">https://www.nsisfans.com</a> （内含国内开发者修改的集成增强版，可用于学习使用）</p>
+<h1 id="二、下载安装"><a href="#二、下载安装" class="headerlink" title="二、下载安装"></a>二、下载安装</h1><p>下载地址：<a target="_blank" rel="noopener" href="https://nsis.sourceforge.io/Download">https://nsis.sourceforge.io/Download</a></p>
+<p>如果刚接触的话可以使用上方中文论坛中提供的集成增强版，需要的东西都已经安装好了直接用就可以，而且其内置了 VNISEdit 可以使用向导很方便的创建 nsi 脚本，但注意通过向导生成的脚本比较简略，也可能存在一些比较细节的问题，所以一般后续还需要手动进行一些修改。</p>
+<p>官方版仅支持编译，需要手动编写好脚本后导入进行编译。</p>
+<p>当前 NSIS 的官方最新版本是 3.06.1 ，一般安装最新版即可。</p>
+<p>安装过程很简单，只需要选择合适的安装路径（默认为 <code>C:\Program Files (x86)\NSIS</code>），其它一般默认即可。</p>
+<h1 id="三、使用-VNISEdit-向导生成脚本"><a href="#三、使用-VNISEdit-向导生成脚本" class="headerlink" title="三、使用 VNISEdit 向导生成脚本"></a>三、使用 VNISEdit 向导生成脚本</h1><p>其实这个 VNISEdit 官方版本叫 HM NIS EDIT ，这个 VNISEdit 应该是国内开发者修改过的版本。</p>
+<p>HM NIS EDIT 官方网站：<a target="_blank" rel="noopener" href="http://hmne.sourceforge.net/">http://hmne.sourceforge.net</a></p>
+<p>如果 NSIS 是安装的官方版本，那么如果要使用 HM NIS EDIT 就需要额外下载安装，如果是使用国内开发者修改过的集成安装版则均已安装好了，直接运行即可。</p>
+<p>这里我以集成增强版为例进行简要说明，官方版本差别并不大，不同版本功能有细微的差别也不用太在意，VNISEdit 仅仅是用来帮助创建 nsi 脚本，如前面所说，生成的脚本一般都是需要后续手动修改的。</p>
+<p>（1）继承增强版程序主界面如下图所示，这个界面其实是一个主菜单，第一个 MakeNSISW 是编译工具，向其中导入编写好的脚本就可以编译生成安装程序，第二个 HM VNISEdit 就是现在要介绍的帮助创建 nsi 脚本的程序，第三个 NotePad2 是一个文本编辑器。</p>
+<p><img src="main.png" srcset="/img/loading.gif"></p>
+<p>（2）打开 HM VNISEdit ，界面如下，这个软件主要是用来编写 nsi 脚本的，但也集成了编译的功能。</p>
+<p>![](HM VNISEdit.png)</p>
+<p>（3）点击左上角“文件”，可以看到多种创建脚本的方法，这里我们使用向导进行创建，因为只需要一步一步按照向导的提示设置相关项即可，傻瓜式操作，对新手很友好🤣</p>
+<p><img src="guide.png" srcset="/img/loading.gif"></p>
+<p>（4）一般需要设置程序名和版本号，其它信息如果不需要的话选中删除即可，下一步。</p>
+<p><img src="info.png" srcset="/img/loading.gif"></p>
+<p>（5）设置【安装程序的图标】，注意并不是【程序的图标】，设置安装程序的名字，默认为 <code>Setup.exe</code> ，虽然可以但是建议改一下，之前在某个地方有看到说这个名字系统有可能报错<del>其它项一般不需要设置，感兴趣自行查阅相关资料</del></p>
+<p><img src="logo.png" srcset="/img/loading.gif"></p>
+<p>（6）呃，这一页，算了，下一步，花里胡哨……</p>
+<p><img src="jump.png" srcset="/img/loading.gif"></p>
+<p>（7）设置默认的安装目录，<code>$PROGRAMFILES</code> 指系统的默认程序安装文件夹（一般不需要修改，但需要注意程序运行可能需要管理员权限），一般为 <code>C:\Program Files (x86)</code> ，具体运行的时候会自动检测；下面的授权文件如果没有的话删掉编辑框中内容即可。下一步。</p>
+<p><img src="installdir.png" srcset="/img/loading.gif"></p>
+<p>（8）删除下图的默认的两行，这里假设程序已经打包到一个文件夹里，点击 “AddDirTree” 按钮直接添加整个程序文件夹</p>
+<p><img src="files.png" srcset="/img/loading.gif"></p>
+<p>（9）选择程序的目录，以我的 <code>D:\mxy\Desktop\Duang</code> 为例，选择后会自动加上 <code>*.*</code> ，指添加该路径下的所有文件；目的目录保持默认的 <code>$INSTDIR</code> ，即程序的安装目录，取决于用户安装程序时选择的安装位置，如果不修改则为第（7）步默认的 <code>C:\Program Files (x86)\Duang</code> ；注意勾选左下方的“包含子目录”项。其它按需自行修改，确定。</p>
+<p><img src="prodir.png" srcset="/img/loading.gif"></p>
+<p>（10）建议点击 “添加文件” 按钮将程序的可执行文件单独添加到列表中，后一步会有用到，添加后的结构如下图所示。下一步。</p>
+<p><img src="prog.png" srcset="/img/loading.gif"></p>
+<p>（11）上一步如果没有单独添加可执行程序的话，这一步就不会有下图框中的两项，当然应该也可以自行添加，只是相对麻烦一些。参考下图的设置，安装程序会在开始菜单中创建一个名叫 “Duang” 的文件夹，然后在这个文件夹中创建程序的快捷方式以及卸载程序的快捷方式，还会创建一个桌面快捷方式。下一步。</p>
+<p><img src="shortcut.png" srcset="/img/loading.gif"></p>
+<p>（12）设置程序安装完后要做什么，下图为安装完后启动应用程序。下一步。</p>
+<p><img src="finish.png" srcset="/img/loading.gif"></p>
+<p>（13）关于卸载程序的一些设置，自行设置后下一步。</p>
+<p><img src="uninstall.png" srcset="/img/loading.gif"></p>
+<p>（14）建议保存脚本并转换文件路径到相对路径，方便重复使用该脚本。完成。</p>
+<p><img src="store.png" srcset="/img/loading.gif"></p>
+<p>（15）此时可以看到 HM VNISEdit 的主界面已经加载了根据刚才的设置生成的脚本，看不懂，先不管脚本了，傻瓜式的点击菜单栏的 “NSIS” ，然后 “编译并运行” 即可。</p>
+<p><img src="compile.png" srcset="/img/loading.gif"></p>
+<p>（16）这时候耐心等待就好了，生成的安装程序会存放在上一步保存的脚本文件所在的目录下。</p>
+<p><img src="out.png" srcset="/img/loading.gif"></p>
+<p>（17）这就不需要教了ᓚᘏᗢ</p>
+<p><img src="Duang.png" srcset="/img/loading.gif"></p>
+<h1 id="四、自定义-NSIS-脚本"><a href="#四、自定义-NSIS-脚本" class="headerlink" title="四、自定义 NSIS 脚本"></a>四、自定义 NSIS 脚本</h1><p>显然前面向导生成的脚本可以自定义的地方是有限的，而且实际操作中可能还有些问题，例如我遇到的卸载程序不能将程序完全卸载掉的问题，所有这些问题都可以通过修改脚本文件来解决。</p>
+<p><strong>注意：</strong>特别需要注意以下 NSIS 脚本的编码问题，好像是官方版本不支持 Unicode 编码，反正我个人使用官方 NSIS 3.06.1 过程中 GBK 编码没有问题，UTF-8 编码会报错，但 UTF-8 with BOM 是可用的。</p>
+<h2 id="（1）使用-VScode-编辑脚本"><a href="#（1）使用-VScode-编辑脚本" class="headerlink" title="（1）使用 VScode 编辑脚本"></a>（1）使用 VScode 编辑脚本</h2><p>这里首先推荐使用 VScode 编辑脚本，因为 VScode 有 NSIS 的插件可以高亮显示代码，甚至简单配置了 NSIS 编译器路径后还可以直接在 VScode 中一键编译，非常方便。</p>
+<p>简单介绍一下吧，NSIS 插件自行搜索安装就好了，安装好后配置 NSIS 插件。</p>
+<p><img src="vscodensis.png" srcset="/img/loading.gif"></p>
+<p>主要需要配置 NSIS 编译器的路径，如图所示。</p>
+<p><img src="pathtonsis.png" srcset="/img/loading.gif"></p>
+<p>NSIS 安装目录下的 makensis.exe 即 NSIS 编译器。</p>
+<p><img src="NSISpath.png" srcset="/img/loading.gif"></p>
+<p>完毕后打开先前生成的脚本文件看看，真香 :-) 脚本编辑完毕后，点击右上角按钮即可编译生成安装程序。</p>
+<p><img src="goodvscode.png" srcset="/img/loading.gif"></p>
+<h2 id="（2）正儿八经的编写脚本"><a href="#（2）正儿八经的编写脚本" class="headerlink" title="（2）正儿八经的编写脚本"></a>（2）正儿八经的编写脚本</h2><p>以我的脚本为例来一步一步说，也就是前面向导生成的没有修改过的脚本。</p>
+<p>a. <code>;</code> 为 NSIS 脚本的注释符，用法类似 C++ 的 <code>//</code> 或者 Python 的 <code>#</code> ，<code>!define</code> 用于定义常量，后接自定义的常量名和该常量的值。强烈建议将各种自定义的量在脚本的开头定义为常量，后续使用常量即可，这么做的目的是程序升级时方便简单修改一些常量的值即可重复使用该脚本。常量的使用如下方代码第 7 行所示即 <code>$&#123;变量名&#125;</code> 即可。</p>
+<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-comment">; 安装程序初始定义常量</span>
+<span class="hljs-keyword">!define</span> PRODUCT_NAME <span class="hljs-string">&quot;Duang&quot;</span>  <span class="hljs-comment">; 程序名</span>
+<span class="hljs-keyword">!define</span> PRODUCT_VERSION <span class="hljs-string">&quot;1.0&quot;</span>  <span class="hljs-comment">; 版本号</span>
+<span class="hljs-keyword">!define</span> PRODUCT_PUBLISHER <span class="hljs-string">&quot;mxy&quot;</span>  <span class="hljs-comment">; 作者</span>
+<span class="hljs-keyword">!define</span> PRODUCT_PATH <span class="hljs-string">&quot;D:\mxy\Desktop\Duang&quot;</span>  <span class="hljs-comment">; 新增定义源程序路径</span>
+<span class="hljs-keyword">!define</span> PRODUCT_WEB_SITE <span class="hljs-string">&quot;https://mxy.cool&quot;</span>  <span class="hljs-comment">; 网址</span>
+<span class="hljs-keyword">!define</span> PRODUCT_DIR_REGKEY <span class="hljs-string">&quot;Software\Microsoft\Windows\CurrentVersion\App Paths\Duang.exe&quot;</span>  <span class="hljs-comment">; 注册表相关</span>
+<span class="hljs-keyword">!define</span> PRODUCT_UNINST_KEY <span class="hljs-string">&quot;Software\Microsoft\Windows\CurrentVersion\Uninstall\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>&quot;</span>
+<span class="hljs-keyword">!define</span> PRODUCT_UNINST_ROOT_KEY <span class="hljs-string">&quot;HKLM&quot;</span></code></pre></div>
+
+<p>b. 使用的压缩算法，按需修改即可</p>
+<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-keyword">SetCompressor</span> <span class="hljs-literal">lzma</span></code></pre></div>
+
+<p>c. MUI 界面相关的一些东西，进阶操作请查阅<a target="_blank" rel="noopener" href="https://nsis.sourceforge.io/Docs/Modern%20UI%202/Readme.html">官方文档</a>。</p>
+<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-comment">; ------ MUI 现代界面定义 ------</span>
+<span class="hljs-keyword">!include</span> <span class="hljs-string">&quot;MUI.nsh&quot;</span>  <span class="hljs-comment">; 当前已经新出了MUI2，自行了解</span>
+
+<span class="hljs-comment">; MUI 预定义常量</span>
+<span class="hljs-keyword">!define</span> MUI_ABORTWARNING
+<span class="hljs-keyword">!define</span> MUI_ICON <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_PATH&#125;</span>\img\mh64.ico&quot;</span>  <span class="hljs-comment">; 安装程序的图标</span>
+<span class="hljs-comment">; !define MUI_UNICON &quot;$&#123;NSISDIR&#125;\Contrib\Graphics\Icons\modern-uninstall.ico&quot;  ; 卸载程序的图标</span>
+<span class="hljs-keyword">!define</span> MUI_UNICON <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;MUI_ICON&#125;</span>&quot;</span>  <span class="hljs-comment">; 修改为使用安装程序一样的图标</span>
+
+<span class="hljs-comment">; 欢迎页面</span>
+<span class="hljs-keyword">!insertmacro</span> MUI_PAGE_WELCOME
+<span class="hljs-comment">; 安装目录选择页面</span>
+<span class="hljs-keyword">!insertmacro</span> MUI_PAGE_DIRECTORY
+<span class="hljs-comment">; 安装过程页面</span>
+<span class="hljs-keyword">!insertmacro</span> MUI_PAGE_INSTFILES
+<span class="hljs-comment">; 安装完成页面</span>
+<span class="hljs-comment">; !define MUI_FINISHPAGE_RUN &quot;$INSTDIR\Duang.exe&quot;  ; 安装结束后运行程序</span>
+<span class="hljs-keyword">!define</span> MUI_FINISHPAGE_RUN <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.exe&quot;</span>  <span class="hljs-comment">; 修改为引用常量</span>
+<span class="hljs-keyword">!insertmacro</span> MUI_PAGE_FINISH
+
+<span class="hljs-comment">; 安装卸载过程页面</span>
+<span class="hljs-keyword">!insertmacro</span> MUI_UNPAGE_INSTFILES
+
+<span class="hljs-comment">; 安装界面包含的语言设置</span>
+<span class="hljs-keyword">!insertmacro</span> MUI_LANGUAGE <span class="hljs-string">&quot;SimpChinese&quot;</span>
+
+<span class="hljs-comment">; 安装预释放文件</span>
+<span class="hljs-keyword">!insertmacro</span> MUI_RESERVEFILE_INSTALLOPTIONS
+<span class="hljs-comment">; ------ MUI 现代界面定义结束 ------</span></code></pre></div>
+
+<p>d. 一些设置项。</p>
+<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-keyword">Name</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span> <span class="hljs-variable">$&#123;PRODUCT_VERSION&#125;</span>&quot;</span>
+<span class="hljs-comment">; OutFile &quot;DuangSetup.exe&quot;</span>
+<span class="hljs-keyword">OutFile</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>Setup.exe&quot;</span>  <span class="hljs-comment">; 修改为引用常量</span>
+<span class="hljs-comment">; InstallDir &quot;$PROGRAMFILES\Duang&quot;</span>
+<span class="hljs-keyword">InstallDir</span> <span class="hljs-string">&quot;<span class="hljs-variable">$PROGRAMFILES</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>&quot;</span>  <span class="hljs-comment">; 修改为引用常量</span>
+<span class="hljs-keyword">InstallDirRegKey</span> <span class="hljs-params">HKLM</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_UNINST_KEY&#125;</span>&quot;</span> <span class="hljs-string">&quot;UninstallString&quot;</span>
+<span class="hljs-keyword">ShowInstDetails</span> <span class="hljs-literal">show</span>  <span class="hljs-comment">; 显示安装细节</span>
+ShowUnInstDetails <span class="hljs-literal">show</span>  <span class="hljs-comment">; 显示卸载细节</span>
+<span class="hljs-comment">; BrandingText &quot;Duang&quot;  ; 安装程序的下方的一段文字</span>
+<span class="hljs-keyword">BrandingText</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>&quot;</span>  <span class="hljs-comment">; 修改为引用常量</span></code></pre></div>
+
+<p>e. 创建快捷方式，已默认修改为引用常量。</p>
+<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-function"><span class="hljs-keyword">Section</span> &quot;MainSection&quot; SEC01</span>
+  <span class="hljs-keyword">SetOutPath</span> <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>&quot;</span>
+  <span class="hljs-keyword">SetOverwrite</span> <span class="hljs-literal">ifnewer</span>  <span class="hljs-comment">; 更新覆盖</span>
+  <span class="hljs-keyword">File</span> /r <span class="hljs-string">&quot;*.*&quot;</span>  <span class="hljs-comment">; 路径下的所有文件</span>
+  <span class="hljs-keyword">CreateDirectory</span> <span class="hljs-string">&quot;<span class="hljs-variable">$SMPROGRAMS</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>&quot;</span>  <span class="hljs-comment">; 创建开始菜单目录并命名为程序名</span>
+  <span class="hljs-comment">; 在上一行创建的开始菜单目录下创建程序快捷方式</span>
+  <span class="hljs-keyword">CreateShortCut</span> <span class="hljs-string">&quot;<span class="hljs-variable">$SMPROGRAMS</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.lnk&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.exe&quot;</span>
+  <span class="hljs-keyword">CreateShortCut</span> <span class="hljs-string">&quot;<span class="hljs-variable">$DESKTOP</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.lnk&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.exe&quot;</span>  <span class="hljs-comment">; 创建桌面快捷方式</span>
+  <span class="hljs-keyword">File</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_PATH&#125;</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.exe&quot;</span>  <span class="hljs-comment">; 源可执行程序的路径</span>
+SectionEnd</code></pre></div>
+
+<p>f. 写注册表相关的设置，已默认修改为引用常量。</p>
+<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-function"><span class="hljs-keyword">Section</span> -Post</span>
+  <span class="hljs-keyword">WriteUninstaller</span> <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>\uninst.exe&quot;</span>  <span class="hljs-comment">; 写入卸载程序</span>
+  <span class="hljs-keyword">WriteRegStr</span> <span class="hljs-params">HKLM</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_DIR_REGKEY&#125;</span>&quot;</span> <span class="hljs-string">&quot;&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.exe&quot;</span>
+  <span class="hljs-keyword">WriteRegStr</span> <span class="hljs-variable">$&#123;PRODUCT_UNINST_ROOT_KEY&#125;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_UNINST_KEY&#125;</span>&quot;</span> <span class="hljs-string">&quot;DisplayName&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$(^Name)</span>&quot;</span>
+  <span class="hljs-keyword">WriteRegStr</span> <span class="hljs-variable">$&#123;PRODUCT_UNINST_ROOT_KEY&#125;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_UNINST_KEY&#125;</span>&quot;</span> <span class="hljs-string">&quot;UninstallString&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>\uninst.exe&quot;</span>
+  <span class="hljs-keyword">WriteRegStr</span> <span class="hljs-variable">$&#123;PRODUCT_UNINST_ROOT_KEY&#125;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_UNINST_KEY&#125;</span>&quot;</span> <span class="hljs-string">&quot;DisplayIcon&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.exe&quot;</span>
+  <span class="hljs-keyword">WriteRegStr</span> <span class="hljs-variable">$&#123;PRODUCT_UNINST_ROOT_KEY&#125;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_UNINST_KEY&#125;</span>&quot;</span> <span class="hljs-string">&quot;DisplayVersion&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_VERSION&#125;</span>&quot;</span>
+  <span class="hljs-keyword">WriteRegStr</span> <span class="hljs-variable">$&#123;PRODUCT_UNINST_ROOT_KEY&#125;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_UNINST_KEY&#125;</span>&quot;</span> <span class="hljs-string">&quot;URLInfoAbout&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_WEB_SITE&#125;</span>&quot;</span>
+  <span class="hljs-keyword">WriteRegStr</span> <span class="hljs-variable">$&#123;PRODUCT_UNINST_ROOT_KEY&#125;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_UNINST_KEY&#125;</span>&quot;</span> <span class="hljs-string">&quot;Publisher&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_PUBLISHER&#125;</span>&quot;</span>
+SectionEnd</code></pre></div>
+
+<p>g. 创建网站快捷方式和卸载程序快捷方式。</p>
+<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-function"><span class="hljs-keyword">Section</span> -AdditionalIcons</span>
+  WriteIniStr <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.url&quot;</span> <span class="hljs-string">&quot;InternetShortcut&quot;</span> <span class="hljs-string">&quot;URL&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_WEB_SITE&#125;</span>&quot;</span>
+  <span class="hljs-keyword">CreateShortCut</span> <span class="hljs-string">&quot;<span class="hljs-variable">$SMPROGRAMS</span>\Duang\Website.lnk&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.url&quot;</span>
+  <span class="hljs-keyword">CreateShortCut</span> <span class="hljs-string">&quot;<span class="hljs-variable">$SMPROGRAMS</span>\Duang\Uninstall.lnk&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>\uninst.exe&quot;</span>
+SectionEnd</code></pre></div>
+
+<p>h. 卸载程序相关的设置，已默认修改为引用常量。</p>
+<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-function"><span class="hljs-keyword">Section</span> Uninstall</span>
+  <span class="hljs-comment">; 删除快捷方式</span>
+  <span class="hljs-keyword">Delete</span> <span class="hljs-string">&quot;<span class="hljs-variable">$SMPROGRAMS</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>\Uninstall.lnk&quot;</span>
+  <span class="hljs-keyword">Delete</span> <span class="hljs-string">&quot;<span class="hljs-variable">$SMPROGRAMS</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>\Website.lnk&quot;</span>
+  <span class="hljs-keyword">Delete</span> <span class="hljs-string">&quot;<span class="hljs-variable">$DESKTOP</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.lnk&quot;</span>
+  <span class="hljs-keyword">Delete</span> <span class="hljs-string">&quot;<span class="hljs-variable">$SMPROGRAMS</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.lnk&quot;</span>
+
+  <span class="hljs-comment">; 删除开始菜单文件夹</span>
+  <span class="hljs-keyword">RMDir</span> <span class="hljs-string">&quot;<span class="hljs-variable">$SMPROGRAMS</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>&quot;</span>
+
+  <span class="hljs-comment">; Delete &quot;$INSTDIR\$&#123;PRODUCT_NAME&#125;.url&quot;</span>
+  <span class="hljs-comment">; Delete &quot;$INSTDIR\uninst.exe&quot;</span>
+  <span class="hljs-comment">; Delete &quot;$INSTDIR\$&#123;PRODUCT_NAME&#125;.exe&quot;</span>
+
+  <span class="hljs-comment">; RMDir /r &quot;$INSTDIR\tk&quot;</span>
+  <span class="hljs-comment">; RMDir /r &quot;$INSTDIR\tcl&quot;</span>
+  <span class="hljs-comment">; RMDir /r &quot;$INSTDIR\lib2to3&quot;</span>
+  <span class="hljs-comment">; RMDir /r &quot;$INSTDIR\Include&quot;</span>
+  <span class="hljs-comment">; RMDir /r &quot;$INSTDIR\img&quot;</span>
+  <span class="hljs-comment">; RMDir &quot;$INSTDIR&quot;</span>
+
+  <span class="hljs-keyword">RMDir</span> /r <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>&quot;</span>  <span class="hljs-comment">; 直接删除整个文件夹，前面所说的卸载不干净的问题就是这里造成的</span>
+
+  <span class="hljs-comment">; 删除注册表信息</span>
+  <span class="hljs-keyword">DeleteRegKey</span> <span class="hljs-variable">$&#123;PRODUCT_UNINST_ROOT_KEY&#125;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_UNINST_KEY&#125;</span>&quot;</span>
+  <span class="hljs-keyword">DeleteRegKey</span> <span class="hljs-params">HKLM</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_DIR_REGKEY&#125;</span>&quot;</span>
+  <span class="hljs-keyword">SetAutoClose</span> <span class="hljs-literal">true</span>  <span class="hljs-comment">; 卸载完毕自动关闭窗口</span>
+SectionEnd</code></pre></div>
+
+<p>i. 执行卸载程序的两个函数</p>
+<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-comment">; 卸载程序启动时执行</span>
+<span class="hljs-function"><span class="hljs-keyword">Function</span> un.onInit</span>
+  <span class="hljs-keyword">MessageBox</span> <span class="hljs-params">MB_ICONQUESTION</span>|<span class="hljs-params">MB_YESNO</span>|<span class="hljs-params">MB_DEFBUTTON2</span> <span class="hljs-string">&quot;您确实要完全移除 <span class="hljs-variable">$(^Name)</span> ，及其所有的组件？&quot;</span> <span class="hljs-params">IDYES</span> +<span class="hljs-number">2</span>
+  <span class="hljs-keyword">Abort</span>
+FunctionEnd
+
+<span class="hljs-comment">; 卸载成功时执行</span>
+<span class="hljs-function"><span class="hljs-keyword">Function</span> un.onUninstSuccess</span>
+  <span class="hljs-keyword">HideWindow</span>
+  <span class="hljs-keyword">MessageBox</span> <span class="hljs-params">MB_ICONINFORMATION</span>|<span class="hljs-params">MB_OK</span> <span class="hljs-string">&quot;<span class="hljs-variable">$(^Name)</span> 已成功地从您的计算机移除。&quot;</span>
+FunctionEnd</code></pre></div>
+
+<h2 id="（3）编译试试"><a href="#（3）编译试试" class="headerlink" title="（3）编译试试"></a>（3）编译试试</h2><p>如果编译成功将看到输出结构如下的信息。编译生成的安装程序将和脚本文件存放在一起，可以安装测试一下功能是否正常。</p>
+<p>如果编译失败，会输出具体哪一行出现了错误，容易出错的地方就是路径问题，并不复杂，稍微细心一点就好了。</p>
+<p><img src="compilesuccess.png" srcset="/img/loading.gif"></p>
+<h1 id="五、进阶操作"><a href="#五、进阶操作" class="headerlink" title="五、进阶操作"></a>五、进阶操作</h1><p>进阶操作我也不会什么了，建议查阅 NSIS 官方文档：<a target="_blank" rel="noopener" href="https://nsis.sourceforge.io/Docs">https://nsis.sourceforge.io/Docs</a></p>
+<p>关于安装程序的界面的设置需要查阅 MUI 的相关文档：<a target="_blank" rel="noopener" href="https://nsis.sourceforge.io/Docs/Modern%20UI%202/Readme.html">https://nsis.sourceforge.io/Docs/Modern UI 2/Readme.html</a></p>
+<p>例如，以下两项分别可以设置安装程序欢迎界面的图片和文字。</p>
+<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-comment">; Bitmap for the Welcome page and the Finish page (recommended size: 164x314 pixels).</span>
+<span class="hljs-comment">; Default: $&#123;NSISDIR&#125;\Contrib\Graphics\Wizard\win.bmp</span>
+MUI_WELCOMEFINISHPAGE_BITMAP bmp_file
+
+<span class="hljs-comment">; Text to display on the page.</span>
+MUI_WELCOMEPAGE_TEXT text</code></pre></div>
+
+<h1 id="六、在-Python-中编译"><a href="#六、在-Python-中编译" class="headerlink" title="六、在 Python 中编译"></a>六、在 Python 中编译</h1><h2 id="（1）在-Python-中编译"><a href="#（1）在-Python-中编译" class="headerlink" title="（1）在 Python 中编译"></a>（1）在 Python 中编译</h2><p>其实在 Python 中编译本质上就是调用 NSIS 编译程序 “makensis.exe” 。</p>
+<p>首先要做的时将 NSIS 编译器所在的目录添加到系统环境变量，如图所示。</p>
+<p><img src="syspath.png" srcset="/img/loading.gif"></p>
+<p>环境变量设置好后可以在命令行中输入命令 <code>makensis</code> 测试一下，如果输出如下信息，则说明配置成功了。</p>
+<p><img src="makensis.png" srcset="/img/loading.gif"></p>
+<p>在 Python 中使用就很简单了，直接上代码：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">import</span> subprocess
+
+
+<span class="hljs-comment"># 使用NSIS制作安装包，等同于在命令行中执行 &#x27;makensis radar.nsi&#x27; </span>
+p2 = subprocess.Popen(<span class="hljs-string">&#x27;makensis radar.nsi&#x27;</span>, shell=<span class="hljs-literal">True</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>)  <span class="hljs-comment"># pyinstaller 打包</span>
+p2.communicate()</code></pre></div>
+
+<h2 id="（2）高端操作"><a href="#（2）高端操作" class="headerlink" title="（2）高端操作"></a>（2）高端操作</h2><p>其实在单纯在 Python 中调用编译器并没有省多少事，但真正的目的是配合 PyInstaller 一键更新 spec 文件和 NSIS 脚本，然后自动打包并制作安装程序，你就说它香不香🤣</p>
+<p>关于 PyInstaller 打包 Python 应用程序可以参考我的另一篇文章：<a href="https://mxy493.xyz/20200909134/">使用PyInstaller打包Python应用程序</a></p>
+<p>最后附上 全自动操作的代码框架：</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">import</span> subprocess
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span>():</span>
+    clean()
+    <span class="hljs-comment"># 更新 spec 文件</span>
+    update_spec()
+    <span class="hljs-comment"># 更新 NSIS 脚本</span>
+    update_nsis()
+    <span class="hljs-comment"># PyInstaller 打包</span>
+    p1 = subprocess.Popen(<span class="hljs-string">&#x27;pyinstaller radar.spec --clean&#x27;</span>, shell=<span class="hljs-literal">True</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>)
+    p1.communicate()
+    <span class="hljs-comment"># 使用NSIS制作安装包</span>
+    p2 = subprocess.Popen(<span class="hljs-string">&#x27;makensis radar.nsi&#x27;</span>, shell=<span class="hljs-literal">True</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>)
+    p2.communicate()</code></pre></div>
+
+<p>试想一下你的程序每次更新仅需要更改版本号或者修改一下路径，然后剩下的工作全都自动化完成那得多舒服😋</p>
+<h1 id="七、结语"><a href="#七、结语" class="headerlink" title="七、结语"></a>七、结语</h1><p>嗯，全篇完结，真难搞，写这篇文章足足花了一整晚🤣</p>
+<p>不过这次关于 PyInstaller 和 NSIS 的探索体验可以说是非常的舒服了φ(゜▽゜*)♪</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                    
+                      <a class="hover-with-bg" href="/tags/NSIS/">NSIS</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/20200909134/">
+                        <span class="hidden-mobile">使用PyInstaller打包Python应用程序</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+          app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+          placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "https://leancloud.mxy.cool",
+        });
+      });
+    }
+    waitElementVisible('vcomments', loadValine);
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+    
+  <!-- 备案信息 -->
+  <div class="beian">
+    <a href="http://beian.miit.gov.cn/" target="_blank"
+       rel="nofollow noopener">蜀ICP备20011971号</a>
+    
+  </div>
+
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer>
+  (function () {
+    // 查询存储的记录
+    function getRecord(Counter, target) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({target})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {target, time: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    }
+
+    // 发起自增请求
+    function increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    }
+
+    // 构建自增请求体
+    function buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "time": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    }
+
+    // 校验是否为有效的 UV
+    function validUV() {
+      var key = 'LeanCloud_UV_Flag';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    }
+
+    function addCount(Counter) {
+      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
+      var getterArr = [];
+      var incrArr = [];
+
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#leancloud-site-pv-container');
+      if (pvCtn || enableIncr) {
+        var pvGetter = getRecord(Counter, 'site-pv').then((record) => {
+          incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-pv');
+          if (ele) {
+            ele.innerText = record.time + 1;
+            if (pvCtn) {
+              pvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#leancloud-site-uv-container');
+      if (uvCtn || enableIncr) {
+        var uvGetter = getRecord(Counter, 'site-uv').then((record) => {
+          var vuv = validUV();
+          vuv && incrArr.push(buildIncrement(record.objectId))
+          var ele = document.querySelector('#leancloud-site-uv');
+          if (ele) {
+            ele.innerText = record.time + (vuv ? 1 : 0);
+            if (uvCtn) {
+              uvCtn.style.display = 'inline';
+            }
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 如果是文章，请求文章的浏览数，并自增
+      if ('true' === 'true') {
+        var viewCtn = document.querySelector('#leancloud-post-views-container');
+        if (viewCtn || enableIncr) {
+          var target = decodeURI('/2020091060302/');
+          var viewGetter = getRecord(Counter, target).then((record) => {
+            incrArr.push(buildIncrement(record.objectId))
+            if (viewCtn) {
+              var ele = document.querySelector('#leancloud-post-views');
+              if (ele) {
+                ele.innerText = (record.time || 0) + 1;
+                viewCtn.style.display = 'inline';
+              }
+            }
+          });
+          getterArr.push(viewGetter);
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && increment(Counter, incrArr);
+        })
+      }
+    }
+
+    var app_id = 'zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz'
+    var app_key = 'iNppU37sPwRdpmjgAsJ3dgnC'
+    var server_url = 'https://leancloud.mxy.cool'
+
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': app_id,
+            'X-LC-Key': app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+
+      addCount(Counter);
+    }
+
+    var api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${ app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(resp => resp.json())
+        .then(({api_server}) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "使用NSIS制作安装程序&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "❡"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript">
+      //定义获取词语下标
+      var a_idx = 0;
+      jQuery(document).ready(function ($) {
+        //点击body时触发事件
+        $("body").click(function (e) {
+          //需要显示的词语
+          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+          //设置词语给span标签
+          var $i = $("<span/>").text(a[a_idx]);
+          //下标等于原来下标+1  余 词语总数
+          a_idx = (a_idx + 1) % a.length;
+          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
+          //获取x和y的指针坐标
+          var x = e.pageX, y = e.pageY;
+          //在鼠标的指针的位置给$i定义的span标签添加css样式
+          $i.css({
+            "z-index": 999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": rand_color()
+          });
+          // 随机颜色
+          function rand_color() {
+            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+          }
+          //在body添加这个标签
+          $("body").append($i);
+          //animate() 方法执行 CSS 属性集的自定义动画。
+          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
+          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
+          $i.animate({
+            //将原来的位置向上移动180
+            "top": y - 180,
+            "opacity": 0
+            //1500动画的速度
+          }, 1500, function () {
+            //时间到了自动删除
+            $i.remove();
+          });
+        });
+      })
+      ;
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>
