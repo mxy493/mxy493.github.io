@@ -17,10 +17,23 @@
   <meta name="description" content="">
   <meta name="author" content="mxy">
   <meta name="keywords" content="">
-  <title>归档 - mxy</title>
+  <title>Leetcode 1143. 最长公共子序列 - mxy</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -159,6 +172,51 @@
             </span>
 
             
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-09-20 19:47" pubdate>
+        2020年9月20日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      849 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      10
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-post-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
           </div>
 
           
@@ -169,79 +227,169 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 114 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2019</p>
-    
-    <a href="/2019012413367/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 两个数组的交集 II</span>
-      <time style="float: right;">01-24</time>
-    </a>
-  
-    
-    <a href="/2019012330553/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">YAML语法简记</span>
-      <time style="float: right;">01-23</time>
-    </a>
-  
-    
-    <a href="/2019012229459/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 只出现一次的数字</span>
-      <time style="float: right;">01-22</time>
-    </a>
-  
-    
-    <a href="/2019011817415/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">GitHub+Hexo搭建博客笔记</span>
-      <time style="float: right;">01-18</time>
-    </a>
-  
-    
-    <a href="/2019011716107/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Hello World</span>
-      <time style="float: right;">01-17</time>
-    </a>
-  
-    
-    <a href="/2019011717555/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">mxy测试</span>
-      <time style="float: right;">01-17</time>
-    </a>
-  
-</div>
 
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/2019/page/3/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/2019/">1</a><a class="page-number" href="/archives/2019/page/2/">2</a><a class="page-number" href="/archives/2019/page/3/">3</a><span class="page-number current">4</span>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Leetcode 1143. 最长公共子序列</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2020年9月20日 晚上
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
+              <p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-common-subsequence">https://leetcode-cn.com/problems/longest-common-subsequence</a></p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定两个字符串 <code>text1</code> 和 <code>text2</code>，返回这两个字符串的最长公共子序列的长度。</p>
+<p>一个字符串的 子序列 是指这样一个新的字符串：它是由原字符串在不改变字符的相对顺序的情况下删除某些字符（也可以不删除任何字符）后组成的新字符串。</p>
+<p>例如，”ace” 是 “abcde” 的子序列，但 “aec” 不是 “abcde” 的子序列。两个字符串的「公共子序列」是这两个字符串所共同拥有的子序列。</p>
+<p>若这两个字符串没有公共子序列，则返回 0。</p>
+<p><strong>示例 1:</strong></p>
+<div class="hljs"><pre><code class="hljs lsl">输入：text1 = <span class="hljs-string">&quot;abcde&quot;</span>, text2 = <span class="hljs-string">&quot;ace&quot;</span> 
+输出：<span class="hljs-number">3</span>  
+解释：最长公共子序列是 <span class="hljs-string">&quot;ace&quot;</span>，它的长度为 <span class="hljs-number">3</span>。</code></pre></div>
 
 
+<p><strong>示例 2:</strong></p>
+<div class="hljs"><pre><code class="hljs lsl">输入：text1 = <span class="hljs-string">&quot;abc&quot;</span>, text2 = <span class="hljs-string">&quot;abc&quot;</span>
+输出：<span class="hljs-number">3</span>
+解释：最长公共子序列是 <span class="hljs-string">&quot;abc&quot;</span>，它的长度为 <span class="hljs-number">3</span>。</code></pre></div>
 
-              </div>
+<p><strong>示例 3:</strong></p>
+<div class="hljs"><pre><code class="hljs lsl">输入：text1 = <span class="hljs-string">&quot;abc&quot;</span>, text2 = <span class="hljs-string">&quot;def&quot;</span>
+输出：<span class="hljs-number">0</span>
+解释：两个字符串没有公共子序列，返回 <span class="hljs-number">0</span>。</code></pre></div>
+
+<p><strong>提示:</strong></p>
+<ul>
+<li><code>1 &lt;= text1.length &lt;= 1000</code></li>
+<li><code>1 &lt;= text2.length &lt;= 1000</code></li>
+<li>输入的字符串只含有小写英文字符。</li>
+</ul>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>这个题并不是我自己做的，是我在学习动态规划的过程中看到的 Leetcode 官方的一篇关于动态规划的文章：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/jav9--Sqf9jOs8BSXNcUyw">算法萌新如何学好动态规划（2）</a>，觉得这个题目的解题思路很有意思，所以记录一下~</p>
+<p>关于具体的解题思路以及状态转移方程这里不做过多描述了，可以参考原文解题思路。</p>
+<p>我觉得很有意思的一个地方是，请看下方代码，按理说我们一般会用一个 <code>n × m</code> 的矩阵用于存储 <code>f[i][j]</code> 的值，即第一个串的前 i 个字符与第二个串的前 j 个字符的最长公共子序列长度，而代码第 5 行却初始化了一个全零的 <code>n+1 × m+1</code> 矩阵，至少我看到这里的时候是有疑惑的，而我最初想到的原因也只是为了理解上更加直观，当然这可以说是一个原因，但事实上这不是最主要的原因。</p>
+<p>继续看代码，到第 8 行就明白了，涉及到了对索引 <code>i - 1</code> 、 <code>j - 1</code> 的取值，由于 0 行 0 列根本用不到，而 i 、 j 的初始值均为 1 ，也就是说我们无需再对边界值进行特殊处理，并且将矩阵初始化为全 0 也是有意义的，例如 <code>f[1][1]</code> 就可以直接由 <code>max(f[0][1], f[1][0])</code> 得到。简言之，对于我们想要得到的这个 <code>n × m</code> 的矩阵，就不需要处理任何的特殊情况了，实在是很方便~</p>
+<p>当然上面这些更多的是“取巧”，这个题最核心的部分还是怎么得到它的状态转移方程。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-keyword">class</span> <span class="hljs-symbol">Solution</span> &#123;
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-built_in">int</span> longestCommonSubsequence(<span class="hljs-built_in">string</span> text1, <span class="hljs-built_in">string</span> text2) &#123;
+        <span class="hljs-built_in">int</span> n = text1.length(), m = text2.length();
+        vector&lt;vector&lt;<span class="hljs-built_in">int</span>&gt; &gt; f(n+<span class="hljs-number">1</span>, vector&lt;<span class="hljs-built_in">int</span>&gt;(m+<span class="hljs-number">1</span>, <span class="hljs-number">0</span>));
+        <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;
+            <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j++) &#123;
+                f[i][j] = max(f[i<span class="hljs-number">-1</span>][j], f[i][j<span class="hljs-number">-1</span>]);
+                <span class="hljs-keyword">if</span>(text1[i<span class="hljs-number">-1</span>] == text2[j<span class="hljs-number">-1</span>])
+                    f[i][j] = max(f[i][j], f[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>]+<span class="hljs-number">1</span>);
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> f[n][m];
+    &#125;
+&#125;;</code></pre></div>
+
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Leetcode/">Leetcode</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020091060302/">
+                        <span class="hidden-mobile">使用NSIS制作安装程序</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+          app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+          placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "https://leancloud.mxy.cool",
+        });
+      });
+    }
+    waitElementVisible('vcomments', loadValine);
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -470,10 +618,10 @@
       }
 
       // 如果是文章，请求文章的浏览数，并自增
-      if ('false' === 'true') {
+      if ('true' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/archives/2019/page/4/index.html');
+          var target = decodeURI('/2020092011556/');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -535,6 +683,31 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -542,7 +715,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "Leetcode 1143. 最长公共子序列&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -557,6 +730,23 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "❡"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -570,6 +760,20 @@
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 
