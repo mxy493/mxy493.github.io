@@ -17,10 +17,23 @@
   <meta name="description" content="">
   <meta name="author" content="mxy">
   <meta name="keywords" content="">
-  <title>归档 - mxy</title>
+  <title>新华三笔试题 - 求最中间的因数 - mxy</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -159,6 +172,51 @@
             </span>
 
             
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-09-25 22:24" pubdate>
+        2020年9月25日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      664 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      8
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-post-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
           </div>
 
           
@@ -169,79 +227,192 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 115 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2019</p>
-    
-    <a href="/2019012413367/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 两个数组的交集 II</span>
-      <time style="float: right;">01-24</time>
-    </a>
-  
-    
-    <a href="/2019012330553/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">YAML语法简记</span>
-      <time style="float: right;">01-23</time>
-    </a>
-  
-    
-    <a href="/2019012229459/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 只出现一次的数字</span>
-      <time style="float: right;">01-22</time>
-    </a>
-  
-    
-    <a href="/2019011817415/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">GitHub+Hexo搭建博客笔记</span>
-      <time style="float: right;">01-18</time>
-    </a>
-  
-    
-    <a href="/2019011716107/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Hello World</span>
-      <time style="float: right;">01-17</time>
-    </a>
-  
-    
-    <a href="/2019011717555/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">mxy测试</span>
-      <time style="float: right;">01-17</time>
-    </a>
-  
-</div>
 
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/2019/page/3/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/2019/">1</a><a class="page-number" href="/archives/2019/page/2/">2</a><a class="page-number" href="/archives/2019/page/3/">3</a><span class="page-number current">4</span>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">新华三笔试题 - 求最中间的因数</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2020年9月25日 晚上
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<p>时间限制： C/C++1秒，其他语言2秒</p>
+<p>空间限制： C/C++ 262144K，其他语言 524288K</p>
+<p>64bit IO Format: %lld</p>
+</blockquote>
+<p>请完成最中间因数函数 MidFactor，寻找一个整数的所有因数中最中间的那个数。</p>
+<p><strong>举例：</strong></p>
+<ul>
+<li>16有5个因数，分别是1，2，4，8，16，最中间的是4</li>
+<li>12有6个因数，分别是1，2，3，4，6，12.最中间的是3</li>
+</ul>
+<div class="hljs"><pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-title">MidFactor</span><span class="hljs-params">(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> llVal)</span></span>
+<span class="hljs-function"></span>&#123;
+&#125;
 
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argvD)</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> llVal =<span class="hljs-number">0</span>;
+    <span class="hljs-keyword">if</span> (argc &lt; <span class="hljs-number">2</span>)
+    &#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    &#125;
+    llVal= (<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>)atol(argv[<span class="hljs-number">1</span>);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%ll&quot;</span>, MidFactor(llVal);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
 
+[]$ ./a.out <span class="hljs-number">16</span>
+<span class="hljs-number">4</span>
 
-              </div>
+[]$ ./a.out <span class="hljs-number">12</span>
+<span class="hljs-number">3</span></code></pre></div>
+
+<p><strong>示例1</strong></p>
+<p>输入</p>
+<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-number">16</span></code></pre></div>
+
+<p>输出</p>
+<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-number">4</span></code></pre></div>
+
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>这个题做得挺快的，暴力解的话遍历就可以，主要需要注意遍历的边界。</p>
+<p>首先，要找到一个数的所有因数，一下就能想到的就是从 1 开始遍历，能整除的就是其因数，代码大概是这样：</p>
+<div class="hljs"><pre><code class="hljs c++"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; num; i++)&#123;
+    <span class="hljs-keyword">if</span>(num % i) &#123;
+        <span class="hljs-comment">// i是num的因数</span>
+    &#125;
+&#125;</code></pre></div>
+
+<p>然后进一步的不难发现，任意的一个因数 <code>i</code> 都和 <code>num / i</code> 对应是一组因数，也就是说上面的 if 语句内部得到了因数 <code>i</code> 的同时还得到了另一个与之对应的因数 <code>num / i</code> 。</p>
+<p>再回到这个题里面来，这种要找中间的值的问题，往往我们会考虑把所有可能的值找出来后，再去找位于中间的那一个。但正如前面所说，因数总是一一对应的，这就意味着我们从 1 开始遍历，<code>i</code> 变大的同时，与之对应的 <code>num / i</code> 在逐渐变小，以 16 为例：</p>
+<div class="hljs"><pre><code class="hljs basic"><span class="hljs-symbol">1 </span>- <span class="hljs-number">16</span>
+<span class="hljs-symbol">2 </span>- <span class="hljs-number">8</span>
+<span class="hljs-symbol">4 </span>- <span class="hljs-number">4</span>  // 最中间的因数
+<span class="hljs-symbol">8 </span>- <span class="hljs-number">2</span>
+<span class="hljs-symbol">16 </span>- <span class="hljs-number">1</span></code></pre></div>
+
+<p><code>i</code> 逐渐增大，会在过了某个临界值（如上4）之后大于 <code>num / i </code>，而这个临界值其实就是最中间的因数。</p>
+<p>因此，只需要把遍历的边界设置为 <code>i</code> 从 1 开始且 <code>i * i &lt;= num</code> 即可，初始化最中间的因数 mid 为 1 ，每新找到一个更大的因数就更新 mid 的值，当 i 越过边界跳出循环后，mid 的值即为 num 所有因数中最中间的哪一个。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-comment">/**</span>
+<span class="hljs-comment">     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可</span>
+<span class="hljs-comment">     * 求 一个数    最中间的因素</span>
+<span class="hljs-comment">     * @param llVal long长整型 正整数</span>
+<span class="hljs-comment">     * @return long长整型</span>
+<span class="hljs-comment">     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-title">MidFactor</span><span class="hljs-params">(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> llVal)</span> </span>&#123;
+        <span class="hljs-comment">// write code here</span>
+        <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> mid = <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> i = <span class="hljs-number">1</span>; i * i &lt;= llVal; i++) &#123;
+            <span class="hljs-keyword">if</span> (llVal % i == <span class="hljs-number">0</span>) &#123;
+                mid = i;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> mid;
+    &#125;
+&#125;;</code></pre></div>
+
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AC%94%E7%BB%8F/">笔经</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020092011556/">
+                        <span class="hidden-mobile">Leetcode 1143. 最长公共子序列</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+          app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+          placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "https://leancloud.mxy.cool",
+        });
+      });
+    }
+    waitElementVisible('vcomments', loadValine);
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -470,10 +641,10 @@
       }
 
       // 如果是文章，请求文章的浏览数，并自增
-      if ('false' === 'true') {
+      if ('true' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/archives/2019/page/4/index.html');
+          var target = decodeURI('/2020092551823/');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -535,6 +706,31 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -542,7 +738,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "新华三笔试题 - 求最中间的因数&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -557,6 +753,23 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "❡"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -570,6 +783,20 @@
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 
