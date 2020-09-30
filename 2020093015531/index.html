@@ -279,7 +279,7 @@ grid.addLayout(vbox_btns, <span class="hljs-number">0</span>, <span class="hljs-
 grid.addWidget(self.log_edit, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)
 grid.addLayout(self.hbox_debug, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)</code></pre></div>
 
-<p>上面代码中 <code>addLayout()</code> 和 <code>addWidget()</code> 第三个和第四个参数分别是行跨度和列跨度，以我最初的理解，我认为制定了第一列列跨度为1，第二列列跨度也为1，那么它们就应该宽度相等。但实际上并没有用，也说明其实不指定这两个参数的话默认就是一行一列。</p>
+<p>上面代码中 <code>addLayout()</code> 和 <code>addWidget()</code> 第三个和第四个参数分别是行跨度和列跨度，以我最初的理解，我认为指定了第一列列跨度为1，第二列列跨度也为1，那么它们就应该宽度相等。但实际上并没有用，也说明其实不指定这两个参数的话默认就是一行一列。</p>
 <h1 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h1><p>其实我只是抱着试一试的心态，试了下官方文档中的这个函数：</p>
 <div class="hljs"><pre><code class="hljs python">PySide2.QtWidgets.QGridLayout.setColumnStretch(column, stretch)</code></pre></div>
 
