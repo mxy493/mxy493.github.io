@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="mxy">
   <meta name="keywords" content="">
-  <title>记录QGridLayout踩坑经历 - mxy</title>
+  <title>CLash for Windows 使用指北 - mxy</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -177,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-09-30 17:03" pubdate>
-        2020年9月30日 下午
+      <time datetime="2020-10-10 20:39" pubdate>
+        2020年10月10日 晚上
       </time>
     </span>
   
@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      2.5k 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12
+      29
        分钟
     </span>
   
@@ -237,94 +237,185 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">记录QGridLayout踩坑经历</h1>
+            <h1 style="display: none">CLash for Windows 使用指北</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年9月30日 下午
+                  本文最后更新于：2020年10月10日 晚上
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>QGridLayout 官方文档：<a target="_blank" rel="noopener" href="https://doc.qt.io/qtforpython/PySide2/QtWidgets/QGridLayout.html">https://doc.qt.io/qtforpython/PySide2/QtWidgets/QGridLayout.html</a></p>
-<p>最近在使用 Qt for Python 开发程序的过程中，被一个 QGridLayout 布局问题给搞得怀疑人生，好在是折腾了很久之后总算是解决了~</p>
-<p>首先看一下解决问题后正常的界面是这样的：</p>
-<p><img src="normal.png" srcset="/img/loading.gif"></p>
-<p>主要是主界面的部分我使用 QGridLayout布局，希望左右两侧按比例 1:1 布局，左侧是一个 QWidget ，没有指定其大小，因为我是希望它能根据格子的大小自适应的调整其大小，也就是说如果格子能小到宽高均为0的话，它是可以不显示的。</p>
-<h1 id="艰难的过程"><a href="#艰难的过程" class="headerlink" title="艰难的过程"></a>艰难的过程</h1><p>于是我写出了如下代码：</p>
-<div class="hljs"><pre><code class="hljs python">grid = QGridLayout()
-grid.addWidget(self.widget_radar, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 3行1列</span>
-grid.addLayout(vbox_btns, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 右上侧的4个按钮</span>
-grid.addWidget(self.log_edit, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 右下侧的QTextEdit</span>
-grid.addLayout(self.hbox_debug, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 这是隐藏掉的一部分</span>
+              <h1 id="一、简述"><a href="#一、简述" class="headerlink" title="一、简述"></a>一、简述</h1><p>学习计算机不得不说科学上网是刚需了，很多专业上的东西还得谷歌才能解决~</p>
+<p>最近了解到 <a target="_blank" rel="noopener" href="https://github.com/Dreamacro/clash">Clash</a> ，大概就是当前来说比较主流的科学上网方式吧，然后我就从 SSR 换到了 Clash 。</p>
+<p>以我个人的理解，像 SS、SSR、v2ray、clash 这些应该都属于协议，只不过作为这方面的小白，我们一般接触到的都是实际应用了这些协议的软件，所以很容易理所当然的认为这些名词是指不同的科学上网软件。</p>
+<p>本文仅包含我个人使用 Clash 的一些记录，不提供任何科学上网相关途径，也不介绍具体原理（好吧，其实我自己也不懂🤣）。</p>
+<p>首先，我主要是在 Windows 平台上使用 Clash ，前面已经提到 <a target="_blank" rel="noopener" href="https://github.com/Dreamacro/clash">Clash</a> 是一种协议、规则，其在不同的平台上都有相应实现的应用软件。</p>
+<p>以 Windows 平台为例，其在 Windows 上的软件为 Clash for Windows 。</p>
+<p><strong>Clash for Windows：</strong><a target="_blank" rel="noopener" href="https://github.com/Fndroid/clash_for_windows_pkg">https://github.com/Fndroid/clash_for_windows_pkg</a></p>
+<h1 id="二、上手"><a href="#二、上手" class="headerlink" title="二、上手"></a>二、上手</h1><p>大概是出现不算太久的新东西，所以目前 Clash 核心以及对应的这些应用软件都在频繁的更新，直接下载最新版本安装即可，也比较推荐安装新版本~</p>
+<p>此时此刻的最新版本是 0.12.1 ，主界面如图：</p>
+<p><img src="main.png" srcset="/img/loading.gif"></p>
+<p>首先第一步需要导入规则，也就是上图左侧的 Profiles 栏，点击后可以看到只有一个默认的 config.yaml ，当然这个配置文件也并没有什么内容，仅仅是直连或者拒绝连接；我们需要做的是导入自己的配置文件，一般都会有订阅链接，将订阅链接粘贴到上方编辑框中，然后点击右侧的 Download 按钮即可下载并导入配置文件，或者也可以点击 Import 按钮手动导入下载好的配置文件。</p>
+<p><img src="profiles.png" srcset="/img/loading.gif"></p>
+<p>可以看到每一个配置文件都有几个可以点击的按钮，是的，进一步的可以修改配置文件、修改策略、修改规则等，没特殊需求的话也没必要去改。并不是添加后的每一个配置文件都会使用到，只有一个配置文件会以不同的颜色显示，表示这个配置文件为当前正在使用的配置。</p>
+<p>添加了配置文件后，就可以选择节点进行使用了，点击左侧的 Proxies ，即可选择不同的代理节点，有几个默认项需要明确：</p>
+<ul>
+<li>Global 即全局代理，所有的连接不加判断都走代理；</li>
+<li>Rule 即按规则走代理，这大概也是 Clash 最大的亮点，当然也更加进阶一些；</li>
+<li>Direct 即直连，不走代理；</li>
+<li>Script 也属于进阶操作，可以实现更加复杂的功能。</li>
+</ul>
+<p>比较常用的是 Rule ，按规则走代理，也就是国内的网站没必要走代理，针对性的有需要的网站才走代理。</p>
+<p>选择好代理节点后，还需要回到常规设置中开启系统代理，即打开 System Proxy ，没啥意外的话这就已经可以用了~</p>
+<h1 id="三、更进一步"><a href="#三、更进一步" class="headerlink" title="三、更进一步"></a>三、更进一步</h1><p>这里简单说几个略微进阶的设置：</p>
+<p>1、重度使用当然把跟随系统启动打开好啦，打开常规设置中的 Start with Windows ；</p>
+<p>2、打开常规设置中的 Allow LAN 可以开启透明代理，也就是开启后局域网内的设备都可以使用代理，比如连接同一个 WiFi 的手机只需要在 WiFi 设置中设置代理服务器即可。如下图所示，笔记本电脑一般是 WLAN 所对应的 IP 地址（如图192.168.0.104），端口默认为7890；</p>
+<p><img src="lan.png" srcset="/img/loading.gif"></p>
+<p>3、在我实际的使用中，开启代理后国内的一些网站反而打不开了，比如我学校的官网，具体原因我并不是很明白，总之关掉系统代理就可以了。当然还有一个一劳永逸的办法就是设置绕过系统代理，点击左侧的 Settings 项，找到 Bypass Domain/IPNet 点击右侧 Edit ，照葫芦画瓢地添加自己需要绕过代理的 IP 或域名即可，支持使用通配符 <code>*</code> ，比如将所有 <code>.cn</code> 的域名绕过代理就可以设置 <code>- &quot;*.cn&quot;</code> 。（还有更好的办法请参考最后一个板块）</p>
+<p><img src="bypass.png" srcset="/img/loading.gif"></p>
+<h1 id="四、自定义规则"><a href="#四、自定义规则" class="headerlink" title="四、自定义规则"></a>四、自定义规则</h1><p>刚开始使用 Clash 的时候，挺不适应的，主要一点就是开启代理后似乎很多国内网站都不能访问，添加 Bypass 虽然能解决问题，但一方面很麻烦，另一方面像有些软件，不知道 IP 或者域名就没法添加到 Bypass 中，也就只能临时关闭系统代理了，体验并不太好。</p>
+<p>而实际上此前一直使用的 SSR 有一个功能就是自动更新 PAC 规则，使用起来基本上就是很无感，开启后就不再需要设置什么了，挺好用的，说实话我确实好奇过 Clash 应该也有类似的东西吧？</p>
+<p>两天前我就在网上搜了一下“Clash 规则”，然后就搜到了这个东西👉</p>
+<p><img src="rules.png" srcset="/img/loading.gif"></p>
+<p><strong>Clash Premium 规则集：</strong><a target="_blank" rel="noopener" href="https://github.com/Loyalsoldier/clash-rules">https://github.com/Loyalsoldier/clash-rules</a></p>
+<p>点进去看了看，大概就是自己需要的东西了，先上手试试再说~</p>
+<p>说实话起初还真不知道该怎么玩，说明文档有些地方对我这种小白还是有点不太友好的样子，好在是折腾了一天总算是用上了。</p>
+<p>确实解决了前面所说的问题，国内网站基本可以按规则不走代理了，并且规则集可以自动更新，设置之后基本就不用再管它了。</p>
+<p>首先需要注意的是，使用这个规则集必须<strong>确保使用 Clash for Windows 0.12.1 或以上版本</strong>，是的，涉及到了新添加的功能，前面我也说到了建议用最新版本，因为 Clash 核心以及应用软件都在频繁的更新中。</p>
+<p>具体在 Windows 上的配置步骤基本参考说明文档没问题，简单说就是在软件的配置文件中添加 <code>rule-providers</code> 和 <code>rules</code> 。</p>
+<p>软件的配置文件可以在常规设置中找到 General YAML ，点击右侧的 Text Mode Edit 进行编辑，未经修改的默认内容大致如下：</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">mixed-port:</span> <span class="hljs-number">7890</span>
+<span class="hljs-attr">allow-lan:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">log-level:</span> <span class="hljs-string">info</span>
+<span class="hljs-attr">external-controller:</span> <span class="hljs-string">&#x27;127.0.0.1:9090&#x27;</span>
+<span class="hljs-attr">secret:</span> <span class="hljs-string">&#x27;&#x27;</span>
+<span class="hljs-attr">ipv6:</span> <span class="hljs-literal">false</span>
 
-<span class="hljs-comment"># 这三行是必要的，并不是造成我问题的原因，简单说就是不能直接给QMainWindow设置Layout，这里就不细说啦</span>
-central_widget = QWidget(parent=self)
-central_widget.setLayout(grid)
-self.setCentralWidget(central_widget)</code></pre></div>
+<span class="hljs-comment"># Will be ignored after profile selection</span>
+<span class="hljs-attr">proxies:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Debug</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">socks5</span>
+    <span class="hljs-attr">server:</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>
+    <span class="hljs-attr">port:</span> <span class="hljs-number">1080</span>
+<span class="hljs-attr">proxy-groups:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Proxy</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">select</span>
+    <span class="hljs-attr">proxies:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">Debug</span>
+<span class="hljs-attr">rules:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">MATCH,DIRECT</span></code></pre></div>
 
-<p>实际运行后的效果如图所示：</p>
-<p><img src="abnormal.png" srcset="/img/loading.gif"></p>
-<p>是的，左侧的雷达界面没有显示出来。严格说是显示出来了，仔细观察可以看到左边边距相对于右边宽一点，宽的部分也就是看不到的雷达界面，更准确地说应该是格子布局的间距。</p>
-<p>我真的折腾了好久不知道怎么解决，其实很快我就定位到左侧雷达界面并不是没有显示出来，找问题的过程中为了验证这个想法，我指定了雷达界面的大小为 400 * 400 。</p>
-<div class="hljs"><pre><code class="hljs python">self.widget_radar.setFixedSize(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>)</code></pre></div>
+<p>具体添加步骤参考说明文档：<a target="_blank" rel="noopener" href="https://github.com/Loyalsoldier/clash-rules/blob/master/README.md">https://github.com/Loyalsoldier/clash-rules/blob/master/README.md</a></p>
+<p>这里简单说几个小白可能看起来比较头疼的地方：</p>
+<ol>
+<li>直接复制添加 <code>rule-providers</code> 和 <code>rules</code> ，默认配置已经有 <code>rules</code> 项，把其中的内容替换掉；</li>
+<li>删除所有带 <code>PROCESS-NAME</code> 的行，在 Clash for Windows 中无效；</li>
+<li>默认配置中没有 <code>PROXY</code> 项，说明文档中让自行在 <code>proxies</code> 或 <code>proxy-groups</code> 中配置一个 <code>name</code> 为 <code>PROXY</code> 的 policy ，其实我不太懂怎么配置，考虑到默认的 <code>Proxy</code> 项并没有使用，所以我的解决办法就是直接把原有的 <code>Proxy</code> 修改为 <code>PROXY</code> 即可。</li>
+</ol>
+<p>最终的配置文件将会是这样的：</p>
+<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">mixed-port:</span> <span class="hljs-number">7890</span>
+<span class="hljs-attr">allow-lan:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">log-level:</span> <span class="hljs-string">info</span>
+<span class="hljs-attr">external-controller:</span> <span class="hljs-string">&#x27;127.0.0.1:9090&#x27;</span>
+<span class="hljs-attr">secret:</span> <span class="hljs-string">&#x27;&#x27;</span>
+<span class="hljs-attr">ipv6:</span> <span class="hljs-literal">false</span>
 
-<p>然后运行，如图：</p>
-<p><img src="400.png" srcset="/img/loading.gif"></p>
-<p>是吧，确实是能显示出来的。但是也不太可能说这么去指定大小啊，我既然选择使用格子布局就是为了让它自适应调整大小~</p>
-<p>继续找解决办法，说实话我查遍了文档也没找到相关的说明，一开始以为是这样：</p>
-<div class="hljs"><pre><code class="hljs python">grid = QGridLayout()
-grid.addWidget(self.widget_radar, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 3行1列</span>
-grid.addLayout(vbox_btns, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 指定第三个和第四个参数，即指定其跨度为1行1列</span>
-grid.addWidget(self.log_edit, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)
-grid.addLayout(self.hbox_debug, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)</code></pre></div>
+<span class="hljs-attr">rule-providers:</span>
+  <span class="hljs-attr">reject:</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">http</span>
+    <span class="hljs-attr">behavior:</span> <span class="hljs-string">domain</span>
+    <span class="hljs-attr">url:</span> <span class="hljs-string">&quot;https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt&quot;</span>
+    <span class="hljs-attr">path:</span> <span class="hljs-string">./ruleset/reject.yaml</span>
+    <span class="hljs-attr">interval:</span> <span class="hljs-number">86400</span>
 
-<p>上面代码中 <code>addLayout()</code> 和 <code>addWidget()</code> 第三个和第四个参数分别是行跨度和列跨度，以我最初的理解，我认为指定了第一列列跨度为1，第二列列跨度也为1，那么它们就应该宽度相等。但实际上并没有用，也说明其实不指定这两个参数的话默认就是一行一列。</p>
-<h1 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h1><p>其实我只是抱着试一试的心态，试了下官方文档中的这个函数：</p>
-<div class="hljs"><pre><code class="hljs python">PySide2.QtWidgets.QGridLayout.setColumnStretch(column, stretch)</code></pre></div>
+  <span class="hljs-attr">icloud:</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">http</span>
+    <span class="hljs-attr">behavior:</span> <span class="hljs-string">domain</span>
+    <span class="hljs-attr">url:</span> <span class="hljs-string">&quot;https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/icloud.txt&quot;</span>
+    <span class="hljs-attr">path:</span> <span class="hljs-string">./ruleset/icloud.yaml</span>
+    <span class="hljs-attr">interval:</span> <span class="hljs-number">86400</span>
 
-<p>成功解决问题🎉🎉🎉</p>
-<p>最终的代码如下：</p>
-<div class="hljs"><pre><code class="hljs python">grid = QGridLayout()
-grid.addWidget(self.widget_radar, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 3行1列</span>
-grid.addLayout(vbox_btns, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>)
-grid.addWidget(self.log_edit, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)
-grid.addLayout(self.hbox_debug, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>)
+  <span class="hljs-attr">apple:</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">http</span>
+    <span class="hljs-attr">behavior:</span> <span class="hljs-string">domain</span>
+    <span class="hljs-attr">url:</span> <span class="hljs-string">&quot;https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/apple.txt&quot;</span>
+    <span class="hljs-attr">path:</span> <span class="hljs-string">./ruleset/apple.yaml</span>
+    <span class="hljs-attr">interval:</span> <span class="hljs-number">86400</span>
 
-grid.setColumnStretch(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 不指定比例的话第二列会撑展到第一列不能显示，造成不显示的根本原因</span>
-grid.setColumnStretch(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 需要同时为第二列指定，两列才会始终以1:1的宽度排列</span></code></pre></div>
+  <span class="hljs-attr">google:</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">http</span>
+    <span class="hljs-attr">behavior:</span> <span class="hljs-string">domain</span>
+    <span class="hljs-attr">url:</span> <span class="hljs-string">&quot;https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/google.txt&quot;</span>
+    <span class="hljs-attr">path:</span> <span class="hljs-string">./ruleset/google.yaml</span>
+    <span class="hljs-attr">interval:</span> <span class="hljs-number">86400</span>
 
-<p>这个函数是这么用的，第一个参数指定哪一列，列数从0开始，第二个参数为拉伸因子，也就是所占的比例吧。</p>
-<p>上面代码中同时为两列指定了拉伸因子均为1，即两列的宽度将按1:1的比例排列。</p>
-<p>只指定一列是达不到这个效果的，例如如果不为第二列指定，那么雷达界面这部分因为指定了拉伸银子1，所以会显示出来，但由于没有为第二列指定，所以第一列会撑展开，使第二列的宽度压缩到最小，如图：</p>
-<p><img src="strech1.png" srcset="/img/loading.gif"></p>
-<p>相反如果只指定第二列的话，其实不难想到就会是前面雷达界面没有显示出来的样子了~</p>
-<p>另外，同样也可以为行设置拉伸因子，方法都是一样的，用这个函数就可以了:</p>
-<div class="hljs"><pre><code class="hljs python">PySide2.QtWidgets.QGridLayout.setRowStretch(row, stretch)</code></pre></div>
+  <span class="hljs-attr">proxy:</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">http</span>
+    <span class="hljs-attr">behavior:</span> <span class="hljs-string">domain</span>
+    <span class="hljs-attr">url:</span> <span class="hljs-string">&quot;https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt&quot;</span>
+    <span class="hljs-attr">path:</span> <span class="hljs-string">./ruleset/proxy.yaml</span>
+    <span class="hljs-attr">interval:</span> <span class="hljs-number">86400</span>
 
-<p>真的卡了好久，真尴尬……不过以后就知道该怎么做了🥴</p>
+  <span class="hljs-attr">direct:</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">http</span>
+    <span class="hljs-attr">behavior:</span> <span class="hljs-string">domain</span>
+    <span class="hljs-attr">url:</span> <span class="hljs-string">&quot;https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt&quot;</span>
+    <span class="hljs-attr">path:</span> <span class="hljs-string">./ruleset/direct.yaml</span>
+    <span class="hljs-attr">interval:</span> <span class="hljs-number">86400</span>
+
+  <span class="hljs-attr">cncidr:</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">http</span>
+    <span class="hljs-attr">behavior:</span> <span class="hljs-string">ipcidr</span>
+    <span class="hljs-attr">url:</span> <span class="hljs-string">&quot;https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/cncidr.txt&quot;</span>
+    <span class="hljs-attr">path:</span> <span class="hljs-string">./ruleset/cncidr.yaml</span>
+    <span class="hljs-attr">interval:</span> <span class="hljs-number">86400</span>
+
+  <span class="hljs-attr">lancidr:</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">http</span>
+    <span class="hljs-attr">behavior:</span> <span class="hljs-string">ipcidr</span>
+    <span class="hljs-attr">url:</span> <span class="hljs-string">&quot;https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/lancidr.txt&quot;</span>
+    <span class="hljs-attr">path:</span> <span class="hljs-string">./ruleset/lancidr.yaml</span>
+    <span class="hljs-attr">interval:</span> <span class="hljs-number">86400</span>
+
+<span class="hljs-comment"># Will be ignored after profile selection</span>
+<span class="hljs-attr">proxies:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Debug</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">socks5</span>
+    <span class="hljs-attr">server:</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>
+    <span class="hljs-attr">port:</span> <span class="hljs-number">1080</span>
+
+<span class="hljs-attr">proxy-groups:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">PROXY</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">select</span>
+    <span class="hljs-attr">proxies:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">Debug</span>
+
+<span class="hljs-attr">rules:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">RULE-SET,reject,REJECT</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">RULE-SET,icloud,DIRECT</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">RULE-SET,apple,DIRECT</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">RULE-SET,google,DIRECT</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">RULE-SET,proxy,PROXY</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">RULE-SET,direct,DIRECT</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">RULE-SET,lancidr,DIRECT,no-resolve</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">RULE-SET,cncidr,DIRECT,no-resolve</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">MATCH,PROXY</span></code></pre></div>
+
+<p>保存后软件会自动加载设置，不出意外的话软件会自动下载 <code>rule-providers</code> 中配置的规则文件，保存在配置文件根目录下的 <code>ruleset</code> 文件夹中，这里可以自行验证一下，在常规设置中找到 Home Directory ，点击右侧 Open Folder 可以直接打开配置文件根目录。成功下载规则文件将会是下图这样：</p>
+<p><img src="ruleset.png" srcset="/img/loading.gif"></p>
+<p>如果没能下载下来，可以尝试替换链接，规则集的说明文档中有相关说明。</p>
+<p>大概就已经可以正常使用了，可以自行测试一下。这里很尴尬的一点是，有没有配置成功似乎只能实际去访问一些网站试试，软件本身不会有任何提示……</p>
+<p>接下来，就没有接下来了，愉快的使用吧ヾ(≧ ▽ ≦)ゝ</p>
+<h1 id="五、懂哥"><a href="#五、懂哥" class="headerlink" title="五、懂哥"></a>五、懂哥</h1><p>Clash for Windows 默认为英文，也不支持修改语言，英文不太好或者非相关专业的同学可能很多地方都看不懂，不过有开发者特意开发了中文汉化补丁~</p>
+<p><strong>Clash_Chinese_Patch：</strong><a target="_blank" rel="noopener" href="https://github.com/BoyceLig/Clash_Chinese_Patch">https://github.com/BoyceLig/Clash_Chinese_Patch</a></p>
+<p>下载对应版本并替换就好了，操作起来没什么难度就不细说了！</p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/Qt/">Qt</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
-                    
-                      <a class="hover-with-bg" href="/tags/Qt/">Qt</a>
-                    
-                  </div>
                 
               </div>
               
@@ -335,18 +426,12 @@ grid.setColumnStretch(<span class="hljs-number">1</span>, <span class="hljs-numb
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020101017609/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">CLash for Windows 使用指北</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020092551823/">
-                        <span class="hidden-mobile">新华三笔试题 - 求最中间的因数</span>
+                      <a href="/2020093015531/">
+                        <span class="hidden-mobile">记录QGridLayout踩坑经历</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -652,7 +737,7 @@ grid.setColumnStretch(<span class="hljs-number">1</span>, <span class="hljs-numb
       if ('true' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/2020093015531/');
+          var target = decodeURI('/2020101017609/');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -746,7 +831,7 @@ grid.setColumnStretch(<span class="hljs-number">1</span>, <span class="hljs-numb
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "记录QGridLayout踩坑经历&nbsp;",
+        "CLash for Windows 使用指北&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
