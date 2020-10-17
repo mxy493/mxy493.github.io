@@ -25,11 +25,11 @@
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -188,6 +188,7 @@
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
+        
         <a href="/2020031457288/">Leetcode 300.最长上升子序列【C++】</a>
       </h1>
 
@@ -249,6 +250,7 @@
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
+        
         <a href="/2020031339745/">Leetcode 169.多数元素【C++】</a>
       </h1>
 
@@ -311,6 +313,7 @@
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
+        
         <a href="/2020031242499/">Leetcode 1071.字符串的最大公因子【C++】</a>
       </h1>
 
@@ -366,6 +369,7 @@
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
+        
         <a href="/2020031157295/">Leetcode 1013.将数组分成和相等的三个部分【C++】</a>
       </h1>
 
@@ -419,6 +423,7 @@
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
+        
         <a href="/2020031047606/">Leetcode 543.二叉树的直径【C++】</a>
       </h1>
 
@@ -478,6 +483,7 @@
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
+        
         <a href="/2020030911514/">Leetcode 121.买卖股票的最佳时机【C++】</a>
       </h1>
 
@@ -535,6 +541,7 @@
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
+        
         <a href="/202003087706/">Leetcode 322.零钱兑换【C++】</a>
       </h1>
 
@@ -591,6 +598,7 @@
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
+        
         <a href="/2020030735761/">Leetcode 53.最大子序和【C++】</a>
       </h1>
 
@@ -651,6 +659,7 @@
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
+        
         <a href="/202003072784/">Leetcode 58.最后一个单词的长度【C++】</a>
       </h1>
 
@@ -707,6 +716,7 @@
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
+        
         <a href="/202003076204/">Leetcode 67.二进制求和【C++】</a>
       </h1>
 
@@ -817,17 +827,11 @@
 
   
 
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
   
-
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-      <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-        <span>Fluid</span></a>
-    </div>
-    
   <div class="statistics">
     
     
@@ -854,7 +858,7 @@
   </div>
 
 
-    
+  
   <!-- 备案信息 -->
   <div class="beian">
     <a href="http://beian.miit.gov.cn/" target="_blank"
@@ -876,8 +880,7 @@
   </div>
 
 
-    
-  </div>
+  
 </footer>
 
 <!-- SCRIPTS -->
@@ -985,7 +988,7 @@
     }
 
     function addCount(Counter) {
-      var enableIncr = 'true' === 'true' && window.location.hostname !== 'localhost';
+      var enableIncr = 'false' === 'true' && window.location.hostname !== 'localhost';
       var getterArr = [];
       var incrArr = [];
 
@@ -1130,88 +1133,9 @@
 
 
 
-  
-  
-    <script type="text/javascript">
-      //定义获取词语下标
-      var a_idx = 0;
-      jQuery(document).ready(function ($) {
-        //点击body时触发事件
-        $("body").click(function (e) {
-          //需要显示的词语
-          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
-          //设置词语给span标签
-          var $i = $("<span/>").text(a[a_idx]);
-          //下标等于原来下标+1  余 词语总数
-          a_idx = (a_idx + 1) % a.length;
-          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
-          //获取x和y的指针坐标
-          var x = e.pageX, y = e.pageY;
-          //在鼠标的指针的位置给$i定义的span标签添加css样式
-          $i.css({
-            "z-index": 999,
-            "top": y - 20,
-            "left": x,
-            "position": "absolute",
-            "font-weight": "bold",
-            "color": rand_color()
-          });
-          // 随机颜色
-          function rand_color() {
-            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-          }
-          //在body添加这个标签
-          $("body").append($i);
-          //animate() 方法执行 CSS 属性集的自定义动画。
-          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
-          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
-          $i.animate({
-            //将原来的位置向上移动180
-            "top": y - 180,
-            "opacity": 0
-            //1500动画的速度
-          }, 1500, function () {
-            //时间到了自动删除
-            $i.remove();
-          });
-        });
-      })
-      ;
-    </script>
-  
 
 
 
-
-
-
-
-
-
-
-
-  
-    <!-- Baidu Analytics -->
-    <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 
 
