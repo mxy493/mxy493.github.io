@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      976 字
+      1.3k 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12
+      15
        分钟
     </span>
   
@@ -241,7 +241,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年10月15日 凌晨
+                  本文最后更新于：2020年10月18日 晚上
                 
               </p>
             
@@ -306,7 +306,19 @@
 <li><code>int *arr2[3]</code> 是指针数组，本质是数组，存储的是3个 int 型的指针。</li>
 </ul>
 <p>关于指针数组和指向数组的指针的更多内容可以自行查阅相关资料，这里就不多说啦🥱</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>总的来说，其实数组作为参数传递，本质上还是关于指针的传递，所以只要把指针搞懂，数组的传递也就并没有什么特殊的地方了~</p>
+<h1 id="更多一些思考"><a href="#更多一些思考" class="headerlink" title="更多一些思考"></a>更多一些思考</h1><blockquote>
+<p>该部分更新于：2020 年 10 月 18 日</p>
+</blockquote>
+<p>根据上面所讨论的，其实有一点是可以明确的，只要将数组作为参数传递，接收到的就一定是一个指针。</p>
+<p>显然对于一个指针，它自身是没有维度的，只有它所指向的对象才可能有维度，这也就可以解释为什么一个二维数组作为参数，接收到的是一个指向一维数组的指针，因为这个指针自身唯有维度，它指向原二维数组的第一个元素，而原二维数组的第一个元素即一个一维数组。</p>
+<p>也正因为指针没有维度，我们是不是可以这么理解：数组作为参数传递之后，就丢失了原数组第一个维度的信息。</p>
+<p>至少我觉得这样理解是比较合理的，也因此，实际编程中，在传递一个数组的同时传递其维数，程序的可读性将更强。</p>
+<p>例如，可以将上述方式二中的函数声明修改为如下所示：</p>
+<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-built_in">void</span> <span class="hljs-built_in">array</span>1d(<span class="hljs-built_in">int</span> *arr1, <span class="hljs-built_in">int</span> d);  <span class="hljs-comment">// 一维</span>
+<span class="hljs-built_in">void</span> <span class="hljs-built_in">array</span>2d(<span class="hljs-built_in">int</span> (*arr2)[<span class="hljs-number">3</span>], <span class="hljs-built_in">int</span> r, <span class="hljs-built_in">int</span> c);  <span class="hljs-comment">// 二维</span>
+<span class="hljs-built_in">void</span> <span class="hljs-built_in">array</span>3d(<span class="hljs-built_in">int</span> (*arr3)[<span class="hljs-number">3</span>][<span class="hljs-number">2</span>], <span class="hljs-built_in">int</span> a, <span class="hljs-built_in">int</span> b, <span class="hljs-built_in">int</span> c);  <span class="hljs-comment">// 三维</span></code></pre></div>
+
+<p>最后呢，其实本文所讨论的均为一般的数组，如果说使用标准库类型 vector 数组其实就没这些必要了，另外也可以使用智能指针，以使函数可以接受任意维度的数组，具体的实现就不讨论了~</p>
 
             </div>
             <hr>
