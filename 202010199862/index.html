@@ -17,10 +17,23 @@
   <meta name="description" content="mxy&#39;s 个人博客ᓚᘏᗢ">
   <meta name="author" content="mxy">
   <meta name="keywords" content="">
-  <title>标签 - C++ - mxy</title>
+  <title>Leetcode 844. 比较含退格的字符串【C++】 - mxy</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -43,7 +56,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -159,6 +172,51 @@
             </span>
 
             
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-10-19 21:46" pubdate>
+        2020年10月19日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      571 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      7
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-post-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-post-views"></span> 次
+      </span>
+    
+  
+</div>
+
+            
           </div>
 
           
@@ -169,103 +227,188 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 60 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020032152167/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 面试题40.最小的k个数【C++】</span>
-      <time style="float: right;">03-21</time>
-    </a>
-  
-    
-    <a href="/2020031962002/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 409.最长回文串【C++】</span>
-      <time style="float: right;">03-19</time>
-    </a>
-  
-    
-    <a href="/2020031849025/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 836.矩形重叠【C++】</span>
-      <time style="float: right;">03-18</time>
-    </a>
-  
-    
-    <a href="/2020031713987/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 1160.拼写单词【C++】</span>
-      <time style="float: right;">03-17</time>
-    </a>
-  
-    
-    <a href="/2020031636595/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 面试题 01.06.字符串压缩【C++】</span>
-      <time style="float: right;">03-16</time>
-    </a>
-  
-    
-    <a href="/2020031511361/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 695.岛屿的最大面积【C++】</span>
-      <time style="float: right;">03-15</time>
-    </a>
-  
-    
-    <a href="/2020031457288/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 300.最长上升子序列【C++】</span>
-      <time style="float: right;">03-14</time>
-    </a>
-  
-    
-    <a href="/2020031339745/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 169.多数元素【C++】</span>
-      <time style="float: right;">03-13</time>
-    </a>
-  
-    
-    <a href="/2020031242499/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 1071.字符串的最大公因子【C++】</span>
-      <time style="float: right;">03-12</time>
-    </a>
-  
-    
-    <a href="/2020031157295/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 1013.将数组分成和相等的三个部分【C++】</span>
-      <time style="float: right;">03-11</time>
-    </a>
-  
-</div>
 
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/tags/C/page/3/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/tags/C/">1</a><a class="page-number" href="/tags/C/page/2/">2</a><a class="page-number" href="/tags/C/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/tags/C/page/5/">5</a><a class="page-number" href="/tags/C/page/6/">6</a><a class="extend next" rel="next" href="/tags/C/page/5/"><i class="iconfont icon-arrowright"></i></a>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Leetcode 844. 比较含退格的字符串【C++】</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2020年10月19日 晚上
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
+              <blockquote>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/backspace-string-compare/">https://leetcode-cn.com/problems/backspace-string-compare/</a></p>
+</blockquote>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>给定 <code>S</code> 和 <code>T</code> 两个字符串，当它们分别被输入到空白的文本编辑器后，判断二者是否相等，并返回结果。 <code>#</code> 代表退格字符。</p>
+<p>注意：如果对空文本输入退格字符，文本继续为空。</p>
+<p><strong>示例 1：</strong></p>
+<div class="hljs"><pre><code class="hljs livescript">输入：S = <span class="hljs-string">&quot;ab<span class="hljs-subst">#c</span>&quot;</span>, T = <span class="hljs-string">&quot;ad<span class="hljs-subst">#c</span>&quot;</span>
+输出：<span class="hljs-literal">true</span>
+解释：S 和 T 都会变成 “ac”。</code></pre></div>
 
 
+<p><strong>示例 2：</strong></p>
+<div class="hljs"><pre><code class="hljs nix">输入：<span class="hljs-attr">S</span> = <span class="hljs-string">&quot;ab##&quot;</span>, <span class="hljs-attr">T</span> = <span class="hljs-string">&quot;c#d#&quot;</span>
+输出：<span class="hljs-literal">true</span>
+解释：S 和 T 都会变成 “”。</code></pre></div>
 
-              </div>
+
+<p><strong>示例 3：</strong></p>
+<div class="hljs"><pre><code class="hljs livescript">输入：S = <span class="hljs-string">&quot;a#<span class="hljs-subst">#c</span>&quot;</span>, T = <span class="hljs-string">&quot;<span class="hljs-subst">#a</span><span class="hljs-subst">#c</span>&quot;</span>
+输出：<span class="hljs-literal">true</span>
+解释：S 和 T 都会变成 “c”。</code></pre></div>
+
+
+<p><strong>示例 4：</strong></p>
+<div class="hljs"><pre><code class="hljs nix">输入：<span class="hljs-attr">S</span> = <span class="hljs-string">&quot;a#c&quot;</span>, <span class="hljs-attr">T</span> = <span class="hljs-string">&quot;b&quot;</span>
+输出：<span class="hljs-literal">false</span>
+解释：S 会变成 “c”，但 T 仍然是 “b”。</code></pre></div>
+
+
+<p>提示：</p>
+<ul>
+<li><code>1 &lt;= S.length &lt;= 200</code></li>
+<li><code>1 &lt;= T.length &lt;= 200</code></li>
+<li><code>S</code> 和 <code>T</code> 只含有小写字母以及字符 <code>&#39;#&#39;</code>。</li>
+</ul>
+<p>进阶：</p>
+<ul>
+<li>你可以用 <code>O(N)</code> 的时间复杂度和 <code>O(1)</code> 的空间复杂度解决该问题吗？</li>
+</ul>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>起初也没想到什么新颖的思路，就直接模拟真实删除操作把对应字符删除掉再比较两个字符串，很容易就写出来了~</p>
+<p>但总觉得应该有什么更好的方法，又想不到，所以取 Leetcode 的题解，官方题解给出了两种方法，第一种其实原理相同，只不过使用了栈，这一点确实比删除字符更好一些，下面的代码虽然没有用栈，但也相当于模拟了一个栈的结构。</p>
+<p>另一种方法则是双指针，起初我也有想到过同时遍历两个字符串来进行比较，但感觉并不是很好处理，即便是看了官方题解之后我也没打算将本题使用双指针来求解，我个人认为双指针求解逻辑复杂了不少，代码也更加难以看懂，所以我觉得并不是很必要。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><div class="hljs"><pre><code class="hljs C++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">process</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">string</span>&amp; str)</span> </span>&#123;
+        <span class="hljs-built_in">string</span> s = <span class="hljs-string">&quot;&quot;</span>;
+        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = str.length() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;
+            <span class="hljs-keyword">if</span> (str[i] == <span class="hljs-string">&#x27;#&#x27;</span>) &#123;
+                count++;
+            &#125;
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (count &gt; <span class="hljs-number">0</span>) &#123;
+                count--;
+            &#125;
+            <span class="hljs-keyword">else</span> &#123;
+                s = str[i] + s;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> s;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">backspaceCompare</span><span class="hljs-params">(<span class="hljs-built_in">string</span> S, <span class="hljs-built_in">string</span> T)</span> </span>&#123;
+        <span class="hljs-keyword">return</span> process(S) == process(T);
+    &#125;
+&#125;;</code></pre></div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Leetcode/">Leetcode</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020101714621/">
+                        <span class="hidden-mobile">KMP字符串匹配算法之C++实现</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz",
+          app_key: "iNppU37sPwRdpmjgAsJ3dgnC",
+          placeholder: "ヾﾉ≧∀≦)o来吖，快活吖!",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: false,
+          recordIP: false,
+          serverURLs: "https://leancloud.mxy.cool",
+        });
+      });
+    }
+    waitElementVisible('vcomments', loadValine);
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -500,10 +643,10 @@
       }
 
       // 如果是文章，请求文章的浏览数，并自增
-      if ('false' === 'true') {
+      if ('true' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/tags/C/page/4/index.html');
+          var target = decodeURI('/202010199862/');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -565,6 +708,31 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -572,7 +740,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "标签 - C++&nbsp;",
+        "Leetcode 844. 比较含退格的字符串【C++】&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -587,6 +755,23 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "❡"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -600,6 +785,20 @@
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 
