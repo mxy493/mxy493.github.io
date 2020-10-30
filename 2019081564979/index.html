@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.1.1"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 
 <body>
@@ -270,32 +270,32 @@
 <p>请注意，输入数组是以“引用”方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。</p>
 <p>你可以想象内部操作如下:</p>
 <div class="hljs"><pre><code class="hljs python">// nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝
-int len = removeDuplicates(nums);
+<span class="hljs-built_in">int</span> <span class="hljs-built_in">len</span> = removeDuplicates(nums);
 
 // 在函数里修改输入数组对于调用者是可见的。
 // 根据你的函数返回的长度, 它会打印出数组中该长度范围内的所有元素。
-<span class="hljs-keyword">for</span> (int i = <span class="hljs-number">0</span>; i &lt; len; i++) &#123;
+<span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">len</span>; i++) &#123;
     print(nums[i]);
 &#125;</code></pre></div>
 
 <h3 id="我的解决方案："><a href="#我的解决方案：" class="headerlink" title="我的解决方案："></a>我的解决方案：</h3><p>题目给出了一个很重要的信息<strong>“排序”</strong>，千万不能遗漏，否则会耗费过多的时间用来遍历整个数组。</p>
 <p><strong>易错点：</strong>一般情况下会想到用两个 for 循环来做，外层循环遍历第一个到倒数第二个元素，内层循环遍历从外层循环当前遍历到的的下一个元素开始找出与当前元素值相同的元素并删去，大致逻辑如下：</p>
-<div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, len(nums) - <span class="hljs-number">1</span>):
-    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(i + <span class="hljs-number">1</span>, len(nums)):
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(nums) - <span class="hljs-number">1</span>):
+    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(i + <span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(nums)):
         <span class="hljs-keyword">if</span> nums[i] == nums[j]:
             nums.pop(j)</code></pre></div>
 
 <p>看似逻辑没问题的，但是我们在内部删除了列表 <code>nums[]</code> 的元素之后，列表长度 <code>len(nums)</code> 就已经改变了，而 range() 函数的不会动态的根据 <code>len(nums)</code> 改变它的范围，最终就会导致删除元素后列表长度已经改变但是for语句不知道，超范围后仍然进入循环内部，当访问到 <code>nums[j]</code> 是已经超出列表索引范围。</p>
 <p><strong>正解：</strong>要解决上述问题，不难想到改用while循环，并且只需要一个循环即可，代码如下：</p>
 <div class="hljs"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">removeDuplicates</span>(<span class="hljs-params">self, nums: List[int]</span>) -&gt; int:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">removeDuplicates</span>(<span class="hljs-params">self, nums: List[<span class="hljs-built_in">int</span>]</span>) -&gt; int:</span>
         i = <span class="hljs-number">0</span>  <span class="hljs-comment"># 作为索引遍历列表元素</span>
-        <span class="hljs-keyword">while</span> i &lt; len(nums) - <span class="hljs-number">1</span>:  <span class="hljs-comment"># 最多只遍历到倒数第二个元素</span>
+        <span class="hljs-keyword">while</span> i &lt; <span class="hljs-built_in">len</span>(nums) - <span class="hljs-number">1</span>:  <span class="hljs-comment"># 最多只遍历到倒数第二个元素</span>
             <span class="hljs-keyword">if</span> nums[i] == nums[i + <span class="hljs-number">1</span>]:  <span class="hljs-comment"># 这就是问什么只遍历到倒数第二个元素的原因，因为始终要和下一个元素作比较</span>
                 nums.pop(i + <span class="hljs-number">1</span>)
                 <span class="hljs-keyword">continue</span>  <span class="hljs-comment"># i保持不变，继续判断nums[i]和补位上来的nums[i + 1]是否相等</span>
             i += <span class="hljs-number">1</span>
-        <span class="hljs-keyword">return</span> len(nums)</code></pre></div>
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">len</span>(nums)</code></pre></div>
 
 <p>while语句中的 <code>len(nums)</code> 是动态更新的，这就解决了索引超出范围的问题；</p>
 <p>continue 很重要，它解决了数组中有多个重复项的问题。</p>
