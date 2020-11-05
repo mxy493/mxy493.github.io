@@ -17,7 +17,7 @@
   <meta name="description" content="mxy&#39;s 个人博客ᓚᘏᗢ">
   <meta name="author" content="mxy">
   <meta name="keywords" content="">
-  <title>Leetcode 925. 长按键入【C++】 - mxy</title>
+  <title>使用 opencv-python 实现视频录制 - mxy</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -177,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-10-21 23:55" pubdate>
-        2020年10月21日 晚上
+      <time datetime="2020-11-05 09:06" pubdate>
+        2020年11月5日 上午
       </time>
     </span>
   
@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      571 字
+      1.9k 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      21
        分钟
     </span>
   
@@ -237,91 +237,108 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Leetcode 925. 长按键入【C++】</h1>
+            <h1 style="display: none">使用 opencv-python 实现视频录制</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年10月22日 凌晨
+                  本文最后更新于：2020年11月5日 上午
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <blockquote>
-<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/long-pressed-name/">https://leetcode-cn.com/problems/long-pressed-name/</a></p>
-</blockquote>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>你的朋友正在使用键盘输入他的名字 <code>name</code>。偶尔，在键入字符 <code>c</code> 时，按键可能会被长按，而字符可能被输入 1 次或多次。</p>
-<p>你将会检查键盘输入的字符 <code>typed</code>。如果它对应的可能是你的朋友的名字（其中一些字符可能被长按），那么就返回 <code>True</code>。</p>
-<p><strong>示例 1：</strong></p>
-<div class="hljs"><pre><code class="hljs pgsql">输入：<span class="hljs-type">name</span> = &quot;alex&quot;, typed = &quot;aaleex&quot;
-输出：<span class="hljs-keyword">true</span>
-解释：<span class="hljs-string">&#x27;alex&#x27;</span> 中的 <span class="hljs-string">&#x27;a&#x27;</span> 和 <span class="hljs-string">&#x27;e&#x27;</span> 被长按。</code></pre></div>
+              <h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><p>先直接上代码吧~</p>
+<p>OpenCV 在 Python 中的库名叫 <code>opencv-python</code> ，另外导入的时候是导入 <code>cv2</code> 。</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding: utf-8 -*-</span>
+<span class="hljs-keyword">import</span> cv2  <span class="hljs-comment"># 导入opencv-python库</span>
 
-<p><strong>示例 2：</strong></p>
-<div class="hljs"><pre><code class="hljs nix">输入：<span class="hljs-attr">name</span> = <span class="hljs-string">&quot;saeed&quot;</span>, <span class="hljs-attr">typed</span> = <span class="hljs-string">&quot;ssaaedd&quot;</span>
-输出：<span class="hljs-literal">false</span>
-解释：&#x27;e&#x27; 一定需要被键入两次，但在 typed 的输出中不是这样。</code></pre></div>
+cap = cv2.VideoCapture(<span class="hljs-number">0</span>)  <span class="hljs-comment"># 打开系统默认摄像头</span>
+fourcc = cv2.VideoWriter_fourcc(<span class="hljs-string">&#x27;X&#x27;</span>, <span class="hljs-string">&#x27;V&#x27;</span>, <span class="hljs-string">&#x27;I&#x27;</span>, <span class="hljs-string">&#x27;D&#x27;</span>)  <span class="hljs-comment"># XVID MPEG-4</span>
+out = cv2.VideoWriter()  <span class="hljs-comment"># 写入器，打开摄像头后再初始化</span>
 
-<p><strong>示例 3：</strong></p>
-<div class="hljs"><pre><code class="hljs nix">输入：<span class="hljs-attr">name</span> = <span class="hljs-string">&quot;leelee&quot;</span>, <span class="hljs-attr">typed</span> = <span class="hljs-string">&quot;lleeelee&quot;</span>
-输出：<span class="hljs-literal">true</span></code></pre></div>
+<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
+    ret, frame = cap.read()  <span class="hljs-comment"># 读取一帧画面</span>
+    <span class="hljs-keyword">if</span> ret:
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> out.isOpened():
+            h, w, _ = frame.shape  <span class="hljs-comment"># 读取到的帧的宽高</span>
+            out.<span class="hljs-built_in">open</span>(filename=<span class="hljs-string">&#x27;record.avi&#x27;</span>,
+                     fourcc=fourcc,
+                     fps=<span class="hljs-number">30</span>,  <span class="hljs-comment"># 大约33ms一帧</span>
+                     frameSize=(w, h))  <span class="hljs-comment"># 初始化写入器</span>
+        <span class="hljs-keyword">else</span>:
+            out.write(frame)
+        cv2.imshow(<span class="hljs-string">&quot;frame&quot;</span>, frame)  <span class="hljs-comment"># 显示画面</span>
+        <span class="hljs-keyword">if</span> cv2.waitKey(<span class="hljs-number">1</span>) &amp; <span class="hljs-number">0xFF</span> == <span class="hljs-built_in">ord</span>(<span class="hljs-string">&#x27;q&#x27;</span>):
+            <span class="hljs-keyword">break</span>
+        time.sleep(<span class="hljs-number">0.033</span>)  <span class="hljs-comment"># 等待33ms再读写一帧画面</span>
+out.release()  <span class="hljs-comment"># 释放视频写入器</span>
+cap.release()  <span class="hljs-comment"># 释放摄像头</span>
+cv2.destroyAllWindows()  <span class="hljs-comment"># 关闭窗口</span></code></pre></div>
 
-<p><strong>示例 4：</strong></p>
-<div class="hljs"><pre><code class="hljs nix">输入：<span class="hljs-attr">name</span> = <span class="hljs-string">&quot;laiden&quot;</span>, <span class="hljs-attr">typed</span> = <span class="hljs-string">&quot;laiden&quot;</span>
-输出：<span class="hljs-literal">true</span>
-解释：长按名字中的字符并不是必要的。</code></pre></div>
+<h1 id="读取帧"><a href="#读取帧" class="headerlink" title="读取帧"></a>读取帧</h1><p>OpenCV 中用于处理视频流有两个类：<code>cv::VideoCapture</code> 和 <code>cv::VideoWriter</code> ，前者用于获取已有的视频数据，后者用于写入。</p>
+<p>详细接口说明请参考官方文档：<a target="_blank" rel="noopener" href="https://docs.opencv.org/master/dd/de7/group__videoio.html">https://docs.opencv.org/master/dd/de7/group__videoio.html</a></p>
+<p>首先录制视频肯定要先把摄像头打开，所以第一步需要先实例化一个 <code>cv::VideoCapture</code> 类的对象，在 Python 中有如下几种方式：</p>
+<div class="hljs"><pre><code class="hljs python">&lt;VideoCapture <span class="hljs-built_in">object</span>&gt; = cv.VideoCapture()
+&lt;VideoCapture <span class="hljs-built_in">object</span>&gt; = cv.VideoCapture(filename[, apiPreference])
+&lt;VideoCapture <span class="hljs-built_in">object</span>&gt; = cv.VideoCapture(index[, apiPreference])</code></pre></div>
 
+<p>简单说就是你可以先不带参数实例化一个捕获对象，也可以传入本地的视频文件名用以初始化捕获对象，还可以使用摄像头的索引（<code>0</code> 为系统的默认摄像头）来实例化捕获对象，例如上面代码中由于只需要打开默认摄像头，所以直接使用 <code>0</code> 初始化了捕获器。</p>
+<p>除了第一种方式外，其它两种方式在初始化的同时也把捕获器打开或者说是激活了，而如果使用了第一种方式实例化捕获器对象，后续也是可以使用 <code>open()</code> 函数打开相应的视频流的。</p>
+<div class="hljs"><pre><code class="hljs python">retval = cv.VideoCapture.<span class="hljs-built_in">open</span>(filename[, apiPreference])  <span class="hljs-comment"># 传入视频文件名，打开视频文件</span>
+retval = cv.VideoCapture.<span class="hljs-built_in">open</span>(index[, apiPreference])  <span class="hljs-comment"># 传入摄像头索引，打开摄像头</span></code></pre></div>
 
-<p>提示：</p>
-<ol>
-<li><code>name.length &lt;= 1000</code></li>
-<li><code>typed.length &lt;= 1000</code></li>
-<li><code>name</code> 和 <code>typed</code> 的字符都是小写字母。</li>
-</ol>
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>很明显的双指针问题，思路倒是很简单，倒是提交了好几次没通过，总是没除了好一些特殊情况。</p>
-<p>是的，这个题我认为能把所有特殊情况处理好比双指针解题这个思路更难一些，比如判断字符串 <code>typed</code> 中的字符是长按输入的还是正常输入的，两个字符串的末尾的处理，需要注意不能简单遍历完 <code>name</code> 就结束，当 <code>name</code> 遍历完且所有字符都匹配后不一定就符合题意了，如果 <code>typed</code> 末尾还存在未遍历到且和 <code>name</code> 最后一个字符不相同的字符，事实上是不符合的，例如 <code>name = &quot;adc&quot;, typed = &quot;abccd&quot;</code> 这种情况。同样也不能遍历完了 <code>typed</code> 而没有遍历完 <code>name</code> 。</p>
-<p>关于双指针的解题思路请参考<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/long-pressed-name/solution/chang-an-jian-ru-by-leetcode-solution/">官方题解</a>。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><div class="hljs"><pre><code class="hljs C++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isLongPressedName</span><span class="hljs-params">(<span class="hljs-built_in">string</span> name, <span class="hljs-built_in">string</span> typed)</span> </span>&#123;
-        <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>;
-        <span class="hljs-keyword">while</span> (j &lt; typed.length()) &#123;
-            <span class="hljs-comment">// 注意此处需要判断i的范围</span>
-            <span class="hljs-keyword">if</span> (i &lt; name.length() &amp;&amp; name[i] == typed[j]) &#123;
-                i++;
-                j++;
-            &#125;
-            <span class="hljs-comment">// 注意typed首字符的特殊情况</span>
-            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (j &gt; <span class="hljs-number">0</span> &amp;&amp; typed[j] == typed[j - <span class="hljs-number">1</span>]) &#123;
-                j++;
-            &#125;
-            <span class="hljs-keyword">else</span> &#123;
-                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-            &#125;
-        &#125;
-        <span class="hljs-keyword">return</span> i == name.length();
-    &#125;
-&#125;;</code></pre></div>
+<p>在程序一次运行中需要切换视频源的情况下，通常会使用这种先实例化对象，后打开视频源的方式。</p>
+<p>下一步显然就是最核心的读取帧。读取帧相关的接口有以下3个，实际使用中一般只用 <code>read()</code> ：</p>
+<div class="hljs"><pre><code class="hljs python">retval = cv.VideoCapture.grab()  <span class="hljs-comment"># 抓取帧，并未解码</span>
+retval, image = cv.VideoCapture.read([, image])  <span class="hljs-comment"># grab() 和 retrieve() 的结合，抓取、解码并返回</span>
+retval, image = cv.VideoCapture.retrieve([, image[, flag]])  <span class="hljs-comment"># 解码并返回已抓取的帧</span></code></pre></div>
 
+<p>通常在使用 <code>read()</code> 抓取一帧画面后，我们会通过 <code>if retval:</code> 判断是否抓取到了一帧画面，然后再对抓取到的 <code>image</code> 作进一步的处理。返回的 <code>image</code> 是一个三维数组，可以通过 <code>shape</code> 属性获取该帧的宽、高、位深度，RGB的图片位深度一般为 3 ，即对应的RGB三个通道的值，有时候会遇到位深度为 4 的情况，则第四维为透明度，也就是 alpha 通道。</p>
+<div class="hljs"><pre><code class="hljs angelscript">h, w, d = image.shape  # (<span class="hljs-number">480</span>, <span class="hljs-number">640</span>, <span class="hljs-number">3</span>) 分别为帧的高度、宽度、深度</code></pre></div>
+
+<p>获取到帧后，更多的就是自定义的操作了，比如对于一个视频而言，光读取一帧肯定是没有太大意义的，要快速重复的读取帧并显示出来，才能是我们能看到的视频，否则就只是一张图片，这里就可以加一个循环用于重复的读取帧。如果是读取的视频文件，还需要根据视频文件的帧率，间隔合适的的时间再重复读取一帧，否则看到的画面速度将会非常快。</p>
+<p>当然最后使用结束后还需要释放捕获器，否则在程序退出之前会一直占用该资源，比如说打开的摄像头，如果没有释放，则除非关闭程序后系统自动收回资源，在程序运行期间其它的应用程序是无法使用该摄像头的。</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-literal">None</span> = cv.VideoCapture.release()</code></pre></div>
+
+<p>到这里，是不是简单改改上面的代码就可以实现打开摄像头并显示画面了，只不过还不能将视频画面录制保存下来。</p>
+<h1 id="录制"><a href="#录制" class="headerlink" title="录制"></a>录制</h1><p>类似上述捕获器的流程，要将一帧帧画面保存为视频首先也需要实例化一个写入器对象。</p>
+<div class="hljs"><pre><code class="hljs python">&lt;VideoWriter <span class="hljs-built_in">object</span>&gt; = cv.VideoWriter()
+&lt;VideoWriter <span class="hljs-built_in">object</span>&gt; = cv.VideoWriter(filename, fourcc, fps, frameSize[, isColor])
+&lt;VideoWriter <span class="hljs-built_in">object</span>&gt; = cv.VideoWriter(filename, apiPreference, fourcc, fps, frameSize[, isColor])
+&lt;VideoWriter <span class="hljs-built_in">object</span>&gt; = cv.VideoWriter(filename, fourcc, fps, frameSize, params)
+&lt;VideoWriter <span class="hljs-built_in">object</span>&gt; = cv.VideoWriter(filename, apiPreference, fourcc, fps, frameSize, params)</code></pre></div>
+
+<p>参数说明：</p>
+<ul>
+<li><code>filename</code>：文件名，录制的视频文件名，会自动创建；</li>
+<li><code>fourcc</code>：格式；</li>
+<li><code>fps</code>：帧率，大于30一般认为人眼就看不出来了；</li>
+<li><code>frameSize</code>：帧大小，视频画面的宽高。</li>
+</ul>
+<p>首先要谈到的是 <code>fourcc</code> 这个参数，我个人完全谈不上明白，简言之就是视频的格式吧，比如说我们常见的视频格式有 <code>.mp4</code> 、 <code>.avi</code> 等，可设置的值很多，可以查阅 fourcc 官网：<a target="_blank" rel="noopener" href="https://www.fourcc.org/codecs.php">https://www.fourcc.org/codecs.php</a> 。需要注意并不是所有格式都可用，使用的时候可以自己根据情况查询使用哪种格式。</p>
+<div class="hljs"><pre><code class="hljs python">retval = cv.VideoWriter_fourcc(c1, c2, c3, c4)  <span class="hljs-comment"># 传入对应的4个字符</span></code></pre></div>
+
+<p>可以看到参数中需要传入 <code>frameSize</code> ，这正是我之所以在前面代码中并没有直接实例化并初始化一个写入器对象，而是先实例化一个空对象，后续获取到一帧画面后，再根据获取到的帧的宽高设置写入器要写入的帧大小。</p>
+<p>接下来就只需要将获取到的帧写入到视频文件了，使用 <code>write()</code> 接口即可。</p>
+<div class="hljs"><pre><code class="hljs python"><span class="hljs-literal">None</span> = cv.VideoWriter.write(image)</code></pre></div>
+
+<p>这里不得不再提一下 <code>fps</code> 这个参数，可以看到最终视频的帧率是我们一开始初始化写入器时设置的，可以发现实际上最终视频的时长将取决于我们设置的帧率和实际写入的帧数，而这也就表明了一个问题，我们通过摄像头录制的视频很可能会速度不匹配。</p>
+<p>例如上面的代码，如果将循环内部最后一行注释掉，读取一帧可能只需要 1ms ，而我们设置的 <code>fps=30</code> 表明最终的视频会大约 33ms 播放一帧画面，显而易见最终的视频文件将会是慢动作一样🤣</p>
+<p>最理想的情况是读取的帧率和写入的帧率一致，这样视频时长才会一致，同时尽可能提高帧率，画面也就越流畅。</p>
+<p>所以这一行的作用就是，每读取和写入一帧都需要在这里等待 33ms ，这样情况就好太多了。但最终你会发现，视频时长还是有些不一致，原因主要就是读取和写入的耗时了，虽然这两步操作可能分别都只需要 1ms ，但对于一个时长 1 分钟的视频，就会存在明显的时长不一致。</p>
+<p>进一步的降低误差，还可以将读写操作分离，分别放到两个线程中处理。或者简单的在等待时长的基础上减去读写操作的消耗，也能一定程度上降低误差~</p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/Leetcode/">Leetcode</a>
-                    
-                  </div>
-                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
                     
-                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                      <a class="hover-with-bg" href="/tags/OpenCV/">OpenCV</a>
                     
                   </div>
                 
@@ -334,18 +351,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020110560199/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">使用 opencv-python 实现视频录制</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/202010199862/">
-                        <span class="hidden-mobile">Leetcode 844. 比较含退格的字符串【C++】</span>
+                      <a href="/2020102136991/">
+                        <span class="hidden-mobile">Leetcode 925. 长按键入【C++】</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -644,7 +655,7 @@
       if ('true' === 'true') {
         var viewCtn = document.querySelector('#leancloud-post-views-container');
         if (viewCtn || enableIncr) {
-          var target = decodeURI('/2020102136991/');
+          var target = decodeURI('/2020110560199/');
           var viewGetter = getRecord(Counter, target).then((record) => {
             incrArr.push(buildIncrement(record.objectId))
             if (viewCtn) {
@@ -738,7 +749,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Leetcode 925. 长按键入【C++】&nbsp;",
+        "使用 opencv-python 实现视频录制&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
