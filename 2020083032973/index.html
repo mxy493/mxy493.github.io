@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -278,7 +278,7 @@
 <p>虚拟环境配置好后打开终端，确保路径前面有 <code>(venv)</code> ，即进入了虚拟环境。</p>
 <p><img src="cmdvenv.png" srcset="/img/loading.gif"></p>
 <h2 id="（2）安装依赖的包"><a href="#（2）安装依赖的包" class="headerlink" title="（2）安装依赖的包"></a>（2）安装依赖的包</h2><p>可以试一下直接终端中执行以下命令，安装所需要的依赖，我个人经历是安装失败的，主要是 torch 和 torchvision 这两个包没有满足要求的版本。（这里 pip 安装包如果很慢的话建议自行百度配置一下 pip 的国内源）</p>
-<div class="hljs"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> -r requirements.txt</code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> -r requirements.txt</code></pre></div>
 
 <p>解决办法就是直接去 PyTorch 的官网上下载：<a target="_blank" rel="noopener" href="https://download.pytorch.org/whl/torch_stable.html">https://download.pytorch.org/whl/torch_stable.html</a></p>
 <p>当前的最新版就是1.6.0，直接搜一下 <code>torch-1.6.0</code> 可以帮助快速查找：</p>
@@ -294,24 +294,24 @@
 <p>下载完毕后，将两个 .whl 的文件拷贝到项目根目录下备用。</p>
 <p><img src="down.png" srcset="/img/loading.gif"></p>
 <p>回到终端中手动安装这两个包，分别执行以下命令即可。</p>
-<div class="hljs"><pre><code class="hljs apache"><span class="hljs-attribute">pip</span> install torch-<span class="hljs-number">1</span>.<span class="hljs-number">6</span>.<span class="hljs-number">0</span>-cp<span class="hljs-number">38</span>-cp<span class="hljs-number">38</span>-win_amd<span class="hljs-number">64</span>.whl
+<div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">pip</span> install torch-<span class="hljs-number">1</span>.<span class="hljs-number">6</span>.<span class="hljs-number">0</span>-cp<span class="hljs-number">38</span>-cp<span class="hljs-number">38</span>-win_amd<span class="hljs-number">64</span>.whl
 <span class="hljs-attribute">pip</span> install torchvision-<span class="hljs-number">0</span>.<span class="hljs-number">7</span>.<span class="hljs-number">0</span>-cp<span class="hljs-number">38</span>-cp<span class="hljs-number">38</span>-win_amd<span class="hljs-number">64</span>.whl</code></pre></div>
 
 <p><img src="installtorch.png" srcset="/img/loading.gif"></p>
 <p>然后重新执行以下命令安装需要的包，应该就没有什么问题了。</p>
-<div class="hljs"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> -r requirements.txt</code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> -r requirements.txt</code></pre></div>
 
 <h2 id="（3）是否支持-CUDA"><a href="#（3）是否支持-CUDA" class="headerlink" title="（3）是否支持 CUDA"></a>（3）是否支持 CUDA</h2><p>安装完毕后打开Python控制台，输入以下命令测试是否支持 CUDA 。</p>
-<div class="hljs"><pre><code class="hljs ceylon"><span class="hljs-keyword">import</span> torch
+<div class="hljs code-wrapper"><pre><code class="hljs ceylon"><span class="hljs-keyword">import</span> torch
 torch.cuda.<span class="hljs-keyword">is</span><span class="hljs-number">_</span>available()</code></pre></div>
 
 <p>如果返回 <code>True</code> 则说明系统支持 CUDA 可以继续往下了。</p>
 <p><img src="cudayes.png" srcset="/img/loading.gif"></p>
 <h1 id="四、运行"><a href="#四、运行" class="headerlink" title="四、运行"></a>四、运行</h1><p>接下来回到终端，直接执行如下命令即可测试YOLOv5了~</p>
-<div class="hljs"><pre><code class="hljs vim"><span class="hljs-keyword">python</span> detect.<span class="hljs-keyword">py</span> --weights weights/yolov5s.<span class="hljs-keyword">pt</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs vim"><span class="hljs-keyword">python</span> detect.<span class="hljs-keyword">py</span> --weights weights/yolov5s.<span class="hljs-keyword">pt</span></code></pre></div>
 
 <p>支持的参数还有很多，不输入则使用默认参数：</p>
-<div class="hljs"><pre><code class="hljs shell">(venv) D:\Downloads\yolov5-3.0&gt;python detect.py -h
+<div class="hljs code-wrapper"><pre><code class="hljs shell">(venv) D:\Downloads\yolov5-3.0&gt;python detect.py -h
 usage: detect.py [-h] [--weights WEIGHTS [WEIGHTS ...]] [--source SOURCE] [--output OUTPUT] [--img-size IMG_SIZE] [--conf-thres CONF_THRES]
                  [--iou-thres IOU_THRES] [--device DEVICE] [--view-img] [--save-txt] [--classes CLASSES [CLASSES ...]] [--agnostic-nms] [--augment]
                  [--update]
@@ -493,22 +493,27 @@ optional arguments:
   
   <!-- 备案信息 -->
   <div class="beian">
-    <a href="http://beian.miit.gov.cn/" target="_blank"
-       rel="nofollow noopener">蜀ICP备20011971号</a>
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        蜀ICP备20011971号
+      </a>
+    </span>
     
       
-        <a
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
-          rel="nofollow noopener"
-          class="beian-police"
-          target="_blank"
-        >
-          
-            <span style="visibility: hidden; width: 0">|</span>
-            <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
-          
-          <span>川公网安备51152402000143号</span>
-        </a>
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+            
+            <span>川公网安备51152402000143号</span>
+          </a>
+        </span>
       
     
   </div>
@@ -519,8 +524,8 @@ optional arguments:
 
 <!-- SCRIPTS -->
 
-  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":200})
@@ -566,6 +571,7 @@ optional arguments:
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
 
 
 

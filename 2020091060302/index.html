@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -313,7 +313,7 @@
 <p><img src="goodvscode.webp" srcset="/img/loading.gif"></p>
 <h2 id="（2）正儿八经的编写脚本"><a href="#（2）正儿八经的编写脚本" class="headerlink" title="（2）正儿八经的编写脚本"></a>（2）正儿八经的编写脚本</h2><p>以我的脚本为例来一步一步说，也就是前面向导生成的没有修改过的脚本。</p>
 <p>a. <code>;</code> 为 NSIS 脚本的注释符，用法类似 C++ 的 <code>//</code> 或者 Python 的 <code>#</code> ，<code>!define</code> 用于定义常量，后接自定义的常量名和该常量的值。强烈建议将各种自定义的量在脚本的开头定义为常量，后续使用常量即可，这么做的目的是程序升级时方便简单修改一些常量的值即可重复使用该脚本。常量的使用如下方代码第 7 行所示即 <code>$&#123;变量名&#125;</code> 即可。</p>
-<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-comment">; 安装程序初始定义常量</span>
+<div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-comment">; 安装程序初始定义常量</span>
 <span class="hljs-keyword">!define</span> PRODUCT_NAME <span class="hljs-string">&quot;Duang&quot;</span>  <span class="hljs-comment">; 程序名</span>
 <span class="hljs-keyword">!define</span> PRODUCT_VERSION <span class="hljs-string">&quot;1.0&quot;</span>  <span class="hljs-comment">; 版本号</span>
 <span class="hljs-keyword">!define</span> PRODUCT_PUBLISHER <span class="hljs-string">&quot;mxy&quot;</span>  <span class="hljs-comment">; 作者</span>
@@ -324,10 +324,10 @@
 <span class="hljs-keyword">!define</span> PRODUCT_UNINST_ROOT_KEY <span class="hljs-string">&quot;HKLM&quot;</span></code></pre></div>
 
 <p>b. 使用的压缩算法，按需修改即可</p>
-<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-keyword">SetCompressor</span> <span class="hljs-literal">lzma</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-keyword">SetCompressor</span> <span class="hljs-literal">lzma</span></code></pre></div>
 
 <p>c. MUI 界面相关的一些东西，进阶操作请查阅<a target="_blank" rel="noopener" href="https://nsis.sourceforge.io/Docs/Modern%20UI%202/Readme.html">官方文档</a>。</p>
-<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-comment">; ------ MUI 现代界面定义 ------</span>
+<div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-comment">; ------ MUI 现代界面定义 ------</span>
 <span class="hljs-keyword">!include</span> <span class="hljs-string">&quot;MUI.nsh&quot;</span>  <span class="hljs-comment">; 当前已经新出了MUI2，自行了解</span>
 
 <span class="hljs-comment">; MUI 预定义常量</span>
@@ -358,7 +358,7 @@
 <span class="hljs-comment">; ------ MUI 现代界面定义结束 ------</span></code></pre></div>
 
 <p>d. 一些设置项。</p>
-<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-keyword">Name</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span> <span class="hljs-variable">$&#123;PRODUCT_VERSION&#125;</span>&quot;</span>
+<div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-keyword">Name</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span> <span class="hljs-variable">$&#123;PRODUCT_VERSION&#125;</span>&quot;</span>
 <span class="hljs-comment">; OutFile &quot;DuangSetup.exe&quot;</span>
 <span class="hljs-keyword">OutFile</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>Setup.exe&quot;</span>  <span class="hljs-comment">; 修改为引用常量</span>
 <span class="hljs-comment">; InstallDir &quot;$PROGRAMFILES\Duang&quot;</span>
@@ -370,7 +370,7 @@ ShowUnInstDetails <span class="hljs-literal">show</span>  <span class="hljs-comm
 <span class="hljs-keyword">BrandingText</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>&quot;</span>  <span class="hljs-comment">; 修改为引用常量</span></code></pre></div>
 
 <p>e. 创建快捷方式，已默认修改为引用常量。</p>
-<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-function"><span class="hljs-keyword">Section</span> &quot;MainSection&quot; SEC01</span>
+<div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-function"><span class="hljs-keyword">Section</span> &quot;MainSection&quot; SEC01</span>
   <span class="hljs-keyword">SetOutPath</span> <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>&quot;</span>
   <span class="hljs-keyword">SetOverwrite</span> <span class="hljs-literal">ifnewer</span>  <span class="hljs-comment">; 更新覆盖</span>
   <span class="hljs-keyword">File</span> /r <span class="hljs-string">&quot;*.*&quot;</span>  <span class="hljs-comment">; 路径下的所有文件</span>
@@ -382,7 +382,7 @@ ShowUnInstDetails <span class="hljs-literal">show</span>  <span class="hljs-comm
 SectionEnd</code></pre></div>
 
 <p>f. 写注册表相关的设置，已默认修改为引用常量。</p>
-<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-function"><span class="hljs-keyword">Section</span> -Post</span>
+<div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-function"><span class="hljs-keyword">Section</span> -Post</span>
   <span class="hljs-keyword">WriteUninstaller</span> <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>\uninst.exe&quot;</span>  <span class="hljs-comment">; 写入卸载程序</span>
   <span class="hljs-keyword">WriteRegStr</span> <span class="hljs-params">HKLM</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_DIR_REGKEY&#125;</span>&quot;</span> <span class="hljs-string">&quot;&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.exe&quot;</span>
   <span class="hljs-keyword">WriteRegStr</span> <span class="hljs-variable">$&#123;PRODUCT_UNINST_ROOT_KEY&#125;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_UNINST_KEY&#125;</span>&quot;</span> <span class="hljs-string">&quot;DisplayName&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$(^Name)</span>&quot;</span>
@@ -394,14 +394,14 @@ SectionEnd</code></pre></div>
 SectionEnd</code></pre></div>
 
 <p>g. 创建网站快捷方式和卸载程序快捷方式。</p>
-<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-function"><span class="hljs-keyword">Section</span> -AdditionalIcons</span>
+<div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-function"><span class="hljs-keyword">Section</span> -AdditionalIcons</span>
   WriteIniStr <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.url&quot;</span> <span class="hljs-string">&quot;InternetShortcut&quot;</span> <span class="hljs-string">&quot;URL&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_WEB_SITE&#125;</span>&quot;</span>
   <span class="hljs-keyword">CreateShortCut</span> <span class="hljs-string">&quot;<span class="hljs-variable">$SMPROGRAMS</span>\Duang\Website.lnk&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.url&quot;</span>
   <span class="hljs-keyword">CreateShortCut</span> <span class="hljs-string">&quot;<span class="hljs-variable">$SMPROGRAMS</span>\Duang\Uninstall.lnk&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>\uninst.exe&quot;</span>
 SectionEnd</code></pre></div>
 
 <p>h. 卸载程序相关的设置，已默认修改为引用常量。</p>
-<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-function"><span class="hljs-keyword">Section</span> Uninstall</span>
+<div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-function"><span class="hljs-keyword">Section</span> Uninstall</span>
   <span class="hljs-comment">; 删除快捷方式</span>
   <span class="hljs-keyword">Delete</span> <span class="hljs-string">&quot;<span class="hljs-variable">$SMPROGRAMS</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>\Uninstall.lnk&quot;</span>
   <span class="hljs-keyword">Delete</span> <span class="hljs-string">&quot;<span class="hljs-variable">$SMPROGRAMS</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>\Website.lnk&quot;</span>
@@ -431,7 +431,7 @@ SectionEnd</code></pre></div>
 SectionEnd</code></pre></div>
 
 <p>i. 执行卸载程序的两个函数</p>
-<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-comment">; 卸载程序启动时执行</span>
+<div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-comment">; 卸载程序启动时执行</span>
 <span class="hljs-function"><span class="hljs-keyword">Function</span> un.onInit</span>
   <span class="hljs-keyword">MessageBox</span> <span class="hljs-params">MB_ICONQUESTION</span>|<span class="hljs-params">MB_YESNO</span>|<span class="hljs-params">MB_DEFBUTTON2</span> <span class="hljs-string">&quot;您确实要完全移除 <span class="hljs-variable">$(^Name)</span> ，及其所有的组件？&quot;</span> <span class="hljs-params">IDYES</span> +<span class="hljs-number">2</span>
   <span class="hljs-keyword">Abort</span>
@@ -449,7 +449,7 @@ FunctionEnd</code></pre></div>
 <h1 id="五、进阶操作"><a href="#五、进阶操作" class="headerlink" title="五、进阶操作"></a>五、进阶操作</h1><p>进阶操作我也不会什么了，建议查阅 NSIS 官方文档：<a target="_blank" rel="noopener" href="https://nsis.sourceforge.io/Docs">https://nsis.sourceforge.io/Docs</a></p>
 <p>关于安装程序的界面的设置需要查阅 MUI 的相关文档：<a target="_blank" rel="noopener" href="https://nsis.sourceforge.io/Docs/Modern%20UI%202/Readme.html">https://nsis.sourceforge.io/Docs/Modern UI 2/Readme.html</a></p>
 <p>例如，以下两项分别可以设置安装程序欢迎界面的图片和文字。</p>
-<div class="hljs"><pre><code class="hljs nsis"><span class="hljs-comment">; Bitmap for the Welcome page and the Finish page (recommended size: 164x314 pixels).</span>
+<div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-comment">; Bitmap for the Welcome page and the Finish page (recommended size: 164x314 pixels).</span>
 <span class="hljs-comment">; Default: $&#123;NSISDIR&#125;\Contrib\Graphics\Wizard\win.bmp</span>
 MUI_WELCOMEFINISHPAGE_BITMAP bmp_file
 
@@ -462,7 +462,7 @@ MUI_WELCOMEPAGE_TEXT text</code></pre></div>
 <p>环境变量设置好后可以在命令行中输入命令 <code>makensis</code> 测试一下，如果输出如下信息，则说明配置成功了。</p>
 <p><img src="makensis.webp" srcset="/img/loading.gif"></p>
 <p>在 Python 中使用就很简单了，直接上代码：</p>
-<div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">import</span> subprocess
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> subprocess
 
 
 <span class="hljs-comment"># 使用NSIS制作安装包，等同于在命令行中执行 &#x27;makensis radar.nsi&#x27; </span>
@@ -472,7 +472,7 @@ p2.communicate()</code></pre></div>
 <h2 id="（2）高端操作"><a href="#（2）高端操作" class="headerlink" title="（2）高端操作"></a>（2）高端操作</h2><p>其实在单纯在 Python 中调用编译器并没有省多少事，但真正的目的是配合 PyInstaller 一键更新 spec 文件和 NSIS 脚本，然后自动打包并制作安装程序，你就说它香不香🤣</p>
 <p>关于 PyInstaller 打包 Python 应用程序可以参考我的另一篇文章：<a href="https://mxy493.xyz/20200909134/">使用PyInstaller打包Python应用程序</a></p>
 <p>最后附上 全自动操作的代码框架：</p>
-<div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">import</span> subprocess
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> subprocess
 
 
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span>():</span>
@@ -626,22 +626,27 @@ p2.communicate()</code></pre></div>
   
   <!-- 备案信息 -->
   <div class="beian">
-    <a href="http://beian.miit.gov.cn/" target="_blank"
-       rel="nofollow noopener">蜀ICP备20011971号</a>
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        蜀ICP备20011971号
+      </a>
+    </span>
     
       
-        <a
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
-          rel="nofollow noopener"
-          class="beian-police"
-          target="_blank"
-        >
-          
-            <span style="visibility: hidden; width: 0">|</span>
-            <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
-          
-          <span>川公网安备51152402000143号</span>
-        </a>
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+            
+            <span>川公网安备51152402000143号</span>
+          </a>
+        </span>
       
     
   </div>
@@ -652,8 +657,8 @@ p2.communicate()</code></pre></div>
 
 <!-- SCRIPTS -->
 
-  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":200})
@@ -699,6 +704,7 @@ p2.communicate()</code></pre></div>
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
 
 
 

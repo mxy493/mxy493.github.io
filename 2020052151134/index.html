@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -273,15 +273,15 @@
 </ul>
 <p><strong>示例（输入输出示例仅供调试，后台判题数据一般不包含示例）</strong></p>
 <p>输入：</p>
-<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">abaababaab</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">abaababaab</span></code></pre></div>
 
 <p>输出：</p>
-<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-number">6</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs angelscript"><span class="hljs-number">6</span></code></pre></div>
 
 <h2 id="（2）解题思路"><a href="#（2）解题思路" class="headerlink" title="（2）解题思路"></a>（2）解题思路</h2><p>首先容易观察到的是，这个偶串的长度其实始终是偶数，即使我们从字符串 <code>s</code> 末尾删掉字符也必然是两个一组删除的，因为<strong>不可能存在长度为奇数的偶串</strong>。</p>
 <p>又由于给定的字符串本身就是一个偶串，同时至少需要删除一个字符，所以直接先删掉末尾两个字符，然后循环，直接使用 <code>substr()</code> 函数比较字符串 <code>s</code> 的前一半和后一半是否相同，相同则输出 <code>s</code> 的长度，跳出循环结束运行；不相同则继续删掉末尾两个字符，重复上述步骤。</p>
 <p><strong>小思路：</strong>其实可以把循环前面的删除字符操作统一写到循环内部，逻辑更加清晰！</p>
-<h2 id="（3）代码"><a href="#（3）代码" class="headerlink" title="（3）代码"></a>（3）代码</h2><div class="hljs"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<h2 id="（3）代码"><a href="#（3）代码" class="headerlink" title="（3）代码"></a>（3）代码</h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
 
@@ -338,10 +338,10 @@
 </ul>
 <p><strong>示例（输入输出示例仅供调试，后台判题数据一般不包含示例）</strong></p>
 <p>输入：</p>
-<div class="hljs"><pre><code class="hljs ebnf"><span class="hljs-attribute">abc</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">abc</span></code></pre></div>
 
 <p>输出：</p>
-<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-number">3</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs angelscript"><span class="hljs-number">3</span></code></pre></div>
 
 <h2 id="（2）解题思路-1"><a href="#（2）解题思路-1" class="headerlink" title="（2）解题思路"></a>（2）解题思路</h2><p>之前在 Leetcode 上做过这个题。这一次思路大体也和之前一样，但有一点使得逻辑更加简单~</p>
 <p>题目的意思其实就是用尽可能多的字符来构造一个回文串。构成回文串的规律是，同一个字符的偶数个数一定可以是任意回文串的一部分，换言之偶数个数的同一字符对能生成的最少的回文串个数是没有影响的，所以我们应该关注的重心是个数为奇数的字符。</p>
@@ -349,7 +349,7 @@
 <p>但事实上前面构造的最大回文串长度为偶数，其实还可以在其正中间插入任意一个单个的字符，插入后仍然是回文串，此时剩下的单个字符的个数，也就是其余可以构成的回文串的个数了。</p>
 <p>普遍情况下，可以根据前面所述的得到：**<em>最少的回文串个数 = 奇数个数的字符数 - 1 + 1 = 奇数个数的字符数**</em> </p>
 <p>但是特殊的，需要考虑没有奇数个数的字符的情况，这种情况也就更简单了，所有的字符都用来构造唯一的一个回文串，最少的回文串个数也就是 <code>1</code> 。</p>
-<h2 id="（3）代码-1"><a href="#（3）代码-1" class="headerlink" title="（3）代码"></a>（3）代码</h2><div class="hljs"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<h2 id="（3）代码-1"><a href="#（3）代码-1" class="headerlink" title="（3）代码"></a>（3）代码</h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
@@ -391,7 +391,7 @@
 <p>注意到一些提示会出现错误。例如：提示 <code>&quot;NYYY&quot;</code> 是错误的，因为所有的整数都是1的倍数，所以起始元素肯定不会是 <code>&quot;N&quot;</code> 。此外，例如 <code>&quot;YNNY&quot;</code> 的提示也是错误的，因为结果不可能是4的倍数但不是2的倍数。</p>
 <p>现在给出一个整数 <code>n</code> ，表示已给的提示的长度。请计算出长度为 <code>n</code> 的合法的提示的个数。</p>
 <p>例如 n = 5 ，合法的提示有：</p>
-<div class="hljs"><pre><code class="hljs properties"><span class="hljs-attr">YNNNN</span> <span class="hljs-string">YNNNY YNYNN YNYNY YYNNN YYNNY</span>
+<div class="hljs code-wrapper"><pre><code class="hljs properties"><span class="hljs-attr">YNNNN</span> <span class="hljs-string">YNNNY YNYNN YNYNY YYNNN YYNNY</span>
 <span class="hljs-attr">YYNYN</span> <span class="hljs-string">YYNYY YYYNN YYYNY YYYYN YYYYY</span></code></pre></div>
 
 <p>所以输出 <code>12</code></p>
@@ -401,16 +401,16 @@
 <p>输出一个整数，表示合法的提示个数。因为答案可能会很大，所以输出对于 <code>1000000007</code> 的模</p>
 <p><strong>示例（输入输出示例仅供调试，后台判题数据一般不包含示例）</strong></p>
 <p>输入：</p>
-<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-number">5</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs angelscript"><span class="hljs-number">5</span></code></pre></div>
 
 <p>输出：</p>
-<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-number">12</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs angelscript"><span class="hljs-number">12</span></code></pre></div>
 
 <h2 id="（2）解题思路-2"><a href="#（2）解题思路-2" class="headerlink" title="（2）解题思路"></a>（2）解题思路</h2><p>这个题看完题目就知道是动态规划了，知道难搞，不过还是尝试着做了一下，时间不够，大概写了个框架出来，明明还有十多分钟的，不知道为啥就自动给我交卷了……</p>
 <p>下面的代码是考试结束后我继续完善的，自己本地简单测试了几组较小的数据，主要是我也不知道正确答案应该是什么，就不方便测试了，也不确定代码的正确性。另外我觉得我这代码就算逻辑是对的，但是性能也不太好，应该是有更好的办法的o_o ….</p>
 <p>大概思路就是逐个的插入“提示”，也就是逐个的插入 <code>&#39;Y&#39;</code> 或 <code>&#39;N&#39;</code> ，判断当前插入是否合法，直到字符串长度达到输入的 <code>n</code> 并且该提示字符串合法，则合法的提示个数+1。</p>
 <p>其中我判断当前插入的字符是否合法的想法是，我认为只有插入的是 <code>&#39;Y&#39;</code> 才可能是不合法的，比如当前第四个字符插入的是 <code>&#39;Y&#39;</code> ，也就是说是 4 的倍数，但字符串前面可能第二个提示是 <code>&#39;N&#39;</code> ，即不是 2 的倍数，那么当前的插入就矛盾了，不合法。另外，前述不合法的情况，只需要判断当前第 i 个字符是 <code>&#39;Y&#39;</code> ，只要找到一个 i 的约数对应的提示为 <code>&#39;N&#39;</code> 则当前提示不合法。</p>
-<h2 id="（3）代码-2"><a href="#（3）代码-2" class="headerlink" title="（3）代码"></a>（3）代码</h2><div class="hljs"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<h2 id="（3）代码-2"><a href="#（3）代码-2" class="headerlink" title="（3）代码"></a>（3）代码</h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
 
@@ -569,22 +569,27 @@
   
   <!-- 备案信息 -->
   <div class="beian">
-    <a href="http://beian.miit.gov.cn/" target="_blank"
-       rel="nofollow noopener">蜀ICP备20011971号</a>
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        蜀ICP备20011971号
+      </a>
+    </span>
     
       
-        <a
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
-          rel="nofollow noopener"
-          class="beian-police"
-          target="_blank"
-        >
-          
-            <span style="visibility: hidden; width: 0">|</span>
-            <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
-          
-          <span>川公网安备51152402000143号</span>
-        </a>
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+            
+            <span>川公网安备51152402000143号</span>
+          </a>
+        </span>
       
     
   </div>
@@ -595,8 +600,8 @@
 
 <!-- SCRIPTS -->
 
-  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":200})
@@ -642,6 +647,7 @@
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
 
 
 

@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -259,22 +259,22 @@
 <p>如果要打包为一个包含可执行程序的文件夹，需要注意将附加的文件添加进来，PyInstaller 指挥根据 Python 脚本搜索依赖的包，但不会自动包含参数配置文件之类的文件。同时如果需要将程序发布出来供他人使用，则需要将打包后的文件夹制作成压缩包用于分发，或者额外制作安装程序（例如可以使用 <a target="_blank" rel="noopener" href="https://nsis.sourceforge.io/Main_Page">NSIS</a> 制作安装包）。</p>
 <h1 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h1><p><strong>建议：</strong>使用 virtualenv 将依赖的包安装到虚拟环境中。</p>
 <p>使用 pip 安装和升级 PyInstaller。</p>
-<div class="hljs"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 安装</span>
+<div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 安装</span>
 pip install pyinstaller
 
 <span class="hljs-meta">#</span><span class="bash"> 升级</span>
 pip install --upgrade pyinstaller</code></pre></div>
 
 <p>可选安装最新开发版。</p>
-<div class="hljs"><pre><code class="hljs shell">pip install https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz</code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs shell">pip install https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz</code></pre></div>
 
 <h1 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h1><h2 id="（1）命令行方式"><a href="#（1）命令行方式" class="headerlink" title="（1）命令行方式"></a>（1）命令行方式</h2><h3 id="1-基本命令"><a href="#1-基本命令" class="headerlink" title="1. 基本命令"></a>1. 基本命令</h3><p><strong>注意：</strong>推荐使用另外两种方式，但它们的使用方法也都基于命令行选项。</p>
 <p>基本语法结构如下：</p>
-<div class="hljs"><pre><code class="hljs shell">pyinstaller [options] script [script …] | specfile</code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs shell">pyinstaller [options] script [script …] | specfile</code></pre></div>
 
 <p>In the most simple case, set the current directory to the location of your program <code>myscript.py</code> and execute:</p>
 <p>最简单的情况是，在 Python 程序 <code>myscript.py</code> 目录下直接执行：</p>
-<div class="hljs"><pre><code class="hljs shell">pyinstaller myscript.py</code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs shell">pyinstaller myscript.py</code></pre></div>
 
 <p>PyInstaller 会分析 <code>myscript.py</code> 并:</p>
 <ul>
@@ -368,13 +368,13 @@ pip install --upgrade pyinstaller</code></pre></div>
 </ul>
 <h2 id="（2）使用-spec-文件"><a href="#（2）使用-spec-文件" class="headerlink" title="（2）使用 spec 文件"></a>（2）使用 spec 文件</h2><p>实际上不管使用哪种方式都会生成一个 spec 文件，里面包含了大多数设置的参数。</p>
 <p>可以使用以下命令创建 spec 文件：</p>
-<div class="hljs"><pre><code class="hljs shell">pyi-makespec [options] name.py [other scripts ...]</code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs shell">pyi-makespec [options] name.py [other scripts ...]</code></pre></div>
 
 <p>当创建并根据需要修改了 spec 文件后，就可以简单的通过以下命令运行：</p>
-<div class="hljs"><pre><code class="hljs shell">pyinstaller [options] name.spec</code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs shell">pyinstaller [options] name.spec</code></pre></div>
 
 <p>spec 文件结构如下：</p>
-<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># -*- mode: python ; coding: utf-8 -*-</span>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># -*- mode: python ; coding: utf-8 -*-</span>
 
 block_cipher = <span class="hljs-literal">None</span>
 
@@ -417,7 +417,7 @@ coll = COLLECT(exe,
                name=<span class="hljs-string">&#x27;Radar0.0.12&#x27;</span>)</code></pre></div>
 
 <h2 id="（3）在-Python-中运行"><a href="#（3）在-Python-中运行" class="headerlink" title="（3）在 Python 中运行"></a>（3）在 Python 中运行</h2><h3 id="1-使用-PyInstaller-内置的-run-函数"><a href="#1-使用-PyInstaller-内置的-run-函数" class="headerlink" title="1. 使用 PyInstaller 内置的 run() 函数"></a>1. 使用 PyInstaller 内置的 run() 函数</h3><p>传入参数列表即可</p>
-<div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">import</span> PyInstaller.__main__
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> PyInstaller.__main__
 
 
 parameters = [
@@ -439,7 +439,7 @@ parameters = [
 PyInstaller.__main__.run(parameters)  <span class="hljs-comment"># RUN</span></code></pre></div>
 
 <h3 id="2-在-Python-中执行命令"><a href="#2-在-Python-中执行命令" class="headerlink" title="2. 在 Python 中执行命令"></a>2. 在 Python 中执行命令</h3><p>等同于在终端中执行命令，但可以通过 Python 执行更多的定制化的操作。</p>
-<div class="hljs"><pre><code class="hljs python"><span class="hljs-keyword">import</span> subprocess
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> subprocess
 
 
 p = subprocess.Popen(<span class="hljs-string">&#x27;pyinstaller radar.spec --clean&#x27;</span>, shell=<span class="hljs-literal">True</span>)
@@ -581,22 +581,27 @@ p.communicate()</code></pre></div>
   
   <!-- 备案信息 -->
   <div class="beian">
-    <a href="http://beian.miit.gov.cn/" target="_blank"
-       rel="nofollow noopener">蜀ICP备20011971号</a>
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        蜀ICP备20011971号
+      </a>
+    </span>
     
       
-        <a
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
-          rel="nofollow noopener"
-          class="beian-police"
-          target="_blank"
-        >
-          
-            <span style="visibility: hidden; width: 0">|</span>
-            <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
-          
-          <span>川公网安备51152402000143号</span>
-        </a>
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+            
+            <span>川公网安备51152402000143号</span>
+          </a>
+        </span>
       
     
   </div>
@@ -607,8 +612,8 @@ p.communicate()</code></pre></div>
 
 <!-- SCRIPTS -->
 
-  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":200})
@@ -654,6 +659,7 @@ p.communicate()</code></pre></div>
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
 
 
 

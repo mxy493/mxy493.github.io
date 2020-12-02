@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -255,18 +255,18 @@
             <div class="markdown-body">
               <h1 id="回文子串"><a href="#回文子串" class="headerlink" title="回文子串"></a>回文子串</h1><p>给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。</p>
 <p>具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被视作不同的子串。</p>
-<h2 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h2><div class="hljs"><pre><code class="hljs smalltalk">输入：<span class="hljs-comment">&quot;abc&quot;</span>
+<h2 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h2><div class="hljs code-wrapper"><pre><code class="hljs smalltalk">输入：<span class="hljs-comment">&quot;abc&quot;</span>
 输出：<span class="hljs-number">3</span>
 解释：三个回文子串: <span class="hljs-comment">&quot;a&quot;</span>, <span class="hljs-comment">&quot;b&quot;</span>, <span class="hljs-comment">&quot;c&quot;</span></code></pre></div>
 
-<h2 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h2><div class="hljs"><pre><code class="hljs smalltalk">输入：<span class="hljs-comment">&quot;aaa&quot;</span>
+<h2 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h2><div class="hljs code-wrapper"><pre><code class="hljs smalltalk">输入：<span class="hljs-comment">&quot;aaa&quot;</span>
 输出：<span class="hljs-number">6</span>
 解释：<span class="hljs-number">6</span>个回文子串: <span class="hljs-comment">&quot;a&quot;</span>, <span class="hljs-comment">&quot;a&quot;</span>, <span class="hljs-comment">&quot;a&quot;</span>, <span class="hljs-comment">&quot;aa&quot;</span>, <span class="hljs-comment">&quot;aa&quot;</span>, <span class="hljs-comment">&quot;aaa&quot;</span></code></pre></div>
 
 <h2 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h2><p>输入的字符串长度不会超过 1000 。</p>
 <h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>很容易知道单个字符也是回文串，所以任意长度的字符串至少有 <code>s.length()</code> 个回文子串，问题就可以转化为求长度大于1回文子串的个数。</p>
 <p>回文串有两种情况，一种长度为奇数，一种长度为偶数，区别就在于正中心是单个字符（例如 <code>&#39;aba&#39;</code> ）还是两个相同的字符（例如 <code>&#39;abba&#39;</code> ），所以只要把这两种情况区别开来，然后以其为中心不断往两边扩展，实际上只要判断两侧对应位置上的字符是否相同即可，每多找到一个就+1，一旦遇到不相等字符则不可能有更大的回文子串了，所以跳出循环。</p>
-<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">countSubstrings</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s)</span> </span>&#123;
         <span class="hljs-keyword">int</span> len = s.length();  <span class="hljs-comment">// 字符串长度</span>
@@ -438,22 +438,27 @@
   
   <!-- 备案信息 -->
   <div class="beian">
-    <a href="http://beian.miit.gov.cn/" target="_blank"
-       rel="nofollow noopener">蜀ICP备20011971号</a>
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        蜀ICP备20011971号
+      </a>
+    </span>
     
       
-        <a
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
-          rel="nofollow noopener"
-          class="beian-police"
-          target="_blank"
-        >
-          
-            <span style="visibility: hidden; width: 0">|</span>
-            <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
-          
-          <span>川公网安备51152402000143号</span>
-        </a>
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+            
+            <span>川公网安备51152402000143号</span>
+          </a>
+        </span>
       
     
   </div>
@@ -464,8 +469,8 @@
 
 <!-- SCRIPTS -->
 
-  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":200})
@@ -511,6 +516,7 @@
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
 
 
 

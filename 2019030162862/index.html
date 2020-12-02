@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -258,17 +258,17 @@
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。</p>
 <p><strong>示例：</strong></p>
-<div class="hljs"><pre><code class="hljs angelscript">输入：<span class="hljs-number">1</span>-&gt;<span class="hljs-number">2</span>-&gt;<span class="hljs-number">4</span>, <span class="hljs-number">1</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">4</span>
+<div class="hljs code-wrapper"><pre><code class="hljs angelscript">输入：<span class="hljs-number">1</span>-&gt;<span class="hljs-number">2</span>-&gt;<span class="hljs-number">4</span>, <span class="hljs-number">1</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">4</span>
 输出：<span class="hljs-number">1</span>-&gt;<span class="hljs-number">1</span>-&gt;<span class="hljs-number">2</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">4</span>-&gt;<span class="hljs-number">4</span></code></pre></div>
 
 <h3 id="原解题思路"><a href="#原解题思路" class="headerlink" title="原解题思路"></a>原解题思路</h3><p>需要考虑的几种情况：</p>
-<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-number">1.</span> 两个链表均为空
+<div class="hljs code-wrapper"><pre><code class="hljs angelscript"><span class="hljs-number">1.</span> 两个链表均为空
 <span class="hljs-number">2.</span> 两个链表中的一个为空
 <span class="hljs-number">3.</span> 链表只有一个结点
 <span class="hljs-number">4.</span> 两个链表均有多个结点</code></pre></div>
 
 <p>如下代码中对前三种较特殊情况都作了相应的特殊处理。</p>
-<h3 id="代码（一）"><a href="#代码（一）" class="headerlink" title="代码（一）"></a>代码（一）</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-comment">/**</span>
+<h3 id="代码（一）"><a href="#代码（一）" class="headerlink" title="代码（一）"></a>代码（一）</h3><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">/**</span>
 <span class="hljs-comment"> * Definition for singly-linked list.</span>
 <span class="hljs-comment"> * struct ListNode &#123;</span>
 <span class="hljs-comment"> *     int val;</span>
@@ -337,7 +337,7 @@
 <p>其实写完后再找出之前做的看了看，思路几乎是一样的吧，大同小异。</p>
 <p>特别需要注意的是， <code>l1</code> 和 <code>l2</code> 都是可能为空的，一般情况下都要将其做特殊处理。</p>
 <p>这一次我一开始是想逐个比较 <code>l1</code> 和 <code>l2</code> 的结点大小然后构建一个新的链表的，写的过程中想到，似乎这么做有些麻烦，其实两个链表都是有序链表，任选一个链表来进行更新就可以了。但是选哪一个链表来进行更新是有讲究的，如果选的是第一个值较大的链表，那么就得把另一个链表的第一个结点插入到最前面，实际上这就很麻烦，所以我首先调整了两个链表 <code>l1</code> 和 <code>l2</code> ，使 <code>l1</code> 始终是头结点较小的那个链表，然后将新构建的链表的头指针指向 <code>l1</code> ，接下来就只需要逐个移动 <code>l1</code> 和 <code>l2</code> 进行比较和合并了，实际上就是把 <code>l2</code> 合并到 <code>l1</code> 中。</p>
-<h3 id="代码（二）"><a href="#代码（二）" class="headerlink" title="代码（二）"></a>代码（二）</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<h3 id="代码（二）"><a href="#代码（二）" class="headerlink" title="代码（二）"></a>代码（二）</h3><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function">ListNode* <span class="hljs-title">mergeTwoLists</span><span class="hljs-params">(ListNode* l1, ListNode* l2)</span> </span>&#123;
         <span class="hljs-keyword">if</span> (l1 == <span class="hljs-literal">NULL</span>) &#123;
@@ -513,22 +513,27 @@
   
   <!-- 备案信息 -->
   <div class="beian">
-    <a href="http://beian.miit.gov.cn/" target="_blank"
-       rel="nofollow noopener">蜀ICP备20011971号</a>
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        蜀ICP备20011971号
+      </a>
+    </span>
     
       
-        <a
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
-          rel="nofollow noopener"
-          class="beian-police"
-          target="_blank"
-        >
-          
-            <span style="visibility: hidden; width: 0">|</span>
-            <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
-          
-          <span>川公网安备51152402000143号</span>
-        </a>
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+            
+            <span>川公网安备51152402000143号</span>
+          </a>
+        </span>
       
     
   </div>
@@ -539,8 +544,8 @@
 
 <!-- SCRIPTS -->
 
-  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":200})
@@ -586,6 +591,7 @@
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
 
 
 

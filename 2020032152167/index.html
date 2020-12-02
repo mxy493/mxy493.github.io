@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -258,11 +258,11 @@
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>输入整数数组 <code>arr</code> ，找出其中最小的 <code>k</code> 个数。例如，输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。</p>
 <p><strong>示例 1：</strong></p>
-<div class="hljs"><pre><code class="hljs angelscript">输入：arr = [<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>], k = <span class="hljs-number">2</span>
+<div class="hljs code-wrapper"><pre><code class="hljs angelscript">输入：arr = [<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>], k = <span class="hljs-number">2</span>
 输出：[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>] 或者 [<span class="hljs-number">2</span>,<span class="hljs-number">1</span>]</code></pre></div>
 
 <p><strong>示例 2：</strong></p>
-<div class="hljs"><pre><code class="hljs angelscript">输入：arr = [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>], k = <span class="hljs-number">1</span>
+<div class="hljs code-wrapper"><pre><code class="hljs angelscript">输入：arr = [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>], k = <span class="hljs-number">1</span>
 输出：[<span class="hljs-number">0</span>]</code></pre></div>
 
 <p><strong>限制：</strong></p>
@@ -275,7 +275,7 @@
 <p>需要注意考虑特殊情况，如果题目没有做限制的话，我们是需要考虑数组 <code>arr[]</code> 的大小小于 <code>k</code> 的情况的，但是题目已经说明了 <code>0 &lt;= k &lt;= arr.length &lt;= 10000</code> ，也就是说前述的情况不可能存在。但 <code>k</code> 可以取到 <code>0</code> ，显然这个时候返回的应该是一个空数组；还有一种“特殊”情况是 <code>k == arr.size()</code> ，虽然不把它作为特殊情况程序也没问题，但是这种情况下显然返回值就是原数组，没必要对其进行排序，然后逐个取最小的数再构造一个数组。</p>
 <p><strong>存在的缺陷：</strong>考虑到上述 <code>k == arr.size()</code> 的情况后，我又想到了个问题，按照我的解题思路，如果 <code>k</code> 相对于数组 <code>arr[]</code> 的大小比较小的话，那只需要对少量的k个数排序就能得到结果，但如果 <code>k</code> 相对于数组 <code>arr[]</code> 的大小很大的情况下，如果 <code>arr[]</code> 中有9个元素，而 <code>k == 8</code> ，那这种情况下就要对八个数进行排序，代价就更大了。</p>
 <p><strong>改进思路：</strong>有一个小改进思路，首先对判断 <code>k &lt; arr.size()/2</code> ，如果为 <code>true</code>，那就从小往大对较少的k个数排序就可以得到结果；如果为 <code>false</code> ，则反过来从大到小对 <code>arr.size() - k</code> 个数排序，然后剩下没排序的k个数即要返回的结果。</p>
-<h3 id="代码（原始思路）"><a href="#代码（原始思路）" class="headerlink" title="代码（原始思路）"></a>代码（原始思路）</h3><div class="hljs"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<h3 id="代码（原始思路）"><a href="#代码（原始思路）" class="headerlink" title="代码（原始思路）"></a>代码（原始思路）</h3><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">getLeastNumbers</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; arr, <span class="hljs-keyword">int</span> k)</span> </span>&#123;
         <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; min;<span class="hljs-comment">//返回值</span>
@@ -445,22 +445,27 @@
   
   <!-- 备案信息 -->
   <div class="beian">
-    <a href="http://beian.miit.gov.cn/" target="_blank"
-       rel="nofollow noopener">蜀ICP备20011971号</a>
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        蜀ICP备20011971号
+      </a>
+    </span>
     
       
-        <a
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
-          rel="nofollow noopener"
-          class="beian-police"
-          target="_blank"
-        >
-          
-            <span style="visibility: hidden; width: 0">|</span>
-            <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
-          
-          <span>川公网安备51152402000143号</span>
-        </a>
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+            
+            <span>川公网安备51152402000143号</span>
+          </a>
+        </span>
       
     
   </div>
@@ -471,8 +476,8 @@
 
 <!-- SCRIPTS -->
 
-  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":200})
@@ -518,6 +523,7 @@
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
 
 
 

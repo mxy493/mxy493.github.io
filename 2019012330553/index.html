@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -267,7 +267,7 @@
 <p>YAML以（“—”）表示文章的开始，以（“…”）表示结束（不代表新的文章的开始）。</p>
 <p>Structure通过空格来展示。Sequence里的项用”-“来代表，Map里的键值对用”:”分隔。</p>
 <p>一般YAML文件扩展名为.yaml。比如：John.yaml</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">John</span> <span class="hljs-string">Smith</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">John</span> <span class="hljs-string">Smith</span>
 <span class="hljs-attr">age:</span> <span class="hljs-number">37</span>
 <span class="hljs-attr">spouse:</span>
   <span class="hljs-attr">name:</span> <span class="hljs-string">Jane</span> <span class="hljs-string">Smith</span>
@@ -281,7 +281,7 @@
 <p>John Smith今年37岁，有一个幸福的四口之家。两个孩子Jimmy 和Jenny活泼可爱。妻子Jane年轻美貌。</p>
 <p>可见YAML的可读性是不错。</p>
 <p><strong>列表</strong>中的所有成员都开始于相同的缩进级别, 并且使用一个 <code>&quot;- &quot;</code> 作为开头(一个横杠和一个空格):</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
 <span class="hljs-comment"># 一个美味水果的列表</span>
 <span class="hljs-bullet">-</span> <span class="hljs-string">Apple</span>
 <span class="hljs-bullet">-</span> <span class="hljs-string">Orange</span>
@@ -289,19 +289,19 @@
 <span class="hljs-bullet">-</span> <span class="hljs-string">Mango</span></code></pre></div>
 
 <p>一个<strong>字典</strong>是由一个简单的 <code>键: 值</code> 的形式组成(这个冒号后面必须是一个空格)：</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
 <span class="hljs-comment"># 一位职工的记录</span>
 <span class="hljs-attr">name:</span> <span class="hljs-string">Example</span> <span class="hljs-string">Developer</span>
 <span class="hljs-attr">job:</span> <span class="hljs-string">Developer</span>
 <span class="hljs-attr">skill:</span> <span class="hljs-string">Elite</span></code></pre></div>
 
 <p>字典也可以使用缩进形式来表示, 如果你喜欢这样的话：</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
 <span class="hljs-comment"># 一位职工的记录</span>
 &#123;<span class="hljs-attr">name:</span> <span class="hljs-string">Example</span> <span class="hljs-string">Developer</span>, <span class="hljs-attr">job:</span> <span class="hljs-string">Developer</span>, <span class="hljs-attr">skill:</span> <span class="hljs-string">Elite</span>&#125;</code></pre></div>
 
 <p>可以通过以下格式来指定一个<strong>布尔值</strong>(true/fase)：</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
 <span class="hljs-attr">create_key:</span> <span class="hljs-literal">yes</span>
 <span class="hljs-attr">needs_agent:</span> <span class="hljs-literal">no</span>
 <span class="hljs-attr">knows_oop:</span> <span class="hljs-literal">True</span>
@@ -309,7 +309,7 @@
 <span class="hljs-attr">uses_cvs:</span> <span class="hljs-literal">false</span></code></pre></div>
 
 <p>综合以上信息：</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
 <span class="hljs-comment"># 一位职工记录</span>
 <span class="hljs-attr">name:</span> <span class="hljs-string">Example</span> <span class="hljs-string">Developer</span>
 <span class="hljs-attr">job:</span> <span class="hljs-string">Developer</span>
@@ -326,14 +326,14 @@
     <span class="hljs-attr">dotnet:</span> <span class="hljs-string">Lame</span></code></pre></div>
 
 <p>尽管 YAML 通常是友好的, 但是下面将会导致一个 YAML 语法错误:</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">foo: somebody said I should put a colon here:</span> <span class="hljs-string">so</span> <span class="hljs-string">I</span> <span class="hljs-string">did</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">foo: somebody said I should put a colon here:</span> <span class="hljs-string">so</span> <span class="hljs-string">I</span> <span class="hljs-string">did</span></code></pre></div>
 
 <p>你需要使用引号来包裹任何包含冒号的哈希值, 像这样:</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">foo:</span> <span class="hljs-string">&quot;somebody said I should put a colon here: so I did&quot;</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">foo:</span> <span class="hljs-string">&quot;somebody said I should put a colon here: so I did&quot;</span></code></pre></div>
 
 <p>然后这个冒号将会被结尾.</p>
 <p>此外, Ansible 使用 “” 来引用变量. 如果一个值以 “{” 开头, YAML 将认为它是一个字典, 所以我们必须引用它, 像这样:</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">foo:</span> <span class="hljs-string">&quot;<span class="hljs-template-variable">&#123;&#123; variable &#125;&#125;</span>&quot;</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">foo:</span> <span class="hljs-string">&quot;<span class="hljs-template-variable">&#123;&#123; variable &#125;&#125;</span>&quot;</span></code></pre></div>
 
 <h3 id="三种数据结构"><a href="#三种数据结构" class="headerlink" title="三种数据结构"></a>三种数据结构</h3><ol>
 <li>对象：键值对的集合，又称为映射（mapping）/ 哈希（hashes） / 字典（dictionary）</li>
@@ -341,18 +341,18 @@
 <li>纯量（scalars）：单个的、不可再分的值</li>
 </ol>
 <h4 id="1-对象"><a href="#1-对象" class="headerlink" title="1. 对象"></a>1. 对象</h4><p>对象的一组键值对，使用冒号结构表示</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">animal:</span> <span class="hljs-string">pets</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">animal:</span> <span class="hljs-string">pets</span></code></pre></div>
 
 <p> Yaml 也允许另一种写法，将所有键值对写成一个行内对象</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">hash:</span> &#123; <span class="hljs-attr">name:</span> <span class="hljs-string">Steve</span>, <span class="hljs-attr">foo:</span> <span class="hljs-string">bar</span> &#125;</code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">hash:</span> &#123; <span class="hljs-attr">name:</span> <span class="hljs-string">Steve</span>, <span class="hljs-attr">foo:</span> <span class="hljs-string">bar</span> &#125;</code></pre></div>
 
 <h4 id="2-数组"><a href="#2-数组" class="headerlink" title="2.数组"></a>2.数组</h4><p>一组连词线开头的行，构成一个数组</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-string">Cat</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-string">Cat</span>
 <span class="hljs-bullet">-</span> <span class="hljs-string">Dog</span>
 <span class="hljs-bullet">-</span> <span class="hljs-string">Goldfish</span></code></pre></div>
 
 <p>数据结构的子成员是一个数组，则可以在该项下面缩进一个空格。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> 
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> 
  <span class="hljs-bullet">-</span> <span class="hljs-string">Cat</span>
  <span class="hljs-bullet">-</span> <span class="hljs-string">Dog</span>
  <span class="hljs-bullet">-</span> <span class="hljs-string">Goldfish</span></code></pre></div>
@@ -361,7 +361,7 @@
 <p> 数组也可以采用行内表示法。</p>
 <p>animal: [Cat, Dog]</p>
 <h4 id="3-复合结构"><a href="#3-复合结构" class="headerlink" title="3. 复合结构"></a>3. 复合结构</h4><p>对象和数组可以结合使用，形成复合结构。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">languages:</span>   <span class="hljs-comment">#数组</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">languages:</span>   <span class="hljs-comment">#数组</span>
    <span class="hljs-bullet">-</span> <span class="hljs-string">Ruby</span>
    <span class="hljs-bullet">-</span> <span class="hljs-string">Perl</span>
    <span class="hljs-bullet">-</span> <span class="hljs-string">Python</span>
@@ -382,46 +382,46 @@
 <li>日期</li>
 </ul>
 <p>数值直接以字面量的形式表示。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">number:</span> <span class="hljs-number">12.30</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">number:</span> <span class="hljs-number">12.30</span></code></pre></div>
 
 <p>{ number: 12.30 }<br> 布尔值用true和false表示。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">isSet:</span> <span class="hljs-literal">true</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">isSet:</span> <span class="hljs-literal">true</span></code></pre></div>
 
 
 <p> null用~表示。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">parent:</span> <span class="hljs-string">~</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">parent:</span> <span class="hljs-string">~</span></code></pre></div>
 
 <p> 时间采用 ISO8601 格式。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">iso8601:</span> <span class="hljs-number">2001-12-14t21:59:43.10-05:00</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">iso8601:</span> <span class="hljs-number">2001-12-14t21:59:43.10-05:00</span></code></pre></div>
 
 <p>日期采用复合 iso8601 格式的年、月、日表示。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">date:</span> <span class="hljs-number">1976-07-31</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">date:</span> <span class="hljs-number">1976-07-31</span></code></pre></div>
 
 <p>YAML 允许使用两个感叹号，强制转换数据类型。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">e:</span> <span class="hljs-type">!!str</span> <span class="hljs-number">123</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">e:</span> <span class="hljs-type">!!str</span> <span class="hljs-number">123</span>
 <span class="hljs-attr">f:</span> <span class="hljs-type">!!str</span> <span class="hljs-literal">true</span></code></pre></div>
 
 <h4 id="5-字符串"><a href="#5-字符串" class="headerlink" title="5. 字符串"></a>5. 字符串</h4><p>字符串是最常见，也是最复杂的一种数据类型。</p>
 <p>字符串默认不使用引号表示。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">这是一行字符串</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">这是一行字符串</span></code></pre></div>
 
 <p>如果字符串之中包含空格或特殊字符，需要放在引号之中。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">&#x27;内容：字符串&#x27;</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">&#x27;内容：字符串&#x27;</span></code></pre></div>
 
 <p>单引号和双引号都可以使用，双引号不会对特殊字符转义。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">s1:</span> <span class="hljs-string">&#x27;内容\n字符串&#x27;</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">s1:</span> <span class="hljs-string">&#x27;内容\n字符串&#x27;</span>
 <span class="hljs-attr">s2:</span> <span class="hljs-string">&quot;内容\n字符串&quot;</span></code></pre></div>
 
 <p>单引号之中如果还有单引号，必须连续使用两个单引号转义。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">&#x27;labor&#x27;</span><span class="hljs-string">&#x27;s day&#x27;</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">&#x27;labor&#x27;</span><span class="hljs-string">&#x27;s day&#x27;</span></code></pre></div>
 
 <p>字符串可以写成多行，从第二行开始，必须有一个单空格缩进。换行符会被转为空格。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">这是一段</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">这是一段</span>
 <span class="hljs-string">多行</span>
 <span class="hljs-string">字符串</span></code></pre></div>
 
 <p>多行字符串可以使用|保留换行符，也可以使用&gt;折叠换行。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">this:</span> <span class="hljs-string">|</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">this:</span> <span class="hljs-string">|</span>
   <span class="hljs-string">Foo</span>
   <span class="hljs-string">Bar</span>
 <span class="hljs-attr">that:</span> <span class="hljs-string">&gt;</span>
@@ -429,7 +429,7 @@
   <span class="hljs-string">Bar</span></code></pre></div>
 
 <p> +表示保留文字块末尾的换行，-表示删除字符串末尾的换行。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">s1:</span> <span class="hljs-string">|</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">s1:</span> <span class="hljs-string">|</span>
   <span class="hljs-string">Foo</span>
 <span class="hljs-attr">s2:</span> <span class="hljs-string">|+</span>
   <span class="hljs-string">Foo</span>
@@ -437,14 +437,14 @@
   <span class="hljs-string">Foo</span></code></pre></div>
 
 <p>字符串之中可以插入 HTML 标记。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">message:</span> <span class="hljs-string">|</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">message:</span> <span class="hljs-string">|</span>
 <span class="hljs-string">&lt;p</span> <span class="hljs-string">style=&quot;color:</span> <span class="hljs-string">red&quot;&gt;</span>
 <span class="hljs-string">段落</span>
 <span class="hljs-string">&lt;/p&gt;</span></code></pre></div>
 
 <h4 id="6-引用"><a href="#6-引用" class="headerlink" title="6. 引用"></a>6. 引用</h4><p>锚点&amp;和别名*，可以用来引用。</p>
 <p>&amp;用来建立锚点（defaults），&lt;&lt;表示合并到当前数据，*用来引用锚点。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">defaults:</span> <span class="hljs-string">&amp;defaults</span>   <span class="hljs-comment">#建立锚点&amp;defaults</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">defaults:</span> <span class="hljs-string">&amp;defaults</span>   <span class="hljs-comment">#建立锚点&amp;defaults</span>
   <span class="hljs-attr">adapter:</span> <span class="hljs-string">postgres</span>
   <span class="hljs-attr">host:</span> <span class="hljs-string">localhost</span>
 
@@ -457,7 +457,7 @@
   <span class="hljs-string">&lt;&lt;:</span> <span class="hljs-string">*defaults</span>    <span class="hljs-comment">#引用锚点</span></code></pre></div>
 
 <p> 等同于下面的代码。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">defaults:</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">defaults:</span>
   <span class="hljs-attr">adapter:</span> <span class="hljs-string">postgres</span>
   <span class="hljs-attr">host:</span> <span class="hljs-string">localhost</span>
 
@@ -472,7 +472,7 @@
   <span class="hljs-attr">host:</span> <span class="hljs-string">localhost</span></code></pre></div>
 
 <p> 下面是另一个例子。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-string">&amp;showell</span> <span class="hljs-string">Steve</span>  <span class="hljs-comment">#建立showell锚点</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-string">&amp;showell</span> <span class="hljs-string">Steve</span>  <span class="hljs-comment">#建立showell锚点</span>
 <span class="hljs-string">Clark</span>
 <span class="hljs-string">Brian</span>
 <span class="hljs-string">Oren</span>
@@ -611,22 +611,27 @@
   
   <!-- 备案信息 -->
   <div class="beian">
-    <a href="http://beian.miit.gov.cn/" target="_blank"
-       rel="nofollow noopener">蜀ICP备20011971号</a>
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        蜀ICP备20011971号
+      </a>
+    </span>
     
       
-        <a
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
-          rel="nofollow noopener"
-          class="beian-police"
-          target="_blank"
-        >
-          
-            <span style="visibility: hidden; width: 0">|</span>
-            <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
-          
-          <span>川公网安备51152402000143号</span>
-        </a>
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+            
+            <span>川公网安备51152402000143号</span>
+          </a>
+        </span>
       
     
   </div>
@@ -637,8 +642,8 @@
 
 <!-- SCRIPTS -->
 
-  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":200})
@@ -684,6 +689,7 @@
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
 
 
 

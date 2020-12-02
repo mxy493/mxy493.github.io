@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -257,7 +257,7 @@
 <p>首先需要明确一点：<strong>下标运算符 <code>[]</code> 的优先级高于解引用运算符 <code>*</code></strong> 。</p>
 <p>关于运算符的优先级，可以参考这里：<a target="_blank" rel="noopener" href="https://zh.cppreference.com/w/cpp/language/operator_precedence">https://zh.cppreference.com/w/cpp/language/operator_precedence</a></p>
 <h1 id="分析两种传递方式"><a href="#分析两种传递方式" class="headerlink" title="分析两种传递方式"></a>分析两种传递方式</h1><h2 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h2><p>以下是分别将一维、二维、三维数组将作为函数参数传递第一种方式，即声明相同大小的数组类型：</p>
-<div class="hljs"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>; 
 
 <span class="hljs-comment">// 一维数组作为参数</span>
@@ -289,7 +289,7 @@
 &#125;</code></pre></div>
 
 <p>了解数组的初始化的话我们还可以省略多维数组第一维的大小，将二维、三维数组的形式参数写成如下形式，编译器会根据实际传入的数组大小确定第一维的大小：</p>
-<div class="hljs"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">array2d</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr2[][<span class="hljs-number">3</span>], <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> n)</span></span>;
+<div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">array2d</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr2[][<span class="hljs-number">3</span>], <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> n)</span></span>;
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">array3d</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr3[][<span class="hljs-number">3</span>][<span class="hljs-number">2</span>], <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> c, <span class="hljs-keyword">int</span> a)</span></span>;</code></pre></div>
 
 <p>调试观察一下，可以知道上述数组定义并初始化后，一维数组 <code>arr1</code> 的类型为 <code>int[2]</code> ，二维数组 <code>arr2</code> 的类型为 <code>int[2][3]</code> ，三维数组 <code>arr3</code> 的类型为 <code>int[2][3][2]</code> 。</p>
@@ -302,7 +302,7 @@
 <li>更多维的情况也同理~</li>
 </ul>
 <h2 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h2><p>根据上述方式一调试分析的结论，我们既然知道了形参的实际类型，因此可以直接把形参声明为该类型：</p>
-<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-built_in">void</span> <span class="hljs-built_in">array</span>1d(<span class="hljs-built_in">int</span> *arr1);  <span class="hljs-comment">// 一维</span>
+<div class="hljs code-wrapper"><pre><code class="hljs angelscript"><span class="hljs-built_in">void</span> <span class="hljs-built_in">array</span>1d(<span class="hljs-built_in">int</span> *arr1);  <span class="hljs-comment">// 一维</span>
 <span class="hljs-built_in">void</span> <span class="hljs-built_in">array</span>2d(<span class="hljs-built_in">int</span> (*arr2)[<span class="hljs-number">3</span>]);  <span class="hljs-comment">// 二维</span>
 <span class="hljs-built_in">void</span> <span class="hljs-built_in">array</span>3d(<span class="hljs-built_in">int</span> (*arr3)[<span class="hljs-number">3</span>][<span class="hljs-number">2</span>]);  <span class="hljs-comment">// 三维</span></code></pre></div>
 
@@ -321,7 +321,7 @@
 <p>也正因为指针没有维度，我们是不是可以这么理解：数组作为参数传递之后，就丢失了原数组第一个维度的信息。</p>
 <p>至少我觉得这样理解是比较合理的，也因此，实际编程中，在传递一个数组的同时传递其维数，程序的可读性将更强。</p>
 <p>例如，可以将上述方式二中的函数声明修改为如下所示：</p>
-<div class="hljs"><pre><code class="hljs angelscript"><span class="hljs-built_in">void</span> <span class="hljs-built_in">array</span>1d(<span class="hljs-built_in">int</span> *arr1, <span class="hljs-built_in">int</span> d);  <span class="hljs-comment">// 一维</span>
+<div class="hljs code-wrapper"><pre><code class="hljs angelscript"><span class="hljs-built_in">void</span> <span class="hljs-built_in">array</span>1d(<span class="hljs-built_in">int</span> *arr1, <span class="hljs-built_in">int</span> d);  <span class="hljs-comment">// 一维</span>
 <span class="hljs-built_in">void</span> <span class="hljs-built_in">array</span>2d(<span class="hljs-built_in">int</span> (*arr2)[<span class="hljs-number">3</span>], <span class="hljs-built_in">int</span> r, <span class="hljs-built_in">int</span> c);  <span class="hljs-comment">// 二维</span>
 <span class="hljs-built_in">void</span> <span class="hljs-built_in">array</span>3d(<span class="hljs-built_in">int</span> (*arr3)[<span class="hljs-number">3</span>][<span class="hljs-number">2</span>], <span class="hljs-built_in">int</span> a, <span class="hljs-built_in">int</span> b, <span class="hljs-built_in">int</span> c);  <span class="hljs-comment">// 三维</span></code></pre></div>
 
@@ -459,22 +459,27 @@
   
   <!-- 备案信息 -->
   <div class="beian">
-    <a href="http://beian.miit.gov.cn/" target="_blank"
-       rel="nofollow noopener">蜀ICP备20011971号</a>
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        蜀ICP备20011971号
+      </a>
+    </span>
     
       
-        <a
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
-          rel="nofollow noopener"
-          class="beian-police"
-          target="_blank"
-        >
-          
-            <span style="visibility: hidden; width: 0">|</span>
-            <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
-          
-          <span>川公网安备51152402000143号</span>
-        </a>
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+            
+            <span>川公网安备51152402000143号</span>
+          </a>
+        </span>
       
     
   </div>
@@ -485,8 +490,8 @@
 
 <!-- SCRIPTS -->
 
-  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":200})
@@ -532,6 +537,7 @@
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
 
 
 

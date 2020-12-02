@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -254,7 +254,7 @@
             
             <div class="markdown-body">
               <h1 id="一、简述"><a href="#一、简述" class="headerlink" title="一、简述"></a>一、简述</h1><p>使用Hexo搭建博客已经有很长一段时间了，文章的链接也一直是使用的默认格式，文章的链接格式可以在博客根目录下的 <code>_config.yml</code> 文件中修改，默认的配置如下所示，最终生成的链接大概是这样的：<a href="https://mxy493.xyz/2020/07/04/title">https://mxy493.xyz/2020/07/04/title</a> 。</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">url:</span> <span class="hljs-string">https://mxy493.xyz</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">url:</span> <span class="hljs-string">https://mxy493.xyz</span>
 <span class="hljs-attr">root:</span> <span class="hljs-string">/</span>
 <span class="hljs-attr">permalink:</span> <span class="hljs-string">:year/:month/:day/:title/</span>
 <span class="hljs-attr">permalink_defaults:</span></code></pre></div>
@@ -265,14 +265,14 @@
 <h1 id="二、使用-hexo-abbrlink-生成短链接"><a href="#二、使用-hexo-abbrlink-生成短链接" class="headerlink" title="二、使用 hexo-abbrlink 生成短链接"></a>二、使用 hexo-abbrlink 生成短链接</h1><p>使用生成短链接的插件 <a target="_blank" rel="noopener" href="https://github.com/rozbo/hexo-abbrlink">hexo-abbrlink</a> 。</p>
 <p>hexo-abbrlink：<a target="_blank" rel="noopener" href="https://github.com/rozbo/hexo-abbrlink">https://github.com/rozbo/hexo-abbrlink</a></p>
 <p>在博客根目录下，使用如下命令安装插件：</p>
-<div class="hljs"><pre><code class="hljs shell">npm install hexo-abbrlink --save</code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs shell">npm install hexo-abbrlink --save</code></pre></div>
 
 <p>安装好后，修改博客根目录下的 <code>_config.yml</code> 配置文件：</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">permalink:</span> <span class="hljs-string">:year:month:day:abbrlink/</span>   <span class="hljs-comment"># 具体配置参考Hexo文档https://hexo.io/zh-cn/docs/permalinks</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">permalink:</span> <span class="hljs-string">:year:month:day:abbrlink/</span>   <span class="hljs-comment"># 具体配置参考Hexo文档https://hexo.io/zh-cn/docs/permalinks</span></code></pre></div>
 
 <p><strong>注意：</strong>末尾必须要有 <code>/</code> ，否则点击某博文的时候将进行下载操作而不是跳转到该博文！</p>
 <p>另外还需要添加如下的对该插件的配置项：</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-comment"># abbrlink config</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-comment"># abbrlink config</span>
 <span class="hljs-attr">abbrlink:</span>
   <span class="hljs-attr">alg:</span> <span class="hljs-string">crc16</span>  <span class="hljs-comment">#support crc16(default) and crc32</span>
   <span class="hljs-attr">rep:</span> <span class="hljs-string">dec</span>    <span class="hljs-comment">#support dec(default) and hex</span>
@@ -285,7 +285,7 @@
 
 <p><strong>注意：</strong>必须完整添加上述所有配置（可能是bug，当前版本为2.1.5，也许后续会修复），否则会生成失败！</p>
 <p>不同参数的效果如下所示：</p>
-<div class="hljs"><pre><code class="hljs awk">crc16 &amp; hex
+<div class="hljs code-wrapper"><pre><code class="hljs awk">crc16 &amp; hex
 https:<span class="hljs-regexp">//</span>post.zz173.com<span class="hljs-regexp">/posts/</span><span class="hljs-number">66</span>c8.html
 
 crc16 &amp; dec
@@ -440,22 +440,27 @@ https:<span class="hljs-regexp">//</span>post.zz173.com<span class="hljs-regexp"
   
   <!-- 备案信息 -->
   <div class="beian">
-    <a href="http://beian.miit.gov.cn/" target="_blank"
-       rel="nofollow noopener">蜀ICP备20011971号</a>
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        蜀ICP备20011971号
+      </a>
+    </span>
     
       
-        <a
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
-          rel="nofollow noopener"
-          class="beian-police"
-          target="_blank"
-        >
-          
-            <span style="visibility: hidden; width: 0">|</span>
-            <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
-          
-          <span>川公网安备51152402000143号</span>
-        </a>
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+            
+            <span>川公网安备51152402000143号</span>
+          </a>
+        </span>
       
     
   </div>
@@ -466,8 +471,8 @@ https:<span class="hljs-regexp">//</span>post.zz173.com<span class="hljs-regexp"
 
 <!-- SCRIPTS -->
 
-  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":200})
@@ -513,6 +518,7 @@ https:<span class="hljs-regexp">//</span>post.zz173.com<span class="hljs-regexp"
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
 
 
 

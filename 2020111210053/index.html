@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -254,48 +254,48 @@
             
             <div class="markdown-body">
               <h1 id="盒子布局"><a href="#盒子布局" class="headerlink" title="盒子布局"></a>盒子布局</h1><p>官方文档：<a target="_blank" rel="noopener" href="https://doc.qt.io/qtforpython/PySide2/QtWidgets/QGridLayout.html">https://doc.qt.io/qtforpython/PySide2/QtWidgets/QGridLayout.html</a></p>
-<div class="hljs"><pre><code class="hljs python">grid = QGridLayout()  <span class="hljs-comment"># 实例化一个格子布局</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs python">grid = QGridLayout()  <span class="hljs-comment"># 实例化一个格子布局</span></code></pre></div>
 
 <p>比较常用的几个函数：</p>
-<div class="hljs"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">addLayout</span> (<span class="hljs-params">arg__1, row, column, rowSpan, columnSpan[, alignment=Qt.Alignment(<span class="hljs-params"></span>)]</span>)</span>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">addLayout</span> (<span class="hljs-params">arg__1, row, column, rowSpan, columnSpan[, alignment=Qt.Alignment(<span class="hljs-params"></span>)]</span>)</span>
 <span class="hljs-function"><span class="hljs-title">def</span> <span class="hljs-title">addLayout</span> (<span class="hljs-params">arg__1, row, column[, alignment=Qt.Alignment(<span class="hljs-params"></span>)]</span>)</span>
 <span class="hljs-function"><span class="hljs-title">def</span> <span class="hljs-title">addWidget</span> (<span class="hljs-params">arg__1, row, column, rowSpan, columnSpan[, alignment=Qt.Alignment(<span class="hljs-params"></span>)]</span>)</span>
 <span class="hljs-function"><span class="hljs-title">def</span> <span class="hljs-title">addWidget</span> (<span class="hljs-params">arg__1, row, column[, alignment=Qt.Alignment(<span class="hljs-params"></span>)]</span>)</span></code></pre></div>
 
 <p>实际使用中一般是这样：</p>
-<div class="hljs"><pre><code class="hljs python">grid.addLayout(hbox, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)  <span class="hljs-comment"># 第一行第一列，占一个单元格</span>
+<div class="hljs code-wrapper"><pre><code class="hljs python">grid.addLayout(hbox, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)  <span class="hljs-comment"># 第一行第一列，占一个单元格</span>
 grid.addWidget(w1, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 第一行第二列，占一个单元格</span>
 grid.addWidget(w2, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>)  <span class="hljs-comment"># 第二行第一列，占一行两列</span></code></pre></div>
 
 <p>上面的代码，实际构造出来的 <code>grid</code> 就是一个两行两列的格子，只不过第二行的两列是合并为了一个单元格。</p>
 <p>还有两个很重要的函数：</p>
-<div class="hljs"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setColumnStretch</span> (<span class="hljs-params">column, stretch</span>)</span>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setColumnStretch</span> (<span class="hljs-params">column, stretch</span>)</span>
 <span class="hljs-function"><span class="hljs-title">def</span> <span class="hljs-title">setRowStretch</span> (<span class="hljs-params">row, stretch</span>)</span></code></pre></div>
 
 <p>用于设置某一行（列）的宽（高）度占比，如果使用这个函数理论上就应该为每一行（列）进行设置，否则默认的占比为 <code>0</code> ，就可能导致某一行（列）无法显示。例如上述二行二列的格子：</p>
-<div class="hljs"><pre><code class="hljs python">grid.setColumnStretch(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 第一列占比1/3</span>
+<div class="hljs code-wrapper"><pre><code class="hljs python">grid.setColumnStretch(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 第一列占比1/3</span>
 grid.setColumnStretch(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)  <span class="hljs-comment"># 第一列占比2/3</span></code></pre></div>
 
 <h1 id="删除组件"><a href="#删除组件" class="headerlink" title="删除组件"></a>删除组件</h1><p>事实上删除组件是不支持的~Qt没有任何有关删除某个组件的接口函数！</p>
 <p>但组件是可以显示或隐藏的，想想其实隐藏可能也更好一些~</p>
-<div class="hljs"><pre><code class="hljs python">widget.setVisiable(b)  <span class="hljs-comment"># 传入bool量用于显示或隐藏</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs python">widget.setVisiable(b)  <span class="hljs-comment"># 传入bool量用于显示或隐藏</span></code></pre></div>
 
 <p>实际开发中，一个组件隐藏后只是看不见，但它还是占空间的。之所以想要删除组件其实也是为了让它不再占用空间，不过虽然没有删除组件的功能，但仍然可以通过隐藏实现同样的效果。</p>
 <p>这就需要借助横向盒子布局或者纵向盒子布局（格子布局理论上也是可以的，但需要限制其独占一行或一列），不管是哪种布局，默认的拉伸因子都是 <code>0</code> ，以如下代码为例：</p>
-<div class="hljs"><pre><code class="hljs python">hbox = QHBoxLayout()
+<div class="hljs code-wrapper"><pre><code class="hljs python">hbox = QHBoxLayout()
 hbox.addWidget(w1, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 添加组件w1，拉伸因子为1</span>
 hbox.addWidget(w2, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 添加组件w2，拉伸因子为1</span></code></pre></div>
 
 <p>也可以通过以下函数设置某一组件或子布局的拉伸因子：</p>
-<div class="hljs"><pre><code class="hljs python">PySide2.QtWidgets.QBoxLayout.setStretchFactor(l, stretch)  <span class="hljs-comment"># 设置子布局的拉伸因子</span>
+<div class="hljs code-wrapper"><pre><code class="hljs python">PySide2.QtWidgets.QBoxLayout.setStretchFactor(l, stretch)  <span class="hljs-comment"># 设置子布局的拉伸因子</span>
 PySide2.QtWidgets.QBoxLayout.setStretchFactor(w, stretch)  <span class="hljs-comment"># 设置组件的拉伸因子</span></code></pre></div>
 
 <p>如果需要隐藏某组件并使其不再占据空间，只需要两步，以 <code>w1</code> 为例：</p>
-<div class="hljs"><pre><code class="hljs python">w1.setVisiable(<span class="hljs-literal">False</span>)  <span class="hljs-comment"># 隐藏组件w1</span>
+<div class="hljs code-wrapper"><pre><code class="hljs python">w1.setVisiable(<span class="hljs-literal">False</span>)  <span class="hljs-comment"># 隐藏组件w1</span>
 hbox.setStretchFactor(w1, <span class="hljs-number">0</span>)  <span class="hljs-comment"># 设置w1所在的盒子占比为0</span></code></pre></div>
 
 <h1 id="多线程-QThread"><a href="#多线程-QThread" class="headerlink" title="多线程 QThread"></a>多线程 QThread</h1><p>在我使用 Qt for Python 编程的过程中需要用到多线程，在 Python 中是使用 threading 库，使用起来还是很简单的，但最初自以为 Qt 也一样，但发现其实不想，没有作用甚至会报错，简单说就是与 Qt 相关的代码要使用多线程都应该使用 Qt 提供的多线程类 QThread 。</p>
-<div class="hljs"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyThread</span>(<span class="hljs-params">QThread</span>):</span>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyThread</span>(<span class="hljs-params">QThread</span>):</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self</span>):</span>
         self.running = <span class="hljs-literal">False</span>
 
@@ -308,14 +308,14 @@ hbox.setStretchFactor(w1, <span class="hljs-number">0</span>)  <span class="hljs
         self.running = <span class="hljs-literal">False</span></code></pre></div>
 
 <p>框架如上，首先自定义一个线程类并继承自 QThread ，然后我定义了一个属性 <code>running</code> 用于控制线程的终止，<code>run()</code> 方法是重写的 QThread 中的方法，实际线程中的逻辑应该放到 <code>run()</code> 方法中去执行 。启动线程需要先实例化一个线程对象，然后调用 QThread 的 <code>start()</code> 接口函数即可启动线程。示例：</p>
-<div class="hljs"><pre><code class="hljs python">thread = MyThread()  <span class="hljs-comment"># 实例化线程对象</span>
+<div class="hljs code-wrapper"><pre><code class="hljs python">thread = MyThread()  <span class="hljs-comment"># 实例化线程对象</span>
 thread.start()  <span class="hljs-comment"># 启动线程</span>
 <span class="hljs-comment"># do something</span>
 thread.stop()  <span class="hljs-comment"># 终止线程</span></code></pre></div>
 
 <h1 id="窗口大小自适应"><a href="#窗口大小自适应" class="headerlink" title="窗口大小自适应"></a>窗口大小自适应</h1><p>虽然当前的电脑都在往着屏幕更大、分辨率更高的方向发展，但一款软件开发出来也难免可能会在一些老旧低分辨率的电脑上使用，所以如见如果可以自适应不同大小的屏幕，用户体验会更好。</p>
 <p>以下代码独特之处在于对于小屏幕，窗口将默认最大化显示，且窗口大小不可调整。这样设置的目的是为了在小屏幕上尽可能完整的显示软件界面，否则软件界面超出了屏幕的可视范围或者被任务栏遮挡，用户体验就会很差~</p>
-<div class="hljs"><pre><code class="hljs ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainWindow</span>(<span class="hljs-title">QMainWindow</span>):</span>
+<div class="hljs code-wrapper"><pre><code class="hljs ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainWindow</span>(<span class="hljs-title">QMainWindow</span>):</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(<span class="hljs-keyword">self</span>)</span></span><span class="hljs-symbol">:</span>
         <span class="hljs-keyword">super</span>().__init_<span class="hljs-number">_</span>()
         <span class="hljs-comment"># 此处省略一万字...</span>
@@ -332,7 +332,7 @@ thread.stop()  <span class="hljs-comment"># 终止线程</span></code></pre></di
         <span class="hljs-keyword">self</span>.show()  <span class="hljs-comment"># 显示窗口</span></code></pre></div>
 
 <p>Qt 其实是有让窗口全屏的函数的，例如上述代码中的 <code>show()</code> 函数是显示窗口，如果设置了窗口大小则按设置的大小显示，事实上 Qt 提供了以下一些显示窗口的函数：</p>
-<div class="hljs"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">show</span>()  # 显示方式取决于<span class="hljs-title">WindowState</span>等其它一些因素</span>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">show</span>()  # 显示方式取决于<span class="hljs-title">WindowState</span>等其它一些因素</span>
 <span class="hljs-function"><span class="hljs-title">def</span> <span class="hljs-title">showFullScreen</span>()  # 全屏显示，会遮挡任务栏</span>
 <span class="hljs-function"><span class="hljs-title">def</span> <span class="hljs-title">showMaximized</span>()  # 最大化显示，但直接使用用户仍然可以将窗口调小</span>
 <span class="hljs-function"><span class="hljs-title">def</span> <span class="hljs-title">showMinimized</span>()  # 最小化显示</span>
@@ -341,7 +341,7 @@ thread.stop()  <span class="hljs-comment"># 终止线程</span></code></pre></di
 <h1 id="自定义信号"><a href="#自定义信号" class="headerlink" title="自定义信号"></a>自定义信号</h1><p>Qt for Python 中自定义信号首先需要注意一点，PyQt5 和 PySide2 中定义信号的类名不一样！</p>
 <p>在 PySide2 中应该使用 <code>Signal()</code> ，而在 PyQt5 中应使用 <code>pyqtSignal()</code> ，用法上其实没什么区别。</p>
 <p>以下示例代码采用 PySide2 方式：</p>
-<div class="hljs"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainWindow</span>(<span class="hljs-params">QMainWindow</span>):</span>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainWindow</span>(<span class="hljs-params">QMainWindow</span>):</span>
     <span class="hljs-comment"># 自定义信号</span>
     signal1 = Signal()  <span class="hljs-comment"># 无参的信号</span>
     signal2 = Signal(<span class="hljs-built_in">int</span>)  <span class="hljs-comment"># 传递一个int型参数的信号</span>
@@ -375,7 +375,7 @@ thread.stop()  <span class="hljs-comment"># 终止线程</span></code></pre></di
 
 <p>使用信号与槽还应特别注意它们的作用域以及生命周期。一般需要将信号定义为 Qt 对象的属性，槽函数定义为 Qt 对象的方法，也就是说信号与槽的生命周期将跟随对象的生命周期（可能是必须这样做，暂时没找到相关资料）~</p>
 <h1 id="QSpinBox-限制用户输入"><a href="#QSpinBox-限制用户输入" class="headerlink" title="QSpinBox 限制用户输入"></a>QSpinBox 限制用户输入</h1><p>QSpinBox 有好几个分类，这里以一般的 QSpinBox 为例，首先简要列举几个常用的接口函数：</p>
-<div class="hljs"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setPrefix</span>(<span class="hljs-params">prefix</span>)  # 设置前缀，例如￥</span>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setPrefix</span>(<span class="hljs-params">prefix</span>)  # 设置前缀，例如￥</span>
 <span class="hljs-function"><span class="hljs-title">def</span> <span class="hljs-title">setRange</span>(<span class="hljs-params"><span class="hljs-built_in">min</span>, <span class="hljs-built_in">max</span></span>)  # 设置范围</span>
 <span class="hljs-function"><span class="hljs-title">def</span> <span class="hljs-title">setSingleStep</span>(<span class="hljs-params">val</span>)  # 设置单步不长</span>
 <span class="hljs-function"><span class="hljs-title">def</span> <span class="hljs-title">setSuffix</span>(<span class="hljs-params">suffix</span>)  # 设置后缀，例如<span class="hljs-title">m</span></span>
@@ -386,14 +386,14 @@ thread.stop()  <span class="hljs-comment"># 终止线程</span></code></pre></di
 <span class="hljs-function"><span class="hljs-title">def</span> <span class="hljs-title">valueChanged</span>(<span class="hljs-params">arg__1</span>)  # 信号，值改变触发</span></code></pre></div>
 
 <p>使用上述的接口函数已经满足了大部分的需求，但假如我想创建一个 QSpinBox ，范围为 0 ~ 10 ，步长为 2 ，也就是 0 ~ 10 内的偶数，很容易，只需要：</p>
-<div class="hljs"><pre><code class="hljs python">self.spin = QSpinBox()
+<div class="hljs code-wrapper"><pre><code class="hljs python">self.spin = QSpinBox()
 self.spin.setRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>)
 self.spin.setSingleStep(<span class="hljs-number">2</span>)
 </code></pre></div>
 
 <p>实际上，用户点击增减的按钮确实是没问题的，但如果用户手动输入，仍然可输入 0 ~ 10 范围内的奇数，就很尴尬~</p>
 <p>不过稍微处理一下也是可以解决的，办法就是利用信号与槽，当值改变为奇数的时候，就自动将其修改为临近的值。</p>
-<div class="hljs"><pre><code class="hljs python"><span class="hljs-comment"># 绑定信号与槽</span>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># 绑定信号与槽</span>
 self.spin.valueChanged.connect(self.standardization)
 
 <span class="hljs-comment"># 定义槽函数</span>
@@ -407,14 +407,14 @@ self.spin.valueChanged.connect(self.standardization)
 <li><code>repaint()</code> 会在调用的时候立即刷新界面，及时性比较好，但考虑界面并没有什么变化却又一直在刷新的情况，就会产生很大的消耗，严重的情况下会导致界面卡死；</li>
 <li><code>update()</code> 是官方也推荐使用的刷新方法，区别是 <code>update()</code> 不会立即刷新界面，而是等到界面真正有变动的时候才刷新一次，可能实时性略差一些，但也满足绝大部分的需求了。</li>
 </ul>
-<div class="hljs"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">paintEvent</span>(<span class="hljs-params">self, event</span>):</span>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">paintEvent</span>(<span class="hljs-params">self, event</span>):</span>
     qp = QPainter()
     qp.begin(self)
     self.draw(qp)  <span class="hljs-comment"># 绘制的具体逻辑</span>
     qp.end()</code></pre></div>
 
 <h1 id="处理关闭事件"><a href="#处理关闭事件" class="headerlink" title="处理关闭事件"></a>处理关闭事件</h1><p>程序关闭前一般需要做一些处理，比如未结束的线程应当先结束，或者说需要保存一些参数，这些工作就可以放到 <code>closeEvent()</code> 参函数中进行处理~</p>
-<div class="hljs"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">closeEvent</span>(<span class="hljs-params">self, event</span>):</span>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">closeEvent</span>(<span class="hljs-params">self, event</span>):</span>
     <span class="hljs-keyword">if</span> self.thread.is_running():
         self.thread.stop()  <span class="hljs-comment"># 停止未结束的线程</span>
     self.save_data()  <span class="hljs-comment"># 保存一些数据</span>
@@ -425,7 +425,7 @@ self.spin.valueChanged.connect(self.standardization)
         event.ignore()  <span class="hljs-comment"># 拒绝关闭程序</span></code></pre></div>
 
 <h1 id="使用自定义字体"><a href="#使用自定义字体" class="headerlink" title="使用自定义字体"></a>使用自定义字体</h1><p>注意字体文件的路径就可以了！</p>
-<div class="hljs"><pre><code class="hljs python">QFontDatabase.addApplicationFont(<span class="hljs-string">&#x27;font/SourceCodePro-Regular.ttf&#x27;</span>)  <span class="hljs-comment"># 自定义字体</span>
+<div class="hljs code-wrapper"><pre><code class="hljs python">QFontDatabase.addApplicationFont(<span class="hljs-string">&#x27;font/SourceCodePro-Regular.ttf&#x27;</span>)  <span class="hljs-comment"># 自定义字体</span>
 self.log_widget.setStyleSheet(<span class="hljs-string">&#x27;font: 14px Source Code Pro&#x27;</span>)  <span class="hljs-comment"># 设置某组件要使用的字体</span></code></pre></div>
             </div>
             <hr>
@@ -568,22 +568,27 @@ self.log_widget.setStyleSheet(<span class="hljs-string">&#x27;font: 14px Source 
   
   <!-- 备案信息 -->
   <div class="beian">
-    <a href="http://beian.miit.gov.cn/" target="_blank"
-       rel="nofollow noopener">蜀ICP备20011971号</a>
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        蜀ICP备20011971号
+      </a>
+    </span>
     
       
-        <a
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
-          rel="nofollow noopener"
-          class="beian-police"
-          target="_blank"
-        >
-          
-            <span style="visibility: hidden; width: 0">|</span>
-            <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
-          
-          <span>川公网安备51152402000143号</span>
-        </a>
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+            
+            <span>川公网安备51152402000143号</span>
+          </a>
+        </span>
       
     
   </div>
@@ -594,8 +599,8 @@ self.log_widget.setStyleSheet(<span class="hljs-string">&#x27;font: 14px Source 
 
 <!-- SCRIPTS -->
 
-  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":200})
@@ -641,6 +646,7 @@ self.log_widget.setStyleSheet(<span class="hljs-string">&#x27;font: 14px Source 
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
 
 
 

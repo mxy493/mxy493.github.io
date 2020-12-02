@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -268,13 +268,13 @@
 <p>1.下载并安装<a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a></p>
 <p>官网首页就有醒目的下载按钮，下载好后自选位置（尽量自己记着安装在哪儿）安装就行。</p>
 <p>安装后输入Win+R输入cmd打开控制台输入以下代码：</p>
-<div class="hljs"><pre><code class="hljs crmsh"><span class="hljs-keyword">node</span> <span class="hljs-title">-v</span>
+<div class="hljs code-wrapper"><pre><code class="hljs crmsh"><span class="hljs-keyword">node</span> <span class="hljs-title">-v</span>
 npm -v</code></pre></div>
 
 <p>如果安装没有问题的话，会返回安装的版本号。</p>
 <h3 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo</a>安装</h3><p>为了避免出现错误后面的操作都在Git Bash进行。</p>
 <p>首先新建一个存放Hexo文件的目录，自己找个位置就行，然后cd到该目录下，或者直接在该目录下鼠标右键点Git Bash Here就可以，开始安装</p>
-<div class="hljs"><pre><code class="hljs powershell"><span class="hljs-variable">$</span> <span class="hljs-built_in">cd</span> D:/mxy/Documents/Hexo <span class="hljs-comment">#换成自己新建的的目录，斜杠不能反了，是&#x27;/&#x27;，&#x27;\&#x27;这样不行</span>
+<div class="hljs code-wrapper"><pre><code class="hljs powershell"><span class="hljs-variable">$</span> <span class="hljs-built_in">cd</span> D:/mxy/Documents/Hexo <span class="hljs-comment">#换成自己新建的的目录，斜杠不能反了，是&#x27;/&#x27;，&#x27;\&#x27;这样不行</span>
 <span class="hljs-variable">$</span> npm install hexo<span class="hljs-literal">-cli</span> <span class="hljs-literal">-g</span> <span class="hljs-comment">#安装hexo脚手架，没啥说的，官网给的安装命令</span>
 <span class="hljs-variable">$</span> hexo init <span class="hljs-comment">#Hexo自动在当前文件夹下下载搭建网站所需的所有文件</span>
 <span class="hljs-variable">$</span> npm install <span class="hljs-comment">#安装依赖包</span>
@@ -289,16 +289,16 @@ npm -v</code></pre></div>
 <p>浏览器打开GitHub主页，右上角“+”新建仓库New repository，</p>
 <p>Repository name：<em>mxy493.github.io</em> 填入自己的仓库名称，<em>自己用户名.github.io</em>，最后自己的博客地址就是：<em>https://自己的用户名.github.io/</em></p>
 <h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h3><p>Git Bash中输入命令：邮件地址为注册GitHub时的邮箱</p>
-<div class="hljs"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>ssh-keygen -t rsa -C <span class="hljs-string">&quot;你的邮件地址&quot;</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>ssh-keygen -t rsa -C <span class="hljs-string">&quot;你的邮件地址&quot;</span></code></pre></div>
 
 <p>回车回车回车，会提示输入密码，输入即可（输入密码是看不到的），也可以不用输入，然后会确认输入一次，就可以在刚刚的路径看到生成了两个文件，一个是id_rsa，另一个是id_rsa.pub，用VS code或者别的软件打开id_rsa.pub然后选中里面的全部内容，复制下来。</p>
 <p>打开GitHub，右上角点击自己的头像，选择settings，左侧选择SSH and GPG keys，然后New SSH key，Title随意把复制的内容粘贴到下面的Key的框里面，最后点击Add SSH key完事。</p>
 <h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><p>打开D:\mxy\Documents\Hexo\mxy，用VS code（或者别的可以编辑的软件都可以）打开_config.yml文件，文件最后可以看到</p>
-<div class="hljs"><pre><code class="hljs dts"><span class="hljs-symbol">deploy:</span>
+<div class="hljs code-wrapper"><pre><code class="hljs dts"><span class="hljs-symbol">deploy:</span>
 <span class="hljs-symbol">  type:</span></code></pre></div>
 
 <p>修改（注意要换上自己的链接）</p>
-<div class="hljs"><pre><code class="hljs less"><span class="hljs-attribute">deploy</span>:
+<div class="hljs code-wrapper"><pre><code class="hljs less"><span class="hljs-attribute">deploy</span>:
   <span class="hljs-attribute">type</span>: git
   <span class="hljs-attribute">repository</span>: git<span class="hljs-variable">@github</span>.<span class="hljs-attribute">com</span>:mxy493/mxy493.github.io.git  #这里换成自己的地址
   <span class="hljs-attribute">branch</span>: master</code></pre></div>
@@ -306,17 +306,17 @@ npm -v</code></pre></div>
 <p>不清楚自己的地址可以到GitHub上面看，右上角头像-&gt;Your Rrepositories，找到自己建的代码仓库打开</p>
 <p>修改完成保存！</p>
 <p>继续在Git Bash中输入以下命令：</p>
-<div class="hljs"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>hexo d <span class="hljs-comment">#完整命令为hexo deploy，将本地文件发布到page服务平台上</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>hexo d <span class="hljs-comment">#完整命令为hexo deploy，将本地文件发布到page服务平台上</span></code></pre></div>
 
 <p>如果遇到异常：</p>
-<div class="hljs"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>hexo clean &amp;&amp; hexo g
+<div class="hljs code-wrapper"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>hexo clean &amp;&amp; hexo g
 <span class="hljs-variable">$ </span>hexo d</code></pre></div>
 
 <p>如果出现以下异常</p>
-<div class="hljs"><pre><code class="hljs subunit"><span class="hljs-keyword">ERROR </span>Deployer not found: git</code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs subunit"><span class="hljs-keyword">ERROR </span>Deployer not found: git</code></pre></div>
 
 <p>尝试输入以下命令，然后重新执行刚刚的两条命令</p>
-<div class="hljs"><pre><code class="hljs sql">$ npm <span class="hljs-keyword">install</span> hexo-deployer-git <span class="hljs-comment">--save</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs sql">$ npm <span class="hljs-keyword">install</span> hexo-deployer-git <span class="hljs-comment">--save</span></code></pre></div>
 
 <p>这时候如果弹出一个对话框，输入在GitHub上面的用户名和密码即可</p>
 <p>现在，博客就已经发布到网上了，可以通过地址https://自己的用户名.github.io/访问</p>
@@ -464,22 +464,27 @@ npm -v</code></pre></div>
   
   <!-- 备案信息 -->
   <div class="beian">
-    <a href="http://beian.miit.gov.cn/" target="_blank"
-       rel="nofollow noopener">蜀ICP备20011971号</a>
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        蜀ICP备20011971号
+      </a>
+    </span>
     
       
-        <a
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
-          rel="nofollow noopener"
-          class="beian-police"
-          target="_blank"
-        >
-          
-            <span style="visibility: hidden; width: 0">|</span>
-            <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
-          
-          <span>川公网安备51152402000143号</span>
-        </a>
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+            
+            <span>川公网安备51152402000143号</span>
+          </a>
+        </span>
       
     
   </div>
@@ -490,8 +495,8 @@ npm -v</code></pre></div>
 
 <!-- SCRIPTS -->
 
-  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":200})
@@ -537,6 +542,7 @@ npm -v</code></pre></div>
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
 
 
 

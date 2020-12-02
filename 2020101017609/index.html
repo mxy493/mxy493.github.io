@@ -55,7 +55,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -292,7 +292,7 @@
 <p>首先需要注意的是，使用这个规则集必须<strong>确保使用 Clash for Windows 0.12.1 或以上版本</strong>，是的，涉及到了新添加的功能，前面我也说到了建议用最新版本，因为 Clash 核心以及应用软件都在频繁的更新中。</p>
 <p>具体在 Windows 上的配置步骤基本参考说明文档没问题，简单说就是在软件的配置文件中添加 <code>rule-providers</code> 和 <code>rules</code> 。</p>
 <p>软件的配置文件可以在常规设置中找到 General YAML ，点击右侧的 Text Mode Edit 进行编辑，未经修改的默认内容大致如下：</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">mixed-port:</span> <span class="hljs-number">7890</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">mixed-port:</span> <span class="hljs-number">7890</span>
 <span class="hljs-attr">allow-lan:</span> <span class="hljs-literal">false</span>
 <span class="hljs-attr">log-level:</span> <span class="hljs-string">info</span>
 <span class="hljs-attr">external-controller:</span> <span class="hljs-string">&#x27;127.0.0.1:9090&#x27;</span>
@@ -321,7 +321,7 @@
 <li>默认配置中没有 <code>PROXY</code> 项，说明文档中让自行在 <code>proxies</code> 或 <code>proxy-groups</code> 中配置一个 <code>name</code> 为 <code>PROXY</code> 的 policy ，其实我不太懂怎么配置，考虑到默认的 <code>Proxy</code> 项并没有使用，所以我的解决办法就是直接把原有的 <code>Proxy</code> 修改为 <code>PROXY</code> 即可。</li>
 </ol>
 <p>最终的配置文件将会是这样的：</p>
-<div class="hljs"><pre><code class="hljs yaml"><span class="hljs-attr">mixed-port:</span> <span class="hljs-number">7890</span>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">mixed-port:</span> <span class="hljs-number">7890</span>
 <span class="hljs-attr">allow-lan:</span> <span class="hljs-literal">false</span>
 <span class="hljs-attr">log-level:</span> <span class="hljs-string">info</span>
 <span class="hljs-attr">external-controller:</span> <span class="hljs-string">&#x27;127.0.0.1:9090&#x27;</span>
@@ -543,22 +543,27 @@
   
   <!-- 备案信息 -->
   <div class="beian">
-    <a href="http://beian.miit.gov.cn/" target="_blank"
-       rel="nofollow noopener">蜀ICP备20011971号</a>
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        蜀ICP备20011971号
+      </a>
+    </span>
     
       
-        <a
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
-          rel="nofollow noopener"
-          class="beian-police"
-          target="_blank"
-        >
-          
-            <span style="visibility: hidden; width: 0">|</span>
-            <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
-          
-          <span>川公网安备51152402000143号</span>
-        </a>
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51152402000143"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+            
+            <span>川公网安备51152402000143号</span>
+          </a>
+        </span>
       
     
   </div>
@@ -569,8 +574,8 @@
 
 <!-- SCRIPTS -->
 
-  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":200})
@@ -616,6 +621,7 @@
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
 
 
 
