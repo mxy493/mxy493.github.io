@@ -17,7 +17,7 @@
   <meta name="description" content="mxy&#39;s 个人博客ᓚᘏᗢ">
   <meta name="author" content="mxy">
   <meta name="keywords" content="">
-  <title>我的 Python 笔记 - mxy</title>
+  <title>使用Qt for Python实现加载动画 - mxy</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -174,7 +174,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="我的 Python 笔记">
+            <span class="h2" id="subtitle" title="使用Qt for Python实现加载动画">
               
             </span>
 
@@ -184,8 +184,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-11-16 14:16" pubdate>
-        2020年11月16日 下午
+      <time datetime="2020-12-03 17:06" pubdate>
+        2020年12月3日 下午
       </time>
     </span>
   
@@ -196,7 +196,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      961 字
+      833 字
     </span>
   
 
@@ -206,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12
+      11
        分钟
     </span>
   
@@ -244,121 +244,122 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">我的 Python 笔记</h1>
+            <h1 style="display: none">使用Qt for Python实现加载动画</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年11月19日 上午
+                  本文最后更新于：2020年12月3日 下午
                 
               </p>
             
             <div class="markdown-body">
-              <p>一些实际开发中总结的 Python 经验~</p>
-<h1 id="获取字典的值"><a href="#获取字典的值" class="headerlink" title="获取字典的值"></a>获取字典的值</h1><div class="hljs code-wrapper"><pre><code class="hljs python">d = &#123;<span class="hljs-string">&#x27;a&#x27;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;b&#x27;</span>: <span class="hljs-number">2</span>&#125;</code></pre></div>
+              <h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>之前用 Qt 做程序界面的时候，有一个小问题就是有的操作可能比较耗时，比如说点击一个按钮，程序需要一段时间来处理，然后这时候界面也卡住不能操作了，需要等待处理完成，我自己也是使用软件的，很显然这样用户体验极差。很常见的做法就是添加一个加载动画，加载完之后再自动关闭加载动画，体验就一下子上来了🤪</p>
+<p>不过说归说，这事情却一直没有做，今天恰好有时间就查资料，把这事给解决了~</p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>首先还是简要说下思路。在开始做之前，甚至开始查资料之前，我理想的状态就是这个动画应该独立于窗口之外，背景应该是透明的，应该有显示动画和关闭动画的接口。</p>
+<p>第一点，独立于窗口之外，很容易想到动画应该放到一个单独的窗口中，比如用单独的 QWidget 放动画，这样就可以在需要的时候将这个窗口弹出或关闭。</p>
+<p>第二点，也是比较关键的一点，背景应该透明。默认的窗口首先背景就不是透明的，并且还有标题栏，必须要去掉或者隐藏掉标题栏，透明背景应该有接口可以很容易实现。</p>
+<p>以上是想法，实际上确实也很容易，上述两点的核心代码就是这样：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python">self.setAttribute(Qt.WA_TranslucentBackground)  <span class="hljs-comment"># 透明效果</span>
+self.setWindowFlags(Qt.FramelessWindowHint | Qt.BypassWindowManagerHint | Qt.Tool | Qt.WindowStaysOnTopHint)  <span class="hljs-comment"># 无边框, 随主窗口关闭, 置顶</span></code></pre></div>
 
-<p>一般我们会直接用 <code>d[&#39;a&#39;]</code> 获取字典的值，但是如果不小心写了 <code>d[&#39;c&#39;]</code> ，字典中并没有 <code>&#39;c&#39;</code> 的键，就会报错。</p>
-<p>更好的方法是使用 <code>get()</code> 方法~</p>
-<div class="hljs code-wrapper"><pre><code class="hljs python">a = d.get(<span class="hljs-string">&#x27;a&#x27;</span>)  <span class="hljs-comment"># a = 1</span>
-c = d.get(<span class="hljs-string">&#x27;c&#x27;</span>)  <span class="hljs-comment"># 不存在键&#x27;c&#x27;, c = None</span>
-d = d.get(<span class="hljs-string">&#x27;d&#x27;</span>, <span class="hljs-number">0</span>)  <span class="hljs-comment"># 不存在键&#x27;d&#x27;, d = 0, 第二个参数为当键不存在的时候的默认返回值</span></code></pre></div>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>最后留一个演示代码~</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding: utf-8 -*-</span>
 
-<h1 id="读、写或删除文件、文件夹"><a href="#读、写或删除文件、文件夹" class="headerlink" title="读、写或删除文件、文件夹"></a>读、写或删除文件、文件夹</h1><p>读、写或删除文件、文件夹前先判断其是否存在！</p>
-<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os
+<span class="hljs-string">&quot;&quot;&quot;</span>
+<span class="hljs-string">Author: mxy</span>
+<span class="hljs-string">Email: mxy493@qq.com</span>
+<span class="hljs-string">Date: 2020/12/3</span>
+<span class="hljs-string">Desc: Qt实现圆形加载动画</span>
+<span class="hljs-string">&quot;&quot;&quot;</span>
 
-p = <span class="hljs-string">&#x27;test.txt&#x27;</span>
-<span class="hljs-keyword">if</span> os.path.exist(p):
-	os.remove(p)  <span class="hljs-comment"># 删除该文件</span></code></pre></div>
+<span class="hljs-keyword">import</span> sys
 
-<p><code>os.path</code> 官方文档：<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.8/library/os.path.html">https://docs.python.org/zh-cn/3.8/library/os.path.html</a></p>
-<p>几个常用的接口：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># os库</span>
-os.path.exist(p)  <span class="hljs-comment"># 判断文件或文件夹p是否存在</span>
-os.path.isfile(p)  <span class="hljs-comment"># p是文件?</span>
-os.path.isdir(p)  <span class="hljs-comment"># p是文件夹?</span>
-os.path.abspath(p)  <span class="hljs-comment"># 将相对路径p转为绝对路径</span>
+<span class="hljs-keyword">from</span> PySide2.QtCore <span class="hljs-keyword">import</span> QTimer
+<span class="hljs-keyword">from</span> PySide2.QtGui <span class="hljs-keyword">import</span> QColor, QPainter, Qt
+<span class="hljs-keyword">from</span> PySide2.QtWidgets <span class="hljs-keyword">import</span> QMainWindow, QApplication, QPushButton, QWidget, QVBoxLayout
 
-os.remove(p)  <span class="hljs-comment"># 删除文件p, 不能用于删除文件夹</span>
-os.rmdir(p)  <span class="hljs-comment"># 删除文件夹p, 文件夹必须为空</span>
 
-<span class="hljs-comment"># shutil库</span>
-shutil.rmtree(p)  <span class="hljs-comment"># p为文件夹，递归地删除p及其内部所有文件</span></code></pre></div>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CircleLoadingAnimation</span>(<span class="hljs-params">QWidget</span>):</span>
+    <span class="hljs-string">&quot;&quot;&quot;加载动画</span>
+<span class="hljs-string">    progress = CircleProgressBar(600)</span>
+<span class="hljs-string">    progress.start()  # 开始显示加载动画</span>
+<span class="hljs-string">    # do something ...</span>
+<span class="hljs-string">    progress.stop()  # 停止显示</span>
+<span class="hljs-string">    &quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self, size=<span class="hljs-number">100</span>, color=QColor(<span class="hljs-params"><span class="hljs-number">24</span>, <span class="hljs-number">189</span>, <span class="hljs-number">155</span></span>), clockwise=<span class="hljs-literal">True</span></span>):</span>
+        <span class="hljs-built_in">super</span>().__init__()
+        self.setAttribute(Qt.WA_TranslucentBackground)  <span class="hljs-comment"># 透明效果</span>
+        self.setWindowFlags(Qt.FramelessWindowHint  <span class="hljs-comment"># 无边框</span>
+                            | Qt.BypassWindowManagerHint
+                            | Qt.Tool  <span class="hljs-comment"># 随父窗口关闭</span>
+                            | Qt.WindowStaysOnTopHint)  <span class="hljs-comment"># 置顶</span>
+        self.setFixedSize(size, size)
 
-<h1 id="尽量处理可能发生的异常"><a href="#尽量处理可能发生的异常" class="headerlink" title="尽量处理可能发生的异常"></a>尽量处理可能发生的异常</h1><p>处理异常当然是应该的，否则一旦程序运行中出现异常就会导致程序无法继续运行~</p>
-<p>几点经验：</p>
-<ul>
-<li>尽量用 <code>if</code> 判断替代异常处理。尽可能避免异常的出现；</li>
-<li>尽可能小范围的捕获异常。尽量避免使用 <code>BaseException</code> ；</li>
-<li>如果捕获了异常，建议将错误信息打印出来方便调试。</li>
-</ul>
-<h1 id="重试机制"><a href="#重试机制" class="headerlink" title="重试机制"></a>重试机制</h1><div class="hljs code-wrapper"><pre><code class="hljs python">times = <span class="hljs-number">3</span>
-<span class="hljs-keyword">while</span> times &gt; <span class="hljs-number">0</span>:
-    <span class="hljs-comment"># do something</span>
-    times -= <span class="hljs-number">1</span></code></pre></div>
+        self.angle = <span class="hljs-number">0</span>
+        self.clockwise = clockwise  <span class="hljs-comment"># 顺时针方向</span>
+        self.Color = color  <span class="hljs-comment"># 圆圈颜色</span>
 
-<h1 id="超时机制"><a href="#超时机制" class="headerlink" title="超时机制"></a>超时机制</h1><p>超时处理应该是比较常用的一种逻辑，比如重试机制。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs python">t = time.time()
-<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
-    <span class="hljs-comment"># do something</span>
-    <span class="hljs-keyword">if</span> time.time() - t &gt; <span class="hljs-number">3</span>:
-        <span class="hljs-keyword">break</span>  <span class="hljs-comment"># 超时3s则跳出循环</span></code></pre></div>
+        self.delta = <span class="hljs-number">36</span>
+        self._timer = QTimer(self, timeout=self.update)  <span class="hljs-comment"># 计时器，定时刷新界面</span>
 
-<h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span>:</span>
-    _instance = <span class="hljs-literal">None</span>  <span class="hljs-comment"># 唯一实例</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start</span>(<span class="hljs-params">self</span>):</span>
+        self._timer.start(<span class="hljs-number">100</span>)  <span class="hljs-comment"># 0.1s更新刷新一次界面</span>
+        self.show()  <span class="hljs-comment"># 显示动画窗口</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__new__</span>(<span class="hljs-params">cls, *args, **kw</span>):</span>
-        <span class="hljs-keyword">if</span> cls._instance <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:
-            cls._instance = <span class="hljs-built_in">object</span>.__new__(cls)
-        <span class="hljs-keyword">return</span> cls._instance</code></pre></div>
-
-<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><p>Python 中多线程一般使用 <code>threading</code> 库，官方文档：<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/threading.html%E3%80%82">https://docs.python.org/zh-cn/3/library/threading.html。</a></p>
-<p>具体使用方法就不细说了，这里主要说一下用装饰器来封装一个多线程方法，如下，然后后续任何需要多线程执行的方法都只需要在定义前加上 <code>@thread_runner</code> 即可，非常方便~</p>
-<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">thread_runner</span>(<span class="hljs-params">func</span>):</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span>(<span class="hljs-params">*args, **kw</span>):</span>
-        threading.Thread(target=func, args=args, kwargs=kw).start()
-    <span class="hljs-keyword">return</span> wrapper</code></pre></div>
-
-<p>使用：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-meta">@thread_runner</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">new_thread</span>():</span>
-    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
-        <span class="hljs-comment"># do something</span></code></pre></div>
-
-<h1 id="线程之间的通信"><a href="#线程之间的通信" class="headerlink" title="线程之间的通信"></a>线程之间的通信</h1><p>在 Python 中多线程之间的通信我了解并使用了两种~</p>
-<ul>
-<li><p>使用线程安全的队列类 <code>queue</code></p>
-<p>以较常用的先进先出队列类 <code>queue.Queue</code> 为例，只要在作用于范围内，不同线程之间都可以正常的入队和出队。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> queue
-pipe = queue.Queue()  <span class="hljs-comment"># 先进先出的队列</span>
-pipe.push(obj)  <span class="hljs-comment"># 将obj存到队列尾</span>
-pipe.get()  <span class="hljs-comment"># 获取队列首部的对象</span></code></pre></div>
-</li>
-<li><p>在类的某个线程方法中使用类的属性</p>
-<p>我常使用此方法来终止线程~</p>
-<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyThread</span>:</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>():</span>
-        self.run = <span class="hljs-literal">False</span>
-    
-<span class="hljs-meta">    @thread_runner</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run_thread</span>(<span class="hljs-params">self</span>):</span>
-        self.run = <span class="hljs-literal">True</span>
-        <span class="hljs-keyword">while</span> self.run:
-            <span class="hljs-comment"># do something</span>
-    
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">stop</span>(<span class="hljs-params">self</span>):</span>
-        self.run = <span class="hljs-literal">False</span>
+        self._timer.stop()  <span class="hljs-comment"># 停止计时器</span>
+        self.close()  <span class="hljs-comment"># 关闭动画窗口</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">paintEvent</span>(<span class="hljs-params">self, event</span>):</span>
+        qp = QPainter(self)
+        qp.setRenderHint(QPainter.Antialiasing)
+        qp.translate(self.width() / <span class="hljs-number">2</span>, self.height() / <span class="hljs-number">2</span>)
+        side = <span class="hljs-built_in">min</span>(self.width(), self.height())
+        qp.scale(side / <span class="hljs-number">100.0</span>, side / <span class="hljs-number">100.0</span>)
+        qp.rotate(self.angle)
+        qp.save()
+        qp.setPen(Qt.NoPen)
+        color = self.Color.toRgb()
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">11</span>):
+            color.setAlphaF(<span class="hljs-number">1.0</span> * i / <span class="hljs-number">10</span>)
+            qp.setBrush(color)
+            qp.drawEllipse(<span class="hljs-number">30</span>, <span class="hljs-number">-10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">20</span>)
+            qp.rotate(<span class="hljs-number">36</span>)
+        qp.restore()
+        self.angle += self.delta <span class="hljs-keyword">if</span> self.clockwise <span class="hljs-keyword">else</span> -self.delta
+        self.angle %= <span class="hljs-number">360</span>
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainWindow</span>(<span class="hljs-params">QMainWindow</span>):</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self</span>):</span>
+        <span class="hljs-built_in">super</span>().__init__()
+        self.setWindowTitle(<span class="hljs-string">&#x27;加载动画Demo&#x27;</span>)
+        self.setFixedSize(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>)
+
+        self.progress = CircleLoadingAnimation()  <span class="hljs-comment"># 实例化一个加载动画</span>
+
+        self.btn = QPushButton(<span class="hljs-string">&#x27;开始/结束 显示加载动画&#x27;</span>)
+        self.btn.clicked.connect(self.show_animation)
+        vbox = QVBoxLayout()
+        vbox.addWidget(self.btn)
+        widget = QWidget()
+        widget.setLayout(vbox)
+        self.setCentralWidget(widget)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">show_animation</span>(<span class="hljs-params">self</span>):</span>
+        <span class="hljs-keyword">if</span> self.progress.isVisible():
+            self.progress.stop()
+        <span class="hljs-keyword">else</span>:
+            self.progress.start()
 
 
 <span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:
-    thread = MyThread()
-    thread.run_thread()  <span class="hljs-comment"># 启动线程</span>
-    <span class="hljs-comment"># do something</span>
-    thread.stop()  <span class="hljs-comment"># 停止线程</span></code></pre></div>
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    sys.exit(app.exec_())</code></pre></div>
 
-</li>
-</ul>
-<h1 id="字符串格式化"><a href="#字符串格式化" class="headerlink" title="字符串格式化"></a>字符串格式化</h1><p>字符串拼接的方法很多，比如说使用 <code>+</code> 运算符，或者使用 <code>format(value[, format_spec])</code> 函数，但我个人认为最方便好用的是 <code>f-string</code> ，只需要在普通字符串前加一个 <code>f</code> ，在需要插入变量值的地方用大括号 <code>&#123;&#125;</code> 包裹变量即可，甚至都不需要使用 <code>str()</code> 将变量转为字符串。示例：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs python">d = <span class="hljs-number">3.14</span>
-string = <span class="hljs-string">f&#x27;PI is approximately equal to <span class="hljs-subst">&#123;d&#125;</span>.&#x27;</span></code></pre></div>
+<h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><p><img src="demo.gif" srcset="/img/loading.gif" alt="demo.gif"></p>
 
             </div>
             <hr>
@@ -368,7 +369,7 @@ string = <span class="hljs-string">f&#x27;PI is approximately equal to <span cla
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Python/">Python</a>
+                      <a class="hover-with-bg" href="/categories/Qt/">Qt</a>
                     
                   </div>
                 
@@ -377,6 +378,8 @@ string = <span class="hljs-string">f&#x27;PI is approximately equal to <span cla
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Qt/">Qt</a>
                     
                   </div>
                 
@@ -389,18 +392,12 @@ string = <span class="hljs-string">f&#x27;PI is approximately equal to <span cla
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020120331732/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">使用Qt for Python实现加载动画</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020111210053/">
-                        <span class="hidden-mobile">我的 Qt for Python 笔记</span>
+                      <a href="/2020111660580/">
+                        <span class="hidden-mobile">我的 Python 笔记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
