@@ -55,11 +55,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 
 <body>
@@ -168,7 +168,7 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/xqmy.webp') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
@@ -236,11 +236,11 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
@@ -260,19 +260,16 @@
 <p>如果某个 <strong>连续</strong> 子数组中恰好有 <code>k</code> 个奇数数字，我们就认为这个子数组是「<strong>优美子数组</strong>」。</p>
 <p>请返回这个数组中「优美子数组」的数目。</p>
 <p><strong>示例 1：</strong></p>
-<div class="hljs code-wrapper"><pre><code class="hljs angelscript">输入：nums = [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>], k = <span class="hljs-number">3</span>
+<div class="hljs code-wrapper"><pre><code class="hljs dns">输入：nums = [<span class="hljs-number">1,1,2,1</span>,<span class="hljs-number">1</span>], k = <span class="hljs-number">3</span>
 输出：<span class="hljs-number">2</span>
-解释：包含 <span class="hljs-number">3</span> 个奇数的子数组是 [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>] 和 [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>] 。</code></pre></div>
-
+解释：包含 <span class="hljs-number">3</span> 个奇数的子数组是 [<span class="hljs-number">1,1,2,1</span>] 和 [<span class="hljs-number">1,2,1,1</span>] 。</code></pre></div>
 <p><strong>示例 2：</strong></p>
-<div class="hljs code-wrapper"><pre><code class="hljs angelscript">输入：nums = [<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>], k = <span class="hljs-number">1</span>
+<div class="hljs code-wrapper"><pre><code class="hljs nix">输入：<span class="hljs-attr">nums</span> = [<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>], <span class="hljs-attr">k</span> = <span class="hljs-number">1</span>
 输出：<span class="hljs-number">0</span>
 解释：数列中不包含任何奇数，所以不存在优美子数组。</code></pre></div>
-
 <p><strong>示例 3：</strong></p>
-<div class="hljs code-wrapper"><pre><code class="hljs angelscript">输入：nums = [<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>], k = <span class="hljs-number">2</span>
+<div class="hljs code-wrapper"><pre><code class="hljs dns">输入：nums = [<span class="hljs-number">2,2,2,1</span>,<span class="hljs-number">2,2,1,2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>], k = <span class="hljs-number">2</span>
 输出：<span class="hljs-number">16</span></code></pre></div>
-
 <p><strong>提示：</strong></p>
 <ul>
 <li><code>1 &lt;= nums.length &lt;= 50000</code></li>
@@ -281,19 +278,18 @@
 </ul>
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先，这个题是需要找规律的，要怎么怎么去计算优美子数组的个数，不然就算是暴力解那也没法下手。</p>
 <p>这个题 读懂题就很重要，通过题目给出的三个示例，以<strong>示例3</strong>为例，题目要求是“<strong>恰有</strong>” <code>k</code> 个奇数数字的“<strong>连续</strong>”子数组，所以在示例3种，要找的是恰有 2 个连续奇数数字的连续子数组，而示例3种仅有 2 个奇数数字，显然必须要有 <code>1,2,2,1</code> 这部分。剩下可能的组合仅与左右两侧的偶数个数有关，简要列举可能的几个情况如下：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs angelscript"><span class="hljs-comment">//左侧共有连续的3个偶数，可能的情况有4种</span>
+<div class="hljs code-wrapper"><pre><code class="hljs awk"><span class="hljs-regexp">//</span>左侧共有连续的<span class="hljs-number">3</span>个偶数，可能的情况有<span class="hljs-number">4</span>种
 
-<span class="hljs-comment">//左侧没有更多的偶数（为数组边界或相邻位置是奇数）</span>
+<span class="hljs-regexp">//</span>左侧没有更多的偶数（为数组边界或相邻位置是奇数）
 <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>
-<span class="hljs-comment">//左侧有1个偶数</span>
+<span class="hljs-regexp">//</span>左侧有<span class="hljs-number">1</span>个偶数
 <span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>
-<span class="hljs-comment">//左侧有2个偶数</span>
+<span class="hljs-regexp">//</span>左侧有<span class="hljs-number">2</span>个偶数
 <span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>
 左侧有<span class="hljs-number">3</span>个偶数
 <span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>
 
-<span class="hljs-comment">//右侧同理</span></code></pre></div>
-
+<span class="hljs-regexp">//</span>右侧同理</code></pre></div>
 <p>可以看出，左侧或者右侧有 <code>m</code> 个偶数，就有 <code>m + 1</code> 种可能的情况。如果左侧有 <code>a</code> 种可能的情况，右侧有 <code>b</code> 种可能的情况，则共有 <code>a * b</code> 种情况。</p>
 <p>由此，我们只需要遍历所有可能的连续 <code>k</code> 个奇数的情况，分别计数左右两侧偶数的个数并计算可能的组合情况，加到总的优美子数组的个数 <code>ans</code> 中即可。于是我想到了用双指针的办法解题，这就是一个快慢指针的题目，只不过对指针的修改情况稍微复杂一些。只考虑奇数，快指针找到第 k 个奇数，慢指针才开始找第一个奇数，也就是慢指针到快指针之间始终保持 <code>k</code> 个奇数，在遍历的过程中同时就计数偶数数字的个数，避免了重复遍历。剩下的工作就是计算优美子数组个数以及正确的修改指针。</p>
 <p>另外，其实可以知道如果数组中的奇数个数小于 <code>k</code> ，是不可能有满足条件的情况的，也就说可以直接返回 <code>0</code> 。但在我的代码中，仅当找到 <code>k</code> 个奇数，才可能进行进一步的计算，所以如果找不到 <code>k</code> 个奇数，则返回初始值 <code>0</code> 。</p>
@@ -362,7 +358,7 @@
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
                     
@@ -511,11 +507,8 @@
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
     NProgress.start()
-    document.addEventListener('DOMContentLoaded', function() {
-      window.NProgress && window.NProgress.inc();
-    })
     window.addEventListener('load', function() {
       NProgress.done();
     })

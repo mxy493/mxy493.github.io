@@ -39,11 +39,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 
 <body>
@@ -152,7 +152,7 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/xqmy.webp') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
@@ -177,7 +177,7 @@
 
   <main>
     
-      <div class="container nopadding-md">
+      <div class="container nopadding-x-md">
         <div class="py-5" id="board"
           style=margin-top:0>
           
@@ -440,9 +440,8 @@
 输出: 6
 解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
 
-
 进阶:
-如果你已经实现复杂度为 O(
+如果你已经实现复杂度为 O(n
         </a>
       </p>
 
@@ -557,9 +556,8 @@
 示例 1:
 输入: a = &quot;11&quot;, b = &quot;1&quot;
 输出: &quot;100&quot;
-
 示例 2:
-输入: a = &quot;1010&quot;
+输入: a = &quot;1010&quot;,
         </a>
       </p>
 
@@ -618,11 +616,10 @@
 示例 1:
 输入: 4
 输出: 2
-
 示例 2:
 输入: 8
 输出: 2
-说明: 8 的平方根是 2.82842...，由于返回类型是整数，小数部分
+说明: 8 的平方根是 2.82842...，由于返回类型是整数，小数部分将
         </a>
       </p>
 
@@ -684,13 +681,13 @@
 解释：有两种方法可以爬到楼顶。
 1. 1 阶 + 1 阶
 2. 1 阶
-
 示例 2：
 输入：3
 输出：3
 解释：有三种方法可以爬到楼顶。
 1. 1 阶 + 1 阶 + 1 阶
 2. 1 阶 + 2 阶
+
         </a>
       </p>
 
@@ -907,11 +904,8 @@
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
     NProgress.start()
-    document.addEventListener('DOMContentLoaded', function() {
-      window.NProgress && window.NProgress.inc();
-    })
     window.addEventListener('load', function() {
       NProgress.done();
     })

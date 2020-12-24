@@ -55,11 +55,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 
 <body>
@@ -168,7 +168,7 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/xqmy.webp') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
@@ -236,11 +236,11 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
@@ -277,7 +277,6 @@
     <span class="hljs-attr">age:</span> <span class="hljs-number">15</span>
   <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Jenny</span> <span class="hljs-string">Smith</span>
     <span class="hljs-attr">age:</span> <span class="hljs-number">12</span></code></pre></div>
-
 <p>John Smith今年37岁，有一个幸福的四口之家。两个孩子Jimmy 和Jenny活泼可爱。妻子Jane年轻美貌。</p>
 <p>可见YAML的可读性是不错。</p>
 <p><strong>列表</strong>中的所有成员都开始于相同的缩进级别, 并且使用一个 <code>&quot;- &quot;</code> 作为开头(一个横杠和一个空格):</p>
@@ -287,19 +286,16 @@
 <span class="hljs-bullet">-</span> <span class="hljs-string">Orange</span>
 <span class="hljs-bullet">-</span> <span class="hljs-string">Strawberry</span>
 <span class="hljs-bullet">-</span> <span class="hljs-string">Mango</span></code></pre></div>
-
 <p>一个<strong>字典</strong>是由一个简单的 <code>键: 值</code> 的形式组成(这个冒号后面必须是一个空格)：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
 <span class="hljs-comment"># 一位职工的记录</span>
 <span class="hljs-attr">name:</span> <span class="hljs-string">Example</span> <span class="hljs-string">Developer</span>
 <span class="hljs-attr">job:</span> <span class="hljs-string">Developer</span>
 <span class="hljs-attr">skill:</span> <span class="hljs-string">Elite</span></code></pre></div>
-
 <p>字典也可以使用缩进形式来表示, 如果你喜欢这样的话：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
 <span class="hljs-comment"># 一位职工的记录</span>
 &#123;<span class="hljs-attr">name:</span> <span class="hljs-string">Example</span> <span class="hljs-string">Developer</span>, <span class="hljs-attr">job:</span> <span class="hljs-string">Developer</span>, <span class="hljs-attr">skill:</span> <span class="hljs-string">Elite</span>&#125;</code></pre></div>
-
 <p>可以通过以下格式来指定一个<strong>布尔值</strong>(true/fase)：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
 <span class="hljs-attr">create_key:</span> <span class="hljs-literal">yes</span>
@@ -307,7 +303,6 @@
 <span class="hljs-attr">knows_oop:</span> <span class="hljs-literal">True</span>
 <span class="hljs-attr">likes_emacs:</span> <span class="hljs-literal">TRUE</span>
 <span class="hljs-attr">uses_cvs:</span> <span class="hljs-literal">false</span></code></pre></div>
-
 <p>综合以上信息：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
 <span class="hljs-comment"># 一位职工记录</span>
@@ -324,17 +319,13 @@
     <span class="hljs-attr">ruby:</span> <span class="hljs-string">Elite</span>
     <span class="hljs-attr">python:</span> <span class="hljs-string">Elite</span>
     <span class="hljs-attr">dotnet:</span> <span class="hljs-string">Lame</span></code></pre></div>
-
 <p>尽管 YAML 通常是友好的, 但是下面将会导致一个 YAML 语法错误:</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">foo: somebody said I should put a colon here:</span> <span class="hljs-string">so</span> <span class="hljs-string">I</span> <span class="hljs-string">did</span></code></pre></div>
-
 <p>你需要使用引号来包裹任何包含冒号的哈希值, 像这样:</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">foo:</span> <span class="hljs-string">&quot;somebody said I should put a colon here: so I did&quot;</span></code></pre></div>
-
 <p>然后这个冒号将会被结尾.</p>
 <p>此外, Ansible 使用 “” 来引用变量. 如果一个值以 “{” 开头, YAML 将认为它是一个字典, 所以我们必须引用它, 像这样:</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">foo:</span> <span class="hljs-string">&quot;<span class="hljs-template-variable">&#123;&#123; variable &#125;&#125;</span>&quot;</span></code></pre></div>
-
 <h3 id="三种数据结构"><a href="#三种数据结构" class="headerlink" title="三种数据结构"></a>三种数据结构</h3><ol>
 <li>对象：键值对的集合，又称为映射（mapping）/ 哈希（hashes） / 字典（dictionary）</li>
 <li>数组：一组按次序排列的值，又称为序列（sequence） / 列表（list）</li>
@@ -342,21 +333,17 @@
 </ol>
 <h4 id="1-对象"><a href="#1-对象" class="headerlink" title="1. 对象"></a>1. 对象</h4><p>对象的一组键值对，使用冒号结构表示</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">animal:</span> <span class="hljs-string">pets</span></code></pre></div>
-
 <p> Yaml 也允许另一种写法，将所有键值对写成一个行内对象</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">hash:</span> &#123; <span class="hljs-attr">name:</span> <span class="hljs-string">Steve</span>, <span class="hljs-attr">foo:</span> <span class="hljs-string">bar</span> &#125;</code></pre></div>
-
 <h4 id="2-数组"><a href="#2-数组" class="headerlink" title="2.数组"></a>2.数组</h4><p>一组连词线开头的行，构成一个数组</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-string">Cat</span>
 <span class="hljs-bullet">-</span> <span class="hljs-string">Dog</span>
 <span class="hljs-bullet">-</span> <span class="hljs-string">Goldfish</span></code></pre></div>
-
 <p>数据结构的子成员是一个数组，则可以在该项下面缩进一个空格。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> 
  <span class="hljs-bullet">-</span> <span class="hljs-string">Cat</span>
  <span class="hljs-bullet">-</span> <span class="hljs-string">Dog</span>
  <span class="hljs-bullet">-</span> <span class="hljs-string">Goldfish</span></code></pre></div>
-
 
 <p> 数组也可以采用行内表示法。</p>
 <p>animal: [Cat, Dog]</p>
@@ -370,7 +357,6 @@
    <span class="hljs-attr">Ruby:</span> <span class="hljs-string">ruby-lang.org</span>
    <span class="hljs-attr">Python:</span> <span class="hljs-string">python.org</span>
    <span class="hljs-attr">Perl:</span> <span class="hljs-string">use.perl.org</span></code></pre></div>
-
 <h4 id="4-纯量"><a href="#4-纯量" class="headerlink" title="4. 纯量"></a>4. 纯量</h4><p>纯量是最基本的、不可再分的值。</p>
 <ul>
 <li>字符串</li>
@@ -383,43 +369,32 @@
 </ul>
 <p>数值直接以字面量的形式表示。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">number:</span> <span class="hljs-number">12.30</span></code></pre></div>
-
 <p>{ number: 12.30 }<br> 布尔值用true和false表示。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">isSet:</span> <span class="hljs-literal">true</span></code></pre></div>
 
-
 <p> null用~表示。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">parent:</span> <span class="hljs-string">~</span></code></pre></div>
-
 <p> 时间采用 ISO8601 格式。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">iso8601:</span> <span class="hljs-number">2001-12-14t21:59:43.10-05:00</span></code></pre></div>
-
 <p>日期采用复合 iso8601 格式的年、月、日表示。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">date:</span> <span class="hljs-number">1976-07-31</span></code></pre></div>
-
 <p>YAML 允许使用两个感叹号，强制转换数据类型。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">e:</span> <span class="hljs-type">!!str</span> <span class="hljs-number">123</span>
 <span class="hljs-attr">f:</span> <span class="hljs-type">!!str</span> <span class="hljs-literal">true</span></code></pre></div>
-
 <h4 id="5-字符串"><a href="#5-字符串" class="headerlink" title="5. 字符串"></a>5. 字符串</h4><p>字符串是最常见，也是最复杂的一种数据类型。</p>
 <p>字符串默认不使用引号表示。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">这是一行字符串</span></code></pre></div>
-
 <p>如果字符串之中包含空格或特殊字符，需要放在引号之中。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">&#x27;内容：字符串&#x27;</span></code></pre></div>
-
 <p>单引号和双引号都可以使用，双引号不会对特殊字符转义。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">s1:</span> <span class="hljs-string">&#x27;内容\n字符串&#x27;</span>
 <span class="hljs-attr">s2:</span> <span class="hljs-string">&quot;内容\n字符串&quot;</span></code></pre></div>
-
 <p>单引号之中如果还有单引号，必须连续使用两个单引号转义。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">&#x27;labor&#x27;</span><span class="hljs-string">&#x27;s day&#x27;</span></code></pre></div>
-
 <p>字符串可以写成多行，从第二行开始，必须有一个单空格缩进。换行符会被转为空格。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">这是一段</span>
 <span class="hljs-string">多行</span>
 <span class="hljs-string">字符串</span></code></pre></div>
-
 <p>多行字符串可以使用|保留换行符，也可以使用&gt;折叠换行。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">this:</span> <span class="hljs-string">|</span>
   <span class="hljs-string">Foo</span>
@@ -427,7 +402,6 @@
 <span class="hljs-attr">that:</span> <span class="hljs-string">&gt;</span>
   <span class="hljs-string">Foo</span>
   <span class="hljs-string">Bar</span></code></pre></div>
-
 <p> +表示保留文字块末尾的换行，-表示删除字符串末尾的换行。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">s1:</span> <span class="hljs-string">|</span>
   <span class="hljs-string">Foo</span>
@@ -435,13 +409,11 @@
   <span class="hljs-string">Foo</span>
 <span class="hljs-attr">s3:</span> <span class="hljs-string">|-</span>
   <span class="hljs-string">Foo</span></code></pre></div>
-
 <p>字符串之中可以插入 HTML 标记。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">message:</span> <span class="hljs-string">|</span>
 <span class="hljs-string">&lt;p</span> <span class="hljs-string">style=&quot;color:</span> <span class="hljs-string">red&quot;&gt;</span>
 <span class="hljs-string">段落</span>
 <span class="hljs-string">&lt;/p&gt;</span></code></pre></div>
-
 <h4 id="6-引用"><a href="#6-引用" class="headerlink" title="6. 引用"></a>6. 引用</h4><p>锚点&amp;和别名*，可以用来引用。</p>
 <p>&amp;用来建立锚点（defaults），&lt;&lt;表示合并到当前数据，*用来引用锚点。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">defaults:</span> <span class="hljs-string">&amp;defaults</span>   <span class="hljs-comment">#建立锚点&amp;defaults</span>
@@ -455,7 +427,6 @@
 <span class="hljs-attr">test:</span>
   <span class="hljs-attr">database:</span> <span class="hljs-string">myapp_test</span>
   <span class="hljs-string">&lt;&lt;:</span> <span class="hljs-string">*defaults</span>    <span class="hljs-comment">#引用锚点</span></code></pre></div>
-
 <p> 等同于下面的代码。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">defaults:</span>
   <span class="hljs-attr">adapter:</span> <span class="hljs-string">postgres</span>
@@ -470,14 +441,12 @@
   <span class="hljs-attr">database:</span> <span class="hljs-string">myapp_test</span>
   <span class="hljs-attr">adapter:</span> <span class="hljs-string">postgres</span>
   <span class="hljs-attr">host:</span> <span class="hljs-string">localhost</span></code></pre></div>
-
 <p> 下面是另一个例子。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-string">&amp;showell</span> <span class="hljs-string">Steve</span>  <span class="hljs-comment">#建立showell锚点</span>
 <span class="hljs-string">Clark</span>
 <span class="hljs-string">Brian</span>
 <span class="hljs-string">Oren</span>
 <span class="hljs-string">*showell</span>   <span class="hljs-comment">#引用锚点showell，即Steve</span></code></pre></div>
-
 
             </div>
             <hr>
@@ -497,7 +466,7 @@
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
                     
@@ -646,11 +615,8 @@
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
     NProgress.start()
-    document.addEventListener('DOMContentLoaded', function() {
-      window.NProgress && window.NProgress.inc();
-    })
     window.addEventListener('load', function() {
       NProgress.done();
     })

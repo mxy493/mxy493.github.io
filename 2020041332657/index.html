@@ -55,11 +55,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 
 <body>
@@ -168,7 +168,7 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/xqmy.webp') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
@@ -236,11 +236,11 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
@@ -264,31 +264,30 @@
 <li><code>unfollow(followerId, followeeId)</code>: 取消关注一个用户</li>
 </ol>
 <p><strong>示例：</strong></p>
-<div class="hljs code-wrapper"><pre><code class="hljs angelscript">Twitter twitter = new Twitter();
+<div class="hljs code-wrapper"><pre><code class="hljs awk">Twitter twitter = new Twitter();
 
-<span class="hljs-comment">// 用户1发送了一条新推文 (用户id = 1, 推文id = 5).</span>
+<span class="hljs-regexp">//</span> 用户<span class="hljs-number">1</span>发送了一条新推文 (用户id = <span class="hljs-number">1</span>, 推文id = <span class="hljs-number">5</span>).
 twitter.postTweet(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>);
 
-<span class="hljs-comment">// 用户1的获取推文应当返回一个列表，其中包含一个id为5的推文.</span>
+<span class="hljs-regexp">//</span> 用户<span class="hljs-number">1</span>的获取推文应当返回一个列表，其中包含一个id为<span class="hljs-number">5</span>的推文.
 twitter.getNewsFeed(<span class="hljs-number">1</span>);
 
-<span class="hljs-comment">// 用户1关注了用户2.</span>
+<span class="hljs-regexp">//</span> 用户<span class="hljs-number">1</span>关注了用户<span class="hljs-number">2</span>.
 twitter.follow(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);
 
-<span class="hljs-comment">// 用户2发送了一个新推文 (推文id = 6).</span>
+<span class="hljs-regexp">//</span> 用户<span class="hljs-number">2</span>发送了一个新推文 (推文id = <span class="hljs-number">6</span>).
 twitter.postTweet(<span class="hljs-number">2</span>, <span class="hljs-number">6</span>);
 
-<span class="hljs-comment">// 用户1的获取推文应当返回一个列表，其中包含两个推文，id分别为 -&gt; [6, 5].</span>
-<span class="hljs-comment">// 推文id6应当在推文id5之前，因为它是在5之后发送的.</span>
+<span class="hljs-regexp">//</span> 用户<span class="hljs-number">1</span>的获取推文应当返回一个列表，其中包含两个推文，id分别为 -&gt; [<span class="hljs-number">6</span>, <span class="hljs-number">5</span>].
+<span class="hljs-regexp">//</span> 推文id6应当在推文id5之前，因为它是在<span class="hljs-number">5</span>之后发送的.
 twitter.getNewsFeed(<span class="hljs-number">1</span>);
 
-<span class="hljs-comment">// 用户1取消关注了用户2.</span>
+<span class="hljs-regexp">//</span> 用户<span class="hljs-number">1</span>取消关注了用户<span class="hljs-number">2</span>.
 twitter.unfollow(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);
 
-<span class="hljs-comment">// 用户1的获取推文应当返回一个列表，其中包含一个id为5的推文.</span>
-<span class="hljs-comment">// 因为用户1已经不再关注用户2.</span>
+<span class="hljs-regexp">//</span> 用户<span class="hljs-number">1</span>的获取推文应当返回一个列表，其中包含一个id为<span class="hljs-number">5</span>的推文.
+<span class="hljs-regexp">//</span> 因为用户<span class="hljs-number">1</span>已经不再关注用户<span class="hljs-number">2</span>.
 twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
-
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先，我写了一个多小时写出来，但是超时了，很尴尬~</p>
 <p>还是留下我的解题思路。</p>
 <p>根据题目要求，我们知道要保存每一条推文及其发布者，定义了一个 <code>vector&lt;pair&lt;int, int&gt;&gt;</code> 类型的数组 <code>tweets</code> 用于存储成对的 <code>userID</code> 和 <code>tweetID</code>，并且题目要求检索最近的10条推文，所以发布的时候我们就顺序存储每一条推文，这样避免了每次检索都要对推文进行排序；另外还需要对应每一个用户要存储该用户所关注的用户，考虑每一个用户关注的用户ID都是唯一的，所以我选择用集合来存储每一个用户关注的用户，定义了一个 <code>vector&lt;pair&lt;int, set&lt;int&gt;&gt;&gt;</code> 类型的数组 <code>users</code> ，存储所有用户的用户ID及其对应的关注的用户的集合。</p>
@@ -399,7 +398,6 @@ twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
 <span class="hljs-comment"> * obj-&gt;follow(followerId,followeeId);</span>
 <span class="hljs-comment"> * obj-&gt;unfollow(followerId,followeeId);</span>
 <span class="hljs-comment"> */</span></code></pre></div>
-
 <h4 id="优化部分"><a href="#优化部分" class="headerlink" title="优化部分"></a>优化部分</h4><p>对函数 <code>getNewsFeed(int userId)</code> 进行了修改，并删除了函数 <code>isFollowing(int id1, int id2)</code>。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">/** Retrieve the 10 most recent tweet ids in the user&#x27;s news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */</span>
 <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">getNewsFeed</span><span class="hljs-params">(<span class="hljs-keyword">int</span> userId)</span> </span>&#123;
@@ -429,7 +427,6 @@ twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
     <span class="hljs-keyword">return</span> ans;
 &#125;</code></pre></div>
 
-
             </div>
             <hr>
             <div>
@@ -457,7 +454,7 @@ twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
                     
@@ -606,11 +603,8 @@ twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
     NProgress.start()
-    document.addEventListener('DOMContentLoaded', function() {
-      window.NProgress && window.NProgress.inc();
-    })
     window.addEventListener('load', function() {
       NProgress.done();
     })

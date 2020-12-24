@@ -55,11 +55,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 
 <body>
@@ -168,7 +168,7 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/xqmy.webp') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
@@ -236,11 +236,11 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
@@ -261,19 +261,16 @@
 <p>返回直到单元格中没有新鲜橘子为止所必须经过的最小分钟数。如果不可能，返回 -1。</p>
 <p><strong>示例 1：</strong></p>
 <p><img src="oranges.png" srcset="/img/loading.gif"></p>
-<div class="hljs code-wrapper"><pre><code class="hljs angelscript">输入：[[<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>],[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]]
+<div class="hljs code-wrapper"><pre><code class="hljs lua">输入：<span class="hljs-string">[[2,1,1],[1,1,0],[0,1,1]]</span>
 输出：<span class="hljs-number">4</span></code></pre></div>
-
 <p><strong>示例 2：</strong></p>
-<div class="hljs code-wrapper"><pre><code class="hljs angelscript">输入：[[<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>],[<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>]]
+<div class="hljs code-wrapper"><pre><code class="hljs lua">输入：<span class="hljs-string">[[2,1,1],[0,1,1],[1,0,1]]</span>
 输出：<span class="hljs-number">-1</span>
 解释：左下角的橘子（第 <span class="hljs-number">2</span> 行， 第 <span class="hljs-number">0</span> 列）永远不会腐烂，因为腐烂只会发生在 <span class="hljs-number">4</span> 个正向上。</code></pre></div>
-
 <p><strong>示例 3：</strong></p>
-<div class="hljs code-wrapper"><pre><code class="hljs angelscript">输入：[[<span class="hljs-number">0</span>,<span class="hljs-number">2</span>]]
+<div class="hljs code-wrapper"><pre><code class="hljs lua">输入：<span class="hljs-string">[[0,2]]</span>
 输出：<span class="hljs-number">0</span>
 解释：因为 <span class="hljs-number">0</span> 分钟时已经没有新鲜橘子了，所以答案就是 <span class="hljs-number">0</span> 。</code></pre></div>
-
 <p><strong>提示：</strong></p>
 <ul>
 <li>1 &lt;= <code>grid.length</code> &lt;= 10</li>
@@ -291,7 +288,7 @@
         <span class="hljs-keyword">size_t</span> rows = grid.size();<span class="hljs-comment">//行数</span>
         <span class="hljs-keyword">size_t</span> cols = grid[<span class="hljs-number">0</span>].size();<span class="hljs-comment">//列数</span>
         <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">temp</span><span class="hljs-params">(cols)</span></span>;<span class="hljs-comment">//仅用于初始化状态记录表</span>
-        <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-title">record</span><span class="hljs-params">(rows, temp)</span></span>;<span class="hljs-comment">//状态记录表，初始化为全0，数字0，1，2表示第0，1，2步</span>
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; record(rows, temp);<span class="hljs-comment">//状态记录表，初始化为全0，数字0，1，2表示第0，1，2步</span>
         
         <span class="hljs-comment">//模拟橘子随时间被感染</span>
         <span class="hljs-keyword">while</span> (isInfectionOver(grid) == <span class="hljs-number">1</span>)
@@ -359,7 +356,6 @@
         <span class="hljs-keyword">return</span> ret;
     &#125;
 &#125;;</code></pre></div>
-
 <h3 id="解题思路（2）"><a href="#解题思路（2）" class="headerlink" title="解题思路（2）"></a>解题思路（2）</h3><p>其实不是我自己想出来的这个解法~这是我自己用上面的思路解出来后，本来想自己优化一下上面的代码，结果改来改去反而不能正常运行了……然后我才去看了别人的题解，其中看了这个，思路比较简单，然后我觉得有些地方挺有亮点的，所以就自己复现了一遍。</p>
 <p>将腐烂的橘子和新鲜橘子分了两类，腐烂的橘子用一个 <code>queue&lt;pair&lt;int, int&gt;&gt;</code> 类型的队列存储坐标，新鲜橘子只统计其个数。需要记录每分钟橘子开始腐烂前的腐烂的橘子的个数 <code>n</code> ，即处理完这n个腐烂的橘子分钟数才+1，逐个判断队列头的腐烂橘子周围是否有新鲜橘子需要感染，如果有就将这个新鲜橘子置为 <code>2</code> 即这个橘子已腐烂，将新腐烂的橘子的坐标加入到队列，并将新鲜橘子的个数-1。此外，还需要注意某一分钟内的n个腐烂橘子是否真的有感染周围的新鲜橘子，如果并没有感染任何新鲜橘子，那么分钟数是不应该增加的。直到所有的队列中的腐烂橘子处理完毕，跳出循环，此时如果新鲜橘子个数为0，即所有橘子均已腐烂，返回分钟数；若剩余新鲜橘子个数大于0，则说明存在不可能被感染的橘子，此时返回 -1。</p>
 <p><strong>几个值得学习的亮点：</strong></p>
@@ -412,7 +408,6 @@
     &#125;
 &#125;;</code></pre></div>
 
-
             </div>
             <hr>
             <div>
@@ -440,7 +435,7 @@
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
                     
@@ -589,11 +584,8 @@
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
     NProgress.start()
-    document.addEventListener('DOMContentLoaded', function() {
-      window.NProgress && window.NProgress.inc();
-    })
     window.addEventListener('load', function() {
       NProgress.done();
     })

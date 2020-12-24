@@ -55,11 +55,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 
 <body>
@@ -168,7 +168,7 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/xqmy.webp') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
@@ -236,11 +236,11 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
@@ -261,24 +261,21 @@
 <p><strong>示例 1:</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs nix">输入: <span class="hljs-attr">a</span> = <span class="hljs-string">&quot;11&quot;</span>, <span class="hljs-attr">b</span> = <span class="hljs-string">&quot;1&quot;</span>
 输出: <span class="hljs-string">&quot;100&quot;</span></code></pre></div>
-
 <p><strong>示例 2:</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs nix">输入: <span class="hljs-attr">a</span> = <span class="hljs-string">&quot;1010&quot;</span>, <span class="hljs-attr">b</span> = <span class="hljs-string">&quot;1011&quot;</span>
 输出: <span class="hljs-string">&quot;10101&quot;</span></code></pre></div>
-
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题不可避免的要处理十进制和二进制之间的转换问题，按照二进制求和的方法，从低位到高位依次相加。</p>
 <p>定义一个 car 记录进位，默认为 0 即没有进位，有进位只可能为 1 ；定义一个 string 类型的 sum 用以保存得到的和；定义两个int型变量 cur_a 和 cur_b 保存两个字符串相同位置上的字符转为 int 型后的值，方便进行常规加法计算，若字符串为空则作 0 处理，效果等同于没有数与之相加；x 保存某一位上的相加结果，以根据其相加的结果进行进位处理。</p>
 <p>因为是二进制加法，x 可能的取值情况仅四种：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs angelscript"><span class="hljs-comment">//前两个数为同一位上的两个数，最后一个数即进位</span>
-<span class="hljs-number">0</span> + <span class="hljs-number">0</span> + <span class="hljs-number">0</span> = <span class="hljs-number">0</span>
-<span class="hljs-number">0</span> + <span class="hljs-number">1</span> + <span class="hljs-number">0</span> = <span class="hljs-number">1</span>
-<span class="hljs-number">1</span> + <span class="hljs-number">0</span> + <span class="hljs-number">0</span> = <span class="hljs-number">1</span>
-<span class="hljs-number">1</span> + <span class="hljs-number">1</span> + <span class="hljs-number">0</span> = <span class="hljs-number">2</span>
-<span class="hljs-number">0</span> + <span class="hljs-number">0</span> + <span class="hljs-number">1</span> = <span class="hljs-number">1</span>
-<span class="hljs-number">0</span> + <span class="hljs-number">1</span> + <span class="hljs-number">1</span> = <span class="hljs-number">2</span>
-<span class="hljs-number">1</span> + <span class="hljs-number">0</span> + <span class="hljs-number">1</span> = <span class="hljs-number">2</span>
-<span class="hljs-number">1</span> + <span class="hljs-number">1</span> + <span class="hljs-number">1</span> = <span class="hljs-number">3</span></code></pre></div>
-
+<div class="hljs code-wrapper"><pre><code class="hljs tap">//前两个数为同一位上的两个数，最后一个数即进位
+0 +<span class="hljs-number"> 0 </span>+<span class="hljs-number"> 0 </span>= 0
+0 +<span class="hljs-number"> 1 </span>+<span class="hljs-number"> 0 </span>= 1
+1 +<span class="hljs-number"> 0 </span>+<span class="hljs-number"> 0 </span>= 1
+1 +<span class="hljs-number"> 1 </span>+<span class="hljs-number"> 0 </span>= 2
+0 +<span class="hljs-number"> 0 </span>+<span class="hljs-number"> 1 </span>= 1
+0 +<span class="hljs-number"> 1 </span>+<span class="hljs-number"> 1 </span>= 2
+1 +<span class="hljs-number"> 0 </span>+<span class="hljs-number"> 1 </span>= 2
+1 +<span class="hljs-number"> 1 </span>+<span class="hljs-number"> 1 </span>= 3</code></pre></div>
 
 <p>当 x 为 0 或 1 时，不需要进位（car为0），x 保持；当 x&gt;1 时，即相加结果为 2 或 3 时，需要进位处理（car为1），为 2 时 x 进 1 取 0，为 3 时 x 进 1 取 1。将整型 x 转为字符串加到 sum 的开头，并将 a、b 字符串的尾字符删去，循环重复上述步骤即可，直到字符串 a、b 均为空并且进位为 0。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
@@ -302,7 +299,6 @@
         <span class="hljs-keyword">return</span> sum;
     &#125;
 &#125;;</code></pre></div>
-
 
             </div>
             <hr>
@@ -331,7 +327,7 @@
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
                     
@@ -480,11 +476,8 @@
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
     NProgress.start()
-    document.addEventListener('DOMContentLoaded', function() {
-      window.NProgress && window.NProgress.inc();
-    })
     window.addEventListener('load', function() {
       NProgress.done();
     })

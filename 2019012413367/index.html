@@ -55,11 +55,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 
 <body>
@@ -168,7 +168,7 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/xqmy.webp') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
@@ -236,11 +236,11 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
@@ -260,13 +260,11 @@
 <a id="more"></a>
 
 <p><strong>示例 1:</strong></p>
-<div class="hljs code-wrapper"><pre><code class="hljs angelscript">输入: nums1 = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>], nums2 = [<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]
-输出: [<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]</code></pre></div>
-
+<div class="hljs code-wrapper"><pre><code class="hljs inform7">输入: nums1 = <span class="hljs-comment">[1,2,2,1]</span>, nums2 = <span class="hljs-comment">[2,2]</span>
+输出: <span class="hljs-comment">[2,2]</span></code></pre></div>
 <p><strong>示例 2:</strong></p>
-<div class="hljs code-wrapper"><pre><code class="hljs angelscript">输入: nums1 = [<span class="hljs-number">4</span>,<span class="hljs-number">9</span>,<span class="hljs-number">5</span>], nums2 = [<span class="hljs-number">9</span>,<span class="hljs-number">4</span>,<span class="hljs-number">9</span>,<span class="hljs-number">8</span>,<span class="hljs-number">4</span>]
-输出: [<span class="hljs-number">4</span>,<span class="hljs-number">9</span>]</code></pre></div>
-
+<div class="hljs code-wrapper"><pre><code class="hljs inform7">输入: nums1 = <span class="hljs-comment">[4,9,5]</span>, nums2 = <span class="hljs-comment">[9,4,9,8,4]</span>
+输出: <span class="hljs-comment">[4,9]</span></code></pre></div>
 <p><strong>说明：</strong></p>
 <ul>
 <li>输出结果中每个元素出现的次数，应与元素在两个数组中出现的次数一致。</li>
@@ -307,7 +305,6 @@
         <span class="hljs-keyword">return</span> inter;
     &#125;
 &#125;;</code></pre></div>
-
 <p><strong>进阶思路：</strong></p>
 <ol>
 <li>如果是已经排好序的两个数组，可以不用每次都从头开始查找，每一次查找的时候记录下当前的位置，这个位置之前的已经不可能存在交集了也就不用再查找一次了</li>
@@ -342,7 +339,7 @@
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
                     
@@ -491,11 +488,8 @@
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
     NProgress.start()
-    document.addEventListener('DOMContentLoaded', function() {
-      window.NProgress && window.NProgress.inc();
-    })
     window.addEventListener('load', function() {
       NProgress.done();
     })

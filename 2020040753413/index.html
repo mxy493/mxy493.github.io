@@ -55,11 +55,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 
 <body>
@@ -168,7 +168,7 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/xqmy.webp') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
@@ -236,11 +236,11 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
@@ -259,66 +259,61 @@
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一幅由 <code>N × N</code> 矩阵表示的图像，其中每个像素的大小为 4 字节。请你设计一种算法，将图像旋转 90 度。</p>
 <p>不占用额外内存空间能否做到？</p>
 <p><strong>示例 1:</strong></p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-string">给定</span> <span class="hljs-string">matrix</span> <span class="hljs-string">=</span> 
-[
-  [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>],
-  [<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>],
-  [<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>]
-]<span class="hljs-string">,</span>
+<div class="hljs code-wrapper"><pre><code class="hljs inform7">给定 matrix = 
+<span class="hljs-comment">[</span>
+<span class="hljs-comment">  <span class="hljs-comment">[1,2,3]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[4,5,6]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[7,8,9]</span></span>
+<span class="hljs-comment">]</span>,
 
-<span class="hljs-string">原地旋转输入矩阵，使其变为:</span>
-[
-  [<span class="hljs-number">7</span>,<span class="hljs-number">4</span>,<span class="hljs-number">1</span>],
-  [<span class="hljs-number">8</span>,<span class="hljs-number">5</span>,<span class="hljs-number">2</span>],
-  [<span class="hljs-number">9</span>,<span class="hljs-number">6</span>,<span class="hljs-number">3</span>]
-]</code></pre></div>
-
+原地旋转输入矩阵，使其变为:
+<span class="hljs-comment">[</span>
+<span class="hljs-comment">  <span class="hljs-comment">[7,4,1]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[8,5,2]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[9,6,3]</span></span>
+<span class="hljs-comment">]</span></code></pre></div>
 <p><strong>示例 2:</strong></p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-string">给定</span> <span class="hljs-string">matrix</span> <span class="hljs-string">=</span>
-[
-  [ <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">9</span>,<span class="hljs-number">11</span>],
-  [ <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>,<span class="hljs-number">10</span>],
-  [<span class="hljs-number">13</span>, <span class="hljs-number">3</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>],
-  [<span class="hljs-number">15</span>,<span class="hljs-number">14</span>,<span class="hljs-number">12</span>,<span class="hljs-number">16</span>]
-]<span class="hljs-string">,</span> 
+<div class="hljs code-wrapper"><pre><code class="hljs inform7">给定 matrix =
+<span class="hljs-comment">[</span>
+<span class="hljs-comment">  <span class="hljs-comment">[ 5, 1, 9,11]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[ 2, 4, 8,10]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[13, 3, 6, 7]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[15,14,12,16]</span></span>
+<span class="hljs-comment">]</span>, 
 
-<span class="hljs-string">原地旋转输入矩阵，使其变为:</span>
-[
-  [<span class="hljs-number">15</span>,<span class="hljs-number">13</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>],
-  [<span class="hljs-number">14</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>],
-  [<span class="hljs-number">12</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>],
-  [<span class="hljs-number">16</span>, <span class="hljs-number">7</span>,<span class="hljs-number">10</span>,<span class="hljs-number">11</span>]
-]</code></pre></div>
-
+原地旋转输入矩阵，使其变为:
+<span class="hljs-comment">[</span>
+<span class="hljs-comment">  <span class="hljs-comment">[15,13, 2, 5]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[14, 3, 4, 1]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[12, 6, 8, 9]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[16, 7,10,11]</span></span>
+<span class="hljs-comment">]</span></code></pre></div>
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题的解题思路真的是个意外的发现，起初题目要求都没搞明白以为是求对称矩阵就开始下手做，还很快就写出来了，然后才注意到是旋转矩阵。</p>
 <p>然后就一直在思考旋转的过程中坐标 <code>(i, j)</code> 的变化规律，其实都有一点想法了，大概要分成四块来分别做转换才行。但是恰巧这个时候我突然间发现，我前面做的对称矩阵，恰好是每一列顺序反的，也就是说把每一列前后互换就可以了。</p>
 <ol>
 <li>例如给定的矩阵：</li>
 </ol>
-<div class="hljs code-wrapper"><pre><code class="hljs lsl">matrix = [
-  [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>],
-  [<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>],
-  [<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>]
-],</code></pre></div>
-
+<div class="hljs code-wrapper"><pre><code class="hljs inform7">matrix = <span class="hljs-comment">[</span>
+<span class="hljs-comment">  <span class="hljs-comment">[1,2,3]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[4,5,6]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[7,8,9]</span></span>
+<span class="hljs-comment">]</span>,</code></pre></div>
 <ol start="2">
 <li>第一步求对称矩阵：</li>
 </ol>
-<div class="hljs code-wrapper"><pre><code class="hljs lsl">matrix = [
-  [<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">7</span>],
-  [<span class="hljs-number">2</span>,<span class="hljs-number">5</span>,<span class="hljs-number">8</span>],
-  [<span class="hljs-number">3</span>,<span class="hljs-number">6</span>,<span class="hljs-number">9</span>]
-],</code></pre></div>
-
+<div class="hljs code-wrapper"><pre><code class="hljs inform7">matrix = <span class="hljs-comment">[</span>
+<span class="hljs-comment">  <span class="hljs-comment">[1,4,7]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[2,5,8]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[3,6,9]</span></span>
+<span class="hljs-comment">]</span>,</code></pre></div>
 <ol start="3">
 <li>可以看到只需要每一列前后互换就可以了，也就是第1列和第3列互换，得到最终结果：</li>
 </ol>
-<div class="hljs code-wrapper"><pre><code class="hljs lsl">matrix = [
-  [<span class="hljs-number">7</span>,<span class="hljs-number">4</span>,<span class="hljs-number">1</span>],
-  [<span class="hljs-number">8</span>,<span class="hljs-number">5</span>,<span class="hljs-number">2</span>],
-  [<span class="hljs-number">9</span>,<span class="hljs-number">6</span>,<span class="hljs-number">3</span>]
-]</code></pre></div>
-
+<div class="hljs code-wrapper"><pre><code class="hljs inform7">matrix = <span class="hljs-comment">[</span>
+<span class="hljs-comment">  <span class="hljs-comment">[7,4,1]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[8,5,2]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[9,6,3]</span></span>
+<span class="hljs-comment">]</span></code></pre></div>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">rotate</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;
@@ -341,7 +336,6 @@
         &#125;
     &#125;
 &#125;;</code></pre></div>
-
 
             </div>
             <hr>
@@ -370,7 +364,7 @@
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
                     
@@ -519,11 +513,8 @@
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
     NProgress.start()
-    document.addEventListener('DOMContentLoaded', function() {
-      window.NProgress && window.NProgress.inc();
-    })
     window.addEventListener('load', function() {
       NProgress.done();
     })

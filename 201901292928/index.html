@@ -55,11 +55,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 
 <body>
@@ -168,7 +168,7 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/xqmy.webp') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
@@ -236,11 +236,11 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
@@ -263,37 +263,35 @@
 <p><strong>说明：</strong></p>
 <p>你必须在<strong>原地</strong>旋转图像，这意味着你需要直接修改输入的二维矩阵。<strong>请不要</strong>使用另一个矩阵来旋转图像。</p>
 <p><strong>示例 1:</strong></p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-string">给定</span> <span class="hljs-string">matrix</span> <span class="hljs-string">=</span> 
-[
-  [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>],
-  [<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>],
-  [<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>]
-]<span class="hljs-string">,</span>
+<div class="hljs code-wrapper"><pre><code class="hljs inform7">给定 matrix = 
+<span class="hljs-comment">[</span>
+<span class="hljs-comment">  <span class="hljs-comment">[1,2,3]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[4,5,6]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[7,8,9]</span></span>
+<span class="hljs-comment">]</span>,
 
-<span class="hljs-string">原地旋转输入矩阵，使其变为:</span>
-[
-  [<span class="hljs-number">7</span>,<span class="hljs-number">4</span>,<span class="hljs-number">1</span>],
-  [<span class="hljs-number">8</span>,<span class="hljs-number">5</span>,<span class="hljs-number">2</span>],
-  [<span class="hljs-number">9</span>,<span class="hljs-number">6</span>,<span class="hljs-number">3</span>]
-]</code></pre></div>
-
+原地旋转输入矩阵，使其变为:
+<span class="hljs-comment">[</span>
+<span class="hljs-comment">  <span class="hljs-comment">[7,4,1]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[8,5,2]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[9,6,3]</span></span>
+<span class="hljs-comment">]</span></code></pre></div>
 <p><strong>示例 2:</strong></p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-string">给定</span> <span class="hljs-string">matrix</span> <span class="hljs-string">=</span>
-[
-  [ <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">9</span>,<span class="hljs-number">11</span>],
-  [ <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>,<span class="hljs-number">10</span>],
-  [<span class="hljs-number">13</span>, <span class="hljs-number">3</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>],
-  [<span class="hljs-number">15</span>,<span class="hljs-number">14</span>,<span class="hljs-number">12</span>,<span class="hljs-number">16</span>]
-]<span class="hljs-string">,</span> 
+<div class="hljs code-wrapper"><pre><code class="hljs inform7">给定 matrix =
+<span class="hljs-comment">[</span>
+<span class="hljs-comment">  <span class="hljs-comment">[ 5, 1, 9,11]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[ 2, 4, 8,10]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[13, 3, 6, 7]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[15,14,12,16]</span></span>
+<span class="hljs-comment">]</span>, 
 
-<span class="hljs-string">原地旋转输入矩阵，使其变为:</span>
-[
-  [<span class="hljs-number">15</span>,<span class="hljs-number">13</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>],
-  [<span class="hljs-number">14</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>],
-  [<span class="hljs-number">12</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>],
-  [<span class="hljs-number">16</span>, <span class="hljs-number">7</span>,<span class="hljs-number">10</span>,<span class="hljs-number">11</span>]
-]</code></pre></div>
-
+原地旋转输入矩阵，使其变为:
+<span class="hljs-comment">[</span>
+<span class="hljs-comment">  <span class="hljs-comment">[15,13, 2, 5]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[14, 3, 4, 1]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[12, 6, 8, 9]</span>,</span>
+<span class="hljs-comment">  <span class="hljs-comment">[16, 7,10,11]</span></span>
+<span class="hljs-comment">]</span></code></pre></div>
 <h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><p>通过观察找<strong>规律</strong>会发现：</p>
 <ul>
 <li><p>第<code>i</code>行的元素成了第<code>n-1-i</code>列的元素，而第<code>j</code>列的元素成了第<code>i</code>行的元素；</p>
@@ -302,13 +300,12 @@
 </li>
 </ul>
 <p>我的思路是每遍历到一个没有转换过的元素，就一次性把与这个元素有转换关系的另外三个元素都转换完毕，例如题目示例1中遍历到第一个元素<code>matrix[0][0]==1</code>，就完成如下的转换：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs markdown">matrix[<span class="hljs-string">0</span>][<span class="hljs-symbol">0</span>]==1  ==&gt;&gt;  7
-matrix[<span class="hljs-string">2</span>][<span class="hljs-symbol">0</span>]==7  ==&gt;&gt;  9
-matrix[<span class="hljs-string">2</span>][<span class="hljs-symbol">2</span>]==9  ==&gt;&gt;  3
-matrix[<span class="hljs-string">0</span>][<span class="hljs-symbol">2</span>]==3  ==&gt;&gt;  1</code></pre></div>
-
+<div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">matrix</span>[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]==<span class="hljs-number">1</span>  ==&gt;&gt;  <span class="hljs-number">7</span>
+<span class="hljs-attribute">matrix</span>[<span class="hljs-number">2</span>][<span class="hljs-number">0</span>]==<span class="hljs-number">7</span>  ==&gt;&gt;  <span class="hljs-number">9</span>
+<span class="hljs-attribute">matrix</span>[<span class="hljs-number">2</span>][<span class="hljs-number">2</span>]==<span class="hljs-number">9</span>  ==&gt;&gt;  <span class="hljs-number">3</span>
+<span class="hljs-attribute">matrix</span>[<span class="hljs-number">0</span>][<span class="hljs-number">2</span>]==<span class="hljs-number">3</span>  ==&gt;&gt;  <span class="hljs-number">1</span></code></pre></div>
 <p>按照这样的逻辑，就不能遍历二维矩阵的每一个元素，因为每遍历到一个元素其实相当于处理了四个元素，如果对处理过的元素再遍历一次就会再做一次转换最后得到的显然不是正确答案，并且这样的重复操作也是影响代码效率的，所以遍历的两层循环需要理解一下。在题目给的两个示例中就是：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs angelscript">示例<span class="hljs-number">1</span>:
+<div class="hljs code-wrapper"><pre><code class="hljs clean">示例<span class="hljs-number">1</span>:
 <span class="hljs-number">1</span>: <span class="hljs-number">1</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">9</span>-&gt;<span class="hljs-number">7</span>-&gt;<span class="hljs-number">1</span>
 <span class="hljs-number">2</span>: <span class="hljs-number">2</span>-&gt;<span class="hljs-number">6</span>-&gt;<span class="hljs-number">8</span>-&gt;<span class="hljs-number">4</span>-&gt;<span class="hljs-number">2</span>
 
@@ -317,7 +314,6 @@ matrix[<span class="hljs-string">0</span>][<span class="hljs-symbol">2</span>]==
 <span class="hljs-number">1</span>: <span class="hljs-number">1</span>-&gt;<span class="hljs-number">10</span>-&gt;<span class="hljs-number">12</span>-&gt;<span class="hljs-number">13</span>-&gt;<span class="hljs-number">1</span>
 <span class="hljs-number">9</span>: <span class="hljs-number">9</span>-&gt;<span class="hljs-number">7</span>-&gt;<span class="hljs-number">14</span>-&gt;<span class="hljs-number">2</span>-&gt;<span class="hljs-number">9</span>
 <span class="hljs-number">4</span>: <span class="hljs-number">4</span>-&gt;<span class="hljs-number">8</span>-&gt;<span class="hljs-number">6</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">4</span></code></pre></div>
-
 <p>实际转换的时候，按照上述的第二条规律逆时针方向转换，需要用一个<code>temp</code>来保存遍历到的<code>matrix[i][j]</code>。不能顺时针方向转换，因为当前元素的值已经改变，又赋给下一个对应位置元素，最后就导致对应位置上四个元素的值都是相等的，逻辑上就不对。</p>
 <h4 id="实现代码："><a href="#实现代码：" class="headerlink" title="实现代码："></a>实现代码：</h4><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
@@ -339,7 +335,6 @@ matrix[<span class="hljs-string">0</span>][<span class="hljs-symbol">2</span>]==
         &#125;    
     &#125;
 &#125;;</code></pre></div>
-
 
             </div>
             <hr>
@@ -368,7 +363,7 @@ matrix[<span class="hljs-string">0</span>][<span class="hljs-symbol">2</span>]==
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
                     
@@ -517,11 +512,8 @@ matrix[<span class="hljs-string">0</span>][<span class="hljs-symbol">2</span>]==
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
     NProgress.start()
-    document.addEventListener('DOMContentLoaded', function() {
-      window.NProgress && window.NProgress.inc();
-    })
     window.addEventListener('load', function() {
       NProgress.done();
     })

@@ -55,11 +55,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 
 <body>
@@ -168,7 +168,7 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="banner" id="banner" parallax=true
          style="background: url('/img/xqmy.webp') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
@@ -236,11 +236,11 @@
     
       
 
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
     <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="container nopadding-md" id="board-ctn">
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
@@ -322,10 +322,8 @@
 <span class="hljs-keyword">!define</span> PRODUCT_DIR_REGKEY <span class="hljs-string">&quot;Software\Microsoft\Windows\CurrentVersion\App Paths\Duang.exe&quot;</span>  <span class="hljs-comment">; 注册表相关</span>
 <span class="hljs-keyword">!define</span> PRODUCT_UNINST_KEY <span class="hljs-string">&quot;Software\Microsoft\Windows\CurrentVersion\Uninstall\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>&quot;</span>
 <span class="hljs-keyword">!define</span> PRODUCT_UNINST_ROOT_KEY <span class="hljs-string">&quot;HKLM&quot;</span></code></pre></div>
-
 <p>b. 使用的压缩算法，按需修改即可</p>
 <div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-keyword">SetCompressor</span> <span class="hljs-literal">lzma</span></code></pre></div>
-
 <p>c. MUI 界面相关的一些东西，进阶操作请查阅<a target="_blank" rel="noopener" href="https://nsis.sourceforge.io/Docs/Modern%20UI%202/Readme.html">官方文档</a>。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-comment">; ------ MUI 现代界面定义 ------</span>
 <span class="hljs-keyword">!include</span> <span class="hljs-string">&quot;MUI.nsh&quot;</span>  <span class="hljs-comment">; 当前已经新出了MUI2，自行了解</span>
@@ -356,7 +354,6 @@
 <span class="hljs-comment">; 安装预释放文件</span>
 <span class="hljs-keyword">!insertmacro</span> MUI_RESERVEFILE_INSTALLOPTIONS
 <span class="hljs-comment">; ------ MUI 现代界面定义结束 ------</span></code></pre></div>
-
 <p>d. 一些设置项。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-keyword">Name</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span> <span class="hljs-variable">$&#123;PRODUCT_VERSION&#125;</span>&quot;</span>
 <span class="hljs-comment">; OutFile &quot;DuangSetup.exe&quot;</span>
@@ -368,7 +365,6 @@
 ShowUnInstDetails <span class="hljs-literal">show</span>  <span class="hljs-comment">; 显示卸载细节</span>
 <span class="hljs-comment">; BrandingText &quot;Duang&quot;  ; 安装程序的下方的一段文字</span>
 <span class="hljs-keyword">BrandingText</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>&quot;</span>  <span class="hljs-comment">; 修改为引用常量</span></code></pre></div>
-
 <p>e. 创建快捷方式，已默认修改为引用常量。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-function"><span class="hljs-keyword">Section</span> &quot;MainSection&quot; SEC01</span>
   <span class="hljs-keyword">SetOutPath</span> <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>&quot;</span>
@@ -380,7 +376,6 @@ ShowUnInstDetails <span class="hljs-literal">show</span>  <span class="hljs-comm
   <span class="hljs-keyword">CreateShortCut</span> <span class="hljs-string">&quot;<span class="hljs-variable">$DESKTOP</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.lnk&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.exe&quot;</span>  <span class="hljs-comment">; 创建桌面快捷方式</span>
   <span class="hljs-keyword">File</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_PATH&#125;</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.exe&quot;</span>  <span class="hljs-comment">; 源可执行程序的路径</span>
 SectionEnd</code></pre></div>
-
 <p>f. 写注册表相关的设置，已默认修改为引用常量。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-function"><span class="hljs-keyword">Section</span> -Post</span>
   <span class="hljs-keyword">WriteUninstaller</span> <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>\uninst.exe&quot;</span>  <span class="hljs-comment">; 写入卸载程序</span>
@@ -392,14 +387,12 @@ SectionEnd</code></pre></div>
   <span class="hljs-keyword">WriteRegStr</span> <span class="hljs-variable">$&#123;PRODUCT_UNINST_ROOT_KEY&#125;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_UNINST_KEY&#125;</span>&quot;</span> <span class="hljs-string">&quot;URLInfoAbout&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_WEB_SITE&#125;</span>&quot;</span>
   <span class="hljs-keyword">WriteRegStr</span> <span class="hljs-variable">$&#123;PRODUCT_UNINST_ROOT_KEY&#125;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_UNINST_KEY&#125;</span>&quot;</span> <span class="hljs-string">&quot;Publisher&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_PUBLISHER&#125;</span>&quot;</span>
 SectionEnd</code></pre></div>
-
 <p>g. 创建网站快捷方式和卸载程序快捷方式。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-function"><span class="hljs-keyword">Section</span> -AdditionalIcons</span>
   WriteIniStr <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.url&quot;</span> <span class="hljs-string">&quot;InternetShortcut&quot;</span> <span class="hljs-string">&quot;URL&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_WEB_SITE&#125;</span>&quot;</span>
   <span class="hljs-keyword">CreateShortCut</span> <span class="hljs-string">&quot;<span class="hljs-variable">$SMPROGRAMS</span>\Duang\Website.lnk&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.url&quot;</span>
   <span class="hljs-keyword">CreateShortCut</span> <span class="hljs-string">&quot;<span class="hljs-variable">$SMPROGRAMS</span>\Duang\Uninstall.lnk&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$INSTDIR</span>\uninst.exe&quot;</span>
 SectionEnd</code></pre></div>
-
 <p>h. 卸载程序相关的设置，已默认修改为引用常量。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-function"><span class="hljs-keyword">Section</span> Uninstall</span>
   <span class="hljs-comment">; 删除快捷方式</span>
@@ -429,7 +422,6 @@ SectionEnd</code></pre></div>
   <span class="hljs-keyword">DeleteRegKey</span> <span class="hljs-params">HKLM</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_DIR_REGKEY&#125;</span>&quot;</span>
   <span class="hljs-keyword">SetAutoClose</span> <span class="hljs-literal">true</span>  <span class="hljs-comment">; 卸载完毕自动关闭窗口</span>
 SectionEnd</code></pre></div>
-
 <p>i. 执行卸载程序的两个函数</p>
 <div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-comment">; 卸载程序启动时执行</span>
 <span class="hljs-function"><span class="hljs-keyword">Function</span> un.onInit</span>
@@ -442,7 +434,6 @@ FunctionEnd
   <span class="hljs-keyword">HideWindow</span>
   <span class="hljs-keyword">MessageBox</span> <span class="hljs-params">MB_ICONINFORMATION</span>|<span class="hljs-params">MB_OK</span> <span class="hljs-string">&quot;<span class="hljs-variable">$(^Name)</span> 已成功地从您的计算机移除。&quot;</span>
 FunctionEnd</code></pre></div>
-
 <h2 id="（3）编译试试"><a href="#（3）编译试试" class="headerlink" title="（3）编译试试"></a>（3）编译试试</h2><p>如果编译成功将看到输出结构如下的信息。编译生成的安装程序将和脚本文件存放在一起，可以安装测试一下功能是否正常。</p>
 <p>如果编译失败，会输出具体哪一行出现了错误，容易出错的地方就是路径问题，并不复杂，稍微细心一点就好了。</p>
 <p><img src="compilesuccess.webp" srcset="/img/loading.gif"></p>
@@ -455,7 +446,6 @@ MUI_WELCOMEFINISHPAGE_BITMAP bmp_file
 
 <span class="hljs-comment">; Text to display on the page.</span>
 MUI_WELCOMEPAGE_TEXT text</code></pre></div>
-
 <h1 id="六、在-Python-中编译"><a href="#六、在-Python-中编译" class="headerlink" title="六、在 Python 中编译"></a>六、在 Python 中编译</h1><h2 id="（1）在-Python-中编译"><a href="#（1）在-Python-中编译" class="headerlink" title="（1）在 Python 中编译"></a>（1）在 Python 中编译</h2><p>其实在 Python 中编译本质上就是调用 NSIS 编译程序 “makensis.exe” 。</p>
 <p>首先要做的时将 NSIS 编译器所在的目录添加到系统环境变量，如图所示。</p>
 <p><img src="syspath.webp" srcset="/img/loading.gif"></p>
@@ -468,7 +458,6 @@ MUI_WELCOMEPAGE_TEXT text</code></pre></div>
 <span class="hljs-comment"># 使用NSIS制作安装包，等同于在命令行中执行 &#x27;makensis radar.nsi&#x27; </span>
 p2 = subprocess.Popen(<span class="hljs-string">&#x27;makensis radar.nsi&#x27;</span>, shell=<span class="hljs-literal">True</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>)  <span class="hljs-comment"># pyinstaller 打包</span>
 p2.communicate()</code></pre></div>
-
 <h2 id="（2）高端操作"><a href="#（2）高端操作" class="headerlink" title="（2）高端操作"></a>（2）高端操作</h2><p>其实在单纯在 Python 中调用编译器并没有省多少事，但真正的目的是配合 PyInstaller 一键更新 spec 文件和 NSIS 脚本，然后自动打包并制作安装程序，你就说它香不香🤣</p>
 <p>关于 PyInstaller 打包 Python 应用程序可以参考我的另一篇文章：<a href="https://mxy493.xyz/20200909134/">使用PyInstaller打包Python应用程序</a></p>
 <p>最后附上 全自动操作的代码框架：</p>
@@ -487,7 +476,6 @@ p2.communicate()</code></pre></div>
     <span class="hljs-comment"># 使用NSIS制作安装包</span>
     p2 = subprocess.Popen(<span class="hljs-string">&#x27;makensis radar.nsi&#x27;</span>, shell=<span class="hljs-literal">True</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>)
     p2.communicate()</code></pre></div>
-
 <p>试想一下你的程序每次更新仅需要更改版本号或者修改一下路径，然后剩下的工作全都自动化完成那得多舒服😋</p>
 <h1 id="七、结语"><a href="#七、结语" class="headerlink" title="七、结语"></a>七、结语</h1><p>嗯，全篇完结，真难搞，写这篇文章足足花了一整晚🤣</p>
 <p>不过这次关于 PyInstaller 和 NSIS 的探索体验可以说是非常的舒服了φ(゜▽゜*)♪</p>
@@ -512,7 +500,7 @@ p2.communicate()</code></pre></div>
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
-                <div class="post-prevnext row">
+                <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
                     
@@ -661,11 +649,8 @@ p2.communicate()</code></pre></div>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
     NProgress.start()
-    document.addEventListener('DOMContentLoaded', function() {
-      window.NProgress && window.NProgress.inc();
-    })
     window.addEventListener('load', function() {
       NProgress.done();
     })
