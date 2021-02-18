@@ -342,7 +342,7 @@
 <p>题目的意思其实就是用尽可能多的字符来构造一个回文串。构成回文串的规律是，同一个字符的偶数个数一定可以是任意回文串的一部分，换言之偶数个数的同一字符对能生成的最少的回文串个数是没有影响的，所以我们应该关注的重心是个数为奇数的字符。</p>
 <p>要使构成的回文串的个数最少，那么根据前面所说的，首先我们尽可能的去构造一个最长的回文串，也就是把所有偶数个数的字符都用来构造这个回文串，这其中也包括 <code>&quot;aaa&quot;</code> 中的两个 <code>&#39;a&#39;</code> 也可以用于构造这个回文串，此时，如果有剩下的字符，显然都是单个的字符了。</p>
 <p>但事实上前面构造的最大回文串长度为偶数，其实还可以在其正中间插入任意一个单个的字符，插入后仍然是回文串，此时剩下的单个字符的个数，也就是其余可以构成的回文串的个数了。</p>
-<p>普遍情况下，可以根据前面所述的得到：**<em>最少的回文串个数 = 奇数个数的字符数 - 1 + 1 = 奇数个数的字符数**</em> </p>
+<p>普遍情况下，可以根据前面所述的得到：<em><strong>最少的回文串个数 = 奇数个数的字符数 - 1 + 1 = 奇数个数的字符数</strong></em> </p>
 <p>但是特殊的，需要考虑没有奇数个数的字符的情况，这种情况也就更简单了，所有的字符都用来构造唯一的一个回文串，最少的回文串个数也就是 <code>1</code> 。</p>
 <h2 id="（3）代码-1"><a href="#（3）代码-1" class="headerlink" title="（3）代码"></a>（3）代码</h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
