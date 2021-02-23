@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -259,16 +259,18 @@
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个带有头结点 <code>head</code> 的非空单链表，返回链表的中间结点。</p>
 <p>如果有两个中间结点，则返回第二个中间结点。</p>
 <p><strong>示例 1：</strong></p>
-<div class="hljs code-wrapper"><pre><code class="hljs stylus">输入：[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]
-输出：此列表中的结点 <span class="hljs-number">3</span> (序列化形式：[<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>])
-返回的结点值为 <span class="hljs-number">3</span> 。 (测评系统对该结点序列化表述是 [<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>])。
+<div class="hljs code-wrapper"><pre><code class="hljs stylus">输入：<span class="hljs-selector-attr">[1,2,3,4,5]</span>
+输出：此列表中的结点 <span class="hljs-number">3</span> (序列化形式：<span class="hljs-selector-attr">[3,4,5]</span>)
+返回的结点值为 <span class="hljs-number">3</span> 。 (测评系统对该结点序列化表述是 <span class="hljs-selector-attr">[3,4,5]</span>)。
 注意，我们返回了一个 ListNode 类型的对象 ans，这样：
 ans<span class="hljs-selector-class">.val</span> = <span class="hljs-number">3</span>, ans<span class="hljs-selector-class">.next</span><span class="hljs-selector-class">.val</span> = <span class="hljs-number">4</span>, ans<span class="hljs-selector-class">.next</span><span class="hljs-selector-class">.next</span><span class="hljs-selector-class">.val</span> = <span class="hljs-number">5</span>, 以及 ans<span class="hljs-selector-class">.next</span><span class="hljs-selector-class">.next</span><span class="hljs-selector-class">.next</span> = NULL.</code></pre></div>
 
+
 <p><strong>示例 2：</strong></p>
-<div class="hljs code-wrapper"><pre><code class="hljs css">输入：<span class="hljs-selector-attr">[1,2,3,4,5,6]</span>
-输出：此列表中的结点 4 (序列化形式：<span class="hljs-selector-attr">[4,5,6]</span>)
+<div class="hljs code-wrapper"><pre><code class="hljs inform7">输入：<span class="hljs-comment">[1,2,3,4,5,6]</span>
+输出：此列表中的结点 4 (序列化形式：<span class="hljs-comment">[4,5,6]</span>)
 由于该列表有两个中间结点，值分别为 3 和 4，我们返回第二个结点。</code></pre></div>
+
 <p><strong>提示：</strong></p>
 <p>给定链表的结点数介于 1 和 100 之间。</p>
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>思路很简单，定义两个指针并且都初始化为指向头结点，然后 <code>cur</code> 指针遍历整个链表，<code>cur</code> 每移动两个结点，<code>mid</code> 指针就往后移动一个结点，这样 <code>mid</code> 就始终是从 <code>head</code> 到 <code>cur</code> 的中间结点，直到 <code>cur</code> 遍历完整个链表，则 <code>mid</code> 所指向的结点即整个链表的中间结点。</p>
@@ -302,6 +304,7 @@ ans<span class="hljs-selector-class">.val</span> = <span class="hljs-number">3</
         <span class="hljs-keyword">return</span> mid;
     &#125;
 &#125;;</code></pre></div>
+
 <h3 id="更好一点的办法"><a href="#更好一点的办法" class="headerlink" title="更好一点的办法"></a>更好一点的办法</h3><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function">ListNode* <span class="hljs-title">middleNode</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;
@@ -317,6 +320,7 @@ ans<span class="hljs-selector-class">.val</span> = <span class="hljs-number">3</
         <span class="hljs-keyword">return</span> mid;
     &#125;
 &#125;;</code></pre></div>
+
 
             </div>
             <hr>

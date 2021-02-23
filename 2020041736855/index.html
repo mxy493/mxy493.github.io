@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -256,6 +256,7 @@
               <p><strong>Hexo-all-minifier：</strong><a target="_blank" rel="noopener" href="https://github.com/chenzhutian/hexo-all-minifier">https://github.com/chenzhutian/hexo-all-minifier</a></p>
 <p>一款 Hexo 插件，通过压缩 HTML、CSS、JS 和图片来优化博客访问速度。</p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><div class="hljs code-wrapper"><pre><code class="hljs shell">npm install hexo-all-minifier --save</code></pre></div>
+
 <p><strong>注：</strong>我在执行以上命令进行安装的时候遇到了问题 <code>Failed to connect to raw.githubusercontent.com port 443</code> ，查了下原因，其实就是这个域名（<code>raw.githubusercontent.com</code>）被墙了。</p>
 <p><strong>解决办法：</strong></p>
 <ol>
@@ -263,12 +264,15 @@
 </li>
 <li><p>修改系统 <code>hosts</code> 。Windows 系统上的路径为 <code>C:\Windows\System32\drivers\etc\hosts</code> ，在 <code>hosts</code> 文件中添加一行：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs accesslog"><span class="hljs-number">199.232.68.133</span> raw.githubusercontent.com</code></pre></div>
-<p>Mac 电脑还需要安装一些其他东西：</p>
+
 </li>
 </ol>
+<p>Mac 电脑还需要安装一些其他东西：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs shell">brew install libtool automake autoconf nasm</code></pre></div>
+
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>将这行代码填写到 Hexo 博客根目录下的博客配置文件 <code>_config.yml</code> 中就可以了。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">all_minifier:</span> <span class="hljs-literal">true</span></code></pre></div>
+
 <p>默认添加以上代码就可以了，比较简单，但仅添加以上代码的情况下，如果在 <code>hexo g</code> 生成静态网页时遇到了问题，或者说有更进阶的需求，那么可以使用以下更进阶一些的设置。</p>
 <h3 id="进阶设置"><a href="#进阶设置" class="headerlink" title="进阶设置"></a>进阶设置</h3><p>如果使用默认的 <code>all_minifier: true</code> 遇到了问题，将对应出问题的某一项关闭即可（<code>enable: false</code>）。</p>
 <h4 id="HTML-优化"><a href="#HTML-优化" class="headerlink" title="HTML 优化"></a>HTML 优化</h4><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">html_minifier:</span>
@@ -276,6 +280,7 @@
   <span class="hljs-attr">ignore_error:</span> <span class="hljs-literal">false</span>
   <span class="hljs-attr">silent:</span> <span class="hljs-literal">false</span>
   <span class="hljs-attr">exclude:</span></code></pre></div>
+
 <ul>
 <li><strong>enable</strong> - 开启 HTML minifier. 默认为 <code>true</code> 。</li>
 <li><strong>ignore_error</strong> - 忽视 HTML 优化时遇到的错误。</li>
@@ -287,6 +292,7 @@
   <span class="hljs-attr">silent:</span> <span class="hljs-literal">false</span>
   <span class="hljs-attr">exclude:</span> 
     <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;*.min.css&#x27;</span></code></pre></div>
+
 <ul>
 <li><strong>enable</strong> - 开启 CSS minifier，默认为 <code>true</code> 。</li>
 <li><strong>silent</strong> - 禁用日志优化，默认为 <code>false</code> 。</li>
@@ -300,6 +306,7 @@
   <span class="hljs-attr">compress:</span>
   <span class="hljs-attr">exclude:</span> 
     <span class="hljs-bullet">-</span> <span class="hljs-string">&#x27;*.min.js&#x27;</span></code></pre></div>
+
 <ul>
 <li><strong>enable</strong> - 开启 JS minifier，默认为 <code>true</code> 。</li>
 <li><strong>mangle</strong> - Mangle file names</li>
@@ -317,6 +324,7 @@
   <span class="hljs-attr">pngquant:</span> <span class="hljs-literal">false</span>
   <span class="hljs-attr">progressive:</span> <span class="hljs-literal">false</span>
   <span class="hljs-attr">silent:</span> <span class="hljs-literal">false</span></code></pre></div>
+
 <ul>
 <li><strong>enable</strong> - 开启 image minifier. 默认为 <code>true</code> 。</li>
 <li><strong>interlaced</strong> - Interlace gif for progressive rendering. 默认为 <code>false</code> 。</li>

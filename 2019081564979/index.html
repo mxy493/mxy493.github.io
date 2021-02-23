@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -257,19 +257,21 @@
 <p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/">https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/</a></p>
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个排序数组，你需要在<strong>原地删除</strong>重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。</p>
-<p>不要使用额外的数组空间，你必须在<strong>原地修改</strong>输入数组并在使用 O(1) 额外空间的条件下完成。<a id="more"></a></p>
+<p>不要使用额外的数组空间，你必须在<strong>原地修改</strong>输入数组并在使用 O(1) 额外空间的条件下完成。<span id="more"></span></p>
 <p><strong>示例 1:</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs fix"><span class="hljs-attr">给定数组 nums </span>=<span class="hljs-string"> [1,1,2], </span>
 <span class="hljs-string"></span>
 <span class="hljs-string">函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。 </span>
 <span class="hljs-string"></span>
 <span class="hljs-string">你不需要考虑数组中超出新长度后面的元素。</span></code></pre></div>
+
 <p><strong>示例 2:</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs dns">给定 nums = [<span class="hljs-number">0,0,1,1</span>,<span class="hljs-number">1,2,2,3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>],
 
 函数应该返回新的长度 <span class="hljs-number">5</span>, 并且原数组 nums 的前五个元素被修改为 <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>。
 
 你不需要考虑数组中超出新长度后面的元素。</code></pre></div>
+
 <p><strong>说明:</strong></p>
 <p>为什么返回数值是整数，但输出的答案是数组呢?</p>
 <p>请注意，输入数组是以“引用”方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。</p>
@@ -282,12 +284,14 @@
 <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">len</span>; i++) &#123;
     print(nums[i]);
 &#125;</code></pre></div>
+
 <h3 id="我的解决方案："><a href="#我的解决方案：" class="headerlink" title="我的解决方案："></a>我的解决方案：</h3><p>题目给出了一个很重要的信息<strong>“排序”</strong>，千万不能遗漏，否则会耗费过多的时间用来遍历整个数组。</p>
 <p><strong>易错点：</strong>一般情况下会想到用两个 for 循环来做，外层循环遍历第一个到倒数第二个元素，内层循环遍历从外层循环当前遍历到的的下一个元素开始找出与当前元素值相同的元素并删去，大致逻辑如下：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(nums) - <span class="hljs-number">1</span>):
     <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(i + <span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(nums)):
         <span class="hljs-keyword">if</span> nums[i] == nums[j]:
             nums.pop(j)</code></pre></div>
+
 <p>看似逻辑没问题的，但是我们在内部删除了列表 <code>nums[]</code> 的元素之后，列表长度 <code>len(nums)</code> 就已经改变了，而 range() 函数的不会动态的根据 <code>len(nums)</code> 改变它的范围，最终就会导致删除元素后列表长度已经改变但是for语句不知道，超范围后仍然进入循环内部，当访问到 <code>nums[j]</code> 是已经超出列表索引范围。</p>
 <p><strong>正解：</strong>要解决上述问题，不难想到改用while循环，并且只需要一个循环即可，代码如下：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
@@ -299,6 +303,7 @@
                 <span class="hljs-keyword">continue</span>  <span class="hljs-comment"># i保持不变，继续判断nums[i]和补位上来的nums[i + 1]是否相等</span>
             i += <span class="hljs-number">1</span>
         <span class="hljs-keyword">return</span> <span class="hljs-built_in">len</span>(nums)</code></pre></div>
+
 <p>while语句中的 <code>len(nums)</code> 是动态更新的，这就解决了索引超出范围的问题；</p>
 <p>continue 很重要，它解决了数组中有多个重复项的问题。</p>
 

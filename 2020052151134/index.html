@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -274,8 +274,10 @@
 <p><strong>示例（输入输出示例仅供调试，后台判题数据一般不包含示例）</strong></p>
 <p>输入：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">abaababaab</span></code></pre></div>
+
 <p>输出：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs plain">6</code></pre></div>
+
 <h2 id="（2）解题思路"><a href="#（2）解题思路" class="headerlink" title="（2）解题思路"></a>（2）解题思路</h2><p>首先容易观察到的是，这个偶串的长度其实始终是偶数，即使我们从字符串 <code>s</code> 末尾删掉字符也必然是两个一组删除的，因为<strong>不可能存在长度为奇数的偶串</strong>。</p>
 <p>又由于给定的字符串本身就是一个偶串，同时至少需要删除一个字符，所以直接先删掉末尾两个字符，然后循环，直接使用 <code>substr()</code> 函数比较字符串 <code>s</code> 的前一半和后一半是否相同，相同则输出 <code>s</code> 的长度，跳出循环结束运行；不相同则继续删掉末尾两个字符，重复上述步骤。</p>
 <p><strong>小思路：</strong>其实可以把循环前面的删除字符操作统一写到循环内部，逻辑更加清晰！</p>
@@ -304,6 +306,7 @@
 	&#125;
 	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 &#125;</code></pre></div>
+
 
 
 <h1 id="题目二：制造回文"><a href="#题目二：制造回文" class="headerlink" title="题目二：制造回文"></a>题目二：制造回文</h1><h2 id="（1）题目-1"><a href="#（1）题目-1" class="headerlink" title="（1）题目"></a>（1）题目</h2><blockquote>
@@ -336,8 +339,10 @@
 <p><strong>示例（输入输出示例仅供调试，后台判题数据一般不包含示例）</strong></p>
 <p>输入：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">abc</span></code></pre></div>
+
 <p>输出：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs plain">3</code></pre></div>
+
 <h2 id="（2）解题思路-1"><a href="#（2）解题思路-1" class="headerlink" title="（2）解题思路"></a>（2）解题思路</h2><p>之前在 Leetcode 上做过这个题。这一次思路大体也和之前一样，但有一点使得逻辑更加简单~</p>
 <p>题目的意思其实就是用尽可能多的字符来构造一个回文串。构成回文串的规律是，同一个字符的偶数个数一定可以是任意回文串的一部分，换言之偶数个数的同一字符对能生成的最少的回文串个数是没有影响的，所以我们应该关注的重心是个数为奇数的字符。</p>
 <p>要使构成的回文串的个数最少，那么根据前面所说的，首先我们尽可能的去构造一个最长的回文串，也就是把所有偶数个数的字符都用来构造这个回文串，这其中也包括 <code>&quot;aaa&quot;</code> 中的两个 <code>&#39;a&#39;</code> 也可以用于构造这个回文串，此时，如果有剩下的字符，显然都是单个的字符了。</p>
@@ -375,6 +380,7 @@
 	<span class="hljs-built_in">cout</span> &lt;&lt; (odd &gt; <span class="hljs-number">0</span> ? odd : <span class="hljs-number">1</span>) &lt;&lt; <span class="hljs-built_in">endl</span>;
 	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 &#125;</code></pre></div>
+
 <h1 id="题目三：猜数游戏"><a href="#题目三：猜数游戏" class="headerlink" title="题目三：猜数游戏"></a>题目三：猜数游戏</h1><h2 id="（1）题目-2"><a href="#（1）题目-2" class="headerlink" title="（1）题目"></a>（1）题目</h2><blockquote>
 <p>时间限制： CIC++1秒，其他语言2秒</p>
 <p>间限制： C/C++ 32768K，其他语言65536K</p>
@@ -387,6 +393,7 @@
 <p>例如 n = 5 ，合法的提示有：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">YNNNN YNNNY YNYNN YNYNY YYNNN YYNNY</span>
 <span class="hljs-attribute">YYNYN YYNYY YYYNN YYYNY YYYYN YYYYY</span></code></pre></div>
+
 <p>所以输出 <code>12</code></p>
 <p><strong>输入描述：</strong></p>
 <p>输入包括一个整数 <code>n</code> （<code>1 &lt;= n &lt;= 10^6</code>） ，表示已给提示的长度。</p>
@@ -395,8 +402,10 @@
 <p><strong>示例（输入输出示例仅供调试，后台判题数据一般不包含示例）</strong></p>
 <p>输入：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs plain">5</code></pre></div>
+
 <p>输出：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs plain">12</code></pre></div>
+
 <h2 id="（2）解题思路-2"><a href="#（2）解题思路-2" class="headerlink" title="（2）解题思路"></a>（2）解题思路</h2><p>这个题看完题目就知道是动态规划了，知道难搞，不过还是尝试着做了一下，时间不够，大概写了个框架出来，明明还有十多分钟的，不知道为啥就自动给我交卷了……</p>
 <p>下面的代码是考试结束后我继续完善的，自己本地简单测试了几组较小的数据，主要是我也不知道正确答案应该是什么，就不方便测试了，也不确定代码的正确性。另外我觉得我这代码就算逻辑是对的，但是性能也不太好，应该是有更好的办法的o_o ….</p>
 <p>大概思路就是逐个的插入“提示”，也就是逐个的插入 <code>&#39;Y&#39;</code> 或 <code>&#39;N&#39;</code> ，判断当前插入是否合法，直到字符串长度达到输入的 <code>n</code> 并且该提示字符串合法，则合法的提示个数+1。</p>

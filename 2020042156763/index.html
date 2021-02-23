@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -263,13 +263,16 @@
 <div class="hljs code-wrapper"><pre><code class="hljs dns">输入：nums = [<span class="hljs-number">1,1,2,1</span>,<span class="hljs-number">1</span>], k = <span class="hljs-number">3</span>
 输出：<span class="hljs-number">2</span>
 解释：包含 <span class="hljs-number">3</span> 个奇数的子数组是 [<span class="hljs-number">1,1,2,1</span>] 和 [<span class="hljs-number">1,2,1,1</span>] 。</code></pre></div>
+
 <p><strong>示例 2：</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs nix">输入：<span class="hljs-attr">nums</span> = [<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>], <span class="hljs-attr">k</span> = <span class="hljs-number">1</span>
 输出：<span class="hljs-number">0</span>
 解释：数列中不包含任何奇数，所以不存在优美子数组。</code></pre></div>
+
 <p><strong>示例 3：</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs dns">输入：nums = [<span class="hljs-number">2,2,2,1</span>,<span class="hljs-number">2,2,1,2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>], k = <span class="hljs-number">2</span>
 输出：<span class="hljs-number">16</span></code></pre></div>
+
 <p><strong>提示：</strong></p>
 <ul>
 <li><code>1 &lt;= nums.length &lt;= 50000</code></li>
@@ -290,6 +293,7 @@
 <span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>
 
 <span class="hljs-regexp">//</span>右侧同理</code></pre></div>
+
 <p>可以看出，左侧或者右侧有 <code>m</code> 个偶数，就有 <code>m + 1</code> 种可能的情况。如果左侧有 <code>a</code> 种可能的情况，右侧有 <code>b</code> 种可能的情况，则共有 <code>a * b</code> 种情况。</p>
 <p>由此，我们只需要遍历所有可能的连续 <code>k</code> 个奇数的情况，分别计数左右两侧偶数的个数并计算可能的组合情况，加到总的优美子数组的个数 <code>ans</code> 中即可。于是我想到了用双指针的办法解题，这就是一个快慢指针的题目，只不过对指针的修改情况稍微复杂一些。只考虑奇数，快指针找到第 k 个奇数，慢指针才开始找第一个奇数，也就是慢指针到快指针之间始终保持 <code>k</code> 个奇数，在遍历的过程中同时就计数偶数数字的个数，避免了重复遍历。剩下的工作就是计算优美子数组个数以及正确的修改指针。</p>
 <p>另外，其实可以知道如果数组中的奇数个数小于 <code>k</code> ，是不可能有满足条件的情况的，也就说可以直接返回 <code>0</code> 。但在我的代码中，仅当找到 <code>k</code> 个奇数，才可能进行进一步的计算，所以如果找不到 <code>k</code> 个奇数，则返回初始值 <code>0</code> 。</p>

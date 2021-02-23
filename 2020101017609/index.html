@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -312,6 +312,7 @@
       <span class="hljs-bullet">-</span> <span class="hljs-string">Debug</span>
 <span class="hljs-attr">rules:</span>
   <span class="hljs-bullet">-</span> <span class="hljs-string">MATCH,DIRECT</span></code></pre></div>
+
 <p>具体添加步骤参考说明文档：<a target="_blank" rel="noopener" href="https://github.com/Loyalsoldier/clash-rules/blob/master/README.md">https://github.com/Loyalsoldier/clash-rules/blob/master/README.md</a></p>
 <p>这里简单说几个小白可能看起来比较头疼的地方：</p>
 <ol>
@@ -407,6 +408,7 @@
   <span class="hljs-bullet">-</span> <span class="hljs-string">RULE-SET,lancidr,DIRECT,no-resolve</span>
   <span class="hljs-bullet">-</span> <span class="hljs-string">RULE-SET,cncidr,DIRECT,no-resolve</span>
   <span class="hljs-bullet">-</span> <span class="hljs-string">MATCH,PROXY</span></code></pre></div>
+
 <p>保存后软件会自动加载设置，不出意外的话软件会自动下载 <code>rule-providers</code> 中配置的规则文件，保存在配置文件根目录下的 <code>ruleset</code> 文件夹中，这里可以自行验证一下，在常规设置中找到 Home Directory ，点击右侧 Open Folder 可以直接打开配置文件根目录。成功下载规则文件将会是下图这样：</p>
 <p><img src="ruleset.png" srcset="/img/loading.gif"></p>
 <p>如果没能下载下来，可以尝试替换链接，规则集的说明文档中有相关说明。</p>

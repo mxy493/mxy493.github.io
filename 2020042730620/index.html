@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -264,9 +264,11 @@
 <p><strong>示例 1:</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs makefile"><span class="hljs-section">输入: nums = [4,5,6,7,0,1,2], target = 0</span>
 <span class="hljs-section">输出: 4</span></code></pre></div>
+
 <p><strong>示例 2:</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs makefile"><span class="hljs-section">输入: nums = [4,5,6,7,0,1,2], target = 3</span>
 <span class="hljs-section">输出: -1</span></code></pre></div>
+
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题如果是已排序的数组，那么用二分查找应该就是最快的，但是题目是进行了旋转后的数组。</p>
 <p>其实仔细观察不难发现，相当于题目已经把一个已排序的数组分成了两部分，前面一部分的数较大，后面一部分的数较小。以示例中的数组 <code>[4,5,6,7,0,1,2]</code> 为例，前一部分的数为 <code>[4,5,6,7]</code> ，后一部分的数为 <code>[0,1,2]</code> ，前面一部分任意一个数都是大于后面一部分的数的。</p>
 <p>与标准二分查找不同的是，这个题的二分的点并不是数组的正中心，并且我们也不知道具体是从哪里二分的（需要遍历查找）。但是可以肯定的是，题目给出的 <code>target</code> 只可能属于两部分中的一个部分，换言之 <code>target</code> 要么大于数组的第一个数，要么小于数组的最后一个数。</p>

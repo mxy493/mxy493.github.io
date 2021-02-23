@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -254,24 +254,30 @@
             
             <div class="markdown-body">
               <h3 id="下载WPS"><a href="#下载WPS" class="headerlink" title="下载WPS"></a>下载WPS</h3><p>WPS for Linux官网：<a target="_blank" rel="noopener" href="http://www.wps.cn/product/wpslinux/">http://www.wps.cn/product/wpslinux/</a></p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>双击安装或者命令行安装</p>
 <div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">sudo</span> dpkg -i ***/wps-office_<span class="hljs-number">10.1.0.675</span><span class="hljs-number">7</span>_amd<span class="hljs-number">64</span>.deb</code></pre></div>
+
 <h3 id="字体缺失"><a href="#字体缺失" class="headerlink" title="字体缺失"></a>字体缺失</h3><p>安装后如果有字体缺失问题</p>
 <p>下载：<a href="wps_symbol_fonts.zip">wps_symbol_fonts.zip</a></p>
 <p>将下载好的字体压缩包移至 <code>/usr/share/fonts</code> 文件夹下</p>
 <div class="hljs code-wrapper"><pre><code class="hljs gradle">sudo mv wps_symbol_fonts.zip <span class="hljs-regexp">/usr/</span>share/fonts</code></pre></div>
+
 <p>终端进入到 <code>/usr/share/fonts</code> 文件夹</p>
 <div class="hljs code-wrapper"><pre><code class="hljs gradle">cd <span class="hljs-regexp">/usr/</span>share/fonts</code></pre></div>
+
 <p>解压缩（解压缩后可以把压缩包删了）</p>
 <div class="hljs code-wrapper"><pre><code class="hljs stata">sudo unzip wps_symbol_fonts.<span class="hljs-keyword">zip</span>
 sudo <span class="hljs-keyword">rm</span> wps_symbol_fonts.<span class="hljs-keyword">zip</span></code></pre></div>
+
 <p>执行命令生成字体的索引信息：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo mkfontscale</span>
 <span class="hljs-attribute">sudo mkfontdir</span></code></pre></div>
+
 <p>运行fc-cache命令更新字体缓存：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo fc-cache</span></code></pre></div>
+
 
             </div>
             <hr>

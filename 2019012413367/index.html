@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -257,14 +257,16 @@
 <p> 地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/26/">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/1/array/26/</a></p>
 </blockquote>
 <h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a><strong>一、题目</strong></h3><p>给定两个数组，编写一个函数来计算它们的交集。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p><strong>示例 1:</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs inform7">输入: nums1 = <span class="hljs-comment">[1,2,2,1]</span>, nums2 = <span class="hljs-comment">[2,2]</span>
 输出: <span class="hljs-comment">[2,2]</span></code></pre></div>
+
 <p><strong>示例 2:</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs inform7">输入: nums1 = <span class="hljs-comment">[4,9,5]</span>, nums2 = <span class="hljs-comment">[9,4,9,8,4]</span>
 输出: <span class="hljs-comment">[4,9]</span></code></pre></div>
+
 <p><strong>说明：</strong></p>
 <ul>
 <li>输出结果中每个元素出现的次数，应与元素在两个数组中出现的次数一致。</li>
@@ -305,6 +307,7 @@
         <span class="hljs-keyword">return</span> inter;
     &#125;
 &#125;;</code></pre></div>
+
 <p><strong>进阶思路：</strong></p>
 <ol>
 <li>如果是已经排好序的两个数组，可以不用每次都从头开始查找，每一次查找的时候记录下当前的位置，这个位置之前的已经不可能存在交集了也就不用再查找一次了</li>

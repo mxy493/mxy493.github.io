@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -272,6 +272,7 @@
 <span class="hljs-comment">  <span class="hljs-comment">[8,5,2]</span>,</span>
 <span class="hljs-comment">  <span class="hljs-comment">[9,6,3]</span></span>
 <span class="hljs-comment">]</span></code></pre></div>
+
 <p><strong>示例 2:</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs inform7">给定 matrix =
 <span class="hljs-comment">[</span>
@@ -288,6 +289,7 @@
 <span class="hljs-comment">  <span class="hljs-comment">[12, 6, 8, 9]</span>,</span>
 <span class="hljs-comment">  <span class="hljs-comment">[16, 7,10,11]</span></span>
 <span class="hljs-comment">]</span></code></pre></div>
+
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题的解题思路真的是个意外的发现，起初题目要求都没搞明白以为是求对称矩阵就开始下手做，还很快就写出来了，然后才注意到是旋转矩阵。</p>
 <p>然后就一直在思考旋转的过程中坐标 <code>(i, j)</code> 的变化规律，其实都有一点想法了，大概要分成四块来分别做转换才行。但是恰巧这个时候我突然间发现，我前面做的对称矩阵，恰好是每一列顺序反的，也就是说把每一列前后互换就可以了。</p>
 <ol>
@@ -298,6 +300,7 @@
 <span class="hljs-comment">  <span class="hljs-comment">[4,5,6]</span>,</span>
 <span class="hljs-comment">  <span class="hljs-comment">[7,8,9]</span></span>
 <span class="hljs-comment">]</span>,</code></pre></div>
+
 <ol start="2">
 <li>第一步求对称矩阵：</li>
 </ol>
@@ -306,6 +309,7 @@
 <span class="hljs-comment">  <span class="hljs-comment">[2,5,8]</span>,</span>
 <span class="hljs-comment">  <span class="hljs-comment">[3,6,9]</span></span>
 <span class="hljs-comment">]</span>,</code></pre></div>
+
 <ol start="3">
 <li>可以看到只需要每一列前后互换就可以了，也就是第1列和第3列互换，得到最终结果：</li>
 </ol>
@@ -314,6 +318,7 @@
 <span class="hljs-comment">  <span class="hljs-comment">[8,5,2]</span>,</span>
 <span class="hljs-comment">  <span class="hljs-comment">[9,6,3]</span></span>
 <span class="hljs-comment">]</span></code></pre></div>
+
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">rotate</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;
@@ -336,6 +341,7 @@
         &#125;
     &#125;
 &#125;;</code></pre></div>
+
 
             </div>
             <hr>

@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -261,6 +261,7 @@
 <p>以上是想法，实际上确实也很容易，上述两点的核心代码就是这样：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs python">self.setAttribute(Qt.WA_TranslucentBackground)  <span class="hljs-comment"># 透明效果</span>
 self.setWindowFlags(Qt.FramelessWindowHint | Qt.BypassWindowManagerHint | Qt.Tool | Qt.WindowStaysOnTopHint)  <span class="hljs-comment"># 无边框, 随主窗口关闭, 置顶</span></code></pre></div>
+
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>最后留一个演示代码~</p>
 <div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding: utf-8 -*-</span>
 
@@ -357,6 +358,7 @@ self.setWindowFlags(Qt.FramelessWindowHint | Qt.BypassWindowManagerHint | Qt.Too
     window = MainWindow()
     window.show()
     sys.exit(app.exec_())</code></pre></div>
+
 <h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><p><img src="demo.gif" srcset="/img/loading.gif" alt="demo.gif"></p>
 
             </div>

@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -268,6 +268,7 @@
 
 <span class="hljs-section">解释:</span>
 我们可以构造的最长的回文串是<span class="hljs-string">&quot;dccaccd&quot;</span>, 它的长度是 7。</code></pre></div>
+
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>解题思路还是很容易想到的，回文串的特征很明显，就是左右对称，也就是说只有正中可能存在单个的字符，其余的字符都一定是偶数个。</p>
 <p>所以我很快就想到了统计字符串中不同字符的个数，使用了一个 <code>vector&lt;pair&lt;char, int&gt;&gt;</code> 类型的数组 <code>count</code> 用于保存每个字符及其对应的个数。</p>
 <p>然后遍历 <code>count</code> 将每个字符的最多可能取到的偶数个数加到 <code>length</code> ，然后为了尽可能的让回文串的长度更长，所以如果存在计数个数的字符，那就应该再+1，即表示将一个单个的字符作为回文串的正中的字符。</p>

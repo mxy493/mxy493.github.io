@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -265,10 +265,12 @@
 <span class="hljs-section">解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。</span>
       注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格。</code></pre></div>
 
+
 <p>示例 2:</p>
 <div class="hljs code-wrapper"><pre><code class="hljs makefile"><span class="hljs-section">输入: [7,6,4,3,1]</span>
 <span class="hljs-section">输出: 0</span>
 <span class="hljs-section">解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。</span></code></pre></div>
+
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题其实不是第一次遇上了，初学C++的时候就做过这个题，有几个需要注意的地方是：</p>
 <ul>
 <li>需要判别<strong>数组为空</strong>的情况，此时利润为0可以直接返回；</li>

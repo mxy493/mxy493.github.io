@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -266,6 +266,7 @@
 11000
 00000
 <span class="hljs-section">输出: 1</span></code></pre></div>
+
 <p><strong>示例 2:</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs makefile"><span class="hljs-section">输入:</span>
 11000
@@ -274,6 +275,7 @@
 00011
 <span class="hljs-section">输出: 3</span>
 <span class="hljs-section">解释: 每座岛屿只能由水平和/或竖直方向上相邻的陆地连接而成。</span></code></pre></div>
+
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>很巧的是，之前做过一个同类型的题，<a href="https://mxy493.xyz/2020/03/15/Leetcode-695-%E5%B2%9B%E5%B1%BF%E7%9A%84%E6%9C%80%E5%A4%A7%E9%9D%A2%E7%A7%AF%E3%80%90C-%E3%80%91/">岛屿的最大面积</a> 。</p>
 <p>所以这次很容易就有思路了。首先显然的要遍历二维数组找岛屿，很容易，遇到字符 <code>&#39;1&#39;</code> 就是遇到了岛屿，将岛屿数量 <code>count++</code> ，那么剩下的问题就是，怎么避免重复遇到同一个岛屿？</p>
 <p>有过之前做同类型题目的经验，不难想到将当前遇到的岛屿将其置为非 <code>&#39;1&#39;</code> 的状态，因为我们判断一个格子是不是岛屿的一部分，就是看这个格子是不是字符 <code>&#39;1&#39;</code> ，所以只要将其置为非 <code>&#39;1&#39;</code> 即表示当前格子已经是已经计算过的岛屿的一部分或者它本来就不是岛屿。</p>

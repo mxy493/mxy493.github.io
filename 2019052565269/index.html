@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -268,9 +268,10 @@
 <p>所以我们把对应的颜色主题代码复制过来放在 default 主题前后即可，以 dark grey 主题为例，在主题代码中找到 dark grey 的代码片段，如图：</p>
 <p><img src="3.png" srcset="/img/loading.gif"></p>
 <p>其它主题同样，都是类似的代码块：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs lasso">&lt;dark_grey&gt;
-	<span class="hljs-params">...</span><span class="hljs-params">...</span>
-&lt;/ dark_grey&gt;</code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs bnf"><span class="hljs-attribute">&lt;dark_grey&gt;</span>
+	......
+<span class="hljs-attribute">&lt;/ dark_grey&gt;</span></code></pre></div>
+
 <p>可以随意添加其中一部分或者添加所有主题，复制到 default.conf 文件中与 default 主题并列的位置，保存即可！</p>
 <p><img src="4.png" srcset="/img/loading.gif"></p>
 <p>打开 Code::Blocks ，在设置中修改颜色主题选择自己添加的主题即可，设置之后 Code::Blocks 会保存当前设置，以后打开也会保持设置过的主题！</p>

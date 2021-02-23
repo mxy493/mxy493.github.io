@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -261,10 +261,12 @@
 <div class="hljs code-wrapper"><pre><code class="hljs llvm">输入：<span class="hljs-string">&quot;aabcccccaaa&quot;</span>
 输出：<span class="hljs-string">&quot;a2b1c5a3&quot;</span></code></pre></div>
 
+
 <p><strong>示例2:</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs llvm">输入：<span class="hljs-string">&quot;abbccd&quot;</span>
 输出：<span class="hljs-string">&quot;abbccd&quot;</span>
 解释：<span class="hljs-string">&quot;abbccd&quot;</span>压缩后为<span class="hljs-string">&quot;a1b2c2d1&quot;</span>，比原字符串长度更长。</code></pre></div>
+
 <p><strong>提示：</strong></p>
 <p>字符串长度在[0, 50000]范围内。</p>
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>由于传入的字符串长度可能为0，所以这种特殊情况应该直接返回原字符串（无法对其进行压缩）。</p>
@@ -298,6 +300,7 @@
         <span class="hljs-keyword">return</span> cpStr.length() &lt; length ? cpStr : str;
     &#125;
 &#125;;</code></pre></div>
+
 
             </div>
             <hr>

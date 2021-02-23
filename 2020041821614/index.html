@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -263,15 +263,17 @@
 <p><strong>示例：</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs dns">输入：[<span class="hljs-number">1,8,6,2</span>,<span class="hljs-number">5,4,8,3</span>,<span class="hljs-number">7</span>]
 输出：<span class="hljs-number">49</span></code></pre></div>
+
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>比较典型的<strong>双指针问题</strong>，这个题难在要把问题读懂，如果能想到是双指针问题，那么这个题已经做好了 80% 了。</p>
 <p>双指针问题通用模板：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs arduino"><span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
-<span class="hljs-keyword">int</span> j = nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>;
+<div class="hljs code-wrapper"><pre><code class="hljs irpf90"><span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>;
+<span class="hljs-built_in">int</span> j = nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>;
 <span class="hljs-keyword">while</span>(i &lt; j)&#123;
 	<span class="hljs-keyword">do</span> something
 	i++;
 	j--;
 &#125;</code></pre></div>
+
 <p>我们的目标值只有一个，就是题目要求的最大值。遍历所有可能的情况是很容易写出来的，但却没有必要那么做。</p>
 <p>以题目的示例为例，考虑 <code>[1,8,6,2,5,4,8,3,7]</code> 的首尾两个数，我们要找最大值，那么较小的值就可以不再考虑，也就是左侧1小于右侧的7，如果有更大的值，肯定是和较大的数所构成的，第一步我们把左指针右移一位，8和7所能容纳的水量显然大于1和7。</p>
 <p>重复上述步骤，根据两端的值移动左右指针，同时不断更新最大值。当遍历结束，题目要求的最大值也就找到了。</p>
@@ -299,6 +301,7 @@
         <span class="hljs-keyword">return</span> area;
     &#125;
 &#125;;</code></pre></div>
+
 
             </div>
             <hr>

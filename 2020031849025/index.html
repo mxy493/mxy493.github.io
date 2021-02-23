@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -262,9 +262,11 @@
 <p><strong>示例 1：</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs nix">输入：<span class="hljs-attr">rec1</span> = [<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>], <span class="hljs-attr">rec2</span> = [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>]
 输出：<span class="hljs-literal">true</span></code></pre></div>
+
 <p><strong>示例 2：</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs nix">输入：<span class="hljs-attr">rec1</span> = [<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>], <span class="hljs-attr">rec2</span> = [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>]
 输出：<span class="hljs-literal">false</span></code></pre></div>
+
 <p><strong>提示：</strong></p>
 <ol>
 <li>两个矩形 <code>rec1</code> 和 <code>rec2</code> 都以含有四个整数的列表的形式给出。</li>
@@ -291,6 +293,7 @@
         <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<span class="hljs-comment">//默认返回false</span>
     &#125;
 &#125;;</code></pre></div>
+
 
             </div>
             <hr>

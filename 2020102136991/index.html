@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -262,17 +262,21 @@
 <div class="hljs code-wrapper"><pre><code class="hljs xquery">输入<span class="hljs-built_in">：name</span> = <span class="hljs-string">&quot;alex&quot;</span>, typed = <span class="hljs-string">&quot;aaleex&quot;</span>
 输出<span class="hljs-built_in">：true</span>
 解释：<span class="hljs-string">&#x27;alex&#x27;</span> 中的 <span class="hljs-string">&#x27;a&#x27;</span> 和 <span class="hljs-string">&#x27;e&#x27;</span> 被长按。</code></pre></div>
+
 <p><strong>示例 2：</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs xquery">输入<span class="hljs-built_in">：name</span> = <span class="hljs-string">&quot;saeed&quot;</span>, typed = <span class="hljs-string">&quot;ssaaedd&quot;</span>
 输出<span class="hljs-built_in">：false</span>
 解释：<span class="hljs-string">&#x27;e&#x27;</span> 一定需要被键入两次，但在 typed 的输出中不是这样。</code></pre></div>
+
 <p><strong>示例 3：</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs nix">输入：<span class="hljs-attr">name</span> = <span class="hljs-string">&quot;leelee&quot;</span>, <span class="hljs-attr">typed</span> = <span class="hljs-string">&quot;lleeelee&quot;</span>
 输出：<span class="hljs-literal">true</span></code></pre></div>
+
 <p><strong>示例 4：</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs nix">输入：<span class="hljs-attr">name</span> = <span class="hljs-string">&quot;laiden&quot;</span>, <span class="hljs-attr">typed</span> = <span class="hljs-string">&quot;laiden&quot;</span>
 输出：<span class="hljs-literal">true</span>
 解释：长按名字中的字符并不是必要的。</code></pre></div>
+
 
 <p>提示：</p>
 <ol>
@@ -304,6 +308,7 @@
         <span class="hljs-keyword">return</span> i == name.length();
     &#125;
 &#125;;</code></pre></div>
+
 
             </div>
             <hr>

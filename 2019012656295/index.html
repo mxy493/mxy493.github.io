@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -258,10 +258,11 @@
 </blockquote>
 <p>Hexo添加访问量统计功能可以用<strong>百度统计</strong>、<strong>Leancloud</strong>，还有<strong>不蒜子</strong>。</p>
 <p>我设置了百度统计，但是百度统计只能在后台查看数据，而今天新添加的不蒜子，可以将统计信息直接显示在网页上，更加直观一些，也减少了登录后台的麻烦。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h3 id="一、添加不蒜子"><a href="#一、添加不蒜子" class="headerlink" title="一、添加不蒜子"></a>一、添加不蒜子</h3><p>将下面的代码添加到<code>/themes/根据个人目录修改/layout/_partial/footer.ejs</code>（代码添加到不同的位置，在页面上显示的位置也不同）：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs javascript">&lt;script <span class="hljs-keyword">async</span> src=<span class="hljs-string">&quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;</span>&gt;&lt;/script&gt;</code></pre></div>
+
 <p>我将它放在了页面下方正中。</p>
 <p>这段代码我写在了<code>footer.ejs</code>里，也可以写在<code>header.ejs</code>里或者<code>layout.ejs</code>里。</p>
 <p><img src="Snipaste_2019-01-26_22-35-45.png" srcset="/img/loading.gif"></p>
@@ -270,10 +271,12 @@
 <div class="hljs code-wrapper"><pre><code class="hljs javascript">&lt;span id=<span class="hljs-string">&quot;busuanzi_container_site_pv&quot;</span>&gt;
     本站总访问量&lt;span id=<span class="hljs-string">&quot;busuanzi_value_site_pv&quot;</span>&gt;&lt;/span&gt;次
 &lt;/span&gt;</code></pre></div>
+
 <p><strong>算法b</strong>：uv的方式，单个用户连续点击n篇文章，只记录1次访客数。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs javascript">&lt;span id=<span class="hljs-string">&quot;busuanzi_container_site_uv&quot;</span>&gt;
   本站访客数&lt;span id=<span class="hljs-string">&quot;busuanzi_value_site_uv&quot;</span>&gt;&lt;/span&gt;人次
 &lt;/span&gt;</code></pre></div>
+
 <h3 id="三、添加文章阅读量"><a href="#三、添加文章阅读量" class="headerlink" title="三、添加文章阅读量"></a>三、添加文章阅读量</h3><p>添加文章阅读量和站点访问量基本一致，但是要添加一个判断条件只在文章中显示文章阅读量，主页自然是没有阅读量一说的。</p>
 <p>将下面的代码添加到<code>/themes/根据个人目录修改/layout/_partial/article.ejs</code>的合适位置：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs javascript">&lt;% <span class="hljs-keyword">if</span> (!index)&#123; %&gt;
@@ -281,6 +284,7 @@
     ⋉(●本文总阅读量 &lt;span id=<span class="hljs-string">&quot;busuanzi_value_page_pv&quot;</span>&gt;&lt;/span&gt; 次●)⋊
   &lt;/span&gt;
 &lt;% &#125; %&gt;</code></pre></div>
+
 <p>例如我放在了如图所示位置，最终会现在在文章底部的标签后面。</p>
 <p><img src="Snipaste_2019-01-26_22-55-12.png" srcset="/img/loading.gif"></p>
 <h3 id="四、最终的显示效果"><a href="#四、最终的显示效果" class="headerlink" title="四、最终的显示效果"></a>四、最终的显示效果</h3><p>文章阅读量：</p>

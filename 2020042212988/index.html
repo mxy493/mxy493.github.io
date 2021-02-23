@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -267,6 +267,7 @@
 <span class="hljs-number">2</span>     <span class="hljs-number">3</span>         &lt;-<span class="hljs-comment">--</span>
  \     \
   <span class="hljs-number">5</span>     <span class="hljs-number">4</span>       &lt;-<span class="hljs-comment">--</span></code></pre></div>
+
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先这是一个很明显的使用递归算法的题目，由于是“右视图”，所以应该采用<strong>后序遍历</strong>，先遍历右子女结点，再遍历左子女结点。</p>
 <p>二叉树的递归遍历是不难实现的，但是这个题要找的是从右侧能看到的结点，以上述示例为例，显然能看到的结点就是右侧的三个结点 <code>[1, 3, 4]</code> 。假设结点 <code>5</code> 还有一个左孩子结点值为 <code>6</code> ，那么在结点 <code>6</code> 的右侧是没有任何结点阻挡的，所以 <code>6</code> 也应该能看到。</p>
 <p>不难发现，具体能看到的结点并不一定只是最右侧一条路径上的的所有结点，而是跟 <strong>深度</strong> 有关。如果左子树存在深度更深的结点，那就也可以被看到。</p>
@@ -314,6 +315,7 @@
         &#125;
     &#125;
 &#125;;</code></pre></div>
+
 
             </div>
             <hr>

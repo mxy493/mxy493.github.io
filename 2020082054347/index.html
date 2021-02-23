@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -258,9 +258,11 @@
 <h2 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h2><div class="hljs code-wrapper"><pre><code class="hljs smalltalk">输入：<span class="hljs-comment">&quot;abc&quot;</span>
 输出：<span class="hljs-number">3</span>
 解释：三个回文子串: <span class="hljs-comment">&quot;a&quot;</span>, <span class="hljs-comment">&quot;b&quot;</span>, <span class="hljs-comment">&quot;c&quot;</span></code></pre></div>
+
 <h2 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h2><div class="hljs code-wrapper"><pre><code class="hljs smalltalk">输入：<span class="hljs-comment">&quot;aaa&quot;</span>
 输出：<span class="hljs-number">6</span>
 解释：<span class="hljs-number">6</span>个回文子串: <span class="hljs-comment">&quot;a&quot;</span>, <span class="hljs-comment">&quot;a&quot;</span>, <span class="hljs-comment">&quot;a&quot;</span>, <span class="hljs-comment">&quot;aa&quot;</span>, <span class="hljs-comment">&quot;aa&quot;</span>, <span class="hljs-comment">&quot;aaa&quot;</span></code></pre></div>
+
 <h2 id="提示："><a href="#提示：" class="headerlink" title="提示："></a>提示：</h2><p>输入的字符串长度不会超过 1000 。</p>
 <h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>很容易知道单个字符也是回文串，所以任意长度的字符串至少有 <code>s.length()</code> 个回文子串，问题就可以转化为求长度大于1回文子串的个数。</p>
 <p>回文串有两种情况，一种长度为奇数，一种长度为偶数，区别就在于正中心是单个字符（例如 <code>&#39;aba&#39;</code> ）还是两个相同的字符（例如 <code>&#39;abba&#39;</code> ），所以只要把这两种情况区别开来，然后以其为中心不断往两边扩展，实际上只要判断两侧对应位置上的字符是否相同即可，每多找到一个就+1，一旦遇到不相等字符则不可能有更大的回文子串了，所以跳出循环。</p>
@@ -294,6 +296,7 @@
         <span class="hljs-keyword">return</span> count;
     &#125;
 &#125;;</code></pre></div>
+
             </div>
             <hr>
             <div>

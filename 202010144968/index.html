@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -287,9 +287,11 @@
 
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 &#125;</code></pre></div>
+
 <p>了解数组的初始化的话我们还可以省略多维数组第一维的大小，将二维、三维数组的形式参数写成如下形式，编译器会根据实际传入的数组大小确定第一维的大小：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">array2d</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr2[][<span class="hljs-number">3</span>], <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> n)</span></span>;
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">array3d</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr3[][<span class="hljs-number">3</span>][<span class="hljs-number">2</span>], <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> c, <span class="hljs-keyword">int</span> a)</span></span>;</code></pre></div>
+
 <p>调试观察一下，可以知道上述数组定义并初始化后，一维数组 <code>arr1</code> 的类型为 <code>int[2]</code> ，二维数组 <code>arr2</code> 的类型为 <code>int[2][3]</code> ，三维数组 <code>arr3</code> 的类型为 <code>int[2][3][2]</code> 。</p>
 <p>但传递到函数中后，形式参数的类型却分别变为了 <code>int*</code> 、 <code>int[3] *</code> 和 <code>int[3][2] *</code> 。</p>
 <p>实际上也并不难理解，我们知道数组名其实就是指向数组第一个元素的指针，因此上面指针类型的形参其实就分别是：</p>
@@ -303,6 +305,7 @@
 <div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">array1d</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *arr1)</span></span>;  <span class="hljs-comment">// 一维</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">array2d</span><span class="hljs-params">(<span class="hljs-keyword">int</span> (*arr2)[<span class="hljs-number">3</span>])</span></span>;  <span class="hljs-comment">// 二维</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">array3d</span><span class="hljs-params">(<span class="hljs-keyword">int</span> (*arr3)[<span class="hljs-number">3</span>][<span class="hljs-number">2</span>])</span></span>;  <span class="hljs-comment">// 三维</span></code></pre></div>
+
 <p>这种方式实际与方式一并没有什么区别，笔经数据类型都是完全一致的。</p>
 <p>这里需要注意，不能把 <code>int (*arr2)[3]</code> 写成 <code>int *arr2[3]</code> ，原因就在于简述中谈到的运算符优先级的问题，这两种写法之间是有本质区别的，即<strong>指针数组</strong>和<strong>指向数组的指针</strong>之间的区别：</p>
 <ul>
@@ -318,9 +321,10 @@
 <p>也正因为指针没有维度，我们是不是可以这么理解：数组作为参数传递之后，就丢失了原数组第一个维度的信息。</p>
 <p>至少我觉得这样理解是比较合理的，也因此，实际编程中，在传递一个数组的同时传递其维数，程序的可读性将更强。</p>
 <p>例如，可以将上述方式二中的函数声明修改为如下所示：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">array1d</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *arr1, <span class="hljs-keyword">int</span> d)</span></span>;  <span class="hljs-comment">// 一维</span>
+<div class="hljs code-wrapper"><pre><code class="hljs arduino"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">array1d</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *arr1, <span class="hljs-keyword">int</span> d)</span></span>;  <span class="hljs-comment">// 一维</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">array2d</span><span class="hljs-params">(<span class="hljs-keyword">int</span> (*arr2)[<span class="hljs-number">3</span>], <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> c)</span></span>;  <span class="hljs-comment">// 二维</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">array3d</span><span class="hljs-params">(<span class="hljs-keyword">int</span> (*arr3)[<span class="hljs-number">3</span>][<span class="hljs-number">2</span>], <span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b, <span class="hljs-keyword">int</span> c)</span></span>;  <span class="hljs-comment">// 三维</span></code></pre></div>
+
 <p>最后呢，其实本文所讨论的均为一般的数组，如果说使用标准库类型 vector 数组其实就没这些必要了，另外也可以使用智能指针，以使函数可以接受任意维度的数组，具体的实现就不讨论了~</p>
 
             </div>

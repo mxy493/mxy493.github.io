@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -261,10 +261,12 @@
 <div class="hljs code-wrapper"><pre><code class="hljs prolog">输入: [[<span class="hljs-number">1</span>,<span class="hljs-number">3</span>],[<span class="hljs-number">2</span>,<span class="hljs-number">6</span>],[<span class="hljs-number">8</span>,<span class="hljs-number">10</span>],[<span class="hljs-number">15</span>,<span class="hljs-number">18</span>]]
 输出: [[<span class="hljs-number">1</span>,<span class="hljs-number">6</span>],[<span class="hljs-number">8</span>,<span class="hljs-number">10</span>],[<span class="hljs-number">15</span>,<span class="hljs-number">18</span>]]
 解释: 区间 [<span class="hljs-number">1</span>,<span class="hljs-number">3</span>] 和 [<span class="hljs-number">2</span>,<span class="hljs-number">6</span>] 重叠, 将它们合并为 [<span class="hljs-number">1</span>,<span class="hljs-number">6</span>].</code></pre></div>
+
 <p><strong>示例 2:</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs lua">输入: <span class="hljs-string">[[1,4],[4,5]]</span>
 输出: <span class="hljs-string">[[1,5]]</span>
 解释: 区间 [<span class="hljs-number">1</span>,<span class="hljs-number">4</span>] 和 [<span class="hljs-number">4</span>,<span class="hljs-number">5</span>] 可被视为重叠区间。</code></pre></div>
+
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这题的思路不算难的，下面我的第一版代码也没花太多时间就写出来了。</p>
 <p>第一版思路挺简单的，就是暴力解，遍历数组，把每一个区间的可能和它合并的区间都找出来和它合并，把合并了的区间直接删除。提交，超时，后来看了超时的输入数据，总共 10000 个区间……</p>
 <p>然后我又想别的方法，起初写第一版代码的时候，我其实就有考虑对所有区间按区间的起始位置排序的，但是想着排序应该挺费时的，就没那么做。然后第一版超时了，想想其实排序了应该还好很多，因为按照初版代码的思路，每一次只考虑一个区间要把所有能合并的都找出来和它合并，这期间每新合并了一个区间，它都需要把剩下的所有区间重新遍历一次，复杂度已经是是指数级的了。但是如果先对区间排序，那么只需要考虑相邻区间是否需要合并即可，也就是说排序后的区间数组，只需要对它进行一次遍历即可。按照这个思路，写出了第二版先排序再合并的代码，然而还是超时了。</p>
@@ -296,6 +298,7 @@
 		<span class="hljs-keyword">return</span> intervals;
     &#125;
 &#125;;</code></pre></div>
+
 <h4 id="排序版（超时）"><a href="#排序版（超时）" class="headerlink" title="排序版（超时）"></a>排序版（超时）</h4><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
 	<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; merge(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; intervals) &#123;
@@ -325,6 +328,7 @@
 		<span class="hljs-keyword">return</span> intervals;
 	&#125;
 &#125;;</code></pre></div>
+
 <h4 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解"></a>官方题解</h4><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
     <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; merge(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; intervals) &#123;

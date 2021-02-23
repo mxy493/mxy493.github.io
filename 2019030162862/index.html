@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -260,11 +260,13 @@
 <p><strong>示例：</strong></p>
 <div class="hljs code-wrapper"><pre><code class="hljs erlang-repl">输入：<span class="hljs-number">1</span>-&gt;<span class="hljs-number">2</span>-&gt;<span class="hljs-number">4</span>, <span class="hljs-number">1</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">4</span>
 输出：<span class="hljs-number">1</span>-&gt;<span class="hljs-number">1</span>-&gt;<span class="hljs-number">2</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">4</span>-&gt;<span class="hljs-number">4</span></code></pre></div>
+
 <h3 id="原解题思路"><a href="#原解题思路" class="headerlink" title="原解题思路"></a>原解题思路</h3><p>需要考虑的几种情况：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs markdown"><span class="hljs-bullet">1.</span> 两个链表均为空
 <span class="hljs-bullet">2.</span> 两个链表中的一个为空
 <span class="hljs-bullet">3.</span> 链表只有一个结点
 <span class="hljs-bullet">4.</span> 两个链表均有多个结点</code></pre></div>
+
 <p>如下代码中对前三种较特殊情况都作了相应的特殊处理。</p>
 <h3 id="代码（一）"><a href="#代码（一）" class="headerlink" title="代码（一）"></a>代码（一）</h3><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">/**</span>
 <span class="hljs-comment"> * Definition for singly-linked list.</span>
@@ -327,6 +329,7 @@
         <span class="hljs-keyword">return</span> root;
     &#125;
 &#125;;</code></pre></div>
+
 <h3 id="现解题思路"><a href="#现解题思路" class="headerlink" title="现解题思路"></a>现解题思路</h3><blockquote>
 <p>2020年5月1日更新</p>
 </blockquote>

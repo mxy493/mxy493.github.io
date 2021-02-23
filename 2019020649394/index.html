@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -257,14 +257,16 @@
 <p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/40/">https://leetcode-cn.com/explore/interview/card/top-interview-questions-easy/5/strings/40/</a></p>
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>编写一个函数来查找字符串数组中的最长公共前缀。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>如果不存在公共前缀，返回空字符串 <code>&quot;&quot;</code>。</p>
 <h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例 1:"></a>示例 1:</h4><div class="hljs code-wrapper"><pre><code class="hljs prolog">输入: [<span class="hljs-string">&quot;flower&quot;</span>,<span class="hljs-string">&quot;flow&quot;</span>,<span class="hljs-string">&quot;flight&quot;</span>]
 输出: <span class="hljs-string">&quot;fl&quot;</span></code></pre></div>
+
 <h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例 2:"></a>示例 2:</h4><div class="hljs code-wrapper"><pre><code class="hljs prolog">输入: [<span class="hljs-string">&quot;dog&quot;</span>,<span class="hljs-string">&quot;racecar&quot;</span>,<span class="hljs-string">&quot;car&quot;</span>]
 输出: <span class="hljs-string">&quot;&quot;</span>
 解释: 输入不存在公共前缀。</code></pre></div>
+
 <h4 id="说明"><a href="#说明" class="headerlink" title="说明:"></a>说明:</h4><p>所有输入只包含小写字母 <code>a-z</code> 。</p>
 <h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><p>刚读完题就诞生了两个解题思路，所以都尝试写了一下，确实也都是可行的方法。</p>
 <p>相对来说，如果公有部分较长的话应该方法二会高效一些，反之方法一可能更高效。个人感觉方法二应该更普适。</p>
@@ -297,6 +299,7 @@
         <span class="hljs-keyword">return</span> str;
     &#125;
 &#125;;</code></pre></div>
+
 <p><strong>方法二：</strong></p>
 <p>这个方法感觉高效一些，正好弥补了方法一的缺点。</p>
 <p>思路是，任选一个字符串作为初始的str（为了方便遍历字符串数组，所以选第一个字符串strs[0]作为初始值），然后用其余每一个字符串依次和str比较查找公共部分，然后删去非公共部分，当整个字符串数组遍历完的时候也就删掉了字符串str与其余所有字符串的非公共部分，剩下的就是公共部分也就是所有字符串的公共前缀。</p>
@@ -322,6 +325,7 @@
         <span class="hljs-keyword">return</span> str;
     &#125;
 &#125;;</code></pre></div>
+
 <h4 id="测试数据"><a href="#测试数据" class="headerlink" title="测试数据"></a>测试数据</h4><div class="hljs code-wrapper"><pre><code class="hljs mel">测试<span class="hljs-number">1</span>：
 flower
 <span class="hljs-keyword">flow</span>
@@ -331,6 +335,7 @@ flight
 dog
 racecar
 car</code></pre></div>
+
 <p>测试数据需要考虑下<code>数组为空</code>的情况以及<code>strs数组大小为1</code>的较特殊情况。</p>
 
             </div>

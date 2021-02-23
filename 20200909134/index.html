@@ -59,7 +59,7 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -264,14 +264,18 @@ pip install pyinstaller
 
 <span class="hljs-meta">#</span><span class="bash"> 升级</span>
 pip install --upgrade pyinstaller</code></pre></div>
+
 <p>可选安装最新开发版。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs shell">pip install https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz</code></pre></div>
+
 <h1 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h1><h2 id="（1）命令行方式"><a href="#（1）命令行方式" class="headerlink" title="（1）命令行方式"></a>（1）命令行方式</h2><h3 id="1-基本命令"><a href="#1-基本命令" class="headerlink" title="1. 基本命令"></a>1. 基本命令</h3><p><strong>注意：</strong>推荐使用另外两种方式，但它们的使用方法也都基于命令行选项。</p>
 <p>基本语法结构如下：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs shell">pyinstaller [options] script [script …] | specfile</code></pre></div>
+
 <p>In the most simple case, set the current directory to the location of your program <code>myscript.py</code> and execute:</p>
 <p>最简单的情况是，在 Python 程序 <code>myscript.py</code> 目录下直接执行：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs shell">pyinstaller myscript.py</code></pre></div>
+
 <p>PyInstaller 会分析 <code>myscript.py</code> 并:</p>
 <ul>
 <li>在当前目录下创建 <code>myscript.spec</code> 脚本；</li>
@@ -365,8 +369,10 @@ pip install --upgrade pyinstaller</code></pre></div>
 <h2 id="（2）使用-spec-文件"><a href="#（2）使用-spec-文件" class="headerlink" title="（2）使用 spec 文件"></a>（2）使用 spec 文件</h2><p>实际上不管使用哪种方式都会生成一个 spec 文件，里面包含了大多数设置的参数。</p>
 <p>可以使用以下命令创建 spec 文件：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs shell">pyi-makespec [options] name.py [other scripts ...]</code></pre></div>
+
 <p>当创建并根据需要修改了 spec 文件后，就可以简单的通过以下命令运行：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs shell">pyinstaller [options] name.spec</code></pre></div>
+
 <p>spec 文件结构如下：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># -*- mode: python ; coding: utf-8 -*-</span>
 
@@ -409,6 +415,7 @@ coll = COLLECT(exe,
                upx=<span class="hljs-literal">False</span>,
                upx_exclude=[<span class="hljs-string">&#x27;vcruntime140.dll&#x27;</span>],
                name=<span class="hljs-string">&#x27;Radar0.0.12&#x27;</span>)</code></pre></div>
+
 <h2 id="（3）在-Python-中运行"><a href="#（3）在-Python-中运行" class="headerlink" title="（3）在 Python 中运行"></a>（3）在 Python 中运行</h2><h3 id="1-使用-PyInstaller-内置的-run-函数"><a href="#1-使用-PyInstaller-内置的-run-函数" class="headerlink" title="1. 使用 PyInstaller 内置的 run() 函数"></a>1. 使用 PyInstaller 内置的 run() 函数</h3><p>传入参数列表即可</p>
 <div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> PyInstaller.__main__
 
@@ -430,12 +437,14 @@ parameters = [
 ]
 
 PyInstaller.__main__.run(parameters)  <span class="hljs-comment"># RUN</span></code></pre></div>
+
 <h3 id="2-在-Python-中执行命令"><a href="#2-在-Python-中执行命令" class="headerlink" title="2. 在 Python 中执行命令"></a>2. 在 Python 中执行命令</h3><p>等同于在终端中执行命令，但可以通过 Python 执行更多的定制化的操作。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> subprocess
 
 
 p = subprocess.Popen(<span class="hljs-string">&#x27;pyinstaller radar.spec --clean&#x27;</span>, shell=<span class="hljs-literal">True</span>)
 p.communicate()</code></pre></div>
+
 <h1 id="四、-其它说明"><a href="#四、-其它说明" class="headerlink" title="四、 其它说明"></a>四、 其它说明</h1><p>嗯，好像没啥好说明的了，遇到问题搜索一下还是比较容易解决的。</p>
 <p>UPX 压缩极有可能会有问题，用不了就干脆不用了，也没能压缩太多，我测试的程序不压缩 80 MB，压缩后 62 MB，个人认为不压缩也是可以接受的。</p>
 <p>另外推荐使用 NSIS 制作安装程序ฅʕ•̫͡•ʔฅ</p>
