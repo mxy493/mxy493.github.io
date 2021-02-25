@@ -268,11 +268,11 @@
 <h3 id="新建GitHub仓库"><a href="#新建GitHub仓库" class="headerlink" title="新建GitHub仓库"></a>新建GitHub仓库</h3><p>新建一个 GitHub 仓库用来备份博客（具体操作不再赘述）</p>
 <p>复制仓库ＳＳＨ链接备用，此处需确保你的电脑已通过SSH连接到 GitHub ，具体操作可参考<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/connecting-to-github-with-ssh"> GitHub 官方帮助文档</a>。</p>
 <h2 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h2><p>在博客根目录下的 <code>_config.yml</code> 文件中配置插件：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">backup:</span>
-    <span class="hljs-attr">type:</span> <span class="hljs-string">git</span>
-    <span class="hljs-attr">repository:</span>
-       <span class="hljs-attr">github:</span> <span class="hljs-string">git@github.com:xxx/xxx.git,branchName</span>
-       <span class="hljs-attr">gitcafe:</span> <span class="hljs-string">git@github.com:xxx/xxx.git,branchName</span></code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs dts"><span class="hljs-symbol">backup:</span>
+<span class="hljs-symbol">    type:</span> git
+<span class="hljs-symbol">    repository:</span>
+<span class="hljs-symbol">       github:</span> git@github.com:xxx/xxx.git,branchName
+<span class="hljs-symbol">       gitcafe:</span> git@github.com:xxx/xxx.git,branchName</code></pre></div>
 
 <h4 id="配置说明："><a href="#配置说明：" class="headerlink" title="配置说明："></a>配置说明：</h4><p>如果你想连同主题一起备份，在 <code>_config.yml</code> 文件中添加主题名即可：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs dts"><span class="hljs-symbol">backup:</span>
@@ -302,7 +302,7 @@
 <h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>根据 Hexo 官网说明安装 Hexo 即可</p>
 <p>附上官网地址：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a></p>
 <p>要部署博客到 GitHub 还需要安装插件：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs jboss-cli">$ npm install <span class="hljs-params">--save</span> hexo-deployer-git</code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs ada">$ npm install <span class="hljs-comment">--save hexo-deployer-git</span></code></pre></div>
 
 <h3 id="恢复博客"><a href="#恢复博客" class="headerlink" title="恢复博客"></a>恢复博客</h3><p>下载或者 clone 前文所述备份的博客到本地任意位置，复制备份文件夹内所有文件到新安装的博客目录下，重复文件保留备份的即可。</p>
 <p>至此博客迁移已完成，可以”三部曲“测试一下是否迁移成功：</p>

@@ -258,11 +258,11 @@
 </blockquote>
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。</p>
 <p><strong>示例 1:</strong></p>
-<div class="hljs code-wrapper"><pre><code class="hljs haskell">输入: <span class="hljs-number">1</span>-&gt;<span class="hljs-number">1</span>-&gt;<span class="hljs-number">2</span>
+<div class="hljs code-wrapper"><pre><code class="hljs clean">输入: <span class="hljs-number">1</span>-&gt;<span class="hljs-number">1</span>-&gt;<span class="hljs-number">2</span>
 输出: <span class="hljs-number">1</span>-&gt;<span class="hljs-number">2</span></code></pre></div>
 
 <p><strong>示例 2:</strong></p>
-<div class="hljs code-wrapper"><pre><code class="hljs haskell">输入: <span class="hljs-number">1</span>-&gt;<span class="hljs-number">1</span>-&gt;<span class="hljs-number">2</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">3</span>
+<div class="hljs code-wrapper"><pre><code class="hljs clean">输入: <span class="hljs-number">1</span>-&gt;<span class="hljs-number">1</span>-&gt;<span class="hljs-number">2</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">3</span>
 输出: <span class="hljs-number">1</span>-&gt;<span class="hljs-number">2</span>-&gt;<span class="hljs-number">3</span></code></pre></div>
 
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>就是一个简单的遍历链表的方法，外层循环遍历链表中的每一个结点，内存循环查找这个结点后面的所有结点是否有重复元素，找到重复元素就将其删除。</p>

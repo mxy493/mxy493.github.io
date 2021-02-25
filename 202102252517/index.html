@@ -17,9 +17,25 @@
   <meta name="description" content="mxy&#39;s 个人博客ᓚᘏᗢ">
   <meta name="author" content="mxy">
   <meta name="keywords" content="">
-  <title>归档 - 木心网</title>
+  <title>C++ 包管理器 vcpkg 的安装使用 - 木心网</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
 
 
 
@@ -47,7 +63,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -158,9 +174,54 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="归档">
+            <span class="h2" id="subtitle" title="C++ 包管理器 vcpkg 的安装使用">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-25 15:54" pubdate>
+        2021年2月25日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      632 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      7
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
 
             
           </div>
@@ -173,70 +234,131 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 123 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2021</p>
-    
-    <a href="/202102252517/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">C++ 包管理器 vcpkg 的安装使用</span>
-      <time style="float: right;">02-25</time>
-    </a>
-  
-    
-    <a href="/2021022519518/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">C++保存文件为UTF8编码格式</span>
-      <time style="float: right;">02-25</time>
-    </a>
-  
-    
-    <a href="/2021022323341/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 1576. 替换所有的问号【C++】</span>
-      <time style="float: right;">02-23</time>
-    </a>
-  
-    
-    <a href="/202102204296/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 1370. 上升下降字符串【C++】</span>
-      <time style="float: right;">02-20</time>
-    </a>
-  
-    
-    <a href="/2021021921318/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 459. 重复的子字符串【C++】</span>
-      <time style="float: right;">02-19</time>
-    </a>
-  
-    
-    <a href="/202102194843/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 665. 非递减数列【C++】</span>
-      <time style="float: right;">02-19</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">C++ 包管理器 vcpkg 的安装使用</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年2月25日 下午
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>Vcpkg 是适用于 C 和 C++ 库的跨平台命令行包管理器。我个人的理解就类似于 Python 的 pip ，可以很方便的下载安装一些第三方的库。</p>
+<p>本文仅简要记录我个人在 Windows 平台下的安装使用过程，更多内容请查阅官方文档：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/cpp/build/vcpkg?view=msvc-160">https://docs.microsoft.com/zh-cn/cpp/build/vcpkg?view=msvc-160</a></p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>首先确保 Windows 系统已安装 Git ，将 vcpkg 仓库克隆到本地，并执行根目录下的 <code>bootstrap-vcpkg.bat</code> 脚本。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell">git clone https://github.com/microsoft/vcpkg
+.\vcpkg\bootstrap-vcpkg.bat</code></pre></div>
 
+<p>这就安装好了，但一般在 Windows 上都是使用 Visual Studio 进行开发，为了更好的集成到 Visual Studio ，还需要执行以下命令（需要管理员权限）：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell">.\vcpkg\vcpkg integrate install</code></pre></div>
 
+<p>到这里，就可以很无痛的通过 vcpkg 安装第三方库并直接在 Visual Studio 中 <code>#include</code> 相关的库，可以说真的超级方便！</p>
+<p>进一步可以将 vcpkg 的路径添加到环境变量中，这样就可以在任意位置直接执行 <code>vcpkg</code> 指令了~</p>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><h2 id="1-已安装的库"><a href="#1-已安装的库" class="headerlink" title="1. 已安装的库"></a>1. 已安装的库</h2><div class="hljs code-wrapper"><pre><code class="hljs sh">vcpkg list</code></pre></div>
 
+<h2 id="2-搜索库"><a href="#2-搜索库" class="headerlink" title="2. 搜索库"></a>2. 搜索库</h2><div class="hljs code-wrapper"><pre><code class="hljs sh">vcpkg search [search term]</code></pre></div>
 
-              </div>
+<h2 id="3-安装库"><a href="#3-安装库" class="headerlink" title="3. 安装库"></a>3. 安装库</h2><div class="hljs code-wrapper"><pre><code class="hljs cmake">vcpkg <span class="hljs-keyword">install</span> [packages to <span class="hljs-keyword">install</span>]</code></pre></div>
+
+<p>安装库可以指定目标平台：x86-windows、x64-linux.cmake 或 x64-osx.cmake。例如：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">vcpkg</span> install boost:x<span class="hljs-number">86</span>-windows</code></pre></div>
+
+<p>通过 vcpkg 安装库会自动安装依赖的库，所以无需担心依赖问题。</p>
+<h2 id="4-更新-升级库"><a href="#4-更新-升级库" class="headerlink" title="4. 更新/升级库"></a>4. 更新/升级库</h2><p>查看本地库是否过期：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell">vcpkg update</code></pre></div>
+
+<p>更新库：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-attribute">vcpkg</span> upgrade --<span class="hljs-literal">no</span>-dry-run</code></pre></div>
+
+<p>升级选项：</p>
+<ul>
+<li><code>--no-dry-run</code>：执行升级；若未指定，该命令将仅列出过期的包。</li>
+<li><code>--keep-going</code>：继续安装包（即使某项失败）。</li>
+<li><code>--triplet &lt;t&gt;</code>：为非限定的包设置默认的三元组。</li>
+<li><code>--vcpkg-root &lt;path&gt;</code>：指定要使用的 vcpkg 目录，而不是使用当前目录或工具目录。</li>
+</ul>
+<h2 id="5-删除库"><a href="#5-删除库" class="headerlink" title="5. 删除库"></a>5. 删除库</h2><div class="hljs code-wrapper"><pre><code class="hljs sh">vcpkg remove [packages to remove]</code></pre></div>
+
+<p>如果有其他库依赖它，系统会提示你使用 <code>--recurse</code> 重新运行命令；重新运行会导致下游的所有库都被删除。</p>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><h2 id="1-下载速度慢"><a href="#1-下载速度慢" class="headerlink" title="1. 下载速度慢"></a>1. 下载速度慢</h2><p>下载速度慢的原因是可想而知的，如果条件允许的话可以通过对 Power Shell 设置代理解决。这里提供临时代理的方法（个人认为设置永久代理不是很必要），在 Power Shell 中执行以下两行命令（注意美元符合也是命令的一部分）立即生效，关闭终端后失效。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash">env:HTTP_PROXY=<span class="hljs-string">&quot;localhost:[port]&quot;</span></span>
+<span class="hljs-meta">$</span><span class="bash">env:HTTPS_PROXY=<span class="hljs-string">&quot;localhost:[port]&quot;</span></span></code></pre></div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/C/">C++</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                    
+                      <a class="hover-with-bg" href="/tags/vcpkg/">vcpkg</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021022519518/">
+                        <span class="hidden-mobile">C++保存文件为UTF8编码格式</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -368,9 +490,15 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
 
 
 
