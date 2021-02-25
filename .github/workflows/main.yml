@@ -1,4 +1,4 @@
-name: Tencent Cloudbase
+name: Sync to Tencent Cloudbase
 on: [push] # push 代码时触发
 
 jobs:
@@ -10,14 +10,11 @@ jobs:
         uses: actions/checkout@v2
         
        # 使用云开发 Github Action 部署
-      - name: Deploy static to Tencent CloudBase
-        id: deployStatic
-        uses: TencentCloudBase/cloudbase-action@v1.1.1
+      - name: Deploy to Tencent CloudBase
+        uses: TencentCloudBase/cloudbase-action@v2
         with:
         # 云开发的访问密钥 secretId 和 secretKey
-          secretId: ${{ secrets.SECRET_ID }}
-          secretKey: ${{ secrets.SECRET_KEY }}
+          secretId: ${{ secrets.secretId }}
+          secretKey: ${{ secrets.secretKey }}
            # 云开发的环境id
-          envId: ${{ secrets.ENV_ID }}
-           # Github 项目静态文件的路径
-          staticSrcPath: ./
+          envId: ${{ secrets.envId }}

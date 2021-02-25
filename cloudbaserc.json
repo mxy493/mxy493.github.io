@@ -1,0 +1,15 @@
+{
+  "envId": "{{envId}}",
+  "framework": {
+    "plugins": {
+      "client": {
+        "use": "@cloudbase/framework-plugin-website",
+        "inputs": {
+          "outputPath": "./",
+          "cloudPath": "./",
+          "ignore": [".git", ".github"]
+        }
+      }
+    }
+  }
+}
