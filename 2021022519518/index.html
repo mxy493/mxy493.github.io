@@ -196,7 +196,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      367 字
+      369 字
     </span>
   
 
@@ -248,15 +248,15 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年2月25日 凌晨
+                  本文最后更新于：2021年2月25日 下午
                 
               </p>
             
             <div class="markdown-body">
               <h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>目前在做毕业设计，用 MFC 做一个 OCR 文字识别的客户端程序，其中就涉及到了将数据导出，源码中最常用的字符串类型大概就是 CString ，最主要的原因是它支持中文吧，严格说是支持 Unicode 字符。</p>
-<p>关于导出数据这一块，其实就是用 <code>ofstream</code> 来将数据写到文件，CString 也是支持直接写到文件中的，但大概是由于 Visual Studio 的原因默认的编码格式似乎是 GB… 编码，我更想将文件保存为 UTF8 格式，这样就避免了由于字符编码引起的乱码问题~</p>
-<p>解决这个问题也就是解决 CString 转 UTF8 ，这里不是很合理（CString 不是编码格式的一种），但能说清楚问题，就不多纠结用词了。</p>
-<p>网上有很多关于这个的回答，我自己也是从网上找的，这里就不细说了，l轮子直接拿来用即可。</p>
+<p>关于导出数据这一块，其实就是用 <code>ofstream</code> 来将数据写到文件，CString 也是支持直接写到文件中的，但大概是由于 Visual Studio 的原因默认的编码格式似乎是 <em>GB…</em> 编码，我更想将文件保存为 UTF8 格式，这样就避免了由于字符编码引起的乱码问题~</p>
+<p>解决这个问题也就是解决 CString 转 UTF8 ，这里描述的不是很合理（CString 不是编码格式的一种），但能说清楚问题，就不多纠结用词了。</p>
+<p>网上有很多关于这个的回答，我自己也是从网上找的，这里就不细说了，轮子直接拿来用即可。</p>
 <p>核心函数就一个：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/win32/api/stringapiset/nf-stringapiset-widechartomultibyte"><code>WideCharToMultiByte()</code></a></p>
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>标准代码模板如下，两个函数任意调用一个即可：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> <span class="hljs-title">to_utf8</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">wchar_t</span>* buffer, <span class="hljs-keyword">int</span> len)</span></span>

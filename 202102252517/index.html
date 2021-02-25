@@ -196,7 +196,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      632 字
+      662 字
     </span>
   
 
@@ -259,8 +259,10 @@
 <div class="hljs code-wrapper"><pre><code class="hljs shell">git clone https://github.com/microsoft/vcpkg
 .\vcpkg\bootstrap-vcpkg.bat</code></pre></div>
 
-<p>这就安装好了，但一般在 Windows 上都是使用 Visual Studio 进行开发，为了更好的集成到 Visual Studio ，还需要执行以下命令（需要管理员权限）：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs shell">.\vcpkg\vcpkg integrate install</code></pre></div>
+<p>这就安装好了，但一般在 Windows 上都是使用 Visual Studio 进行开发，这里需要注意 <strong>Visual Studio 一定要安装英文语言包</strong>！</p>
+<p>为了更好的搭配 Visual Studio 使用，还需要执行以下命令（需要管理员权限）：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell">.\vcpkg\vcpkg integrate install
+.\vcpkg\vcpkg integrate remove  # 上一行的逆操作</code></pre></div>
 
 <p>到这里，就可以很无痛的通过 vcpkg 安装第三方库并直接在 Visual Studio 中 <code>#include</code> 相关的库，可以说真的超级方便！</p>
 <p>进一步可以将 vcpkg 的路径添加到环境变量中，这样就可以在任意位置直接执行 <code>vcpkg</code> 指令了~</p>
@@ -268,7 +270,7 @@
 
 <h2 id="2-搜索库"><a href="#2-搜索库" class="headerlink" title="2. 搜索库"></a>2. 搜索库</h2><div class="hljs code-wrapper"><pre><code class="hljs sh">vcpkg search [search term]</code></pre></div>
 
-<h2 id="3-安装库"><a href="#3-安装库" class="headerlink" title="3. 安装库"></a>3. 安装库</h2><div class="hljs code-wrapper"><pre><code class="hljs cmake">vcpkg <span class="hljs-keyword">install</span> [packages to <span class="hljs-keyword">install</span>]</code></pre></div>
+<h2 id="3-安装库"><a href="#3-安装库" class="headerlink" title="3. 安装库"></a>3. 安装库</h2><div class="hljs code-wrapper"><pre><code class="hljs sh">vcpkg install [packages to install]</code></pre></div>
 
 <p>安装库可以指定目标平台：x86-windows、x64-linux.cmake 或 x64-osx.cmake。例如：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">vcpkg</span> install boost:x<span class="hljs-number">86</span>-windows</code></pre></div>
@@ -278,7 +280,7 @@
 <div class="hljs code-wrapper"><pre><code class="hljs shell">vcpkg update</code></pre></div>
 
 <p>更新库：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-attribute">vcpkg</span> upgrade --<span class="hljs-literal">no</span>-dry-run</code></pre></div>
+<div class="hljs code-wrapper"><pre><code class="hljs sh">vcpkg upgrade --no-dry-run</code></pre></div>
 
 <p>升级选项：</p>
 <ul>
