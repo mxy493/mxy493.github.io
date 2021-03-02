@@ -24,11 +24,7 @@ var searchFunc = function(path, search_id, content_id) {
   'use strict';
   var $input = document.getElementById(search_id);
   var $resultContent = document.getElementById(content_id);
-
-  if ($resultContent.innerHTML.indexOf('list-group-item') === -1) {
-    $resultContent.innerHTML = '<div class="m-auto text-center"><div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div><br/>Loading...</div>';
-  }
-
+  $resultContent.innerHTML = '<div class="m-auto text-center"><div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div><br/>Loading...</div>';
   $.ajax({
     // 0x01. load xml file
     url     : path,
@@ -42,10 +38,7 @@ var searchFunc = function(path, search_id, content_id) {
           url    : $('url', this).text()
         };
       }).get();
-
-      if ($resultContent.innerHTML.indexOf('list-group-item') === -1) {
-        $resultContent.innerHTML = '';
-      }
+      $resultContent.innerHTML = '';
 
       $input.addEventListener('input', function() {
         // 0x03. parse query to keywords list
@@ -132,8 +125,7 @@ var searchFunc = function(path, search_id, content_id) {
       });
     }
   });
-
-  $('#local-search-close').on('click', function() {
+  $(document).on('click', '#local-search-close', function() {
     $('#local-search-input').val('').removeClass('invalid').removeClass('valid');
     $('#local-search-result').html('');
   });
