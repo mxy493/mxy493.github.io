@@ -1,1 +1,1 @@
-{"envId":"mxy-3914fc","framework":{"plugins":{"client":{"use":"@cloudbase/framework-plugin-website","inputs":{"installCommand":"npm install --prefer-offline --no-audit --progress=false","buildCommand":"npm run build","outputPath":"./","cloudPath":"./","ignore":[".git",".github"]}}}}}
+{"envId":"mxy-3914fc","version":"2.0","framework":{"plugins":{"client":{"use":"@cloudbase/framework-plugin-website","inputs":{"outputPath":"./","cloudPath":"./","ignore":[".git",".github"]}}}}}
