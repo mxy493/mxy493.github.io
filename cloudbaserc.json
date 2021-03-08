@@ -1,1 +1,1 @@
-{"envId":"","framework":{"plugins":{"client":{"use":"@cloudbase/framework-plugin-website","inputs":{"outputPath":"./","cloudPath":"./","ignore":[".git",".github"]}}}}}
+{"envId":"mxy-3914fc","framework":{"plugins":{"client":{"use":"@cloudbase/framework-plugin-website","inputs":{"outputPath":"./","cloudPath":"./","ignore":[".git",".github"]}}}}}
