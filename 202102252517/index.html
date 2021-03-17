@@ -196,7 +196,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      662 字
+      715 字
     </span>
   
 
@@ -206,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      8
        分钟
     </span>
   
@@ -248,7 +248,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年2月25日 下午
+                  本文最后更新于：2021年3月17日 下午
                 
               </p>
             
@@ -276,7 +276,13 @@
 <div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">vcpkg</span> install boost:x<span class="hljs-number">86</span>-windows</code></pre></div>
 
 <p>通过 vcpkg 安装库会自动安装依赖的库，所以无需担心依赖问题。</p>
-<h2 id="4-更新-升级库"><a href="#4-更新-升级库" class="headerlink" title="4. 更新/升级库"></a>4. 更新/升级库</h2><p>查看本地库是否过期：</p>
+<p>通过以下命令可以查看当前支持的目标平台：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs sh">vcpkg <span class="hljs-built_in">help</span> triplet</code></pre></div>
+
+<h2 id="4-更新-升级库"><a href="#4-更新-升级库" class="headerlink" title="4. 更新/升级库"></a>4. 更新/升级库</h2><p>要更新本地库首先需要拉取最新的版本信息文件：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs ebnf"><span class="hljs-attribute">git pull</span></code></pre></div>
+
+<p>然后通过以下命令查看本地库是否过期：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs shell">vcpkg update</code></pre></div>
 
 <p>更新库：</p>
@@ -295,6 +301,8 @@
 <h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><h2 id="1-下载速度慢"><a href="#1-下载速度慢" class="headerlink" title="1. 下载速度慢"></a>1. 下载速度慢</h2><p>下载速度慢的原因是可想而知的，如果条件允许的话可以通过对 Power Shell 设置代理解决。这里提供临时代理的方法（个人认为设置永久代理不是很必要），在 Power Shell 中执行以下两行命令（注意美元符合也是命令的一部分）立即生效，关闭终端后失效。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash">env:HTTP_PROXY=<span class="hljs-string">&quot;localhost:[port]&quot;</span></span>
 <span class="hljs-meta">$</span><span class="bash">env:HTTPS_PROXY=<span class="hljs-string">&quot;localhost:[port]&quot;</span></span></code></pre></div>
+
+
             </div>
             <hr>
             <div>
