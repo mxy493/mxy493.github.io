@@ -35,7 +35,7 @@
     margin-top: -1rem !important;
   }
 }
-@media (max-width: 89.99vh) {
+@media (max-width: 79.99vh) {
   .scroll-down-bar {
     display: none;
   }
