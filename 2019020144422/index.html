@@ -14,10 +14,8 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  
-    <meta name="description" content="yilia的主题是自带了文章截断的功能的，当然并不是说写一篇文章它会自动给你截断，还是需要自己将截断标记手动写到文章的某个位置。
+  <meta name="description" content="yilia的主题是自带了文章截断的功能的，当然并不是说写一篇文章它会自动给你截断，还是需要自己将截断标记手动写到文章的某个位置。
 截断标记：&amp;lt;!--more--&amp;gt;">
-  
   <meta name="author" content="mxy">
   <meta name="keywords" content="">
   
@@ -59,7 +57,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -262,12 +260,12 @@
 <span id="more"></span>
 
 <p>效果就是标记之前的内容会在博客首页直接展示，而标记之后的内容则需要点击右下角的<code>阅读更多</code>才能显示，但是添加标记后实际的情况是下图这样的：</p>
-<p><img src="1.png" srcset="/img/loading.gif" alt="1"></p>
+<p><img src="1.png" srcset="/img/loading.gif" lazyload alt="1"></p>
 <p>事实上点击上图中的<code>more&gt;&gt;</code>和点击<code>阅读更多</code>是有相同的作用的，但是不太美观了，大概也不是我们想要的，不然单独做一个<code>阅读更多</code>的按钮干嘛，解决办法很简单。</p>
 <p>打开yilia主题根目录下的<code>_config.yml</code>文件，找到<code>excerpt_link</code>，把后面的<code>more</code>删掉，保存，就可以了。</p>
-<p><img src="3.png" srcset="/img/loading.gif" alt="3"></p>
+<p><img src="3.png" srcset="/img/loading.gif" lazyload alt="3"></p>
 <p>效果如图：</p>
-<p><img src="2.png" srcset="/img/loading.gif"></p>
+<p><img src="2.png" srcset="/img/loading.gif" lazyload></p>
 
             </div>
             <hr>
@@ -431,7 +429,7 @@
           >
             
               <span style="visibility: hidden; width: 0">|</span>
-              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
             
             <span>川公网安备51152402000143号</span>
           </a>
@@ -444,8 +442,9 @@
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -468,7 +467,7 @@
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -540,7 +539,6 @@
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>

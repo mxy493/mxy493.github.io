@@ -14,11 +14,9 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  
-    <meta name="description" content="通过SSH连接到GitHub
+  <meta name="description" content="通过SSH连接到GitHub
 
 整理自GitHub官方帮助文档：https://help.github.com/articles/connecting-to-github-with-ssh">
-  
   <meta name="author" content="mxy">
   <meta name="keywords" content="">
   
@@ -60,7 +58,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -322,9 +320,7 @@ id_rsa.<span class="hljs-keyword">pub</span></code></pre></div>
 <li><p>如果您使用的时其它命令提示符终端，例如Git for Windows，则可以使用“<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/working-with-ssh-key-passphrases">Working with SSH key passphrases</a>”中所说的“Auto-launching the ssh-agent”，或者通过以下命令手动启动：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> start the ssh-agent <span class="hljs-keyword">in</span> the background</span>
 <span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">eval</span> $(ssh-agent -s)</span>
-<span class="hljs-meta">&gt;</span><span class="bash"> Agent pid 59566</span></code></pre></div>
-
-</li>
+<span class="hljs-meta">&gt;</span><span class="bash"> Agent pid 59566</span></code></pre></div></li>
 </ul>
 <p>2.将SSH私钥添加到ssh-agent。如果您使用了其他名称创建密钥，或者要添加不同名称的已有的密钥，请将如下命令中的<em>id_rsa</em>替换为您的私钥文件的名称。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> ssh-add ~/.ssh/id_rsa</span></code></pre></div>
@@ -349,18 +345,18 @@ id_rsa.<span class="hljs-keyword">pub</span></code></pre></div>
 <p><strong>提示：</strong>如果<code>clip</code>不起作用，您可以找到隐藏的<code>.ssh</code>文件夹，用文本编辑器打开密钥文件，然后将其中的内容复制到剪贴板。</p>
 </blockquote>
 <p>2.在GitHub任意页面的右上角，单击您的头像，然后单击<strong>“Settings”</strong>。</p>
-<p><img src="https://help.github.com/assets/images/help/settings/userbar-account-settings.png" srcset="/img/loading.gif" alt="用户栏中的“设置”图标"></p>
+<p><img src="https://help.github.com/assets/images/help/settings/userbar-account-settings.png" srcset="/img/loading.gif" lazyload alt="用户栏中的“设置”图标"></p>
 <p>3.在用户设置侧栏中，单击<strong>SSH and GPG keys</strong>。</p>
-<p><img src="https://help.github.com/assets/images/help/settings/settings-sidebar-ssh-keys.png" srcset="/img/loading.gif" alt="验证密钥"></p>
+<p><img src="https://help.github.com/assets/images/help/settings/settings-sidebar-ssh-keys.png" srcset="/img/loading.gif" lazyload alt="验证密钥"></p>
 <p>4.单击“<strong>New SSH key</strong>”或“ <strong>Add SSH key</strong>”。</p>
-<p><img src="https://help.github.com/assets/images/help/settings/ssh-add-ssh-key.png" srcset="/img/loading.gif" alt="SSH密钥按钮"></p>
+<p><img src="https://help.github.com/assets/images/help/settings/ssh-add-ssh-key.png" srcset="/img/loading.gif" lazyload alt="SSH密钥按钮"></p>
 <p>5.在“Title”文本框中，为新密钥添加描述性标签。例如，如果您使用的是个人Mac，则可以将此键称为“Personal MacBook Air”。</p>
 <p>6.将您的密钥粘贴到“Key”对应得文本框。</p>
-<p><img src="https://help.github.com/assets/images/help/settings/ssh-key-paste.png" srcset="/img/loading.gif" alt="关键领域"></p>
+<p><img src="https://help.github.com/assets/images/help/settings/ssh-key-paste.png" srcset="/img/loading.gif" lazyload alt="关键领域"></p>
 <p>7.单击“<strong>Add SSH key</strong>”。</p>
-<p><img src="https://help.github.com/assets/images/help/settings/ssh-add-key.png" srcset="/img/loading.gif" alt="添加键按钮"></p>
+<p><img src="https://help.github.com/assets/images/help/settings/ssh-add-key.png" srcset="/img/loading.gif" lazyload alt="添加键按钮"></p>
 <p>8.如果出现提示，请输入您的GitHub密码以确认。</p>
-<p><img src="https://help.github.com/assets/images/help/settings/sudo_mode_popup.png" srcset="/img/loading.gif" alt="Sudo模式对话框"></p>
+<p><img src="https://help.github.com/assets/images/help/settings/sudo_mode_popup.png" srcset="/img/loading.gif" lazyload alt="Sudo模式对话框"></p>
 <h3 id="五、测试SSH连接"><a href="#五、测试SSH连接" class="headerlink" title="五、测试SSH连接"></a><a target="_blank" rel="noopener" href="https://help.github.com/en/articles/testing-your-ssh-connection">五、测试SSH连接</a></h3><p><strong>本文仅介绍Windows系统的相关操作</strong></p>
 <p>Mac或Linux请参考官方帮助文档：<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/testing-your-ssh-connection">https://help.github.com/en/articles/testing-your-ssh-connection</a></p>
 <p>在设置SSH密钥并将其添加到GitHub帐户后，您可以测试您的连接。</p>
@@ -594,7 +590,7 @@ agent_run_state=$(ssh-add -l &gt;| /dev/null 2&gt;&amp;1; <span class="hljs-buil
           >
             
               <span style="visibility: hidden; width: 0">|</span>
-              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
             
             <span>川公网安备51152402000143号</span>
           </a>
@@ -607,8 +603,9 @@ agent_run_state=$(ssh-add -l &gt;| /dev/null 2&gt;&amp;1; <span class="hljs-buil
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -631,7 +628,7 @@ agent_run_state=$(ssh-add -l &gt;| /dev/null 2&gt;&amp;1; <span class="hljs-buil
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -703,7 +700,6 @@ agent_run_state=$(ssh-add -l &gt;| /dev/null 2&gt;&amp;1; <span class="hljs-buil
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>

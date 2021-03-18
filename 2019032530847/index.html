@@ -14,9 +14,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  
-    <meta name="description" content="​    刚做了数据结构课程设计，报告要求给出函数调用关系图，然后就想有没有自动生成的工具，所以上网搜了下，总结下搜到的内容大概三类">
-  
+  <meta name="description" content="​    刚做了数据结构课程设计，报告要求给出函数调用关系图，然后就想有没有自动生成的工具，所以上网搜了下，总结下搜到的内容大概三类">
   <meta name="author" content="mxy">
   <meta name="keywords" content="">
   
@@ -58,7 +56,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -264,33 +262,33 @@
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装步骤很简单，除了安装路径可以自己改一下，其它默认就行，一路 next 下去就安装好了</p>
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>主要是配置Doxygen，GraphViz安装好放那儿就行了</p>
 <p>运行Doxywizard，界面如图：</p>
-<p><img src="interface.png" srcset="/img/loading.gif"></p>
+<p><img src="interface.png" srcset="/img/loading.gif" lazyload></p>
 <p>1.工作目录需要设置一下，随便设一个空文件夹就可以，项目名称是你项目的名称，其实写什么不重要，最后生成的是一个HTML的网页，项目名称就是这个网页的名字，源码地址必须要设置正确，也就是程序代码的文件夹路径，递进扫描勾选上没坏处吧，然后自己输出路径选一个位置保存，设置完点击右下角 <code>Next</code></p>
-<p><img src="1.png" srcset="/img/loading.gif"></p>
+<p><img src="1.png" srcset="/img/loading.gif" lazyload></p>
 <p>2.如图勾选上就行，<code>Next</code></p>
-<p><img src="2.png" srcset="/img/loading.gif"></p>
+<p><img src="2.png" srcset="/img/loading.gif" lazyload></p>
 <p>3.默认就可以，红框的选项对生成的函数调用图没什么影响，<code>Change color...</code> 可以更改颜色，下面PDF相关的，默认所有的图片都会生成一个PDF文件，继续 <code>Next</code></p>
-<p><img src="3.png" srcset="/img/loading.gif"></p>
+<p><img src="3.png" srcset="/img/loading.gif" lazyload></p>
 <p>4.这一步很重要，这就使用到我们安装的 GraphViz 了，如图勾选上，继续 <code>Next</code></p>
-<p><img src="4.png" srcset="/img/loading.gif"></p>
+<p><img src="4.png" srcset="/img/loading.gif" lazyload></p>
 <p>5.上一个点击 <code>Next</code> 后实际上直接跳到了 <code>Run</code> 标签页，但是还要进行一些设置，所以点击左侧的 <code>Expert</code> 标签，<code>Topics</code> 列表中第一项 <code>Project</code> ，如图，默认为English，可以修改为 <code>Chinese</code> ，但是这一步的语言并不影响生成的函数调用图，只是最后生成的网页为中文</p>
-<p><img src="5.png" srcset="/img/loading.gif"></p>
+<p><img src="5.png" srcset="/img/loading.gif" lazyload></p>
 <p>6.左侧选择 <code>Build</code> ，如图将右侧前面几项勾选上</p>
-<p><img src="6.png" srcset="/img/loading.gif"></p>
+<p><img src="6.png" srcset="/img/loading.gif" lazyload></p>
 <p>7.左侧往下滑找到 <code>Dot</code> ，如图把对应的勾选上</p>
-<p><img src="7.png" srcset="/img/loading.gif"></p>
+<p><img src="7.png" srcset="/img/loading.gif" lazyload></p>
 <p>8.还是 <code>Dot</code> 往下滑，如图把对应的勾选上，<code>DOT_IMAGE_FORMAT</code> 也就是生成的图片的格式，自己根据自己需要选择</p>
-<p><img src="8.png" srcset="/img/loading.gif"></p>
+<p><img src="8.png" srcset="/img/loading.gif" lazyload></p>
 <p>9.关于图片格式简单说一下，自动生成的 png ， jpg 和 gif 格式清晰度都比较低，svg 格式是矢量图，清晰度肯定是没问题的，不过 svg 格式图片不能用一般的图片查看器查看，电脑上浏览器就可以查看，如果是要插入到WORD中那也是没问题的，自己可以根据需要选择，前面第③步也提到了函数调用图会生成 PDF 文件，PDF格式的函数调用图也是清晰的</p>
-<p><img src="9.png" srcset="/img/loading.gif"></p>
+<p><img src="9.png" srcset="/img/loading.gif" lazyload></p>
 <p>10.到此所有的设置就已经设好了，再将标签页切换到 <code>Run</code> ，点击左侧的 <code>Run doxygen</code> 即可，等待程序自动运行直至结束</p>
-<p><img src="10.png" srcset="/img/loading.gif"></p>
+<p><img src="10.png" srcset="/img/loading.gif" lazyload></p>
 <p>11.如图输出 <code>Doxygen has finished</code> 的提示就已经完成了，点击左下角的 <code>Show HTML output</code> 就可以通过浏览器查看生成的函数调用图了，所有生成的文件也可以在第一步设置的保存位置找到</p>
-<p><img src="11.png" srcset="/img/loading.gif"></p>
+<p><img src="11.png" srcset="/img/loading.gif" lazyload></p>
 <p>12.Doxygen软件默认不会保存你做的这些设置，但是可以手动保存，下一次使用的时候就可以只更改不同的设置就可以了</p>
-<p><img src="12.png" srcset="/img/loading.gif"></p>
+<p><img src="12.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p>附上一个效果图</p>
-<p><img src="library.svg" srcset="/img/loading.gif"></p>
+<p><img src="library.svg" srcset="/img/loading.gif" lazyload></p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>以上仅作为个人学习记录，为了写自己的课设报告，参考的网上的教程一步步做的，对 Doxygen 以及 GraphViz 我也并不太了解，有需要再深入学习吧，现在能作为工具用好它们也就可以了！</p>
 
             </div>
@@ -448,7 +446,7 @@
           >
             
               <span style="visibility: hidden; width: 0">|</span>
-              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
             
             <span>川公网安备51152402000143号</span>
           </a>
@@ -461,8 +459,9 @@
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -485,7 +484,7 @@
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -557,7 +556,6 @@
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>

@@ -14,9 +14,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  
-    <meta name="description" content="mxy&#39;s 个人博客ᓚᘏᗢ">
-  
+  <meta name="description" content="mxy&#39;s 个人博客ᓚᘏᗢ">
   <meta name="author" content="mxy">
   <meta name="keywords" content="">
   
@@ -58,7 +56,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -265,9 +263,9 @@
 <p><strong>Clash for Windows：</strong><a target="_blank" rel="noopener" href="https://github.com/Fndroid/clash_for_windows_pkg">https://github.com/Fndroid/clash_for_windows_pkg</a></p>
 <h1 id="二、上手"><a href="#二、上手" class="headerlink" title="二、上手"></a>二、上手</h1><p>大概是出现不算太久的新东西，所以目前 Clash 核心以及对应的这些应用软件都在频繁的更新，直接下载最新版本安装即可，也比较推荐安装新版本~</p>
 <p>此时此刻的最新版本是 0.12.1 ，主界面如图：</p>
-<p><img src="main.png" srcset="/img/loading.gif"></p>
+<p><img src="main.png" srcset="/img/loading.gif" lazyload></p>
 <p>首先第一步需要导入规则，也就是上图左侧的 Profiles 栏，点击后可以看到只有一个默认的 config.yaml ，当然这个配置文件也并没有什么内容，仅仅是直连或者拒绝连接；我们需要做的是导入自己的配置文件，一般都会有订阅链接，将订阅链接粘贴到上方编辑框中，然后点击右侧的 Download 按钮即可下载并导入配置文件，或者也可以点击 Import 按钮手动导入下载好的配置文件。</p>
-<p><img src="profiles.png" srcset="/img/loading.gif"></p>
+<p><img src="profiles.png" srcset="/img/loading.gif" lazyload></p>
 <p>可以看到每一个配置文件都有几个可以点击的按钮，是的，进一步的可以修改配置文件、修改策略、修改规则等，没特殊需求的话也没必要去改。并不是添加后的每一个配置文件都会使用到，只有一个配置文件会以不同的颜色显示，表示这个配置文件为当前正在使用的配置。</p>
 <p>添加了配置文件后，就可以选择节点进行使用了，点击左侧的 Proxies ，即可选择不同的代理节点，有几个默认项需要明确：</p>
 <ul>
@@ -281,13 +279,13 @@
 <h1 id="三、更进一步"><a href="#三、更进一步" class="headerlink" title="三、更进一步"></a>三、更进一步</h1><p>这里简单说几个略微进阶的设置：</p>
 <p>1、重度使用当然把跟随系统启动打开好啦，打开常规设置中的 Start with Windows ；</p>
 <p>2、打开常规设置中的 Allow LAN 可以开启透明代理，也就是开启后局域网内的设备都可以使用代理，比如连接同一个 WiFi 的手机只需要在 WiFi 设置中设置代理服务器即可。如下图所示，笔记本电脑一般是 WLAN 所对应的 IP 地址（如图192.168.0.104），端口默认为7890；</p>
-<p><img src="lan.png" srcset="/img/loading.gif"></p>
+<p><img src="lan.png" srcset="/img/loading.gif" lazyload></p>
 <p>3、在我实际的使用中，开启代理后国内的一些网站反而打不开了，比如我学校的官网，具体原因我并不是很明白，总之关掉系统代理就可以了。当然还有一个一劳永逸的办法就是设置绕过系统代理，点击左侧的 Settings 项，找到 Bypass Domain/IPNet 点击右侧 Edit ，照葫芦画瓢地添加自己需要绕过代理的 IP 或域名即可，支持使用通配符 <code>*</code> ，比如将所有 <code>.cn</code> 的域名绕过代理就可以设置 <code>- &quot;*.cn&quot;</code> 。（还有更好的办法请参考最后一个板块）</p>
-<p><img src="bypass.png" srcset="/img/loading.gif"></p>
+<p><img src="bypass.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="四、自定义规则"><a href="#四、自定义规则" class="headerlink" title="四、自定义规则"></a>四、自定义规则</h1><p>刚开始使用 Clash 的时候，挺不适应的，主要一点就是开启代理后似乎很多国内网站都不能访问，添加 Bypass 虽然能解决问题，但一方面很麻烦，另一方面像有些软件，不知道 IP 或者域名就没法添加到 Bypass 中，也就只能临时关闭系统代理了，体验并不太好。</p>
 <p>而实际上此前一直使用的 SSR 有一个功能就是自动更新 PAC 规则，使用起来基本上就是很无感，开启后就不再需要设置什么了，挺好用的，说实话我确实好奇过 Clash 应该也有类似的东西吧？</p>
 <p>两天前我就在网上搜了一下“Clash 规则”，然后就搜到了这个东西👉</p>
-<p><img src="rules.png" srcset="/img/loading.gif"></p>
+<p><img src="rules.png" srcset="/img/loading.gif" lazyload></p>
 <p><strong>Clash Premium 规则集：</strong><a target="_blank" rel="noopener" href="https://github.com/Loyalsoldier/clash-rules">https://github.com/Loyalsoldier/clash-rules</a></p>
 <p>点进去看了看，大概就是自己需要的东西了，先上手试试再说~</p>
 <p>说实话起初还真不知道该怎么玩，说明文档有些地方对我这种小白还是有点不太友好的样子，好在是折腾了一天总算是用上了。</p>
@@ -413,7 +411,7 @@
   <span class="hljs-bullet">-</span> <span class="hljs-string">MATCH,PROXY</span></code></pre></div>
 
 <p>保存后软件会自动加载设置，不出意外的话软件会自动下载 <code>rule-providers</code> 中配置的规则文件，保存在配置文件根目录下的 <code>ruleset</code> 文件夹中，这里可以自行验证一下，在常规设置中找到 Home Directory ，点击右侧 Open Folder 可以直接打开配置文件根目录。成功下载规则文件将会是下图这样：</p>
-<p><img src="ruleset.png" srcset="/img/loading.gif"></p>
+<p><img src="ruleset.png" srcset="/img/loading.gif" lazyload></p>
 <p>如果没能下载下来，可以尝试替换链接，规则集的说明文档中有相关说明。</p>
 <p>大概就已经可以正常使用了，可以自行测试一下。这里很尴尬的一点是，有没有配置成功似乎只能实际去访问一些网站试试，软件本身不会有任何提示……</p>
 <p>接下来，就没有接下来了，愉快的使用吧ヾ(≧ ▽ ≦)ゝ</p>
@@ -565,7 +563,7 @@
           >
             
               <span style="visibility: hidden; width: 0">|</span>
-              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
             
             <span>川公网安备51152402000143号</span>
           </a>
@@ -578,8 +576,9 @@
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -602,7 +601,7 @@
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -674,7 +673,6 @@
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>

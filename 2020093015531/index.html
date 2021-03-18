@@ -14,9 +14,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  
-    <meta name="description" content="mxy&#39;s 个人博客ᓚᘏᗢ">
-  
+  <meta name="description" content="mxy&#39;s 个人博客ᓚᘏᗢ">
   <meta name="author" content="mxy">
   <meta name="keywords" content="">
   
@@ -58,7 +56,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -259,7 +257,7 @@
               <h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>QGridLayout 官方文档：<a target="_blank" rel="noopener" href="https://doc.qt.io/qtforpython/PySide2/QtWidgets/QGridLayout.html">https://doc.qt.io/qtforpython/PySide2/QtWidgets/QGridLayout.html</a></p>
 <p>最近在使用 Qt for Python 开发程序的过程中，被一个 QGridLayout 布局问题给搞得怀疑人生，好在是折腾了很久之后总算是解决了~</p>
 <p>首先看一下解决问题后正常的界面是这样的：</p>
-<p><img src="normal.png" srcset="/img/loading.gif"></p>
+<p><img src="normal.png" srcset="/img/loading.gif" lazyload></p>
 <p>主要是主界面的部分我使用 QGridLayout布局，希望左右两侧按比例 1:1 布局，左侧是一个 QWidget ，没有指定其大小，因为我是希望它能根据格子的大小自适应的调整其大小，也就是说如果格子能小到宽高均为0的话，它是可以不显示的。</p>
 <h1 id="艰难的过程"><a href="#艰难的过程" class="headerlink" title="艰难的过程"></a>艰难的过程</h1><p>于是我写出了如下代码：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs python">grid = QGridLayout()
@@ -274,13 +272,13 @@ central_widget.setLayout(grid)
 self.setCentralWidget(central_widget)</code></pre></div>
 
 <p>实际运行后的效果如图所示：</p>
-<p><img src="abnormal.png" srcset="/img/loading.gif"></p>
+<p><img src="abnormal.png" srcset="/img/loading.gif" lazyload></p>
 <p>是的，左侧的雷达界面没有显示出来。严格说是显示出来了，仔细观察可以看到左边边距相对于右边宽一点，宽的部分也就是看不到的雷达界面，更准确地说应该是格子布局的间距。</p>
 <p>我真的折腾了好久不知道怎么解决，其实很快我就定位到左侧雷达界面并不是没有显示出来，找问题的过程中为了验证这个想法，我指定了雷达界面的大小为 400 * 400 。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs python">self.widget_radar.setFixedSize(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>)</code></pre></div>
 
 <p>然后运行，如图：</p>
-<p><img src="400.png" srcset="/img/loading.gif"></p>
+<p><img src="400.png" srcset="/img/loading.gif" lazyload></p>
 <p>是吧，确实是能显示出来的。但是也不太可能说这么去指定大小啊，我既然选择使用格子布局就是为了让它自适应调整大小~</p>
 <p>继续找解决办法，说实话我查遍了文档也没找到相关的说明，一开始以为是这样：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs python">grid = QGridLayout()
@@ -307,7 +305,7 @@ grid.setColumnStretch(<span class="hljs-number">1</span>, <span class="hljs-numb
 <p>这个函数是这么用的，第一个参数指定哪一列，列数从0开始，第二个参数为拉伸因子，也就是所占的比例吧。</p>
 <p>上面代码中同时为两列指定了拉伸因子均为1，即两列的宽度将按1:1的比例排列。</p>
 <p>只指定一列是达不到这个效果的，例如如果不为第二列指定，那么雷达界面这部分因为指定了拉伸银子1，所以会显示出来，但由于没有为第二列指定，所以第一列会撑展开，使第二列的宽度压缩到最小，如图：</p>
-<p><img src="strech1.png" srcset="/img/loading.gif"></p>
+<p><img src="strech1.png" srcset="/img/loading.gif" lazyload></p>
 <p>相反如果只指定第二列的话，其实不难想到就会是前面雷达界面没有显示出来的样子了~</p>
 <p>另外，同样也可以为行设置拉伸因子，方法都是一样的，用这个函数就可以了:</p>
 <div class="hljs code-wrapper"><pre><code class="hljs python">PySide2.QtWidgets.QGridLayout.setRowStretch(row, stretch)</code></pre></div>
@@ -474,7 +472,7 @@ grid.setColumnStretch(<span class="hljs-number">1</span>, <span class="hljs-numb
           >
             
               <span style="visibility: hidden; width: 0">|</span>
-              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
             
             <span>川公网安备51152402000143号</span>
           </a>
@@ -487,8 +485,9 @@ grid.setColumnStretch(<span class="hljs-number">1</span>, <span class="hljs-numb
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -511,7 +510,7 @@ grid.setColumnStretch(<span class="hljs-number">1</span>, <span class="hljs-numb
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -583,7 +582,6 @@ grid.setColumnStretch(<span class="hljs-number">1</span>, <span class="hljs-numb
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>

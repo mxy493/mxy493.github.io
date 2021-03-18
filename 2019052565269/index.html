@@ -14,9 +14,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  
-    <meta name="description" content="mxy&#39;s 个人博客ᓚᘏᗢ">
-  
+  <meta name="description" content="mxy&#39;s 个人博客ᓚᘏᗢ">
   <meta name="author" content="mxy">
   <meta name="keywords" content="">
   
@@ -58,7 +56,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -258,7 +256,7 @@
             <div class="markdown-body">
               <p>本文主要针对 Ubuntu 系统，理论上任何系统上也都是通用的。网上关于设置 Code::Blocks 主题的教程很多，但是都是在 Windows 系统环境下，并不适用于 Linux 系统。</p>
 <p>可能大家都知道 Code::Blocks 的工作区主题是可以自定义的，路径 Settings —&gt; Editor —&gt; Syntax highlighting ，在这里就可以设置你想要的代码以及背景颜色，如图：</p>
-<p><img src="1.png" srcset="/img/loading.gif"></p>
+<p><img src="1.png" srcset="/img/loading.gif" lazyload></p>
 <p>可以注意到顶部的 Colour theme 即颜色主题，然而后面的选项里默认只有一个 default 的主题，事实上尽管官方没有提供更多的主题，但是还是有大神做好了一系列的主题分享在网上。</p>
 <p><strong>主题样式请参看：<a target="_blank" rel="noopener" href="http://wiki.codeblocks.org/index.php/Syntax_highlighting_custom_colour_themes">Syntax highlighting custom colour themes</a></strong></p>
 <p>另外需要注意的是，这些主题仅适用于 C/C++ 语言！</p>
@@ -267,16 +265,16 @@
 <p>显然的 Code::Blocks 的主题颜色代码在 <code>default.conf</code> 中，所以我们可以找到对应的关于颜色的设置，只更改颜色相关的设置，就能完美的解决这个问题。</p>
 <p>找到 <code>default.conf</code> 文件所在位置，Ubuntu 系统中它在主目录下 /.config/codeblocks 文件夹中 ，默认是隐藏起来的，可以通过快捷键 Ctrl + H 或者文件管理器右上角设置中显示隐藏文件。</p>
 <p>用任意文本编辑器打开 <code>default.conf</code> ，看一下代码的结构，可以知道这个文件不仅是关于主体颜色的设置，还包括了其它的各项设置，我们直入主题找到关于颜色主题的代码段，如图所示位置：</p>
-<p><img src="2.png" srcset="/img/loading.gif"></p>
+<p><img src="2.png" srcset="/img/loading.gif" lazyload></p>
 <p>所以我们把对应的颜色主题代码复制过来放在 default 主题前后即可，以 dark grey 主题为例，在主题代码中找到 dark grey 的代码片段，如图：</p>
-<p><img src="3.png" srcset="/img/loading.gif"></p>
+<p><img src="3.png" srcset="/img/loading.gif" lazyload></p>
 <p>其它主题同样，都是类似的代码块：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs bnf"><span class="hljs-attribute">&lt;dark_grey&gt;</span>
 	......
 <span class="hljs-attribute">&lt;/ dark_grey&gt;</span></code></pre></div>
 
 <p>可以随意添加其中一部分或者添加所有主题，复制到 default.conf 文件中与 default 主题并列的位置，保存即可！</p>
-<p><img src="4.png" srcset="/img/loading.gif"></p>
+<p><img src="4.png" srcset="/img/loading.gif" lazyload></p>
 <p>打开 Code::Blocks ，在设置中修改颜色主题选择自己添加的主题即可，设置之后 Code::Blocks 会保存当前设置，以后打开也会保持设置过的主题！</p>
 
             </div>
@@ -432,7 +430,7 @@
           >
             
               <span style="visibility: hidden; width: 0">|</span>
-              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
             
             <span>川公网安备51152402000143号</span>
           </a>
@@ -445,8 +443,9 @@
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -469,7 +468,7 @@
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -541,7 +540,6 @@
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>

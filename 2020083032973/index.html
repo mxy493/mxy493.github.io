@@ -14,9 +14,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  
-    <meta name="description" content="mxy&#39;s 个人博客ᓚᘏᗢ">
-  
+  <meta name="description" content="mxy&#39;s 个人博客ᓚᘏᗢ">
   <meta name="author" content="mxy">
   <meta name="keywords" content="">
   
@@ -58,7 +56,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -266,20 +264,20 @@
 <li>PyTorch：1.6.0</li>
 </ul>
 <h1 id="二、下载-YOLOv5"><a href="#二、下载-YOLOv5" class="headerlink" title="二、下载 YOLOv5"></a>二、下载 YOLOv5</h1><p>下载 YOLOv5 源码以及训练好的权重文件，当前最新版为 v3.0 ，一般下载最新版就可以了，或者直接 clone 。</p>
-<p><img src="v3.0.png" srcset="/img/loading.gif"></p>
+<p><img src="v3.0.png" srcset="/img/loading.gif" lazyload></p>
 <p>上面4个 .pt 文件时 YOLOv5 训练好的权重文件，越小速度越快，但精度越低，这里先 yolov5s.pt 用于测试，另外3个也可以自行下载下来试一试。</p>
-<p><img src="yolov5.png" srcset="/img/loading.gif"></p>
+<p><img src="yolov5.png" srcset="/img/loading.gif" lazyload></p>
 <p>解压缩源码，将权重文件 <code>yolov5s.pt</code> 拷贝到源码根目录下的 weights 文件夹下。</p>
-<p><img src="weights.png" srcset="/img/loading.gif"></p>
+<p><img src="weights.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="三、安装依赖"><a href="#三、安装依赖" class="headerlink" title="三、安装依赖"></a>三、安装依赖</h1><h2 id="（1）配置虚拟环境（非必需）"><a href="#（1）配置虚拟环境（非必需）" class="headerlink" title="（1）配置虚拟环境（非必需）"></a>（1）配置虚拟环境（非必需）</h2><p>用 PyCharm 打开项目文件夹（我个人使用 PyCharm 比较习惯了）~</p>
-<p><img src="pycharm_yolov5.png" srcset="/img/loading.gif"></p>
+<p><img src="pycharm_yolov5.png" srcset="/img/loading.gif" lazyload></p>
 <p>首先配置虚拟环境，点击文件 -&gt; 设置 -&gt; Python解释器 -&gt; 添加。</p>
-<p><img src="env.png" srcset="/img/loading.gif"></p>
+<p><img src="env.png" srcset="/img/loading.gif" lazyload></p>
 <p>选择 Virtualenv 环境，选择新环境，基本解释器选择 Python3.8 以上的版本（官方说是需要3.8及以上版本），选择好后点击“确定”即可，PyCharm 会自动创建虚拟环境，稍微等一下。</p>
-<p><img src="version.png" srcset="/img/loading.gif"></p>
-<p><img src="venv.png" srcset="/img/loading.gif"></p>
+<p><img src="version.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="venv.png" srcset="/img/loading.gif" lazyload></p>
 <p>虚拟环境配置好后打开终端，确保路径前面有 <code>(venv)</code> ，即进入了虚拟环境。</p>
-<p><img src="cmdvenv.png" srcset="/img/loading.gif"></p>
+<p><img src="cmdvenv.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="（2）安装依赖的包"><a href="#（2）安装依赖的包" class="headerlink" title="（2）安装依赖的包"></a>（2）安装依赖的包</h2><p>可以试一下直接终端中执行以下命令，安装所需要的依赖，我个人经历是安装失败的，主要是 torch 和 torchvision 这两个包没有满足要求的版本。（这里 pip 安装包如果很慢的话建议自行百度配置一下 pip 的国内源）</p>
 <div class="hljs code-wrapper"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> -r requirements.txt</code></pre></div>
 
@@ -291,16 +289,16 @@
 <li><code>cp38</code> 是指Python版本，使用 Python3.8 所以选择 cp38 的版本；</li>
 <li>我是 Windows 系统所以选择 <code>win</code> 的版本，点击下载即可。</li>
 </ul>
-<p><img src="downloadtorch1.png" srcset="/img/loading.gif" alt="downloadtorch1"></p>
+<p><img src="downloadtorch1.png" srcset="/img/loading.gif" lazyload alt="downloadtorch1"></p>
 <p>另外还要下载 torchvision ，同上一样的方法找到后下载下来。</p>
-<p><img src="torchvision.png" srcset="/img/loading.gif"></p>
+<p><img src="torchvision.png" srcset="/img/loading.gif" lazyload></p>
 <p>下载完毕后，将两个 .whl 的文件拷贝到项目根目录下备用。</p>
-<p><img src="down.png" srcset="/img/loading.gif"></p>
+<p><img src="down.png" srcset="/img/loading.gif" lazyload></p>
 <p>回到终端中手动安装这两个包，分别执行以下命令即可。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">pip</span> install torch-<span class="hljs-number">1</span>.<span class="hljs-number">6</span>.<span class="hljs-number">0</span>-cp<span class="hljs-number">38</span>-cp<span class="hljs-number">38</span>-win_amd<span class="hljs-number">64</span>.whl
 <span class="hljs-attribute">pip</span> install torchvision-<span class="hljs-number">0</span>.<span class="hljs-number">7</span>.<span class="hljs-number">0</span>-cp<span class="hljs-number">38</span>-cp<span class="hljs-number">38</span>-win_amd<span class="hljs-number">64</span>.whl</code></pre></div>
 
-<p><img src="installtorch.png" srcset="/img/loading.gif"></p>
+<p><img src="installtorch.png" srcset="/img/loading.gif" lazyload></p>
 <p>然后重新执行以下命令安装需要的包，应该就没有什么问题了。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> -r requirements.txt</code></pre></div>
 
@@ -309,7 +307,7 @@
 torch.cuda.<span class="hljs-keyword">is</span><span class="hljs-number">_</span>available()</code></pre></div>
 
 <p>如果返回 <code>True</code> 则说明系统支持 CUDA 可以继续往下了。</p>
-<p><img src="cudayes.png" srcset="/img/loading.gif"></p>
+<p><img src="cudayes.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="四、运行"><a href="#四、运行" class="headerlink" title="四、运行"></a>四、运行</h1><p>接下来回到终端，直接执行如下命令即可测试YOLOv5了~</p>
 <div class="hljs code-wrapper"><pre><code class="hljs vim"><span class="hljs-keyword">python</span> detect.<span class="hljs-keyword">py</span> --weights weights/yolov5s.<span class="hljs-keyword">pt</span></code></pre></div>
 
@@ -352,9 +350,9 @@ optional arguments:
 <li>–save-txt。将目标检测结果保存到文本文件中，记录了目标的分类、位置和宽高；</li>
 </ul>
 <p>项目自带了两张用于测试的图片存储在 inference/images 文件夹下，成功运行将看到下图所示的信息，打印了默认的参数和手动设置的 weights 参数，使用了 GPU ，两张图片的检测分别耗时 0.072s 和 0.029 秒。</p>
-<p><img src="run.png" srcset="/img/loading.gif"></p>
+<p><img src="run.png" srcset="/img/loading.gif" lazyload></p>
 <p>如果执行以上命令成功后，标注了目标的图片将会保存到 inference/output 文件夹下，效果如图所示。</p>
-<p><img src="bus.jpg" srcset="/img/loading.gif"></p>
+<p><img src="bus.jpg" srcset="/img/loading.gif" lazyload></p>
 <p>进一步的探索不再深入，本文目的仅在于将YOLOv5运行起来。</p>
 
             </div>
@@ -515,7 +513,7 @@ optional arguments:
           >
             
               <span style="visibility: hidden; width: 0">|</span>
-              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
             
             <span>川公网安备51152402000143号</span>
           </a>
@@ -528,8 +526,9 @@ optional arguments:
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -552,7 +551,7 @@ optional arguments:
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -624,7 +623,6 @@ optional arguments:
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>
