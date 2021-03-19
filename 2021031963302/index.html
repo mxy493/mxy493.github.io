@@ -16,11 +16,27 @@
   <meta name="theme-color" content="#2f4154">
   <meta name="description" content="mxy&#39;s blog ᓚᘏᗢ">
   <meta name="author" content="mxy">
-  <meta name="keywords" content="">
+  <meta name="keywords" content="LeanCloud,云函数,腾讯云">
   
-  <title>归档 - mxy ᓚᘏᗢ</title>
+  <title>使用腾讯云函数解决 LeanCloud 流控问题 - mxy ᓚᘏᗢ</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
@@ -48,7 +64,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -159,9 +175,54 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="归档">
+            <span class="h2" id="subtitle" title="使用腾讯云函数解决 LeanCloud 流控问题">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-19 14:01" pubdate>
+        2021年3月19日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      645 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      6
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
 
             
           </div>
@@ -174,40 +235,121 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 136 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2019</p>
-    
-    <a href="/2019081564979/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 删除排序数组中的重复项</span>
-      <time style="float: right;">08-15</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">使用腾讯云函数解决 LeanCloud 流控问题</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年3月19日 下午
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>参考：<a target="_blank" rel="noopener" href="https://www.alsaces.cn/posts/a75bb0c6/">使用云函数解决leancloud流控问题</a></p>
+<p>我个人在此之前没有使用过云函数，所以也是看着别人写的一步一步来的，但关于本文要解决的问题，网上博客介绍的都比较简略，所以本文面向小白，希望能写一篇正儿八经能看着傻瓜式操作的教程。</p>
+<p>需要注意解决流控问题，本质是唤醒 LeanCloud 云引擎，而不是触发 Valine-Admin 的两个云函数，所以我个人认为不需要过多的访问云引擎域名，只需要早晨通过外部访问一次云引擎域名，后续 Valine-Admin 的 self_wake 函数就可以自我唤醒了。</p>
+<h1 id="傻瓜式教程"><a href="#傻瓜式教程" class="headerlink" title="傻瓜式教程"></a>傻瓜式教程</h1><p>首先打开<a target="_blank" rel="noopener" href="https://cloud.tencent.com/product/scf">腾讯云云函数网站</a>，登录控制台，点击左侧 <strong>函数服务</strong> ，然后点击 <strong>新建</strong> 。</p>
+<p><img src="1_create_scf.png" srcset="/img/loading.gif" lazyload alt="1_create_scf"></p>
+<p>选择 <strong>自定义创建</strong> ，函数名自己取一个，例如 <code>wakeup_leancloud</code> ，运行环境选择 <strong>Python3.6</strong> ，如图：</p>
+<p><img src="2_set_scf.png" srcset="/img/loading.gif" lazyload alt="2_set_scf"></p>
+<p>接下来编写代码，用你的 <strong>云引擎域名</strong> 替换 <code>your URL</code>，将下面的代码粘贴进去即可：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding: utf8 -*-</span>
+<span class="hljs-keyword">import</span> urllib.request
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main_handler</span>(<span class="hljs-params">event, context</span>):</span>
+    url=<span class="hljs-string">&quot;your URL&quot;</span>
+    req=urllib.request.Request(url)
+    resp=urllib.request.urlopen(req)
+    print(<span class="hljs-string">&quot;外部访问运行完成！&quot;</span>)</code></pre></div>
 
+<p>如图：</p>
+<p><img src="3_code.png" srcset="/img/loading.gif" lazyload alt="3_code"></p>
+<p>往下滑，点击 <strong>触发器配置</strong> ，选择 <strong>自定义创建</strong> ，根据我们的需求选择 <strong>定时触发</strong> ，定时任务名称自己取一个，例如 <code>wakeup_every_morning</code> ，触发周期选择 <strong>自定义触发周期</strong> 。</p>
+<p> Cron 表达式自己根据需求设置，我个人认为只需要每天早晨触发一次唤醒 LeanCloud 云引擎即可，后续 LeanCloud 的定时任务就可以自我唤醒了，所以我将触发周期设置为每天早晨 7:00 到 7:59 每10分钟触发一次（会触发6次，避免失败），即 <code>0 */10 7 * * * *</code> 。最后点击底部 <strong>完成</strong> 。</p>
+<p><img src="4_trigger.png" srcset="/img/loading.gif" lazyload alt="4_trigger"></p>
+<p>随后云函数将自动部署，到这里就算搞定了。可以自行测试一下函数是否执行成功，以及云引擎是否成功唤醒。</p>
+<h1 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h1><p>Cron 表达式并不复杂，不难发现通过设置 Cron 表达式可以实现各种定时触发，这里就没啥好说的了。</p>
+<p>回到 <strong>函数服务</strong> 页面，可以看到刚才创建好的云函数：</p>
+<p><img src="5_created.png" srcset="/img/loading.gif" lazyload alt="5_created"></p>
+<p>点击函数名进入函数管理，可以进一步修改代码以及做一些其它设置。</p>
+<p>点击左侧的 <strong>日志查询</strong> 可以查看函数的日志，是否按时运行以及是否执行成功，如图：</p>
+<p><img src="6_log.png" srcset="/img/loading.gif" lazyload alt="6_log"></p>
 
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/LeanCloud/">LeanCloud</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021031924011/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">解决 LeanCloud '因流控原因，通过定时任务唤醒体验版实例失败' 的问题</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021030220973/">
+                        <span class="hidden-mobile">C++ 在各种字符串类型之间相互转换</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -340,9 +482,15 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 
