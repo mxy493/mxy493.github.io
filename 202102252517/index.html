@@ -56,7 +56,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      715 字
+      720 字
     </span>
   
 
@@ -249,7 +249,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年3月17日 下午
+                  本文最后更新于：2021年5月11日 下午
                 
               </p>
             
@@ -299,7 +299,9 @@
 <h2 id="5-删除库"><a href="#5-删除库" class="headerlink" title="5. 删除库"></a>5. 删除库</h2><div class="hljs code-wrapper"><pre><code class="hljs sh">vcpkg remove [packages to remove]</code></pre></div>
 
 <p>如果有其他库依赖它，系统会提示你使用 <code>--recurse</code> 重新运行命令；重新运行会导致下游的所有库都被删除。</p>
-<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><h2 id="1-下载速度慢"><a href="#1-下载速度慢" class="headerlink" title="1. 下载速度慢"></a>1. 下载速度慢</h2><p>下载速度慢的原因是可想而知的，如果条件允许的话可以通过对 Power Shell 设置代理解决。这里提供临时代理的方法（个人认为设置永久代理不是很必要），在 Power Shell 中执行以下两行命令（注意美元符合也是命令的一部分）立即生效，关闭终端后失效。</p>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><h2 id="1-下载速度慢或无法下载"><a href="#1-下载速度慢或无法下载" class="headerlink" title="1. 下载速度慢或无法下载"></a>1. 下载速度慢或无法下载</h2><p>下载速度慢的原因是可想而知的，如果条件允许的话可以通过对 Power Shell 设置代理解决。</p>
+<p><img src="proxy.png" srcset="/img/loading.gif" lazyload alt="无法下载的情况"></p>
+<p>这里提供临时代理的方法（个人认为设置永久代理不是很必要），在 Power Shell 中执行以下两行命令（注意美元符合也是命令的一部分）立即生效，关闭终端后失效。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash">env:HTTP_PROXY=<span class="hljs-string">&quot;localhost:[port]&quot;</span></span>
 <span class="hljs-meta">$</span><span class="bash">env:HTTPS_PROXY=<span class="hljs-string">&quot;localhost:[port]&quot;</span></span></code></pre></div>
 
