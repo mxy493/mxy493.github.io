@@ -249,7 +249,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年5月25日 晚上
+                  本文最后更新于：2021年5月26日 晚上
                 
               </p>
             
@@ -351,7 +351,7 @@ file_logger-&gt;warn(<span class="hljs-string">&quot;Welcome to spdlog!&quot;</s
 <p>官方文档提供了关于格式化输出的详细介绍：<a target="_blank" rel="noopener" href="https://github.com/gabime/spdlog/wiki/3.-Custom-formatting">https://github.com/gabime/spdlog/wiki/3.-Custom-formatting</a> 。</p>
 <p>由于我项目主要是 Qt 写的，上述代码中也用到了 Qt 的相关函数，中文字符的打印一定是很多人的疑惑，字符编码真的是很麻烦事情。关于 spdlog 支持的字符串类型我没有找到相关说明，大概是 <code>std::string</code> 和 <code>char *</code> 是支持的，所有 QString 需要做转换，如果是中文，通常统一使用 <code>log.toLocal8Bit().toStdString()</code> 是没有问题的，终端一般默认都是 GBK 编码，一定要这么转才能正常显示；打印到文件则可以使用兼容性更好一些的 UTF-8 编码，即 <code>log.toUtf8().toStdString()</code> ，都可以正常显示。</p>
 <h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>本文并没有深入介绍 spdlog ，因为我觉得它的使用真的很简单，基本没有上手难度啊！</p>
-<p>spdlog 是可以支撑服务端打印快速大量日志的，简言之就是它的能力很强，而我的小程序对日志打印的速度并没有太高的要求😉</p>
+<p>spdlog 是可以支撑服务端快速打印大量日志的，简言之就是它的能力很强，而我的小程序对日志打印的速度并没有太高的要求😉</p>
 <p>最后，开源的世界真好 (≧∇≦)ﾉ 感谢开发者们！</p>
 
             </div>
@@ -386,6 +386,12 @@ file_logger-&gt;warn(<span class="hljs-string">&quot;Welcome to spdlog!&quot;</s
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021052615395/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Visual Studio & Qt 设置可执行程序图标</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

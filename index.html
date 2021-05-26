@@ -194,6 +194,64 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021052615395/">Visual Studio &amp; Qt 设置可执行程序图标</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021052615395/">
+          
+          
+            
+          
+          直入主题下面是通过 Visual Studio 创建的 QtWidgetsApplication 的默认界面，一行代码都没有写，可以看到窗口左上角的图标是默认没设置的。
+
+随意找了个图标用于测试，如图，文件名分别是“app.png”和“app.ico”。
+在主窗口类的构造函数里添加代码：
+setWindowIcon(QIcon(&quot;app.webp&quot;));
+
+再编译运行，就可以看
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-26 18:46" pubdate>
+              2021-05-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Qt/">Qt</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/C/">C++</a>
+            
+              <a href="/tags/Qt/">Qt</a>
+            
+              <a href="/tags/Visual-Studio/">Visual Studio</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021052530658/">C++ 日志框架 spdlog 的初步上手</a>
       </h1>
 
@@ -616,61 +674,6 @@ LeanCloud
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
             <time datetime="2021-02-19 16:10" pubdate>
-              2021-02-19
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Leetcode/">Leetcode</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Leetcode/">Leetcode</a>
-            
-              <a href="/tags/C/">C++</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/202102194843/">Leetcode 665. 非递减数列【C++】</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/202102194843/">
-          
-          
-            
-          
-          
-地址：https://leetcode-cn.com/problems/non-decreasing-array/
-
-题目给你一个长度为 n 的整数数组，请你判断在 最多 改变 1 个元素的情况下，该数组能否变成一个非递减数列。
-我们是这样定义一个非递减数列的： 对于数组中任意的 i (0 &lt;= i &lt;= n-2)，总满足 nums[i] &lt;= nums[i + 1]。
-示例 
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-19 09:23" pubdate>
               2021-02-19
             </time>
           </div>
