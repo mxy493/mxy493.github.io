@@ -56,7 +56,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -154,13 +154,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -287,15 +287,15 @@
 <p>另外定义了一个函数用于判断橘子是否全部腐烂，或者还有橘子可以被感染，或是存在不可能被感染的橘子。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">orangesRotting</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">orangesRotting</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;
         <span class="hljs-keyword">int</span> minute = <span class="hljs-number">0</span>;
-        <span class="hljs-keyword">size_t</span> rows = grid.size();<span class="hljs-comment">//行数</span>
-        <span class="hljs-keyword">size_t</span> cols = grid[<span class="hljs-number">0</span>].size();<span class="hljs-comment">//列数</span>
-        <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">temp</span><span class="hljs-params">(cols)</span></span>;<span class="hljs-comment">//仅用于初始化状态记录表</span>
-        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; record(rows, temp);<span class="hljs-comment">//状态记录表，初始化为全0，数字0，1，2表示第0，1，2步</span>
+        <span class="hljs-keyword">size_t</span> rows = grid.<span class="hljs-built_in">size</span>();<span class="hljs-comment">//行数</span>
+        <span class="hljs-keyword">size_t</span> cols = grid[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>();<span class="hljs-comment">//列数</span>
+        <span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">temp</span><span class="hljs-params">(cols)</span></span>;<span class="hljs-comment">//仅用于初始化状态记录表</span>
+        vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-built_in">record</span>(rows, temp);<span class="hljs-comment">//状态记录表，初始化为全0，数字0，1，2表示第0，1，2步</span>
         
         <span class="hljs-comment">//模拟橘子随时间被感染</span>
-        <span class="hljs-keyword">while</span> (isInfectionOver(grid) == <span class="hljs-number">1</span>)
+        <span class="hljs-keyword">while</span> (<span class="hljs-built_in">isInfectionOver</span>(grid) == <span class="hljs-number">1</span>)
         &#123;
             minute++;<span class="hljs-comment">//分钟数+1</span>
             <span class="hljs-comment">//同步遍历橘子网格与状态记录表</span>
@@ -328,17 +328,17 @@
 
             &#125;
         &#125;
-        <span class="hljs-keyword">return</span> isInfectionOver(grid) == <span class="hljs-number">2</span> ? <span class="hljs-number">-1</span> : minute;
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">isInfectionOver</span>(grid) == <span class="hljs-number">2</span> ? <span class="hljs-number">-1</span> : minute;
     &#125;
 
     <span class="hljs-comment">//是否感染结束，可能的返回值为0，1，2</span>
     <span class="hljs-comment">//0表示所有橘子都已腐烂；1表示仍存在可以被感染的橘子；2表示存在不可能被感染的橘子</span>
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">isInfectionOver</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">isInfectionOver</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;
         <span class="hljs-keyword">int</span> ret = <span class="hljs-number">0</span>;<span class="hljs-comment">//作为返回值</span>
-        <span class="hljs-keyword">size_t</span> rows = grid.size();<span class="hljs-comment">//行数</span>
-        <span class="hljs-keyword">size_t</span> cols = grid[<span class="hljs-number">0</span>].size();<span class="hljs-comment">//列数</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i &lt; grid.size(); i++) &#123;
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> j = <span class="hljs-number">0</span>; j &lt; grid[i].size(); j++) &#123;
+        <span class="hljs-keyword">size_t</span> rows = grid.<span class="hljs-built_in">size</span>();<span class="hljs-comment">//行数</span>
+        <span class="hljs-keyword">size_t</span> cols = grid[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>();<span class="hljs-comment">//列数</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i &lt; grid.<span class="hljs-built_in">size</span>(); i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> j = <span class="hljs-number">0</span>; j &lt; grid[i].<span class="hljs-built_in">size</span>(); j++) &#123;
                 <span class="hljs-comment">//只需判断表中的新鲜橘子是否可能被感染</span>
                 <span class="hljs-keyword">if</span> (grid[i][j] == <span class="hljs-number">1</span>) &#123;
                     ret = <span class="hljs-number">2</span>;<span class="hljs-comment">//此处默认这个橘子不可能被感染</span>
@@ -371,39 +371,39 @@
 </ol>
 <h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">orangesRotting</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;
-        <span class="hljs-built_in">queue</span>&lt;<span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; rottenQueue;<span class="hljs-comment">//保存腐烂橘子坐标的队列</span>
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">orangesRotting</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;
+        queue&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; rottenQueue;<span class="hljs-comment">//保存腐烂橘子坐标的队列</span>
         <span class="hljs-keyword">int</span> fresh = <span class="hljs-number">0</span>;<span class="hljs-comment">//剩余新鲜橘子的个数</span>
         <span class="hljs-comment">//统计</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i &lt; grid.size(); i++) &#123;
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> j = <span class="hljs-number">0</span>; j &lt; grid[<span class="hljs-number">0</span>].size(); j++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> i = <span class="hljs-number">0</span>; i &lt; grid.<span class="hljs-built_in">size</span>(); i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">size_t</span> j = <span class="hljs-number">0</span>; j &lt; grid[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>(); j++) &#123;
                 <span class="hljs-keyword">if</span> (grid[i][j] == <span class="hljs-number">2</span>)
-                    rottenQueue.push(&#123; i, j &#125;);
+                    rottenQueue.<span class="hljs-built_in">push</span>(&#123; i, j &#125;);
                 <span class="hljs-keyword">if</span> (grid[i][j] == <span class="hljs-number">1</span>)
                     fresh++;
             &#125;
         &#125;
 
         <span class="hljs-keyword">int</span> minute = <span class="hljs-number">0</span>;<span class="hljs-comment">//分钟数</span>
-        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; around = &#123; &#123;<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>&#125; &#125;;<span class="hljs-comment">//+&#123;i,j&#125;后分别是上下左右</span>
-        <span class="hljs-keyword">while</span> (!rottenQueue.empty())
+        vector&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; around = &#123; &#123;<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>&#125; &#125;;<span class="hljs-comment">//+&#123;i,j&#125;后分别是上下左右</span>
+        <span class="hljs-keyword">while</span> (!rottenQueue.<span class="hljs-built_in">empty</span>())
         &#123;
-            <span class="hljs-keyword">int</span> n = rottenQueue.size();<span class="hljs-comment">//当前队列中的腐烂橘子个数，处理完这n个橘子分钟数才+1</span>
+            <span class="hljs-keyword">int</span> n = rottenQueue.<span class="hljs-built_in">size</span>();<span class="hljs-comment">//当前队列中的腐烂橘子个数，处理完这n个橘子分钟数才+1</span>
             <span class="hljs-keyword">bool</span> rotten = <span class="hljs-literal">false</span>;
             <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
                 <span class="hljs-comment">//从队列头取出一个腐烂橘子</span>
-                <span class="hljs-keyword">auto</span> rot = rottenQueue.front();
+                <span class="hljs-keyword">auto</span> rot = rottenQueue.<span class="hljs-built_in">front</span>();
                 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> side : around) &#123;
                     <span class="hljs-keyword">int</span> i = rot.first + side.first;
                     <span class="hljs-keyword">int</span> j = rot.second + side.second;
-                    <span class="hljs-keyword">if</span> (i &gt;= <span class="hljs-number">0</span> &amp;&amp; i &lt; grid.size() &amp;&amp; j &gt;= <span class="hljs-number">0</span> &amp;&amp; j &lt; grid[<span class="hljs-number">0</span>].size() &amp;&amp; grid[i][j] == <span class="hljs-number">1</span>) &#123;
+                    <span class="hljs-keyword">if</span> (i &gt;= <span class="hljs-number">0</span> &amp;&amp; i &lt; grid.<span class="hljs-built_in">size</span>() &amp;&amp; j &gt;= <span class="hljs-number">0</span> &amp;&amp; j &lt; grid[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>() &amp;&amp; grid[i][j] == <span class="hljs-number">1</span>) &#123;
                         grid[i][j] = <span class="hljs-number">2</span>;<span class="hljs-comment">//这个橘子会腐烂</span>
-                        rottenQueue.push(&#123; i,j &#125;);<span class="hljs-comment">//将新腐烂的橘子加入队列</span>
+                        rottenQueue.<span class="hljs-built_in">push</span>(&#123; i,j &#125;);<span class="hljs-comment">//将新腐烂的橘子加入队列</span>
                         fresh--;<span class="hljs-comment">//新鲜橘子减少一个</span>
                         rotten = <span class="hljs-literal">true</span>;<span class="hljs-comment">//当前橘子腐烂了周围的橘子</span>
                     &#125;
                 &#125;
-                rottenQueue.pop();<span class="hljs-comment">//已处理过的腐烂橘子无需再处理</span>
+                rottenQueue.<span class="hljs-built_in">pop</span>();<span class="hljs-comment">//已处理过的腐烂橘子无需再处理</span>
             &#125;
             <span class="hljs-keyword">if</span> (rotten == <span class="hljs-literal">true</span>) &#123;
                 minute++;<span class="hljs-comment">//分钟数+1</span>
@@ -605,7 +605,6 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 

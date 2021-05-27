@@ -56,7 +56,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -154,13 +154,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -287,20 +287,20 @@
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
     <span class="hljs-keyword">int</span> depth = <span class="hljs-number">0</span>;<span class="hljs-comment">//遍历到的最大深度</span>
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">rightSideView</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;
-        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; nodes;
+    <span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">rightSideView</span><span class="hljs-params">(TreeNode* root)</span> </span>&#123;
+        vector&lt;<span class="hljs-keyword">int</span>&gt; nodes;
         <span class="hljs-comment">//调用递归函数前确保传入非空结点</span>
         <span class="hljs-keyword">if</span> (root != <span class="hljs-literal">NULL</span>) &#123;
-            backtrack(nodes, root, <span class="hljs-number">1</span>);
+            <span class="hljs-built_in">backtrack</span>(nodes, root, <span class="hljs-number">1</span>);
         &#125;
         <span class="hljs-keyword">return</span> nodes;
     &#125;
 
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">backtrack</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nodes, TreeNode* cur, <span class="hljs-keyword">int</span> dp)</span> </span>&#123;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">backtrack</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nodes, TreeNode* cur, <span class="hljs-keyword">int</span> dp)</span> </span>&#123;
         <span class="hljs-comment">//当前深度大于最大遍历深度</span>
         <span class="hljs-keyword">if</span> (dp &gt; depth) &#123;
             depth = dp;<span class="hljs-comment">//更新最大深度</span>
-            nodes.push_back(cur-&gt;val);<span class="hljs-comment">//添加可见结点</span>
+            nodes.<span class="hljs-built_in">push_back</span>(cur-&gt;val);<span class="hljs-comment">//添加可见结点</span>
         &#125;
         <span class="hljs-comment">//结束条件：没有子女节点</span>
         <span class="hljs-keyword">if</span> (cur-&gt;right == <span class="hljs-literal">NULL</span> &amp;&amp; cur-&gt;left == <span class="hljs-literal">NULL</span>) &#123;
@@ -308,11 +308,11 @@
         &#125;
         <span class="hljs-comment">//选择右侧</span>
         <span class="hljs-keyword">if</span> (cur-&gt;right != <span class="hljs-literal">NULL</span>) &#123;
-            backtrack(nodes, cur-&gt;right, dp + <span class="hljs-number">1</span>);
+            <span class="hljs-built_in">backtrack</span>(nodes, cur-&gt;right, dp + <span class="hljs-number">1</span>);
         &#125;
         <span class="hljs-comment">//右侧为空则选择左侧</span>
         <span class="hljs-keyword">if</span> (cur-&gt;left != <span class="hljs-literal">NULL</span>) &#123;
-            backtrack(nodes, cur-&gt;left, dp + <span class="hljs-number">1</span>);
+            <span class="hljs-built_in">backtrack</span>(nodes, cur-&gt;left, dp + <span class="hljs-number">1</span>);
         &#125;
     &#125;
 &#125;;</code></pre></div>
@@ -509,7 +509,6 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 

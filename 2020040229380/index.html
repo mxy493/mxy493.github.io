@@ -56,7 +56,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -154,13 +154,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -291,29 +291,29 @@
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span>
 
 <span class="hljs-comment">//递归算法</span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getMin</span><span class="hljs-params">(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; vec, <span class="hljs-keyword">int</span> x)</span> </span>&#123;
-	<span class="hljs-keyword">if</span> (vec.back() - vec.front() &lt;= x) &#123;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getMin</span><span class="hljs-params">(std::vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; vec, <span class="hljs-keyword">int</span> x)</span> </span>&#123;
+	<span class="hljs-keyword">if</span> (vec.<span class="hljs-built_in">back</span>() - vec.<span class="hljs-built_in">front</span>() &lt;= x) &#123;
 		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 	&#125;
-	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec1;
-	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec2;
-	vec1.assign(vec.begin(), vec.end() - <span class="hljs-number">1</span>);
-	vec2.assign(vec.begin() + <span class="hljs-number">1</span>, vec.end());
-	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span> + <span class="hljs-built_in">std</span>::min(getMin(vec1, x), getMin(vec2, x));
+	std::vector&lt;<span class="hljs-keyword">int</span>&gt; vec1;
+	std::vector&lt;<span class="hljs-keyword">int</span>&gt; vec2;
+	vec1.<span class="hljs-built_in">assign</span>(vec.<span class="hljs-built_in">begin</span>(), vec.<span class="hljs-built_in">end</span>() - <span class="hljs-number">1</span>);
+	vec2.<span class="hljs-built_in">assign</span>(vec.<span class="hljs-built_in">begin</span>() + <span class="hljs-number">1</span>, vec.<span class="hljs-built_in">end</span>());
+	<span class="hljs-keyword">return</span> <span class="hljs-number">1</span> + std::<span class="hljs-built_in">min</span>(<span class="hljs-built_in">getMin</span>(vec1, x), <span class="hljs-built_in">getMin</span>(vec2, x));
 &#125;
 
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
 	<span class="hljs-keyword">int</span> n;
 	<span class="hljs-keyword">int</span> x;
 	<span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>;
-	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; n &gt;&gt; x;
+	std::cin &gt;&gt; n &gt;&gt; x;
 	<span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>) &#123;
-		<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-number">0</span>;
+		std::cout &lt;&lt; <span class="hljs-number">0</span>;
 		<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 	&#125;
-	<span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">seq</span><span class="hljs-params">(n)</span></span>;
+	<span class="hljs-function">std::vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">seq</span><span class="hljs-params">(n)</span></span>;
 	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
-		<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; seq[i];
+		std::cin &gt;&gt; seq[i];
 	&#125;
 
 	<span class="hljs-comment">//从小到大排序</span>
@@ -326,8 +326,8 @@
 			&#125;
 		&#125;
 	&#125;
-	ans = getMin(seq, x);
-	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; ans;
+	ans = <span class="hljs-built_in">getMin</span>(seq, x);
+	std::cout &lt;&lt; ans;
 	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 &#125;</code></pre></div>
 
@@ -369,11 +369,11 @@
 	<span class="hljs-keyword">int</span> n;<span class="hljs-comment">//房间数</span>
 	<span class="hljs-keyword">int</span> m;<span class="hljs-comment">//法力值</span>
 	<span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>;
-	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; n &gt;&gt; m;
-	<span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">room</span><span class="hljs-params">(n)</span></span>;
+	std::cin &gt;&gt; n &gt;&gt; m;
+	<span class="hljs-function">std::vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">room</span><span class="hljs-params">(n)</span></span>;
 	<span class="hljs-keyword">int</span> min = <span class="hljs-number">-1</span>;
 	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
-		<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cin</span> &gt;&gt; room[i];
+		std::cin &gt;&gt; room[i];
 		<span class="hljs-keyword">if</span> (min == <span class="hljs-number">-1</span>) min = room[i];
 		min = min &lt; room[i] ? min : room[i];
 	&#125;
@@ -387,7 +387,7 @@
 		i++;
 		<span class="hljs-keyword">if</span> (i == n) i = <span class="hljs-number">0</span>;
 	&#125;
-	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; ans;
+	std::cout &lt;&lt; ans;
 	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 &#125;</code></pre></div>
 
@@ -433,7 +433,7 @@
 选择用一颗子弹射击：如果命中则再用一颗子弹进行射击，如果命中则再用一颗子弹进行射击（即3轮均使用了一颗子弹进行）：0.90 <span class="hljs-emphasis">* 2 + 0.90 *</span> 0.90 <span class="hljs-emphasis">* 2+0.90 *</span> 0.90 <span class="hljs-emphasis">* 0.90 *</span> 2= 4.878≈4.88 此种情况的期望得分最高，故为4.88</code></pre></div>
 
 <h4 id="3-2-解题思路"><a href="#3-2-解题思路" class="headerlink" title="3.2 解题思路"></a>3.2 解题思路</h4><p>绝了，概率也不行，动态规划也不行……</p>
-<h4 id="3-3-代码"><a href="#3-3-代码" class="headerlink" title="3.3 代码"></a>3.3 代码</h4><div class="hljs code-wrapper"><pre><code class="hljs plain"></code></pre></div>
+<h4 id="3-3-代码"><a href="#3-3-代码" class="headerlink" title="3.3 代码"></a>3.3 代码</h4><div class="hljs code-wrapper"><pre><code class="hljs"></code></pre></div>
 
 <h3 id="题目四：拆分"><a href="#题目四：拆分" class="headerlink" title="题目四：拆分"></a>题目四：拆分</h3><p><img src="exam4.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="4-1-题目"><a href="#4-1-题目" class="headerlink" title="4.1 题目"></a>4.1 题目</h4><ul>
@@ -455,7 +455,7 @@
 <li>输出题目描述中式子的值</li>
 </ul>
 <p><strong>示例：</strong></p>
-<div class="hljs code-wrapper"><pre><code class="hljs plain">样例输入
+<div class="hljs code-wrapper"><pre><code class="hljs">样例输入
 abcabcabc
 2
 样例输出
@@ -467,7 +467,7 @@ abcabcabc
 </ul>
 <p><strong>样例解释：</strong></p>
 <p>在这个字符串中，有 <code>f(1,5),f(1,8),f(1,9),f(2,6),f(2,9),f(3,7),f(4,8),f(5,9)</code> 的值为 <code>1</code>，其他为 <code>0</code> ，故和为 <code>8</code> 。以 <code>f(1,5)</code> 为例，选择的子串是 <code>abcab</code>，令 <code>A=“ab”</code> ，<code>B=“c”</code> ，则 <code>|A|&gt;=k</code> 且 <code>|B|&gt;=1</code> ，因此 <code>f(1,5)</code> 等于 <code>1</code> ，以此类推。</p>
-<h4 id="4-2-解题思路"><a href="#4-2-解题思路" class="headerlink" title="4.2 解题思路"></a>4.2 解题思路</h4><h4 id="4-3-代码"><a href="#4-3-代码" class="headerlink" title="4.3 代码"></a>4.3 代码</h4><div class="hljs code-wrapper"><pre><code class="hljs plain"></code></pre></div>
+<h4 id="4-2-解题思路"><a href="#4-2-解题思路" class="headerlink" title="4.2 解题思路"></a>4.2 解题思路</h4><h4 id="4-3-代码"><a href="#4-3-代码" class="headerlink" title="4.3 代码"></a>4.3 代码</h4><div class="hljs code-wrapper"><pre><code class="hljs"></code></pre></div>
 
 <h3 id="题目五：max-xor-min"><a href="#题目五：max-xor-min" class="headerlink" title="题目五：max xor min"></a>题目五：max xor min</h3><p><img src="exam5.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="5-1-题目"><a href="#5-1-题目" class="headerlink" title="5.1 题目"></a>5.1 题目</h4><ul>
@@ -492,7 +492,7 @@ abcabcabc
 样例输出
 0</code></pre></div>
 
-<h4 id="5-2-解题思路"><a href="#5-2-解题思路" class="headerlink" title="5.2 解题思路"></a>5.2 解题思路</h4><h4 id="5-3-代码"><a href="#5-3-代码" class="headerlink" title="5.3 代码"></a>5.3 代码</h4><div class="hljs code-wrapper"><pre><code class="hljs plain"></code></pre></div>
+<h4 id="5-2-解题思路"><a href="#5-2-解题思路" class="headerlink" title="5.2 解题思路"></a>5.2 解题思路</h4><h4 id="5-3-代码"><a href="#5-3-代码" class="headerlink" title="5.3 代码"></a>5.3 代码</h4><div class="hljs code-wrapper"><pre><code class="hljs"></code></pre></div>
             </div>
             <hr>
             <div>
@@ -549,7 +549,7 @@ abcabcabc
                 
   <div id="valine"></div>
   <script type="text/javascript">
-    Fluid.utils.lazyComments('valine', function() {
+    Fluid.utils.loadComments('#valine', function() {
       Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function () {
         new Valine({
           el: "#valine",
@@ -568,9 +568,7 @@ abcabcabc
       });
     });
   </script>
-  <noscript>Please enable JavaScript to view the
-    <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments powered by Valine.</a>
-  </noscript>
+  <noscript>Please enable JavaScript to view the comments</noscript>
 
 
               </article>
@@ -709,7 +707,6 @@ abcabcabc
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 

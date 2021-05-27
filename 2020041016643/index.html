@@ -56,7 +56,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -154,13 +154,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -288,31 +288,31 @@
 <p>前面所做的工作只对单词进行了处理，字符串中的空格还没有处理。所以现在要分别删除首尾的空格以及将单词之间的多个空格压缩为一个。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">reverseWords</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s)</span> </span>&#123;
+    <span class="hljs-function">string <span class="hljs-title">reverseWords</span><span class="hljs-params">(string s)</span> </span>&#123;
         <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
         <span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>;
         <span class="hljs-keyword">int</span> lenl = <span class="hljs-number">0</span>;<span class="hljs-comment">//前单词长度</span>
         <span class="hljs-keyword">int</span> lenr = <span class="hljs-number">0</span>;<span class="hljs-comment">//后单词长度</span>
-        <span class="hljs-keyword">while</span> (i + j &lt;= s.size())
+        <span class="hljs-keyword">while</span> (i + j &lt;= s.<span class="hljs-built_in">size</span>())
         &#123;
             <span class="hljs-comment">//单词长度+1</span>
             <span class="hljs-keyword">if</span> (s[i] != <span class="hljs-string">&#x27; &#x27;</span>) &#123;
                 lenl++;
             &#125;
             <span class="hljs-keyword">if</span> (s[i] == <span class="hljs-string">&#x27; &#x27;</span> &amp;&amp; lenl != <span class="hljs-number">0</span>) &#123;
-                <span class="hljs-keyword">while</span> (j + i &lt;= s.size()) &#123;
+                <span class="hljs-keyword">while</span> (j + i &lt;= s.<span class="hljs-built_in">size</span>()) &#123;
                     <span class="hljs-comment">//单词长度+1</span>
-                    <span class="hljs-keyword">if</span> (s[s.size() - j] != <span class="hljs-string">&#x27; &#x27;</span>) &#123;
+                    <span class="hljs-keyword">if</span> (s[s.<span class="hljs-built_in">size</span>() - j] != <span class="hljs-string">&#x27; &#x27;</span>) &#123;
                         lenr++;
                     &#125;
-                    <span class="hljs-keyword">if</span> (s[s.size() - j] == <span class="hljs-string">&#x27; &#x27;</span> &amp;&amp; lenr != <span class="hljs-number">0</span>) &#123;
-                        <span class="hljs-built_in">string</span> tmp = s.substr(i - lenl, lenl);
+                    <span class="hljs-keyword">if</span> (s[s.<span class="hljs-built_in">size</span>() - j] == <span class="hljs-string">&#x27; &#x27;</span> &amp;&amp; lenr != <span class="hljs-number">0</span>) &#123;
+                        string tmp = s.<span class="hljs-built_in">substr</span>(i - lenl, lenl);
                         <span class="hljs-comment">//替换前单词</span>
-                        s.erase(i - lenl, lenl);
-                        s.insert(i - lenl, s.substr(s.size() - j + <span class="hljs-number">1</span>, lenr));
+                        s.<span class="hljs-built_in">erase</span>(i - lenl, lenl);
+                        s.<span class="hljs-built_in">insert</span>(i - lenl, s.<span class="hljs-built_in">substr</span>(s.<span class="hljs-built_in">size</span>() - j + <span class="hljs-number">1</span>, lenr));
                         <span class="hljs-comment">//替换后单词</span>
-                        s.insert(s.size() - j + <span class="hljs-number">1</span>, tmp);
-                        s.erase(s.size() - j + <span class="hljs-number">1</span>, lenr);
+                        s.<span class="hljs-built_in">insert</span>(s.<span class="hljs-built_in">size</span>() - j + <span class="hljs-number">1</span>, tmp);
+                        s.<span class="hljs-built_in">erase</span>(s.<span class="hljs-built_in">size</span>() - j + <span class="hljs-number">1</span>, lenr);
                         <span class="hljs-comment">//重新设置i，j</span>
                         i = i - lenl + lenr;
                         j = j - lenr + lenl;
@@ -327,21 +327,21 @@
             i++;
         &#125;
         <span class="hljs-comment">//去掉首尾空格</span>
-        <span class="hljs-keyword">while</span> (s.size() &gt; <span class="hljs-number">0</span> &amp;&amp; s.front() == <span class="hljs-string">&#x27; &#x27;</span>) &#123;
-            s.erase(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>);
+        <span class="hljs-keyword">while</span> (s.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">0</span> &amp;&amp; s.<span class="hljs-built_in">front</span>() == <span class="hljs-string">&#x27; &#x27;</span>) &#123;
+            s.<span class="hljs-built_in">erase</span>(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>);
         &#125;
-        <span class="hljs-keyword">while</span> (s.size() &gt; <span class="hljs-number">0</span> &amp;&amp; s.back() == <span class="hljs-string">&#x27; &#x27;</span>) &#123;
-            s.pop_back();
+        <span class="hljs-keyword">while</span> (s.<span class="hljs-built_in">size</span>() &gt; <span class="hljs-number">0</span> &amp;&amp; s.<span class="hljs-built_in">back</span>() == <span class="hljs-string">&#x27; &#x27;</span>) &#123;
+            s.<span class="hljs-built_in">pop_back</span>();
         &#125;
         <span class="hljs-comment">//去掉中间重复空格</span>
         <span class="hljs-keyword">int</span> ii = <span class="hljs-number">0</span>;
         <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
-        <span class="hljs-keyword">while</span> (ii &lt; s.size()) &#123;
+        <span class="hljs-keyword">while</span> (ii &lt; s.<span class="hljs-built_in">size</span>()) &#123;
             <span class="hljs-keyword">if</span> (s[ii] == <span class="hljs-string">&#x27; &#x27;</span>) &#123;
                 count++;
             &#125;
             <span class="hljs-keyword">if</span> (s[ii] != <span class="hljs-string">&#x27; &#x27;</span> &amp;&amp; count != <span class="hljs-number">0</span>) &#123;
-                s.replace(ii - count, count, <span class="hljs-string">&quot; &quot;</span>);
+                s.<span class="hljs-built_in">replace</span>(ii - count, count, <span class="hljs-string">&quot; &quot;</span>);
                 ii = ii - count + <span class="hljs-number">1</span>;
                 count = <span class="hljs-number">0</span>;
             &#125;
@@ -543,7 +543,6 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 

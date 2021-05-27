@@ -59,7 +59,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -157,13 +157,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -274,19 +274,19 @@
 
 <h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isPalindrome</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s)</span> </span>&#123;
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isPalindrome</span><span class="hljs-params">(string s)</span> </span>&#123;
         <span class="hljs-keyword">bool</span> bl = <span class="hljs-literal">true</span>;    <span class="hljs-comment">//作为返回值</span>
-        <span class="hljs-built_in">string</span> sta;   <span class="hljs-comment">//定义一个字符串sta将原字符串s标准化</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.size(); i++) &#123;   <span class="hljs-comment">//将原字符串s除字母和数字外的字符去除并将大写字母全部转换为小写字母</span>
+        string sta;   <span class="hljs-comment">//定义一个字符串sta将原字符串s标准化</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.<span class="hljs-built_in">size</span>(); i++) &#123;   <span class="hljs-comment">//将原字符串s除字母和数字外的字符去除并将大写字母全部转换为小写字母</span>
             <span class="hljs-keyword">if</span> ((s[i] &gt;= <span class="hljs-number">48</span> &amp;&amp; s[i] &lt;= <span class="hljs-number">57</span>) || (s[i] &gt;= <span class="hljs-number">97</span> &amp;&amp; s[i] &lt;= <span class="hljs-number">122</span>)) &#123;
                 sta += s[i];
             &#125;
             <span class="hljs-keyword">if</span> (s[i] &gt;= <span class="hljs-number">65</span> &amp;&amp; s[i] &lt;= <span class="hljs-number">90</span>) &#123;
-                sta += <span class="hljs-keyword">char</span>(s[i] + <span class="hljs-number">32</span>);
+                sta += <span class="hljs-built_in"><span class="hljs-keyword">char</span></span>(s[i] + <span class="hljs-number">32</span>);
             &#125;
         &#125;
-        <span class="hljs-keyword">int</span> n = sta.size();   <span class="hljs-comment">//字符串sta的字符个数</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; sta.size() / <span class="hljs-number">2</span>; j++) &#123;   <span class="hljs-comment">//判断是否回文串</span>
+        <span class="hljs-keyword">int</span> n = sta.<span class="hljs-built_in">size</span>();   <span class="hljs-comment">//字符串sta的字符个数</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; sta.<span class="hljs-built_in">size</span>() / <span class="hljs-number">2</span>; j++) &#123;   <span class="hljs-comment">//判断是否回文串</span>
             <span class="hljs-keyword">if</span> (sta[j] != sta[n - <span class="hljs-number">1</span> - j]) &#123;   <span class="hljs-comment">//说明不是回文串，将bl置为false并跳出循环，后续不必再判断</span>
                 bl = <span class="hljs-literal">false</span>;
                 <span class="hljs-keyword">break</span>;
@@ -488,7 +488,6 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 

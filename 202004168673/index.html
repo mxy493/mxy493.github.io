@@ -56,7 +56,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -154,13 +154,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -275,20 +275,20 @@
 <p>后来我还是看了官方题解，其实官方题解跟我排序的思路就几乎是一样的了，看了之后才想明白，其实频繁的删除操作代价是很大的，毕竟每一次删除都要移动很多元素的位置，牺牲空间来换取时间是值得的。同时，我是真的傻了，明明 <code>sort()</code> 函数就可以直接对数组排序，我还自己写了一个排序……</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h4 id="初版（超时）"><a href="#初版（超时）" class="headerlink" title="初版（超时）"></a>初版（超时）</h4><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; merge(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; intervals) &#123;
+    vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-built_in">merge</span>(vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; intervals) &#123;
 		<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
-		<span class="hljs-keyword">while</span> (i &lt; intervals.size())
+		<span class="hljs-keyword">while</span> (i &lt; intervals.<span class="hljs-built_in">size</span>())
 		&#123;
 			<span class="hljs-keyword">int</span> j = i + <span class="hljs-number">1</span>;
-			<span class="hljs-keyword">while</span> (j &lt; intervals.size())
+			<span class="hljs-keyword">while</span> (j &lt; intervals.<span class="hljs-built_in">size</span>())
 			&#123;
 				<span class="hljs-keyword">bool</span> canMerge = (intervals[i][<span class="hljs-number">1</span>] &lt; intervals[j][<span class="hljs-number">0</span>] || intervals[i][<span class="hljs-number">0</span>] &gt; intervals[j][<span class="hljs-number">1</span>]) ? <span class="hljs-literal">false</span> : <span class="hljs-literal">true</span>;
 				<span class="hljs-comment">//把intervals[j]合并到intervals[i]</span>
 				<span class="hljs-keyword">if</span> (canMerge) &#123;
-					intervals[i][<span class="hljs-number">0</span>] = min(intervals[i][<span class="hljs-number">0</span>], intervals[j][<span class="hljs-number">0</span>]);
-					intervals[i][<span class="hljs-number">1</span>] = max(intervals[i][<span class="hljs-number">1</span>], intervals[j][<span class="hljs-number">1</span>]);
+					intervals[i][<span class="hljs-number">0</span>] = <span class="hljs-built_in">min</span>(intervals[i][<span class="hljs-number">0</span>], intervals[j][<span class="hljs-number">0</span>]);
+					intervals[i][<span class="hljs-number">1</span>] = <span class="hljs-built_in">max</span>(intervals[i][<span class="hljs-number">1</span>], intervals[j][<span class="hljs-number">1</span>]);
 
-					intervals.erase(intervals.begin() + j);
+					intervals.<span class="hljs-built_in">erase</span>(intervals.<span class="hljs-built_in">begin</span>() + j);
 					j = i + <span class="hljs-number">1</span>;
 					<span class="hljs-keyword">continue</span>;
 				&#125;
@@ -302,26 +302,26 @@
 
 <h4 id="排序版（超时）"><a href="#排序版（超时）" class="headerlink" title="排序版（超时）"></a>排序版（超时）</h4><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
-	<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; merge(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; intervals) &#123;
+	vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-built_in">merge</span>(vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; intervals) &#123;
 		<span class="hljs-comment">//按区间的起始位置排序</span>
-		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; intervals.size(); i++) &#123;
+		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; intervals.<span class="hljs-built_in">size</span>(); i++) &#123;
 			<span class="hljs-keyword">int</span> last = <span class="hljs-number">0</span>;
-			<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; intervals.size() - i; j++) &#123;
+			<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; intervals.<span class="hljs-built_in">size</span>() - i; j++) &#123;
 				<span class="hljs-keyword">if</span> (intervals[j][<span class="hljs-number">0</span>] &gt; intervals[j + <span class="hljs-number">1</span>][<span class="hljs-number">0</span>]) &#123;
 					last = j;
-					<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; tmp = intervals[j];
+					vector&lt;<span class="hljs-keyword">int</span>&gt; tmp = intervals[j];
 					intervals[j] = intervals[j + <span class="hljs-number">1</span>];
 					intervals[j + <span class="hljs-number">1</span>] = tmp;
 				&#125;
 			&#125;
-			i = intervals.size() - last - <span class="hljs-number">1</span>;
+			i = intervals.<span class="hljs-built_in">size</span>() - last - <span class="hljs-number">1</span>;
 		&#125;
 		<span class="hljs-comment">//合并</span>
 		<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;
-		<span class="hljs-keyword">while</span> (i &lt; intervals.size()) &#123;
+		<span class="hljs-keyword">while</span> (i &lt; intervals.<span class="hljs-built_in">size</span>()) &#123;
 			<span class="hljs-keyword">if</span> (intervals[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>] &gt;= intervals[i][<span class="hljs-number">0</span>]) &#123;
-				intervals[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>] = max(intervals[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>], intervals[i][<span class="hljs-number">1</span>]);
-				intervals.erase(intervals.begin() + i);
+				intervals[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>] = <span class="hljs-built_in">max</span>(intervals[i - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>], intervals[i][<span class="hljs-number">1</span>]);
+				intervals.<span class="hljs-built_in">erase</span>(intervals.<span class="hljs-built_in">begin</span>() + i);
 				<span class="hljs-keyword">continue</span>;
 			&#125;
 			i++;
@@ -332,19 +332,19 @@
 
 <h4 id="官方题解"><a href="#官方题解" class="headerlink" title="官方题解"></a>官方题解</h4><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; merge(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; intervals) &#123;
-        <span class="hljs-keyword">if</span> (intervals.size() == <span class="hljs-number">0</span>) &#123;
+    vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-built_in">merge</span>(vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; intervals) &#123;
+        <span class="hljs-keyword">if</span> (intervals.<span class="hljs-built_in">size</span>() == <span class="hljs-number">0</span>) &#123;
             <span class="hljs-keyword">return</span> &#123;&#125;;
         &#125;
-        sort(intervals.begin(), intervals.end());
-        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; merged;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; intervals.size(); ++i) &#123;
+        <span class="hljs-built_in">sort</span>(intervals.<span class="hljs-built_in">begin</span>(), intervals.<span class="hljs-built_in">end</span>());
+        vector&lt;vector&lt;<span class="hljs-keyword">int</span>&gt;&gt; merged;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; intervals.<span class="hljs-built_in">size</span>(); ++i) &#123;
             <span class="hljs-keyword">int</span> L = intervals[i][<span class="hljs-number">0</span>], R = intervals[i][<span class="hljs-number">1</span>];
-            <span class="hljs-keyword">if</span> (!merged.size() || merged.back()[<span class="hljs-number">1</span>] &lt; L) &#123;
-                merged.push_back(&#123;L, R&#125;);
+            <span class="hljs-keyword">if</span> (!merged.<span class="hljs-built_in">size</span>() || merged.<span class="hljs-built_in">back</span>()[<span class="hljs-number">1</span>] &lt; L) &#123;
+                merged.<span class="hljs-built_in">push_back</span>(&#123;L, R&#125;);
             &#125;
             <span class="hljs-keyword">else</span> &#123;
-                merged.back()[<span class="hljs-number">1</span>] = max(merged.back()[<span class="hljs-number">1</span>], R);
+                merged.<span class="hljs-built_in">back</span>()[<span class="hljs-number">1</span>] = <span class="hljs-built_in">max</span>(merged.<span class="hljs-built_in">back</span>()[<span class="hljs-number">1</span>], R);
             &#125;
         &#125;
         <span class="hljs-keyword">return</span> merged;
@@ -541,7 +541,6 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 

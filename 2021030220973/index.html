@@ -56,7 +56,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -154,13 +154,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -257,48 +257,48 @@
               <h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>最近在写 MFC 程序的过程中经常遇到不同字符串类型间的转换，也是在查资料的过程中意外发现了微软的一篇文档：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/cpp/text/how-to-convert-between-various-string-types?view=msvc-160">如何：在各种字符串类型之间进行转换</a>。介绍的相当全面，即便是没有提及的基本也可以通过多次转换得到，本文将比较常用的一些转换提炼成代码片段，以便以后查阅☠</p>
 <h1 id="多字节-lt-gt-宽字符"><a href="#多字节-lt-gt-宽字符" class="headerlink" title="多字节 &lt;==&gt; 宽字符"></a>多字节 &lt;==&gt; 宽字符</h1><h2 id="1-MultiByteToWideChar"><a href="#1-MultiByteToWideChar" class="headerlink" title="1. MultiByteToWideChar"></a>1. MultiByteToWideChar</h2><p>官方文档：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/win32/api/stringapiset/nf-stringapiset-multibytetowidechar">MultiByteToWideChar function (stringapiset.h)</a></p>
 <div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">MultiByteToWideChar</span><span class="hljs-params">(</span></span>
-<span class="hljs-function"><span class="hljs-params">  UINT                              CodePage,</span></span>
-<span class="hljs-function"><span class="hljs-params">  DWORD                             dwFlags,</span></span>
-<span class="hljs-function"><span class="hljs-params">  _In_NLS_string_(cbMultiByte)LPCCH lpMultiByteStr,</span></span>
-<span class="hljs-function"><span class="hljs-params">  <span class="hljs-keyword">int</span>                               cbMultiByte,</span></span>
-<span class="hljs-function"><span class="hljs-params">  LPWSTR                            lpWideCharStr,</span></span>
-<span class="hljs-function"><span class="hljs-params">  <span class="hljs-keyword">int</span>                               cchWideChar</span></span>
-<span class="hljs-function"><span class="hljs-params">)</span></span>;</code></pre></div>
+<span class="hljs-params"><span class="hljs-function">  UINT                              CodePage,</span></span>
+<span class="hljs-params"><span class="hljs-function">  DWORD                             dwFlags,</span></span>
+<span class="hljs-params"><span class="hljs-function">  _In_NLS_string_(cbMultiByte)LPCCH lpMultiByteStr,</span></span>
+<span class="hljs-params"><span class="hljs-function">  <span class="hljs-keyword">int</span>                               cbMultiByte,</span></span>
+<span class="hljs-params"><span class="hljs-function">  LPWSTR                            lpWideCharStr,</span></span>
+<span class="hljs-params"><span class="hljs-function">  <span class="hljs-keyword">int</span>                               cchWideChar</span></span>
+<span class="hljs-params"><span class="hljs-function">)</span></span>;</code></pre></div>
 
 <p>宽字符字符串（<code>wchar_t *</code> or <code>wstring</code>）转多字节字符串（<code>string</code>）</p>
-<div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> <span class="hljs-title">wc2mb</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">wchar_t</span>* buffer, <span class="hljs-keyword">int</span> len)</span></span>
+<div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">std::string <span class="hljs-title">wc2mb</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">wchar_t</span>* buffer, <span class="hljs-keyword">int</span> len)</span></span>
 <span class="hljs-function"></span>&#123;
-	<span class="hljs-keyword">int</span> nChars = WideCharToMultiByte(CP_UTF8, <span class="hljs-number">0</span>, buffer, len, <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>);
+	<span class="hljs-keyword">int</span> nChars = <span class="hljs-built_in">WideCharToMultiByte</span>(CP_UTF8, <span class="hljs-number">0</span>, buffer, len, <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>);
 	<span class="hljs-keyword">if</span> (nChars == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>;
-	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> str;
-	str.resize(nChars);
-	WideCharToMultiByte(CP_UTF8, <span class="hljs-number">0</span>, buffer, len, <span class="hljs-keyword">const_cast</span>&lt;<span class="hljs-keyword">char</span>*&gt;(str.c_str()), nChars, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>);
+	std::string str;
+	str.<span class="hljs-built_in">resize</span>(nChars);
+	<span class="hljs-built_in">WideCharToMultiByte</span>(CP_UTF8, <span class="hljs-number">0</span>, buffer, len, <span class="hljs-keyword">const_cast</span>&lt;<span class="hljs-keyword">char</span>*&gt;(str.<span class="hljs-built_in">c_str</span>()), nChars, <span class="hljs-literal">NULL</span>, <span class="hljs-literal">NULL</span>);
 	<span class="hljs-keyword">return</span> str;
 &#125;
 
-<span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> <span class="hljs-title">wc2mb</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">wstring</span>&amp; str)</span></span>
+<span class="hljs-function">std::string <span class="hljs-title">wc2mb</span><span class="hljs-params">(<span class="hljs-keyword">const</span> std::wstring&amp; str)</span></span>
 <span class="hljs-function"></span>&#123;
-	<span class="hljs-keyword">return</span> wc2mb(str.c_str(), (<span class="hljs-keyword">int</span>)str.size());
+	<span class="hljs-keyword">return</span> <span class="hljs-built_in">wc2mb</span>(str.<span class="hljs-built_in">c_str</span>(), (<span class="hljs-keyword">int</span>)str.<span class="hljs-built_in">size</span>());
 &#125;</code></pre></div>
 
 <h2 id="2-WideCharToMultiByte"><a href="#2-WideCharToMultiByte" class="headerlink" title="2. WideCharToMultiByte"></a>2. WideCharToMultiByte</h2><p>官方文档：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/win32/api/stringapiset/nf-stringapiset-widechartomultibyte">WideCharToMultiByte function (stringapiset.h)</a></p>
 <div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">WideCharToMultiByte</span><span class="hljs-params">(</span></span>
-<span class="hljs-function"><span class="hljs-params">  UINT                               CodePage,</span></span>
-<span class="hljs-function"><span class="hljs-params">  DWORD                              dwFlags,</span></span>
-<span class="hljs-function"><span class="hljs-params">  _In_NLS_string_(cchWideChar)LPCWCH lpWideCharStr,</span></span>
-<span class="hljs-function"><span class="hljs-params">  <span class="hljs-keyword">int</span>                                cchWideChar,</span></span>
-<span class="hljs-function"><span class="hljs-params">  LPSTR                              lpMultiByteStr,</span></span>
-<span class="hljs-function"><span class="hljs-params">  <span class="hljs-keyword">int</span>                                cbMultiByte,</span></span>
-<span class="hljs-function"><span class="hljs-params">  LPCCH                              lpDefaultChar,</span></span>
-<span class="hljs-function"><span class="hljs-params">  LPBOOL                             lpUsedDefaultChar</span></span>
-<span class="hljs-function"><span class="hljs-params">)</span></span>;</code></pre></div>
+<span class="hljs-params"><span class="hljs-function">  UINT                               CodePage,</span></span>
+<span class="hljs-params"><span class="hljs-function">  DWORD                              dwFlags,</span></span>
+<span class="hljs-params"><span class="hljs-function">  _In_NLS_string_(cchWideChar)LPCWCH lpWideCharStr,</span></span>
+<span class="hljs-params"><span class="hljs-function">  <span class="hljs-keyword">int</span>                                cchWideChar,</span></span>
+<span class="hljs-params"><span class="hljs-function">  LPSTR                              lpMultiByteStr,</span></span>
+<span class="hljs-params"><span class="hljs-function">  <span class="hljs-keyword">int</span>                                cbMultiByte,</span></span>
+<span class="hljs-params"><span class="hljs-function">  LPCCH                              lpDefaultChar,</span></span>
+<span class="hljs-params"><span class="hljs-function">  LPBOOL                             lpUsedDefaultChar</span></span>
+<span class="hljs-params"><span class="hljs-function">)</span></span>;</code></pre></div>
 
 <p>多字节字符串（<code>char *</code>）转宽字符字符串（<code>wchar_t *</code>）</p>
 <div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">wchar_t</span>* <span class="hljs-title">mb2wc</span><span class="hljs-params">(<span class="hljs-keyword">char</span> * chs)</span></span>
 <span class="hljs-function"></span>&#123;
-	<span class="hljs-keyword">int</span> bufSize = MultiByteToWideChar(CP_UTF8, <span class="hljs-number">0</span>, chs, <span class="hljs-number">-1</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>);
+	<span class="hljs-keyword">int</span> bufSize = <span class="hljs-built_in">MultiByteToWideChar</span>(CP_UTF8, <span class="hljs-number">0</span>, chs, <span class="hljs-number">-1</span>, <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>);
 	<span class="hljs-keyword">wchar_t</span>* wcs = <span class="hljs-keyword">new</span> <span class="hljs-keyword">wchar_t</span>[bufSize];
-	MultiByteToWideChar(CP_UTF8, <span class="hljs-number">0</span>, chs, <span class="hljs-number">-1</span>, wcs, bufSize);
+	<span class="hljs-built_in">MultiByteToWideChar</span>(CP_UTF8, <span class="hljs-number">0</span>, chs, <span class="hljs-number">-1</span>, wcs, bufSize);
 	<span class="hljs-keyword">return</span> wcs;
 &#125;</code></pre></div>
 
@@ -306,7 +306,7 @@
 <span class="hljs-keyword">size_t</span> newsize = <span class="hljs-built_in">strlen</span>(orig) + <span class="hljs-number">1</span>;  <span class="hljs-comment">// 14</span>
 <span class="hljs-keyword">wchar_t</span> * wcstring = <span class="hljs-keyword">new</span> <span class="hljs-keyword">wchar_t</span>[newsize];
 <span class="hljs-keyword">size_t</span> convertedChars = <span class="hljs-number">0</span>;
-mbstowcs_s(&amp;convertedChars, wcstring, newsize, orig, _TRUNCATE);  <span class="hljs-comment">// Required &lt;stdlib.h&gt;</span></code></pre></div>
+<span class="hljs-built_in">mbstowcs_s</span>(&amp;convertedChars, wcstring, newsize, orig, _TRUNCATE);  <span class="hljs-comment">// Required &lt;stdlib.h&gt;</span></code></pre></div>
 
 <h2 id="2-To-bstr-t"><a href="#2-To-bstr-t" class="headerlink" title="2. To _bstr_t"></a>2. To <code>_bstr_t</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">char</span> *orig = <span class="hljs-string">&quot;Hello, World!&quot;</span>;
 <span class="hljs-function"><span class="hljs-keyword">_bstr_t</span> <span class="hljs-title">bstrt</span><span class="hljs-params">(orig)</span></span>;</code></pre></div>
@@ -314,7 +314,7 @@ mbstowcs_s(&amp;convertedChars, wcstring, newsize, orig, _TRUNCATE);  <span clas
 <h2 id="3-To-CComBSTR"><a href="#3-To-CComBSTR" class="headerlink" title="3. To CComBSTR"></a>3. To <code>CComBSTR</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">char</span> *orig = <span class="hljs-string">&quot;Hello, World!&quot;</span>;
 <span class="hljs-function">CComBSTR <span class="hljs-title">ccombstr</span><span class="hljs-params">(orig)</span></span>;
 <span class="hljs-function">CW2A <span class="hljs-title">printstr</span><span class="hljs-params">(ccombstr)</span></span>;
-<span class="hljs-built_in">cout</span> &lt;&lt; printstr &lt;&lt; <span class="hljs-built_in">endl</span>;</code></pre></div>
+cout &lt;&lt; printstr &lt;&lt; endl;</code></pre></div>
 
 <h2 id="4-To-CStringA"><a href="#4-To-CStringA" class="headerlink" title="4. To CStringA"></a>4. To <code>CStringA</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">char</span> *orig = <span class="hljs-string">&quot;Hello, World!&quot;</span>;
 <span class="hljs-function">CStringA <span class="hljs-title">cstringa</span><span class="hljs-params">(orig)</span></span>;</code></pre></div>
@@ -323,18 +323,18 @@ mbstowcs_s(&amp;convertedChars, wcstring, newsize, orig, _TRUNCATE);  <span clas
 <span class="hljs-function">CStringW <span class="hljs-title">cstring</span><span class="hljs-params">(orig)</span></span>;</code></pre></div>
 
 <h2 id="6-To-string"><a href="#6-To-string" class="headerlink" title="6. To string"></a>6. To <code>string</code></h2><div class="hljs code-wrapper"><pre><code class="hljs cpp"><span class="hljs-keyword">char</span> *orig = <span class="hljs-string">&quot;Hello, World!&quot;</span>;
-<span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">basicstring</span><span class="hljs-params">(orig)</span></span>;</code></pre></div>
+<span class="hljs-function">string <span class="hljs-title">basicstring</span><span class="hljs-params">(orig)</span></span>;</code></pre></div>
 
 <h2 id="7-To-System-String"><a href="#7-To-System-String" class="headerlink" title="7. To System::String"></a>7. To <code>System::String</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">char</span> *orig = <span class="hljs-string">&quot;Hello, World!&quot;</span>;
-String ^systemstring = gcnew String(orig);
+String ^systemstring = gcnew <span class="hljs-built_in">String</span>(orig);
 <span class="hljs-keyword">delete</span> systemstring;</code></pre></div>
 
 <h1 id="从-wchar-t-转换"><a href="#从-wchar-t-转换" class="headerlink" title="从 wchar_t * 转换"></a>从 <code>wchar_t *</code> 转换</h1><h2 id="1-To-char"><a href="#1-To-char" class="headerlink" title="1. To char *"></a>1. To <code>char *</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">wchar_t</span> *orig = _T(<span class="hljs-string">&quot;Hello, World!&quot;</span>);
-<span class="hljs-keyword">size_t</span> origsize = wcslen(orig) + <span class="hljs-number">1</span>;  <span class="hljs-comment">// 14</span>
+<span class="hljs-keyword">size_t</span> origsize = <span class="hljs-built_in">wcslen</span>(orig) + <span class="hljs-number">1</span>;  <span class="hljs-comment">// 14</span>
 <span class="hljs-keyword">size_t</span> newsize = origsize * <span class="hljs-number">2</span>;  <span class="hljs-comment">// 28, 宽字符占2个字节</span>
 <span class="hljs-keyword">char</span> *nstring = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[origsize];
 <span class="hljs-keyword">size_t</span> convertedChars = <span class="hljs-number">0</span>;
-wcstombs_s(&amp;convertedChars, nstring, newsize, orig, _TRUNCATE);  <span class="hljs-comment">// Put a copy of the converted string into nstring</span>
+<span class="hljs-built_in">wcstombs_s</span>(&amp;convertedChars, nstring, newsize, orig, _TRUNCATE);  <span class="hljs-comment">// Put a copy of the converted string into nstring</span>
 _mbscat_s((<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span>*)nstring, newsize, (<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span>*)strConcat);  <span class="hljs-comment">// append the type of string to the new string.</span></code></pre></div>
 
 <h2 id="2-To-bstr-t-1"><a href="#2-To-bstr-t-1" class="headerlink" title="2. To _bstr_t"></a>2. To <code>_bstr_t</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">wchar_t</span> *orig = _T(<span class="hljs-string">&quot;Hello, World!&quot;</span>);
@@ -343,8 +343,8 @@ _mbscat_s((<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword"
 <h2 id="3-To-CComBSTR-1"><a href="#3-To-CComBSTR-1" class="headerlink" title="3. To CComBSTR"></a>3. To <code>CComBSTR</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">wchar_t</span> *orig = _T(<span class="hljs-string">&quot;Hello, World!&quot;</span>);
 <span class="hljs-function">CComBSTR <span class="hljs-title">ccombstr</span><span class="hljs-params">(orig)</span></span>;
 <span class="hljs-function">CW2A <span class="hljs-title">printstr</span><span class="hljs-params">(ccombstr)</span></span>;
-<span class="hljs-built_in">cout</span> &lt;&lt; printstr &lt;&lt; <span class="hljs-built_in">endl</span>;
-wcout &lt;&lt; (LPCTSTR) ccombstr &lt;&lt; <span class="hljs-built_in">endl</span>;  <span class="hljs-comment">// 更简单</span></code></pre></div>
+cout &lt;&lt; printstr &lt;&lt; endl;
+wcout &lt;&lt; (LPCTSTR) ccombstr &lt;&lt; endl;  <span class="hljs-comment">// 更简单</span></code></pre></div>
 
 <h2 id="4-To-CStringA-1"><a href="#4-To-CStringA-1" class="headerlink" title="4. To CStringA"></a>4. To <code>CStringA</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">wchar_t</span> *orig = _T(<span class="hljs-string">&quot;Hello, World!&quot;</span>);
 <span class="hljs-function">CStringA <span class="hljs-title">cstringa</span><span class="hljs-params">(orig)</span></span>;</code></pre></div>
@@ -353,33 +353,33 @@ wcout &lt;&lt; (LPCTSTR) ccombstr &lt;&lt; <span class="hljs-built_in">endl</spa
 <span class="hljs-function">CStringW <span class="hljs-title">cstring</span><span class="hljs-params">(orig)</span></span>;</code></pre></div>
 
 <h2 id="6-To-wstring"><a href="#6-To-wstring" class="headerlink" title="6. To wstring"></a>6. To <code>wstring</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">wchar_t</span> *orig = _T(<span class="hljs-string">&quot;Hello, World!&quot;</span>);
-<span class="hljs-function"><span class="hljs-built_in">wstring</span> <span class="hljs-title">basicstring</span><span class="hljs-params">(orig)</span></span>;</code></pre></div>
+<span class="hljs-function">wstring <span class="hljs-title">basicstring</span><span class="hljs-params">(orig)</span></span>;</code></pre></div>
 
 <h2 id="7-To-System-String-1"><a href="#7-To-System-String-1" class="headerlink" title="7. To System::String"></a>7. To <code>System::String</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">wchar_t</span> *orig = _T(<span class="hljs-string">&quot;Hello, World!&quot;</span>);
-String ^systemstring = gcnew String(orig);
+String ^systemstring = gcnew <span class="hljs-built_in">String</span>(orig);
 <span class="hljs-keyword">delete</span> systemstring;</code></pre></div>
 
 <h1 id="从-CString-转换"><a href="#从-CString-转换" class="headerlink" title="从 CString 转换"></a>从 <code>CString</code> 转换</h1><h2 id="1-CStringA-to-char"><a href="#1-CStringA-to-char" class="headerlink" title="1. CStringA to char *"></a>1. <code>CStringA</code> to <code>char *</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">CStringA <span class="hljs-title">origa</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> newsizea = (origa.GetLength() + <span class="hljs-number">1</span>);
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> newsizea = (origa.<span class="hljs-built_in">GetLength</span>() + <span class="hljs-number">1</span>);
 <span class="hljs-keyword">char</span> *nstringa = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[newsizea];
-strcpy_s(nstringa, newsizea, origa);</code></pre></div>
+<span class="hljs-built_in">strcpy_s</span>(nstringa, newsizea, origa);</code></pre></div>
 
 <h2 id="2-CStringW-to-char"><a href="#2-CStringW-to-char" class="headerlink" title="2. CStringW to char *"></a>2. <code>CStringW</code> to <code>char *</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">CStringW <span class="hljs-title">origw</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> newsizew = (origw.GetLength() + <span class="hljs-number">1</span>) * <span class="hljs-number">2</span>;
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> newsizew = (origw.<span class="hljs-built_in">GetLength</span>() + <span class="hljs-number">1</span>) * <span class="hljs-number">2</span>;
 <span class="hljs-keyword">char</span> *nstringw = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[newsizew];
 <span class="hljs-keyword">size_t</span> convertedCharsw = <span class="hljs-number">0</span>;
-wcstombs_s(&amp;convertedCharsw, nstringw, newsizew, origw, _TRUNCATE );</code></pre></div>
+<span class="hljs-built_in">wcstombs_s</span>(&amp;convertedCharsw, nstringw, newsizew, origw, _TRUNCATE );</code></pre></div>
 
 <h2 id="3-CStringA-to-wchar-t"><a href="#3-CStringA-to-wchar-t" class="headerlink" title="3. CStringA to wchar_t *"></a>3. <code>CStringA</code> to <code>wchar_t *</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">CStringA <span class="hljs-title">origa</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> newsizea = (origa.GetLength() + <span class="hljs-number">1</span>);
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> newsizea = (origa.<span class="hljs-built_in">GetLength</span>() + <span class="hljs-number">1</span>);
 <span class="hljs-keyword">size_t</span> convertedCharsa = <span class="hljs-number">0</span>;
 <span class="hljs-keyword">wchar_t</span> *wcstring = <span class="hljs-keyword">new</span> <span class="hljs-keyword">wchar_t</span>[newsizea];
-mbstowcs_s(&amp;convertedCharsa, wcstring, newsizea, origa, _TRUNCATE);</code></pre></div>
+<span class="hljs-built_in">mbstowcs_s</span>(&amp;convertedCharsa, wcstring, newsizea, origa, _TRUNCATE);</code></pre></div>
 
 <h2 id="4-CStringW-to-wchar-t"><a href="#4-CStringW-to-wchar-t" class="headerlink" title="4. CStringW to wchar_t *"></a>4. <code>CStringW</code> to <code>wchar_t *</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">CStringW <span class="hljs-title">origw</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> newsizew = (origw.GetLength() + <span class="hljs-number">1</span>) * <span class="hljs-number">2</span>;
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> newsizew = (origw.<span class="hljs-built_in">GetLength</span>() + <span class="hljs-number">1</span>) * <span class="hljs-number">2</span>;
 <span class="hljs-keyword">wchar_t</span> *n2stringw = <span class="hljs-keyword">new</span> <span class="hljs-keyword">wchar_t</span>[newsizew];
-wcscpy_s( n2stringw, newsizew, origw );</code></pre></div>
+<span class="hljs-built_in">wcscpy_s</span>( n2stringw, newsizew, origw );</code></pre></div>
 
 <h2 id="5-CStringA-to-bstr-t"><a href="#5-CStringA-to-bstr-t" class="headerlink" title="5. CStringA to _bstr_t"></a>5. <code>CStringA</code> to <code>_bstr_t</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">CStringA <span class="hljs-title">origa</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
 <span class="hljs-function"><span class="hljs-keyword">_bstr_t</span> <span class="hljs-title">bstrt</span><span class="hljs-params">(origa)</span></span>;</code></pre></div>
@@ -390,57 +390,57 @@ wcscpy_s( n2stringw, newsizew, origw );</code></pre></div>
 <h2 id="7-CStringA-to-CComBSTR"><a href="#7-CStringA-to-CComBSTR" class="headerlink" title="7. CStringA to CComBSTR"></a>7. <code>CStringA</code> to <code>CComBSTR</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">CStringA <span class="hljs-title">origa</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
 <span class="hljs-function">CComBSTR <span class="hljs-title">ccombstr</span><span class="hljs-params">(origa)</span></span>;
 <span class="hljs-function">CW2A <span class="hljs-title">printstr</span><span class="hljs-params">(ccombstr)</span></span>;
-<span class="hljs-built_in">cout</span> &lt;&lt; printstr &lt;&lt; <span class="hljs-built_in">endl</span>;</code></pre></div>
+cout &lt;&lt; printstr &lt;&lt; endl;</code></pre></div>
 
 <h2 id="8-CStringW-to-CComBSTR"><a href="#8-CStringW-to-CComBSTR" class="headerlink" title="8. CStringW to CComBSTR"></a>8. <code>CStringW</code> to <code>CComBSTR</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">CStringW <span class="hljs-title">origw</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
 <span class="hljs-function">CComBSTR <span class="hljs-title">ccombstrw</span><span class="hljs-params">(origw)</span></span>;
 <span class="hljs-function">CW2A <span class="hljs-title">printstrw</span><span class="hljs-params">(ccombstrw)</span></span>;
-wcout &lt;&lt; printstrw &lt;&lt; <span class="hljs-built_in">endl</span>;</code></pre></div>
+wcout &lt;&lt; printstrw &lt;&lt; endl;</code></pre></div>
 
 <h2 id="9-CStringA-to-string"><a href="#9-CStringA-to-string" class="headerlink" title="9. CStringA to string"></a>9. <code>CStringA</code> to <code>string</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">CStringA <span class="hljs-title">origa</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
-<span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">basicstring</span><span class="hljs-params">(origa)</span></span>;</code></pre></div>
+<span class="hljs-function">string <span class="hljs-title">basicstring</span><span class="hljs-params">(origa)</span></span>;</code></pre></div>
 
 <h2 id="10-CStringW-to-wstring"><a href="#10-CStringW-to-wstring" class="headerlink" title="10. CStringW to wstring"></a>10. <code>CStringW</code> to <code>wstring</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">CStringW <span class="hljs-title">origw</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
-<span class="hljs-function"><span class="hljs-built_in">wstring</span> <span class="hljs-title">basicstringw</span><span class="hljs-params">(origw)</span></span>;</code></pre></div>
+<span class="hljs-function">wstring <span class="hljs-title">basicstringw</span><span class="hljs-params">(origw)</span></span>;</code></pre></div>
 
 <h2 id="11-CStringA-to-System-String"><a href="#11-CStringA-to-System-String" class="headerlink" title="11. CStringA to System::String"></a>11. <code>CStringA</code> to <code>System::String</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">CStringA <span class="hljs-title">origa</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
-String ^systemstring = gcnew String(origa);
+String ^systemstring = gcnew <span class="hljs-built_in">String</span>(origa);
 <span class="hljs-keyword">delete</span> systemstring;</code></pre></div>
 
 <h2 id="12-CStringA-to-System-String"><a href="#12-CStringA-to-System-String" class="headerlink" title="12. CStringA to System::String"></a>12. <code>CStringA</code> to <code>System::String</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">CStringW <span class="hljs-title">origw</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
-String ^systemstringw = gcnew String(origw);
+String ^systemstringw = gcnew <span class="hljs-built_in">String</span>(origw);
 <span class="hljs-keyword">delete</span> systemstringw;</code></pre></div>
 
-<h1 id="从-basic-string-转换"><a href="#从-basic-string-转换" class="headerlink" title="从 basic_string 转换"></a>从 basic_string 转换</h1><h2 id="1-string-to-char"><a href="#1-string-to-char" class="headerlink" title="1. string to char *"></a>1. <code>string</code> to <code>char *</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">orig</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> newsize = (<span class="hljs-built_in">strlen</span>(orig.c_str()) + <span class="hljs-number">1</span>)*<span class="hljs-number">2</span>;
+<h1 id="从-basic-string-转换"><a href="#从-basic-string-转换" class="headerlink" title="从 basic_string 转换"></a>从 basic_string 转换</h1><h2 id="1-string-to-char"><a href="#1-string-to-char" class="headerlink" title="1. string to char *"></a>1. <code>string</code> to <code>char *</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">string <span class="hljs-title">orig</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> newsize = (<span class="hljs-built_in">strlen</span>(orig.<span class="hljs-built_in">c_str</span>()) + <span class="hljs-number">1</span>)*<span class="hljs-number">2</span>;
 <span class="hljs-keyword">char</span> *nstring = <span class="hljs-keyword">new</span> <span class="hljs-keyword">char</span>[newsize];
-strcpy_s(nstring, newsize, orig.c_str());</code></pre></div>
+<span class="hljs-built_in">strcpy_s</span>(nstring, newsize, orig.<span class="hljs-built_in">c_str</span>());</code></pre></div>
 
-<h2 id="2-string-to-wchar-t"><a href="#2-string-to-wchar-t" class="headerlink" title="2. string to wchar_t *"></a>2. <code>string</code> to <code>wchar_t *</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">orig</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> newsizew = <span class="hljs-built_in">strlen</span>(orig.c_str()) + <span class="hljs-number">1</span>;
+<h2 id="2-string-to-wchar-t"><a href="#2-string-to-wchar-t" class="headerlink" title="2. string to wchar_t *"></a>2. <code>string</code> to <code>wchar_t *</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">string <span class="hljs-title">orig</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> newsizew = <span class="hljs-built_in">strlen</span>(orig.<span class="hljs-built_in">c_str</span>()) + <span class="hljs-number">1</span>;
 <span class="hljs-keyword">size_t</span> convertedChars = <span class="hljs-number">0</span>;
 <span class="hljs-keyword">wchar_t</span> *wcstring = <span class="hljs-keyword">new</span> <span class="hljs-keyword">wchar_t</span>[newsizew];
-mbstowcs_s(&amp;convertedChars, wcstring, newsizew, orig.c_str(), _TRUNCATE);</code></pre></div>
+<span class="hljs-built_in">mbstowcs_s</span>(&amp;convertedChars, wcstring, newsizew, orig.<span class="hljs-built_in">c_str</span>(), _TRUNCATE);</code></pre></div>
 
-<h2 id="3-wstring-to-wchar-t"><a href="#3-wstring-to-wchar-t" class="headerlink" title="3. wstring to wchar_t *"></a>3. <code>wstring</code> to <code>wchar_t *</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-built_in">wstring</span> <span class="hljs-title">origw</span><span class="hljs-params">(<span class="hljs-string">L&quot;Hello, World!&quot;</span>)</span></span>;
-<span class="hljs-keyword">wchar_t</span> *wcstring = origw.c_str();</code></pre></div>
+<h2 id="3-wstring-to-wchar-t"><a href="#3-wstring-to-wchar-t" class="headerlink" title="3. wstring to wchar_t *"></a>3. <code>wstring</code> to <code>wchar_t *</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">wstring <span class="hljs-title">origw</span><span class="hljs-params">(<span class="hljs-string">L&quot;Hello, World!&quot;</span>)</span></span>;
+<span class="hljs-keyword">wchar_t</span> *wcstring = origw.<span class="hljs-built_in">c_str</span>();</code></pre></div>
 
-<h2 id="4-string-to-bstr-t"><a href="#4-string-to-bstr-t" class="headerlink" title="4. string to _bstr_t"></a>4. <code>string</code> to <code>_bstr_t</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">orig</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
+<h2 id="4-string-to-bstr-t"><a href="#4-string-to-bstr-t" class="headerlink" title="4. string to _bstr_t"></a>4. <code>string</code> to <code>_bstr_t</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">string <span class="hljs-title">orig</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
 <span class="hljs-function"><span class="hljs-keyword">_bstr_t</span> <span class="hljs-title">bstrt</span><span class="hljs-params">(orig.c_str())</span></span>;</code></pre></div>
 
-<h2 id="5-string-to-CComBSTR"><a href="#5-string-to-CComBSTR" class="headerlink" title="5. string to CComBSTR"></a>5. <code>string</code> to <code>CComBSTR</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">orig</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
+<h2 id="5-string-to-CComBSTR"><a href="#5-string-to-CComBSTR" class="headerlink" title="5. string to CComBSTR"></a>5. <code>string</code> to <code>CComBSTR</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">string <span class="hljs-title">orig</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
 <span class="hljs-function">CComBSTR <span class="hljs-title">ccombstr</span><span class="hljs-params">(orig.c_str())</span></span>;
 <span class="hljs-function">CW2A <span class="hljs-title">printstr</span><span class="hljs-params">(ccombstr)</span></span>;
-<span class="hljs-built_in">cout</span> &lt;&lt; printstr &lt;&lt; <span class="hljs-built_in">endl</span>;</code></pre></div>
+cout &lt;&lt; printstr &lt;&lt; endl;</code></pre></div>
 
-<h2 id="6-string-to-CStringA"><a href="#6-string-to-CStringA" class="headerlink" title="6. string to CStringA"></a>6. <code>string</code> to <code>CStringA</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">orig</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
+<h2 id="6-string-to-CStringA"><a href="#6-string-to-CStringA" class="headerlink" title="6. string to CStringA"></a>6. <code>string</code> to <code>CStringA</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">string <span class="hljs-title">orig</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
 <span class="hljs-function">CStringA <span class="hljs-title">cstring</span><span class="hljs-params">(orig.c_str())</span></span>;</code></pre></div>
 
-<h2 id="7-string-to-CStringW"><a href="#7-string-to-CStringW" class="headerlink" title="7. string to CStringW"></a>7. <code>string</code> to <code>CStringW</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">orig</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
+<h2 id="7-string-to-CStringW"><a href="#7-string-to-CStringW" class="headerlink" title="7. string to CStringW"></a>7. <code>string</code> to <code>CStringW</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">string <span class="hljs-title">orig</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
 <span class="hljs-function">CStringW <span class="hljs-title">cstringw</span><span class="hljs-params">(orig.c_str())</span></span>;</code></pre></div>
 
-<h2 id="8-string-to-System-String"><a href="#8-string-to-System-String" class="headerlink" title="8. string to System::String"></a>8. <code>string</code> to <code>System::String</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">orig</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
-String ^systemstring = gcnew String(orig.c_str());
+<h2 id="8-string-to-System-String"><a href="#8-string-to-System-String" class="headerlink" title="8. string to System::String"></a>8. <code>string</code> to <code>System::String</code></h2><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">string <span class="hljs-title">orig</span><span class="hljs-params">(<span class="hljs-string">&quot;Hello, World!&quot;</span>)</span></span>;
+String ^systemstring = gcnew <span class="hljs-built_in">String</span>(orig.<span class="hljs-built_in">c_str</span>());
 <span class="hljs-keyword">delete</span> systemstring;</code></pre></div>
 
 <h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><ul>
@@ -638,7 +638,6 @@ String ^systemstring = gcnew String(orig.c_str());
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 

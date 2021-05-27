@@ -56,7 +56,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -154,13 +154,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -276,17 +276,17 @@
 <h4 id="2-layout-partial-article-ejs"><a href="#2-layout-partial-article-ejs" class="headerlink" title="2.layout/_partial/article.ejs"></a>2.layout/_partial/article.ejs</h4><p>这段代码改过一点点，添加了一个判断条件如果在博客首页就不执行下面的代码（具体添加了下面代码的第一行和最后一行），也就是只在阅读全文的时候才在文章底部显示评论框，原Issue下的代码不含这个判断条件，也就是首页每篇博客下方都会有一个评论框，这应该不是我们想要的。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs javascript">&lt;% <span class="hljs-keyword">if</span> (!index)&#123; %&gt;
 	&lt;% <span class="hljs-keyword">if</span> (theme.valine &amp;&amp; theme.valine.appid &amp;&amp; theme.valine.appkey)&#123; %&gt;
-	    &lt;section id=<span class="hljs-string">&quot;comments&quot;</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;comments&quot;</span>&gt;
-	      &lt;style&gt;
-	        .comments&#123;<span class="hljs-attr">margin</span>:30px;padding:10px;background:#fff&#125;
-	        @media screen and (max-width:800px)&#123;.comments&#123;<span class="hljs-attr">margin</span>:auto;padding:10px;background:#fff&#125;&#125;
-	      &lt;/style&gt;
-	      &lt;%- partial(<span class="hljs-string">&#x27;post/valine&#x27;</span>, &#123;
-	        key: post.slug,
-	        title: post.title,
-	        url: config.url+url_for(post.path)
-	        &#125;) %&gt;
-	  &lt;/section&gt;
+	    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;comments&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;comments&quot;</span>&gt;</span></span>
+<span class="xml">	      <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"></span></span>
+<span class="css"><span class="xml">	        <span class="hljs-selector-class">.comments</span>&#123;<span class="hljs-attribute">margin</span>:<span class="hljs-number">30px</span>;<span class="hljs-attribute">padding</span>:<span class="hljs-number">10px</span>;<span class="hljs-attribute">background</span>:<span class="hljs-number">#fff</span>&#125;</span></span>
+<span class="css"><span class="xml">	        <span class="hljs-keyword">@media</span> screen <span class="hljs-keyword">and</span> (<span class="hljs-attribute">max-width</span>:<span class="hljs-number">800px</span>)&#123;<span class="hljs-selector-class">.comments</span>&#123;<span class="hljs-attribute">margin</span>:auto;<span class="hljs-attribute">padding</span>:<span class="hljs-number">10px</span>;<span class="hljs-attribute">background</span>:<span class="hljs-number">#fff</span>&#125;&#125;</span></span>
+<span class="css"><span class="xml">	      </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></span>
+<span class="xml">	      &lt;%- partial(&#x27;post/valine&#x27;, &#123;</span>
+<span class="xml">	        key: post.slug,</span>
+<span class="xml">	        title: post.title,</span>
+<span class="xml">	        url: config.url+url_for(post.path)</span>
+<span class="xml">	        &#125;) %&gt;</span>
+<span class="xml">	  <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></span>
 	&lt;% &#125; %&gt;
 &lt;% &#125; %&gt;</code></pre></div>
 
@@ -294,22 +294,22 @@
 <p><img src="2.png" srcset="/img/loading.gif" lazyload alt="2"></p>
 <h4 id="3-layout-partial-post-valine-ejs"><a href="#3-layout-partial-post-valine-ejs" class="headerlink" title="3.layout/_partial/post/valine.ejs"></a>3.layout/_partial/post/valine.ejs</h4><p>这个文件是没有的，按照标题路径新建一个valine.ejs，再把下面的代码添加添加进去，保存，注意和Issue给出的代码可能不太一样，说过了不想踩坑请直接使用我给出的。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs javascript">&lt;div id=<span class="hljs-string">&quot;vcomment&quot;</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;comment&quot;</span>&gt;&lt;/div&gt; 
-&lt;script src=<span class="hljs-string">&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;</span>&gt;&lt;/script&gt;
-&lt;script src=<span class="hljs-string">&#x27;//unpkg.com/valine/dist/Valine.min.js&#x27;</span>&gt;&lt;/script&gt;
-&lt;script src=<span class="hljs-string">&quot;https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js&quot;</span>&gt;&lt;/script&gt;
-&lt;script&gt;
-    <span class="hljs-keyword">var</span> notify = <span class="hljs-string">&#x27;&lt;%= theme.valine.notify %&gt;&#x27;</span> == <span class="hljs-literal">true</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
-    <span class="hljs-keyword">var</span> verify = <span class="hljs-string">&#x27;&lt;%= theme.valine.verify %&gt;&#x27;</span> == <span class="hljs-literal">true</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
-    <span class="hljs-keyword">new</span> Valine(&#123;
-        av: AV,
-        el: <span class="hljs-string">&#x27;#vcomment&#x27;</span>,
-        notify: notify,
-        app_id: <span class="hljs-string">&quot;&lt;%= theme.valine.appid %&gt;&quot;</span>,
-        app_key: <span class="hljs-string">&quot;&lt;%= theme.valine.appkey %&gt;&quot;</span>,
-        placeholder: <span class="hljs-string">&quot;&lt;%= theme.valine.placeholder %&gt;&quot;</span>,
-        avatar:<span class="hljs-string">&quot;&lt;%= theme.valine.avatar %&gt;&quot;</span>,
-    &#125;);
-&lt;/script&gt;</code></pre></div>
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&#x27;//unpkg.com/valine/dist/Valine.min.js&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span></span>
+<span class="javascript"><span class="xml">    <span class="hljs-keyword">var</span> notify = <span class="hljs-string">&#x27;&lt;%= theme.valine.notify %&gt;&#x27;</span> == <span class="hljs-literal">true</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;</span></span>
+<span class="javascript"><span class="xml">    <span class="hljs-keyword">var</span> verify = <span class="hljs-string">&#x27;&lt;%= theme.valine.verify %&gt;&#x27;</span> == <span class="hljs-literal">true</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;</span></span>
+<span class="javascript"><span class="xml">    <span class="hljs-keyword">new</span> Valine(&#123;</span></span>
+<span class="javascript"><span class="xml">        <span class="hljs-attr">av</span>: AV,</span></span>
+<span class="javascript"><span class="xml">        <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#vcomment&#x27;</span>,</span></span>
+<span class="javascript"><span class="xml">        <span class="hljs-attr">notify</span>: notify,</span></span>
+<span class="javascript"><span class="xml">        <span class="hljs-attr">app_id</span>: <span class="hljs-string">&quot;&lt;%= theme.valine.appid %&gt;&quot;</span>,</span></span>
+<span class="javascript"><span class="xml">        <span class="hljs-attr">app_key</span>: <span class="hljs-string">&quot;&lt;%= theme.valine.appkey %&gt;&quot;</span>,</span></span>
+<span class="javascript"><span class="xml">        <span class="hljs-attr">placeholder</span>: <span class="hljs-string">&quot;&lt;%= theme.valine.placeholder %&gt;&quot;</span>,</span></span>
+<span class="javascript"><span class="xml">        <span class="hljs-attr">avatar</span>:<span class="hljs-string">&quot;&lt;%= theme.valine.avatar %&gt;&quot;</span>,</span></span>
+<span class="javascript"><span class="xml">    &#125;);</span></span>
+<span class="javascript"><span class="xml"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span></code></pre></div>
 
 <h3 id="评论安装"><a href="#评论安装" class="headerlink" title="评论安装"></a>评论安装</h3><p>接下来就要使用到<a target="_blank" rel="noopener" href="https://leancloud.cn/">Leancloud</a>了，大概就是作为我们Valine评论系统的服务器，因为Valine首页就介绍了Valine是“一款快速、简洁且高效的<strong>无后端</strong>评论系统”，自行注册一个账号并登录。</p>
 <p>创建一个应用，应用名看个人喜好。</p>
@@ -364,7 +364,7 @@
 </tr>
 <tr>
 <td>SMTP_USER</td>
-<td align="left"><a href="mailto:&#120;&#120;&#120;&#120;&#x78;&#120;&#64;&#x71;&#113;&#46;&#99;&#111;&#x6d;">&#120;&#120;&#120;&#120;&#x78;&#120;&#64;&#x71;&#113;&#46;&#99;&#111;&#x6d;</a></td>
+<td align="left"><a href="mailto:&#120;&#x78;&#120;&#x78;&#x78;&#x78;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;">&#120;&#x78;&#120;&#x78;&#x78;&#x78;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;</a></td>
 <td>[必填]SMTP登录用户</td>
 </tr>
 <tr>
@@ -379,7 +379,7 @@
 </tr>
 <tr>
 <td>SENDER_EMAIL</td>
-<td align="left"><a href="mailto:&#x78;&#120;&#120;&#x78;&#x78;&#x78;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#109;">&#x78;&#120;&#120;&#x78;&#x78;&#x78;&#x40;&#113;&#113;&#x2e;&#x63;&#111;&#109;</a></td>
+<td align="left"><a href="mailto:&#x78;&#120;&#120;&#120;&#x78;&#120;&#x40;&#113;&#113;&#46;&#99;&#x6f;&#109;">&#x78;&#120;&#120;&#120;&#x78;&#120;&#x40;&#113;&#113;&#46;&#99;&#x6f;&#109;</a></td>
 <td>[必填]发件邮箱</td>
 </tr>
 <tr>
@@ -389,7 +389,7 @@
 </tr>
 <tr>
 <td>BLOGGER_EMAIL</td>
-<td align="left"><a href="mailto:&#x78;&#120;&#x78;&#x78;&#x78;&#x78;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#x6d;">&#x78;&#120;&#x78;&#x78;&#x78;&#x78;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#x6d;</a></td>
+<td align="left"><a href="mailto:&#120;&#120;&#x78;&#x78;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#x6d;">&#120;&#120;&#x78;&#x78;&#x78;&#120;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#x6d;</a></td>
 <td>[可选]博主通知收件地址，默认使用SENDER_EMAIL</td>
 </tr>
 </tbody></table>
@@ -700,7 +700,6 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 

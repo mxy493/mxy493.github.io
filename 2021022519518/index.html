@@ -56,7 +56,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.10","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool"}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -154,13 +154,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -260,9 +260,9 @@
 <p>网上有很多关于这个的回答，我自己也是从网上找的，这里就不细说了，轮子直接拿来用即可。</p>
 <p>核心函数就一个：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/win32/api/stringapiset/nf-stringapiset-widechartomultibyte"><code>WideCharToMultiByte()</code></a></p>
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>标准代码模板如下，两个函数任意调用一个即可：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> <span class="hljs-title">to_utf8</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">wchar_t</span>* buffer, <span class="hljs-keyword">int</span> len)</span></span>
+<div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-function">std::string <span class="hljs-title">to_utf8</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">wchar_t</span>* buffer, <span class="hljs-keyword">int</span> len)</span></span>
 <span class="hljs-function"></span>&#123;
-	<span class="hljs-keyword">int</span> nChars = ::WideCharToMultiByte(
+	<span class="hljs-keyword">int</span> nChars = ::<span class="hljs-built_in">WideCharToMultiByte</span>(
 		CP_UTF8,
 		<span class="hljs-number">0</span>,
 		buffer,
@@ -273,14 +273,14 @@
 		<span class="hljs-literal">NULL</span>);
 	<span class="hljs-keyword">if</span> (nChars == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>;
 
-	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> str;
-	str.resize(nChars);
-	::WideCharToMultiByte(
+	std::string str;
+	str.<span class="hljs-built_in">resize</span>(nChars);
+	::<span class="hljs-built_in">WideCharToMultiByte</span>(
 		CP_UTF8,
 		<span class="hljs-number">0</span>,
 		buffer,
 		len,
-		<span class="hljs-keyword">const_cast</span>&lt;<span class="hljs-keyword">char</span>*&gt;(str.c_str()),
+		<span class="hljs-keyword">const_cast</span>&lt;<span class="hljs-keyword">char</span>*&gt;(str.<span class="hljs-built_in">c_str</span>()),
 		nChars,
 		<span class="hljs-literal">NULL</span>,
 		<span class="hljs-literal">NULL</span>);
@@ -288,14 +288,14 @@
 	<span class="hljs-keyword">return</span> str;
 &#125;
 
-<span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> <span class="hljs-title">to_utf8</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">wstring</span>&amp; str)</span></span>
+<span class="hljs-function">std::string <span class="hljs-title">to_utf8</span><span class="hljs-params">(<span class="hljs-keyword">const</span> std::wstring&amp; str)</span></span>
 <span class="hljs-function"></span>&#123;
-	<span class="hljs-keyword">return</span> to_utf8(str.c_str(), (<span class="hljs-keyword">int</span>)str.size());
+	<span class="hljs-keyword">return</span> <span class="hljs-built_in">to_utf8</span>(str.<span class="hljs-built_in">c_str</span>(), (<span class="hljs-keyword">int</span>)str.<span class="hljs-built_in">size</span>());
 &#125;</code></pre></div>
 
 <p>调用方法：</p>
 <div class="hljs code-wrapper"><pre><code class="hljs c++">CString s0 = _T(<span class="hljs-string">&quot;就很棒&quot;</span>);
-<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> s1 = to_utf8(s0.GetString());</code></pre></div>
+std::string s1 = <span class="hljs-built_in">to_utf8</span>(s0.<span class="hljs-built_in">GetString</span>());</code></pre></div>
             </div>
             <hr>
             <div>
@@ -485,7 +485,6 @@
 
 <script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
 <script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
