@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.6k 字
+      1.9k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      20
+      23
        分钟
     </span>
   
@@ -249,7 +249,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年5月26日 晚上
+                  本文最后更新于：2021年5月27日 晚上
                 
               </p>
             
@@ -262,7 +262,7 @@
 <div class="hljs code-wrapper"><pre><code class="hljs shell">vcpkg install spdlog</code></pre></div>
 
 <p><a target="_blank" rel="noopener" href="https://github.com/gabime/spdlog">仓库首页</a>也提供了很多种安装方式。</p>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>关于使用我也不做过多的介绍了，推荐查看官方文档：<a target="_blank" rel="noopener" href="https://github.com/gabime/spdlog/wiki">https://github.com/gabime/spdlog/wiki</a></p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h2><p>关于使用我也不做过多的介绍了，推荐查看官方文档：<a target="_blank" rel="noopener" href="https://github.com/gabime/spdlog/wiki">https://github.com/gabime/spdlog/wiki</a></p>
 <p>能想到的以及不能想到的特性它都支持，比如：</p>
 <ul>
 <li>输出日志到终端；</li>
@@ -302,7 +302,7 @@ file_logger-&gt;<span class="hljs-built_in">warn</span>(<span class="hljs-string
 &#125;</code></pre></div>
 
 <p>不过在我的项目中，我还是没有采用这种方式，原因是我其实并没有输出不同等级日志的需求，它提供的服务反而对我来说有点复杂了😂</p>
-<p>所以我自己封装了两个函数，如下。<code>initSpdLogger()</code> 用于在程序启动时初始化日志框架，包括初始化两个 logger 和设置了我想要的日志格式，像这样：<code>[2021-05-25 19:05:07.441] [784] Welcome to spdlog!</code> ，分别是时间、线程和日志内容；<code>printLog()</code> 用于打印日志， <code>save</code> 参数默认为 <code>true</code> ，即只需将要打印的内容作为参数传入即可，默认同时输出到终端和文件，也可以指定 <code>save</code> 为 <code>false </code>，即仅打印到终端而不写入文件。</p>
+<h2 id="我想要的"><a href="#我想要的" class="headerlink" title="我想要的"></a>我想要的</h2><p>所以我自己封装了两个函数，如下。<code>initSpdLogger()</code> 用于在程序启动时初始化日志框架，包括初始化两个 logger 和设置了我想要的日志格式，像这样：<code>[2021-05-25 19:05:07.441] [784] Welcome to spdlog!</code> ，分别是时间、线程和日志内容；<code>printLog()</code> 用于打印日志， <code>save</code> 参数默认为 <code>true</code> ，即只需将要打印的内容作为参数传入即可，默认同时输出到终端和文件，也可以指定 <code>save</code> 为 <code>false </code>，即仅打印到终端而不写入文件。</p>
 <div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;QString&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;QDate&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;spdlog/spdlog.h&gt;</span></span>
@@ -350,6 +350,18 @@ std::shared_ptr&lt;spdlog::logger&gt; console_logger;
 
 <p>官方文档提供了关于格式化输出的详细介绍：<a target="_blank" rel="noopener" href="https://github.com/gabime/spdlog/wiki/3.-Custom-formatting">https://github.com/gabime/spdlog/wiki/3.-Custom-formatting</a> 。</p>
 <p>由于我项目主要是 Qt 写的，上述代码中也用到了 Qt 的相关函数，中文字符的打印一定是很多人的疑惑，字符编码真的是很麻烦事情。关于 spdlog 支持的字符串类型我没有找到相关说明，大概是 <code>std::string</code> 和 <code>char *</code> 是支持的，所有 QString 需要做转换，如果是中文，通常统一使用 <code>log.toLocal8Bit().toStdString()</code> 是没有问题的，终端一般默认都是 GBK 编码，一定要这么转才能正常显示；打印到文件则可以使用兼容性更好一些的 UTF-8 编码，即 <code>log.toUtf8().toStdString()</code> ，都可以正常显示。</p>
+<h2 id="刷新机制"><a href="#刷新机制" class="headerlink" title="刷新机制"></a>刷新机制</h2><p>需要注意以下 spdlog 的刷新机制，输出到终端的日志应该是立即就刷新了，但输出到文件的日志会在程序正常关闭的时候才刷写到日志文件中，也就是说如果程序没有正常关闭，比如卡死了，那么日志就会丢失。</p>
+<p>官方文档专门对刷新策略进行了介绍：<a target="_blank" rel="noopener" href="https://github.com/gabime/spdlog/wiki/7.-Flush-policy">https://github.com/gabime/spdlog/wiki/7.-Flush-policy</a></p>
+<p>一是手动调用 <code>flush()</code> 函数刷新，如果要确保每条日志都立即刷新，那么就在输出一条日之后立即调用该函数。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs c++">console_logger-&gt;<span class="hljs-built_in">info</span>(log);
+console_logger-&gt;<span class="hljs-built_in">flush</span>();</code></pre></div>
+
+<p>二是设置某种等级的日志就刷新，相当于对日志等级加了一个判断，如果是某个等级的日志就刷新。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs c++">my_logger-&gt;<span class="hljs-built_in">flush_on</span>(spdlog::level::err);</code></pre></div>
+
+<p>还有一种方法是设置刷新间隔时间，每隔一定时间就刷新一次，例如每 5s 刷新一次。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs c++">spdlog::<span class="hljs-built_in">flush_every</span>(std::chrono::<span class="hljs-built_in">seconds</span>(<span class="hljs-number">5</span>));</code></pre></div>
+
 <h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>本文并没有深入介绍 spdlog ，因为我觉得它的使用真的很简单，基本没有上手难度啊！</p>
 <p>spdlog 是可以支撑服务端快速打印大量日志的，简言之就是它的能力很强，而我的小程序对日志打印的速度并没有太高的要求😉</p>
 <p>最后，开源的世界真好 (≧∇≦)ﾉ 感谢开发者们！</p>
