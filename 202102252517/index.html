@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      720 字
+      955 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8
+      11
        分钟
     </span>
   
@@ -249,7 +249,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年5月11日 下午
+                  本文最后更新于：2021年5月27日 下午
                 
               </p>
             
@@ -305,6 +305,12 @@
 <div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash">env:HTTP_PROXY=<span class="hljs-string">&quot;localhost:[port]&quot;</span></span>
 <span class="hljs-meta">$</span><span class="bash">env:HTTPS_PROXY=<span class="hljs-string">&quot;localhost:[port]&quot;</span></span></code></pre></div>
 
+<h2 id="2-是否可以删除-downloads-和-buildtrees-文件夹？"><a href="#2-是否可以删除-downloads-和-buildtrees-文件夹？" class="headerlink" title="2. 是否可以删除 downloads 和 buildtrees 文件夹？"></a>2. 是否可以删除 downloads 和 buildtrees 文件夹？</h2><p>首先为什么要删除这两个目录，因为没啥用还特别占空间，比如我装 TensorFlow 的时候，buildtrees 目录下的 tensorflow-cc 文件夹直接占用了超过 60G 的空间😅</p>
+<p>至于可不可以删除，答案是：<strong>可以放心的删！</strong></p>
+<p>参考 GitHub 的回答：<a target="_blank" rel="noopener" href="https://github.com/microsoft/vcpkg/issues/2538">https://github.com/microsoft/vcpkg/issues/2538</a></p>
+<p>downloads 目录是用来保存下载的包的，比如说第一次安装某个包失败了，但它已经下载到 downloads 目录下，所以重新安装的时候就不用再下载一次了。</p>
+<p>而 buildtrees 主要是编译过程中产生的一些文件，以 GitHub 的回答来说这两个目录的作用就是调试找问题，因此当某个包已经成功安装后，这两个目录就可以放心的删除了。</p>
+<p>不难发现，安装的包最终都位于 installed 目录下！</p>
 
             </div>
             <hr>
