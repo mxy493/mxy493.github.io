@@ -16,11 +16,27 @@
   <meta name="theme-color" content="#2f4154">
   <meta name="description" content="mxy&#39;s blog ᓚᘏᗢ">
   <meta name="author" content="mxy">
-  <meta name="keywords" content="">
+  <meta name="keywords" content="Windows,CMD,Powershell">
   
-  <title>归档 - mxy ᓚᘏᗢ</title>
+  <title>Windows 修改控制台编码为 UTF-8 - mxy ᓚᘏᗢ</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
@@ -48,7 +64,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -159,9 +175,54 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="归档">
+            <span class="h2" id="subtitle" title="Windows 修改控制台编码为 UTF-8">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-05-27 21:32" pubdate>
+        2021年5月27日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      504 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      6
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
 
             
           </div>
@@ -174,52 +235,112 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 139 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2021</p>
-    
-    <a href="/2021021921318/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 459. 重复的子字符串【C++】</span>
-      <time style="float: right;">02-19</time>
-    </a>
-  
-    
-    <a href="/202102194843/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Leetcode 665. 非递减数列【C++】</span>
-      <time style="float: right;">02-19</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Windows 修改控制台编码为 UTF-8</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年5月27日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="直入主题"><a href="#直入主题" class="headerlink" title="直入主题"></a>直入主题</h1><h2 id="修改-Powershell-默认编码"><a href="#修改-Powershell-默认编码" class="headerlink" title="修改 Powershell 默认编码"></a>修改 Powershell 默认编码</h2><p>打开注册表，进入 <code>计算机\HKEY_CURRENT_USER\Console</code> ，该路径下有两个 Powershell 的注册表项，分别对应 32 位和 64 位的版本，如图：</p>
+<p><img src="powershell.png" srcset="/img/loading.gif" lazyload alt="powershell"></p>
+<p>双击 <code>CodePage</code> 进行修改，基数选择十进制，数值数据修改为 <code>65001</code> ，点击确定保存即可。</p>
+<p><img src="codepage.png" srcset="/img/loading.gif" lazyload alt="codepage"></p>
+<h2 id="修改-CMD-默认编码"><a href="#修改-CMD-默认编码" class="headerlink" title="修改 CMD 默认编码"></a>修改 CMD 默认编码</h2><p>打开注册表并进入路径 <code>计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor</code> ，修改 <code>autorun</code> 项的数值数据为 <code>chcp 65001&gt;nul</code> ，点击确定保存即可。<strong>一定注意是 <code>nul</code> 而不是 <code>null</code> 。</strong></p>
+<p>如果没有 <code>autorun</code> 可以新建一个字符串值的项，数值名称设置为 <code>autorun</code> ，其他操作保持一致。</p>
+<h1 id="知根知底"><a href="#知根知底" class="headerlink" title="知根知底"></a>知根知底</h1><p>查看控制台当前的编码，CMD 和 Powershell 都适用：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell">chcp</code></pre></div>
 
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/archives/2021/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/archives/2021/">1</a><span class="page-number current">2</span>
-    </span>
-  </nav>
+<p>没修改过的话应该会输出：<code>Active code page: 936</code> ，表示当前的编码为 GBK 编码。</p>
+<p>关于代码页可以参考：</p>
+<p>微软官方文档：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows-server/administration/windows-commands/chcp">https://docs.microsoft.com/zh-cn/windows-server/administration/windows-commands/chcp</a></p>
+<p>以及：<a target="_blank" rel="noopener" href="https://ss64.com/nt/chcp.html">https://ss64.com/nt/chcp.html</a></p>
+<p>主要记住 GBK 编码对应 <code>936</code> ，而 UTF-8 编码对应 <code>65001</code> 。</p>
+<p>前文对 CMD 修改编码用的是：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell">chcp 65001&gt;nul</code></pre></div>
 
+<p>首先 <code>chcp 65001</code> 即设置编码为 UTF-8 ，不带后面的部分也是可以的，只不过会在启动 CMD 的时候输出一行 <code>Active code page: 65001</code> ，强迫症可能有点难受，加上后面的部分就可以避免输出这一行。</p>
+<p><code>&gt;</code> 是重定向符，即将前面的输出重定向的后面的设备，可能是文件或设备，而 <code>nul</code> 是 Windows 的空设备名，可以尝试一下在 Windows 中新建一个名叫 <code>nul</code> ，没法创建，一定注意别看成 <code>null</code> 了，如果写成了 <code>null</code> ，会认为这是一个文件，所以每次启动 CMD 都会将 <code>Active code page: 65001</code>  写入到当前目录的 <code>null</code> 文件中，搞不好还会遇到一些奇怪的问题。</p>
+<p>重定向：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/powershell/module/microsoft.powershell.core/about/about_redirection">https://docs.microsoft.com/zh-cn/powershell/module/microsoft.powershell.core/about/about_redirection</a></p>
+<p>空设备名 <code>nul</code> ：<a target="_blank" rel="noopener" href="https://ss64.com/nt/nul.html">https://ss64.com/nt/nul.html</a></p>
 
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Windows/">Windows</a>
+                    
+                      <a class="hover-with-bg" href="/tags/CMD/">CMD</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Powershell/">Powershell</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021052615395/">
+                        <span class="hidden-mobile">Visual Studio & Qt 设置可执行程序图标</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -351,9 +472,15 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 
