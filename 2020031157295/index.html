@@ -1,0 +1,587 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/MHT1.0.webp">
+  <link rel="icon" href="/img/MHT1.0.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mxy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;partition-array-into-three-parts-with-equal-sum&#x2F;  题目给你一个整数数组 A，只有可以将其划分为三个和相等的非空部分时才返回 true，否则返回 false。 形式上，如果可以找出索引 i+1 &lt; j 且满足 (A[0] + A[1] + ... + A[i] &#x3D;&#x3D; A[">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode 1013.将数组分成和相等的三个部分【C++】">
+<meta property="og:url" content="https://mxy493.xyz/2020031157295/index.html">
+<meta property="og:site_name" content="跑起来有风">
+<meta property="og:description" content="地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;partition-array-into-three-parts-with-equal-sum&#x2F;  题目给你一个整数数组 A，只有可以将其划分为三个和相等的非空部分时才返回 true，否则返回 false。 形式上，如果可以找出索引 i+1 &lt; j 且满足 (A[0] + A[1] + ... + A[i] &#x3D;&#x3D; A[">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-11T05:11:05.000Z">
+<meta property="article:modified_time" content="2022-03-23T12:34:11.061Z">
+<meta property="article:author" content="mxy">
+<meta property="article:tag" content="Leetcode">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>Leetcode 1013.将数组分成和相等的三个部分【C++】 - 跑起来有风</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>跑起来有风</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/xqmy.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Leetcode 1013.将数组分成和相等的三个部分【C++】">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-03-11 13:11" pubdate>
+        2020年3月11日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      4 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Leetcode 1013.将数组分成和相等的三个部分【C++】</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年3月23日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <blockquote>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/partition-array-into-three-parts-with-equal-sum/">https://leetcode-cn.com/problems/partition-array-into-three-parts-with-equal-sum/</a></p>
+</blockquote>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个整数数组 <code>A</code>，只有可以将其划分为三个和相等的非空部分时才返回 <code>true</code>，否则返回 <code>false</code>。</p>
+<p>形式上，如果可以找出索引 <code>i+1 &lt; j</code> 且满足 <code>(A[0] + A[1] + ... + A[i] == A[i+1] + A[i+2] + ... + A[j-1] == A[j] + A[j-1] + ... + A[A.length - 1])</code> 就可以将数组三等分。</p>
+<p><strong>示例 1：</strong></p>
+<div class="hljs code-wrapper"><pre><code class="hljs tap">输出：[0,2,1,-6,6,-7,9,1,2,0,1]
+输出：true
+解释：0 +<span class="hljs-number"> 2 </span>+<span class="hljs-number"> 1 </span>= -6 +<span class="hljs-number"> 6 </span>-<span class="hljs-number"> 7 </span>+<span class="hljs-number"> 9 </span>+<span class="hljs-number"> 1 </span>=<span class="hljs-number"> 2 </span>+<span class="hljs-number"> 0 </span>+ 1</code></pre></div>
+
+<p><strong>示例 2：</strong></p>
+<div class="hljs code-wrapper"><pre><code class="hljs dns">输入：[<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,-<span class="hljs-number">6,6,7,9</span>,-<span class="hljs-number">1,2,0,1</span>]
+输出：false</code></pre></div>
+
+<p><strong>示例 3：</strong></p>
+<div class="hljs code-wrapper"><pre><code class="hljs tap">输入：[3,3,6,5,-2,2,5,1,-9,4]
+输出：true
+解释：3 +<span class="hljs-number"> 3 </span>=<span class="hljs-number"> 6 </span>=<span class="hljs-number"> 5 </span>-<span class="hljs-number"> 2 </span>+<span class="hljs-number"> 2 </span>+<span class="hljs-number"> 5 </span>+<span class="hljs-number"> 1 </span>-<span class="hljs-number"> 9 </span>+ 4</code></pre></div>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>3 &lt;= A.length &lt;= 50000</code></li>
+<li><code>-10^4 &lt;= A[i] &lt;= 10^4</code></li>
+</ul>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题不难，首先需要明白的是，如果一个数组能如题述那样分成三等分，那么这三个和相等，并且三个等分的和相加即为整个数组所有元素的和。</p>
+<p>求整个数组的和 <code>sum</code> 是很简单的，如果这个数组能三等分则每个等分的和即为 <code>sum/3</code> ，所以我们只需要遍历数组，逐个元素相加求和 <code>sumOfPart</code>，一旦 <code>sumOfPart == sum / 3</code> 则说明找到了一个等分，此时将 <code>sumOfPart</code> 重置为0（以开始计算新的一部分的部分和），并将 <code>part++</code> 表示新找到了一个等分。</p>
+<p>特别需要注意的是，当 <code>sum == 0</code> 的时候，<code>sumOfPart == 0</code> 是可能存在多个部分的，即 <code>part &gt;= 3</code>，但不能小于3，因为至少需要三等分。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">canThreePartsEqualSum</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; A)</span> </span>&#123;
+        <span class="hljs-comment">//计算整个数组的和</span>
+        <span class="hljs-type">int</span> sum = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> a : A) &#123;
+            sum += a;
+        &#125;
+        <span class="hljs-type">int</span> part = <span class="hljs-number">0</span>;<span class="hljs-comment">//计数和为sum/3的分组数</span>
+        <span class="hljs-type">int</span> sumOfPart = <span class="hljs-number">0</span>;<span class="hljs-comment">//部分和</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> a : A) &#123;
+            sumOfPart += a;
+            <span class="hljs-keyword">if</span> (sumOfPart == sum / <span class="hljs-number">3</span>) &#123;
+                sumOfPart = <span class="hljs-number">0</span>;<span class="hljs-comment">//将部分和重置为0</span>
+                part++;<span class="hljs-comment">//组数+1</span>
+            &#125;
+        &#125;
+        <span class="hljs-comment">//当sum==0的时候part存在大于3的情况,但不可能小于3</span>
+        <span class="hljs-keyword">return</span> part &gt;= <span class="hljs-number">3</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+    &#125;
+&#125;;</code></pre></div>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Leetcode/">Leetcode</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020031242499/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Leetcode 1071.字符串的最大公因子【C++】</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020031047606/">
+                        <span class="hidden-mobile">Leetcode 543.二叉树的直径【C++】</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP备2021034122号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

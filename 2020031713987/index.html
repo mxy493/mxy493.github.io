@@ -1,0 +1,600 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/MHT1.0.webp">
+  <link rel="icon" href="/img/MHT1.0.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mxy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;find-words-that-can-be-formed-by-characters&#x2F;  题目给你一份『词汇表』（字符串数组） words 和一张『字母表』（字符串） chars。 假如你可以用 chars 中的『字母』（字符）拼写出 words 中的某个『单词』（字符串），那么我们就认为你掌握了这个单词。 注意：每次拼写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode 1160.拼写单词【C++】">
+<meta property="og:url" content="https://mxy493.xyz/2020031713987/index.html">
+<meta property="og:site_name" content="跑起来有风">
+<meta property="og:description" content="地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;find-words-that-can-be-formed-by-characters&#x2F;  题目给你一份『词汇表』（字符串数组） words 和一张『字母表』（字符串） chars。 假如你可以用 chars 中的『字母』（字符）拼写出 words 中的某个『单词』（字符串），那么我们就认为你掌握了这个单词。 注意：每次拼写">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-17T12:04:16.000Z">
+<meta property="article:modified_time" content="2022-03-23T12:34:11.064Z">
+<meta property="article:author" content="mxy">
+<meta property="article:tag" content="Leetcode">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>Leetcode 1160.拼写单词【C++】 - 跑起来有风</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>跑起来有风</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/xqmy.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Leetcode 1160.拼写单词【C++】">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-03-17 20:04" pubdate>
+        2020年3月17日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      6 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Leetcode 1160.拼写单词【C++】</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年3月23日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <blockquote>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters/">https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters/</a></p>
+</blockquote>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一份『词汇表』（字符串数组） <code>words</code> 和一张『字母表』（字符串） <code>chars</code>。</p>
+<p>假如你可以用 <code>chars</code> 中的『字母』（字符）拼写出 <code>words</code> 中的某个『单词』（字符串），那么我们就认为你掌握了这个单词。</p>
+<p>注意：每次拼写时，<code>chars</code> 中的每个字母都只能用一次。</p>
+<p>返回词汇表 <code>words</code> 中你掌握的所有单词的 <strong>长度之和</strong>。</p>
+<p><strong>示例 1：</strong></p>
+<div class="hljs code-wrapper"><pre><code class="hljs livecodeserver">输入：<span class="hljs-keyword">words</span> = [<span class="hljs-string">&quot;cat&quot;</span>,<span class="hljs-string">&quot;bt&quot;</span>,<span class="hljs-string">&quot;hat&quot;</span>,<span class="hljs-string">&quot;tree&quot;</span>], <span class="hljs-keyword">chars</span> = <span class="hljs-string">&quot;atach&quot;</span>
+输出：<span class="hljs-number">6</span>
+解释： 
+可以形成字符串 <span class="hljs-string">&quot;cat&quot;</span> 和 <span class="hljs-string">&quot;hat&quot;</span>，所以答案是 <span class="hljs-number">3</span> + <span class="hljs-number">3</span> = <span class="hljs-number">6</span>。</code></pre></div>
+
+<p><strong>示例 2：</strong></p>
+<div class="hljs code-wrapper"><pre><code class="hljs livecodeserver">输入：<span class="hljs-keyword">words</span> = [<span class="hljs-string">&quot;hello&quot;</span>,<span class="hljs-string">&quot;world&quot;</span>,<span class="hljs-string">&quot;leetcode&quot;</span>], <span class="hljs-keyword">chars</span> = <span class="hljs-string">&quot;welldonehoneyr&quot;</span>
+输出：<span class="hljs-number">10</span>
+解释：
+可以形成字符串 <span class="hljs-string">&quot;hello&quot;</span> 和 <span class="hljs-string">&quot;world&quot;</span>，所以答案是 <span class="hljs-number">5</span> + <span class="hljs-number">5</span> = <span class="hljs-number">10</span>。</code></pre></div>
+
+<p><strong>提示：</strong></p>
+<ol>
+<li><code>1 &lt;= words.length &lt;= 1000</code></li>
+<li><code>1 &lt;= words[i].length, chars.length &lt;= 100</code></li>
+<li>所有字符串中都仅包含小写英文字母</li>
+</ol>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题其实就是从 <code>words</code> 中取出一个单词，然后到 <code>chars</code> 中去找字符看是否能组成这个单词。唯一需要考虑的是， <code>chars</code> 中的每个字符在一个单词中只能使用一次，所以应该标记已经使用过的单词。</p>
+<p>首先如果 <code>words</code> 或 <code>chars</code> 为空，则直接返回0，因为不可能有能拼写的单词。然后定义一个 <code>length</code> 并将其初始化为0，用于保存掌握的单词的长度和，遍历 <code>words</code> 中的所有单词，定义一个和字母表中字符个数相同的 <code>vector&lt;int&gt;</code> 数组 <code>mark[]</code>，将其初始化为全1，表示所有字符均未被使用，然后二层循环遍历每个单词的所有字母，然后第三层循环遍历 <code>chars</code> 查找是否有还未使用过的这个字母，如果有，将 <code>chars</code> 中的这个字母标记为已经用，即 <code>mark[j] = 0;</code> ，继续循环查找下一个字母。只要三层循环中有一个字母找不到，则表示这个单词不能拼写，应直接查找下一个单词。找到一个能拼写的单词，就将这个单词的长度加到 <code>length</code> 上。循环上述步骤，直到遍历完 <code>words</code> 。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">countCharacters</span><span class="hljs-params">(vector&lt;string&gt;&amp; words, string chars)</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (words.<span class="hljs-built_in">empty</span>() || chars.<span class="hljs-built_in">empty</span>())
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        <span class="hljs-type">int</span> length = <span class="hljs-number">0</span>;<span class="hljs-comment">//总长度</span>
+        <span class="hljs-type">int</span> n = chars.<span class="hljs-built_in">length</span>();
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> word : words) &#123;
+            <span class="hljs-type">bool</span> b = <span class="hljs-literal">true</span>;<span class="hljs-comment">//该单词能否拼写</span>
+            <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">mark</span><span class="hljs-params">(n, <span class="hljs-number">1</span>)</span></span>;<span class="hljs-comment">//标记字符是否被使用，0为已使用，1为未使用</span>
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> c : word) &#123;
+                <span class="hljs-type">bool</span> findc = <span class="hljs-literal">false</span>;<span class="hljs-comment">//是否有没被使用过的这个字符</span>
+                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;
+                    <span class="hljs-keyword">if</span> (c == chars[j] &amp;&amp; mark[j] == <span class="hljs-number">1</span>) &#123;
+                        findc = <span class="hljs-literal">true</span>;
+                        mark[j] = <span class="hljs-number">0</span>;<span class="hljs-comment">//该字符被使用</span>
+                        <span class="hljs-keyword">break</span>;
+                    &#125;
+                &#125;
+                <span class="hljs-comment">//只要有一个字符没找到则这个单词不能拼写</span>
+                <span class="hljs-keyword">if</span> (findc == <span class="hljs-literal">false</span>) &#123;
+                    b = <span class="hljs-literal">false</span>;
+                    <span class="hljs-keyword">break</span>;
+                &#125;
+            &#125;
+            <span class="hljs-keyword">if</span> (b == <span class="hljs-literal">true</span>) &#123;
+                length += word.<span class="hljs-built_in">length</span>();
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> length;
+    &#125;
+&#125;;</code></pre></div>
+
+
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Leetcode/">Leetcode</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020031849025/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Leetcode 836.矩形重叠【C++】</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020031636595/">
+                        <span class="hidden-mobile">Leetcode 面试题 01.06.字符串压缩【C++】</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP备2021034122号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

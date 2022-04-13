@@ -1,0 +1,616 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/MHT1.0.webp">
+  <link rel="icon" href="/img/MHT1.0.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mxy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;dui-lie-de-zui-da-zhi-lcof&#x2F;  题目请定义一个队列并实现函数 max_value 得到队列里的最大值，要求函数 max_value、push_back 和 pop_front 的时间复杂度都是O(1)。 若队列为空，pop_front 和 max_value 需要返回 -1。 示例 1： 输入:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode 面试题59 - II.队列的最大值【C++】">
+<meta property="og:url" content="https://mxy493.xyz/2020030757743/index.html">
+<meta property="og:site_name" content="跑起来有风">
+<meta property="og:description" content="地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;dui-lie-de-zui-da-zhi-lcof&#x2F;  题目请定义一个队列并实现函数 max_value 得到队列里的最大值，要求函数 max_value、push_back 和 pop_front 的时间复杂度都是O(1)。 若队列为空，pop_front 和 max_value 需要返回 -1。 示例 1： 输入:">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-07T11:28:47.000Z">
+<meta property="article:modified_time" content="2022-03-23T12:34:11.059Z">
+<meta property="article:author" content="mxy">
+<meta property="article:tag" content="Leetcode">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>Leetcode 面试题59 - II.队列的最大值【C++】 - 跑起来有风</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>跑起来有风</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/xqmy.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Leetcode 面试题59 - II.队列的最大值【C++】">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-03-07 19:28" pubdate>
+        2020年3月7日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      7 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Leetcode 面试题59 - II.队列的最大值【C++】</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年3月23日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <blockquote>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof/">https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof/</a></p>
+</blockquote>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>请定义一个队列并实现函数 <code>max_value</code> 得到队列里的最大值，要求函数 <code>max_value</code>、<code>push_back</code> 和 <code>pop_front</code> 的时间复杂度都是O(1)。</p>
+<p>若队列为空，<code>pop_front</code> 和 <code>max_value</code> 需要返回 -1。</p>
+<p><strong>示例 1：</strong></p>
+<div class="hljs code-wrapper"><pre><code class="hljs prolog">输入: 
+[<span class="hljs-string">&quot;MaxQueue&quot;</span>,<span class="hljs-string">&quot;push_back&quot;</span>,<span class="hljs-string">&quot;push_back&quot;</span>,<span class="hljs-string">&quot;max_value&quot;</span>,<span class="hljs-string">&quot;pop_front&quot;</span>,<span class="hljs-string">&quot;max_value&quot;</span>]
+[[],[<span class="hljs-number">1</span>],[<span class="hljs-number">2</span>],[],[],[]]
+输出: [null,null,null,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]</code></pre></div>
+
+<p><strong>示例 2：</strong></p>
+<div class="hljs code-wrapper"><pre><code class="hljs prolog">输入: 
+[<span class="hljs-string">&quot;MaxQueue&quot;</span>,<span class="hljs-string">&quot;pop_front&quot;</span>,<span class="hljs-string">&quot;max_value&quot;</span>]
+[[],[],[]]
+输出: [null,<span class="hljs-number">-1</span>,<span class="hljs-number">-1</span>]</code></pre></div>
+
+
+<p><strong>限制：</strong></p>
+<ul>
+<li>1 &lt;= push_back, pop_front, max_value的总操作数 &lt;= 10000</li>
+<li>1 &lt;= value &lt;= 10^5</li>
+</ul>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这个题是参考Leetcode的官方题解做的，一开始都没太明白题目意思~</p>
+<p>其实 <code>push_back</code> 和 <code>pop_front</code> 都可以直接用队列的 <code>pop()</code> 函数和 <code>front()</code> 函数，没有难度，但是 <code>max_value</code> 需要考虑的就不一样了，主要是因为题目给了要求时间复杂度是O(1)，也就是说不能用遍历整个队列的方法来找最大值。</p>
+<p>题解中用到了<strong>双端队列</strong>，而双端队列的作用就是查找最大值，并且它的巧妙之处在于，双端队列的队首元素 <code>d.front()</code> 始终是队列 <code>q</code> 中的最大元素。代码中用到的几个关于双端队列的函数如下：</p>
+<ul>
+<li>back()：获取队列的最后一个元素；</li>
+<li>empty()：判断队列空否，空则返回true；</li>
+<li>push_back()：在队列末端插入元素；</li>
+<li>pop_back()：从队列末端弹出队尾元素；</li>
+<li>pop_front()：从队列前端弹出队首元素。</li>
+</ul>
+<p>定义一个 <code>queue&lt;int&gt;</code> 队列，主要用于元素的入队与出队操作。</p>
+<p>在元素入队的函数中，如果双端队列 d 为空或者入队的元素小于 d 的队尾元素，则分别将该元素插入到 d 和 q 的队尾；如果双端队列 d 非空并且入队元素大于 d 的队尾元素，则将 d 的队尾元素逐个弹出，直到 d 的队尾元素大于入队元素或者 d 空，然后将该元素插入到 d 和 q 的队尾。</p>
+<p>在队列 q 的出对函数中，需要注意对双端队列 d 的操作，不然可能会造成 q 中已将最大元素删除，但 d 没有进行任何操作，就会导致获取最大值的时候获取到已经删除的不存在于队列中的元素的值。所以需要在 q 和 d 的队首元素相同的情况下，同步删除 d 的队首元素。以保证 <code>d.front()</code> 仍然是队列 q 中剩余元素的最大值。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MaxQueue</span> &#123;
+<span class="hljs-keyword">private</span>:
+    queue&lt;<span class="hljs-type">int</span>&gt; q;<span class="hljs-comment">//队列</span>
+    deque&lt;<span class="hljs-type">int</span>&gt; d;<span class="hljs-comment">//双端队列，用于求最大值</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-built_in">MaxQueue</span>() &#123;&#125;
+
+    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">max_value</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-comment">//d为空也就意味着q为空，因为只要q中有元素，那d.front()就一定是队列q中元素的最大值</span>
+        <span class="hljs-keyword">if</span> (d.<span class="hljs-built_in">empty</span>())
+            <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+        <span class="hljs-keyword">return</span> d.<span class="hljs-built_in">front</span>();
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">push_back</span><span class="hljs-params">(<span class="hljs-type">int</span> value)</span> </span>&#123;
+        <span class="hljs-comment">//d要保持单调递减，即为了保持d.front()是最大的元素</span>
+        <span class="hljs-keyword">while</span> (!d.<span class="hljs-built_in">empty</span>() &amp;&amp; d.<span class="hljs-built_in">back</span>() &lt; value)
+        &#123;
+            d.<span class="hljs-built_in">pop_back</span>();
+        &#125;
+        d.<span class="hljs-built_in">push_back</span>(value);
+        q.<span class="hljs-built_in">push</span>(value);<span class="hljs-comment">//原始队列</span>
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">pop_front</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (q.<span class="hljs-built_in">empty</span>())
+            <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+        <span class="hljs-comment">//划重点，此处需要深入理解</span>
+        <span class="hljs-keyword">if</span> (q.<span class="hljs-built_in">front</span>() == d.<span class="hljs-built_in">front</span>())
+            d.<span class="hljs-built_in">pop_front</span>();<span class="hljs-comment">//删除队首元素之后，双端队列d的队首元素仍然是队列q中剩余元素的最大元素</span>
+        <span class="hljs-type">int</span> ans = q.<span class="hljs-built_in">front</span>();<span class="hljs-comment">//获取返回值</span>
+        q.<span class="hljs-built_in">pop</span>();<span class="hljs-comment">//弹出队首元素</span>
+        <span class="hljs-keyword">return</span> ans;<span class="hljs-comment">//返回队首元素的值</span>
+    &#125;
+&#125;;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * Your MaxQueue object will be instantiated and called as such:</span>
+<span class="hljs-comment"> * MaxQueue* obj = new MaxQueue();</span>
+<span class="hljs-comment"> * int param_1 = obj-&gt;max_value();</span>
+<span class="hljs-comment"> * obj-&gt;push_back(value);</span>
+<span class="hljs-comment"> * int param_3 = obj-&gt;pop_front();</span>
+<span class="hljs-comment"> */</span></code></pre></div>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Leetcode/">Leetcode</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020030738502/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Leetcode 70.爬楼梯【C++】</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020030653639/">
+                        <span class="hidden-mobile">Leetcode 83.删除排序链表中的重复元素【C++】</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP备2021034122号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

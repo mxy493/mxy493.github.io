@@ -1,0 +1,723 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/MHT1.0.webp">
+  <link rel="icon" href="/img/MHT1.0.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mxy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一、简述PyInstaller 官网：https:&#x2F;&#x2F;www.pyinstaller.org PyInstaller 可以将 Python 程序及其依赖的包打包为一个可执行程序方便安装使用。 PyInstaller 可以将 Python 程序打包为一个独立的可执行程序或者一个包含可执行程序的文件夹，区别在于单文件的程序运行较慢，而文件夹的程序运行较快。 如果要打包为一个包含可执行程序的文件夹，需要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用PyInstaller打包Python应用程序">
+<meta property="og:url" content="https://mxy493.xyz/20200909134/index.html">
+<meta property="og:site_name" content="跑起来有风">
+<meta property="og:description" content="一、简述PyInstaller 官网：https:&#x2F;&#x2F;www.pyinstaller.org PyInstaller 可以将 Python 程序及其依赖的包打包为一个可执行程序方便安装使用。 PyInstaller 可以将 Python 程序打包为一个独立的可执行程序或者一个包含可执行程序的文件夹，区别在于单文件的程序运行较慢，而文件夹的程序运行较快。 如果要打包为一个包含可执行程序的文件夹，需要">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-09T12:49:34.000Z">
+<meta property="article:modified_time" content="2022-03-23T12:34:11.144Z">
+<meta property="article:author" content="mxy">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>使用PyInstaller打包Python应用程序 - 跑起来有风</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>跑起来有风</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/xqmy.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="使用PyInstaller打包Python应用程序">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-09-09 20:49" pubdate>
+        2020年9月9日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.4k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      14 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">使用PyInstaller打包Python应用程序</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年3月23日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="一、简述"><a href="#一、简述" class="headerlink" title="一、简述"></a>一、简述</h1><p>PyInstaller 官网：<a target="_blank" rel="noopener" href="https://www.pyinstaller.org/">https://www.pyinstaller.org</a></p>
+<p>PyInstaller 可以将 Python 程序及其依赖的包打包为一个可执行程序方便安装使用。</p>
+<p>PyInstaller 可以将 Python 程序打包为一个独立的可执行程序或者一个包含可执行程序的文件夹，区别在于单文件的程序运行较慢，而文件夹的程序运行较快。</p>
+<p>如果要打包为一个包含可执行程序的文件夹，需要注意将附加的文件添加进来，PyInstaller 指挥根据 Python 脚本搜索依赖的包，但不会自动包含参数配置文件之类的文件。同时如果需要将程序发布出来供他人使用，则需要将打包后的文件夹制作成压缩包用于分发，或者额外制作安装程序（例如可以使用 <a target="_blank" rel="noopener" href="https://nsis.sourceforge.io/Main_Page">NSIS</a> 制作安装包）。</p>
+<h1 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h1><p><strong>建议：</strong>使用 virtualenv 将依赖的包安装到虚拟环境中。</p>
+<p>使用 pip 安装和升级 PyInstaller。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">安装</span>
+pip install pyinstaller
+<span class="hljs-meta prompt_"></span>
+<span class="hljs-meta prompt_"># </span><span class="language-bash">升级</span>
+pip install --upgrade pyinstaller</code></pre></div>
+
+<p>可选安装最新开发版。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell">pip install https://github.com/pyinstaller/pyinstaller/archive/develop.tar.gz</code></pre></div>
+
+<h1 id="三、使用"><a href="#三、使用" class="headerlink" title="三、使用"></a>三、使用</h1><h2 id="（1）命令行方式"><a href="#（1）命令行方式" class="headerlink" title="（1）命令行方式"></a>（1）命令行方式</h2><h3 id="1-基本命令"><a href="#1-基本命令" class="headerlink" title="1. 基本命令"></a>1. 基本命令</h3><p><strong>注意：</strong>推荐使用另外两种方式，但它们的使用方法也都基于命令行选项。</p>
+<p>基本语法结构如下：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell">pyinstaller [options] script [script …] | specfile</code></pre></div>
+
+<p>In the most simple case, set the current directory to the location of your program <code>myscript.py</code> and execute:</p>
+<p>最简单的情况是，在 Python 程序 <code>myscript.py</code> 目录下直接执行：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell">pyinstaller myscript.py</code></pre></div>
+
+<p>PyInstaller 会分析 <code>myscript.py</code> 并:</p>
+<ul>
+<li>在当前目录下创建 <code>myscript.spec</code> 脚本；</li>
+<li>创建 <code>build</code> 和 <code>dist</code> 文件夹；</li>
+<li>在 <code>build</code> 文件夹中创建一些日志或工作文件；</li>
+<li>在 <code>dist</code> 文件夹中创建 <code>myscript</code> 文件夹，内含可执行的应用程序。</li>
+</ul>
+<p>使用 <code>.spec</code> 的脚本文件可以避免每次都要输入很长的参数，后面会讲到。</p>
+<h3 id="2-参数设置"><a href="#2-参数设置" class="headerlink" title="2. 参数设置"></a>2. 参数设置</h3><p>仅列举了较常用的一些选项，更多信息请查阅官方文档：<a target="_blank" rel="noopener" href="https://pyinstaller.readthedocs.io/en/latest/usage.html#options">https://pyinstaller.readthedocs.io/en/latest/usage.html#options</a></p>
+<p>当使用较多选项时命令会很长，可以将命令写到脚本文件中备用。</p>
+<p><strong>1. 常规设置</strong></p>
+<ul>
+<li><p>–distpath DIR</p>
+<p>存放生成的程序的路径。 (default: ./dist)</p>
+</li>
+<li><p>–workpath WORKPATH </p>
+<p>存放一些 PyInstaller 工作生成的文件，<code>.log</code>, <code>.pyz</code> 和 <code>etc</code> 。 (default: ./build)</p>
+</li>
+<li><p>-y, –noconfirm</p>
+<p>如果程序文件夹存在的话直接替换不需要确认。 (default: SPECPATH/dist/SPECNAME)</p>
+</li>
+<li><p>–upx-dir UPX_DIR</p>
+<p>UPX 程序的路径。 (default: search the execution path)</p>
+<p>简单说 UPX （<a target="_blank" rel="noopener" href="https://upx.github.io/">官方网站</a>）的作用就是压缩。UPX 需要额外下载安装，下载后解压缩即可。</p>
+<p>要使用 UPX 的话可以直接将 UPX 程序（<code>upx.exe</code>）放到虚拟环境的 <code>./venv/Scripts</code> 目录下即可，无需设置该选项。</p>
+</li>
+<li><p>–clean</p>
+<p>Build 之前先清理 PyInstaller 缓存和临时文件。</p>
+</li>
+</ul>
+<p><strong>2. 生成什么</strong></p>
+<ul>
+<li><p>-D, –onedir</p>
+<p>默认选项，创建一个包含可执行程序的文件夹，运行速度较快。</p>
+</li>
+<li><p>-F, –onefile</p>
+<p>创建一个单文件的可执行程序，运行速度较慢。</p>
+</li>
+<li><p>–specpath DIR</p>
+<p>指定存放 <code>.spec</code> 脚本的路径，默认为当前文件夹。</p>
+</li>
+<li><p>-n NAME, –name NAME</p>
+<p>指定 spec 文件和要生成的程序的文件名。 (default: first script’s basename)</p>
+</li>
+</ul>
+<p><strong>3. 打包那些东西以及去哪里找</strong></p>
+<ul>
+<li><p>–add-data &lt;SRC;DEST or SRC:DEST&gt;</p>
+<p>附加的非二进制文件或文件夹，例如保存参数设置的 <code>config.json</code> 文件。分隔符在 Windows 系统中一般为 <code>;</code> ，在大多 UNIX 系统中一般为 <code>:</code> 。该参数可多次重复使用以添加多个附加文件。</p>
+</li>
+<li><p>–add-binary &lt;SRC;DEST or SRC:DEST&gt;</p>
+<p>附加的二进制文件。使用方式同 <code>--add-data</code> 选项。</p>
+</li>
+<li><p>-p DIR, –paths DIR</p>
+<p>搜索依赖的包的路径，可以使用 <code>:</code> 添加多条路径，或者多次使用该选项。</p>
+</li>
+<li><p>–hidden-import MODULENAME, –hiddenimport MODULENAME </p>
+<p>列举在 Python 脚本中不可见的导入，不能搜索到的包。该选项可多次使用。</p>
+</li>
+</ul>
+<p><strong>4. 怎么生成</strong></p>
+<ul>
+<li><p>-d &lt;all,imports,bootloader,noarchive&gt;, –debug &lt;all,imports,bootloader,noarchive&gt;</p>
+<p>用于调试，具体说明请查阅<a target="_blank" rel="noopener" href="https://pyinstaller.readthedocs.io/en/latest/usage.html#how-to-generate">官方文档</a>。</p>
+</li>
+<li><p>–noupx</p>
+<p>即使 UPX 可用也不使用，如果使用 UPX 后程序无法正常运行可以使用该选项。</p>
+</li>
+<li><p>–upx-exclude FILE</p>
+<p>指定不需要压缩的二进制文件，防止 UPX 在压缩过程中破坏了一些二进制文件。</p>
+</li>
+</ul>
+<p><strong>5. Windows 和 Mac OS 特定选项</strong></p>
+<ul>
+<li><p>-c, –console, –nowindowed</p>
+<p>打开一个命令行窗口用于标准 I/O (default)。在 Windows 上，如果第一个脚本是 <code>.pyw</code> 文件，则此选项无效。</p>
+</li>
+<li><p>-w, –windowed, –noconsole</p>
+<p>不打开命令行窗口用于标准 I/O 。</p>
+</li>
+<li><p>-i &lt;FILE.ico or FILE.exe,ID or FILE.icns&gt;, –icon &lt;FILE.ico or FILE.exe,ID or FILE.icns&gt;</p>
+<p>设置程序的图标。FILE.ico: apply that icon to a Windows executable. FILE.exe,ID, extract the icon with ID from an exe. FILE.icns: apply the icon to the .app bundle on Mac OS X.</p>
+</li>
+</ul>
+<p><strong>6. Windows 特定选项</strong></p>
+<ul>
+<li><p>–uac-admin</p>
+<p>程序运行时请求提升权限。</p>
+</li>
+</ul>
+<h2 id="（2）使用-spec-文件"><a href="#（2）使用-spec-文件" class="headerlink" title="（2）使用 spec 文件"></a>（2）使用 spec 文件</h2><p>实际上不管使用哪种方式都会生成一个 spec 文件，里面包含了大多数设置的参数。</p>
+<p>可以使用以下命令创建 spec 文件：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell">pyi-makespec [options] name.py [other scripts ...]</code></pre></div>
+
+<p>当创建并根据需要修改了 spec 文件后，就可以简单的通过以下命令运行：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell">pyinstaller [options] name.spec</code></pre></div>
+
+<p>spec 文件结构如下：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># -*- mode: python ; coding: utf-8 -*-</span>
+
+block_cipher = <span class="hljs-literal">None</span>
+
+
+a = Analysis([<span class="hljs-string">&#x27;../main.py&#x27;</span>],  <span class="hljs-comment"># 指定主程序脚本</span>
+             pathex=[<span class="hljs-string">&#x27;D:/path/to/project&#x27;</span>],  <span class="hljs-comment"># 设置项目路径</span>
+             binaries=[],  <span class="hljs-comment"># 指定要添加的二进制文件</span>
+             datas=[(<span class="hljs-string">&#x27;../settings.json&#x27;</span>, <span class="hljs-string">&#x27;.&#x27;</span>),
+                    (<span class="hljs-string">&#x27;../version.txt&#x27;</span>, <span class="hljs-string">&#x27;.&#x27;</span>),
+                    (<span class="hljs-string">&#x27;../img&#x27;</span>, <span class="hljs-string">&#x27;img&#x27;</span>),
+                    (<span class="hljs-string">&#x27;../font&#x27;</span>, <span class="hljs-string">&#x27;font&#x27;</span>)],  <span class="hljs-comment"># 指定要添加的非二进制文件或文件夹</span>
+             hiddenimports=[],
+             hookspath=[],
+             runtime_hooks=[],
+             excludes=[],
+             win_no_prefer_redirects=<span class="hljs-literal">False</span>,
+             win_private_assemblies=<span class="hljs-literal">False</span>,
+             cipher=block_cipher,
+             noarchive=<span class="hljs-literal">False</span>)
+pyz = PYZ(a.pure, a.zipped_data,
+             cipher=block_cipher)
+exe = EXE(pyz,
+          a.scripts,
+          [],
+          exclude_binaries=<span class="hljs-literal">True</span>,
+          name=<span class="hljs-string">&#x27;Radar0.0.12&#x27;</span>,
+          debug=<span class="hljs-literal">False</span>,
+          bootloader_ignore_signals=<span class="hljs-literal">False</span>,
+          strip=<span class="hljs-literal">False</span>,
+          upx=<span class="hljs-literal">False</span>,  <span class="hljs-comment"># 是否使用UPX压缩</span>
+          console=<span class="hljs-literal">False</span> , 
+          icon=<span class="hljs-string">&#x27;../img/logo64.ico&#x27;</span>)  <span class="hljs-comment"># 程序图标</span>
+coll = COLLECT(exe,
+               a.binaries,
+               a.zipfiles,
+               a.datas,
+               strip=<span class="hljs-literal">False</span>,
+               upx=<span class="hljs-literal">False</span>,
+               upx_exclude=[<span class="hljs-string">&#x27;vcruntime140.dll&#x27;</span>],
+               name=<span class="hljs-string">&#x27;Radar0.0.12&#x27;</span>)</code></pre></div>
+
+<h2 id="（3）在-Python-中运行"><a href="#（3）在-Python-中运行" class="headerlink" title="（3）在 Python 中运行"></a>（3）在 Python 中运行</h2><h3 id="1-使用-PyInstaller-内置的-run-函数"><a href="#1-使用-PyInstaller-内置的-run-函数" class="headerlink" title="1. 使用 PyInstaller 内置的 run() 函数"></a>1. 使用 PyInstaller 内置的 run() 函数</h3><p>传入参数列表即可</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> PyInstaller.__main__
+
+
+parameters = [
+    <span class="hljs-string">&#x27;../main.py&#x27;</span>,
+    <span class="hljs-string">f&#x27;--name=<span class="hljs-subst">&#123;program_name&#125;</span>&#x27;</span>,
+    <span class="hljs-string">&#x27;--distpath=./dist&#x27;</span>,
+    <span class="hljs-string">&#x27;--workpath=./build&#x27;</span>,
+    <span class="hljs-string">&#x27;--clean&#x27;</span>,
+    <span class="hljs-string">&#x27;-D&#x27;</span>,
+    <span class="hljs-string">&#x27;-w&#x27;</span>,
+    <span class="hljs-string">&#x27;-i=../img/logo64.ico&#x27;</span>,
+    <span class="hljs-string">&#x27;--add-data=../settings.json;.&#x27;</span>,
+    <span class="hljs-string">&#x27;--add-data=../version.txt;.&#x27;</span>,
+    <span class="hljs-string">&#x27;--add-data=../img;img&#x27;</span>,
+    <span class="hljs-string">&#x27;--add-data=../font;font&#x27;</span>,
+    <span class="hljs-string">&#x27;--noupx&#x27;</span>,
+]
+
+PyInstaller.__main__.run(parameters)  <span class="hljs-comment"># RUN</span></code></pre></div>
+
+<h3 id="2-在-Python-中执行命令"><a href="#2-在-Python-中执行命令" class="headerlink" title="2. 在 Python 中执行命令"></a>2. 在 Python 中执行命令</h3><p>等同于在终端中执行命令，但可以通过 Python 执行更多的定制化的操作。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> subprocess
+
+
+p = subprocess.Popen(<span class="hljs-string">&#x27;pyinstaller radar.spec --clean&#x27;</span>, shell=<span class="hljs-literal">True</span>)
+p.communicate()</code></pre></div>
+
+<h1 id="四、-其它说明"><a href="#四、-其它说明" class="headerlink" title="四、 其它说明"></a>四、 其它说明</h1><p>嗯，好像没啥好说明的了，遇到问题搜索一下还是比较容易解决的。</p>
+<p>UPX 压缩极有可能会有问题，用不了就干脆不用了，也没能压缩太多，我测试的程序不压缩 80 MB，压缩后 62 MB，个人认为不压缩也是可以接受的。</p>
+<p>另外推荐使用 NSIS 制作安装程序ฅʕ•̫͡•ʔฅ</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020091060302/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">使用NSIS制作安装程序</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020090662371/">
+                        <span class="hidden-mobile">新网银行笔试题 - 分苹果</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP备2021034122号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

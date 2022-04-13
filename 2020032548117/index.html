@@ -1,0 +1,601 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/MHT1.0.webp">
+  <link rel="icon" href="/img/MHT1.0.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mxy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;surface-area-of-3d-shapes&#x2F;  题目在 N * N 的网格上，我们放置一些 1 * 1 * 1  的立方体。 每个值 v &#x3D; grid[i][j] 表示 v 个正方体叠放在对应单元格 (i, j) 上。 请你返回最终形体的表面积。 示例 1： 输入：[[2]] 输出：10   示例 2： 输入：[[1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode 892.三维形体的表面积【C++】">
+<meta property="og:url" content="https://mxy493.xyz/2020032548117/index.html">
+<meta property="og:site_name" content="跑起来有风">
+<meta property="og:description" content="地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;surface-area-of-3d-shapes&#x2F;  题目在 N * N 的网格上，我们放置一些 1 * 1 * 1  的立方体。 每个值 v &#x3D; grid[i][j] 表示 v 个正方体叠放在对应单元格 (i, j) 上。 请你返回最终形体的表面积。 示例 1： 输入：[[2]] 输出：10   示例 2： 输入：[[1">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-25T05:11:44.000Z">
+<meta property="article:modified_time" content="2022-03-23T12:34:11.068Z">
+<meta property="article:author" content="mxy">
+<meta property="article:tag" content="Leetcode">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>Leetcode 892.三维形体的表面积【C++】 - 跑起来有风</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>跑起来有风</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/xqmy.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Leetcode 892.三维形体的表面积【C++】">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-03-25 13:11" pubdate>
+        2020年3月25日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.6k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      5 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Leetcode 892.三维形体的表面积【C++】</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年3月23日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <blockquote>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/surface-area-of-3d-shapes/">https://leetcode-cn.com/problems/surface-area-of-3d-shapes/</a></p>
+</blockquote>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>在 <code>N * N</code> 的网格上，我们放置一些 <code>1 * 1 * 1</code>  的立方体。</p>
+<p>每个值 <code>v = grid[i][j]</code> 表示 <code>v</code> 个正方体叠放在对应单元格 <code>(i, j)</code> 上。</p>
+<p>请你返回最终形体的表面积。</p>
+<p><strong>示例 1：</strong></p>
+<div class="hljs code-wrapper"><pre><code class="hljs lua">输入：<span class="hljs-string">[[2]]</span>
+输出：<span class="hljs-number">10</span></code></pre></div>
+
+
+<p><strong>示例 2：</strong></p>
+<div class="hljs code-wrapper"><pre><code class="hljs lua">输入：<span class="hljs-string">[[1,2],[3,4]]</span>
+输出：<span class="hljs-number">34</span></code></pre></div>
+
+
+<p><strong>示例 3：</strong></p>
+<div class="hljs code-wrapper"><pre><code class="hljs lua">输入：<span class="hljs-string">[[1,0],[0,2]]</span>
+输出：<span class="hljs-number">16</span></code></pre></div>
+
+
+<p><strong>示例 4：</strong></p>
+<div class="hljs code-wrapper"><pre><code class="hljs lua">输入：<span class="hljs-string">[[1,1,1],[1,0,1],[1,1,1]]</span>
+输出：<span class="hljs-number">32</span></code></pre></div>
+
+<p><strong>示例 5：</strong></p>
+<div class="hljs code-wrapper"><pre><code class="hljs lua">输入：<span class="hljs-string">[[2,2,2],[2,1,2],[2,2,2]]</span>
+输出：<span class="hljs-number">46</span></code></pre></div>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= N &lt;= 50</code></li>
+<li><code>0 &lt;= grid[i][j] &lt;= 50</code></li>
+</ul>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>一开始这个题还真是一头雾水，虽然之前做过类似的题，比如前不久才做过的“腐烂橘子”那个题，就很类似。</p>
+<p>只要做过类似的题，应该还是很容易想到要遍历二维数组，然后对每一个元素要判断其周围的元素，如果有需要的话可能还需要动态规划、递归之类的方法来解题。</p>
+<p>仔细思考一下，其实这个题想通了思路还挺简单的，因为并没有用到动态规划或是递归，只需要遍历一次二维数组就可以了。</p>
+<p>首先不考虑周围格子的情况下，每一个格子上所堆叠的正方体都有一个表面积，如果没有立方体那么它的表面积为 <code>0</code> ，显然也不会有与别的立方体重叠的部分；否则该单元格上堆叠的立方体的表面积应为 <code>4 * grid[i][j] + 2</code> 。</p>
+<p>然后考虑周围格子的情况，不管周围单元格是否有立方体，与当前单元格重叠的部分始终是较少立方体的个数，也就是 <code>grid[i][j] &lt;= grid[ii][jj] ? grid[i][j] : grid[ii][jj]</code> ，按照我们人的思维很容易想到应该减去2倍的重叠部分的面积，但是不能这么做，程序它不聪明，当它遍历的这个相邻单元格的时候，再一次减掉2倍的重叠部分的面积，实际上就减去了4倍的重叠部分的面积，所以我们应该只考虑当前单元格应该做的事，也就是只减掉当前单元格与相邻单元格重叠部分的面积（<strong>1倍</strong>）。</p>
+<p>重复上述步骤遍历完整个二维数组，即可以得到最终的三维形体表面积。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">surfaceArea</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;
+        <span class="hljs-type">int</span> area = <span class="hljs-number">0</span>;<span class="hljs-comment">//表面积</span>
+        vector&lt;pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt;&gt; dir = &#123; &#123;<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>&#125; &#125;;<span class="hljs-comment">//上、下、左、右</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; grid.<span class="hljs-built_in">size</span>(); i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; grid[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>(); j++) &#123;
+                <span class="hljs-keyword">if</span> (grid[i][j] == <span class="hljs-number">0</span>)<span class="hljs-comment">//没有立方体不做处理，面积不改变</span>
+                    <span class="hljs-keyword">continue</span>;
+                area += <span class="hljs-number">4</span> * grid[i][j] + <span class="hljs-number">2</span>;<span class="hljs-comment">//不考虑四周重叠部分的表面积</span>
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> d : dir) &#123;
+                    <span class="hljs-type">int</span> ii = i + d.first;
+                    <span class="hljs-type">int</span> jj = j + d.second;
+                    <span class="hljs-comment">//减掉相邻立方体个数较少的一侧的面积</span>
+                    <span class="hljs-comment">//例如4和2相邻，应减掉当前4个立方体与2相邻一侧的表面积2</span>
+                    <span class="hljs-keyword">if</span> (ii &gt;= <span class="hljs-number">0</span> &amp;&amp; ii &lt; grid.<span class="hljs-built_in">size</span>() &amp;&amp; jj &gt;= <span class="hljs-number">0</span> &amp;&amp; jj &lt; grid[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>()) &#123;
+                        area -= grid[i][j] &lt;= grid[ii][jj] ? grid[i][j] : grid[ii][jj];
+                    &#125;
+                &#125;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> area;
+    &#125;
+&#125;;</code></pre></div>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Leetcode/">Leetcode</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020032631551/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Leetcode 999.车的可用捕获量【C++】</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020032431756/">
+                        <span class="hidden-mobile">Leetcode 面试题 17.16.按摩师【C++】</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP备2021034122号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

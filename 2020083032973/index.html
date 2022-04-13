@@ -1,0 +1,651 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/MHT1.0.webp">
+  <link rel="icon" href="/img/MHT1.0.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mxy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="简述最近实习中接触到 YOLO ，实时目标检测，我也没学过深度学习，对 YOLO 的原理并不太懂，不过它的能力确实是惊到我了，很短的时间内就可以将图片中的目标准确的识别出来。YOLO 简单说是一个目标检测的算法，特点就是快，一张图片只扫描一次，YOLO 面世也没几年的时间，现在已经第五版了，简单记录一下 YOLOv5 的上手使用过程！ YOLOv5 官方地址：https:&#x2F;&#x2F;github.com&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YOLOv5快速上手使用【WIN】">
+<meta property="og:url" content="https://mxy493.xyz/2020083032973/index.html">
+<meta property="og:site_name" content="跑起来有风">
+<meta property="og:description" content="简述最近实习中接触到 YOLO ，实时目标检测，我也没学过深度学习，对 YOLO 的原理并不太懂，不过它的能力确实是惊到我了，很短的时间内就可以将图片中的目标准确的识别出来。YOLO 简单说是一个目标检测的算法，特点就是快，一张图片只扫描一次，YOLO 面世也没几年的时间，现在已经第五版了，简单记录一下 YOLOv5 的上手使用过程！ YOLOv5 官方地址：https:&#x2F;&#x2F;github.com&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mxy493.xyz/2020083032973/v3.0.png">
+<meta property="og:image" content="https://mxy493.xyz/2020083032973/yolov5.png">
+<meta property="og:image" content="https://mxy493.xyz/2020083032973/weights.png">
+<meta property="og:image" content="https://mxy493.xyz/2020083032973/pycharm_yolov5.png">
+<meta property="og:image" content="https://mxy493.xyz/2020083032973/env.png">
+<meta property="og:image" content="https://mxy493.xyz/2020083032973/version.png">
+<meta property="og:image" content="https://mxy493.xyz/2020083032973/venv.png">
+<meta property="og:image" content="https://mxy493.xyz/2020083032973/cmdvenv.png">
+<meta property="og:image" content="https://mxy493.xyz/2020083032973/downloadtorch1.png">
+<meta property="og:image" content="https://mxy493.xyz/2020083032973/torchvision.png">
+<meta property="og:image" content="https://mxy493.xyz/2020083032973/down.png">
+<meta property="og:image" content="https://mxy493.xyz/2020083032973/installtorch.png">
+<meta property="og:image" content="https://mxy493.xyz/2020083032973/cudayes.png">
+<meta property="og:image" content="https://mxy493.xyz/2020083032973/run.png">
+<meta property="og:image" content="https://mxy493.xyz/2020083032973/bus.jpg">
+<meta property="article:published_time" content="2020-08-30T09:46:40.000Z">
+<meta property="article:modified_time" content="2022-03-23T12:34:11.117Z">
+<meta property="article:author" content="mxy">
+<meta property="article:tag" content="YOLO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mxy493.xyz/2020083032973/v3.0.png">
+  
+  
+  <title>YOLOv5快速上手使用【WIN】 - 跑起来有风</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>跑起来有风</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/xqmy.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="YOLOv5快速上手使用【WIN】">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-08-30 17:46" pubdate>
+        2020年8月30日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      10 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">YOLOv5快速上手使用【WIN】</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年3月23日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>最近实习中接触到 YOLO ，实时目标检测，我也没学过深度学习，对 YOLO 的原理并不太懂，不过它的能力确实是惊到我了，很短的时间内就可以将图片中的目标准确的识别出来。YOLO 简单说是一个目标检测的算法，特点就是快，一张图片只扫描一次，YOLO 面世也没几年的时间，现在已经第五版了，简单记录一下 YOLOv5 的上手使用过程！</p>
+<p>YOLOv5 官方地址：<a target="_blank" rel="noopener" href="https://github.com/ultralytics/yolov5">https://github.com/ultralytics/yolov5</a></p>
+<h1 id="一、测试环境"><a href="#一、测试环境" class="headerlink" title="一、测试环境"></a>一、测试环境</h1><ul>
+<li>系统：Windows</li>
+<li>显卡：GeForce MX250</li>
+<li>软件：PyCharm</li>
+<li>Python：3.8.5</li>
+<li>PyTorch：1.6.0</li>
+</ul>
+<h1 id="二、下载-YOLOv5"><a href="#二、下载-YOLOv5" class="headerlink" title="二、下载 YOLOv5"></a>二、下载 YOLOv5</h1><p>下载 YOLOv5 源码以及训练好的权重文件，当前最新版为 v3.0 ，一般下载最新版就可以了，或者直接 clone 。</p>
+<p><img src="v3.0.png" srcset="/img/loading.gif" lazyload></p>
+<p>上面4个 .pt 文件时 YOLOv5 训练好的权重文件，越小速度越快，但精度越低，这里先 yolov5s.pt 用于测试，另外3个也可以自行下载下来试一试。</p>
+<p><img src="yolov5.png" srcset="/img/loading.gif" lazyload></p>
+<p>解压缩源码，将权重文件 <code>yolov5s.pt</code> 拷贝到源码根目录下的 weights 文件夹下。</p>
+<p><img src="weights.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="三、安装依赖"><a href="#三、安装依赖" class="headerlink" title="三、安装依赖"></a>三、安装依赖</h1><h2 id="（1）配置虚拟环境（非必需）"><a href="#（1）配置虚拟环境（非必需）" class="headerlink" title="（1）配置虚拟环境（非必需）"></a>（1）配置虚拟环境（非必需）</h2><p>用 PyCharm 打开项目文件夹（我个人使用 PyCharm 比较习惯了）~</p>
+<p><img src="pycharm_yolov5.png" srcset="/img/loading.gif" lazyload></p>
+<p>首先配置虚拟环境，点击文件 -&gt; 设置 -&gt; Python解释器 -&gt; 添加。</p>
+<p><img src="env.png" srcset="/img/loading.gif" lazyload></p>
+<p>选择 Virtualenv 环境，选择新环境，基本解释器选择 Python3.8 以上的版本（官方说是需要3.8及以上版本），选择好后点击“确定”即可，PyCharm 会自动创建虚拟环境，稍微等一下。</p>
+<p><img src="version.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="venv.png" srcset="/img/loading.gif" lazyload></p>
+<p>虚拟环境配置好后打开终端，确保路径前面有 <code>(venv)</code> ，即进入了虚拟环境。</p>
+<p><img src="cmdvenv.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="（2）安装依赖的包"><a href="#（2）安装依赖的包" class="headerlink" title="（2）安装依赖的包"></a>（2）安装依赖的包</h2><p>可以试一下直接终端中执行以下命令，安装所需要的依赖，我个人经历是安装失败的，主要是 torch 和 torchvision 这两个包没有满足要求的版本。（这里 pip 安装包如果很慢的话建议自行百度配置一下 pip 的国内源）</p>
+<div class="hljs code-wrapper"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> -r requirements.txt</code></pre></div>
+
+<p>解决办法就是直接去 PyTorch 的官网上下载：<a target="_blank" rel="noopener" href="https://download.pytorch.org/whl/torch_stable.html">https://download.pytorch.org/whl/torch_stable.html</a></p>
+<p>当前的最新版就是1.6.0，直接搜一下 <code>torch-1.6.0</code> 可以帮助快速查找：</p>
+<ul>
+<li><code>cu102</code> 是指 CUDA 版本，当前最新版是10.2对应102，如果电脑没有 GPU 则下载 <code>cpu</code> 开头的版本；</li>
+<li><code>torch-1.6.0</code> 即对应的 torch 版本，大于 YOLOv5 要求的1.6即可；</li>
+<li><code>cp38</code> 是指Python版本，使用 Python3.8 所以选择 cp38 的版本；</li>
+<li>我是 Windows 系统所以选择 <code>win</code> 的版本，点击下载即可。</li>
+</ul>
+<p><img src="downloadtorch1.png" srcset="/img/loading.gif" lazyload alt="downloadtorch1"></p>
+<p>另外还要下载 torchvision ，同上一样的方法找到后下载下来。</p>
+<p><img src="torchvision.png" srcset="/img/loading.gif" lazyload></p>
+<p>下载完毕后，将两个 .whl 的文件拷贝到项目根目录下备用。</p>
+<p><img src="down.png" srcset="/img/loading.gif" lazyload></p>
+<p>回到终端中手动安装这两个包，分别执行以下命令即可。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">pip</span> install torch-<span class="hljs-number">1</span>.<span class="hljs-number">6</span>.<span class="hljs-number">0</span>-cp38-cp38-win_amd64.whl
+<span class="hljs-attribute">pip</span> install torchvision-<span class="hljs-number">0</span>.<span class="hljs-number">7</span>.<span class="hljs-number">0</span>-cp38-cp38-win_amd64.whl</code></pre></div>
+
+<p><img src="installtorch.png" srcset="/img/loading.gif" lazyload></p>
+<p>然后重新执行以下命令安装需要的包，应该就没有什么问题了。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> -r requirements.txt</code></pre></div>
+
+<h2 id="（3）是否支持-CUDA"><a href="#（3）是否支持-CUDA" class="headerlink" title="（3）是否支持 CUDA"></a>（3）是否支持 CUDA</h2><p>安装完毕后打开Python控制台，输入以下命令测试是否支持 CUDA 。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs ceylon"><span class="hljs-keyword">import</span> torch
+torch.cuda.<span class="hljs-keyword">is</span><span class="hljs-number">_</span>available()</code></pre></div>
+
+<p>如果返回 <code>True</code> 则说明系统支持 CUDA 可以继续往下了。</p>
+<p><img src="cudayes.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="四、运行"><a href="#四、运行" class="headerlink" title="四、运行"></a>四、运行</h1><p>接下来回到终端，直接执行如下命令即可测试YOLOv5了~</p>
+<div class="hljs code-wrapper"><pre><code class="hljs vim"><span class="hljs-keyword">python</span> detect.<span class="hljs-keyword">py</span> --weights weights/yolov5s.<span class="hljs-keyword">pt</span></code></pre></div>
+
+<p>支持的参数还有很多，不输入则使用默认参数：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell">(venv) D:\Downloads\yolov5-3.0&gt;python detect.py -h
+usage: detect.py [-h] [--weights WEIGHTS [WEIGHTS ...]] [--source SOURCE] [--output OUTPUT] [--img-size IMG_SIZE] [--conf-thres CONF_THRES]
+                 [--iou-thres IOU_THRES] [--device DEVICE] [--view-img] [--save-txt] [--classes CLASSES [CLASSES ...]] [--agnostic-nms] [--augment]
+                 [--update]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --weights WEIGHTS [WEIGHTS ...]
+                        model.pt path(s)
+  --source SOURCE       source
+  --output OUTPUT       output folder
+  --img-size IMG_SIZE   inference size (pixels)
+  --conf-thres CONF_THRES
+                        object confidence threshold
+  --iou-thres IOU_THRES
+                        IOU threshold for NMS
+  --device DEVICE       cuda device, i.e. 0 or 0,1,2,3 or cpu
+  --view-img            display results
+  --save-txt            save results to *.txt
+  --classes CLASSES [CLASSES ...]
+                        filter by class: --class 0, or --class 0 2 3
+  --agnostic-nms        class-agnostic NMS
+  --augment             augmented inference
+  --update              update all models</code></pre></div>
+
+<p>稍微解释一下一些参数：</p>
+<ul>
+<li>-h。如上，查看帮助文档；</li>
+<li>–weights WEIGHTS。指定权重文件（.pt），不使用的话默认参数为 <code>&#39;yolov5s.pt&#39;</code> ；</li>
+<li>–source SOURCE。指定输入源，可以是图片（或带图片的文件夹）、视频文件、也可以是摄像头或网络视频；</li>
+<li>–output OUTPUT。指定检测结果的保存路径；</li>
+<li>–img-size IMG_SIZE。指定图片用于检测的大小，必须是32的倍数（一般为320、416、640），传入任意大小的图片后首先会 resize 为该大小的正方形再用于目标检测，越小越快，精度越低；</li>
+<li>–conf-thres CONF_THRES。指定置信度阈值，保留高于该阈值的目标；</li>
+<li>–device DEVICE。指定要使用的 GPU ，不使用GPU的话则指定为 <code>&#39;cpu&#39;</code> 即可；</li>
+<li>–view-img。目标检测到后显示图片；</li>
+<li>–save-txt。将目标检测结果保存到文本文件中，记录了目标的分类、位置和宽高；</li>
+</ul>
+<p>项目自带了两张用于测试的图片存储在 inference/images 文件夹下，成功运行将看到下图所示的信息，打印了默认的参数和手动设置的 weights 参数，使用了 GPU ，两张图片的检测分别耗时 0.072s 和 0.029 秒。</p>
+<p><img src="run.png" srcset="/img/loading.gif" lazyload></p>
+<p>如果执行以上命令成功后，标注了目标的图片将会保存到 inference/output 文件夹下，效果如图所示。</p>
+<p><img src="bus.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>进一步的探索不再深入，本文目的仅在于将YOLOv5运行起来。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/YOLO/">YOLO</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020090662371/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">新网银行笔试题 - 分苹果</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020083024215/">
+                        <span class="hidden-mobile">京东2021校园招聘-测试开发笔试题：逆序五进制</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP备2021034122号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

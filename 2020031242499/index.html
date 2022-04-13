@@ -1,0 +1,641 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/MHT1.0.webp">
+  <link rel="icon" href="/img/MHT1.0.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mxy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;greatest-common-divisor-of-strings&#x2F;  题目对于字符串 S 和 T，只有在 S &#x3D; T + ... + T（T 与自身连接 1 次或多次）时，我们才认定 “T 能除尽 S”。 返回最长字符串 X，要求满足 X 能除尽 str1 且 X 能除尽 str2。 示例 1： 输入：str1 &#x3D; &amp;q">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode 1071.字符串的最大公因子【C++】">
+<meta property="og:url" content="https://mxy493.xyz/2020031242499/index.html">
+<meta property="og:site_name" content="跑起来有风">
+<meta property="og:description" content="地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;greatest-common-divisor-of-strings&#x2F;  题目对于字符串 S 和 T，只有在 S &#x3D; T + ... + T（T 与自身连接 1 次或多次）时，我们才认定 “T 能除尽 S”。 返回最长字符串 X，要求满足 X 能除尽 str1 且 X 能除尽 str2。 示例 1： 输入：str1 &#x3D; &amp;q">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-12T07:04:18.000Z">
+<meta property="article:modified_time" content="2022-03-23T12:34:11.061Z">
+<meta property="article:author" content="mxy">
+<meta property="article:tag" content="Leetcode">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>Leetcode 1071.字符串的最大公因子【C++】 - 跑起来有风</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>跑起来有风</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/xqmy.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Leetcode 1071.字符串的最大公因子【C++】">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-03-12 15:04" pubdate>
+        2020年3月12日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.8k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      9 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Leetcode 1071.字符串的最大公因子【C++】</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年3月23日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <blockquote>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/greatest-common-divisor-of-strings/">https://leetcode-cn.com/problems/greatest-common-divisor-of-strings/</a></p>
+</blockquote>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>对于字符串 <code>S</code> 和 <code>T</code>，只有在 <code>S = T + ... + T</code>（<code>T</code> 与自身连接 1 次或多次）时，我们才认定 “<code>T</code> 能除尽 <code>S</code>”。</p>
+<p>返回最长字符串 <code>X</code>，要求满足 <code>X</code> 能除尽 <code>str1</code> 且 <code>X</code> 能除尽 <code>str2</code>。</p>
+<p><strong>示例 1：</strong></p>
+<div class="hljs code-wrapper"><pre><code class="hljs nix">输入：<span class="hljs-attr">str1</span> = <span class="hljs-string">&quot;ABCABC&quot;</span>, <span class="hljs-attr">str2</span> = <span class="hljs-string">&quot;ABC&quot;</span>
+输出：<span class="hljs-string">&quot;ABC&quot;</span></code></pre></div>
+
+<p><strong>示例 2：</strong></p>
+<div class="hljs code-wrapper"><pre><code class="hljs nix">输入：<span class="hljs-attr">str1</span> = <span class="hljs-string">&quot;ABABAB&quot;</span>, <span class="hljs-attr">str2</span> = <span class="hljs-string">&quot;ABAB&quot;</span>
+输出：<span class="hljs-string">&quot;AB&quot;</span></code></pre></div>
+
+<p><strong>示例 3：</strong></p>
+<div class="hljs code-wrapper"><pre><code class="hljs nix">输入：<span class="hljs-attr">str1</span> = <span class="hljs-string">&quot;LEET&quot;</span>, <span class="hljs-attr">str2</span> = <span class="hljs-string">&quot;CODE&quot;</span>
+输出：<span class="hljs-string">&quot;&quot;</span></code></pre></div>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= str1.length &lt;= 1000</code></li>
+<li><code>1 &lt;= str2.length &lt;= 1000</code></li>
+<li><code>str1[i]</code> 和 <code>str2[i]</code> 为大写英文字母</li>
+</ul>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><h4 id="1-原始思路"><a href="#1-原始思路" class="headerlink" title="1. 原始思路"></a>1. 原始思路</h4><p>我的解题思路大概算是<strong>暴力解</strong>吧。</p>
+<p>我想到的是，如果两个字符串存在公共子串，并且这个子串能同时除尽两个字符串，那么这个子串的长度一定是两个字符串的长度的公约数。所以按照这个思路，应该找出两字符串长度的所有公约数，逐一判断以某一公约数为长度的子串（<code>subString</code>）是否能同时除尽 <code>str1</code> 和 <code>str2</code> 。</p>
+<p>题目要求不仅要是子串，而且是<strong>最长</strong>子串，所以在找公约数的时候，从大到小找，并将公约数逐一存储到数组中备用。</p>
+<p>从找到的公约数中，逐个取出公约数 <code>cd</code>（从大到小），从任一个字符串中截取以 <code>cd</code> 为长度的子串 <code>subString</code>，然后分别判断两个字符串是否能被 <code>subString</code> 除尽，如果前一个字符串不能被 <code>subString</code> 除尽，那么不必再判断后一个字符串，此时应该选取更短一点的子串继续判断。而 <code>subString</code> 的长度是从大到小取的，所以一旦遇到一个子串 <code>subString</code> 能除尽两个字符串，则可以直接将这个 <code>subString</code> 作为结果返回。</p>
+<p>否则，知道函数运行结束，默认返回空串 <code>&quot;&quot;</code>。</p>
+<h4 id="2-优化思路"><a href="#2-优化思路" class="headerlink" title="2. 优化思路"></a>2. 优化思路</h4><p>有一个小的优化思路，写完提交之后，再看代码，发现其实并没必要将公约数存储下来，完全可以从大到小找到一个公约数就判断以这个公约数为长度的子串是否满足题意。可以同时降低空间复杂度和时间复杂度~</p>
+<p>具体实现代码在“<strong>代码【2】</strong>”中！</p>
+<h3 id="代码【1】"><a href="#代码【1】" class="headerlink" title="代码【1】"></a>代码【1】</h3><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function">string <span class="hljs-title">gcdOfStrings</span><span class="hljs-params">(string str1, string str2)</span> </span>&#123;
+        vector&lt;<span class="hljs-type">int</span>&gt; commonDivisor;<span class="hljs-comment">//存储两字符串长度的公约数</span>
+        <span class="hljs-type">int</span> len_str1 = str1.<span class="hljs-built_in">length</span>();
+        <span class="hljs-type">int</span> len_str2 = str2.<span class="hljs-built_in">length</span>();
+        <span class="hljs-type">int</span> small = len_str1 &lt; len_str2 ? len_str1 : len_str2;<span class="hljs-comment">//较短字符串的长度</span>
+        <span class="hljs-comment">//从大到小找两字符串长度的公约数并存储到数组commonDivisor中</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = small; i &gt; <span class="hljs-number">0</span>; i--) &#123;
+            <span class="hljs-keyword">if</span> (len_str1 % i == <span class="hljs-number">0</span> &amp;&amp; len_str2 % i == <span class="hljs-number">0</span>) &#123;
+                commonDivisor.<span class="hljs-built_in">push_back</span>(i);
+            &#125;
+        &#125;
+        <span class="hljs-comment">//从大到小判断长度为某公约数的子串是否能被两字符串除尽</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> cd : commonDivisor) &#123;
+            <span class="hljs-type">bool</span> div = <span class="hljs-literal">true</span>;<span class="hljs-comment">//能否被除尽</span>
+            string subString = str1.<span class="hljs-built_in">substr</span>(<span class="hljs-number">0</span>, cd);<span class="hljs-comment">//从任一字符串中取长度为公约数cd的子串</span>
+            <span class="hljs-comment">//判断str1是否能被subString除尽</span>
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; len_str1; i += cd) &#123;
+                <span class="hljs-keyword">if</span> (subString != str1.<span class="hljs-built_in">substr</span>(i, cd)) &#123;
+                    div = <span class="hljs-literal">false</span>;
+                    <span class="hljs-keyword">break</span>;
+                &#125;
+            &#125;
+            <span class="hljs-comment">//判断str2是否能被subString除尽</span>
+            <span class="hljs-comment">//如果 div == false 则说明str1不能被subString除尽，不必再判断str2</span>
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; div == <span class="hljs-literal">true</span> &amp;&amp; i &lt; len_str2; i += cd) &#123;
+                <span class="hljs-keyword">if</span> (subString != str2.<span class="hljs-built_in">substr</span>(i, cd)) &#123;
+                    div = <span class="hljs-literal">false</span>;
+                    <span class="hljs-keyword">break</span>;
+                &#125;
+            &#125;
+            <span class="hljs-comment">//由于是从大到小判断，所以当遇到第一个能除尽两个字符串的子串即可直接返回结果</span>
+            <span class="hljs-keyword">if</span> (div == <span class="hljs-literal">true</span>)
+                <span class="hljs-keyword">return</span> subString;
+        &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>;
+    &#125;
+&#125;;</code></pre></div>
+
+<h3 id="代码【2】"><a href="#代码【2】" class="headerlink" title="代码【2】"></a>代码【2】</h3><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function">string <span class="hljs-title">gcdOfStrings</span><span class="hljs-params">(string str1, string str2)</span> </span>&#123;
+        <span class="hljs-type">int</span> len_str1 = str1.<span class="hljs-built_in">length</span>();
+        <span class="hljs-type">int</span> len_str2 = str2.<span class="hljs-built_in">length</span>();
+        <span class="hljs-type">int</span> small = len_str1 &lt; len_str2 ? len_str1 : len_str2;<span class="hljs-comment">//较短字符串的长度</span>
+        <span class="hljs-comment">//从大到小找两字符串长度的公约数并存储到数组commonDivisor中</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> cd = small; cd &gt; <span class="hljs-number">0</span>; cd--) &#123;
+            <span class="hljs-keyword">if</span> (len_str1 % cd == <span class="hljs-number">0</span> &amp;&amp; len_str2 % cd == <span class="hljs-number">0</span>) &#123;
+                <span class="hljs-type">bool</span> div = <span class="hljs-literal">true</span>;<span class="hljs-comment">//能否被除尽</span>
+                string subString = str1.<span class="hljs-built_in">substr</span>(<span class="hljs-number">0</span>, cd);<span class="hljs-comment">//从任一字符串中取长度为公约数cd的子串</span>
+                <span class="hljs-comment">//判断str1是否能被subString除尽</span>
+                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; len_str1; i += cd) &#123;
+                    <span class="hljs-keyword">if</span> (subString != str1.<span class="hljs-built_in">substr</span>(i, cd)) &#123;
+                        div = <span class="hljs-literal">false</span>;
+                        <span class="hljs-keyword">break</span>;
+                    &#125;
+                &#125;
+                <span class="hljs-comment">//判断str2是否能被subString除尽</span>
+                <span class="hljs-comment">//如果 div == false 则说明str1不能被subString除尽，不必再判断str2</span>
+                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; div == <span class="hljs-literal">true</span> &amp;&amp; i &lt; len_str2; i += cd) &#123;
+                    <span class="hljs-keyword">if</span> (subString != str2.<span class="hljs-built_in">substr</span>(i, cd)) &#123;
+                        div = <span class="hljs-literal">false</span>;
+                        <span class="hljs-keyword">break</span>;
+                    &#125;
+                &#125;
+                <span class="hljs-comment">//由于是从大到小判断，所以当遇到第一个能除尽两个字符串的子串即可直接返回结果</span>
+                <span class="hljs-keyword">if</span> (div == <span class="hljs-literal">true</span>)
+                    <span class="hljs-keyword">return</span> subString;                
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>;
+    &#125;
+&#125;;</code></pre></div>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Leetcode/">Leetcode</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020031339745/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Leetcode 169.多数元素【C++】</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020031157295/">
+                        <span class="hidden-mobile">Leetcode 1013.将数组分成和相等的三个部分【C++】</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP备2021034122号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

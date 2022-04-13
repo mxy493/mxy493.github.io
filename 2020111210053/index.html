@@ -1,0 +1,711 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/MHT1.0.webp">
+  <link rel="icon" href="/img/MHT1.0.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mxy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="盒子布局官方文档：https:&#x2F;&#x2F;doc.qt.io&#x2F;qtforpython&#x2F;PySide2&#x2F;QtWidgets&#x2F;QGridLayout.html grid &#x3D; QGridLayout()  # 实例化一个格子布局  比较常用的几个函数： def addLayout (arg__1, row, column, rowSpan, columnSpan[, alignment&#x3D;Qt.Alignment">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的 Qt for Python 笔记">
+<meta property="og:url" content="https://mxy493.xyz/2020111210053/index.html">
+<meta property="og:site_name" content="跑起来有风">
+<meta property="og:description" content="盒子布局官方文档：https:&#x2F;&#x2F;doc.qt.io&#x2F;qtforpython&#x2F;PySide2&#x2F;QtWidgets&#x2F;QGridLayout.html grid &#x3D; QGridLayout()  # 实例化一个格子布局  比较常用的几个函数： def addLayout (arg__1, row, column, rowSpan, columnSpan[, alignment&#x3D;Qt.Alignment">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-12T10:44:20.000Z">
+<meta property="article:modified_time" content="2022-03-23T12:34:11.184Z">
+<meta property="article:author" content="mxy">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Qt">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>我的 Qt for Python 笔记 - 跑起来有风</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>跑起来有风</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/xqmy.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="我的 Qt for Python 笔记">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-11-12 18:44" pubdate>
+        2020年11月12日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.1k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      16 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">我的 Qt for Python 笔记</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年3月23日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="盒子布局"><a href="#盒子布局" class="headerlink" title="盒子布局"></a>盒子布局</h1><p>官方文档：<a target="_blank" rel="noopener" href="https://doc.qt.io/qtforpython/PySide2/QtWidgets/QGridLayout.html">https://doc.qt.io/qtforpython/PySide2/QtWidgets/QGridLayout.html</a></p>
+<div class="hljs code-wrapper"><pre><code class="hljs python">grid = QGridLayout()  <span class="hljs-comment"># 实例化一个格子布局</span></code></pre></div>
+
+<p>比较常用的几个函数：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">addLayout</span> (arg__1, row, column, rowSpan, columnSpan[, alignment=Qt.Alignment()])
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">addLayout</span> (arg__1, row, column[, alignment=Qt.Alignment()])
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">addWidget</span> (arg__1, row, column, rowSpan, columnSpan[, alignment=Qt.Alignment()])
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">addWidget</span> (arg__1, row, column[, alignment=Qt.Alignment()])</code></pre></div>
+
+<p>实际使用中一般是这样：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python">grid.addLayout(hbox, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)  <span class="hljs-comment"># 第一行第一列，占一个单元格</span>
+grid.addWidget(w1, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 第一行第二列，占一个单元格</span>
+grid.addWidget(w2, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>)  <span class="hljs-comment"># 第二行第一列，占一行两列</span></code></pre></div>
+
+<p>上面的代码，实际构造出来的 <code>grid</code> 就是一个两行两列的格子，只不过第二行的两列是合并为了一个单元格。</p>
+<p>还有两个很重要的函数：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">setColumnStretch</span> (column, stretch)
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">setRowStretch</span> (row, stretch)</code></pre></div>
+
+<p>用于设置某一行（列）的宽（高）度占比，如果使用这个函数理论上就应该为每一行（列）进行设置，否则默认的占比为 <code>0</code> ，就可能导致某一行（列）无法显示。例如上述二行二列的格子：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python">grid.setColumnStretch(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 第一列占比1/3</span>
+grid.setColumnStretch(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)  <span class="hljs-comment"># 第一列占比2/3</span></code></pre></div>
+
+<h1 id="删除组件"><a href="#删除组件" class="headerlink" title="删除组件"></a>删除组件</h1><p>事实上删除组件是不支持的~Qt没有任何有关删除某个组件的接口函数！</p>
+<p>但组件是可以显示或隐藏的，想想其实隐藏可能也更好一些~</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python">widget.setVisiable(b)  <span class="hljs-comment"># 传入bool量用于显示或隐藏</span></code></pre></div>
+
+<p>实际开发中，一个组件隐藏后只是看不见，但它还是占空间的。之所以想要删除组件其实也是为了让它不再占用空间，不过虽然没有删除组件的功能，但仍然可以通过隐藏实现同样的效果。</p>
+<p>这就需要借助横向盒子布局或者纵向盒子布局（格子布局理论上也是可以的，但需要限制其独占一行或一列），不管是哪种布局，默认的拉伸因子都是 <code>0</code> ，以如下代码为例：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python">hbox = QHBoxLayout()
+hbox.addWidget(w1, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 添加组件w1，拉伸因子为1</span>
+hbox.addWidget(w2, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 添加组件w2，拉伸因子为1</span></code></pre></div>
+
+<p>也可以通过以下函数设置某一组件或子布局的拉伸因子：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python">PySide2.QtWidgets.QBoxLayout.setStretchFactor(l, stretch)  <span class="hljs-comment"># 设置子布局的拉伸因子</span>
+PySide2.QtWidgets.QBoxLayout.setStretchFactor(w, stretch)  <span class="hljs-comment"># 设置组件的拉伸因子</span></code></pre></div>
+
+<p>如果需要隐藏某组件并使其不再占据空间，只需要两步，以 <code>w1</code> 为例：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python">w1.setVisiable(<span class="hljs-literal">False</span>)  <span class="hljs-comment"># 隐藏组件w1</span>
+hbox.setStretchFactor(w1, <span class="hljs-number">0</span>)  <span class="hljs-comment"># 设置w1所在的盒子占比为0</span></code></pre></div>
+
+<h1 id="多线程-QThread"><a href="#多线程-QThread" class="headerlink" title="多线程 QThread"></a>多线程 QThread</h1><p>在我使用 Qt for Python 编程的过程中需要用到多线程，在 Python 中是使用 threading 库，使用起来还是很简单的，但最初自以为 Qt 也一样，但发现其实不想，没有作用甚至会报错，简单说就是与 Qt 相关的代码要使用多线程都应该使用 Qt 提供的多线程类 QThread 。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyThread</span>(<span class="hljs-title class_ inherited__">QThread</span>):
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
+        self.running = <span class="hljs-literal">False</span>
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">run</span>(<span class="hljs-params">self</span>):
+        self.running = <span class="hljs-literal">True</span>
+        <span class="hljs-keyword">while</span> self.running:
+            <span class="hljs-comment"># do something</span>
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">stop</span>(<span class="hljs-params">self</span>):
+        self.running = <span class="hljs-literal">False</span></code></pre></div>
+
+<p>框架如上，首先自定义一个线程类并继承自 QThread ，然后我定义了一个属性 <code>running</code> 用于控制线程的终止，<code>run()</code> 方法是重写的 QThread 中的方法，实际线程中的逻辑应该放到 <code>run()</code> 方法中去执行 。启动线程需要先实例化一个线程对象，然后调用 QThread 的 <code>start()</code> 接口函数即可启动线程。示例：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python">thread = MyThread()  <span class="hljs-comment"># 实例化线程对象</span>
+thread.start()  <span class="hljs-comment"># 启动线程</span>
+<span class="hljs-comment"># do something</span>
+thread.stop()  <span class="hljs-comment"># 终止线程</span></code></pre></div>
+
+<h1 id="窗口大小自适应"><a href="#窗口大小自适应" class="headerlink" title="窗口大小自适应"></a>窗口大小自适应</h1><p>虽然当前的电脑都在往着屏幕更大、分辨率更高的方向发展，但一款软件开发出来也难免可能会在一些老旧低分辨率的电脑上使用，所以如见如果可以自适应不同大小的屏幕，用户体验会更好。</p>
+<p>以下代码独特之处在于对于小屏幕，窗口将默认最大化显示，且窗口大小不可调整。这样设置的目的是为了在小屏幕上尽可能完整的显示软件界面，否则软件界面超出了屏幕的可视范围或者被任务栏遮挡，用户体验就会很差~</p>
+<div class="hljs code-wrapper"><pre><code class="hljs haskell"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-type">MainWindow</span>(<span class="hljs-type">QMainWindow</span>):</span>
+<span class="hljs-class">    def __init__(<span class="hljs-title">self</span>):</span>
+<span class="hljs-class">        super().__init__()</span>
+<span class="hljs-class">        # 此处省略一万字...</span>
+<span class="hljs-class">        screen = <span class="hljs-type">QDesktopWidget</span>().screenGeometry(<span class="hljs-title">self</span>)  # 获取整个屏幕的大小</span>
+<span class="hljs-class">        available = <span class="hljs-type">QDesktopWidget</span>().availableGeometry(<span class="hljs-title">self</span>)  # 除去任务栏的区域大小</span>
+<span class="hljs-class">        title_height = self.style().pixelMetric(<span class="hljs-type">QStyle</span>.<span class="hljs-type">PM_TitleBarHeight</span>)  # 窗口顶栏高度</span>
+<span class="hljs-class">        # 如果屏幕太小则默认窗口最大化且不可改变大小</span>
+<span class="hljs-class">        if screen.width() &lt; 1280 or screen.height() &lt; 768:</span>
+<span class="hljs-class">            self.setWindowState(<span class="hljs-type">Qt</span>.<span class="hljs-type">WindowMaximized</span>)  # 窗口最大化显示</span>
+<span class="hljs-class">            self.setFixedSize(<span class="hljs-title">available</span>.<span class="hljs-title">width</span>(), available.height() - title_height)  # 固定窗口大小</span>
+<span class="hljs-class">        # 否则设置一个最小宽高，窗口大小可调整</span>
+<span class="hljs-class">        else:</span>
+<span class="hljs-class">            self.setMinimumSize(<span class="hljs-type">QSize</span>(1000, 800))  # 最小宽高</span>
+<span class="hljs-class">        self.show()  # 显示窗口</span></code></pre></div>
+
+<p>Qt 其实是有让窗口全屏的函数的，例如上述代码中的 <code>show()</code> 函数是显示窗口，如果设置了窗口大小则按设置的大小显示，事实上 Qt 提供了以下一些显示窗口的函数：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">show</span>()  <span class="hljs-comment"># 显示方式取决于WindowState等其它一些因素</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">showFullScreen</span>()  <span class="hljs-comment"># 全屏显示，会遮挡任务栏</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">showMaximized</span>()  <span class="hljs-comment"># 最大化显示，但直接使用用户仍然可以将窗口调小</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">showMinimized</span>()  <span class="hljs-comment"># 最小化显示</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">showNormal</span>()  <span class="hljs-comment"># 正常显示</span></code></pre></div>
+
+<h1 id="自定义信号"><a href="#自定义信号" class="headerlink" title="自定义信号"></a>自定义信号</h1><p>Qt for Python 中自定义信号首先需要注意一点，PyQt5 和 PySide2 中定义信号的类名不一样！</p>
+<p>在 PySide2 中应该使用 <code>Signal()</code> ，而在 PyQt5 中应使用 <code>pyqtSignal()</code> ，用法上其实没什么区别。</p>
+<p>以下示例代码采用 PySide2 方式：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MainWindow</span>(<span class="hljs-title class_ inherited__">QMainWindow</span>):
+    <span class="hljs-comment"># 自定义信号</span>
+    signal1 = Signal()  <span class="hljs-comment"># 无参的信号</span>
+    signal2 = Signal(<span class="hljs-built_in">int</span>)  <span class="hljs-comment"># 传递一个int型参数的信号</span>
+    signal3 = Signal(<span class="hljs-built_in">int</span>, <span class="hljs-built_in">str</span>)  <span class="hljs-comment"># 传递一个int型参数和一个str型字符串的信号</span>
+    
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-built_in">super</span>().__init__()
+        <span class="hljs-comment"># 绑定信号与槽</span>
+        self.signal1.connect(self.slot1)
+        self.signal2.connect(self.slot2)
+        self.signal3.connect(self.slot3)
+
+    <span class="hljs-comment"># 定义槽函数</span>
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">slot1</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-comment"># do something</span>
+        <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">slot2</span>(<span class="hljs-params">self, num</span>):
+        <span class="hljs-comment"># do something</span>
+        <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">slot3</span>(<span class="hljs-params">self, num, string</span>):
+        <span class="hljs-comment"># do something</span>
+        <span class="hljs-keyword">pass</span>
+    
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">test</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-comment"># 触发信号</span>
+        self.signal1.emit()
+        self.signal2.emit(<span class="hljs-number">123</span>)
+        self.signal3.emit(<span class="hljs-number">123</span>, <span class="hljs-string">&#x27;123&#x27;</span>)</code></pre></div>
+
+<p>使用信号与槽还应特别注意它们的作用域以及生命周期。一般需要将信号定义为 Qt 对象的属性，槽函数定义为 Qt 对象的方法，也就是说信号与槽的生命周期将跟随对象的生命周期（可能是必须这样做，暂时没找到相关资料）~</p>
+<h1 id="QSpinBox-限制用户输入"><a href="#QSpinBox-限制用户输入" class="headerlink" title="QSpinBox 限制用户输入"></a>QSpinBox 限制用户输入</h1><p>QSpinBox 有好几个分类，这里以一般的 QSpinBox 为例，首先简要列举几个常用的接口函数：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">setPrefix</span>(<span class="hljs-params">prefix</span>)  <span class="hljs-comment"># 设置前缀，例如￥</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">setRange</span>(<span class="hljs-params"><span class="hljs-built_in">min</span>, <span class="hljs-built_in">max</span></span>)  <span class="hljs-comment"># 设置范围</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">setSingleStep</span>(<span class="hljs-params">val</span>)  <span class="hljs-comment"># 设置单步不长</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">setSuffix</span>(<span class="hljs-params">suffix</span>)  <span class="hljs-comment"># 设置后缀，例如m</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">value</span>()  <span class="hljs-comment"># 获取当前的值</span>
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">setValue</span>(<span class="hljs-params">val</span>)  <span class="hljs-comment"># 槽函数，设置值为val</span>
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">valueChanged</span>(<span class="hljs-params">arg__1</span>)  <span class="hljs-comment"># 信号，值改变触发</span></code></pre></div>
+
+<p>使用上述的接口函数已经满足了大部分的需求，但假如我想创建一个 QSpinBox ，范围为 0 ~ 10 ，步长为 2 ，也就是 0 ~ 10 内的偶数，很容易，只需要：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python">self.spin = QSpinBox()
+self.spin.setRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>)
+self.spin.setSingleStep(<span class="hljs-number">2</span>)
+</code></pre></div>
+
+<p>实际上，用户点击增减的按钮确实是没问题的，但如果用户手动输入，仍然可输入 0 ~ 10 范围内的奇数，就很尴尬~</p>
+<p>不过稍微处理一下也是可以解决的，办法就是利用信号与槽，当值改变为奇数的时候，就自动将其修改为临近的值。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment"># 绑定信号与槽</span>
+self.spin.valueChanged.connect(self.standardization)
+
+<span class="hljs-comment"># 定义槽函数</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">standardization</span>(<span class="hljs-params">self</span>):
+    val = self.spin.value()
+    <span class="hljs-keyword">if</span> val % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>:
+        self.spin.setValue(val - <span class="hljs-number">1</span>)  <span class="hljs-comment"># 如果是奇数就-1</span></code></pre></div>
+
+<h1 id="使用-paintEvent-绘制"><a href="#使用-paintEvent-绘制" class="headerlink" title="使用 paintEvent 绘制"></a>使用 paintEvent 绘制</h1><p>我目前所了解到的要在 Qt 界面上动态绘制图案，就应该重写 <code>paintEvent()</code> 函数，在其内部编写具体的绘制逻辑，实际上 <code>paintEvent()</code> 是一个槽函数，触发的方式包括窗口大小、位置的改变，以及主动的调用 <code>update()</code> 或 <code>repaint()</code> 接口。</p>
+<ul>
+<li><code>repaint()</code> 会在调用的时候立即刷新界面，及时性比较好，但考虑界面并没有什么变化却又一直在刷新的情况，就会产生很大的消耗，严重的情况下会导致界面卡死；</li>
+<li><code>update()</code> 是官方也推荐使用的刷新方法，区别是 <code>update()</code> 不会立即刷新界面，而是等到界面真正有变动的时候才刷新一次，可能实时性略差一些，但也满足绝大部分的需求了。</li>
+</ul>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">paintEvent</span>(<span class="hljs-params">self, event</span>):
+    qp = QPainter()
+    qp.begin(self)
+    self.draw(qp)  <span class="hljs-comment"># 绘制的具体逻辑</span>
+    qp.end()</code></pre></div>
+
+<h1 id="处理关闭事件"><a href="#处理关闭事件" class="headerlink" title="处理关闭事件"></a>处理关闭事件</h1><p>程序关闭前一般需要做一些处理，比如未结束的线程应当先结束，或者说需要保存一些参数，这些工作就可以放到 <code>closeEvent()</code> 参函数中进行处理~</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">closeEvent</span>(<span class="hljs-params">self, event</span>):
+    <span class="hljs-keyword">if</span> self.thread.is_running():
+        self.thread.stop()  <span class="hljs-comment"># 停止未结束的线程</span>
+    self.save_data()  <span class="hljs-comment"># 保存一些数据</span>
+    <span class="hljs-comment"># 自定义的用于控制程序是否可关闭的bool量</span>
+    <span class="hljs-keyword">if</span> self.can_close:
+        event.accept()  <span class="hljs-comment"># 关闭程序</span>
+    <span class="hljs-keyword">else</span>:
+        event.ignore()  <span class="hljs-comment"># 拒绝关闭程序</span></code></pre></div>
+
+<h1 id="使用自定义字体"><a href="#使用自定义字体" class="headerlink" title="使用自定义字体"></a>使用自定义字体</h1><p>注意字体文件的路径就可以了！</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python">QFontDatabase.addApplicationFont(<span class="hljs-string">&#x27;font/SourceCodePro-Regular.ttf&#x27;</span>)  <span class="hljs-comment"># 自定义字体</span>
+self.log_widget.setStyleSheet(<span class="hljs-string">&#x27;font: 14px Source Code Pro&#x27;</span>)  <span class="hljs-comment"># 设置某组件要使用的字体</span></code></pre></div>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Qt/">Qt</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Qt/">Qt</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020111660580/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">我的 Python 笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020110641390/">
+                        <span class="hidden-mobile">OpenCV 获取摄像头数量</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP备2021034122号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

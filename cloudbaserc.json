@@ -1,0 +1,1 @@
+{"envId":"mxy-3914fc","version":"2.0","framework":{"name":"hexo-deploy-action","plugins":{"client":{"use":"@cloudbase/framework-plugin-website","inputs":{"outputPath":"/","cloudPath":"/","ignore":[".git",".github"]}}}}}

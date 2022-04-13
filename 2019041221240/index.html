@@ -1,0 +1,717 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/MHT1.0.webp">
+  <link rel="icon" href="/img/MHT1.0.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mxy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="通过SSH连接到GitHub  整理自GitHub官方帮助文档：https:&#x2F;&#x2F;help.github.com&#x2F;articles&#x2F;connecting-to-github-with-ssh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Connecting to GitHub with SSH">
+<meta property="og:url" content="https://mxy493.xyz/2019041221240/index.html">
+<meta property="og:site_name" content="跑起来有风">
+<meta property="og:description" content="通过SSH连接到GitHub  整理自GitHub官方帮助文档：https:&#x2F;&#x2F;help.github.com&#x2F;articles&#x2F;connecting-to-github-with-ssh">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://help.github.com/assets/images/help/settings/userbar-account-settings.png">
+<meta property="og:image" content="https://help.github.com/assets/images/help/settings/settings-sidebar-ssh-keys.png">
+<meta property="og:image" content="https://help.github.com/assets/images/help/settings/ssh-add-ssh-key.png">
+<meta property="og:image" content="https://help.github.com/assets/images/help/settings/ssh-key-paste.png">
+<meta property="og:image" content="https://help.github.com/assets/images/help/settings/ssh-add-key.png">
+<meta property="og:image" content="https://help.github.com/assets/images/help/settings/sudo_mode_popup.png">
+<meta property="article:published_time" content="2019-04-12T11:20:39.000Z">
+<meta property="article:modified_time" content="2022-03-23T12:34:11.039Z">
+<meta property="article:author" content="mxy">
+<meta property="article:tag" content="GitHub">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://help.github.com/assets/images/help/settings/userbar-account-settings.png">
+  
+  
+  <title>Connecting to GitHub with SSH - 跑起来有风</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>跑起来有风</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/xqmy.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Connecting to GitHub with SSH">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-04-12 19:20" pubdate>
+        2019年4月12日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.1k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      19 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Connecting to GitHub with SSH</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年3月23日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>通过SSH连接到GitHub</p>
+<blockquote>
+<p>整理自GitHub官方帮助文档：<a target="_blank" rel="noopener" href="https://help.github.com/articles/connecting-to-github-with-ssh">https://help.github.com/articles/connecting-to-github-with-ssh</a><span id="more"></span></p>
+</blockquote>
+<h3 id="一、关于SSH"><a href="#一、关于SSH" class="headerlink" title="一、关于SSH"></a><a target="_blank" rel="noopener" href="https://help.github.com/en/articles/about-ssh">一、关于SSH</a></h3><p>使用SSH协议，您可以连接和验证远程服务器和服务。通过使用SSH密钥，您可以在每次访问GitHub时无需提供用户名或密码。</p>
+<p>设置SSH时，您将生成SSH密钥并将其添加到ssh-agent，然后将密钥添加到您的GitHub帐户。将SSH密钥添加到ssh-agent可确保您的SSH密钥通过使用密码短语拥有更多一层的安全。有关更多信息，请参阅“ <a target="_blank" rel="noopener" href="https://help.github.com/en/articles/working-with-ssh-key-passphrases">Working with SSH key passphrases</a>”。</p>
+<p>建议定期<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/reviewing-your-ssh-keys">查看SSH密钥列表，</a>并废除无效或已被盗用的密钥。</p>
+<p>如果您的SSH密钥未使用超过一年，那么GitHub将自动删除您不活跃的SSH密钥以确保安全。有关更多信息，请参阅“<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/deleted-or-missing-ssh-keys">Deleted or missing SSH keys</a>”。</p>
+<h3 id="二、检查现有的SSH密钥"><a href="#二、检查现有的SSH密钥" class="headerlink" title="二、检查现有的SSH密钥"></a><a target="_blank" rel="noopener" href="https://help.github.com/en/articles/checking-for-existing-ssh-keys">二、检查现有的SSH密钥</a></h3><p><strong>本文仅介绍Windows系统的相关操作</strong></p>
+<p>Mac或Linux请参考官方帮助文档：<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/checking-for-existing-ssh-keys">https://help.github.com/en/articles/checking-for-existing-ssh-keys</a></p>
+<p>在生成SSH密钥之前，您可以检查是否本地已存在SSH密钥。</p>
+<blockquote>
+<p> <strong>注意：</strong>在OpenSSH 7.0中不推荐使用DSA密钥。如果您的操作系统使用OpenSSH，则在设置SSH时需要使用RSA密钥或其他类型类型的密钥。例如，如果您的操作系统是MacOS Sierra，则可以使用RSA密钥设置SSH。</p>
+</blockquote>
+<p>1.打开终端Git Bash。</p>
+<p>2.输入<code>ls -al ~/.ssh</code>查看是否系统中已存在SSH密钥：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">ls</span> -al ~/.ssh</span>
+<span class="hljs-meta prompt_"># </span><span class="language-bash">Lists the files <span class="hljs-keyword">in</span> your .ssh directory, <span class="hljs-keyword">if</span> they exist</span></code></pre></div>
+
+<p>3.查看您的列表中是否已存在公共SSH密钥。</p>
+<p>默认情况下，公钥的文件名是以下之一：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs rust">id_dsa.<span class="hljs-keyword">pub</span>
+id_ecdsa.<span class="hljs-keyword">pub</span>
+id_ed25519.<span class="hljs-keyword">pub</span>
+id_rsa.<span class="hljs-keyword">pub</span></code></pre></div>
+
+<ul>
+<li>如果您的系统中不存在公钥和私钥对，或者没有任何可用的密钥可以连接到GitHub，那么你可以<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">生成新的SSH密钥</a>。</li>
+<li>如果列表中存在用于连接到GitHub 的现有公钥和私钥对（例如<em>id_rsa.pub</em>和<em>id_rsa</em>），则可以<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent">将SSH密钥添加到ssh-agent</a>。</li>
+</ul>
+<blockquote>
+<p> <strong>提示：</strong>如果终端返回<em>〜/ .ssh</em>不存在的错误，不用担心！我们将在<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">生成新的SSH密钥</a>时创建它。</p>
+</blockquote>
+<h3 id="三、生成新的SSH密钥并将其添加到ssh-agent"><a href="#三、生成新的SSH密钥并将其添加到ssh-agent" class="headerlink" title="三、生成新的SSH密钥并将其添加到ssh-agent"></a><a target="_blank" rel="noopener" href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key">三、生成新的SSH密钥并将其添加到ssh-agent</a></h3><p><strong>本文仅介绍Windows系统的相关操作</strong></p>
+<p>Mac或Linux请参考官方帮助文档：<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent</a></p>
+<p>检查现有SSH密钥后，可以生成用于身份验证的新的SSH密钥并将其添加到ssh-agent。</p>
+<p>如果您还没有SSH密钥，则必须<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key">生成新的SSH密钥</a>。如果您不确定是否已有SSH密钥，请检查<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/checking-for-existing-ssh-keys">现有密钥</a>。</p>
+<p>如果您不想在每次使用SSH密钥时重新输入密码，则可以<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent">将密钥添加到SSH agent</a>，<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent">SSH agent</a>会管理您的SSH密钥并记住您的密码。</p>
+<h4 id="生成新的SSH密钥"><a href="#生成新的SSH密钥" class="headerlink" title="生成新的SSH密钥"></a><a target="_blank" rel="noopener" href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key">生成新的SSH密钥</a></h4><blockquote>
+<p><strong>注意：</strong>如果您还没有SSH密钥，则必须<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key">生成新的SSH密钥</a>。否则直接跳到下一步将现有的SSH密钥添加到ssh-agent中。</p>
+</blockquote>
+<p>1.打开Git Bash.</p>
+<p>2.粘贴下面的文本，用您的GitHub邮箱地址替换双引号中的内容。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">ssh-keygen -t rsa -b 4096 -C <span class="hljs-string">&quot;your_email@example.com&quot;</span></span></code></pre></div>
+
+<p>这将使用您提供的电子邮件作为标记创建一个新的ssh密钥。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">&gt; </span><span class="language-bash">Generating public/private rsa key pair.</span></code></pre></div>
+
+<p>3.当系统提示您 “Enter a file in which to save the key” 时，按Enter键。密钥将保存在默认的路径下。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">&gt; </span><span class="language-bash">Enter a file <span class="hljs-keyword">in</span> <span class="hljs-built_in">which</span> to save the key (/c/Users/you/.ssh/id_rsa):[Press enter]</span></code></pre></div>
+
+<p>4.根据提示，您需要输入密码。更多信息请查看<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/working-with-ssh-key-passphrases">“Working with SSH key passphrases”</a>。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">&gt; </span><span class="language-bash">Enter passphrase (empty <span class="hljs-keyword">for</span> no passphrase): [Type a passphrase]</span>
+<span class="hljs-meta prompt_">&gt; </span><span class="language-bash">Enter same passphrase again: [Type passphrase again]</span></code></pre></div>
+
+<h4 id="将SSH密钥添加到ssh-agent"><a href="#将SSH密钥添加到ssh-agent" class="headerlink" title="将SSH密钥添加到ssh-agent"></a><a target="_blank" rel="noopener" href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent">将SSH密钥添加到ssh-agent</a></h4><p>在将新的SSH密钥添加到ssh-agent以管理密钥之前，您应该<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/checking-for-existing-ssh-keys">检查现有的SSH密钥</a>并<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key">生成新的SSH密钥</a>。</p>
+<p>如果安装了<a target="_blank" rel="noopener" href="https://desktop.github.com/">GitHub Desktop</a>，则可以使用它来克隆存储库而不处理SSH密钥。它还附带了Git Bash工具，这是<code>git</code>在Windows 上运行命令的首选方式。</p>
+<p>1.确保ssh-agent正在运行：</p>
+<ul>
+<li><p>如果您使用的Git Shell是随着GitHub Desktop一起安装的，那么ssh-agent应该在运行中。</p>
+</li>
+<li><p>如果您使用的时其它命令提示符终端，例如Git for Windows，则可以使用“<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/working-with-ssh-key-passphrases">Working with SSH key passphrases</a>”中所说的“Auto-launching the ssh-agent”，或者通过以下命令手动启动：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">start the ssh-agent <span class="hljs-keyword">in</span> the background</span>
+<span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">eval</span> $(ssh-agent -s)</span>
+<span class="hljs-meta prompt_">&gt; </span><span class="language-bash">Agent pid 59566</span></code></pre></div></li>
+</ul>
+<p>2.将SSH私钥添加到ssh-agent。如果您使用了其他名称创建密钥，或者要添加不同名称的已有的密钥，请将如下命令中的<em>id_rsa</em>替换为您的私钥文件的名称。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">ssh-add ~/.ssh/id_rsa</span></code></pre></div>
+
+<p>3.将SSH密钥添加到您的GitHub帐户。</p>
+<h3 id="四、添加一个新的SSH密钥到您的GitHub帐户"><a href="#四、添加一个新的SSH密钥到您的GitHub帐户" class="headerlink" title="四、添加一个新的SSH密钥到您的GitHub帐户"></a><a target="_blank" rel="noopener" href="https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account">四、添加一个新的SSH密钥到您的GitHub帐户</a></h3><p>要配置您的GitHub帐户使用新的（或现有的）SSH密钥，还需要将其添加到GitHub帐户中。</p>
+<p>在向GitHub帐户添加新的SSH密钥之前，您应该已经做了一下两步：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://help.github.com/en/articles/checking-for-existing-ssh-keys">检查现有SSH密钥</a></li>
+<li><a target="_blank" rel="noopener" href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">生成新的SSH密钥并将其添加到ssh-agent</a></li>
+</ul>
+<p>在您的GitHub帐户中添加新的SSH密钥后，您可以重新配置所有的本地存储库以使用SSH。更多信息，请参阅“<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh">Switching remote URLs from HTTPS to SSH</a>”。</p>
+<blockquote>
+<p><strong>注意：</strong>在OpenSSH 7.0中不推荐使用DSA密钥。如果您的操作系统使用OpenSSH，则在设置SSH时需要使用RSA密钥或其他类型类型的密钥。例如，如果您的操作系统是MacOS Sierra，则可以使用RSA密钥设置SSH。</p>
+</blockquote>
+<p>1.将SSH密钥复制到剪贴板。</p>
+<p>如果您的SSH密钥文件的名称与示例代码不同，请根据您的文件名修改以下命令并执行。复制密钥时，请勿添加任何换行符或空格。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">clip &lt; ~/.ssh/id_rsa.pub</span>
+<span class="hljs-meta prompt_"># </span><span class="language-bash">Copies the contents of the id_rsa.pub file to your clipboard</span></code></pre></div>
+
+<blockquote>
+<p><strong>提示：</strong>如果<code>clip</code>不起作用，您可以找到隐藏的<code>.ssh</code>文件夹，用文本编辑器打开密钥文件，然后将其中的内容复制到剪贴板。</p>
+</blockquote>
+<p>2.在GitHub任意页面的右上角，单击您的头像，然后单击<strong>“Settings”</strong>。</p>
+<p><img src="https://help.github.com/assets/images/help/settings/userbar-account-settings.png" srcset="/img/loading.gif" lazyload alt="用户栏中的“设置”图标"></p>
+<p>3.在用户设置侧栏中，单击<strong>SSH and GPG keys</strong>。</p>
+<p><img src="https://help.github.com/assets/images/help/settings/settings-sidebar-ssh-keys.png" srcset="/img/loading.gif" lazyload alt="验证密钥"></p>
+<p>4.单击“<strong>New SSH key</strong>”或“ <strong>Add SSH key</strong>”。</p>
+<p><img src="https://help.github.com/assets/images/help/settings/ssh-add-ssh-key.png" srcset="/img/loading.gif" lazyload alt="SSH密钥按钮"></p>
+<p>5.在“Title”文本框中，为新密钥添加描述性标签。例如，如果您使用的是个人Mac，则可以将此键称为“Personal MacBook Air”。</p>
+<p>6.将您的密钥粘贴到“Key”对应得文本框。</p>
+<p><img src="https://help.github.com/assets/images/help/settings/ssh-key-paste.png" srcset="/img/loading.gif" lazyload alt="关键领域"></p>
+<p>7.单击“<strong>Add SSH key</strong>”。</p>
+<p><img src="https://help.github.com/assets/images/help/settings/ssh-add-key.png" srcset="/img/loading.gif" lazyload alt="添加键按钮"></p>
+<p>8.如果出现提示，请输入您的GitHub密码以确认。</p>
+<p><img src="https://help.github.com/assets/images/help/settings/sudo_mode_popup.png" srcset="/img/loading.gif" lazyload alt="Sudo模式对话框"></p>
+<h3 id="五、测试SSH连接"><a href="#五、测试SSH连接" class="headerlink" title="五、测试SSH连接"></a><a target="_blank" rel="noopener" href="https://help.github.com/en/articles/testing-your-ssh-connection">五、测试SSH连接</a></h3><p><strong>本文仅介绍Windows系统的相关操作</strong></p>
+<p>Mac或Linux请参考官方帮助文档：<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/testing-your-ssh-connection">https://help.github.com/en/articles/testing-your-ssh-connection</a></p>
+<p>在设置SSH密钥并将其添加到GitHub帐户后，您可以测试您的连接。</p>
+<p>在测试SSH连接之前，您应该已经做了以下几步：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://help.github.com/en/articles/checking-for-existing-ssh-keys">检查现有SSH密钥</a></li>
+<li><a target="_blank" rel="noopener" href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">生成新的SSH密钥</a></li>
+<li><a target="_blank" rel="noopener" href="https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account">为您的GitHub帐户添加了新的SSH密钥</a></li>
+</ul>
+<p>测试连接时，您需要使用您之前创建SSH密钥时的密码验证此操作。有关使用SSH密钥密码的更多信息，请参阅“<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/working-with-ssh-key-passphrases">Working with SSH key passphrases</a>”。</p>
+<p>1.打开Git Bash。</p>
+<p>2.输入以下内容：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">ssh -T git@github.com</span>
+<span class="hljs-meta prompt_"># </span><span class="language-bash">Attempts to ssh to GitHub</span></code></pre></div>
+
+<p>您可能会看到如下提示信息：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">&gt; </span><span class="language-bash">The authenticity of host <span class="hljs-string">&#x27;github.com (IP ADDRESS)&#x27;</span> can<span class="hljs-string">&#x27;t be established.</span></span>
+<span class="hljs-meta prompt_">  &gt; </span><span class="language-bash"><span class="hljs-string">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span></span>
+<span class="hljs-meta prompt_">  &gt; </span><span class="language-bash"><span class="hljs-string">Are you sure you want to continue connecting (yes/no)?</span></span></code></pre></div>
+
+<p>或者像这样：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">&gt; </span><span class="language-bash">The authenticity of host <span class="hljs-string">&#x27;github.com (IP ADDRESS)&#x27;</span> can<span class="hljs-string">&#x27;t be established.</span></span>
+<span class="hljs-meta prompt_">  &gt; </span><span class="language-bash"><span class="hljs-string">RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.</span></span>
+<span class="hljs-meta prompt_">  &gt; </span><span class="language-bash"><span class="hljs-string">Are you sure you want to continue connecting (yes/no)?</span></span></code></pre></div>
+
+<p>3.验证您看到的信息中的编码是否与步骤2中的某条信息匹配，然后输入<code>yes</code>：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">&gt; </span><span class="language-bash">Hi username! You<span class="hljs-string">&#x27;ve successfully authenticated, but GitHub does not</span></span>
+<span class="hljs-meta prompt_">&gt; </span><span class="language-bash"><span class="hljs-string">provide shell access.</span></span></code></pre></div>
+
+<p>4.验证生成的消息是否包含您的用户名。如果返回“permission denied”，请参阅“<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/error-permission-denied-publickey">Error: Permission denied (publickey)</a>”。</p>
+<h3 id="六、使用SSH密钥密码"><a href="#六、使用SSH密钥密码" class="headerlink" title="六、使用SSH密钥密码"></a>六、使用SSH密钥密码</h3><p>您可以加密SSH密钥并配置身份验证代理，这样您就不必在每次使用SSH密钥时重新输入密码。</p>
+<p>使用SSH密钥，如果有人获得对您计算机的访问权限，他们也可以访问使用该密钥的每个系统。要添加额外的安全层，可以对SSH密钥添加密码。您可以使用<code>ssh-agent</code>来安全地保存您的密码，这样您就不必重新输入密码。</p>
+<h4 id="添加或更改密码"><a href="#添加或更改密码" class="headerlink" title="添加或更改密码"></a><a target="_blank" rel="noopener" href="https://help.github.com/en/articles/working-with-ssh-key-passphrases#adding-or-changing-a-passphrase">添加或更改密码</a></h4><p>您可以通过键入以下命令来更改现有私钥的密码，而无需重新生成密钥对：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">ssh-keygen -p</span>
+<span class="hljs-meta prompt_"># </span><span class="language-bash">Start the SSH key creation process</span>
+<span class="hljs-meta prompt_">&gt; </span><span class="language-bash">Enter file <span class="hljs-keyword">in</span> <span class="hljs-built_in">which</span> the key is (/Users/you/.ssh/id_rsa): [Hit enter]</span>
+<span class="hljs-meta prompt_">&gt; </span><span class="language-bash">Key has comment <span class="hljs-string">&#x27;/Users/you/.ssh/id_rsa&#x27;</span></span>
+<span class="hljs-meta prompt_">&gt; </span><span class="language-bash">Enter new passphrase (empty <span class="hljs-keyword">for</span> no passphrase): [Type new passphrase]</span>
+<span class="hljs-meta prompt_">&gt; </span><span class="language-bash">Enter same passphrase again: [One more time <span class="hljs-keyword">for</span> luck]</span>
+<span class="hljs-meta prompt_">&gt; </span><span class="language-bash">Your identification has been saved with the new passphrase.</span></code></pre></div>
+
+<p>如果您的SSH密钥已有密码，系统会提示您输入原密码，验证后才能更改为新密码。</p>
+<h4 id="在Git-for-Windows上自动启动ssh-agent"><a href="#在Git-for-Windows上自动启动ssh-agent" class="headerlink" title="在Git for Windows上自动启动ssh-agent"></a><a target="_blank" rel="noopener" href="https://help.github.com/en/articles/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows">在Git for Windows上自动启动ssh-agent</a></h4><p>如果您使用的是与GitHub Desktop一起安装的Git Shell，则无需执行以下步骤。GitHub Desktop会自动为您启动<code>ssh-agent</code>。</p>
+<p>否则，请按照以下步骤在打开bash或Git shell时自动运行<code>ssh-agent</code>。复制下面的内容，并通过Git Shell将其粘贴到您的<code>~/.profile</code>或<code>~/.bashrc</code>文件：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">env</span>=~/.ssh/agent.env
+
+<span class="hljs-function"><span class="hljs-title">agent_load_env</span></span> () &#123; <span class="hljs-built_in">test</span> -f <span class="hljs-string">&quot;<span class="hljs-variable">$env</span>&quot;</span> &amp;&amp; . <span class="hljs-string">&quot;<span class="hljs-variable">$env</span>&quot;</span> &gt;| /dev/null ; &#125;
+
+<span class="hljs-function"><span class="hljs-title">agent_start</span></span> () &#123;
+    (<span class="hljs-built_in">umask</span> 077; ssh-agent &gt;| <span class="hljs-string">&quot;<span class="hljs-variable">$env</span>&quot;</span>)
+    . <span class="hljs-string">&quot;<span class="hljs-variable">$env</span>&quot;</span> &gt;| /dev/null ; &#125;
+
+agent_load_env
+
+<span class="hljs-comment"># agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2= agent not running</span>
+agent_run_state=$(ssh-add -l &gt;| /dev/null 2&gt;&amp;1; <span class="hljs-built_in">echo</span> $?)
+
+<span class="hljs-keyword">if</span> [ ! <span class="hljs-string">&quot;<span class="hljs-variable">$SSH_AUTH_SOCK</span>&quot;</span> ] || [ <span class="hljs-variable">$agent_run_state</span> = 2 ]; <span class="hljs-keyword">then</span>
+    agent_start
+    ssh-add
+<span class="hljs-keyword">elif</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$SSH_AUTH_SOCK</span>&quot;</span> ] &amp;&amp; [ <span class="hljs-variable">$agent_run_state</span> = 1 ]; <span class="hljs-keyword">then</span>
+    ssh-add
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-built_in">unset</span> <span class="hljs-built_in">env</span></code></pre></div>
+
+<p>如果您的私钥没有存储在默认位置（<code>~/.ssh/id_rsa</code>或<code>~/.ssh/id_dsa</code>），那么您需要告知您的SSH身份验证代理在哪里找到它。要将你的SSH密钥添加到ssh-agent，请键入<code>ssh-add ~/path/to/my_key</code>。更多信息，请参阅“<a target="_blank" rel="noopener" href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">Generating a new SSH key and adding it to the ssh-agent</a>”</p>
+<blockquote>
+<p><strong>提示：</strong>如果您想<code>ssh-agent</code>在一段时间后忘记密钥，可以通过键入命令<code>ssh-add -t &lt;seconds&gt;</code>进行设置。</p>
+</blockquote>
+<p>现在，当您第一次运行Git Bash时，系统会提示您输入密码：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta prompt_">&gt; </span><span class="language-bash">Initializing new SSH agent...</span>
+<span class="hljs-meta prompt_">&gt; </span><span class="language-bash">succeeded</span>
+<span class="hljs-meta prompt_">&gt; </span><span class="language-bash">Enter passphrase <span class="hljs-keyword">for</span> /c/Users/you/.ssh/id_rsa:</span>
+<span class="hljs-meta prompt_">&gt; </span><span class="language-bash">Identity added: /c/Users/you/.ssh/id_rsa (/c/Users/you/.ssh/id_rsa)</span>
+<span class="hljs-meta prompt_">&gt; </span><span class="language-bash">Welcome to Git (version 1.6.0.2-preview20080923)</span>
+<span class="hljs-meta prompt_">&gt;</span><span class="language-bash"></span>
+<span class="language-bash">&gt; Run <span class="hljs-string">&#x27;git help git&#x27;</span> to display the <span class="hljs-built_in">help</span> index.</span>
+<span class="hljs-meta prompt_">&gt; </span><span class="language-bash">Run <span class="hljs-string">&#x27;git help &#x27;</span> to display <span class="hljs-built_in">help</span> <span class="hljs-keyword">for</span> specific commands.</span></code></pre></div>
+
+<p><code>ssh-agent</code>进程将持续运行，直到您注销，关闭计算机或终止这个进程。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/GitHub/">GitHub</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019052557154/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hexo博客使用插件hexo-git-backup通过GitHub备份与恢复</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019040956137/">
+                        <span class="hidden-mobile">Ubuntu通过Deepin wine for Ubuntu安装QQ、微信</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP备2021034122号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

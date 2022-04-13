@@ -1,0 +1,658 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/MHT1.0.webp">
+  <link rel="icon" href="/img/MHT1.0.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mxy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="其实我投简历投的后端开发岗，但是昨晚面试官联系到我问我可以转前端吗，说前端收到的简历太少了，我恰好最近半个月算是入了点前端的门也就答应了，然后今天面试官也直说了主要考查一些计算机基础知识…… 记录一下，下面的内容并不是我的回答，是面试结束后查资料完善的，不过有些内容我个人都觉得有问题，选择性的参考学习吧~ 并没有自我介绍。（我打了两三个小时的自我介绍草稿🤐） 一、计算机网络😳 TCP为什么三次">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2020.04.15 美团点评一面【前端】">
+<meta property="og:url" content="https://mxy493.xyz/2020041557008/index.html">
+<meta property="og:site_name" content="跑起来有风">
+<meta property="og:description" content="其实我投简历投的后端开发岗，但是昨晚面试官联系到我问我可以转前端吗，说前端收到的简历太少了，我恰好最近半个月算是入了点前端的门也就答应了，然后今天面试官也直说了主要考查一些计算机基础知识…… 记录一下，下面的内容并不是我的回答，是面试结束后查资料完善的，不过有些内容我个人都觉得有问题，选择性的参考学习吧~ 并没有自我介绍。（我打了两三个小时的自我介绍草稿🤐） 一、计算机网络😳 TCP为什么三次">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-15T14:04:08.000Z">
+<meta property="article:modified_time" content="2022-03-23T12:34:11.087Z">
+<meta property="article:author" content="mxy">
+<meta property="article:tag" content="面经">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>2020.04.15 美团点评一面【前端】 - 跑起来有风</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>跑起来有风</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/xqmy.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="2020.04.15 美团点评一面【前端】">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-04-15 22:04" pubdate>
+        2020年4月15日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.6k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">2020.04.15 美团点评一面【前端】</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年3月23日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>其实我投简历投的后端开发岗，但是昨晚面试官联系到我问我可以转前端吗，说前端收到的简历太少了，我恰好最近半个月算是入了点前端的门也就答应了，然后今天面试官也直说了主要考查一些计算机基础知识……</p>
+<p>记录一下，下面的内容并不是我的回答，是面试结束后查资料完善的，不过有些内容我个人都觉得有问题，选择性的参考学习吧~</p>
+<p>并没有自我介绍。（我打了两三个小时的自我介绍草稿🤐）</p>
+<h3 id="一、计算机网络"><a href="#一、计算机网络" class="headerlink" title="一、计算机网络"></a>一、计算机网络</h3><h4 id="😳-TCP为什么三次握手？不是两次？"><a href="#😳-TCP为什么三次握手？不是两次？" class="headerlink" title="😳 TCP为什么三次握手？不是两次？"></a>😳 TCP为什么三次握手？不是两次？</h4><ul>
+<li>因为双方都需要确认对方收到了自己发送的序列号，确认过程最少要进行三次通信。<ul>
+<li>第一次握手：客户端发送网络包，服务端收到了。这样服务端就能得出结论：客户端的发送能力、服务端的接收能力是正常的。</li>
+<li>第二次握手：服务端发包，客户端收到了。这样客户端就能得出结论：服务端的接收、发送能力，客户端的接收、发送能力是正常的。不过此时服务器并不能确认客户端的接收能力是否正常。</li>
+<li>第三次握手：客户端发包，服务端收到了。这样服务端就能得出结论：客户端的接收、发送能力正常，服务器自己的发送、接收能力也正常。</li>
+</ul>
+</li>
+<li>为了防止已失效的连接请求报文段突然又传送到服务端，产生错误。（究其本质还是请求没有得到确认）</li>
+</ul>
+<h4 id="😅-拥塞控制？什么情况下会网络拥塞？"><a href="#😅-拥塞控制？什么情况下会网络拥塞？" class="headerlink" title="😅 拥塞控制？什么情况下会网络拥塞？"></a>😅 拥塞控制？什么情况下会网络拥塞？</h4><p>TCP 拥塞控制，指防止<strong>过多的数据注入网络</strong>，保证网络中的路由器或链路不过载。</p>
+<h4 id="😥-怎么实现拥塞控制？"><a href="#😥-怎么实现拥塞控制？" class="headerlink" title="😥 怎么实现拥塞控制？"></a>😥 怎么实现拥塞控制？</h4><blockquote>
+<p>我……我答成流量控制了……</p>
+</blockquote>
+<p><strong>慢开始、拥塞避免、快重传、快恢复</strong></p>
+<ul>
+<li><p><strong>慢开始</strong></p>
+<p>拥塞窗口从 cwnd = 1开始<strong>指数增长</strong>，直到达到慢开始门限 ssthresh</p>
+</li>
+<li><p><strong>拥塞避免</strong></p>
+<ul>
+<li>发送端拥塞窗口 cwnd 每经过一个往返时延 RTT 就增加一个 MSS 得大小，使 cwnd 按线性规律缓慢增长。（<strong>加法增大</strong>）</li>
+<li>当出现一次超时（网络拥塞）时，令慢开始门限 ssthresh 等于当前 cwnd 的一半。（<strong>乘法减小</strong>）</li>
+</ul>
+</li>
+<li><p><strong>快重传</strong></p>
+<p>当发送方连续收到3个重复的 ACK 报文时，直接重传对方尚未收到的报文段，不必等待那个报文段设置的重传计时器超时。</p>
+</li>
+<li><p><strong>快恢复</strong></p>
+<p>发送方收到连续三个冗余 ACK 时，执行“<strong>乘法减小</strong>”算法，把慢开始门限设置为出现拥塞时发送方 cwnd 的一半。</p>
+</li>
+</ul>
+<h4 id="🤐-了解-HTTPS-吗？HTTP-和-HTTPS-的区别？"><a href="#🤐-了解-HTTPS-吗？HTTP-和-HTTPS-的区别？" class="headerlink" title="🤐 了解 HTTPS 吗？HTTP 和 HTTPS 的区别？"></a>🤐 了解 HTTPS 吗？HTTP 和 HTTPS 的区别？</h4><blockquote>
+<p>不知道……还没学到……（🙃我为什么不答一句：HTTPS更安全）</p>
+</blockquote>
+<p>HTTP 一般是明文传输，很容易被攻击者窃取重要信息，鉴于此，HTTPS 应运而生。HTTPS 的全称为 （Hyper Text Transfer Protocol over SecureSocket Layer），全称有点长，HTTPS 和 HTTP 有很大的不同在于 HTTPS 是以安全为目标的 HTTP 通道，在 HTTP 的基础上通过传输加密和身份认证保证了传输过程的安全性。HTTPS 在 HTTP 的基础上增加了 SSL 层，也就是说 <strong>HTTPS = HTTP + SSL</strong>。</p>
+<h3 id="二、数据结构"><a href="#二、数据结构" class="headerlink" title="二、数据结构"></a>二、数据结构</h3><h4 id="😉-数组、链表的区别"><a href="#😉-数组、链表的区别" class="headerlink" title="😉 数组、链表的区别"></a>😉 数组、链表的区别</h4><ul>
+<li><p><strong>数组：</strong>一次性分配一整块连续的存储空间，可以通过索引直接取到任意元素。需要快速访问数据，较少插入或删除数据，或者大内存空间分配使用数组。</p>
+</li>
+<li><p><strong>链表：</strong>通过指针链式连接，存储空间不连续，要找到某一个元素最好的情况是第一个节点就是该元素，最坏的情况需要遍历整个链表。频繁删除和插入元素使用链表。</p>
+</li>
+</ul>
+<h4 id="😋-栈和队列的区别"><a href="#😋-栈和队列的区别" class="headerlink" title="😋 栈和队列的区别"></a>😋 栈和队列的区别</h4><ul>
+<li><strong>栈：</strong>LIFO，先进后出。限制在栈顶插入元素和删除元素。</li>
+<li><strong>队列：</strong>FIFO，先进先出。限制在队尾插入元素，在队头删除元素。</li>
+</ul>
+<h4 id="什么场景可以用到队列？"><a href="#什么场景可以用到队列？" class="headerlink" title="什么场景可以用到队列？"></a>什么场景可以用到队列？</h4><p>计算机系统中各种资源的管理，消息缓冲器的管理和广度优先搜索遍历等</p>
+<h4 id="😑-堆有了解吗？"><a href="#😑-堆有了解吗？" class="headerlink" title="😑 堆有了解吗？"></a>😑 堆有了解吗？</h4><p>堆（heap）也被称为优先队列，队列中允许的操作是 先进先出（FIFO），在队尾插入元素，在队头取出元素。而堆也是一样，在堆底插入元素，在堆顶取出元素。二叉树的衍生，有最小堆最大堆的两个概念，将根节点最大的堆叫做最大堆或大根堆，根节点最小的堆叫做最小堆或小根堆。常见的堆有二叉堆、斐波那契堆等。</p>
+<h4 id="😕-树有哪些应用？"><a href="#😕-树有哪些应用？" class="headerlink" title="😕 树有哪些应用？"></a>😕 树有哪些应用？</h4><ul>
+<li><p>AVL树：平衡二叉树之一，应用相对其他数据结构比较少，windows对进程地址空间的管理用到了AVL</p>
+</li>
+<li><p>红黑树：平衡二叉树，广泛应用在C++STL中，比如map和set，Java的TreeMap</p>
+</li>
+<li><p>B和B+树：主要用在文件系统以及数据库中做索引等</p>
+</li>
+<li><p>Trie 树：用在统计和排序大量字符串中，一个典型应用是前缀匹配，比如下面这个很常见的场景，在我们输入时，搜索引擎会给予提示。还有比如IP选路，也是前缀匹配</p>
+</li>
+<li><p>R树：空间数据库索引</p>
+</li>
+</ul>
+<blockquote>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://sohu.gg/S2cwGU3">https://sohu.gg/S2cwGU3</a> </p>
+</blockquote>
+<h3 id="三、操作系统"><a href="#三、操作系统" class="headerlink" title="三、操作系统"></a>三、操作系统</h3><h4 id="🥴-计算机存储的最小单位？"><a href="#🥴-计算机存储的最小单位？" class="headerlink" title="🥴 计算机存储的最小单位？"></a>🥴 计算机存储的最小单位？</h4><p>计算机数据存储的最小单位是字节Byte，数据传输的最小单位是比特bit。</p>
+<h4 id="🤪-RAM和ROM"><a href="#🤪-RAM和ROM" class="headerlink" title="🤪 RAM和ROM"></a>🤪 RAM和ROM</h4><ul>
+<li><p><strong>RAM(Random Access Memory)</strong></p>
+<p>随机存取存储器，也叫主存，是与 CPU 直接交换数据的内部存储器。它可以随时读写，而且速度很快，通常作为操作系统或其他正在运行中的程序的临时数据存储介质。RAM工作时可以随时从任何一个指定的地址写入（存入）或读出（取出）信息。它与 ROM 的最大区别是数据的易失性，即一旦断电所存储的数据将随之丢失。RAM 在计算机和数字系统中用来暂时存储程序、数据和中间结果。</p>
+</li>
+<li><p><strong>ROM (Read Only Memory)</strong></p>
+<p>只读存储器是一种半导体存储器，其特性是一旦存储数据就无法改变或删除，且内容不会因为电源关闭而消失。在电子或电脑系统中，通常用以存储不需经常变更的程序或数据。</p>
+</li>
+</ul>
+<h4 id="🤣-机械硬盘和固态硬盘的区别？"><a href="#🤣-机械硬盘和固态硬盘的区别？" class="headerlink" title="🤣 机械硬盘和固态硬盘的区别？"></a>🤣 机械硬盘和固态硬盘的区别？</h4><ul>
+<li>固态硬盘防震抗摔性好。机械硬盘都是磁碟型的，数据储存在磁碟扇区里；而固态硬盘是使用闪存颗粒制作而成。</li>
+<li>固态硬盘读写速度快。</li>
+<li>固态硬盘功耗低。</li>
+<li>固态硬盘重量轻。</li>
+<li>固态硬盘无噪音，而机械硬盘由于机械转动有噪音。</li>
+<li>机械硬盘相对于固态硬盘便宜。</li>
+<li>机械硬盘一般寿命更长，但由于其机械结构，使用过程中会磨损，所以寿命不一定长于固态硬盘。</li>
+</ul>
+<blockquote>
+<p>百度百科：<a target="_blank" rel="noopener" href="https://sohu.gg/ffWSA1m">https://sohu.gg/ffWSA1m</a> </p>
+</blockquote>
+<h4 id="😲-删除的数据是怎么找回的？原理是什么？"><a href="#😲-删除的数据是怎么找回的？原理是什么？" class="headerlink" title="😲 删除的数据是怎么找回的？原理是什么？"></a>😲 删除的数据是怎么找回的？原理是什么？</h4><p>硬盘在保存文件时，一般会按照“簇”的形式将数据进行保存，至于保存的文件默认会记录在文件分配表中。而硬盘删除文件时，系统也不会把它所存储的文件全部清空，而是将之前在各个分配表中的“簇”标记为空显示。文件分配表里面还有哪个“簇”没有使用，后期所存储的数据也就会存入该簇中。所以在数据重新写入之前，这些删除的文件依然会存在之前所在的“簇”中，直到新数据的写入，覆盖原有数据。</p>
+<blockquote>
+<p>视频讲解：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av17027659">https://www.bilibili.com/video/av17027659</a></p>
+</blockquote>
+<h4 id="🤕-CPU和GPU的区别？"><a href="#🤕-CPU和GPU的区别？" class="headerlink" title="🤕 CPU和GPU的区别？"></a>🤕 CPU和GPU的区别？</h4><ul>
+<li><p>CPU 内核比较少，而且是串行的，主要做一些常规的操作，如打开文档，打开程序，播放声音等一些有序的工作，擅长一些逻辑运算，有高速缓存，可以提高数据访问的速度。</p>
+</li>
+<li><p>GPU 则接受来自 CPU 的指令，有大量的内核，而且是并行计算的，所以能够完成大规模的数据运算。</p>
+</li>
+</ul>
+<h4 id="😦-时钟频率和浮点率？"><a href="#😦-时钟频率和浮点率？" class="headerlink" title="😦 时钟频率和浮点率？"></a>😦 时钟频率和浮点率？</h4><ul>
+<li>时钟频率：每秒运算的次数，通常所说的某某CPU是多少GHz的，而这个多少GHz就是“CPU的主频”。</li>
+<li>浮点率：FLOPS，每秒浮点运算次数（亦称每秒峰值速度）是每秒所执行的浮点运算次数。</li>
+</ul>
+<h4 id="😝-一个汉字几个字节？"><a href="#😝-一个汉字几个字节？" class="headerlink" title="😝 一个汉字几个字节？"></a>😝 一个汉字几个字节？</h4><ul>
+<li>字节数：2；编码：GB2312</li>
+<li>字节数：2；编码：GBK</li>
+<li>字节数：3；编码：UTF-8</li>
+<li>字节数：4；编码：UTF-16</li>
+</ul>
+<h4 id="🤫-Unicode和utf-8的区别？"><a href="#🤫-Unicode和utf-8的区别？" class="headerlink" title="🤫 Unicode和utf-8的区别？"></a>🤫 Unicode和utf-8的区别？</h4><ul>
+<li>Unicode 是「字符集」，UTF-8 是「编码规则」，<strong>UTF-8 是 Unicode 的实现方式之一</strong>。</li>
+<li>Unicode 的出现是因为世界各地编码方式不一，为了解决不同编码格式导致的乱码问题；UTF-8 采用变长编码的方式，解决 Unicode 过于占用空间的问题。</li>
+</ul>
+<h3 id="四、Linux"><a href="#四、Linux" class="headerlink" title="四、Linux"></a>四、Linux</h3><h4 id="😎-会使用Linux吗？"><a href="#😎-会使用Linux吗？" class="headerlink" title="😎 会使用Linux吗？"></a>😎 会使用Linux吗？</h4><blockquote>
+<p>答：会使用，但是没有作为开发系统长期使用，有学习过。</p>
+</blockquote>
+<h4 id="😭-Linux和Windows内核上有哪些区别？"><a href="#😭-Linux和Windows内核上有哪些区别？" class="headerlink" title="😭 Linux和Windows内核上有哪些区别？"></a>😭 Linux和Windows内核上有哪些区别？</h4><blockquote>
+<p>其实我觉得下面这些不是“内核”上的区别，似乎还过时了……</p>
+</blockquote>
+<ul>
+<li>Windows是商业软件，源码保密；Linux开源。</li>
+<li>Windows中安装软件主要是二进制形式；而Linux中一般是源码安装。</li>
+<li>Windows中创建进程使用 WIN32 API 的 <code>CreateProcess</code> 函数；Linux中使用 <code>fofk+execv</code> 创建进程</li>
+<li>Windows中可执行文件格式为PE；Linux中为ELF。</li>
+<li>Windows内核有一套固定的 API 且向后兼容；而 Linux 没有固定的内核 API。</li>
+<li>中断处理方式不同。</li>
+<li>Windows中有注册表这一概念；Linux中所有配置信息都是文件。</li>
+</ul>
+<blockquote>
+<p>参考链接：<a target="_blank" rel="noopener" href="http://www.wanfangdata.com.cn/details/detail.do?_type=perio&amp;id=jsjywl201206041">http://www.wanfangdata.com.cn/details/detail.do?_type=perio&amp;id=jsjywl201206041</a></p>
+</blockquote>
+<h3 id="五、我的提问"><a href="#五、我的提问" class="headerlink" title="五、我的提问"></a>五、我的提问</h3><h4 id="🙏🏻-如果入职会使用到怎样的技术栈？"><a href="#🙏🏻-如果入职会使用到怎样的技术栈？" class="headerlink" title="🙏🏻 如果入职会使用到怎样的技术栈？"></a>🙏🏻 如果入职会使用到怎样的技术栈？</h4><p>TS。下来查了下，哦，TypeScript。</p>
+<h4 id="🙏🏻-入职后工作内容是什么？"><a href="#🙏🏻-入职后工作内容是什么？" class="headerlink" title="🙏🏻 入职后工作内容是什么？"></a>🙏🏻 入职后工作内容是什么？</h4><h4 id="🙏🏻-留用的机会怎样？"><a href="#🙏🏻-留用的机会怎样？" class="headerlink" title="🙏🏻 留用的机会怎样？"></a>🙏🏻 留用的机会怎样？</h4><p>一般只要表现不差留用机会都很大。</p>
+<h4 id="🙏🏻-培训的情况怎么样？"><a href="#🙏🏻-培训的情况怎么样？" class="headerlink" title="🙏🏻 培训的情况怎么样？"></a>🙏🏻 培训的情况怎么样？</h4>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%9D%A2%E7%BB%8F/">面经</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/202004168673/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Leetcode 56.合并区间【C++】</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020041332657/">
+                        <span class="hidden-mobile">Leetcode 355.设计推特【C++】</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP备2021034122号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

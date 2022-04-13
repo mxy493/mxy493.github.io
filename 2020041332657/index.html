@@ -1,0 +1,714 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/MHT1.0.webp">
+  <link rel="icon" href="/img/MHT1.0.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mxy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;design-twitter&#x2F;  题目设计一个简化版的推特(Twitter)，可以让用户实现发送推文，关注&#x2F;取消关注其他用户，能够看见关注人（包括自己）的最近十条推文。你的设计需要支持以下的几个功能：  postTweet(userId, tweetId): 创建一条新的推文 getNewsFeed(userId): 检索最">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode 355.设计推特【C++】">
+<meta property="og:url" content="https://mxy493.xyz/2020041332657/index.html">
+<meta property="og:site_name" content="跑起来有风">
+<meta property="og:description" content="地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;design-twitter&#x2F;  题目设计一个简化版的推特(Twitter)，可以让用户实现发送推文，关注&#x2F;取消关注其他用户，能够看见关注人（包括自己）的最近十条推文。你的设计需要支持以下的几个功能：  postTweet(userId, tweetId): 创建一条新的推文 getNewsFeed(userId): 检索最">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-13T12:22:02.000Z">
+<meta property="article:modified_time" content="2020-04-13T13:10:00.000Z">
+<meta property="article:author" content="mxy">
+<meta property="article:tag" content="Leetcode">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>Leetcode 355.设计推特【C++】 - 跑起来有风</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>跑起来有风</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/xqmy.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Leetcode 355.设计推特【C++】">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-04-13 20:22" pubdate>
+        2020年4月13日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      16 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Leetcode 355.设计推特【C++】</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2020年4月13日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <blockquote>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/design-twitter/">https://leetcode-cn.com/problems/design-twitter/</a></p>
+</blockquote>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>设计一个简化版的推特(Twitter)，可以让用户实现发送推文，关注/取消关注其他用户，能够看见关注人（包括自己）的最近十条推文。你的设计需要支持以下的几个功能：</p>
+<ol>
+<li><code>postTweet(userId, tweetId)</code>: 创建一条新的推文</li>
+<li><code>getNewsFeed(userId)</code>: 检索最近的十条推文。每个推文都必须是由此用户关注的人或者是用户自己发出的。推文必须按照时间顺序由最近的开始排序。</li>
+<li><code>follow(followerId, followeeId)</code>: 关注一个用户</li>
+<li><code>unfollow(followerId, followeeId)</code>: 取消关注一个用户</li>
+</ol>
+<p><strong>示例：</strong></p>
+<div class="hljs code-wrapper"><pre><code class="hljs awk">Twitter twitter = new Twitter();
+
+<span class="hljs-regexp">//</span> 用户<span class="hljs-number">1</span>发送了一条新推文 (用户id = <span class="hljs-number">1</span>, 推文id = <span class="hljs-number">5</span>).
+twitter.postTweet(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>);
+
+<span class="hljs-regexp">//</span> 用户<span class="hljs-number">1</span>的获取推文应当返回一个列表，其中包含一个id为<span class="hljs-number">5</span>的推文.
+twitter.getNewsFeed(<span class="hljs-number">1</span>);
+
+<span class="hljs-regexp">//</span> 用户<span class="hljs-number">1</span>关注了用户<span class="hljs-number">2</span>.
+twitter.follow(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);
+
+<span class="hljs-regexp">//</span> 用户<span class="hljs-number">2</span>发送了一个新推文 (推文id = <span class="hljs-number">6</span>).
+twitter.postTweet(<span class="hljs-number">2</span>, <span class="hljs-number">6</span>);
+
+<span class="hljs-regexp">//</span> 用户<span class="hljs-number">1</span>的获取推文应当返回一个列表，其中包含两个推文，id分别为 -&gt; [<span class="hljs-number">6</span>, <span class="hljs-number">5</span>].
+<span class="hljs-regexp">//</span> 推文id6应当在推文id5之前，因为它是在<span class="hljs-number">5</span>之后发送的.
+twitter.getNewsFeed(<span class="hljs-number">1</span>);
+
+<span class="hljs-regexp">//</span> 用户<span class="hljs-number">1</span>取消关注了用户<span class="hljs-number">2</span>.
+twitter.unfollow(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);
+
+<span class="hljs-regexp">//</span> 用户<span class="hljs-number">1</span>的获取推文应当返回一个列表，其中包含一个id为<span class="hljs-number">5</span>的推文.
+<span class="hljs-regexp">//</span> 因为用户<span class="hljs-number">1</span>已经不再关注用户<span class="hljs-number">2</span>.
+twitter.getNewsFeed(<span class="hljs-number">1</span>);</code></pre></div>
+
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先，我写了一个多小时写出来，但是超时了，很尴尬~</p>
+<p>还是留下我的解题思路。</p>
+<p>根据题目要求，我们知道要保存每一条推文及其发布者，定义了一个 <code>vector&lt;pair&lt;int, int&gt;&gt;</code> 类型的数组 <code>tweets</code> 用于存储成对的 <code>userID</code> 和 <code>tweetID</code>，并且题目要求检索最近的10条推文，所以发布的时候我们就顺序存储每一条推文，这样避免了每次检索都要对推文进行排序；另外还需要对应每一个用户要存储该用户所关注的用户，考虑每一个用户关注的用户ID都是唯一的，所以我选择用集合来存储每一个用户关注的用户，定义了一个 <code>vector&lt;pair&lt;int, set&lt;int&gt;&gt;&gt;</code> 类型的数组 <code>users</code> ，存储所有用户的用户ID及其对应的关注的用户的集合。</p>
+<h4 id="（1）发推"><a href="#（1）发推" class="headerlink" title="（1）发推"></a>（1）发推</h4><p>首先直接将需要发布的推文及其发布者加入到 <code>tweets</code> 的末尾，然后判断发布该推文的用户是否已存在与用户数组 <code>users</code> ，如果已存在则不做处理，否则将该用户加入到用户数组。</p>
+<h4 id="（2）检索最近10条推文"><a href="#（2）检索最近10条推文" class="headerlink" title="（2）检索最近10条推文"></a>（2）检索最近10条推文</h4><p>判断传入的用户ID是否存在，若不存在该ID的用户，则直接返回空数组。</p>
+<p>否则从后往前遍历推文数组 <code>tweets</code> ，定义一个整型 <code>count</code> 用于计数已找到的符合要求的推文数量，遍历结束的条件即已检索到的推文数量 <code>count</code> 达到10条或者已遍历完整个推文数组。对遍历到的每一个推文，判断其对应的发布者ID是否就是要检索的用户ID或者该用户所关注的某个用户的ID，若是，将该推文加入返回数组，<code>count++</code> ，否则继续遍历。</p>
+<h4 id="（3）关注"><a href="#（3）关注" class="headerlink" title="（3）关注"></a>（3）关注</h4><p>遍历用户数组查找该用户，如果找到，则将其要关注的用户加入到关注的用户集合种；否则先将该用户加入到用户数组，再将要关注的用户ID加入到关注的用户集合。</p>
+<h4 id="（4）取关"><a href="#（4）取关" class="headerlink" title="（4）取关"></a>（4）取关</h4><p>遍历用户数组查找该用户，若找到，则将要取关的用户从关注的用户集合中删除，同时结束函数。</p>
+<h4 id="优化"><a href="#优化" class="headerlink" title="# 优化"></a># 优化</h4><p>优化这部分是后面改过的，虽然还是很耗时并且内存消耗也大，不过好歹通过了。</p>
+<ul>
+<li>执行用时 :1648 ms, 在所有 C++ 提交中击败了5.15%的用户</li>
+<li>内存消耗 :189.6 MB, 在所有 C++ 提交中击败了16.67%的用户</li>
+</ul>
+<p>其实就是最开始的代码在索引的那一部分，我首先遍历了一次用户数组判断该用户是否存在，如果不存在，函数直接结束了那倒没什么影响。但如果存在的话，后续对每一条推文，我都还要再遍历一次去找这个用户，如果遍历了 n 条推文，那么就会做 <code>n + 1</code> 次完全重复的遍历查找，显然这是没有必要的。</p>
+<p>所有我将判断该用户是否存在的标志改为了整型 <code> index</code> 并初始化为 <code>-1</code> ，即表示该用户不存在，如果找到了该用户，则将 <code>index</code> 修改为该用户在用户数组中的位置，后续就不再需要遍历用户数组去查找该用户了。</p>
+<p>我将优化部分的代码放到了👇🏻最后面👇🏻</p>
+<h3 id="代码（超时）"><a href="#代码（超时）" class="headerlink" title="代码（超时）"></a>代码（超时）</h3><h4 id="原始代码（未优化）"><a href="#原始代码（未优化）" class="headerlink" title="原始代码（未优化）"></a>原始代码（未优化）</h4><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Twitter</span> &#123;
+    vector&lt;pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt;&gt; tweets;<span class="hljs-comment">//所有推文</span>
+    vector&lt;pair&lt;<span class="hljs-type">int</span>, set&lt;<span class="hljs-type">int</span>&gt;&gt;&gt; users;<span class="hljs-comment">//所有用户及其关注的用户</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-comment">/** Initialize your data structure here. */</span>
+    <span class="hljs-built_in">Twitter</span>() &#123;
+
+    &#125;
+
+    <span class="hljs-comment">/** Compose a new tweet. */</span>
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">postTweet</span><span class="hljs-params">(<span class="hljs-type">int</span> userId, <span class="hljs-type">int</span> tweetId)</span> </span>&#123;
+        <span class="hljs-comment">//加入推文数组</span>
+        tweets.<span class="hljs-built_in">push_back</span>(&#123; userId,tweetId &#125;);
+        <span class="hljs-comment">//判断该用户是否存在</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> user : users) &#123;
+            <span class="hljs-keyword">if</span> (user.first == userId) &#123;
+                <span class="hljs-keyword">return</span>;<span class="hljs-comment">//如果用户存在，函数将在这里结束</span>
+            &#125;
+        &#125;
+        <span class="hljs-comment">//函数执行到这里说明用户不存在，将用户加入到用户列表</span>
+        users.<span class="hljs-built_in">push_back</span>(&#123; userId,&#123;&#125; &#125;);
+    &#125;
+
+    <span class="hljs-comment">/** Retrieve the 10 most recent tweet ids in the user&#x27;s news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */</span>
+    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">getNewsFeed</span><span class="hljs-params">(<span class="hljs-type">int</span> userId)</span> </span>&#123;
+        vector&lt;<span class="hljs-type">int</span>&gt; ans;
+        <span class="hljs-comment">//判断是否存在该id的用户</span>
+        <span class="hljs-type">bool</span> exist = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> user : users) &#123;
+            <span class="hljs-keyword">if</span> (userId == user.first) &#123;
+                exist = <span class="hljs-literal">true</span>;
+                <span class="hljs-keyword">break</span>;
+            &#125;
+        &#125;
+        <span class="hljs-comment">//不存在直接返回空数组</span>
+        <span class="hljs-keyword">if</span> (exist == <span class="hljs-literal">false</span>) &#123;
+            <span class="hljs-keyword">return</span> ans;
+        &#125;
+        <span class="hljs-type">int</span> amount = tweets.<span class="hljs-built_in">size</span>();
+        <span class="hljs-type">int</span> count = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; count &lt; <span class="hljs-number">10</span> &amp;&amp; i &lt; tweets.<span class="hljs-built_in">size</span>(); i++) &#123;
+            <span class="hljs-keyword">if</span> (tweets[amount - i - <span class="hljs-number">1</span>].first == userId || <span class="hljs-built_in">isFollowing</span>(userId, tweets[amount - i - <span class="hljs-number">1</span>].first)) &#123;
+                ans.<span class="hljs-built_in">push_back</span>(tweets[amount - i - <span class="hljs-number">1</span>].second);
+                count++;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+
+    <span class="hljs-comment">// id1是否关注了id2</span>
+    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">isFollowing</span><span class="hljs-params">(<span class="hljs-type">int</span> id1, <span class="hljs-type">int</span> id2)</span> </span>&#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; users.<span class="hljs-built_in">size</span>(); i++) &#123;
+            <span class="hljs-keyword">if</span> (users[i].first == id1 &amp;&amp; users[i].second.<span class="hljs-built_in">find</span>(id2) != users[i].second.<span class="hljs-built_in">end</span>()) &#123;
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    &#125;
+
+    <span class="hljs-comment">/** Follower follows a followee. If the operation is invalid, it should be a no-op. */</span>
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">follow</span><span class="hljs-params">(<span class="hljs-type">int</span> followerId, <span class="hljs-type">int</span> followeeId)</span> </span>&#123;
+        <span class="hljs-type">bool</span> exist = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; users.<span class="hljs-built_in">size</span>(); i++) &#123;
+            <span class="hljs-keyword">if</span> (followerId == users[i].first) &#123;
+                exist = <span class="hljs-literal">true</span>;
+                users[i].second.<span class="hljs-built_in">insert</span>(followeeId);
+                <span class="hljs-keyword">return</span>;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">if</span> (exist == <span class="hljs-literal">false</span>) &#123;
+            users.<span class="hljs-built_in">push_back</span>(&#123; followerId,&#123;&#125; &#125;);
+            users[users.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>].second.<span class="hljs-built_in">insert</span>(followeeId);
+        &#125;
+    &#125;
+
+    <span class="hljs-comment">/** Follower unfollows a followee. If the operation is invalid, it should be a no-op. */</span>
+    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">unfollow</span><span class="hljs-params">(<span class="hljs-type">int</span> followerId, <span class="hljs-type">int</span> followeeId)</span> </span>&#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; users.<span class="hljs-built_in">size</span>(); i++) &#123;
+            <span class="hljs-keyword">if</span> (followerId == users[i].first) &#123;
+                users[i].second.<span class="hljs-built_in">erase</span>(followeeId);
+                <span class="hljs-keyword">return</span>;
+            &#125;
+        &#125;
+    &#125;
+&#125;;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * Your Twitter object will be instantiated and called as such:</span>
+<span class="hljs-comment"> * Twitter* obj = new Twitter();</span>
+<span class="hljs-comment"> * obj-&gt;postTweet(userId,tweetId);</span>
+<span class="hljs-comment"> * vector&lt;int&gt; param_2 = obj-&gt;getNewsFeed(userId);</span>
+<span class="hljs-comment"> * obj-&gt;follow(followerId,followeeId);</span>
+<span class="hljs-comment"> * obj-&gt;unfollow(followerId,followeeId);</span>
+<span class="hljs-comment"> */</span></code></pre></div>
+
+<h4 id="优化部分"><a href="#优化部分" class="headerlink" title="优化部分"></a>优化部分</h4><p>对函数 <code>getNewsFeed(int userId)</code> 进行了修改，并删除了函数 <code>isFollowing(int id1, int id2)</code>。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">/** Retrieve the 10 most recent tweet ids in the user&#x27;s news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */</span>
+<span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">getNewsFeed</span><span class="hljs-params">(<span class="hljs-type">int</span> userId)</span> </span>&#123;
+    vector&lt;<span class="hljs-type">int</span>&gt; ans;
+    <span class="hljs-comment">//判断是否存在该id的用户</span>
+    <span class="hljs-type">bool</span> exist = <span class="hljs-literal">false</span>;
+    <span class="hljs-type">int</span> index = <span class="hljs-number">-1</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; users.<span class="hljs-built_in">size</span>(); i++) &#123;
+        <span class="hljs-keyword">if</span> (userId == users[i].first) &#123;
+            index = i;
+            <span class="hljs-keyword">break</span>;
+        &#125;
+    &#125;
+    <span class="hljs-comment">//不存在直接返回空数组</span>
+    <span class="hljs-keyword">if</span> (index == <span class="hljs-number">-1</span>) &#123;
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+    <span class="hljs-type">int</span> amount = tweets.<span class="hljs-built_in">size</span>();
+    <span class="hljs-type">int</span> count = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; count &lt; <span class="hljs-number">10</span> &amp;&amp; i &lt; tweets.<span class="hljs-built_in">size</span>(); i++) &#123;
+        <span class="hljs-type">int</span> cur = tweets[amount - i - <span class="hljs-number">1</span>].first;
+        <span class="hljs-keyword">if</span> (cur == userId || users[index].second.<span class="hljs-built_in">find</span>(cur) != users[index].second.<span class="hljs-built_in">end</span>()) &#123;
+            ans.<span class="hljs-built_in">push_back</span>(tweets[amount - i - <span class="hljs-number">1</span>].second);
+            count++;
+        &#125;
+    &#125;
+    <span class="hljs-keyword">return</span> ans;
+&#125;</code></pre></div>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Leetcode/">Leetcode</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020041557008/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">2020.04.15 美团点评一面【前端】</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020041016643/">
+                        <span class="hidden-mobile">Leetcode 151.翻转字符串里的单词【C++】</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP备2021034122号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

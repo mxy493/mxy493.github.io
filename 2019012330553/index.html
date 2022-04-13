@@ -1,0 +1,753 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/MHT1.0.webp">
+  <link rel="icon" href="/img/MHT1.0.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mxy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="YAML Ain’t Markup Language 基本语法规则 大小写敏感 使用缩进表示层级关系 缩进时不允许使用Tab键，只允许使用空格 缩进的空格数目不重要，只要相同层级的元素左侧对齐即可 #表示注释，从这个字符一直到行尾，都会被解析器忽略">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YAML语法简记">
+<meta property="og:url" content="https://mxy493.xyz/2019012330553/index.html">
+<meta property="og:site_name" content="跑起来有风">
+<meta property="og:description" content="YAML Ain’t Markup Language 基本语法规则 大小写敏感 使用缩进表示层级关系 缩进时不允许使用Tab键，只允许使用空格 缩进的空格数目不重要，只要相同层级的元素左侧对齐即可 #表示注释，从这个字符一直到行尾，都会被解析器忽略">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-01-23T02:35:48.000Z">
+<meta property="article:modified_time" content="2022-03-23T12:34:11.264Z">
+<meta property="article:author" content="mxy">
+<meta property="article:tag" content="YAML">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>YAML语法简记 - 跑起来有风</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>跑起来有风</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/xqmy.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="YAML语法简记">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-01-23 10:35" pubdate>
+        2019年1月23日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.1k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      10 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">YAML语法简记</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年3月23日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>YAML Ain’t Markup Language</p>
+<h3 id="基本语法规则"><a href="#基本语法规则" class="headerlink" title="基本语法规则"></a>基本语法规则</h3><ul>
+<li>大小写敏感</li>
+<li>使用缩进表示层级关系</li>
+<li>缩进时不允许使用Tab键，只允许使用空格</li>
+<li>缩进的空格数目不重要，只要相同层级的元素左侧对齐即可</li>
+<li>#表示注释，从这个字符一直到行尾，都会被解析器忽略</li>
+</ul>
+<span id="more"></span>
+
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><p>YAML uses three dashes (“—”) to separate directives from document content. This also serves to signal the start of a document. if no directives are present. Three dots ( “…”) indicate the end of a document without starting a new one, for use in communication channels.</p>
+<p>YAML以（“—”）表示文章的开始，以（“…”）表示结束（不代表新的文章的开始）。</p>
+<p>Structure通过空格来展示。Sequence里的项用”-“来代表，Map里的键值对用”:”分隔。</p>
+<p>一般YAML文件扩展名为.yaml。比如：John.yaml</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">John</span> <span class="hljs-string">Smith</span>
+<span class="hljs-attr">age:</span> <span class="hljs-number">37</span>
+<span class="hljs-attr">spouse:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">Jane</span> <span class="hljs-string">Smith</span>
+  <span class="hljs-attr">age:</span> <span class="hljs-number">25</span>
+<span class="hljs-attr">children:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Jimmy</span> <span class="hljs-string">Smith</span>
+    <span class="hljs-attr">age:</span> <span class="hljs-number">15</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Jenny</span> <span class="hljs-string">Smith</span>
+    <span class="hljs-attr">age:</span> <span class="hljs-number">12</span></code></pre></div>
+
+<p>John Smith今年37岁，有一个幸福的四口之家。两个孩子Jimmy 和Jenny活泼可爱。妻子Jane年轻美貌。</p>
+<p>可见YAML的可读性是不错。</p>
+<p><strong>列表</strong>中的所有成员都开始于相同的缩进级别, 并且使用一个 <code>&quot;- &quot;</code> 作为开头(一个横杠和一个空格):</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<span class="hljs-comment"># 一个美味水果的列表</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">Apple</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">Orange</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">Strawberry</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">Mango</span></code></pre></div>
+
+<p>一个<strong>字典</strong>是由一个简单的 <code>键: 值</code> 的形式组成(这个冒号后面必须是一个空格)：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<span class="hljs-comment"># 一位职工的记录</span>
+<span class="hljs-attr">name:</span> <span class="hljs-string">Example</span> <span class="hljs-string">Developer</span>
+<span class="hljs-attr">job:</span> <span class="hljs-string">Developer</span>
+<span class="hljs-attr">skill:</span> <span class="hljs-string">Elite</span></code></pre></div>
+
+<p>字典也可以使用缩进形式来表示, 如果你喜欢这样的话：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<span class="hljs-comment"># 一位职工的记录</span>
+&#123;<span class="hljs-attr">name:</span> <span class="hljs-string">Example</span> <span class="hljs-string">Developer</span>, <span class="hljs-attr">job:</span> <span class="hljs-string">Developer</span>, <span class="hljs-attr">skill:</span> <span class="hljs-string">Elite</span>&#125;</code></pre></div>
+
+<p>可以通过以下格式来指定一个<strong>布尔值</strong>(true/fase)：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">create_key:</span> <span class="hljs-literal">yes</span>
+<span class="hljs-attr">needs_agent:</span> <span class="hljs-literal">no</span>
+<span class="hljs-attr">knows_oop:</span> <span class="hljs-literal">True</span>
+<span class="hljs-attr">likes_emacs:</span> <span class="hljs-literal">TRUE</span>
+<span class="hljs-attr">uses_cvs:</span> <span class="hljs-literal">false</span></code></pre></div>
+
+<p>综合以上信息：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<span class="hljs-comment"># 一位职工记录</span>
+<span class="hljs-attr">name:</span> <span class="hljs-string">Example</span> <span class="hljs-string">Developer</span>
+<span class="hljs-attr">job:</span> <span class="hljs-string">Developer</span>
+<span class="hljs-attr">skill:</span> <span class="hljs-string">Elite</span>
+<span class="hljs-attr">employed:</span> <span class="hljs-literal">True</span>
+<span class="hljs-attr">foods:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">Apple</span>    <span class="hljs-comment">#缩进只能用空格不能用Tab</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">Orange</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">Strawberry</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">Mango</span>
+<span class="hljs-attr">languages:</span>
+    <span class="hljs-attr">ruby:</span> <span class="hljs-string">Elite</span>
+    <span class="hljs-attr">python:</span> <span class="hljs-string">Elite</span>
+    <span class="hljs-attr">dotnet:</span> <span class="hljs-string">Lame</span></code></pre></div>
+
+<p>尽管 YAML 通常是友好的, 但是下面将会导致一个 YAML 语法错误:</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">foo: somebody said I should put a colon here:</span> <span class="hljs-string">so</span> <span class="hljs-string">I</span> <span class="hljs-string">did</span></code></pre></div>
+
+<p>你需要使用引号来包裹任何包含冒号的哈希值, 像这样:</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">foo:</span> <span class="hljs-string">&quot;somebody said I should put a colon here: so I did&quot;</span></code></pre></div>
+
+<p>然后这个冒号将会被结尾.</p>
+<p>此外, Ansible 使用 “” 来引用变量. 如果一个值以 “{” 开头, YAML 将认为它是一个字典, 所以我们必须引用它, 像这样:</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">foo:</span> <span class="hljs-string">&quot;<span class="hljs-template-variable">&#123;&#123; variable &#125;&#125;</span>&quot;</span></code></pre></div>
+
+<h3 id="三种数据结构"><a href="#三种数据结构" class="headerlink" title="三种数据结构"></a>三种数据结构</h3><ol>
+<li>对象：键值对的集合，又称为映射（mapping）/ 哈希（hashes） / 字典（dictionary）</li>
+<li>数组：一组按次序排列的值，又称为序列（sequence） / 列表（list）</li>
+<li>纯量（scalars）：单个的、不可再分的值</li>
+</ol>
+<h4 id="1-对象"><a href="#1-对象" class="headerlink" title="1. 对象"></a>1. 对象</h4><p>对象的一组键值对，使用冒号结构表示</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">animal:</span> <span class="hljs-string">pets</span></code></pre></div>
+
+<p> Yaml 也允许另一种写法，将所有键值对写成一个行内对象</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">hash:</span> &#123; <span class="hljs-attr">name:</span> <span class="hljs-string">Steve</span>, <span class="hljs-attr">foo:</span> <span class="hljs-string">bar</span> &#125;</code></pre></div>
+
+<h4 id="2-数组"><a href="#2-数组" class="headerlink" title="2.数组"></a>2.数组</h4><p>一组连词线开头的行，构成一个数组</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-string">Cat</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">Dog</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">Goldfish</span></code></pre></div>
+
+<p>数据结构的子成员是一个数组，则可以在该项下面缩进一个空格。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> 
+ <span class="hljs-bullet">-</span> <span class="hljs-string">Cat</span>
+ <span class="hljs-bullet">-</span> <span class="hljs-string">Dog</span>
+ <span class="hljs-bullet">-</span> <span class="hljs-string">Goldfish</span></code></pre></div>
+
+
+<p> 数组也可以采用行内表示法。</p>
+<p>animal: [Cat, Dog]</p>
+<h4 id="3-复合结构"><a href="#3-复合结构" class="headerlink" title="3. 复合结构"></a>3. 复合结构</h4><p>对象和数组可以结合使用，形成复合结构。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">languages:</span>   <span class="hljs-comment">#数组</span>
+   <span class="hljs-bullet">-</span> <span class="hljs-string">Ruby</span>
+   <span class="hljs-bullet">-</span> <span class="hljs-string">Perl</span>
+   <span class="hljs-bullet">-</span> <span class="hljs-string">Python</span>
+ <span class="hljs-attr">websites:</span>   <span class="hljs-comment">#对象</span>
+   <span class="hljs-attr">YAML:</span> <span class="hljs-string">yaml.org</span>
+   <span class="hljs-attr">Ruby:</span> <span class="hljs-string">ruby-lang.org</span>
+   <span class="hljs-attr">Python:</span> <span class="hljs-string">python.org</span>
+   <span class="hljs-attr">Perl:</span> <span class="hljs-string">use.perl.org</span></code></pre></div>
+
+<h4 id="4-纯量"><a href="#4-纯量" class="headerlink" title="4. 纯量"></a>4. 纯量</h4><p>纯量是最基本的、不可再分的值。</p>
+<ul>
+<li>字符串</li>
+<li>布尔值</li>
+<li>整数</li>
+<li>浮点数</li>
+<li>Null</li>
+<li>时间</li>
+<li>日期</li>
+</ul>
+<p>数值直接以字面量的形式表示。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">number:</span> <span class="hljs-number">12.30</span></code></pre></div>
+
+<p>{ number: 12.30 }<br> 布尔值用true和false表示。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">isSet:</span> <span class="hljs-literal">true</span></code></pre></div>
+
+
+<p> null用~表示。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">parent:</span> <span class="hljs-string">~</span></code></pre></div>
+
+<p> 时间采用 ISO8601 格式。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">iso8601:</span> <span class="hljs-number">2001-12-14t21:59:43.10-05:00</span></code></pre></div>
+
+<p>日期采用复合 iso8601 格式的年、月、日表示。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">date:</span> <span class="hljs-number">1976-07-31</span></code></pre></div>
+
+<p>YAML 允许使用两个感叹号，强制转换数据类型。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">e:</span> <span class="hljs-type">!!str</span> <span class="hljs-number">123</span>
+<span class="hljs-attr">f:</span> <span class="hljs-type">!!str</span> <span class="hljs-literal">true</span></code></pre></div>
+
+<h4 id="5-字符串"><a href="#5-字符串" class="headerlink" title="5. 字符串"></a>5. 字符串</h4><p>字符串是最常见，也是最复杂的一种数据类型。</p>
+<p>字符串默认不使用引号表示。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">这是一行字符串</span></code></pre></div>
+
+<p>如果字符串之中包含空格或特殊字符，需要放在引号之中。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">&#x27;内容：字符串&#x27;</span></code></pre></div>
+
+<p>单引号和双引号都可以使用，双引号不会对特殊字符转义。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">s1:</span> <span class="hljs-string">&#x27;内容\n字符串&#x27;</span>
+<span class="hljs-attr">s2:</span> <span class="hljs-string">&quot;内容\n字符串&quot;</span></code></pre></div>
+
+<p>单引号之中如果还有单引号，必须连续使用两个单引号转义。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">&#x27;labor&#x27;</span><span class="hljs-string">&#x27;s day&#x27;</span></code></pre></div>
+
+<p>字符串可以写成多行，从第二行开始，必须有一个单空格缩进。换行符会被转为空格。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">这是一段</span>
+<span class="hljs-string">多行</span>
+<span class="hljs-string">字符串</span></code></pre></div>
+
+<p>多行字符串可以使用|保留换行符，也可以使用&gt;折叠换行。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">this:</span> <span class="hljs-string">|</span>
+<span class="hljs-string">  Foo</span>
+<span class="hljs-string">  Bar</span>
+<span class="hljs-string"></span><span class="hljs-attr">that:</span> <span class="hljs-string">&gt;</span>
+<span class="hljs-string">  Foo</span>
+<span class="hljs-string">  Bar</span></code></pre></div>
+
+<p> +表示保留文字块末尾的换行，-表示删除字符串末尾的换行。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">s1:</span> <span class="hljs-string">|</span>
+<span class="hljs-string">  Foo</span>
+<span class="hljs-string"></span><span class="hljs-attr">s2:</span> <span class="hljs-string">|+</span>
+<span class="hljs-string">  Foo</span>
+<span class="hljs-string"></span><span class="hljs-attr">s3:</span> <span class="hljs-string">|-</span>
+  <span class="hljs-string">Foo</span></code></pre></div>
+
+<p>字符串之中可以插入 HTML 标记。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">message:</span> <span class="hljs-string">|</span>
+<span class="hljs-string">&lt;p</span> <span class="hljs-string">style=&quot;color:</span> <span class="hljs-string">red&quot;&gt;</span>
+<span class="hljs-string">段落</span>
+<span class="hljs-string">&lt;/p&gt;</span></code></pre></div>
+
+<h4 id="6-引用"><a href="#6-引用" class="headerlink" title="6. 引用"></a>6. 引用</h4><p>锚点&amp;和别名*，可以用来引用。</p>
+<p>&amp;用来建立锚点（defaults），&lt;&lt;表示合并到当前数据，*用来引用锚点。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">defaults:</span> <span class="hljs-string">&amp;defaults</span>   <span class="hljs-comment">#建立锚点&amp;defaults</span>
+  <span class="hljs-attr">adapter:</span> <span class="hljs-string">postgres</span>
+  <span class="hljs-attr">host:</span> <span class="hljs-string">localhost</span>
+
+<span class="hljs-attr">development:</span>
+  <span class="hljs-attr">database:</span> <span class="hljs-string">myapp_development</span>
+  <span class="hljs-string">&lt;&lt;:</span> <span class="hljs-string">*defaults</span>    <span class="hljs-comment">#引用锚点</span>
+
+<span class="hljs-attr">test:</span>
+  <span class="hljs-attr">database:</span> <span class="hljs-string">myapp_test</span>
+  <span class="hljs-string">&lt;&lt;:</span> <span class="hljs-string">*defaults</span>    <span class="hljs-comment">#引用锚点</span></code></pre></div>
+
+<p> 等同于下面的代码。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">defaults:</span>
+  <span class="hljs-attr">adapter:</span> <span class="hljs-string">postgres</span>
+  <span class="hljs-attr">host:</span> <span class="hljs-string">localhost</span>
+
+<span class="hljs-attr">development:</span>
+  <span class="hljs-attr">database:</span> <span class="hljs-string">myapp_development</span>
+  <span class="hljs-attr">adapter:</span> <span class="hljs-string">postgres</span>
+  <span class="hljs-attr">host:</span> <span class="hljs-string">localhost</span>
+
+<span class="hljs-attr">test:</span>
+  <span class="hljs-attr">database:</span> <span class="hljs-string">myapp_test</span>
+  <span class="hljs-attr">adapter:</span> <span class="hljs-string">postgres</span>
+  <span class="hljs-attr">host:</span> <span class="hljs-string">localhost</span></code></pre></div>
+
+<p> 下面是另一个例子。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-string">&amp;showell</span> <span class="hljs-string">Steve</span>  <span class="hljs-comment">#建立showell锚点</span>
+<span class="hljs-string">Clark</span>
+<span class="hljs-string">Brian</span>
+<span class="hljs-string">Oren</span>
+<span class="hljs-string">*showell</span>   <span class="hljs-comment">#引用锚点showell，即Steve</span></code></pre></div>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/YAML/">YAML</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019012413367/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Leetcode 两个数组的交集 II</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019012229459/">
+                        <span class="hidden-mobile">Leetcode 只出现一次的数字</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP备2021034122号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

@@ -1,0 +1,606 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/MHT1.0.webp">
+  <link rel="icon" href="/img/MHT1.0.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mxy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;maximum-nesting-depth-of-two-valid-parentheses-strings&#x2F;  题目有效括号字符串 定义：对于每个左括号，都能找到与之对应的右括号，反之亦然。详情参见题末「有效括号字符串」部分。 嵌套深度 depth 定义：即有效括号字符串嵌套的层数。详情参见题末「嵌套深度」部分。 给你一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode 1111.有效括号的嵌套深度【C++】">
+<meta property="og:url" content="https://mxy493.xyz/2020040125540/index.html">
+<meta property="og:site_name" content="跑起来有风">
+<meta property="og:description" content="地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;maximum-nesting-depth-of-two-valid-parentheses-strings&#x2F;  题目有效括号字符串 定义：对于每个左括号，都能找到与之对应的右括号，反之亦然。详情参见题末「有效括号字符串」部分。 嵌套深度 depth 定义：即有效括号字符串嵌套的层数。详情参见题末「嵌套深度」部分。 给你一个">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-01T04:54:58.000Z">
+<meta property="article:modified_time" content="2022-03-23T12:34:11.076Z">
+<meta property="article:author" content="mxy">
+<meta property="article:tag" content="Leetcode">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>Leetcode 1111.有效括号的嵌套深度【C++】 - 跑起来有风</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>跑起来有风</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/xqmy.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Leetcode 1111.有效括号的嵌套深度【C++】">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-04-01 12:54" pubdate>
+        2020年4月1日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.3k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      8 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Leetcode 1111.有效括号的嵌套深度【C++】</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年3月23日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <blockquote>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/">https://leetcode-cn.com/problems/maximum-nesting-depth-of-two-valid-parentheses-strings/</a></p>
+</blockquote>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p><strong>有效括号字符串</strong> 定义：对于每个左括号，都能找到与之对应的右括号，反之亦然。详情参见题末「<strong>有效括号字符串</strong>」部分。</p>
+<p><strong>嵌套深度</strong> <code>depth</code> 定义：即有效括号字符串嵌套的层数。详情参见题末「<strong>嵌套深度</strong>」部分。</p>
+<p>给你一个「有效括号字符串」 <code>seq</code>，请你将其分成两个不相交的子序列 <code>A</code> 和 <code>B</code>，且 <code>A</code> 和 <code>B</code> 都满足有效括号字符串的定义（注意：<code>A.length + B.length = seq.length</code>）。</p>
+<p>由于可能存在多种划分方案，请你从中选出 任意 这样的 <code>A</code> 和 <code>B</code>，使 <code>max(depth(A), depth(B))</code> 的可能取值最小。其中 <code>depth(A)</code> 表示 <code>A</code> 的嵌套深度，<code>depth(B)</code> 表示 <code>B</code> 的嵌套深度。</p>
+<p>请你返回一个长度为 <code>seq.length</code> 的答案数组 <code>answer</code>，编码规则如下：如果 <code>seq[i]</code> 是 <code>A</code> 的一部分，那么 <code>answer[i] = 0</code>。否则，<code>answer[i] = 1</code>。即便有多个满足要求的答案存在，你也只需返回 一个。 </p>
+<p><strong>示例 1：</strong></p>
+<div class="hljs code-wrapper"><pre><code class="hljs bash">输入：<span class="hljs-built_in">seq</span> = <span class="hljs-string">&quot;(()())&quot;</span>
+输出：[0,1,1,1,1,0]</code></pre></div>
+
+<p><strong>示例 2：</strong></p>
+<div class="hljs code-wrapper"><pre><code class="hljs bash">输入：<span class="hljs-built_in">seq</span> = <span class="hljs-string">&quot;()(())()&quot;</span>
+输出：[0,0,0,1,1,0,1,1]</code></pre></div>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= text.size &lt;= 10000</code></li>
+</ul>
+<p><strong>有效括号字符串：</strong></p>
+<p>仅由 <code>&quot;(&quot;</code> 和 <code>&quot;)&quot;</code> 构成的字符串，对于每个左括号，都能找到与之对应的右括号，反之亦然。</p>
+<p>下述几种情况同样属于有效括号字符串：</p>
+<ul>
+<li>空字符串</li>
+<li>连接，可以记作 <code>AB</code>（<code>A</code> 与 <code>B</code> 连接），其中 <code>A</code> 和 <code>B</code> 都是有效括号字符串</li>
+<li>嵌套，可以记作 <code>(A)</code>，其中 <code>A</code> 是有效括号字符串</li>
+</ul>
+<p><strong>嵌套深度：</strong></p>
+<p>类似地，我们可以定义任意有效括号字符串 <code>s</code> 的 嵌套深度 <code>depth(S)</code>：</p>
+<ul>
+<li><code>s</code> 为空时，<code>depth(&quot;&quot;) = 0</code></li>
+<li><code>s</code> 为 <code>A</code> 与 <code>B</code> 连接时，<code>depth(A + B) = max(depth(A), depth(B))</code>，其中 <code>A</code> 和 <code>B</code> 都是有效括号字符串</li>
+<li><code>s</code> 为嵌套情况，<code>depth(&quot;(&quot; + A + &quot;)&quot;) = 1 + depth(A)</code>，其中 <code>A</code> 是有效括号字符串</li>
+</ul>
+<p>例如：<code>&quot;&quot;</code>，<code>&quot;()()&quot;</code>，和 <code>&quot;()(()())&quot;</code> 都是有效括号字符串，嵌套深度分别为 0，1，2，而 <code>&quot;)(&quot;</code> 和 <code>&quot;(()&quot;</code> 都不是有效括号字符串。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>括号匹配的问题初学C++的时候就有做过，用栈可以很方便的匹配两两配对的括号，用数组模拟栈也很容易。</p>
+<p>不过这个题并不是让自己配对括号，题目已经说明传入的参数字符串 <code>seq</code> 已经是<strong>有效括号字符串</strong>，所以不用担心括号不配对或者存在其它字符的问题，字符串要么为空，要么就是已配对的并且只存在左右括号的字符串。</p>
+<p>不管怎么分为两个字符串，它们各自的深度加起来一定是等于原字符串 <code>seq</code> 的深度的，同时最终的结果要取 <code>max(depth(A), depth(B))</code> 的最小可能取值，显然需要将 <code>depth(A)</code> ， <code>depth(B)</code> 应该均匀的分配。也就说如果原字符串的深度为 4，那么应该满足 <code>depth(A) = depth(B) = 2</code> ，如果原字符串的深度为 5，那么要么 <code>depth(A) = 3</code> ， <code>depth(B) = 2</code> ，要么 <code>depth(A) = 2</code> ， <code>depth(B) = 3</code> 。只要搞懂了这一点就很容易了。</p>
+<p>根据题目要求返回的是一个和 <code>seq</code> 长度相等的 <code>vector&lt;int&gt;</code> 数组，所以可以直接定义这样一个数组并将其长度初始化为 <code>seq.size()</code> 。 <code>seq</code> 可能为空，为空可直接返回空数组。</p>
+<p>分别定义 <code>maxDepth</code> 记录原字符串 <code>seq</code> 的最大深度，<code>depth</code> 记录 <code>seq</code> 中每一个括号的深度，遍历字符串 <code>seq</code> 对应记录每一个括号的深度到数组 <code>ans</code> 中。</p>
+<p>虽然分组的方法不止一个，但是显然可以把内层的括号分为一组，外层的括号分为一组，这样就可以很容易得到两个深度相等或者深度相差1的有效括号字符串。只需要遍历上述记录了每一个括号深度的数组 <code>ans</code> ，将深度小于等于 <code>(maxDepth + 1) / 2</code> 的置为 <code>0</code> （或者 <code>1</code>），其余的置为 <code>1</code> （或者 <code>0</code>）即可。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="hljs code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">maxDepthAfterSplit</span><span class="hljs-params">(string seq)</span> </span>&#123;
+        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">ans</span><span class="hljs-params">(seq.size())</span></span>;
+        <span class="hljs-keyword">if</span> (seq.<span class="hljs-built_in">empty</span>())
+            <span class="hljs-keyword">return</span> ans;
+        <span class="hljs-type">int</span> maxDepth = <span class="hljs-number">0</span>;<span class="hljs-comment">//最大深度</span>
+        <span class="hljs-type">int</span> depth = <span class="hljs-number">0</span>;<span class="hljs-comment">//用于记录每一个括号的深度</span>
+        <span class="hljs-comment">//记录每一个括号的深度</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; seq.<span class="hljs-built_in">size</span>(); i++) &#123;
+            <span class="hljs-keyword">if</span> (seq[i] == <span class="hljs-string">&#x27;(&#x27;</span>) &#123;
+                depth++;
+                maxDepth = maxDepth &gt; depth ? maxDepth : depth;
+                ans[i] = depth;
+            &#125;
+            <span class="hljs-keyword">if</span> (seq[i] == <span class="hljs-string">&#x27;)&#x27;</span>) &#123;
+                ans[i] = depth;
+                depth--;
+            &#125;
+        &#125;
+        <span class="hljs-comment">//max(depth(A), depth(B))一定是maxDepth的一半取上整</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; ans.<span class="hljs-built_in">size</span>(); i++) &#123;
+            ans[i] = ans[i] &lt;= (maxDepth + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span> ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>;
+        &#125;
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+&#125;;</code></pre></div>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Leetcode/">Leetcode</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020040229380/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">4.2 美团点评笔试记录</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020033021384/">
+                        <span class="hidden-mobile">Leetcode 面试题62.圆圈中最后剩下的数字【C++】</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP备2021034122号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

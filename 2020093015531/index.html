@@ -1,0 +1,600 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/MHT1.0.webp">
+  <link rel="icon" href="/img/MHT1.0.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mxy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="简述QGridLayout 官方文档：https:&#x2F;&#x2F;doc.qt.io&#x2F;qtforpython&#x2F;PySide2&#x2F;QtWidgets&#x2F;QGridLayout.html 最近在使用 Qt for Python 开发程序的过程中，被一个 QGridLayout 布局问题给搞得怀疑人生，好在是折腾了很久之后总算是解决了~ 首先看一下解决问题后正常的界面是这样的：  主要是主界面的部分我使用 QGridL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录QGridLayout踩坑经历">
+<meta property="og:url" content="https://mxy493.xyz/2020093015531/index.html">
+<meta property="og:site_name" content="跑起来有风">
+<meta property="og:description" content="简述QGridLayout 官方文档：https:&#x2F;&#x2F;doc.qt.io&#x2F;qtforpython&#x2F;PySide2&#x2F;QtWidgets&#x2F;QGridLayout.html 最近在使用 Qt for Python 开发程序的过程中，被一个 QGridLayout 布局问题给搞得怀疑人生，好在是折腾了很久之后总算是解决了~ 首先看一下解决问题后正常的界面是这样的：  主要是主界面的部分我使用 QGridL">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mxy493.xyz/2020093015531/normal.png">
+<meta property="og:image" content="https://mxy493.xyz/2020093015531/abnormal.png">
+<meta property="og:image" content="https://mxy493.xyz/2020093015531/400.png">
+<meta property="og:image" content="https://mxy493.xyz/2020093015531/strech1.png">
+<meta property="article:published_time" content="2020-09-30T09:03:02.000Z">
+<meta property="article:modified_time" content="2022-03-23T12:34:11.165Z">
+<meta property="article:author" content="mxy">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Qt">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mxy493.xyz/2020093015531/normal.png">
+  
+  
+  <title>记录QGridLayout踩坑经历 - 跑起来有风</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>跑起来有风</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/xqmy.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="记录QGridLayout踩坑经历">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-09-30 17:03" pubdate>
+        2020年9月30日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      7 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">记录QGridLayout踩坑经历</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年3月23日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>QGridLayout 官方文档：<a target="_blank" rel="noopener" href="https://doc.qt.io/qtforpython/PySide2/QtWidgets/QGridLayout.html">https://doc.qt.io/qtforpython/PySide2/QtWidgets/QGridLayout.html</a></p>
+<p>最近在使用 Qt for Python 开发程序的过程中，被一个 QGridLayout 布局问题给搞得怀疑人生，好在是折腾了很久之后总算是解决了~</p>
+<p>首先看一下解决问题后正常的界面是这样的：</p>
+<p><img src="normal.png" srcset="/img/loading.gif" lazyload></p>
+<p>主要是主界面的部分我使用 QGridLayout布局，希望左右两侧按比例 1:1 布局，左侧是一个 QWidget ，没有指定其大小，因为我是希望它能根据格子的大小自适应的调整其大小，也就是说如果格子能小到宽高均为0的话，它是可以不显示的。</p>
+<h1 id="艰难的过程"><a href="#艰难的过程" class="headerlink" title="艰难的过程"></a>艰难的过程</h1><p>于是我写出了如下代码：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python">grid = QGridLayout()
+grid.addWidget(self.widget_radar, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 3行1列</span>
+grid.addLayout(vbox_btns, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 右上侧的4个按钮</span>
+grid.addWidget(self.log_edit, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 右下侧的QTextEdit</span>
+grid.addLayout(self.hbox_debug, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 这是隐藏掉的一部分</span>
+
+<span class="hljs-comment"># 这三行是必要的，并不是造成我问题的原因，简单说就是不能直接给QMainWindow设置Layout，这里就不细说啦</span>
+central_widget = QWidget(parent=self)
+central_widget.setLayout(grid)
+self.setCentralWidget(central_widget)</code></pre></div>
+
+<p>实际运行后的效果如图所示：</p>
+<p><img src="abnormal.png" srcset="/img/loading.gif" lazyload></p>
+<p>是的，左侧的雷达界面没有显示出来。严格说是显示出来了，仔细观察可以看到左边边距相对于右边宽一点，宽的部分也就是看不到的雷达界面，更准确地说应该是格子布局的间距。</p>
+<p>我真的折腾了好久不知道怎么解决，其实很快我就定位到左侧雷达界面并不是没有显示出来，找问题的过程中为了验证这个想法，我指定了雷达界面的大小为 400 * 400 。</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python">self.widget_radar.setFixedSize(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>)</code></pre></div>
+
+<p>然后运行，如图：</p>
+<p><img src="400.png" srcset="/img/loading.gif" lazyload></p>
+<p>是吧，确实是能显示出来的。但是也不太可能说这么去指定大小啊，我既然选择使用格子布局就是为了让它自适应调整大小~</p>
+<p>继续找解决办法，说实话我查遍了文档也没找到相关的说明，一开始以为是这样：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python">grid = QGridLayout()
+grid.addWidget(self.widget_radar, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 3行1列</span>
+grid.addLayout(vbox_btns, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 指定第三个和第四个参数，即指定其跨度为1行1列</span>
+grid.addWidget(self.log_edit, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)
+grid.addLayout(self.hbox_debug, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)</code></pre></div>
+
+<p>上面代码中 <code>addLayout()</code> 和 <code>addWidget()</code> 第三个和第四个参数分别是行跨度和列跨度，以我最初的理解，我认为指定了第一列列跨度为1，第二列列跨度也为1，那么它们就应该宽度相等。但实际上并没有用，也说明其实不指定这两个参数的话默认就是一行一列。</p>
+<h1 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h1><p>其实我只是抱着试一试的心态，试了下官方文档中的这个函数：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python">PySide2.QtWidgets.QGridLayout.setColumnStretch(column, stretch)</code></pre></div>
+
+<p>成功解决问题🎉🎉🎉</p>
+<p>最终的代码如下：</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python">grid = QGridLayout()
+grid.addWidget(self.widget_radar, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 3行1列</span>
+grid.addLayout(vbox_btns, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>)
+grid.addWidget(self.log_edit, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)
+grid.addLayout(self.hbox_debug, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>)
+
+grid.setColumnStretch(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 不指定比例的话第二列会撑展到第一列不能显示，造成不显示的根本原因</span>
+grid.setColumnStretch(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)  <span class="hljs-comment"># 需要同时为第二列指定，两列才会始终以1:1的宽度排列</span></code></pre></div>
+
+<p>这个函数是这么用的，第一个参数指定哪一列，列数从0开始，第二个参数为拉伸因子，也就是所占的比例吧。</p>
+<p>上面代码中同时为两列指定了拉伸因子均为1，即两列的宽度将按1:1的比例排列。</p>
+<p>只指定一列是达不到这个效果的，例如如果不为第二列指定，那么雷达界面这部分因为指定了拉伸银子1，所以会显示出来，但由于没有为第二列指定，所以第一列会撑展开，使第二列的宽度压缩到最小，如图：</p>
+<p><img src="strech1.png" srcset="/img/loading.gif" lazyload></p>
+<p>相反如果只指定第二列的话，其实不难想到就会是前面雷达界面没有显示出来的样子了~</p>
+<p>另外，同样也可以为行设置拉伸因子，方法都是一样的，用这个函数就可以了:</p>
+<div class="hljs code-wrapper"><pre><code class="hljs python">PySide2.QtWidgets.QGridLayout.setRowStretch(row, stretch)</code></pre></div>
+
+<p>真的卡了好久，真尴尬……不过以后就知道该怎么做了🥴</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Qt/">Qt</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Qt/">Qt</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020101017609/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Clash for Windows 使用指北</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020092551823/">
+                        <span class="hidden-mobile">新华三笔试题 - 求最中间的因数</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP备2021034122号-1
+      </a>
+    </span>
+    
+  </div>
+
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
