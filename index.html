@@ -27,15 +27,21 @@
 <meta name="twitter:card" content="summary_large_image">
   
   
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
   <title>跑起来有风</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
@@ -44,21 +50,40 @@
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home","post"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+
+  
 <meta name="generator" content="Hexo 5.4.1"></head>
 
 
 <body>
-  <header style="height: 100vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
       <strong>跑起来有风</strong>
@@ -152,6 +177,7 @@
               &nbsp;<i class="iconfont icon-search"></i>&nbsp;
             </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
@@ -164,34 +190,40 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/img/xqmy.webp') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="禅模式忘情学习中ᓚᘏᗢ">
-              
-            </span>
+  
 
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/xqmy.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
           
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
+            <span id="subtitle" data-typed-text="禅模式忘情学习中ᓚᘏᗢ"></span>
           
         </div>
+
+        
       </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
     
       <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
+        <div id="board"
+          style="margin-top: 0">
           
           <div class="container">
             <div class="row">
@@ -210,12 +242,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2022032325189/" target="_self">
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022032325189/" target="_self">
+        <div>
           subprocess 子进程多次写入命令示例： p &#x3D; subprocess.Popen(&amp;#x27;bluetoothctl&amp;#x27;, shell&#x3D;True,                     stdin&#x3D;subprocess.PIPE,                      stdout&#x3D;subprocess.PIPE,                      stderr&#x3D;s
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -227,18 +259,32 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Python/">Python</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Python/">Python</a>
+              <a href="/tags/Python/">#Python</a>
             
           </div>
         
@@ -257,12 +303,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021070552935/" target="_self">
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021070552935/" target="_self">
+        <div>
           序言2020年确实是极不平凡的一年，突如其来的新冠疫情让绝大多数的中国人不得不在家度过2020的上半年，而这半年是我大三的下学期。 我大概是在大三上期的时候决定了要找工作，所以后面就一心在为找工作做准备，其实并没有特意去做什么，更多的是做好了这样的打算吧。 先简单描述一下这一年我找工作的经历。首先是上半年由于疫情原因在家上网课，一边复习，一边投简历找实习，期间放弃了一两个不那么理想的实习岗位，到7
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -278,7 +324,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E6%B1%82%E8%81%8C/">求职</a>
+              <a href="/tags/%E6%B1%82%E8%81%8C/">#求职</a>
             
           </div>
         
@@ -297,12 +343,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021052715441/" target="_self">
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021052715441/" target="_self">
+        <div>
           直入主题修改 Powershell 默认编码打开注册表，进入 计算机\HKEY_CURRENT_USER\Console ，该路径下有两个 Powershell 的注册表项，分别对应 32 位和 64 位的版本，如图：  双击 CodePage 进行修改，基数选择十进制，数值数据修改为 65001 ，点击确定保存即可。  修改 CMD 默认编码打开注册表并进入路径 计算机\HKEY_LOCAL_M
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -318,11 +364,11 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Windows/">Windows</a>
+              <a href="/tags/Windows/">#Windows</a>
             
-              <a href="/tags/CMD/">CMD</a>
+              <a href="/tags/CMD/">#CMD</a>
             
-              <a href="/tags/Powershell/">Powershell</a>
+              <a href="/tags/Powershell/">#Powershell</a>
             
           </div>
         
@@ -341,12 +387,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021052615395/" target="_self">
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021052615395/" target="_self">
+        <div>
           直入主题下面是通过 Visual Studio 创建的 QtWidgetsApplication 的默认界面，一行代码都没有写，可以看到窗口左上角的图标是默认没设置的。  随意找了个图标用于测试，如图，文件名分别是 app.png 和 app.ico 。  在主窗口类的构造函数里添加代码： setWindowIcon(QIcon(&quot;app.webp&quot;));  再编译运行，就可以
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -358,22 +404,36 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Qt/">Qt</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Qt/" class="category-chain-item">Qt</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/C/">C++</a>
+              <a href="/tags/C/">#C++</a>
             
-              <a href="/tags/Qt/">Qt</a>
+              <a href="/tags/Qt/">#Qt</a>
             
-              <a href="/tags/Visual-Studio/">Visual Studio</a>
+              <a href="/tags/Visual-Studio/">#Visual Studio</a>
             
           </div>
         
@@ -392,12 +452,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021052530658/" target="_self">
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021052530658/" target="_self">
+        <div>
           简述最近一直在忙着做毕业设计，就是一个客户端程序，算下来我做过的两个比较大的项目，一个是去年实习用 Python 和 Qt 做的客户端程序，一个就是毕业设计用 C++ 和 Qt 做的客户端，和 Qt 还挺有缘分的。 在这两个项目中我都写了日志打印的代码，自己写的，因为完全没接触到过日志框架这种东西，当然一方面我的需求也不是特别的高，都是很基础的日志打印，在这两个项目中我都是采用写一个标准日志打印函
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -409,18 +469,32 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/C/">C++</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/C/">C++</a>
+              <a href="/tags/C/">#C++</a>
             
           </div>
         
@@ -439,12 +513,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021031924011/" target="_self">
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021031924011/" target="_self">
+        <div>
           简述从我的博客搭建起来我就选用了简洁大方 Valine 作为评论系统，又用 Valine-Admin 做了服务端部署在 LeanCloud 上，两年了基本上运行还是比较稳定的，最近一段时间 LeanCloud 云引擎总是报错：“因流控原因，通过定时任务唤醒体验版实例失败”，了解了下，大概原因就是 LeanCloud 方面做了一些限制，虽然不绝对，但目前极大概率的会遇到这个问题。 LeanCloud
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -460,7 +534,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/LeanCloud/">LeanCloud</a>
+              <a href="/tags/LeanCloud/">#LeanCloud</a>
             
           </div>
         
@@ -479,12 +553,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021031963302/" target="_self">
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021031963302/" target="_self">
+        <div>
           简述建议阅读：解决 LeanCloud ‘因流控原因，通过定时任务唤醒体验版实例失败’ 的问题 参考：使用云函数解决leancloud流控问题 我个人在此之前没有使用过云函数，所以也是看着别人写的一步一步来的，但关于本文要解决的问题，网上博客介绍的都比较简略，所以本文面向小白，希望能写一篇正儿八经能看着傻瓜式操作的教程。 需要注意解决流控问题，本质是唤醒 LeanCloud 云引擎，而不是触发 V
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -500,7 +574,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/LeanCloud/">LeanCloud</a>
+              <a href="/tags/LeanCloud/">#LeanCloud</a>
             
           </div>
         
@@ -519,12 +593,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021030220973/" target="_self">
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021030220973/" target="_self">
+        <div>
           简述最近在写 MFC 程序的过程中经常遇到不同字符串类型间的转换，也是在查资料的过程中意外发现了微软的一篇文档：如何：在各种字符串类型之间进行转换。介绍的相当全面，即便是没有提及的基本也可以通过多次转换得到，本文将比较常用的一些转换提炼成代码片段，以便以后查阅☠ 多字节 &lt;&#x3D;&#x3D;&gt; 宽字符1. MultiByteToWideChar官方文档：MultiByteToWideChar fun
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -536,18 +610,32 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/C/">C++</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/C/">C++</a>
+              <a href="/tags/C/">#C++</a>
             
           </div>
         
@@ -566,12 +654,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/202102252517/" target="_self">
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/202102252517/" target="_self">
+        <div>
           简述Vcpkg 是适用于 C 和 C++ 库的跨平台命令行包管理器。我个人的理解就类似于 Python 的 pip ，可以很方便的下载安装一些第三方的库。 本文仅简要记录我个人在 Windows 平台下的安装使用过程，更多内容请查阅官方文档：https:&#x2F;&#x2F;docs.microsoft.com&#x2F;zh-cn&#x2F;cpp&#x2F;build&#x2F;vcpkg?view&#x3D;msvc-160 安装首先确保 Windows 系
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -583,20 +671,34 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/C/">C++</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/C/">C++</a>
+              <a href="/tags/C/">#C++</a>
             
-              <a href="/tags/vcpkg/">vcpkg</a>
+              <a href="/tags/vcpkg/">#vcpkg</a>
             
           </div>
         
@@ -615,12 +717,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021022519518/" target="_self">
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021022519518/" target="_self">
+        <div>
           简述目前在做毕业设计，用 MFC 做一个 OCR 文字识别的客户端程序，其中就涉及到了将数据导出，源码中最常用的字符串类型大概就是 CString ，最主要的原因是它支持中文吧，严格说是支持 Unicode 字符。 关于导出数据这一块，其实就是用 ofstream 来将数据写到文件，CString 也是支持直接写到文件中的，但大概是由于 Visual Studio 的原因默认的编码格式似乎是 GB
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -632,18 +734,32 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/C/">C++</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/C/">C++</a>
+              <a href="/tags/C/">#C++</a>
             
           </div>
         
@@ -688,66 +804,69 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+
     
 
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
 
   
-  <!-- 备案信息 -->
-  <div class="beian">
-    <span>
-      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-        京ICP备2021034122号-1
-      </a>
-    </span>
     
-  </div>
-
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
 
   
-</footer>
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP备2021034122号-1
+    </a>
+  </span>
+  
+</div>
 
+  
+  
+</div>
 
-  <!-- SCRIPTS -->
+  </footer>
+
+  <!-- Scripts -->
   
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
@@ -766,66 +885,48 @@
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-  
-
-
-
-
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-  <script defer src="/js/leancloud.js" ></script>
-
-
 
   <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
       
-      jQuery.ajax({
-        type: 'GET',
-        url: 'https://v1.hitokoto.cn/',
-        headers: {},
-        dataType: 'json',
-        success: function(result) {
-          var text;
-          if (result) {
-            var keys = 'hitokoto'.split(',');
-            if (result instanceof Array) {
-              result = result[0];
-            }
-            for (const k of keys) {
-              var value = result[k];
-              if (typeof value === 'string') {
-                text = value;
-                break;
-              } else if (value instanceof Object) {
-                result = value;
+        jQuery.ajax({
+          type: 'GET',
+          url: 'https://v1.hitokoto.cn/',
+          headers: {},
+          dataType: 'json',
+          success: function(result) {
+            var apiText;
+            if (result) {
+              var keys = 'hitokoto'.split(',');
+              if (result instanceof Array) {
+                result = result[0];
+              }
+              for (const k of keys) {
+                var value = result[k];
+                if (typeof value === 'string') {
+                  apiText = value;
+                  break;
+                } else if (value instanceof Object) {
+                  result = value;
+                }
               }
             }
+            apiText ? typing(apiText) : typing(text);
+          },
+          error: function(xhr, status, error) {
+            if (error) {
+              console.error('Failed to request https://v1.hitokoto.cn/:', error);
+            }
+            typing(text);
           }
-          text ? typing(text) : typing(title);
-        },
-        error: function() {
-          typing(title);
-        }
-      })
+        })
       
     })(window, document);
   </script>
@@ -833,24 +934,18 @@
 
 
 
-
-
-
-
-
-
-
-
   
     <!-- Baidu Analytics -->
     <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
     </script>
   
 
@@ -864,13 +959,39 @@
 
   
 
+  
+    
+  
 
 
 
 
-<!-- 主题的启动项 保持在最底部 -->
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>

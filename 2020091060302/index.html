@@ -56,30 +56,27 @@
 <meta name="twitter:image" content="https://mxy493.xyz/2020091060302/main.webp">
   
   
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
   <title>使用NSIS制作安装程序 - 跑起来有风</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
+
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
 
-  
-    
-    
-      
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/atom-one-dark.min.css" />
-    
-  
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
 
-  
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
-  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
@@ -88,21 +85,40 @@
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home","post"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+
+  
 <meta name="generator" content="Hexo 5.4.1"></head>
 
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
       <strong>跑起来有风</strong>
@@ -196,6 +212,7 @@
               &nbsp;<i class="iconfont icon-search"></i>&nbsp;
             </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
@@ -208,65 +225,79 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/img/xqmy.webp') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="使用NSIS制作安装程序">
-              
-            </span>
-
-            
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-09-10 00:40" pubdate>
-        2020年9月10日 凌晨
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      9.5k 字
-    </span>
   
 
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      30 分钟
-    </span>
-  
-
-  
-  
-    
-      <!-- 不蒜子统计文章PV -->
-      <span id="busuanzi_container_page_pv" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="busuanzi_value_page_pv"></span> 次
-      </span>
-    
-  
-</div>
-
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/xqmy.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="使用NSIS制作安装程序"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-09-10 00:40" pubdate>
+          2020年9月10日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          9.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          30 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
@@ -275,21 +306,29 @@
 
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
     <div class="col-lg-8 nopadding-x-md">
       <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
+        <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">使用NSIS制作安装程序</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年3月23日 晚上
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2022年3月23日 晚上
+                  
                 
               </p>
             
             <div class="markdown-body">
+              
               <h1 id="一、简述"><a href="#一、简述" class="headerlink" title="一、简述"></a>一、简述</h1><p>最近实习的过程中，要将 Python 编写的程序打包发布，最初了解到了 PyInstaller ，可以用于将 Python 代码打包为可执行程序，但是要么直接打包为单文件的可执行程序（运行慢），要么打包为一个包含可执行程序的文件夹（运行快），如果要发给别人使用的话只能将整个文件夹压缩后再发过去。</p>
 <p>然后前些天搜索了一下了解到了制作安装程序的 NSIS ，本文将根据我的个人经历，简要介绍使用 NSIS 根据 PyInstaller 生成的含可执行程序的文件夹制作安装程序。</p>
 <p>NSIS 官方网站：<a target="_blank" rel="noopener" href="https://nsis.sourceforge.io/Main_Page">https://nsis.sourceforge.io/Main_Page</a></p>
@@ -350,7 +389,7 @@
 <p><img src="goodvscode.webp" srcset="/img/loading.gif" lazyload></p>
 <h2 id="（2）正儿八经的编写脚本"><a href="#（2）正儿八经的编写脚本" class="headerlink" title="（2）正儿八经的编写脚本"></a>（2）正儿八经的编写脚本</h2><p>以我的脚本为例来一步一步说，也就是前面向导生成的没有修改过的脚本。</p>
 <p>a. <code>;</code> 为 NSIS 脚本的注释符，用法类似 C++ 的 <code>//</code> 或者 Python 的 <code>#</code> ，<code>!define</code> 用于定义常量，后接自定义的常量名和该常量的值。强烈建议将各种自定义的量在脚本的开头定义为常量，后续使用常量即可，这么做的目的是程序升级时方便简单修改一些常量的值即可重复使用该脚本。常量的使用如下方代码第 7 行所示即 <code>$&#123;变量名&#125;</code> 即可。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-comment">; 安装程序初始定义常量</span>
+<div class="code-wrapper"><pre><code class="hljs nsis"><span class="hljs-comment">; 安装程序初始定义常量</span>
 <span class="hljs-keyword">!define</span> PRODUCT_NAME <span class="hljs-string">&quot;Duang&quot;</span>  <span class="hljs-comment">; 程序名</span>
 <span class="hljs-keyword">!define</span> PRODUCT_VERSION <span class="hljs-string">&quot;1.0&quot;</span>  <span class="hljs-comment">; 版本号</span>
 <span class="hljs-keyword">!define</span> PRODUCT_PUBLISHER <span class="hljs-string">&quot;mxy&quot;</span>  <span class="hljs-comment">; 作者</span>
@@ -361,10 +400,10 @@
 <span class="hljs-keyword">!define</span> PRODUCT_UNINST_ROOT_KEY <span class="hljs-string">&quot;HKLM&quot;</span></code></pre></div>
 
 <p>b. 使用的压缩算法，按需修改即可</p>
-<div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-keyword">SetCompressor</span> <span class="hljs-literal">lzma</span></code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs nsis"><span class="hljs-keyword">SetCompressor</span> <span class="hljs-literal">lzma</span></code></pre></div>
 
 <p>c. MUI 界面相关的一些东西，进阶操作请查阅<a target="_blank" rel="noopener" href="https://nsis.sourceforge.io/Docs/Modern%20UI%202/Readme.html">官方文档</a>。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-comment">; ------ MUI 现代界面定义 ------</span>
+<div class="code-wrapper"><pre><code class="hljs nsis"><span class="hljs-comment">; ------ MUI 现代界面定义 ------</span>
 <span class="hljs-keyword">!include</span> <span class="hljs-string">&quot;MUI.nsh&quot;</span>  <span class="hljs-comment">; 当前已经新出了MUI2，自行了解</span>
 
 <span class="hljs-comment">; MUI 预定义常量</span>
@@ -395,7 +434,7 @@
 <span class="hljs-comment">; ------ MUI 现代界面定义结束 ------</span></code></pre></div>
 
 <p>d. 一些设置项。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-keyword">Name</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span> <span class="hljs-variable">$&#123;PRODUCT_VERSION&#125;</span>&quot;</span>
+<div class="code-wrapper"><pre><code class="hljs nsis"><span class="hljs-keyword">Name</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span> <span class="hljs-variable">$&#123;PRODUCT_VERSION&#125;</span>&quot;</span>
 <span class="hljs-comment">; OutFile &quot;DuangSetup.exe&quot;</span>
 <span class="hljs-keyword">OutFile</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>Setup.exe&quot;</span>  <span class="hljs-comment">; 修改为引用常量</span>
 <span class="hljs-comment">; InstallDir &quot;$PROGRAMFILES\Duang&quot;</span>
@@ -407,7 +446,7 @@
 <span class="hljs-keyword">BrandingText</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>&quot;</span>  <span class="hljs-comment">; 修改为引用常量</span></code></pre></div>
 
 <p>e. 创建快捷方式，已默认修改为引用常量。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-keyword">Section</span> <span class="hljs-string">&quot;MainSection&quot;</span> SEC01
+<div class="code-wrapper"><pre><code class="hljs nsis"><span class="hljs-keyword">Section</span> <span class="hljs-string">&quot;MainSection&quot;</span> SEC01
   <span class="hljs-keyword">SetOutPath</span> <span class="hljs-string">&quot;<span class="hljs-variable constant_">$INSTDIR</span>&quot;</span>
   <span class="hljs-keyword">SetOverwrite</span> <span class="hljs-literal">ifnewer</span>  <span class="hljs-comment">; 更新覆盖</span>
   <span class="hljs-keyword">File</span> /r <span class="hljs-string">&quot;*.*&quot;</span>  <span class="hljs-comment">; 路径下的所有文件</span>
@@ -419,7 +458,7 @@
 <span class="hljs-keyword">SectionEnd</span></code></pre></div>
 
 <p>f. 写注册表相关的设置，已默认修改为引用常量。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-keyword">Section</span> -Post
+<div class="code-wrapper"><pre><code class="hljs nsis"><span class="hljs-keyword">Section</span> -Post
   <span class="hljs-keyword">WriteUninstaller</span> <span class="hljs-string">&quot;<span class="hljs-variable constant_">$INSTDIR</span>\uninst.exe&quot;</span>  <span class="hljs-comment">; 写入卸载程序</span>
   <span class="hljs-keyword">WriteRegStr</span> <span class="hljs-params">HKLM</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_DIR_REGKEY&#125;</span>&quot;</span> <span class="hljs-string">&quot;&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable constant_">$INSTDIR</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.exe&quot;</span>
   <span class="hljs-keyword">WriteRegStr</span> <span class="hljs-variable">$&#123;PRODUCT_UNINST_ROOT_KEY&#125;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_UNINST_KEY&#125;</span>&quot;</span> <span class="hljs-string">&quot;DisplayName&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$(^Name)</span>&quot;</span>
@@ -431,14 +470,14 @@
 <span class="hljs-keyword">SectionEnd</span></code></pre></div>
 
 <p>g. 创建网站快捷方式和卸载程序快捷方式。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-keyword">Section</span> -AdditionalIcons
+<div class="code-wrapper"><pre><code class="hljs nsis"><span class="hljs-keyword">Section</span> -AdditionalIcons
   <span class="hljs-keyword">WriteIniStr</span> <span class="hljs-string">&quot;<span class="hljs-variable constant_">$INSTDIR</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.url&quot;</span> <span class="hljs-string">&quot;InternetShortcut&quot;</span> <span class="hljs-string">&quot;URL&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;PRODUCT_WEB_SITE&#125;</span>&quot;</span>
   <span class="hljs-keyword">CreateShortCut</span> <span class="hljs-string">&quot;<span class="hljs-variable constant_">$SMPROGRAMS</span>\Duang\Website.lnk&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable constant_">$INSTDIR</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>.url&quot;</span>
   <span class="hljs-keyword">CreateShortCut</span> <span class="hljs-string">&quot;<span class="hljs-variable constant_">$SMPROGRAMS</span>\Duang\Uninstall.lnk&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable constant_">$INSTDIR</span>\uninst.exe&quot;</span>
 <span class="hljs-keyword">SectionEnd</span></code></pre></div>
 
 <p>h. 卸载程序相关的设置，已默认修改为引用常量。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-keyword">Section</span> Uninstall
+<div class="code-wrapper"><pre><code class="hljs nsis"><span class="hljs-keyword">Section</span> Uninstall
   <span class="hljs-comment">; 删除快捷方式</span>
   <span class="hljs-keyword">Delete</span> <span class="hljs-string">&quot;<span class="hljs-variable constant_">$SMPROGRAMS</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>\Uninstall.lnk&quot;</span>
   <span class="hljs-keyword">Delete</span> <span class="hljs-string">&quot;<span class="hljs-variable constant_">$SMPROGRAMS</span>\<span class="hljs-variable">$&#123;PRODUCT_NAME&#125;</span>\Website.lnk&quot;</span>
@@ -468,7 +507,7 @@
 <span class="hljs-keyword">SectionEnd</span></code></pre></div>
 
 <p>i. 执行卸载程序的两个函数</p>
-<div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-comment">; 卸载程序启动时执行</span>
+<div class="code-wrapper"><pre><code class="hljs nsis"><span class="hljs-comment">; 卸载程序启动时执行</span>
 <span class="hljs-keyword">Function</span> <span class="hljs-title function_">un</span>.onInit
   <span class="hljs-keyword">MessageBox</span> <span class="hljs-params">MB_ICONQUESTION</span>|<span class="hljs-params">MB_YESNO</span>|<span class="hljs-params">MB_DEFBUTTON2</span> <span class="hljs-string">&quot;您确实要完全移除 <span class="hljs-variable">$(^Name)</span> ，及其所有的组件？&quot;</span> <span class="hljs-params">IDYES</span> +<span class="hljs-number">2</span>
   <span class="hljs-keyword">Abort</span>
@@ -486,7 +525,7 @@
 <h1 id="五、进阶操作"><a href="#五、进阶操作" class="headerlink" title="五、进阶操作"></a>五、进阶操作</h1><p>进阶操作我也不会什么了，建议查阅 NSIS 官方文档：<a target="_blank" rel="noopener" href="https://nsis.sourceforge.io/Docs">https://nsis.sourceforge.io/Docs</a></p>
 <p>关于安装程序的界面的设置需要查阅 MUI 的相关文档：<a target="_blank" rel="noopener" href="https://nsis.sourceforge.io/Docs/Modern%20UI%202/Readme.html">https://nsis.sourceforge.io/Docs/Modern UI 2/Readme.html</a></p>
 <p>例如，以下两项分别可以设置安装程序欢迎界面的图片和文字。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs nsis"><span class="hljs-comment">; Bitmap for the Welcome page and the Finish page (recommended size: 164x314 pixels).</span>
+<div class="code-wrapper"><pre><code class="hljs nsis"><span class="hljs-comment">; Bitmap for the Welcome page and the Finish page (recommended size: 164x314 pixels).</span>
 <span class="hljs-comment">; Default: $&#123;NSISDIR&#125;\Contrib\Graphics\Wizard\win.bmp</span>
 MUI_WELCOMEFINISHPAGE_BITMAP bmp_file
 
@@ -499,7 +538,7 @@ MUI_WELCOMEPAGE_TEXT text</code></pre></div>
 <p>环境变量设置好后可以在命令行中输入命令 <code>makensis</code> 测试一下，如果输出如下信息，则说明配置成功了。</p>
 <p><img src="makensis.webp" srcset="/img/loading.gif" lazyload></p>
 <p>在 Python 中使用就很简单了，直接上代码：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> subprocess
+<div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> subprocess
 
 
 <span class="hljs-comment"># 使用NSIS制作安装包，等同于在命令行中执行 &#x27;makensis radar.nsi&#x27; </span>
@@ -509,7 +548,7 @@ p2.communicate()</code></pre></div>
 <h2 id="（2）高端操作"><a href="#（2）高端操作" class="headerlink" title="（2）高端操作"></a>（2）高端操作</h2><p>其实在单纯在 Python 中调用编译器并没有省多少事，但真正的目的是配合 PyInstaller 一键更新 spec 文件和 NSIS 脚本，然后自动打包并制作安装程序，你就说它香不香🤣</p>
 <p>关于 PyInstaller 打包 Python 应用程序可以参考我的另一篇文章：<a href="https://mxy493.xyz/20200909134/">使用PyInstaller打包Python应用程序</a></p>
 <p>最后附上 全自动操作的代码框架：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> subprocess
+<div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> subprocess
 
 
 <span class="hljs-keyword">def</span> <span class="hljs-title function_">run</span>():
@@ -529,35 +568,74 @@ p2.communicate()</code></pre></div>
 <h1 id="七、结语"><a href="#七、结语" class="headerlink" title="七、结语"></a>七、结语</h1><p>嗯，全篇完结，真难搞，写这篇文章足足花了一整晚🤣</p>
 <p>不过这次关于 PyInstaller 和 NSIS 的探索体验可以说是非常的舒服了φ(゜▽゜*)♪</p>
 
+              
             </div>
-            <hr>
+            <hr/>
             <div>
-              <div class="post-metas mb-3">
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
-                    
-                      <a class="hover-with-bg" href="/tags/NSIS/">NSIS</a>
-                    
-                  </div>
-                
-              </div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Python/">#Python</a>
+      
+        <a href="/tags/NSIS/">#NSIS</a>
+      
+    </div>
+  
+</div>
+
+
               
-                <p class="note note-warning">
-                  
-                    本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
-                  
-                </p>
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>使用NSIS制作安装程序</div>
+      <div>https://mxy493.xyz/2020091060302/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>mxy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2020年9月10日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
               
-              
-                <div class="post-prevnext">
+                <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020092011556/">
+                      <a href="/2020092011556/" title="Leetcode 1143. 最长公共子序列">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Leetcode 1143. 最长公共子序列</span>
                         <span class="visible-mobile">上一篇</span>
@@ -567,7 +645,7 @@ p2.communicate()</code></pre></div>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/20200909134/">
+                      <a href="/20200909134/" title="使用PyInstaller打包Python应用程序">
                         <span class="hidden-mobile">使用PyInstaller打包Python应用程序</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -583,19 +661,49 @@ p2.communicate()</code></pre></div>
         </div>
       </div>
     </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
-      </div>
-    
+
+
+  </aside>
+
+
+    </div>
   </div>
 </div>
 
-<!-- Custom -->
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
 
 
     
@@ -620,66 +728,69 @@ p2.communicate()</code></pre></div>
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+
     
 
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
 
   
-  <!-- 备案信息 -->
-  <div class="beian">
-    <span>
-      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-        京ICP备2021034122号-1
-      </a>
-    </span>
     
-  </div>
-
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
 
   
-</footer>
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP备2021034122号-1
+    </a>
+  </span>
+  
+</div>
 
+  
+  
+</div>
 
-  <!-- SCRIPTS -->
+  </footer>
+
+  <!-- Scripts -->
   
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
@@ -698,52 +809,18 @@ p2.communicate()</code></pre></div>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-  
-
-
-
-  
-    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
-  
-  
-    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
-  
-  
-    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
-  
-  
-    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
-  
-
-
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-  <script defer src="/js/leancloud.js" ></script>
-
-
 
   <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
       
-        typing(title);
+        typing(text);
       
     })(window, document);
   </script>
@@ -751,24 +828,18 @@ p2.communicate()</code></pre></div>
 
 
 
-
-
-
-
-
-
-
-
   
     <!-- Baidu Analytics -->
     <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
     </script>
   
 
@@ -782,13 +853,170 @@ p2.communicate()</code></pre></div>
 
   
 
+  
+    
+  
 
 
 
 
-<!-- 主题的启动项 保持在最底部 -->
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>

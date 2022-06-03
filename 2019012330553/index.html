@@ -30,30 +30,27 @@
 <meta name="twitter:card" content="summary_large_image">
   
   
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
   <title>YAML语法简记 - 跑起来有风</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
+
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
 
-  
-    
-    
-      
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/atom-one-dark.min.css" />
-    
-  
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
 
-  
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
-  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
@@ -62,21 +59,40 @@
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home","post"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+
+  
 <meta name="generator" content="Hexo 5.4.1"></head>
 
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
       <strong>跑起来有风</strong>
@@ -170,6 +186,7 @@
               &nbsp;<i class="iconfont icon-search"></i>&nbsp;
             </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
@@ -182,65 +199,79 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/img/xqmy.webp') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="YAML语法简记">
-              
-            </span>
-
-            
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2019-01-23 10:35" pubdate>
-        2019年1月23日 上午
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      3.1k 字
-    </span>
   
 
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      10 分钟
-    </span>
-  
-
-  
-  
-    
-      <!-- 不蒜子统计文章PV -->
-      <span id="busuanzi_container_page_pv" style="display: none">
-        <i class="iconfont icon-eye" aria-hidden="true"></i>
-        <span id="busuanzi_value_page_pv"></span> 次
-      </span>
-    
-  
-</div>
-
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/xqmy.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="YAML语法简记"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-01-23 10:35" pubdate>
+          2019年1月23日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          3.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
@@ -249,21 +280,29 @@
 
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
     <div class="col-lg-8 nopadding-x-md">
       <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
+        <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">YAML语法简记</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年3月23日 晚上
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2022年3月23日 晚上
+                  
                 
               </p>
             
             <div class="markdown-body">
+              
               <p>YAML Ain’t Markup Language</p>
 <h3 id="基本语法规则"><a href="#基本语法规则" class="headerlink" title="基本语法规则"></a>基本语法规则</h3><ul>
 <li>大小写敏感</li>
@@ -278,7 +317,7 @@
 <p>YAML以（“—”）表示文章的开始，以（“…”）表示结束（不代表新的文章的开始）。</p>
 <p>Structure通过空格来展示。Sequence里的项用”-“来代表，Map里的键值对用”:”分隔。</p>
 <p>一般YAML文件扩展名为.yaml。比如：John.yaml</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">John</span> <span class="hljs-string">Smith</span>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">John</span> <span class="hljs-string">Smith</span>
 <span class="hljs-attr">age:</span> <span class="hljs-number">37</span>
 <span class="hljs-attr">spouse:</span>
   <span class="hljs-attr">name:</span> <span class="hljs-string">Jane</span> <span class="hljs-string">Smith</span>
@@ -292,7 +331,7 @@
 <p>John Smith今年37岁，有一个幸福的四口之家。两个孩子Jimmy 和Jenny活泼可爱。妻子Jane年轻美貌。</p>
 <p>可见YAML的可读性是不错。</p>
 <p><strong>列表</strong>中的所有成员都开始于相同的缩进级别, 并且使用一个 <code>&quot;- &quot;</code> 作为开头(一个横杠和一个空格):</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
 <span class="hljs-comment"># 一个美味水果的列表</span>
 <span class="hljs-bullet">-</span> <span class="hljs-string">Apple</span>
 <span class="hljs-bullet">-</span> <span class="hljs-string">Orange</span>
@@ -300,19 +339,19 @@
 <span class="hljs-bullet">-</span> <span class="hljs-string">Mango</span></code></pre></div>
 
 <p>一个<strong>字典</strong>是由一个简单的 <code>键: 值</code> 的形式组成(这个冒号后面必须是一个空格)：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
 <span class="hljs-comment"># 一位职工的记录</span>
 <span class="hljs-attr">name:</span> <span class="hljs-string">Example</span> <span class="hljs-string">Developer</span>
 <span class="hljs-attr">job:</span> <span class="hljs-string">Developer</span>
 <span class="hljs-attr">skill:</span> <span class="hljs-string">Elite</span></code></pre></div>
 
 <p>字典也可以使用缩进形式来表示, 如果你喜欢这样的话：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
 <span class="hljs-comment"># 一位职工的记录</span>
 &#123;<span class="hljs-attr">name:</span> <span class="hljs-string">Example</span> <span class="hljs-string">Developer</span>, <span class="hljs-attr">job:</span> <span class="hljs-string">Developer</span>, <span class="hljs-attr">skill:</span> <span class="hljs-string">Elite</span>&#125;</code></pre></div>
 
 <p>可以通过以下格式来指定一个<strong>布尔值</strong>(true/fase)：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
 <span class="hljs-attr">create_key:</span> <span class="hljs-literal">yes</span>
 <span class="hljs-attr">needs_agent:</span> <span class="hljs-literal">no</span>
 <span class="hljs-attr">knows_oop:</span> <span class="hljs-literal">True</span>
@@ -320,7 +359,7 @@
 <span class="hljs-attr">uses_cvs:</span> <span class="hljs-literal">false</span></code></pre></div>
 
 <p>综合以上信息：</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-meta">---</span>
 <span class="hljs-comment"># 一位职工记录</span>
 <span class="hljs-attr">name:</span> <span class="hljs-string">Example</span> <span class="hljs-string">Developer</span>
 <span class="hljs-attr">job:</span> <span class="hljs-string">Developer</span>
@@ -337,14 +376,14 @@
     <span class="hljs-attr">dotnet:</span> <span class="hljs-string">Lame</span></code></pre></div>
 
 <p>尽管 YAML 通常是友好的, 但是下面将会导致一个 YAML 语法错误:</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">foo: somebody said I should put a colon here:</span> <span class="hljs-string">so</span> <span class="hljs-string">I</span> <span class="hljs-string">did</span></code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">foo: somebody said I should put a colon here:</span> <span class="hljs-string">so</span> <span class="hljs-string">I</span> <span class="hljs-string">did</span></code></pre></div>
 
 <p>你需要使用引号来包裹任何包含冒号的哈希值, 像这样:</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">foo:</span> <span class="hljs-string">&quot;somebody said I should put a colon here: so I did&quot;</span></code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">foo:</span> <span class="hljs-string">&quot;somebody said I should put a colon here: so I did&quot;</span></code></pre></div>
 
 <p>然后这个冒号将会被结尾.</p>
 <p>此外, Ansible 使用 “” 来引用变量. 如果一个值以 “{” 开头, YAML 将认为它是一个字典, 所以我们必须引用它, 像这样:</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">foo:</span> <span class="hljs-string">&quot;<span class="hljs-template-variable">&#123;&#123; variable &#125;&#125;</span>&quot;</span></code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">foo:</span> <span class="hljs-string">&quot;<span class="hljs-template-variable">&#123;&#123; variable &#125;&#125;</span>&quot;</span></code></pre></div>
 
 <h3 id="三种数据结构"><a href="#三种数据结构" class="headerlink" title="三种数据结构"></a>三种数据结构</h3><ol>
 <li>对象：键值对的集合，又称为映射（mapping）/ 哈希（hashes） / 字典（dictionary）</li>
@@ -352,18 +391,18 @@
 <li>纯量（scalars）：单个的、不可再分的值</li>
 </ol>
 <h4 id="1-对象"><a href="#1-对象" class="headerlink" title="1. 对象"></a>1. 对象</h4><p>对象的一组键值对，使用冒号结构表示</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">animal:</span> <span class="hljs-string">pets</span></code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">animal:</span> <span class="hljs-string">pets</span></code></pre></div>
 
 <p> Yaml 也允许另一种写法，将所有键值对写成一个行内对象</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">hash:</span> &#123; <span class="hljs-attr">name:</span> <span class="hljs-string">Steve</span>, <span class="hljs-attr">foo:</span> <span class="hljs-string">bar</span> &#125;</code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">hash:</span> &#123; <span class="hljs-attr">name:</span> <span class="hljs-string">Steve</span>, <span class="hljs-attr">foo:</span> <span class="hljs-string">bar</span> &#125;</code></pre></div>
 
 <h4 id="2-数组"><a href="#2-数组" class="headerlink" title="2.数组"></a>2.数组</h4><p>一组连词线开头的行，构成一个数组</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-string">Cat</span>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-string">Cat</span>
 <span class="hljs-bullet">-</span> <span class="hljs-string">Dog</span>
 <span class="hljs-bullet">-</span> <span class="hljs-string">Goldfish</span></code></pre></div>
 
 <p>数据结构的子成员是一个数组，则可以在该项下面缩进一个空格。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> 
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> 
  <span class="hljs-bullet">-</span> <span class="hljs-string">Cat</span>
  <span class="hljs-bullet">-</span> <span class="hljs-string">Dog</span>
  <span class="hljs-bullet">-</span> <span class="hljs-string">Goldfish</span></code></pre></div>
@@ -372,7 +411,7 @@
 <p> 数组也可以采用行内表示法。</p>
 <p>animal: [Cat, Dog]</p>
 <h4 id="3-复合结构"><a href="#3-复合结构" class="headerlink" title="3. 复合结构"></a>3. 复合结构</h4><p>对象和数组可以结合使用，形成复合结构。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">languages:</span>   <span class="hljs-comment">#数组</span>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">languages:</span>   <span class="hljs-comment">#数组</span>
    <span class="hljs-bullet">-</span> <span class="hljs-string">Ruby</span>
    <span class="hljs-bullet">-</span> <span class="hljs-string">Perl</span>
    <span class="hljs-bullet">-</span> <span class="hljs-string">Python</span>
@@ -393,46 +432,46 @@
 <li>日期</li>
 </ul>
 <p>数值直接以字面量的形式表示。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">number:</span> <span class="hljs-number">12.30</span></code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">number:</span> <span class="hljs-number">12.30</span></code></pre></div>
 
 <p>{ number: 12.30 }<br> 布尔值用true和false表示。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">isSet:</span> <span class="hljs-literal">true</span></code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">isSet:</span> <span class="hljs-literal">true</span></code></pre></div>
 
 
 <p> null用~表示。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">parent:</span> <span class="hljs-string">~</span></code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">parent:</span> <span class="hljs-string">~</span></code></pre></div>
 
 <p> 时间采用 ISO8601 格式。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">iso8601:</span> <span class="hljs-number">2001-12-14t21:59:43.10-05:00</span></code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">iso8601:</span> <span class="hljs-number">2001-12-14t21:59:43.10-05:00</span></code></pre></div>
 
 <p>日期采用复合 iso8601 格式的年、月、日表示。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">date:</span> <span class="hljs-number">1976-07-31</span></code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">date:</span> <span class="hljs-number">1976-07-31</span></code></pre></div>
 
 <p>YAML 允许使用两个感叹号，强制转换数据类型。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">e:</span> <span class="hljs-type">!!str</span> <span class="hljs-number">123</span>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">e:</span> <span class="hljs-type">!!str</span> <span class="hljs-number">123</span>
 <span class="hljs-attr">f:</span> <span class="hljs-type">!!str</span> <span class="hljs-literal">true</span></code></pre></div>
 
 <h4 id="5-字符串"><a href="#5-字符串" class="headerlink" title="5. 字符串"></a>5. 字符串</h4><p>字符串是最常见，也是最复杂的一种数据类型。</p>
 <p>字符串默认不使用引号表示。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">这是一行字符串</span></code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">这是一行字符串</span></code></pre></div>
 
 <p>如果字符串之中包含空格或特殊字符，需要放在引号之中。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">&#x27;内容：字符串&#x27;</span></code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">&#x27;内容：字符串&#x27;</span></code></pre></div>
 
 <p>单引号和双引号都可以使用，双引号不会对特殊字符转义。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">s1:</span> <span class="hljs-string">&#x27;内容\n字符串&#x27;</span>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">s1:</span> <span class="hljs-string">&#x27;内容\n字符串&#x27;</span>
 <span class="hljs-attr">s2:</span> <span class="hljs-string">&quot;内容\n字符串&quot;</span></code></pre></div>
 
 <p>单引号之中如果还有单引号，必须连续使用两个单引号转义。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">&#x27;labor&#x27;</span><span class="hljs-string">&#x27;s day&#x27;</span></code></pre></div>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">&#x27;labor&#x27;</span><span class="hljs-string">&#x27;s day&#x27;</span></code></pre></div>
 
 <p>字符串可以写成多行，从第二行开始，必须有一个单空格缩进。换行符会被转为空格。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">这是一段</span>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">str:</span> <span class="hljs-string">这是一段</span>
 <span class="hljs-string">多行</span>
 <span class="hljs-string">字符串</span></code></pre></div>
 
 <p>多行字符串可以使用|保留换行符，也可以使用&gt;折叠换行。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">this:</span> <span class="hljs-string">|</span>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">this:</span> <span class="hljs-string">|</span>
 <span class="hljs-string">  Foo</span>
 <span class="hljs-string">  Bar</span>
 <span class="hljs-string"></span><span class="hljs-attr">that:</span> <span class="hljs-string">&gt;</span>
@@ -440,7 +479,7 @@
 <span class="hljs-string">  Bar</span></code></pre></div>
 
 <p> +表示保留文字块末尾的换行，-表示删除字符串末尾的换行。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">s1:</span> <span class="hljs-string">|</span>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">s1:</span> <span class="hljs-string">|</span>
 <span class="hljs-string">  Foo</span>
 <span class="hljs-string"></span><span class="hljs-attr">s2:</span> <span class="hljs-string">|+</span>
 <span class="hljs-string">  Foo</span>
@@ -448,14 +487,14 @@
   <span class="hljs-string">Foo</span></code></pre></div>
 
 <p>字符串之中可以插入 HTML 标记。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">message:</span> <span class="hljs-string">|</span>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">message:</span> <span class="hljs-string">|</span>
 <span class="hljs-string">&lt;p</span> <span class="hljs-string">style=&quot;color:</span> <span class="hljs-string">red&quot;&gt;</span>
 <span class="hljs-string">段落</span>
 <span class="hljs-string">&lt;/p&gt;</span></code></pre></div>
 
 <h4 id="6-引用"><a href="#6-引用" class="headerlink" title="6. 引用"></a>6. 引用</h4><p>锚点&amp;和别名*，可以用来引用。</p>
 <p>&amp;用来建立锚点（defaults），&lt;&lt;表示合并到当前数据，*用来引用锚点。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">defaults:</span> <span class="hljs-string">&amp;defaults</span>   <span class="hljs-comment">#建立锚点&amp;defaults</span>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">defaults:</span> <span class="hljs-string">&amp;defaults</span>   <span class="hljs-comment">#建立锚点&amp;defaults</span>
   <span class="hljs-attr">adapter:</span> <span class="hljs-string">postgres</span>
   <span class="hljs-attr">host:</span> <span class="hljs-string">localhost</span>
 
@@ -468,7 +507,7 @@
   <span class="hljs-string">&lt;&lt;:</span> <span class="hljs-string">*defaults</span>    <span class="hljs-comment">#引用锚点</span></code></pre></div>
 
 <p> 等同于下面的代码。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">defaults:</span>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">defaults:</span>
   <span class="hljs-attr">adapter:</span> <span class="hljs-string">postgres</span>
   <span class="hljs-attr">host:</span> <span class="hljs-string">localhost</span>
 
@@ -483,40 +522,79 @@
   <span class="hljs-attr">host:</span> <span class="hljs-string">localhost</span></code></pre></div>
 
 <p> 下面是另一个例子。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-string">&amp;showell</span> <span class="hljs-string">Steve</span>  <span class="hljs-comment">#建立showell锚点</span>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-string">&amp;showell</span> <span class="hljs-string">Steve</span>  <span class="hljs-comment">#建立showell锚点</span>
 <span class="hljs-string">Clark</span>
 <span class="hljs-string">Brian</span>
 <span class="hljs-string">Oren</span>
 <span class="hljs-string">*showell</span>   <span class="hljs-comment">#引用锚点showell，即Steve</span></code></pre></div>
 
 
+              
             </div>
-            <hr>
+            <hr/>
             <div>
-              <div class="post-metas mb-3">
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/YAML/">YAML</a>
-                    
-                  </div>
-                
-              </div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/YAML/">#YAML</a>
+      
+    </div>
+  
+</div>
+
+
               
-                <p class="note note-warning">
-                  
-                    本站所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
-                  
-                </p>
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>YAML语法简记</div>
+      <div>https://mxy493.xyz/2019012330553/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>mxy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2019年1月23日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
               
-              
-                <div class="post-prevnext">
+                <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2019012413367/">
+                      <a href="/2019012413367/" title="Leetcode 两个数组的交集 II">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Leetcode 两个数组的交集 II</span>
                         <span class="visible-mobile">上一篇</span>
@@ -526,7 +604,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2019012229459/">
+                      <a href="/2019012229459/" title="Leetcode 只出现一次的数字">
                         <span class="hidden-mobile">Leetcode 只出现一次的数字</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -542,19 +620,49 @@
         </div>
       </div>
     </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
-      </div>
-    
+
+
+  </aside>
+
+
+    </div>
   </div>
 </div>
 
-<!-- Custom -->
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
 
 
     
@@ -579,66 +687,69 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+
     
 
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
 
   
-  <!-- 备案信息 -->
-  <div class="beian">
-    <span>
-      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-        京ICP备2021034122号-1
-      </a>
-    </span>
     
-  </div>
-
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
 
   
-</footer>
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP备2021034122号-1
+    </a>
+  </span>
+  
+</div>
 
+  
+  
+</div>
 
-  <!-- SCRIPTS -->
+  </footer>
+
+  <!-- Scripts -->
   
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
@@ -657,52 +768,18 @@
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-  
-
-
-
-  
-    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
-  
-  
-    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
-  
-  
-    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
-  
-  
-    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
-  
-
-
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-  <script defer src="/js/leancloud.js" ></script>
-
-
 
   <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
       
-        typing(title);
+        typing(text);
       
     })(window, document);
   </script>
@@ -710,24 +787,18 @@
 
 
 
-
-
-
-
-
-
-
-
   
     <!-- Baidu Analytics -->
     <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
     </script>
   
 
@@ -741,13 +812,170 @@
 
   
 
+  
+    
+  
 
 
 
 
-<!-- 主题的启动项 保持在最底部 -->
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>

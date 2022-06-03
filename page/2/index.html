@@ -27,15 +27,21 @@
 <meta name="twitter:card" content="summary_large_image">
   
   
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
   <title>跑起来有风</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
@@ -44,21 +50,40 @@
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home","post"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+
+  
 <meta name="generator" content="Hexo 5.4.1"></head>
 
 
 <body>
-  <header style="height: 100vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
       <strong>跑起来有风</strong>
@@ -152,6 +177,7 @@
               &nbsp;<i class="iconfont icon-search"></i>&nbsp;
             </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
@@ -164,34 +190,40 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/img/xqmy.webp') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="禅模式忘情学习中ᓚᘏᗢ">
-              
-            </span>
+  
 
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/xqmy.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
           
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
+            <span id="subtitle" data-typed-text="禅模式忘情学习中ᓚᘏᗢ"></span>
           
         </div>
+
+        
       </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
     
       <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
+        <div id="board"
+          style="margin-top: 0">
           
           <div class="container">
             <div class="row">
@@ -210,12 +242,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021022323341/" target="_self">
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021022323341/" target="_self">
+        <div>
           地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;replace-all-s-to-avoid-consecutive-repeating-characters&#x2F;  题目给你一个仅包含小写英文字母和 &#39;?&#39; 字符的字符串 s，请你将所有的 &#39;?&#39; 转换为若干小写字母，使最终的字符串不包含任何 连续重复 的字符。 注意：你 不能 修改非 &amp;#3
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -227,20 +259,34 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Leetcode/">Leetcode</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Leetcode/" class="category-chain-item">Leetcode</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Leetcode/">Leetcode</a>
+              <a href="/tags/Leetcode/">#Leetcode</a>
             
-              <a href="/tags/C/">C++</a>
+              <a href="/tags/C/">#C++</a>
             
           </div>
         
@@ -259,12 +305,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/202102204296/" target="_self">
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/202102204296/" target="_self">
+        <div>
           地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;increasing-decreasing-string&#x2F;  题目给你一个字符串 s ，请你根据下面的算法重新构造字符串：  从 s 中选出 最小 的字符，将它 接在 结果字符串的后面。 从 s 剩余字符中选出 最小 的字符，且该字符比上一个添加的字符大，将它 接在 结果字符串后面。 重复步骤 2 ，直到你没法从 s 中选择
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -276,20 +322,34 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Leetcode/">Leetcode</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Leetcode/" class="category-chain-item">Leetcode</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Leetcode/">Leetcode</a>
+              <a href="/tags/Leetcode/">#Leetcode</a>
             
-              <a href="/tags/C/">C++</a>
+              <a href="/tags/C/">#C++</a>
             
           </div>
         
@@ -308,12 +368,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021021921318/" target="_self">
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021021921318/" target="_self">
+        <div>
           地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;repeated-substring-pattern&#x2F;  题目给定一个非空的字符串，判断它是否可以由它的一个子串重复多次构成。给定的字符串只含有小写英文字母，并且长度不超过10000。 示例 1: 输入: &quot;abab&quot; 输出: True 解释: 可由子字符串 &quot;ab&quot; 重复两次构成。
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -325,20 +385,34 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Leetcode/">Leetcode</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Leetcode/" class="category-chain-item">Leetcode</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Leetcode/">Leetcode</a>
+              <a href="/tags/Leetcode/">#Leetcode</a>
             
-              <a href="/tags/C/">C++</a>
+              <a href="/tags/C/">#C++</a>
             
           </div>
         
@@ -357,12 +431,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/202102194843/" target="_self">
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/202102194843/" target="_self">
+        <div>
           地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;non-decreasing-array&#x2F;  题目给你一个长度为 n 的整数数组，请你判断在 最多 改变 1 个元素的情况下，该数组能否变成一个非递减数列。 我们是这样定义一个非递减数列的： 对于数组中任意的 i (0 &lt;&#x3D; i &lt;&#x3D; n-2)，总满足 nums[i] &lt;&#x3D; nums[i + 1]。 示例
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -374,20 +448,34 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Leetcode/">Leetcode</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Leetcode/" class="category-chain-item">Leetcode</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Leetcode/">Leetcode</a>
+              <a href="/tags/Leetcode/">#Leetcode</a>
             
-              <a href="/tags/C/">C++</a>
+              <a href="/tags/C/">#C++</a>
             
           </div>
         
@@ -406,12 +494,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020120331732/" target="_self">
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020120331732/" target="_self">
+        <div>
           简述之前用 Qt 做程序界面的时候，有一个小问题就是有的操作可能比较耗时，比如说点击一个按钮，程序需要一段时间来处理，然后这时候界面也卡住不能操作了，需要等待处理完成，我自己也是使用软件的，很显然这样用户体验极差。很常见的做法就是添加一个加载动画，加载完之后再自动关闭加载动画，体验就一下子上来了🤪 不过说归说，这事情却一直没有做，今天恰好有时间就查资料，把这事给解决了~ 思路首先还是简要说下思路
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -423,20 +511,34 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Qt/">Qt</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Qt/" class="category-chain-item">Qt</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Python/">Python</a>
+              <a href="/tags/Python/">#Python</a>
             
-              <a href="/tags/Qt/">Qt</a>
+              <a href="/tags/Qt/">#Qt</a>
             
           </div>
         
@@ -455,12 +557,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020111660580/" target="_self">
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020111660580/" target="_self">
+        <div>
           一些实际开发中总结的 Python 经验~ 获取字典的值d &#x3D; &amp;#123;&amp;#x27;a&amp;#x27;: 1, &amp;#x27;b&amp;#x27;: 2&amp;#125;  一般我们会直接用 d[&#39;a&#39;] 获取字典的值，但是如果不小心写了 d[&#39;c&#39;] ，字典中并没有 &#39;c&#39; 的键，就会报错。 更好的方法是使用 get() 方法~ a &#x3D; d.get(&amp;#x27;
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -472,18 +574,32 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Python/">Python</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Python/">Python</a>
+              <a href="/tags/Python/">#Python</a>
             
           </div>
         
@@ -502,12 +618,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020111210053/" target="_self">
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020111210053/" target="_self">
+        <div>
           盒子布局官方文档：https:&#x2F;&#x2F;doc.qt.io&#x2F;qtforpython&#x2F;PySide2&#x2F;QtWidgets&#x2F;QGridLayout.html grid &#x3D; QGridLayout()  # 实例化一个格子布局  比较常用的几个函数： def addLayout (arg__1, row, column, rowSpan, columnSpan[, alignment&#x3D;Qt.Alignment
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -519,20 +635,34 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Qt/">Qt</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Qt/" class="category-chain-item">Qt</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Python/">Python</a>
+              <a href="/tags/Python/">#Python</a>
             
-              <a href="/tags/Qt/">Qt</a>
+              <a href="/tags/Qt/">#Qt</a>
             
           </div>
         
@@ -551,12 +681,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020110641390/" target="_self">
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020110641390/" target="_self">
+        <div>
           简述最近使用 opencv-python ，主要需要打开摄像头显示画面，但是就遇到个很尴尬得问题，当一台电脑有多个摄像头的时候，怎么选择打开对应的某一个摄像头呢？ 一般我们回想既然 OpenCV 提供了打开某一个摄像头的接口，那应该也会有查看多有摄像头设备的接口函数可以直接调用吧~至少我是这么想的，但事实上，查了一圈，似乎并没有相关的接口可以调用。 网上也有一些解决方案，思路很简单。 OpenCV
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -572,9 +702,9 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Python/">Python</a>
+              <a href="/tags/Python/">#Python</a>
             
-              <a href="/tags/OpenCV/">OpenCV</a>
+              <a href="/tags/OpenCV/">#OpenCV</a>
             
           </div>
         
@@ -593,12 +723,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020110560199/" target="_self">
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020110560199/" target="_self">
+        <div>
           代码实现先直接上代码吧~ OpenCV 在 Python 中的库名叫 opencv-python ，另外导入的时候是导入 cv2 。 # -*- coding: utf-8 -*- import cv2  # 导入opencv-python库  cap &#x3D; cv2.VideoCapture(0)  # 打开系统默认摄像头 fourcc &#x3D; cv2.VideoWriter_fourcc(&amp;#x27;
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -614,9 +744,9 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Python/">Python</a>
+              <a href="/tags/Python/">#Python</a>
             
-              <a href="/tags/OpenCV/">OpenCV</a>
+              <a href="/tags/OpenCV/">#OpenCV</a>
             
           </div>
         
@@ -635,12 +765,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020102136991/" target="_self">
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020102136991/" target="_self">
+        <div>
           地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;long-pressed-name&#x2F;  题目你的朋友正在使用键盘输入他的名字 name。偶尔，在键入字符 c 时，按键可能会被长按，而字符可能被输入 1 次或多次。 你将会检查键盘输入的字符 typed。如果它对应的可能是你的朋友的名字（其中一些字符可能被长按），那么就返回 True。 示例 1： 输入：name &#x3D; &amp;qu
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -652,20 +782,34 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Leetcode/">Leetcode</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Leetcode/" class="category-chain-item">Leetcode</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Leetcode/">Leetcode</a>
+              <a href="/tags/Leetcode/">#Leetcode</a>
             
-              <a href="/tags/C/">C++</a>
+              <a href="/tags/C/">#C++</a>
             
           </div>
         
@@ -710,66 +854,69 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+
     
 
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
 
   
-  <!-- 备案信息 -->
-  <div class="beian">
-    <span>
-      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-        京ICP备2021034122号-1
-      </a>
-    </span>
     
-  </div>
-
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
 
   
-</footer>
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP备2021034122号-1
+    </a>
+  </span>
+  
+</div>
 
+  
+  
+</div>
 
-  <!-- SCRIPTS -->
+  </footer>
+
+  <!-- Scripts -->
   
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
@@ -788,66 +935,48 @@
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-  
-
-
-
-
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-  <script defer src="/js/leancloud.js" ></script>
-
-
 
   <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
       
-      jQuery.ajax({
-        type: 'GET',
-        url: 'https://v1.hitokoto.cn/',
-        headers: {},
-        dataType: 'json',
-        success: function(result) {
-          var text;
-          if (result) {
-            var keys = 'hitokoto'.split(',');
-            if (result instanceof Array) {
-              result = result[0];
-            }
-            for (const k of keys) {
-              var value = result[k];
-              if (typeof value === 'string') {
-                text = value;
-                break;
-              } else if (value instanceof Object) {
-                result = value;
+        jQuery.ajax({
+          type: 'GET',
+          url: 'https://v1.hitokoto.cn/',
+          headers: {},
+          dataType: 'json',
+          success: function(result) {
+            var apiText;
+            if (result) {
+              var keys = 'hitokoto'.split(',');
+              if (result instanceof Array) {
+                result = result[0];
+              }
+              for (const k of keys) {
+                var value = result[k];
+                if (typeof value === 'string') {
+                  apiText = value;
+                  break;
+                } else if (value instanceof Object) {
+                  result = value;
+                }
               }
             }
+            apiText ? typing(apiText) : typing(text);
+          },
+          error: function(xhr, status, error) {
+            if (error) {
+              console.error('Failed to request https://v1.hitokoto.cn/:', error);
+            }
+            typing(text);
           }
-          text ? typing(text) : typing(title);
-        },
-        error: function() {
-          typing(title);
-        }
-      })
+        })
       
     })(window, document);
   </script>
@@ -855,24 +984,18 @@
 
 
 
-
-
-
-
-
-
-
-
   
     <!-- Baidu Analytics -->
     <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
     </script>
   
 
@@ -886,13 +1009,39 @@
 
   
 
+  
+    
+  
 
 
 
 
-<!-- 主题的启动项 保持在最底部 -->
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>

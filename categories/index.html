@@ -27,15 +27,21 @@
 <meta name="twitter:card" content="summary_large_image">
   
   
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
   <title>分类 - 跑起来有风</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
@@ -44,21 +50,40 @@
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.9.1","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home","post"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+
+  
 <meta name="generator" content="Hexo 5.4.1"></head>
 
 
 <body>
-  <header style="height: 60vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
       <strong>跑起来有风</strong>
@@ -152,6 +177,7 @@
               &nbsp;<i class="iconfont icon-search"></i>&nbsp;
             </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
@@ -164,29 +190,35 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/img/xqmy.webp') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="分类">
-              
-            </span>
+  
 
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/xqmy.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">分类</span>
           
         </div>
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
     
       <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
+        <div id="board"
           >
           
           <div class="container">
@@ -201,24 +233,27 @@
 <div class="category-list">
   
   
-  
-  
     
     
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+    
+    <div class="category row nomargin-x">
+      <a class="category-item collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Leetcode"
         id="heading-c7c91c08fedb96d394e15347e9a48bc3" role="tab" data-toggle="collapse" href="#collapse-c7c91c08fedb96d394e15347e9a48bc3"
         aria-expanded="false"
       >
         Leetcode
+        <span class="list-group-count"></span>
         <i class="iconfont icon-arrowright"></i>
       </a>
-      <a href="/categories/Leetcode/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>85</span>
-      </a>
-      <div class="category-collapse collapse" id="collapse-c7c91c08fedb96d394e15347e9a48bc3" role="tabpanel" aria-labelledby="heading-c7c91c08fedb96d394e15347e9a48bc3">
+      
+        <a href="/categories/Leetcode/" class="category-count col-2 col-md-1 col-xm-1">
+          <i class="iconfont icon-articles"></i>
+          <span>85</span>
+        </a>
+      
+      <div class="category-collapse collapse " id="collapse-c7c91c08fedb96d394e15347e9a48bc3"
+           role="tabpanel" aria-labelledby="heading-c7c91c08fedb96d394e15347e9a48bc3">
         
         
           
@@ -227,70 +262,90 @@
     
       
       
-        <a href="/2021022323341/" class="list-group-item list-group-item-action">
+        <a href="/2021022323341/" title="Leetcode 1576. 替换所有的问号【C++】"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">Leetcode 1576. 替换所有的问号【C++】</span>
         </a>
       
     
       
       
-        <a href="/202102204296/" class="list-group-item list-group-item-action">
+        <a href="/202102204296/" title="Leetcode 1370. 上升下降字符串【C++】"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">Leetcode 1370. 上升下降字符串【C++】</span>
         </a>
       
     
       
       
-        <a href="/2021021921318/" class="list-group-item list-group-item-action">
+        <a href="/2021021921318/" title="Leetcode 459. 重复的子字符串【C++】"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">Leetcode 459. 重复的子字符串【C++】</span>
         </a>
       
     
       
       
-        <a href="/202102194843/" class="list-group-item list-group-item-action">
+        <a href="/202102194843/" title="Leetcode 665. 非递减数列【C++】"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">Leetcode 665. 非递减数列【C++】</span>
         </a>
       
     
       
       
-        <a href="/2020102136991/" class="list-group-item list-group-item-action">
+        <a href="/2020102136991/" title="Leetcode 925. 长按键入【C++】"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">Leetcode 925. 长按键入【C++】</span>
         </a>
       
     
       
       
-        <a href="/202010199862/" class="list-group-item list-group-item-action">
+        <a href="/202010199862/" title="Leetcode 844. 比较含退格的字符串【C++】"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">Leetcode 844. 比较含退格的字符串【C++】</span>
         </a>
       
     
       
       
-        <a href="/2020092011556/" class="list-group-item list-group-item-action">
+        <a href="/2020092011556/" title="Leetcode 1143. 最长公共子序列"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">Leetcode 1143. 最长公共子序列</span>
         </a>
       
     
       
       
-        <a href="/2020082918380/" class="list-group-item list-group-item-action">
+        <a href="/2020082918380/" title="Leetcode 64. 最小路径和【C++】"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">Leetcode 64. 最小路径和【C++】</span>
         </a>
       
     
       
       
-        <a href="/2020082942609/" class="list-group-item list-group-item-action">
+        <a href="/2020082942609/" title="Leetcode 面试题 08.01. 三步问题【C++】"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">Leetcode 面试题 08.01. 三步问题【C++】</span>
         </a>
       
     
       
       
-        <a href="/2020082054347/" class="list-group-item list-group-item-action">
+        <a href="/2020082054347/" title="Leetcode 647. 回文子串【C++】"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">Leetcode 647. 回文子串【C++】</span>
         </a>
       
@@ -309,20 +364,25 @@
   
     
     
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+    
+    <div class="category row nomargin-x">
+      <a class="category-item collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="博客"
         id="heading-c50d13646ec66f1929da5d491f2dff0f" role="tab" data-toggle="collapse" href="#collapse-c50d13646ec66f1929da5d491f2dff0f"
         aria-expanded="false"
       >
         博客
+        <span class="list-group-count"></span>
         <i class="iconfont icon-arrowright"></i>
       </a>
-      <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>9</span>
-      </a>
-      <div class="category-collapse collapse" id="collapse-c50d13646ec66f1929da5d491f2dff0f" role="tabpanel" aria-labelledby="heading-c50d13646ec66f1929da5d491f2dff0f">
+      
+        <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="category-count col-2 col-md-1 col-xm-1">
+          <i class="iconfont icon-articles"></i>
+          <span>9</span>
+        </a>
+      
+      <div class="category-collapse collapse " id="collapse-c50d13646ec66f1929da5d491f2dff0f"
+           role="tabpanel" aria-labelledby="heading-c50d13646ec66f1929da5d491f2dff0f">
         
         
           
@@ -331,63 +391,81 @@
     
       
       
-        <a href="/2020070417822/" class="list-group-item list-group-item-action">
+        <a href="/2020070417822/" title="Hexo博客使用插件hexo-abbrlink生成永久短链接"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">Hexo博客使用插件hexo-abbrlink生成永久短链接</span>
         </a>
       
     
       
       
-        <a href="/2020070150115/" class="list-group-item list-group-item-action">
+        <a href="/2020070150115/" title="主流的个人博客搭建方案"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">主流的个人博客搭建方案</span>
         </a>
       
     
       
       
-        <a href="/2020041736855/" class="list-group-item list-group-item-action">
+        <a href="/2020041736855/" title="Hexo 压缩&amp;优化插件 Hexo-all-minifier"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">Hexo 压缩&amp;优化插件 Hexo-all-minifier</span>
         </a>
       
     
       
       
-        <a href="/2019052557154/" class="list-group-item list-group-item-action">
+        <a href="/2019052557154/" title="Hexo博客使用插件hexo-git-backup通过GitHub备份与恢复"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">Hexo博客使用插件hexo-git-backup通过GitHub备份与恢复</span>
         </a>
       
     
       
       
-        <a href="/2019020144422/" class="list-group-item list-group-item-action">
+        <a href="/2019020144422/" title="关于Hexo yilia主题文章截断功能"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">关于Hexo yilia主题文章截断功能</span>
         </a>
       
     
       
       
-        <a href="/201901283204/" class="list-group-item list-group-item-action">
+        <a href="/201901283204/" title="Hexo博客（主题：yilia）添加Valine评论系统"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">Hexo博客（主题：yilia）添加Valine评论系统</span>
         </a>
       
     
       
       
-        <a href="/201901272146/" class="list-group-item list-group-item-action">
+        <a href="/201901272146/" title="Hexo中插入本地图片"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">Hexo中插入本地图片</span>
         </a>
       
     
       
       
-        <a href="/2019012656295/" class="list-group-item list-group-item-action">
+        <a href="/2019012656295/" title="Hexo yilia主题添加“不蒜子”访问量统计"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">Hexo yilia主题添加“不蒜子”访问量统计</span>
         </a>
       
     
       
       
-        <a href="/2019011817415/" class="list-group-item list-group-item-action">
+        <a href="/2019011817415/" title="GitHub+Hexo搭建博客笔记"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">GitHub+Hexo搭建博客笔记</span>
         </a>
       
@@ -400,20 +478,25 @@
   
     
     
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+    
+    <div class="category row nomargin-x">
+      <a class="category-item collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="C++"
         id="heading-f6f87c9fdcf8b3c3f07f93f1ee8712c9" role="tab" data-toggle="collapse" href="#collapse-f6f87c9fdcf8b3c3f07f93f1ee8712c9"
         aria-expanded="false"
       >
         C++
+        <span class="list-group-count"></span>
         <i class="iconfont icon-arrowright"></i>
       </a>
-      <a href="/categories/C/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>5</span>
-      </a>
-      <div class="category-collapse collapse" id="collapse-f6f87c9fdcf8b3c3f07f93f1ee8712c9" role="tabpanel" aria-labelledby="heading-f6f87c9fdcf8b3c3f07f93f1ee8712c9">
+      
+        <a href="/categories/C/" class="category-count col-2 col-md-1 col-xm-1">
+          <i class="iconfont icon-articles"></i>
+          <span>5</span>
+        </a>
+      
+      <div class="category-collapse collapse " id="collapse-f6f87c9fdcf8b3c3f07f93f1ee8712c9"
+           role="tabpanel" aria-labelledby="heading-f6f87c9fdcf8b3c3f07f93f1ee8712c9">
         
         
           
@@ -422,35 +505,45 @@
     
       
       
-        <a href="/2021052530658/" class="list-group-item list-group-item-action">
+        <a href="/2021052530658/" title="C++ 日志框架 spdlog 的初步上手"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">C++ 日志框架 spdlog 的初步上手</span>
         </a>
       
     
       
       
-        <a href="/2021030220973/" class="list-group-item list-group-item-action">
+        <a href="/2021030220973/" title="C++ 在各种字符串类型之间相互转换"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">C++ 在各种字符串类型之间相互转换</span>
         </a>
       
     
       
       
-        <a href="/202102252517/" class="list-group-item list-group-item-action">
+        <a href="/202102252517/" title="C++ 包管理器 vcpkg 的安装使用"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">C++ 包管理器 vcpkg 的安装使用</span>
         </a>
       
     
       
       
-        <a href="/2021022519518/" class="list-group-item list-group-item-action">
+        <a href="/2021022519518/" title="C++保存文件为UTF8编码格式"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">C++保存文件为UTF8编码格式</span>
         </a>
       
     
       
       
-        <a href="/202010144968/" class="list-group-item list-group-item-action">
+        <a href="/202010144968/" title="C++ 数组作为函数参数"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">C++ 数组作为函数参数</span>
         </a>
       
@@ -463,20 +556,25 @@
   
     
     
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+    
+    <div class="category row nomargin-x">
+      <a class="category-item collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Qt"
         id="heading-e8801102a40ad89ddfcfdcaebf008d25" role="tab" data-toggle="collapse" href="#collapse-e8801102a40ad89ddfcfdcaebf008d25"
         aria-expanded="false"
       >
         Qt
+        <span class="list-group-count"></span>
         <i class="iconfont icon-arrowright"></i>
       </a>
-      <a href="/categories/Qt/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>4</span>
-      </a>
-      <div class="category-collapse collapse" id="collapse-e8801102a40ad89ddfcfdcaebf008d25" role="tabpanel" aria-labelledby="heading-e8801102a40ad89ddfcfdcaebf008d25">
+      
+        <a href="/categories/Qt/" class="category-count col-2 col-md-1 col-xm-1">
+          <i class="iconfont icon-articles"></i>
+          <span>4</span>
+        </a>
+      
+      <div class="category-collapse collapse " id="collapse-e8801102a40ad89ddfcfdcaebf008d25"
+           role="tabpanel" aria-labelledby="heading-e8801102a40ad89ddfcfdcaebf008d25">
         
         
           
@@ -485,28 +583,36 @@
     
       
       
-        <a href="/2021052615395/" class="list-group-item list-group-item-action">
+        <a href="/2021052615395/" title="Visual Studio &amp; Qt 设置可执行程序图标"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">Visual Studio &amp; Qt 设置可执行程序图标</span>
         </a>
       
     
       
       
-        <a href="/2020120331732/" class="list-group-item list-group-item-action">
+        <a href="/2020120331732/" title="使用Qt for Python实现加载动画"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">使用Qt for Python实现加载动画</span>
         </a>
       
     
       
       
-        <a href="/2020111210053/" class="list-group-item list-group-item-action">
+        <a href="/2020111210053/" title="我的 Qt for Python 笔记"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">我的 Qt for Python 笔记</span>
         </a>
       
     
       
       
-        <a href="/2020093015531/" class="list-group-item list-group-item-action">
+        <a href="/2020093015531/" title="记录QGridLayout踩坑经历"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">记录QGridLayout踩坑经历</span>
         </a>
       
@@ -519,20 +625,25 @@
   
     
     
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+    
+    <div class="category row nomargin-x">
+      <a class="category-item collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Python"
         id="heading-a7f5f35426b927411fc9231b56382173" role="tab" data-toggle="collapse" href="#collapse-a7f5f35426b927411fc9231b56382173"
         aria-expanded="false"
       >
         Python
+        <span class="list-group-count"></span>
         <i class="iconfont icon-arrowright"></i>
       </a>
-      <a href="/categories/Python/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>2</span>
-      </a>
-      <div class="category-collapse collapse" id="collapse-a7f5f35426b927411fc9231b56382173" role="tabpanel" aria-labelledby="heading-a7f5f35426b927411fc9231b56382173">
+      
+        <a href="/categories/Python/" class="category-count col-2 col-md-1 col-xm-1">
+          <i class="iconfont icon-articles"></i>
+          <span>2</span>
+        </a>
+      
+      <div class="category-collapse collapse " id="collapse-a7f5f35426b927411fc9231b56382173"
+           role="tabpanel" aria-labelledby="heading-a7f5f35426b927411fc9231b56382173">
         
         
           
@@ -541,14 +652,18 @@
     
       
       
-        <a href="/2022032325189/" class="list-group-item list-group-item-action">
+        <a href="/2022032325189/" title="python subprocess 子进程多次读写"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">python subprocess 子进程多次读写</span>
         </a>
       
     
       
       
-        <a href="/2020111660580/" class="list-group-item list-group-item-action">
+        <a href="/2020111660580/" title="我的 Python 笔记"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">我的 Python 笔记</span>
         </a>
       
@@ -561,20 +676,25 @@
   
     
     
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+    
+    <div class="category row nomargin-x">
+      <a class="category-item collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="前端"
         id="heading-9abfe4a03928eb88a75a5cd95822dfef" role="tab" data-toggle="collapse" href="#collapse-9abfe4a03928eb88a75a5cd95822dfef"
         aria-expanded="false"
       >
         前端
+        <span class="list-group-count"></span>
         <i class="iconfont icon-arrowright"></i>
       </a>
-      <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse collapse" id="collapse-9abfe4a03928eb88a75a5cd95822dfef" role="tabpanel" aria-labelledby="heading-9abfe4a03928eb88a75a5cd95822dfef">
+      
+        <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-count col-2 col-md-1 col-xm-1">
+          <i class="iconfont icon-articles"></i>
+          <span>1</span>
+        </a>
+      
+      <div class="category-collapse collapse " id="collapse-9abfe4a03928eb88a75a5cd95822dfef"
+           role="tabpanel" aria-labelledby="heading-9abfe4a03928eb88a75a5cd95822dfef">
         
         
           
@@ -583,7 +703,9 @@
     
       
       
-        <a href="/2020050549325/" class="list-group-item list-group-item-action">
+        <a href="/2020050549325/" title="使用jQuery on()方法绑定动态添加的元素"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">使用jQuery on()方法绑定动态添加的元素</span>
         </a>
       
@@ -596,20 +718,25 @@
   
     
     
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+    
+    <div class="category row nomargin-x">
+      <a class="category-item collapsed
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="深度学习"
         id="heading-8c5f70f85d5a691a5f1dc7be5473736b" role="tab" data-toggle="collapse" href="#collapse-8c5f70f85d5a691a5f1dc7be5473736b"
         aria-expanded="false"
       >
         深度学习
+        <span class="list-group-count"></span>
         <i class="iconfont icon-arrowright"></i>
       </a>
-      <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse collapse" id="collapse-8c5f70f85d5a691a5f1dc7be5473736b" role="tabpanel" aria-labelledby="heading-8c5f70f85d5a691a5f1dc7be5473736b">
+      
+        <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="category-count col-2 col-md-1 col-xm-1">
+          <i class="iconfont icon-articles"></i>
+          <span>1</span>
+        </a>
+      
+      <div class="category-collapse collapse " id="collapse-8c5f70f85d5a691a5f1dc7be5473736b"
+           role="tabpanel" aria-labelledby="heading-8c5f70f85d5a691a5f1dc7be5473736b">
         
         
           
@@ -618,7 +745,9 @@
     
       
       
-        <a href="/2020083032973/" class="list-group-item list-group-item-action">
+        <a href="/2020083032973/" title="YOLOv5快速上手使用【WIN】"
+           class="list-group-item list-group-item-action
+           ">
           <span class="category-post">YOLOv5快速上手使用【WIN】</span>
         </a>
       
@@ -630,6 +759,7 @@
     </div>
   
 </div>
+
 
               </div>
             </div>
@@ -658,66 +788,69 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+
     
 
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- 不蒜子统计PV -->
-        <span id="busuanzi_container_site_pv" style="display: none">
-            总访问量 
-            <span id="busuanzi_value_site_pv"></span>
-             次
-          </span>
-      
-      
-        <!-- 不蒜子统计UV -->
-        <span id="busuanzi_container_site_uv" style="display: none">
-            总访客数 
-            <span id="busuanzi_value_site_uv"></span>
-             人
-          </span>
-      
-    
-  </div>
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
 
   
-  <!-- 备案信息 -->
-  <div class="beian">
-    <span>
-      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-        京ICP备2021034122号-1
-      </a>
-    </span>
     
-  </div>
-
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
 
   
-</footer>
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP备2021034122号-1
+    </a>
+  </span>
+  
+</div>
 
+  
+  
+</div>
 
-  <!-- SCRIPTS -->
+  </footer>
+
+  <!-- Scripts -->
   
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
@@ -736,50 +869,6 @@
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-  
-
-
-
-
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-  <script defer src="/js/leancloud.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-        typing(title);
-      
-    })(window, document);
-  </script>
-
-
-
-
-
-
-
-
 
 
 
@@ -787,13 +876,15 @@
   
     <!-- Baidu Analytics -->
     <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
     </script>
   
 
@@ -807,13 +898,39 @@
 
   
 
+  
+    
+  
 
 
 
 
-<!-- 主题的启动项 保持在最底部 -->
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>
