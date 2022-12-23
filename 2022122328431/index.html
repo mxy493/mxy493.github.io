@@ -14,26 +14,27 @@
   
   <meta name="theme-color" content="#2f4154">
   <meta name="author" content="mxy">
-  <meta name="keywords" content="shell">
+  <meta name="keywords" content="MinGW,NDK">
   
-    <meta name="description" content="字符串定义字符串 string&#x3D;&quot;abcdef&quot;  截取字符串 - 根据索引和长度 # 从左往右 $&amp;#123;string:start:length&amp;#125; # 例如 $&amp;#123;string:2:2&amp;#125;  # 结果为&quot;cd&quot; # 省略长度则截取到字符串末尾 $&amp;#123;string:2&amp;#125;  # 结果为&quot;cdef&amp;quo">
+    <meta name="description" content="一、搭建环境1）配置MinGWWindows 系统需要安装 MinGW，Linux 系统默认就有 gcc&#x2F;g++ 编译套件无需安装。 MinGW下载：https:&#x2F;&#x2F;osdn.net&#x2F;projects&#x2F;mingw&#x2F; 下载 mingw-get-setup.exe 即可，这是一个用于下载安装MinGW的程序（MinGW Installation Manager），运行后在主界面勾选 mingw32-b">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Shell 脚本笔记">
-<meta property="og:url" content="https://mxy493.xyz/2022082758002/index.html">
+<meta property="og:title" content="使用MinGW和NDK编译安卓C语言程序">
+<meta property="og:url" content="https://mxy493.xyz/2022122328431/index.html">
 <meta property="og:site_name" content="跑起来有风">
-<meta property="og:description" content="字符串定义字符串 string&#x3D;&quot;abcdef&quot;  截取字符串 - 根据索引和长度 # 从左往右 $&amp;#123;string:start:length&amp;#125; # 例如 $&amp;#123;string:2:2&amp;#125;  # 结果为&quot;cd&quot; # 省略长度则截取到字符串末尾 $&amp;#123;string:2&amp;#125;  # 结果为&quot;cdef&amp;quo">
+<meta property="og:description" content="一、搭建环境1）配置MinGWWindows 系统需要安装 MinGW，Linux 系统默认就有 gcc&#x2F;g++ 编译套件无需安装。 MinGW下载：https:&#x2F;&#x2F;osdn.net&#x2F;projects&#x2F;mingw&#x2F; 下载 mingw-get-setup.exe 即可，这是一个用于下载安装MinGW的程序（MinGW Installation Manager），运行后在主界面勾选 mingw32-b">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-27T05:36:42.000Z">
-<meta property="article:modified_time" content="2022-08-28T18:47:05.810Z">
+<meta property="og:image" content="https://mxy493.xyz/2022122328431/Snipaste_2022-12-23_17-24-13.png">
+<meta property="article:published_time" content="2022-12-23T09:12:31.000Z">
+<meta property="article:modified_time" content="2022-12-23T10:05:19.641Z">
 <meta property="article:author" content="mxy">
-<meta property="article:tag" content="shell">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mxy493.xyz/2022122328431/Snipaste_2022-12-23_17-24-13.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Shell 脚本笔记 - 跑起来有风</title>
+  <title>使用MinGW和NDK编译安卓C语言程序 - 跑起来有风</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -240,7 +241,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Shell 脚本笔记"></span>
+            <span id="subtitle" data-typed-text="使用MinGW和NDK编译安卓C语言程序"></span>
           
         </div>
 
@@ -251,8 +252,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-27 13:36" pubdate>
-          2022年8月27日 下午
+        <time datetime="2022-12-23 17:12" pubdate>
+          2022年12月23日 下午
         </time>
       </span>
     
@@ -264,7 +265,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.6k 字
+          1.1k 字
         
       </span>
     
@@ -276,7 +277,7 @@
         
         
           <!-- compatible with older versions-->
-          6 分钟
+          4 分钟
         
       </span>
     
@@ -322,13 +323,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Shell 脚本笔记</h1>
+            <h1 style="display: none">使用MinGW和NDK编译安卓C语言程序</h1>
             
               <p class="note note-info">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年8月29日 凌晨
+                    本文最后更新于：2022年12月23日 晚上
                   
                 
               </p>
@@ -336,113 +337,40 @@
             
               <div class="markdown-body">
                 
-                <h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><p>定义字符串</p>
-<div class="code-wrapper"><pre><code class="hljs abnf"><span class="hljs-attribute">string</span><span class="hljs-operator">=</span><span class="hljs-string">&quot;abcdef&quot;</span></code></pre></div>
+                <h1 id="一、搭建环境"><a href="#一、搭建环境" class="headerlink" title="一、搭建环境"></a>一、搭建环境</h1><h2 id="1）配置MinGW"><a href="#1）配置MinGW" class="headerlink" title="1）配置MinGW"></a>1）配置MinGW</h2><p>Windows 系统需要安装 MinGW，Linux 系统默认就有 gcc/g++ 编译套件无需安装。</p>
+<p>MinGW下载：<a target="_blank" rel="noopener" href="https://osdn.net/projects/mingw/">https://osdn.net/projects/mingw/</a></p>
+<p>下载 mingw-get-setup.exe 即可，这是一个用于下载安装MinGW的程序（MinGW Installation Manager），运行后在主界面勾选 mingw32-base-bin 和 mingw32-gcc-g++-bin，然后点击左上角 Installation -&gt; Apply Changes，程序这才开始下载配置相关环境。</p>
+<p><img src="Snipaste_2022-12-23_17-24-13.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2022-12-23_17-24-13.png"></p>
+<p>安装完毕后，需要配置环境变量，将 MinGW 安装路径 <code>D:\MinGW\bin</code> 添加到系统环境变量 Path 中。</p>
+<p>以上就配置完毕了，可以打开终端执行命令 <code>gcc --version</code> 确认是否配置正确。</p>
+<h2 id="2）配置NDK"><a href="#2）配置NDK" class="headerlink" title="2）配置NDK"></a>2）配置NDK</h2><p>NDK下载：<a target="_blank" rel="noopener" href="https://developer.android.com/ndk/downloads/index.html">https://developer.android.com/ndk/downloads/index.html</a></p>
+<p>NDK更简单一些，通过以上链接下载对应平台的包，例如 android-ndk-r25b-windows.zip，下载后解压，自己找个合适的地方存放就行，例如我将其放在 <code>D:\android-ndk-r25b</code>，同样将该路径加入到系统 Path 环境变量中即可。</p>
+<p>可以执行命令 <code>ndk-build --version</code> 确认是否配置正确。</p>
+<h1 id="二、编译安卓C语言程序"><a href="#二、编译安卓C语言程序" class="headerlink" title="二、编译安卓C语言程序"></a>二、编译安卓C语言程序</h1><p>随便写个C程序 main.c：</p>
+<div class="code-wrapper"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
 
-<p>截取字符串 - 根据索引和长度</p>
-<div class="code-wrapper"><pre><code class="hljs autoit"><span class="hljs-meta"># 从左往右</span>
-$&#123;<span class="hljs-built_in">string</span>:start:length&#125;
-<span class="hljs-meta"># 例如</span>
-$&#123;<span class="hljs-built_in">string</span>:<span class="hljs-number">2</span>:<span class="hljs-number">2</span>&#125;  <span class="hljs-meta"># 结果为<span class="hljs-string">&quot;cd&quot;</span></span>
-<span class="hljs-meta"># 省略长度则截取到字符串末尾</span>
-$&#123;<span class="hljs-built_in">string</span>:<span class="hljs-number">2</span>&#125;  <span class="hljs-meta"># 结果为<span class="hljs-string">&quot;cdef&quot;</span></span>
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>
+&#123;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello world.\n&quot;</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;</code></pre></div>
 
-<span class="hljs-meta"># 从右往左</span>
-$&#123;<span class="hljs-built_in">string</span>:<span class="hljs-number">0</span>-start:length&#125;
-<span class="hljs-meta"># 例如</span>
-$&#123;<span class="hljs-built_in">string</span>:<span class="hljs-number">0</span><span class="hljs-number">-2</span>&#125;  <span class="hljs-meta"># 结果为<span class="hljs-string">&quot;ef&quot;</span></span></code></pre></div>
+<p>添加 Android.mk：</p>
+<div class="code-wrapper"><pre><code class="hljs makefile">LOCAL_PATH:=<span class="hljs-variable">$(<span class="hljs-built_in">call</span> my-<span class="hljs-built_in">dir</span>)</span>
+<span class="hljs-keyword">include</span> <span class="hljs-variable">$(CLEAR_VARS)</span>
+LOCAL_MODULE:=main
+LOCAL_SRC_FILES:=main.c
+<span class="hljs-keyword">include</span> <span class="hljs-variable">$(BUILD_EXECUTABLE)</span>
 
-<p>截取字符串 - 根据子字符串</p>
-<div class="code-wrapper"><pre><code class="hljs autoit"><span class="hljs-meta"># 使用<span class="hljs-string">&quot;#&quot;</span>截取指定子字符串右侧的所有字符</span>
-$&#123;<span class="hljs-built_in">string</span><span class="hljs-meta">#*chars&#125;</span>
-<span class="hljs-meta"># 例如</span>
-$&#123;<span class="hljs-built_in">string</span><span class="hljs-meta">#*cd&#125;  # 结果为<span class="hljs-string">&quot;ef&quot;</span>，<span class="hljs-string">&quot;*&quot;</span>为通配符</span>
+TARGET_ARCH := arm64
+TARGET_ARCH_ABI := arm64-v8a</code></pre></div>
 
-<span class="hljs-meta"># 使用<span class="hljs-string">&quot;%&quot;</span>截取指定子字符串左侧的所有字符</span>
-$&#123;<span class="hljs-built_in">string</span>%chars*&#125;
-<span class="hljs-meta"># 例如</span>
-$&#123;<span class="hljs-built_in">string</span>%cd*&#125;  <span class="hljs-meta"># 结果为<span class="hljs-string">&quot;ab&quot;</span>，<span class="hljs-string">&quot;*&quot;</span>为通配符</span></code></pre></div>
-
-<p>拼接字符串</p>
-<div class="code-wrapper"><pre><code class="hljs ini"><span class="hljs-attr">str1</span>=<span class="hljs-string">&quot;abc&quot;</span>
-<span class="hljs-attr">str2</span>=<span class="hljs-string">&quot;def&quot;</span>
-<span class="hljs-attr">str</span>=<span class="hljs-variable">$&#123;str1&#125;</span><span class="hljs-variable">$&#123;str2&#125;</span>  <span class="hljs-comment"># 结果为&quot;abcdef&quot;</span>
-<span class="hljs-attr">str1</span>=<span class="hljs-variable">$&#123;str1&#125;</span><span class="hljs-variable">$&#123;str2&#125;</span>  <span class="hljs-comment"># 追加，结果为&quot;abcdef&quot;</span></code></pre></div>
-
-<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>定义数组很简单，总之就是圆括号括起来，元素之间用空格或者换行间隔就行。需要注意 shell 脚本中赋值符号”=“前后不能加空格。</p>
-<div class="code-wrapper"><pre><code class="hljs abnf"><span class="hljs-attribute">list</span><span class="hljs-operator">=</span>(item1 item2 ... item3)</code></pre></div>
-
-<p>获取指定元素</p>
-<div class="code-wrapper"><pre><code class="hljs awk"><span class="hljs-variable">$&#123;list[index]&#125;</span></code></pre></div>
-
-<p>添加元素</p>
-<div class="code-wrapper"><pre><code class="hljs lsl"># 在列表<span class="hljs-type">list</span>索引<span class="hljs-number">3</span>的位置插入或覆盖为字符串<span class="hljs-string">&quot;abc&quot;</span>
-<span class="hljs-type">list</span>[<span class="hljs-number">3</span>]=<span class="hljs-string">&quot;abc&quot;</span></code></pre></div>
-
-<p>获取数组长度</p>
-<div class="code-wrapper"><pre><code class="hljs crystal"><span class="hljs-variable">$&#123;</span><span class="hljs-comment">#list[@]&#125;</span>
-<span class="hljs-variable">$&#123;</span><span class="hljs-comment">#list[*]&#125;</span></code></pre></div>
-
-<p>获取数组所有元素</p>
-<div class="code-wrapper"><pre><code class="hljs awk"><span class="hljs-variable">$&#123;list[@]&#125;</span>
-<span class="hljs-variable">$&#123;list[*]&#125;</span></code></pre></div>
-
-<h1 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h1><p>带索引的循环</p>
-<div class="code-wrapper"><pre><code class="hljs jboss-cli"><span class="hljs-comment"># 格式一</span>
-for var in item1 item2 <span class="hljs-string">...</span> itemN
-do
-    <span class="hljs-keyword">command</span>1
-    <span class="hljs-keyword">command</span>2
-    <span class="hljs-string">...</span>
-    <span class="hljs-keyword">command</span>N
-done
-
-<span class="hljs-comment"># 格式二</span>
-for var in item1 item2 <span class="hljs-string">...</span> itemN; do
-    <span class="hljs-keyword">command</span>1
-    <span class="hljs-keyword">command</span>2
-    <span class="hljs-string">...</span>
-    <span class="hljs-keyword">command</span>N
-done</code></pre></div>
-
-<p>实际编写脚本的时候，一般都不会把所有的遍历的情况都列出来，所以更多的场景我们需要自动的遍历一个数组。</p>
-<p>遍历数组中所有元素</p>
-<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-keyword">for</span> var <span class="hljs-keyword">in</span> <span class="hljs-variable">$&#123;list[@]&#125;</span>; <span class="hljs-keyword">do</span>
-    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$&#123;var&#125;</span>
-<span class="hljs-keyword">done</span></code></pre></div>
-
-<p>用索引遍历数组所有元素</p>
-<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;!list[@]&#125;</span>&quot;</span>; <span class="hljs-keyword">do</span>
-    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$&#123;list[i]&#125;</span>
-<span class="hljs-keyword">done</span></code></pre></div>
-
-<p>无限循环</p>
-<div class="code-wrapper"><pre><code class="hljs jboss-cli">while <span class="hljs-literal">true</span>; do
-    <span class="hljs-keyword">command</span>1
-    <span class="hljs-keyword">command</span>2
-    <span class="hljs-string">...</span>
-    <span class="hljs-keyword">command</span>N
-done</code></pre></div>
-
-<p>带次数的无限循环</p>
-<div class="code-wrapper"><pre><code class="hljs routeros"><span class="hljs-attribute">index</span>=1
-<span class="hljs-keyword">while</span> <span class="hljs-literal">true</span>; <span class="hljs-keyword">do</span>
-    command1
-    command2
-    <span class="hljs-built_in">..</span>.
-    commandN
-    <span class="hljs-attribute">index</span>=$((index + 1))
-done</code></pre></div>
-
-<h1 id="将命令后台运行"><a href="#将命令后台运行" class="headerlink" title="将命令后台运行"></a>将命令后台运行</h1><p>此前我也纠结过<code>nohup</code>和<code>&amp;</code>都有什么作用，但后来发现其实基本需要这种操作的大部分场景都得两者搭配使用。</p>
-<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">nohup</span> <span class="hljs-built_in">command</span> &amp;</code></pre></div>
-
-<h1 id="按行读文件"><a href="#按行读文件" class="headerlink" title="按行读文件"></a>按行读文件</h1><div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> line; <span class="hljs-keyword">do</span>
-    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$&#123;line&#125;</span>
-<span class="hljs-keyword">done</span> &lt; file</code></pre></div>
-
-<h1 id="将字符串作为命令执行"><a href="#将字符串作为命令执行" class="headerlink" title="将字符串作为命令执行"></a>将字符串作为命令执行</h1><p>总之就是 <code>eval</code> 命令，后面跟要执行的命令的字符串就行。</p>
-<div class="code-wrapper"><pre><code class="hljs autoit"><span class="hljs-built_in">eval</span> command_string</code></pre></div>
+<p>编译命令：<code>ndk-build NDK_PROJECT_PATH=. APP_BUILD_SCRIPT=./Android.mk</code></p>
+<p>编译会产生两个文件夹 libs 和 obj，两个文件夹下都有编译生成的可执行程序，网上查的资料说是 obj 文件夹下的是包含一些调试相关东西，体积通常会相对大一些。</p>
+<p>编译产物 libs/arm64-v8a/main 可以直接放到安卓手机中运行。</p>
+<div class="code-wrapper"><pre><code class="hljs shell">adb push libs/arm64-v8a/main /data/
+adb shell &quot;chmod +x /data/main&quot;
+adb shell &quot;./data/main&quot;</code></pre></div>
 
                 
               </div>
@@ -452,13 +380,6 @@ done</code></pre></div>
               <div class="post-metas my-3">
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/shell/">#shell</a>
-      
-    </div>
-  
 </div>
 
 
@@ -467,8 +388,8 @@ done</code></pre></div>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Shell 脚本笔记</div>
-      <div>https://mxy493.xyz/2022082758002/</div>
+      <div>使用MinGW和NDK编译安卓C语言程序</div>
+      <div>https://mxy493.xyz/2022122328431/</div>
     </div>
     <div class="license-meta">
       
@@ -480,7 +401,7 @@ done</code></pre></div>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月27日</div>
+          <div>2022年12月23日</div>
         </div>
       
       
@@ -512,18 +433,12 @@ done</code></pre></div>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022122328431/" title="使用MinGW和NDK编译安卓C语言程序">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">使用MinGW和NDK编译安卓C语言程序</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022032325189/" title="python subprocess 子进程多次读写">
-                        <span class="hidden-mobile">python subprocess 子进程多次读写</span>
+                      <a href="/2022082758002/" title="Shell 脚本笔记">
+                        <span class="hidden-mobile">Shell 脚本笔记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
