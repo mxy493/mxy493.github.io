@@ -14,27 +14,26 @@
   
   <meta name="theme-color" content="#2f4154">
   <meta name="author" content="mxy">
-  <meta name="keywords" content="MinGW,NDK">
+  <meta name="keywords" content="Linux,工作队列">
   
-    <meta name="description" content="一、搭建环境1）配置MinGWWindows 系统需要安装 MinGW，Linux 系统默认就有 gcc&#x2F;g++ 编译套件无需安装。 MinGW下载：https:&#x2F;&#x2F;osdn.net&#x2F;projects&#x2F;mingw&#x2F; 下载 mingw-get-setup.exe 即可，这是一个用于下载安装MinGW的程序（MinGW Installation Manager），运行后在主界面勾选 mingw32-b">
+    <meta name="description" content="快速上手内核工作队列使用方法： struct work_struct my_work; struct delayed_work my_delay_work;  static void my_work_func(struct work_struct *work) &amp;#123;   &#x2F;&#x2F; do something &amp;#125;  static void my_delay_work_func(struc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用MinGW和NDK编译安卓C语言程序">
-<meta property="og:url" content="https://mxy493.xyz/2022122328431/index.html">
+<meta property="og:title" content="Linux内核工作队列">
+<meta property="og:url" content="https://mxy493.xyz/202301028721/index.html">
 <meta property="og:site_name" content="跑起来有风">
-<meta property="og:description" content="一、搭建环境1）配置MinGWWindows 系统需要安装 MinGW，Linux 系统默认就有 gcc&#x2F;g++ 编译套件无需安装。 MinGW下载：https:&#x2F;&#x2F;osdn.net&#x2F;projects&#x2F;mingw&#x2F; 下载 mingw-get-setup.exe 即可，这是一个用于下载安装MinGW的程序（MinGW Installation Manager），运行后在主界面勾选 mingw32-b">
+<meta property="og:description" content="快速上手内核工作队列使用方法： struct work_struct my_work; struct delayed_work my_delay_work;  static void my_work_func(struct work_struct *work) &amp;#123;   &#x2F;&#x2F; do something &amp;#125;  static void my_delay_work_func(struc">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mxy493.xyz/2022122328431/Snipaste_2022-12-23_17-24-13.png">
-<meta property="article:published_time" content="2022-12-23T09:12:31.000Z">
-<meta property="article:modified_time" content="2022-12-23T10:05:19.641Z">
+<meta property="article:published_time" content="2023-01-02T12:52:53.000Z">
+<meta property="article:modified_time" content="2023-01-02T12:56:27.130Z">
 <meta property="article:author" content="mxy">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://mxy493.xyz/2022122328431/Snipaste_2022-12-23_17-24-13.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>使用MinGW和NDK编译安卓C语言程序 - 跑起来有风</title>
+  <title>Linux内核工作队列 - 跑起来有风</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -241,7 +240,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="使用MinGW和NDK编译安卓C语言程序"></span>
+            <span id="subtitle" data-typed-text="Linux内核工作队列"></span>
           
         </div>
 
@@ -252,8 +251,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-12-23 17:12" pubdate>
-          2022年12月23日 下午
+        <time datetime="2023-01-02 20:52" pubdate>
+          2023年1月2日 晚上
         </time>
       </span>
     
@@ -265,7 +264,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.1k 字
+          5.1k 字
         
       </span>
     
@@ -277,7 +276,7 @@
         
         
           <!-- compatible with older versions-->
-          4 分钟
+          16 分钟
         
       </span>
     
@@ -323,13 +322,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">使用MinGW和NDK编译安卓C语言程序</h1>
+            <h1 style="display: none">Linux内核工作队列</h1>
             
               <p class="note note-info">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年12月23日 晚上
+                    本文最后更新于：2023年1月2日 晚上
                   
                 
               </p>
@@ -337,40 +336,182 @@
             
               <div class="markdown-body">
                 
-                <h1 id="一、搭建环境"><a href="#一、搭建环境" class="headerlink" title="一、搭建环境"></a>一、搭建环境</h1><h2 id="1）配置MinGW"><a href="#1）配置MinGW" class="headerlink" title="1）配置MinGW"></a>1）配置MinGW</h2><p>Windows 系统需要安装 MinGW，Linux 系统默认就有 gcc/g++ 编译套件无需安装。</p>
-<p>MinGW下载：<a target="_blank" rel="noopener" href="https://osdn.net/projects/mingw/">https://osdn.net/projects/mingw/</a></p>
-<p>下载 mingw-get-setup.exe 即可，这是一个用于下载安装MinGW的程序（MinGW Installation Manager），运行后在主界面勾选 mingw32-base-bin 和 mingw32-gcc-g++-bin，然后点击左上角 Installation -&gt; Apply Changes，程序这才开始下载配置相关环境。</p>
-<p><img src="Snipaste_2022-12-23_17-24-13.png" srcset="/img/loading.gif" lazyload alt="Snipaste_2022-12-23_17-24-13.png"></p>
-<p>安装完毕后，需要配置环境变量，将 MinGW 安装路径 <code>D:\MinGW\bin</code> 添加到系统环境变量 Path 中。</p>
-<p>以上就配置完毕了，可以打开终端执行命令 <code>gcc --version</code> 确认是否配置正确。</p>
-<h2 id="2）配置NDK"><a href="#2）配置NDK" class="headerlink" title="2）配置NDK"></a>2）配置NDK</h2><p>NDK下载：<a target="_blank" rel="noopener" href="https://developer.android.com/ndk/downloads/index.html">https://developer.android.com/ndk/downloads/index.html</a></p>
-<p>NDK更简单一些，通过以上链接下载对应平台的包，例如 android-ndk-r25b-windows.zip，下载后解压，自己找个合适的地方存放就行，例如我将其放在 <code>D:\android-ndk-r25b</code>，同样将该路径加入到系统 Path 环境变量中即可。</p>
-<p>可以执行命令 <code>ndk-build --version</code> 确认是否配置正确。</p>
-<h1 id="二、编译安卓C语言程序"><a href="#二、编译安卓C语言程序" class="headerlink" title="二、编译安卓C语言程序"></a>二、编译安卓C语言程序</h1><p>随便写个C程序 main.c：</p>
-<div class="code-wrapper"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+                <h1 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h1><p>内核工作队列使用方法：</p>
+<div class="code-wrapper"><pre><code class="hljs C"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">work_struct</span> <span class="hljs-title">my_work</span>;</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">delayed_work</span> <span class="hljs-title">my_delay_work</span>;</span>
 
-<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>
+<span class="hljs-type">static</span> <span class="hljs-type">void</span> <span class="hljs-title function_">my_work_func</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> work_struct *work)</span>
 &#123;
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello world.\n&quot;</span>);
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+  <span class="hljs-comment">// do something</span>
+&#125;
+
+<span class="hljs-type">static</span> <span class="hljs-type">void</span> <span class="hljs-title function_">my_delay_work_func</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> work_struct *work)</span>
+&#123;
+  <span class="hljs-comment">// do something</span>
+&#125;
+
+<span class="hljs-comment">// 绑定工作函数</span>
+INIT_WORK(&amp;my_work, my_work_func);
+INIT_DELAYED_WORK(&amp;my_delay_work, my_delay_work_func);
+
+schedule_work(&amp;my_work);  <span class="hljs-comment">// 立即加入到工作队列中</span>
+schedule_delayed_work(&amp;my_delay_work, <span class="hljs-number">1000</span>); <span class="hljs-comment">// 延时工作</span></code></pre></div>
+
+<p>以上是使用工作队列最简单的方式，仔细想想其实上述步骤并没有队列的创建过程，因为 <code>schedule_work()</code> 和 <code>schedule_delayed_work()</code> 是封装过的，使用这两个接口会把 work 加入到系统预定义的 <code>system_wq</code> 工作队列中。</p>
+<p>这很方便，但难免会有些问题需要衡量，系统中各个模块都有可能将各种 work 加入到 <code>system_wq</code> 工作队列，如果前面的 work 执行时间过长就会影响后面 work 的实时性。因此往往我们的某些工作比较频繁且耗时，就需要创建一个独立的工作队列，避免别的模块影响到我们，同时也避免我们影响到别的模块。</p>
+<p>以下代码展示了基本的独立工作队列创建方法：</p>
+<div class="code-wrapper"><pre><code class="hljs C"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">work_struct</span> <span class="hljs-title">my_work</span>;</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">delayed_work</span> <span class="hljs-title">my_delay_work</span>;</span>
+
+<span class="hljs-type">static</span> <span class="hljs-type">void</span> <span class="hljs-title function_">my_work_func</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> work_struct *work)</span>
+&#123;
+  <span class="hljs-comment">// do something</span>
+&#125;
+
+<span class="hljs-type">static</span> <span class="hljs-type">void</span> <span class="hljs-title function_">my_delay_work_func</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> work_struct *work)</span>
+&#123;
+  <span class="hljs-comment">// do something</span>
+&#125;
+
+<span class="hljs-comment">// 创建一个自己的工作队列，独立的内核线程</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">workqueue_struct</span> *<span class="hljs-title">my_wq</span> =</span> alloc_ordered_workqueue(<span class="hljs-string">&quot;my_wq&quot;</span>, <span class="hljs-number">0</span>);
+
+<span class="hljs-comment">// 绑定工作函数</span>
+INIT_WORK(&amp;my_work, my_work_func);
+INIT_DELAYED_WORK(&amp;my_delay_work, my_delay_work_func);
+
+<span class="hljs-comment">// 将指定work加入到自定义工作队列my_wq中</span>
+queue_work(my_wq, &amp;my_work);
+queue_delayed_work(my_wq, &amp;my_delay_work, <span class="hljs-number">1000</span>);</code></pre></div>
+
+<h1 id="相关源码分析"><a href="#相关源码分析" class="headerlink" title="相关源码分析"></a>相关源码分析</h1><p>相关内核源码：<a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/source/include/linux/workqueue.h">https://elixir.bootlin.com/linux/latest/source/include/linux/workqueue.h</a></p>
+<p>创建工作队列/内核线程的接口还有多个：</p>
+<div class="code-wrapper"><pre><code class="hljs C"><span class="hljs-meta">#<span class="hljs-keyword">define</span> alloc_ordered_workqueue(fmt, flags, args...)      \</span>
+<span class="hljs-meta">  alloc_workqueue(fmt, WQ_UNBOUND | __WQ_ORDERED |    \</span>
+<span class="hljs-meta">      __WQ_ORDERED_EXPLICIT | (flags), 1, ##args)</span>
+
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> create_workqueue(name)            \</span>
+<span class="hljs-meta">  alloc_workqueue(<span class="hljs-string">&quot;%s&quot;</span>, __WQ_LEGACY | WQ_MEM_RECLAIM, 1, (name))</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> create_freezable_workqueue(name)        \</span>
+<span class="hljs-meta">  alloc_workqueue(<span class="hljs-string">&quot;%s&quot;</span>, __WQ_LEGACY | WQ_FREEZABLE | WQ_UNBOUND |  \</span>
+<span class="hljs-meta">      WQ_MEM_RECLAIM, 1, (name))</span>
+<span class="hljs-meta">#<span class="hljs-keyword">define</span> create_singlethread_workqueue(name)        \</span>
+<span class="hljs-meta">  alloc_ordered_workqueue(<span class="hljs-string">&quot;%s&quot;</span>, __WQ_LEGACY | WQ_MEM_RECLAIM, name)</span></code></pre></div>
+
+<p>内核预定义工作队列：</p>
+<div class="code-wrapper"><pre><code class="hljs C"><span class="hljs-comment">/*</span>
+<span class="hljs-comment"> * System-wide workqueues which are always present.</span>
+<span class="hljs-comment"> *</span>
+<span class="hljs-comment"> * system_wq is the one used by schedule[_delayed]_work[_on]().</span>
+<span class="hljs-comment"> * Multi-CPU multi-threaded.  There are users which expect relatively</span>
+<span class="hljs-comment"> * short queue flush time.  Don&#x27;t queue works which can run for too</span>
+<span class="hljs-comment"> * long.</span>
+<span class="hljs-comment"> *</span>
+<span class="hljs-comment"> * system_highpri_wq is similar to system_wq but for work items which</span>
+<span class="hljs-comment"> * require WQ_HIGHPRI.</span>
+<span class="hljs-comment"> *</span>
+<span class="hljs-comment"> * system_long_wq is similar to system_wq but may host long running</span>
+<span class="hljs-comment"> * works.  Queue flushing might take relatively long.</span>
+<span class="hljs-comment"> *</span>
+<span class="hljs-comment"> * system_unbound_wq is unbound workqueue.  Workers are not bound to</span>
+<span class="hljs-comment"> * any specific CPU, not concurrency managed, and all queued works are</span>
+<span class="hljs-comment"> * executed immediately as long as max_active limit is not reached and</span>
+<span class="hljs-comment"> * resources are available.</span>
+<span class="hljs-comment"> *</span>
+<span class="hljs-comment"> * system_freezable_wq is equivalent to system_wq except that it&#x27;s</span>
+<span class="hljs-comment"> * freezable.</span>
+<span class="hljs-comment"> *</span>
+<span class="hljs-comment"> * *_power_efficient_wq are inclined towards saving power and converted</span>
+<span class="hljs-comment"> * into WQ_UNBOUND variants if &#x27;wq_power_efficient&#x27; is enabled; otherwise,</span>
+<span class="hljs-comment"> * they are same as their non-power-efficient counterparts - e.g.</span>
+<span class="hljs-comment"> * system_power_efficient_wq is identical to system_wq if</span>
+<span class="hljs-comment"> * &#x27;wq_power_efficient&#x27; is disabled.  See WQ_POWER_EFFICIENT for more info.</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">extern</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">workqueue_struct</span> *<span class="hljs-title">system_wq</span>;</span>
+<span class="hljs-keyword">extern</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">workqueue_struct</span> *<span class="hljs-title">system_highpri_wq</span>;</span>
+<span class="hljs-keyword">extern</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">workqueue_struct</span> *<span class="hljs-title">system_long_wq</span>;</span>
+<span class="hljs-keyword">extern</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">workqueue_struct</span> *<span class="hljs-title">system_unbound_wq</span>;</span>
+<span class="hljs-keyword">extern</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">workqueue_struct</span> *<span class="hljs-title">system_freezable_wq</span>;</span>
+<span class="hljs-keyword">extern</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">workqueue_struct</span> *<span class="hljs-title">system_power_efficient_wq</span>;</span>
+<span class="hljs-keyword">extern</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">workqueue_struct</span> *<span class="hljs-title">system_freezable_power_efficient_wq</span>;</span></code></pre></div>
+
+<p><code>schedule_work</code> 与 <code>queue_work</code>，<code>schedule_delayed_work</code> 与 <code>queue_delayed_work</code>：</p>
+<div class="code-wrapper"><pre><code class="hljs C"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * queue_work - queue work on a workqueue</span>
+<span class="hljs-comment"> * @wq: workqueue to use</span>
+<span class="hljs-comment"> * @work: work to queue</span>
+<span class="hljs-comment"> *</span>
+<span class="hljs-comment"> * Returns %false if @work was already on a queue, %true otherwise.</span>
+<span class="hljs-comment"> *</span>
+<span class="hljs-comment"> * We queue the work to the CPU on which it was submitted, but if the CPU dies</span>
+<span class="hljs-comment"> * it can be processed by another CPU.</span>
+<span class="hljs-comment"> *</span>
+<span class="hljs-comment"> * Memory-ordering properties:  If it returns %true, guarantees that all stores</span>
+<span class="hljs-comment"> * preceding the call to queue_work() in the program order will be visible from</span>
+<span class="hljs-comment"> * the CPU which will execute @work by the time such work executes, e.g.,</span>
+<span class="hljs-comment"> *</span>
+<span class="hljs-comment"> * &#123; x is initially 0 &#125;</span>
+<span class="hljs-comment"> *</span>
+<span class="hljs-comment"> *   CPU0        CPU1</span>
+<span class="hljs-comment"> *</span>
+<span class="hljs-comment"> *   WRITE_ONCE(x, 1);      [ @work is being executed ]</span>
+<span class="hljs-comment"> *   r0 = queue_work(wq, work);      r1 = READ_ONCE(x);</span>
+<span class="hljs-comment"> *</span>
+<span class="hljs-comment"> * Forbids: r0 == true &amp;&amp; r1 == 0</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-type">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-title function_">queue_work</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> workqueue_struct *wq,</span>
+<span class="hljs-params">            <span class="hljs-keyword">struct</span> work_struct *work)</span>
+&#123;
+  <span class="hljs-keyword">return</span> queue_work_on(WORK_CPU_UNBOUND, wq, work);
+&#125;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * queue_delayed_work - queue work on a workqueue after delay</span>
+<span class="hljs-comment"> * @wq: workqueue to use</span>
+<span class="hljs-comment"> * @dwork: delayable work to queue</span>
+<span class="hljs-comment"> * @delay: number of jiffies to wait before queueing</span>
+<span class="hljs-comment"> *</span>
+<span class="hljs-comment"> * Equivalent to queue_delayed_work_on() but tries to use the local CPU.</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-type">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-title function_">queue_delayed_work</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> workqueue_struct *wq,</span>
+<span class="hljs-params">              <span class="hljs-keyword">struct</span> delayed_work *dwork,</span>
+<span class="hljs-params">              <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> delay)</span>
+&#123;
+  <span class="hljs-keyword">return</span> queue_delayed_work_on(WORK_CPU_UNBOUND, wq, dwork, delay);
+&#125;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * schedule_work - put work task in global workqueue</span>
+<span class="hljs-comment"> * @work: job to be done</span>
+<span class="hljs-comment"> *</span>
+<span class="hljs-comment"> * Returns %false if @work was already on the kernel-global workqueue and</span>
+<span class="hljs-comment"> * %true otherwise.</span>
+<span class="hljs-comment"> *</span>
+<span class="hljs-comment"> * This puts a job in the kernel-global workqueue if it was not already</span>
+<span class="hljs-comment"> * queued and leaves it in the same position on the kernel-global</span>
+<span class="hljs-comment"> * workqueue otherwise.</span>
+<span class="hljs-comment"> *</span>
+<span class="hljs-comment"> * Shares the same memory-ordering properties of queue_work(), cf. the</span>
+<span class="hljs-comment"> * DocBook header of queue_work().</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-type">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-title function_">schedule_work</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> work_struct *work)</span>
+&#123;
+  <span class="hljs-keyword">return</span> queue_work(system_wq, work);
+&#125;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * schedule_delayed_work - put work task in global workqueue after delay</span>
+<span class="hljs-comment"> * @dwork: job to be done</span>
+<span class="hljs-comment"> * @delay: number of jiffies to wait or 0 for immediate execution</span>
+<span class="hljs-comment"> *</span>
+<span class="hljs-comment"> * After waiting for a given time this puts a job in the kernel-global</span>
+<span class="hljs-comment"> * workqueue.</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-type">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-title function_">schedule_delayed_work</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> delayed_work *dwork,</span>
+<span class="hljs-params">           <span class="hljs-type">unsigned</span> <span class="hljs-type">long</span> delay)</span>
+&#123;
+  <span class="hljs-keyword">return</span> queue_delayed_work(system_wq, dwork, delay);
 &#125;</code></pre></div>
-
-<p>添加 Android.mk：</p>
-<div class="code-wrapper"><pre><code class="hljs makefile">LOCAL_PATH:=<span class="hljs-variable">$(<span class="hljs-built_in">call</span> my-<span class="hljs-built_in">dir</span>)</span>
-<span class="hljs-keyword">include</span> <span class="hljs-variable">$(CLEAR_VARS)</span>
-LOCAL_MODULE:=main
-LOCAL_SRC_FILES:=main.c
-<span class="hljs-keyword">include</span> <span class="hljs-variable">$(BUILD_EXECUTABLE)</span>
-
-TARGET_ARCH := arm64
-TARGET_ARCH_ABI := arm64-v8a</code></pre></div>
-
-<p>编译命令：<code>ndk-build NDK_PROJECT_PATH=. APP_BUILD_SCRIPT=./Android.mk</code></p>
-<p>编译会产生两个文件夹 libs 和 obj，两个文件夹下都有编译生成的可执行程序，网上查的资料说是 obj 文件夹下的是包含一些调试相关东西，体积通常会相对大一些。</p>
-<p>编译产物 libs/arm64-v8a/main 可以直接放到安卓手机中运行。</p>
-<div class="code-wrapper"><pre><code class="hljs shell">adb push libs/arm64-v8a/main /data/
-adb shell &quot;chmod +x /data/main&quot;
-adb shell &quot;./data/main&quot;</code></pre></div>
 
                 
               </div>
@@ -379,6 +520,34 @@ adb shell &quot;./data/main&quot;</code></pre></div>
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Linux/">#Linux</a>
+      
+    </div>
   
 </div>
 
@@ -388,8 +557,8 @@ adb shell &quot;./data/main&quot;</code></pre></div>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>使用MinGW和NDK编译安卓C语言程序</div>
-      <div>https://mxy493.xyz/2022122328431/</div>
+      <div>Linux内核工作队列</div>
+      <div>https://mxy493.xyz/202301028721/</div>
     </div>
     <div class="license-meta">
       
@@ -401,7 +570,7 @@ adb shell &quot;./data/main&quot;</code></pre></div>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年12月23日</div>
+          <div>2023年1月2日</div>
         </div>
       
       
@@ -433,18 +602,12 @@ adb shell &quot;./data/main&quot;</code></pre></div>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/202301028721/" title="Linux内核工作队列">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Linux内核工作队列</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022082758002/" title="Shell 脚本笔记">
-                        <span class="hidden-mobile">Shell 脚本笔记</span>
+                      <a href="/2022122328431/" title="使用MinGW和NDK编译安卓C语言程序">
+                        <span class="hidden-mobile">使用MinGW和NDK编译安卓C语言程序</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
