@@ -22,41 +22,41 @@
     <meta name="description" content="一、简述最近实习的过程中，要将 Python 编写的程序打包发布，最初了解到了 PyInstaller ，可以用于将 Python 代码打包为可执行程序，但是要么直接打包为单文件的可执行程序（运行慢），要么打包为一个包含可执行程序的文件夹（运行快），如果要发给别人使用的话只能将整个文件夹压缩后再发过去。 然后前些天搜索了一下了解到了制作安装程序的 NSIS ，本文将根据我的个人经历，简要介绍使用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用NSIS制作安装程序">
-<meta property="og:url" content="https://mxy493.xyz/2020091060302/index.html">
+<meta property="og:url" content="https://mxy.cool/2020091060302/index.html">
 <meta property="og:site_name" content="个人编程记录">
 <meta property="og:description" content="一、简述最近实习的过程中，要将 Python 编写的程序打包发布，最初了解到了 PyInstaller ，可以用于将 Python 代码打包为可执行程序，但是要么直接打包为单文件的可执行程序（运行慢），要么打包为一个包含可执行程序的文件夹（运行快），如果要发给别人使用的话只能将整个文件夹压缩后再发过去。 然后前些天搜索了一下了解到了制作安装程序的 NSIS ，本文将根据我的个人经历，简要介绍使用">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/main.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/HMVNISEdit.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/guide.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/info.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/logo.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/jump.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/installdir.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/files.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/prodir.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/prog.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/shortcut.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/finish.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/uninstall.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/store.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/compile.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/out.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/Duang.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/vscodensis.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/pathtonsis.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/NSISpath.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/goodvscode.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/compilesuccess.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/syspath.webp">
-<meta property="og:image" content="https://mxy493.xyz/2020091060302/makensis.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/main.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/HMVNISEdit.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/guide.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/info.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/logo.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/jump.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/installdir.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/files.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/prodir.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/prog.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/shortcut.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/finish.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/uninstall.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/store.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/compile.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/out.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/Duang.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/vscodensis.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/pathtonsis.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/NSISpath.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/goodvscode.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/compilesuccess.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/syspath.webp">
+<meta property="og:image" content="https://mxy.cool/2020091060302/makensis.webp">
 <meta property="article:published_time" content="2020-09-09T16:40:09.000Z">
-<meta property="article:modified_time" content="2026-09-19T07:53:32.847Z">
+<meta property="article:modified_time" content="2026-09-19T09:56:24.277Z">
 <meta property="article:author" content="mxy">
 <meta property="article:tag" content="NSIS">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://mxy493.xyz/2020091060302/main.webp">
+<meta name="twitter:image" content="https://mxy.cool/2020091060302/main.webp">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -100,7 +100,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home","post"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"mxy.cool","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home","post"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -703,7 +703,7 @@ p2 = subprocess.Popen(<span class="hljs-string">&#x27;makensis radar.nsi&#x27;</
 p2.communicate()</code></pre></div>
 
 <h2 id="（2）高端操作"><a href="#（2）高端操作" class="headerlink" title="（2）高端操作"></a>（2）高端操作</h2><p>其实在单纯在 Python 中调用编译器并没有省多少事，但真正的目的是配合 PyInstaller 一键更新 spec 文件和 NSIS 脚本，然后自动打包并制作安装程序，你就说它香不香🤣</p>
-<p>关于 PyInstaller 打包 Python 应用程序可以参考我的另一篇文章：<a href="https://mxy493.xyz/20200909134/">使用PyInstaller打包Python应用程序</a></p>
+<p>关于 PyInstaller 打包 Python 应用程序可以参考我的另一篇文章：<a href="https://mxy.cool/20200909134/">使用PyInstaller打包Python应用程序</a></p>
 <p>最后附上 全自动操作的代码框架：</p>
 <div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> subprocess
 
@@ -751,7 +751,7 @@ p2.communicate()</code></pre></div>
   <div class="license-box my-3">
     <div class="license-title">
       <div>使用NSIS制作安装程序</div>
-      <div>https://mxy493.xyz/2020091060302/</div>
+      <div>https://mxy.cool/2020091060302/</div>
     </div>
     <div class="license-meta">
       
@@ -817,6 +817,39 @@ p2.communicate()</code></pre></div>
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="twikoo"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/twikoo@1/dist/twikoo.all.min.js', function() {
+        var options = Object.assign(
+          {"envId":"https://bejewelled-muffin-ac10b8.netlify.app/.netlify/functions/twikoo","region":"ap-shanghai","path":"window.location.pathname"},
+          {
+            el: '#twikoo',
+            path: 'window.location.pathname',
+            onCommentLoaded: function() {
+              Fluid.utils.listenDOMLoaded(function() {
+                var imgSelector = '#twikoo .tk-content img:not(.tk-owo-emotion)';
+                Fluid.plugins.imageCaption(imgSelector);
+                Fluid.plugins.fancyBox(imgSelector);
+              });
+            }
+          }
+        )
+        twikoo.init(options)
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>

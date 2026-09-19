@@ -22,31 +22,31 @@
     <meta name="description" content="简述最近实习中接触到 YOLO ，实时目标检测，我也没学过深度学习，对 YOLO 的原理并不太懂，不过它的能力确实是惊到我了，很短的时间内就可以将图片中的目标准确的识别出来。YOLO 简单说是一个目标检测的算法，特点就是快，一张图片只扫描一次，YOLO 面世也没几年的时间，现在已经第五版了，简单记录一下 YOLOv5 的上手使用过程！ YOLOv5 官方地址：https:&#x2F;&#x2F;github.com&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YOLOv5快速上手使用【WIN】">
-<meta property="og:url" content="https://mxy493.xyz/2020083032973/index.html">
+<meta property="og:url" content="https://mxy.cool/2020083032973/index.html">
 <meta property="og:site_name" content="个人编程记录">
 <meta property="og:description" content="简述最近实习中接触到 YOLO ，实时目标检测，我也没学过深度学习，对 YOLO 的原理并不太懂，不过它的能力确实是惊到我了，很短的时间内就可以将图片中的目标准确的识别出来。YOLO 简单说是一个目标检测的算法，特点就是快，一张图片只扫描一次，YOLO 面世也没几年的时间，现在已经第五版了，简单记录一下 YOLOv5 的上手使用过程！ YOLOv5 官方地址：https:&#x2F;&#x2F;github.com&#x2F;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mxy493.xyz/2020083032973/v3.0.png">
-<meta property="og:image" content="https://mxy493.xyz/2020083032973/yolov5.png">
-<meta property="og:image" content="https://mxy493.xyz/2020083032973/weights.png">
-<meta property="og:image" content="https://mxy493.xyz/2020083032973/pycharm_yolov5.png">
-<meta property="og:image" content="https://mxy493.xyz/2020083032973/env.png">
-<meta property="og:image" content="https://mxy493.xyz/2020083032973/version.png">
-<meta property="og:image" content="https://mxy493.xyz/2020083032973/venv.png">
-<meta property="og:image" content="https://mxy493.xyz/2020083032973/cmdvenv.png">
-<meta property="og:image" content="https://mxy493.xyz/2020083032973/downloadtorch1.png">
-<meta property="og:image" content="https://mxy493.xyz/2020083032973/torchvision.png">
-<meta property="og:image" content="https://mxy493.xyz/2020083032973/down.png">
-<meta property="og:image" content="https://mxy493.xyz/2020083032973/installtorch.png">
-<meta property="og:image" content="https://mxy493.xyz/2020083032973/cudayes.png">
-<meta property="og:image" content="https://mxy493.xyz/2020083032973/run.png">
-<meta property="og:image" content="https://mxy493.xyz/2020083032973/bus.jpg">
+<meta property="og:image" content="https://mxy.cool/2020083032973/v3.0.png">
+<meta property="og:image" content="https://mxy.cool/2020083032973/yolov5.png">
+<meta property="og:image" content="https://mxy.cool/2020083032973/weights.png">
+<meta property="og:image" content="https://mxy.cool/2020083032973/pycharm_yolov5.png">
+<meta property="og:image" content="https://mxy.cool/2020083032973/env.png">
+<meta property="og:image" content="https://mxy.cool/2020083032973/version.png">
+<meta property="og:image" content="https://mxy.cool/2020083032973/venv.png">
+<meta property="og:image" content="https://mxy.cool/2020083032973/cmdvenv.png">
+<meta property="og:image" content="https://mxy.cool/2020083032973/downloadtorch1.png">
+<meta property="og:image" content="https://mxy.cool/2020083032973/torchvision.png">
+<meta property="og:image" content="https://mxy.cool/2020083032973/down.png">
+<meta property="og:image" content="https://mxy.cool/2020083032973/installtorch.png">
+<meta property="og:image" content="https://mxy.cool/2020083032973/cudayes.png">
+<meta property="og:image" content="https://mxy.cool/2020083032973/run.png">
+<meta property="og:image" content="https://mxy.cool/2020083032973/bus.jpg">
 <meta property="article:published_time" content="2020-08-30T09:46:40.000Z">
-<meta property="article:modified_time" content="2026-09-19T07:53:32.827Z">
+<meta property="article:modified_time" content="2026-09-19T09:05:24.261Z">
 <meta property="article:author" content="mxy">
 <meta property="article:tag" content="YOLO">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://mxy493.xyz/2020083032973/v3.0.png">
+<meta name="twitter:image" content="https://mxy.cool/2020083032973/v3.0.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -90,7 +90,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home","post"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"mxy.cool","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home","post"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -622,7 +622,7 @@ optional arguments:
   <div class="license-box my-3">
     <div class="license-title">
       <div>YOLOv5快速上手使用【WIN】</div>
-      <div>https://mxy493.xyz/2020083032973/</div>
+      <div>https://mxy.cool/2020083032973/</div>
     </div>
     <div class="license-meta">
       
@@ -688,6 +688,39 @@ optional arguments:
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="twikoo"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/twikoo@1/dist/twikoo.all.min.js', function() {
+        var options = Object.assign(
+          {"envId":"https://bejewelled-muffin-ac10b8.netlify.app/.netlify/functions/twikoo","region":"ap-shanghai","path":"window.location.pathname"},
+          {
+            el: '#twikoo',
+            path: 'window.location.pathname',
+            onCommentLoaded: function() {
+              Fluid.utils.listenDOMLoaded(function() {
+                var imgSelector = '#twikoo .tk-content img:not(.tk-owo-emotion)';
+                Fluid.plugins.imageCaption(imgSelector);
+                Fluid.plugins.fancyBox(imgSelector);
+              });
+            }
+          }
+        )
+        twikoo.init(options)
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
           </article>
         </div>
       </div>
