@@ -1,0 +1,1049 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/MHT1.0.webp">
+  <link rel="icon" href="/img/MHT1.0.webp">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mxy">
+  <meta name="keywords" content="C++,spdlog">
+  
+    <meta name="description" content="简述最近一直在忙着做毕业设计，就是一个客户端程序，算下来我做过的两个比较大的项目，一个是去年实习用 Python 和 Qt 做的客户端程序，一个就是毕业设计用 C++ 和 Qt 做的客户端，和 Qt 还挺有缘分的。 在这两个项目中我都写了日志打印的代码，自己写的，因为完全没接触到过日志框架这种东西，当然一方面我的需求也不是特别的高，都是很基础的日志打印，在这两个项目中我都是采用写一个标准日志打印函">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ 日志框架 spdlog 的初步上手">
+<meta property="og:url" content="https://mxy493.xyz/2021052530658/index.html">
+<meta property="og:site_name" content="个人编程记录">
+<meta property="og:description" content="简述最近一直在忙着做毕业设计，就是一个客户端程序，算下来我做过的两个比较大的项目，一个是去年实习用 Python 和 Qt 做的客户端程序，一个就是毕业设计用 C++ 和 Qt 做的客户端，和 Qt 还挺有缘分的。 在这两个项目中我都写了日志打印的代码，自己写的，因为完全没接触到过日志框架这种东西，当然一方面我的需求也不是特别的高，都是很基础的日志打印，在这两个项目中我都是采用写一个标准日志打印函">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-05-25T11:44:44.000Z">
+<meta property="article:modified_time" content="2026-09-19T07:53:32.901Z">
+<meta property="article:author" content="mxy">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>C++ 日志框架 spdlog 的初步上手 - 个人编程记录</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home","post"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>个人编程记录</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/xqmy.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="C++ 日志框架 spdlog 的初步上手"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-05-25 19:44" pubdate>
+          2021年5月25日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          4.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          15 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">C++ 日志框架 spdlog 的初步上手</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2026年9月19日 下午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>最近一直在忙着做毕业设计，就是一个客户端程序，算下来我做过的两个比较大的项目，一个是去年实习用 Python 和 Qt 做的客户端程序，一个就是毕业设计用 C++ 和 Qt 做的客户端，和 Qt 还挺有缘分的。</p>
+<p>在这两个项目中我都写了日志打印的代码，自己写的，因为完全没接触到过日志框架这种东西，当然一方面我的需求也不是特别的高，都是很基础的日志打印，在这两个项目中我都是采用写一个标准日志打印函数，这个函数接受一个字符串，即日志内容，然后函数内部获取当前时间并添加到字符串首部，打印到控制台，或者同时写入日志文件保存。挺简单的，毕竟日志数量并不算多，也不会有太大的性能问题。</p>
+<p>前些天突然了解到日志框架这种概念，就特意去了解了 C++ 的日志框架，挺多的，比如 <a target="_blank" rel="noopener" href="https://github.com/google/glog">glog</a> 、<a target="_blank" rel="noopener" href="https://github.com/gabime/spdlog">spdlog</a> 、 <a target="_blank" rel="noopener" href="https://github.com/log4cplus/log4cplus">log4cplus</a> 等等。</p>
+<p>没有做详细的对比，我直接选了 GitHub 星星最多的 spdlog 作为尝试。总的来说，是非常方便，挺值得使用的。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>spdlog 是仅含有头文件的开源库，直接下载源码把头文件包含到项目里就可以，我比较喜欢 vcpkg ：</p>
+<div class="code-wrapper"><pre><code class="hljs shell">vcpkg install spdlog</code></pre></div>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/gabime/spdlog">仓库首页</a>也提供了很多种安装方式。</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h2><p>关于使用我也不做过多的介绍了，推荐查看官方文档：<a target="_blank" rel="noopener" href="https://github.com/gabime/spdlog/wiki">https://github.com/gabime/spdlog/wiki</a></p>
+<p>能想到的以及不能想到的特性它都支持，比如：</p>
+<ul>
+<li>输出日志到终端；</li>
+<li>输出日志到文件；</li>
+<li>以不同颜色输出到终端；</li>
+<li>日志等级；</li>
+<li>多文件文件管理；</li>
+<li>……</li>
+</ul>
+<p>如前所述，我的需求是很简单的，只要可以通过一个标准接口将日志输出到终端和文件即可。spdlog 可以在包含头文件后一行代码直接输出日志，像 std::cout 一样，但实际上创建一个 logger 更方便管理一些。如下代码分别创建了一个输出日志到终端的 logger 和一个输出日志到文件的 logger ，后续就可以调用 logger 的日志输出函数用于打印日志。</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;spdlog/spdlog.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;spdlog/sinks/stdout_color_sinks.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;spdlog/sinks/basic_file_sink.h&gt;</span></span>
+
+std::shared_ptr&lt;spdlog::logger&gt; console_logger = spdlog::<span class="hljs-built_in">stdout_color_mt</span>(<span class="hljs-string">&quot;console_logger&quot;</span>);
+std::shared_ptr&lt;spdlog::logger&gt; file_logger = spdlog::<span class="hljs-built_in">basic_logger_mt</span>(<span class="hljs-string">&quot;file_logger&quot;</span>, <span class="hljs-string">&quot;filename.log&quot;</span>);
+
+console_logger-&gt;<span class="hljs-built_in">info</span>(<span class="hljs-string">&quot;Welcome to spdlog!&quot;</span>);
+file_logger-&gt;<span class="hljs-built_in">warn</span>(<span class="hljs-string">&quot;Welcome to spdlog!&quot;</span>);</code></pre></div>
+
+<p>但上述代码并没有满足我的需求，因为我希望的是通过一个函数同时输出到终端和日志文件，而上述代码需要分别调用两个 logger 的日志输出函数才可以做到。查阅 spdlog 的文档，其实也是可以做到的，例如如下的代码即官方给出的示例，可以将多个 logger 绑定到一起，一次调用即输出到多个终端或文件，并且可以通过日志等级按需输出，真的是特别细致啊！</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-comment">// create logger with 2 targets with different log levels and formats.</span>
+<span class="hljs-comment">// the console will show only warnings or errors, while the file will log all.</span>
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">multi_sink_example</span><span class="hljs-params">()</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">auto</span> console_sink = std::<span class="hljs-built_in">make_shared</span>&lt;spdlog::sinks::stdout_color_sink_mt&gt;();
+    console_sink-&gt;<span class="hljs-built_in">set_level</span>(spdlog::level::warn);
+    console_sink-&gt;<span class="hljs-built_in">set_pattern</span>(<span class="hljs-string">&quot;[multi_sink_example] [%^%l%$] %v&quot;</span>);
+
+    <span class="hljs-keyword">auto</span> file_sink = std::<span class="hljs-built_in">make_shared</span>&lt;spdlog::sinks::basic_file_sink_mt&gt;(<span class="hljs-string">&quot;logs/multisink.txt&quot;</span>, <span class="hljs-literal">true</span>);
+    file_sink-&gt;<span class="hljs-built_in">set_level</span>(spdlog::level::trace);
+
+    <span class="hljs-function">spdlog::logger <span class="hljs-title">logger</span><span class="hljs-params">(<span class="hljs-string">&quot;multi_sink&quot;</span>, &#123;console_sink, file_sink&#125;)</span></span>;
+    logger.<span class="hljs-built_in">set_level</span>(spdlog::level::debug);
+    logger.<span class="hljs-built_in">warn</span>(<span class="hljs-string">&quot;this should appear in both console and file&quot;</span>);
+    logger.<span class="hljs-built_in">info</span>(<span class="hljs-string">&quot;this message should not appear in the console, only in the file&quot;</span>);
+&#125;</code></pre></div>
+
+<p>不过在我的项目中，我还是没有采用这种方式，原因是我其实并没有输出不同等级日志的需求，它提供的服务反而对我来说有点复杂了😂</p>
+<h2 id="我想要的"><a href="#我想要的" class="headerlink" title="我想要的"></a>我想要的</h2><p>所以我自己封装了两个函数，如下。<code>initSpdLogger()</code> 用于在程序启动时初始化日志框架，包括初始化两个 logger 和设置了我想要的日志格式，像这样：<code>[2021-05-25 19:05:07.441] [784] Welcome to spdlog!</code> ，分别是时间、线程和日志内容；<code>printLog()</code> 用于打印日志， <code>save</code> 参数默认为 <code>true</code> ，即只需将要打印的内容作为参数传入即可，默认同时输出到终端和文件，也可以指定 <code>save</code> 为 <code>false </code>，即仅打印到终端而不写入文件。</p>
+<div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;QString&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;QDate&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;spdlog/spdlog.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;spdlog/sinks/stdout_color_sinks.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;spdlog/sinks/basic_file_sink.h&gt;</span></span>
+
+std::shared_ptr&lt;spdlog::logger&gt; file_logger;
+std::shared_ptr&lt;spdlog::logger&gt; console_logger;
+
+<span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">initSpdLogger</span><span class="hljs-params">()</span></span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">try</span>
+    &#123;
+        spdlog::<span class="hljs-built_in">set_pattern</span>(<span class="hljs-string">&quot;[%Y-%m-%d %H:%M:%S.%e] [%t] %v&quot;</span>);
+        QString date = QDate::<span class="hljs-built_in">currentDate</span>().<span class="hljs-built_in">toString</span>(<span class="hljs-string">&quot;yyyy-MM-dd&quot;</span>);
+        std::string log_file = <span class="hljs-string">&quot;log/&quot;</span> + date.<span class="hljs-built_in">toLocal8Bit</span>() + <span class="hljs-string">&quot;.log&quot;</span>;
+        file_logger = spdlog::<span class="hljs-built_in">basic_logger_mt</span>(<span class="hljs-string">&quot;file_logger&quot;</span>, log_file);
+        console_logger = spdlog::<span class="hljs-built_in">stdout_color_mt</span>(<span class="hljs-string">&quot;console_logger&quot;</span>);
+    &#125;
+    <span class="hljs-keyword">catch</span> (<span class="hljs-type">const</span> spdlog::spdlog_ex &amp;ex)
+    &#123;
+        std::cout &lt;&lt; <span class="hljs-string">&quot;Log init failed: &quot;</span> &lt;&lt; ex.<span class="hljs-built_in">what</span>() &lt;&lt; std::endl;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    &#125;
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+&#125;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">printLog</span><span class="hljs-params">(<span class="hljs-type">const</span> QString &amp;log, <span class="hljs-type">bool</span> save=<span class="hljs-literal">true</span>)</span></span>
+<span class="hljs-function"></span>&#123;
+    console_logger-&gt;<span class="hljs-built_in">info</span>(log.<span class="hljs-built_in">toLocal8Bit</span>().<span class="hljs-built_in">toStdString</span>());
+    <span class="hljs-keyword">if</span> (save)
+    &#123;
+        file_logger-&gt;<span class="hljs-built_in">info</span>(log.<span class="hljs-built_in">toUtf8</span>().<span class="hljs-built_in">toStdString</span>());
+    &#125;
+&#125;
+
+<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">printLog</span><span class="hljs-params">(<span class="hljs-type">const</span> std::string &amp;log, <span class="hljs-type">bool</span> save=<span class="hljs-literal">true</span>)</span></span>
+<span class="hljs-function"></span>&#123;
+    console_logger-&gt;<span class="hljs-built_in">info</span>(log);
+    <span class="hljs-keyword">if</span> (save)
+    &#123;
+        file_logger-&gt;<span class="hljs-built_in">info</span>(log);
+    &#125;
+&#125;</code></pre></div>
+
+<p>官方文档提供了关于格式化输出的详细介绍：<a target="_blank" rel="noopener" href="https://github.com/gabime/spdlog/wiki/3.-Custom-formatting">https://github.com/gabime/spdlog/wiki/3.-Custom-formatting</a> 。</p>
+<p>由于我项目主要是 Qt 写的，上述代码中也用到了 Qt 的相关函数，中文字符的打印一定是很多人的疑惑，字符编码真的是很麻烦事情。关于 spdlog 支持的字符串类型我没有找到相关说明，大概是 <code>std::string</code> 和 <code>char *</code> 是支持的，所有 QString 需要做转换，如果是中文，通常统一使用 <code>log.toLocal8Bit().toStdString()</code> 是没有问题的，终端一般默认都是 GBK 编码，一定要这么转才能正常显示；打印到文件则可以使用兼容性更好一些的 UTF-8 编码，即 <code>log.toUtf8().toStdString()</code> ，都可以正常显示。</p>
+<h2 id="刷新机制"><a href="#刷新机制" class="headerlink" title="刷新机制"></a>刷新机制</h2><p>需要注意以下 spdlog 的刷新机制，输出到终端的日志应该是立即就刷新了，但输出到文件的日志会在程序正常关闭的时候才刷写到日志文件中，也就是说如果程序没有正常关闭，比如卡死了，那么日志就会丢失。</p>
+<p>官方文档专门对刷新策略进行了介绍：<a target="_blank" rel="noopener" href="https://github.com/gabime/spdlog/wiki/7.-Flush-policy">https://github.com/gabime/spdlog/wiki/7.-Flush-policy</a></p>
+<p>一是手动调用 <code>flush()</code> 函数刷新，如果要确保每条日志都立即刷新，那么就在输出一条日之后立即调用该函数。</p>
+<div class="code-wrapper"><pre><code class="hljs c++">console_logger-&gt;<span class="hljs-built_in">info</span>(log);
+console_logger-&gt;<span class="hljs-built_in">flush</span>();</code></pre></div>
+
+<p>二是设置某种等级的日志就刷新，相当于对日志等级加了一个判断，如果是某个等级的日志就刷新。</p>
+<div class="code-wrapper"><pre><code class="hljs c++">my_logger-&gt;<span class="hljs-built_in">flush_on</span>(spdlog::level::err);</code></pre></div>
+
+<p>还有一种方法是设置刷新间隔时间，每隔一定时间就刷新一次，例如每 5s 刷新一次。</p>
+<div class="code-wrapper"><pre><code class="hljs c++">spdlog::<span class="hljs-built_in">flush_every</span>(std::chrono::<span class="hljs-built_in">seconds</span>(<span class="hljs-number">5</span>));</code></pre></div>
+
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>本文并没有深入介绍 spdlog ，因为我觉得它的使用真的很简单，基本没有上手难度啊！</p>
+<p>spdlog 是可以支撑服务端快速打印大量日志的，简言之就是它的能力很强，而我的小程序对日志打印的速度并没有太高的要求😉</p>
+<p>最后，开源的世界真好 (≧∇≦)ﾉ 感谢开发者们！</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/C/" class="print-no-link">#C++</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>C++ 日志框架 spdlog 的初步上手</div>
+      <div>https://mxy493.xyz/2021052530658/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>mxy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年5月25日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021052615395/" title="Visual Studio &amp; Qt 设置可执行程序图标">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Visual Studio &amp; Qt 设置可执行程序图标</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021031924011/" title="解决 LeanCloud &#39;因流控原因，通过定时任务唤醒体验版实例失败&#39; 的问题">
+                        <span class="hidden-mobile">解决 LeanCloud &#39;因流控原因，通过定时任务唤醒体验版实例失败&#39; 的问题</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP备2021034122号-2
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

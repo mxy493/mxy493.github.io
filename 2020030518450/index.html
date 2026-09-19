@@ -1,0 +1,1102 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/MHT1.0.webp">
+  <link rel="icon" href="/img/MHT1.0.webp">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="mxy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;rotting-oranges&#x2F;  题目在给定的网格中，每个单元格可以有以下三个值之一： 值 0 代表空单元格；值 1 代表新鲜橘子；值 2 代表腐烂的橘子。每分钟，任何与腐烂的橘子（在 4 个正方向上）相邻的新鲜橘子都会腐烂。 返回直到单元格中没有新鲜橘子为止所必须经过的最小分钟数。如果不可能，返回 -1。 示例 1：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode 994.腐烂的橘子【C++】">
+<meta property="og:url" content="https://mxy493.xyz/2020030518450/index.html">
+<meta property="og:site_name" content="个人编程记录">
+<meta property="og:description" content="地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;rotting-oranges&#x2F;  题目在给定的网格中，每个单元格可以有以下三个值之一： 值 0 代表空单元格；值 1 代表新鲜橘子；值 2 代表腐烂的橘子。每分钟，任何与腐烂的橘子（在 4 个正方向上）相邻的新鲜橘子都会腐烂。 返回直到单元格中没有新鲜橘子为止所必须经过的最小分钟数。如果不可能，返回 -1。 示例 1：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mxy493.xyz/2020030518450/oranges.png">
+<meta property="article:published_time" content="2020-03-05T09:00:36.000Z">
+<meta property="article:modified_time" content="2026-09-19T07:53:32.762Z">
+<meta property="article:author" content="mxy">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://mxy493.xyz/2020030518450/oranges.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Leetcode 994.腐烂的橘子【C++】 - 个人编程记录</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"mxy493.xyz","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":["home","post"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"18eea77ce9d69111f0e6183a0f1e0f98","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"zSgOiL44PrWh3aIEYyAkhNIx-gzGzoHsz","app_key":"iNppU37sPwRdpmjgAsJ3dgnC","server_url":"https://leancloud.mxy.cool","path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?18eea77ce9d69111f0e6183a0f1e0f98";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>个人编程记录</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/links/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>友链</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/xqmy.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Leetcode 994.腐烂的橘子【C++】"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-03-05 17:00" pubdate>
+          2020年3月5日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          4.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          14 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Leetcode 994.腐烂的橘子【C++】</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2026年9月19日 下午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>地址：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/rotting-oranges/">https://leetcode-cn.com/problems/rotting-oranges/</a></p>
+</blockquote>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>在给定的网格中，每个单元格可以有以下三个值之一：</p>
+<p>值 0 代表空单元格；<br>值 1 代表新鲜橘子；<br>值 2 代表腐烂的橘子。<br>每分钟，任何与腐烂的橘子（在 4 个正方向上）相邻的新鲜橘子都会腐烂。</p>
+<p>返回直到单元格中没有新鲜橘子为止所必须经过的最小分钟数。如果不可能，返回 -1。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="oranges.png" srcset="/img/loading.gif" lazyload></p>
+<div class="code-wrapper"><pre><code class="hljs lua">输入：<span class="hljs-string">[[2,1,1],[1,1,0],[0,1,1]]</span>
+输出：<span class="hljs-number">4</span></code></pre></div>
+
+<p><strong>示例 2：</strong></p>
+<div class="code-wrapper"><pre><code class="hljs lua">输入：<span class="hljs-string">[[2,1,1],[0,1,1],[1,0,1]]</span>
+输出：<span class="hljs-number">-1</span>
+解释：左下角的橘子（第 <span class="hljs-number">2</span> 行， 第 <span class="hljs-number">0</span> 列）永远不会腐烂，因为腐烂只会发生在 <span class="hljs-number">4</span> 个正向上。</code></pre></div>
+
+<p><strong>示例 3：</strong></p>
+<div class="code-wrapper"><pre><code class="hljs lua">输入：<span class="hljs-string">[[0,2]]</span>
+输出：<span class="hljs-number">0</span>
+解释：因为 <span class="hljs-number">0</span> 分钟时已经没有新鲜橘子了，所以答案就是 <span class="hljs-number">0</span> 。</code></pre></div>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li>1 &lt;&#x3D; <code>grid.length</code> &lt;&#x3D; 10</li>
+<li>1 &lt;&#x3D; <code>grid[0].length</code> &lt;&#x3D; 10</li>
+<li><code>grid[i][j]</code> 仅为 0、1 或 2</li>
+</ul>
+<h3 id="解题思路（1）"><a href="#解题思路（1）" class="headerlink" title="解题思路（1）"></a>解题思路（1）</h3><p>笨办法，先记录一下吧😅（内存消耗 :15.2 MB, 在所有 C++ 提交中击败了5.40%的用户）</p>
+<p>我不确定有没有不用模拟橘子被感染的办法，如果有的话我觉得应该会更好一些。我一上来想到的就是模拟橘子被感染的整个过程，所以需要逐个橘子判断它的当前状态，然后判断它的上下左右的橘子的状态，如果存在需要感染的情况就修改某个橘子的状态。</p>
+<p>我定义了一个同样大小的二维数组用来作为状态记录表(这里是主要占用内存的地方)，初始化为全0，其中的整数即表示分钟数</p>
+<p>另外定义了一个函数用于判断橘子是否全部腐烂，或者还有橘子可以被感染，或是存在不可能被感染的橘子。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">orangesRotting</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;
+        <span class="hljs-type">int</span> minute = <span class="hljs-number">0</span>;
+        <span class="hljs-type">size_t</span> rows = grid.<span class="hljs-built_in">size</span>();<span class="hljs-comment">//行数</span>
+        <span class="hljs-type">size_t</span> cols = grid[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>();<span class="hljs-comment">//列数</span>
+        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">temp</span><span class="hljs-params">(cols)</span></span>;<span class="hljs-comment">//仅用于初始化状态记录表</span>
+        vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">record</span>(rows, temp);<span class="hljs-comment">//状态记录表，初始化为全0，数字0，1，2表示第0，1，2步</span>
+        
+        <span class="hljs-comment">//模拟橘子随时间被感染</span>
+        <span class="hljs-keyword">while</span> (<span class="hljs-built_in">isInfectionOver</span>(grid) == <span class="hljs-number">1</span>)
+        &#123;
+            minute++;<span class="hljs-comment">//分钟数+1</span>
+            <span class="hljs-comment">//同步遍历橘子网格与状态记录表</span>
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">size_t</span> i = <span class="hljs-number">0</span>; i &lt; rows; i++) &#123;
+                <span class="hljs-keyword">for</span> (<span class="hljs-type">size_t</span> j = <span class="hljs-number">0</span>; j &lt; cols; j++) &#123;
+                    <span class="hljs-keyword">if</span> (grid[i][j] == <span class="hljs-number">2</span> &amp;&amp; record[i][j] &lt; minute) &#123;
+                        record[i][j] = minute;
+                        <span class="hljs-comment">//感染上侧橘子</span>
+                        <span class="hljs-keyword">if</span> (i &gt; <span class="hljs-number">0</span> &amp;&amp; grid[i - <span class="hljs-number">1</span>][j] == <span class="hljs-number">1</span>) &#123;
+                            grid[i - <span class="hljs-number">1</span>][j] = <span class="hljs-number">2</span>;
+                            record[i - <span class="hljs-number">1</span>][j] = minute;
+                        &#125;
+                        <span class="hljs-comment">//感染下侧橘子</span>
+                        <span class="hljs-keyword">if</span> (i &lt; rows - <span class="hljs-number">1</span> &amp;&amp; grid[i + <span class="hljs-number">1</span>][j] == <span class="hljs-number">1</span>) &#123;
+                            grid[i + <span class="hljs-number">1</span>][j] = <span class="hljs-number">2</span>;
+                            record[i + <span class="hljs-number">1</span>][j] = minute;
+                        &#125;
+                        <span class="hljs-comment">//感染左侧橘子</span>
+                        <span class="hljs-keyword">if</span> (j &gt; <span class="hljs-number">0</span> &amp;&amp; grid[i][j - <span class="hljs-number">1</span>] == <span class="hljs-number">1</span>) &#123;
+                            grid[i][j - <span class="hljs-number">1</span>] = <span class="hljs-number">2</span>;
+                            record[i][j - <span class="hljs-number">1</span>] = minute;
+                        &#125;
+                        <span class="hljs-comment">//感染右侧橘子</span>
+                        <span class="hljs-keyword">if</span> (j &lt; cols - <span class="hljs-number">1</span> &amp;&amp; grid[i][j + <span class="hljs-number">1</span>] == <span class="hljs-number">1</span>) &#123;
+                            grid[i][j + <span class="hljs-number">1</span>] = <span class="hljs-number">2</span>;
+                            record[i][j + <span class="hljs-number">1</span>] = minute;
+                        &#125;
+                    &#125;
+                &#125;
+
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">isInfectionOver</span>(grid) == <span class="hljs-number">2</span> ? <span class="hljs-number">-1</span> : minute;
+    &#125;
+
+    <span class="hljs-comment">//是否感染结束，可能的返回值为0，1，2</span>
+    <span class="hljs-comment">//0表示所有橘子都已腐烂；1表示仍存在可以被感染的橘子；2表示存在不可能被感染的橘子</span>
+    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">isInfectionOver</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;
+        <span class="hljs-type">int</span> ret = <span class="hljs-number">0</span>;<span class="hljs-comment">//作为返回值</span>
+        <span class="hljs-type">size_t</span> rows = grid.<span class="hljs-built_in">size</span>();<span class="hljs-comment">//行数</span>
+        <span class="hljs-type">size_t</span> cols = grid[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>();<span class="hljs-comment">//列数</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">size_t</span> i = <span class="hljs-number">0</span>; i &lt; grid.<span class="hljs-built_in">size</span>(); i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">size_t</span> j = <span class="hljs-number">0</span>; j &lt; grid[i].<span class="hljs-built_in">size</span>(); j++) &#123;
+                <span class="hljs-comment">//只需判断表中的新鲜橘子是否可能被感染</span>
+                <span class="hljs-keyword">if</span> (grid[i][j] == <span class="hljs-number">1</span>) &#123;
+                    ret = <span class="hljs-number">2</span>;<span class="hljs-comment">//此处默认这个橘子不可能被感染</span>
+                    <span class="hljs-comment">//上侧有腐烂橘子</span>
+                    <span class="hljs-keyword">if</span> (i &gt; <span class="hljs-number">0</span> &amp;&amp; grid[i - <span class="hljs-number">1</span>][j] == <span class="hljs-number">2</span>)
+                        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+                    <span class="hljs-comment">//下侧有腐烂橘子</span>
+                    <span class="hljs-keyword">if</span> (i &lt; rows - <span class="hljs-number">1</span> &amp;&amp; grid[i + <span class="hljs-number">1</span>][j] == <span class="hljs-number">2</span>)
+                        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+                    <span class="hljs-comment">//左侧有腐烂橘子</span>
+                    <span class="hljs-keyword">if</span> (j &gt; <span class="hljs-number">0</span> &amp;&amp; grid[i][j - <span class="hljs-number">1</span>] == <span class="hljs-number">2</span>)
+                        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+                    <span class="hljs-comment">//右侧有腐烂橘子</span>
+                    <span class="hljs-keyword">if</span> (j &lt; cols - <span class="hljs-number">1</span> &amp;&amp; grid[i][j + <span class="hljs-number">1</span>] == <span class="hljs-number">2</span>)
+                        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+                &#125;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> ret;
+    &#125;
+&#125;;</code></pre></div>
+
+<h3 id="解题思路（2）"><a href="#解题思路（2）" class="headerlink" title="解题思路（2）"></a>解题思路（2）</h3><p>其实不是我自己想出来的这个解法~这是我自己用上面的思路解出来后，本来想自己优化一下上面的代码，结果改来改去反而不能正常运行了……然后我才去看了别人的题解，其中看了这个，思路比较简单，然后我觉得有些地方挺有亮点的，所以就自己复现了一遍。</p>
+<p>将腐烂的橘子和新鲜橘子分了两类，腐烂的橘子用一个 <code>queue&lt;pair&lt;int, int&gt;&gt;</code> 类型的队列存储坐标，新鲜橘子只统计其个数。需要记录每分钟橘子开始腐烂前的腐烂的橘子的个数 <code>n</code> ，即处理完这n个腐烂的橘子分钟数才+1，逐个判断队列头的腐烂橘子周围是否有新鲜橘子需要感染，如果有就将这个新鲜橘子置为 <code>2</code> 即这个橘子已腐烂，将新腐烂的橘子的坐标加入到队列，并将新鲜橘子的个数-1。此外，还需要注意某一分钟内的n个腐烂橘子是否真的有感染周围的新鲜橘子，如果并没有感染任何新鲜橘子，那么分钟数是不应该增加的。直到所有的队列中的腐烂橘子处理完毕，跳出循环，此时如果新鲜橘子个数为0，即所有橘子均已腐烂，返回分钟数；若剩余新鲜橘子个数大于0，则说明存在不可能被感染的橘子，此时返回 -1。</p>
+<p><strong>几个值得学习的亮点：</strong></p>
+<ol>
+<li>用 <code>pair&lt;int, int&gt;</code> 来记录二维数组的横纵坐标。真的很方便，简直量身定做吖；</li>
+<li>用队列了处理腐烂的橘子。已处理过的橘子只需从队列头弹出，完美避免重复工作；</li>
+<li>用 <code>vector&lt;pair&lt;int, int&gt;&gt; around = { {-1,0},{1,0},{0,-1},{0,1} };</code> 来对 <code>grid[i][j]</code> 上下左右相邻的位置进行处理。很巧妙的办法，因为 <code>grid[i][j]</code> 的横纵坐标 <code>{i,j}</code> 分别加上 <code>{-1,0},{1,0},{0,-1},{0,1}</code> 后即为上下左右相邻四个位置的横纵坐标，只需写一个循环即可处理四种情况，而不用对四种情况进行单独判断（<em>比如解题思路（1）中我的代码😅</em>）。</li>
+</ol>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><div class="code-wrapper"><pre><code class="hljs c++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">orangesRotting</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;
+        queue&lt;pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt;&gt; rottenQueue;<span class="hljs-comment">//保存腐烂橘子坐标的队列</span>
+        <span class="hljs-type">int</span> fresh = <span class="hljs-number">0</span>;<span class="hljs-comment">//剩余新鲜橘子的个数</span>
+        <span class="hljs-comment">//统计</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-type">size_t</span> i = <span class="hljs-number">0</span>; i &lt; grid.<span class="hljs-built_in">size</span>(); i++) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">size_t</span> j = <span class="hljs-number">0</span>; j &lt; grid[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>(); j++) &#123;
+                <span class="hljs-keyword">if</span> (grid[i][j] == <span class="hljs-number">2</span>)
+                    rottenQueue.<span class="hljs-built_in">push</span>(&#123; i, j &#125;);
+                <span class="hljs-keyword">if</span> (grid[i][j] == <span class="hljs-number">1</span>)
+                    fresh++;
+            &#125;
+        &#125;
+
+        <span class="hljs-type">int</span> minute = <span class="hljs-number">0</span>;<span class="hljs-comment">//分钟数</span>
+        vector&lt;pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt;&gt; around = &#123; &#123;<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">1</span>,<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>&#125;,&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>&#125; &#125;;<span class="hljs-comment">//+&#123;i,j&#125;后分别是上下左右</span>
+        <span class="hljs-keyword">while</span> (!rottenQueue.<span class="hljs-built_in">empty</span>())
+        &#123;
+            <span class="hljs-type">int</span> n = rottenQueue.<span class="hljs-built_in">size</span>();<span class="hljs-comment">//当前队列中的腐烂橘子个数，处理完这n个橘子分钟数才+1</span>
+            <span class="hljs-type">bool</span> rotten = <span class="hljs-literal">false</span>;
+            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
+                <span class="hljs-comment">//从队列头取出一个腐烂橘子</span>
+                <span class="hljs-keyword">auto</span> rot = rottenQueue.<span class="hljs-built_in">front</span>();
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> side : around) &#123;
+                    <span class="hljs-type">int</span> i = rot.first + side.first;
+                    <span class="hljs-type">int</span> j = rot.second + side.second;
+                    <span class="hljs-keyword">if</span> (i &gt;= <span class="hljs-number">0</span> &amp;&amp; i &lt; grid.<span class="hljs-built_in">size</span>() &amp;&amp; j &gt;= <span class="hljs-number">0</span> &amp;&amp; j &lt; grid[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>() &amp;&amp; grid[i][j] == <span class="hljs-number">1</span>) &#123;
+                        grid[i][j] = <span class="hljs-number">2</span>;<span class="hljs-comment">//这个橘子会腐烂</span>
+                        rottenQueue.<span class="hljs-built_in">push</span>(&#123; i,j &#125;);<span class="hljs-comment">//将新腐烂的橘子加入队列</span>
+                        fresh--;<span class="hljs-comment">//新鲜橘子减少一个</span>
+                        rotten = <span class="hljs-literal">true</span>;<span class="hljs-comment">//当前橘子腐烂了周围的橘子</span>
+                    &#125;
+                &#125;
+                rottenQueue.<span class="hljs-built_in">pop</span>();<span class="hljs-comment">//已处理过的腐烂橘子无需再处理</span>
+            &#125;
+            <span class="hljs-keyword">if</span> (rotten == <span class="hljs-literal">true</span>) &#123;
+                minute++;<span class="hljs-comment">//分钟数+1</span>
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> fresh == <span class="hljs-number">0</span> ? minute : <span class="hljs-number">-1</span>;
+    &#125;
+&#125;;</code></pre></div>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Leetcode/" class="category-chain-item">Leetcode</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Leetcode/" class="print-no-link">#Leetcode</a>
+      
+        <a href="/tags/C/" class="print-no-link">#C++</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Leetcode 994.腐烂的橘子【C++】</div>
+      <div>https://mxy493.xyz/2020030518450/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>mxy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2020年3月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/202003065179/" title="Leetcode 面试题57 - II.和为s的连续正数序列【C++】">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Leetcode 面试题57 - II.和为s的连续正数序列【C++】</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020030545178/" title="Leetcode 1103.分糖果II【C++】">
+                        <span class="hidden-mobile">Leetcode 1103.分糖果II【C++】</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP备2021034122号-2
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
