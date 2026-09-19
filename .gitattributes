@@ -1,0 +1,6 @@
+# 这份会被复制到 public/，随 hexo deploy 一起进入部署仓库，
+# 让 .deploy_git 里的 git add 也遵守同样的换行符约定（不再刷警告）。
+* text=auto eol=lf
+
+*.cmd text eol=crlf
+*.bat text eol=crlf
